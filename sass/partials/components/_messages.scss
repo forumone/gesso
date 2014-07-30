@@ -1,0 +1,69 @@
+// @file
+// Styles for Drupal messages.
+
+.messages {
+  @include border-radius();
+  @include adjust-font-size-to($font-size-md);
+  background-position: rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md); // LTR
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: 4px 1px;
+  margin: rhythm(1, $font-size-md) 0;
+  padding: rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md) rhythm(2, $font-size-md); // LTR
+  position: relative;
+  word-wrap: break-word;
+
+  [dir="rtl"] & {
+    background-position: 98.5% 50%;
+    padding: rhythm(0.5, $font-size-md) rhythm(2, $font-size-md) rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md);
+  }
+
+  @media print {
+    background-image: none !important;
+    padding-left: rhythm(0.5, $font-size-md); // LTR
+
+    [dir="rtl"] & {
+      padding-right: rhythm(0.5, $font-size-md);
+    }
+  }
+
+  em {
+    color: #000;
+  }
+}
+
+.messages__list {
+  margin: 0;
+
+  > li + li {
+    margin-top: rhythm(0.5, $font-size-md);
+  }
+}
+
+.messages--status {
+  @include svg-background(messages-status);
+  background-color: lighten($status-color, 50%);
+  border-color: $status-color;
+  color: darken($status-color, 20%);
+}
+
+.messages--warning {
+  @include svg-background(messages-warning);
+  background-color: lighten($warning-color, 40%);
+  border-color: $warning-color;
+  color: darken($warning-color, 40%);
+}
+
+.messages--error {
+  @include svg-background(messages-error);
+  background-color: lighten($error-color, 65%);
+  border-color: $error-color;
+  color: darken($error-color, 20%);
+
+  .messages__item {
+    .placeholder:first-child {
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+}

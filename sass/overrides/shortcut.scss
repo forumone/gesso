@@ -1,0 +1,12 @@
+// @file
+// Styles for the admin shortcuts.
+
+@import '../partials/global';
+
+#edit-shortcuts {
+  float: right; // LTR
+
+  [dir="rtl"] & {
+    float: left;
+  }
+}

@@ -1,0 +1,24 @@
+// @file
+// Image replacement.
+
+// After applying mixin, inline elements will require a display property added
+// (e.g., display: block). Elements with pre-existing margins and/or padding may
+// require those properties reset to zero (e.g., anchors have 2px padding and
+// -2px margin for text legibility by default in this theme).
+@mixin image-replace($width, $height) {
+  background-color: transparent;
+  color: transparent;
+  height: $height;
+  overflow: hidden;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *text-indent: -9999px;
+  }
+  text-shadow: none;
+  width: $width;
+  &:before {
+    content: "";
+    display: block;
+    height: 150%;
+    width: 0;
+  }
+}

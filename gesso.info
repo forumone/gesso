@@ -1,0 +1,81 @@
+name = 'Gesso'
+description = 'Sass-based starter theme.'
+core = '7.x'
+engine = 'phptemplate'
+
+; ========================================
+; Features
+; ========================================
+
+features[] = 'logo'
+features[] = 'name'
+features[] = 'slogan'
+features[] = 'node_user_picture'
+features[] = 'comment_user_picture'
+features[] = 'comment_user_verification'
+features[] = 'favicon'
+
+; ========================================
+; Regions
+; ========================================
+
+regions[page_top] = 'Page top'
+regions[utility] = 'Utility'
+regions[header] = 'Header'
+regions[navigation] = 'Navigation'
+regions[preface] = 'Preface'
+regions[content] = 'Content'
+regions[postscript] = 'Postscript'
+regions[footer] = 'Footer'
+regions[page_bottom] = 'Page bottom'
+
+; ========================================
+; Scripts
+; ========================================
+
+scripts[] = 'js/mobile-menu.js'
+scripts[] = 'js/skiplinks.js'
+;scripts[] = 'js/scripts.js'
+
+; ========================================
+; Plugins
+; ========================================
+
+plugins[panels][layouts] = panels/layouts
+
+; ========================================
+; Settings
+; ========================================
+
+settings[toggle_logo] = '1'
+settings[toggle_name] = '1'
+settings[toggle_slogan] = '1'
+settings[toggle_node_user_picture] = '1'
+settings[toggle_comment_user_picture] = '1'
+settings[toggle_comment_user_verification] = '1'
+settings[toggle_favicon] = '1'
+settings[default_logo] = '1'
+settings[logo_path] = ''
+settings[logo_upload] = ''
+settings[default_favicon] = '1'
+settings[favicon_path] = ''
+settings[favicon_upload] = ''
+settings[hide_recommended_modules] = '0'
+settings[only_use_smacss] = '1'
+settings[magic_embedded_mqs] = '1'
+settings[magic_css_excludes] = 'comment/*.css
+misc/vertical-tabs*.css
+node/*.css
+system/*.css
+views/css/views.css'
+settings[magic_footer_js] = '0'
+settings[magic_library_head] = '1'
+settings[magic_experimental_js] = '0'
+settings[magic_js_excludes] = ''
+settings[magic_rebuild_registry] = '0'
+settings[magic_viewport_indicator] = '0'
+settings[magic_modernizr_debug] = '0'
+settings[magic_performance__active_tab] = 'edit-css'
+settings[magic_css_excludes_regex][exclude] = '/^(modules\/comment\/(.*)\.css|misc\/vertical\-tabs(.*)\.css|modules\/node\/(.*)\.css|modules\/system\/(.*)\.css|sites\/all\/modules\/contrib\/views\/css\/views\.css)$/'
+settings[magic_css_excludes_regex][include] = ''
+settings[magic_js_excludes_regex] = ''

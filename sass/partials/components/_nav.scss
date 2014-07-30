@@ -1,0 +1,162 @@
+// @file
+// Styles for navigation lists.
+
+.nav {
+  list-style: none;
+  padding: 0;
+}
+
+// Extendable inline nav style.
+%nav--inline {
+  > .nav__item {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+}
+
+// Extendable pillbox nav style.
+%nav--pillbox {
+  @include clearfix;
+
+  .nav__item {
+    display: block;
+    margin: 0;
+
+    @include breakpoint(30em, $no-query: true) {
+      float: left; // LTR
+      margin: 0 0 0.1em 0;
+
+      [dir="rtl"] & {
+        float: right;
+      }
+    }
+  }
+
+  .nav__link {
+    @include background-image(
+      linear-gradient(
+        top,
+        $gradient-light 0%,
+        $gradient-dark 100%
+      )
+    );
+    background-color: $pillbox-bg-color;
+    border: 1px solid darken($pillbox-bg-color, 20%);
+    border-bottom-color: darken($pillbox-bg-color, 25%);
+    border-top-color: darken($pillbox-bg-color, 15%);
+    color: $pillbox-text-color;
+    display: block;
+    line-height: 1.1;
+    margin: 0;
+    padding: 0.5em;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      border-color: darken($pillbox-bg-color, 50%);
+      outline: 0;
+    }
+
+    &:active {
+      background-color: darken($pillbox-bg-color, 10%);
+      border-color: darken($pillbox-bg-color, 30%);
+    }
+  }
+
+  .is-active > .nav__link {
+    background-color: darken($pillbox-bg-color, 50%);
+    border-color: darken($pillbox-bg-color, 40%);
+    color: lighten($pillbox-bg-color, 50%);
+    font-weight: bold;
+
+    &:focus {
+      background-color: darken($pillbox-bg-color, 70%);
+    }
+
+    &:hover {
+      border-color: darken($pillbox-bg-color, 60%);
+    }
+
+    &:active {
+      background-color: darken($pillbox-bg-color, 80%);
+    }
+  }
+
+  > .nav__item:first-child > .nav__link {
+    @include border-top-left-radius();
+    @include border-top-right-radius();
+
+    @include breakpoint(30em) {
+      @include border-bottom-left-radius(); // LTR
+      @include border-top-right-radius(0); // LTR
+
+      [dir="rtl"] & {
+        @include border-bottom-left-radius(0);
+        @include border-bottom-right-radius();
+        @include border-top-left-radius(0);
+        @include border-top-right-radius();
+      }
+    }
+  }
+
+  > .nav__item:last-child > .nav__link {
+    @include border-bottom-left-radius();
+    @include border-bottom-right-radius();
+
+    @include breakpoint(30em) {
+      @include border-bottom-left-radius(0); // LTR
+      @include border-top-right-radius(); // LTR
+
+      [dir="rtl"] & {
+        @include border-bottom-left-radius();
+        @include border-bottom-right-radius(0);
+        @include border-top-left-radius();
+        @include border-top-right-radius(0);
+      }
+    }
+  }
+}
+
+// Extendable pipeline nav style.
+%nav--pipeline {
+  @include clearfix;
+
+  .nav__item {
+    border-right: 1px solid $pipeline-border-color; // LTR
+    display: block;
+    float: left; // LTR
+    margin-right: 0.75em; // LTR
+    padding-right: 0.75em; // LTR
+
+    [dir="rtl"] & {
+      border-left: 1px solid $pipeline-border-color;
+      border-right: 0;
+      float: right;
+      margin-left: 0.75em;
+      margin-right: 0;
+      padding-left: 0.75em;
+      padding-right: 0;
+    }
+
+    &:last-child {
+      border-right: 0; // LTR
+      margin-right: 0; // LTR
+      padding-right: 0; // LTR
+
+      [dir="rtl"] & {
+        border-left: 0;
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .is-active > .nav__link {
+    font-weight: bold;
+  }
+}
+
+// Custom nav styles imported via sass globbing.
+@import 'nav/*.*';

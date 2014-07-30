@@ -1,0 +1,8 @@
+// @file
+// Clearfix
+//
+// Extended from global/helpers/_clearfix.scss.
+
+.clearfix {
+  @extend %clearfix;
+}

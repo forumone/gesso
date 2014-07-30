@@ -1,0 +1,16 @@
+// Variables for legacy browser support.
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+$legacy-support-for-mozilla: false;
+
+$breakpoint-no-queries: false;
+$breakpoint-no-query-fallbacks: false;
+
+@import 'partials/global';
+@import 'partials/base';
+@import 'partials/helper-classes';
+@import 'partials/module-tweaks';
+@import 'partials/layout';
+@import 'partials/components';
+@import 'partials/quick-fixes';

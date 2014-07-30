@@ -1,0 +1,10 @@
+// @file
+// Styles for the main menu.
+
+.nav--main-menu {
+  @extend %nav--inline;
+
+  @media print {
+    display: none;
+  }
+}

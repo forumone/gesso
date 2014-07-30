@@ -1,0 +1,20 @@
+// @file
+// Styles for views widget.
+
+.views-widget {
+  display: inline-block;
+  margin: 0 1em rhythm(1) 0;
+  overflow: auto;
+  vertical-align: baseline;
+
+  .button,
+  .form-item {
+    margin-bottom: 0;
+  }
+}
+
+.views-widget__label {
+  @include adjust-font-size-to($font-size-md);
+  display: block;
+  font-family: $header-font-family;
+}

@@ -1,0 +1,10 @@
+// @file
+// Styles for buttons.
+
+.button {
+  @extend %button;
+}
+
+.button--large {
+  @extend %button--large;
+}

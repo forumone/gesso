@@ -1,0 +1,16 @@
+// @file
+// Accessibility helper classes
+//
+// Extended from global/helpers/_accessibility.scss.
+
+.element-invisible {
+  @extend %element-invisible;
+}
+
+.element-focusable {
+  @extend %element-focusable;
+}
+
+.element-hidden {
+  @extend %element-hidden;
+}

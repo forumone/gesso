@@ -1,0 +1,10 @@
+// @file
+// Styles for primary local tasks menu.
+
+.nav--primary-local-tasks {
+  @extend %nav--pillbox;
+
+  @media print {
+    display: none;
+  }
+}

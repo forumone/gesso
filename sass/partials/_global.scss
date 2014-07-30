@@ -1,0 +1,15 @@
+// @file
+// Global partials
+//
+// These partials will be shared across all CSS files and includes Compass
+// extensions, variables, functions, extendables, and mixins.
+
+// Helper functions and mixins from external libraries.
+@import 'compass';
+@import 'breakpoint'; // github.com/Team-Sass/breakpoint
+@import 'singularitygs'; // github.com/Team-Sass/Singularity
+
+// Custom partials to be shared with all .scss files. Imported with limited
+// sass globbing to ensure load order.
+@import 'global/variables/**/*.*';
+@import 'global/helpers/**/*.*';

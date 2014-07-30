@@ -1,0 +1,48 @@
+// @file
+// Display Suite slat layout style
+
+$bp-first: 600px, 'no-query' true;
+$gutter: 1em;
+
+.l-slat {
+  @include clearfix;
+}
+
+.l-slat__media {
+  margin: 0;
+  padding: 0 0 rhythm(1);
+
+  @include breakpoint($bp-first) {
+    float: left;
+    padding-right: $gutter;
+  }
+
+  &:empty {
+    padding: 0;
+  }
+
+  a,
+  img {
+    display: block;
+  }
+}
+
+.l-slat__content {
+  display: table-cell;
+  width: 10000px;
+
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *width: auto;
+    *zoom: 1;
+  }
+}
+
+.l-slat--reversed {
+  .l-slat__media {
+    @include breakpoint($bp-first) {
+      float: right;
+      padding-left: $gutter;
+      padding-right: 0;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+// @file
+// Admin syles for Panels layout: three-column
+
+$panels-admin: true;
+
+// Variables for legacy browser support.
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+$legacy-support-for-mozilla: false;
+
+@import '../partials/global';
+@import '../partials/layout/panels/three-column';

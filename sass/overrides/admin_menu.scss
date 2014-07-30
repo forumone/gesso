@@ -1,0 +1,118 @@
+// @file
+// Styles for the admin menu.
+
+@import '../partials/global';
+
+#admin-menu {
+  background: #000;
+  color: #fff;
+  font-size: em($font-size-sm);
+  left: 0;
+  line-height: 1.75;
+  padding: 0.5em 1em;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+
+#admin-menu-icon,
+#admin-menu-menu,
+#admin-menu-account,
+#admin-menu-users,
+#admin-menu-search {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    float: left;
+    margin: 0;
+
+    > a {
+      @include border-radius(1em);
+      border: 2px solid transparent;
+      color: #fff;
+      display: block;
+      margin: 0;
+      outline: 0;
+      padding: 0 0.75em;
+      text-decoration: none;
+
+      &:hover,
+      &.active {
+        background-color: #555;
+      }
+
+      &:focus {
+        background-color: #555;
+        border-color: #ccc;
+      }
+    }
+  }
+
+  .dropdown {
+    background: #000;
+    display: none;
+    list-style: none;
+    margin: 0.5em 0 0 0;
+    padding: 0;
+    position: absolute;
+    width: 14em;
+
+    li + li {
+      border-top: 1px solid #555;
+    }
+
+    a,
+    span {
+      color: #fff;
+      display: block;
+      margin: 0;
+      padding: 0 0.5em;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        background-color: #555;
+      }
+    }
+
+    .dropdown {
+      margin: -1.75em 0 0 14em;
+      position: absolute;
+    }
+
+    .expandable > a,
+    .expandable > span {
+      position: relative;
+
+      &:after {
+        content: "\00bb";
+        position: absolute;
+        right: 0.5em;
+        top: 0;
+      }
+    }
+  }
+}
+
+#admin-menu-account {
+  float: right;
+}
+
+#admin-menu-search {
+  float: right;
+  .form-item {
+    margin: 0;
+  }
+}
+
+img.admin-menu-icon {
+  vertical-align: middle;
+}
+
+body.admin-menu {
+  margin-top: em(4px);
+  padding-top: (($font-size-sm/$base-font-size) * 2.75em);
+}

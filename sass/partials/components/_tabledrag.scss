@@ -1,0 +1,27 @@
+// @file
+// Styles for Drupal's tabledrag widget.
+
+.tabledrag-handle {
+  cursor: move;
+  display: inline-block;
+  margin: 0;
+  padding: 0 1em 0 0;
+  text-decoration: none !important;
+
+  .handle {
+    @include svg-background(draggable);
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    height: em($base-line-height);
+    min-height: 16px;
+    min-width: 16px;
+    width: 1em;
+  }
+}
+
+tr.drag {
+  background-color: #fe7;
+}
+tr.drag-previous {
+  background-color: #ffb;
+}

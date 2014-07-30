@@ -1,0 +1,142 @@
+// @file
+// Styles for the admin toolbar.
+
+@import '../partials/global';
+
+#toolbar {
+  background: #555;
+  color: #fff;
+  font-size: $font-size-sm;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+
+#toolbar div.collapsed {
+  display: none;
+  visibility: hidden;
+}
+
+#toolbar a {
+  @include border-radius(1em);
+  border: 2px solid transparent;
+  color: #fff;
+  margin: 0;
+  outline: 0;
+  padding: 0 0.75em;
+  text-decoration: none;
+
+  &:hover,
+  &.active {
+    background-color: #555;
+  }
+
+  &:focus {
+    background-color: #555;
+    border-color: #ccc;
+  }
+}
+
+#toolbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#toolbar ul > li,
+#toolbar ul > li > a {
+  float: left; // LTR
+  margin: 0;
+
+  [dir="rtl"] & {
+    float: right;
+  }
+}
+
+#toolbar > .toolbar-menu {
+  background: #000;
+  line-height: 1.75;
+  padding: 0.5em 4em 0.5em 1em; // LTR
+  position: relative;
+
+  [dir="rtl"] & {
+    padding: 0.5em 1em 0.5em 4em;
+  }
+}
+
+#toolbar-user {
+  float: right; // LTR
+
+  [dir="rtl"] & {
+    float: left;
+  }
+}
+
+#toolbar-menu {
+  float: left; // LTR
+
+  [dir="rtl"] & {
+    float: right;
+  }
+}
+
+#toolbar-home a {
+  padding: 0 0.25em;
+}
+
+#toolbar-home .home-link {
+  @include image-replace(26px, 20px);
+  @include svg-background(home);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  display: block;
+  margin-top: 1px;
+}
+
+#toolbar .toggle {
+  @include image-replace(25px, 25px);
+  @include border-bottom-left-radius(0);
+  @include border-bottom-right-radius(0);
+  @include border-top-left-radius(0.5em);
+  @include border-top-right-radius(0.5em);
+  background: #555;
+  bottom: 0;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 1em; // LTR
+
+  &:before {
+    border: 1em solid transparent;
+    border-top-color: #fff;
+    bottom: 1em;
+    content: "";
+    display: block;
+    font-size: 4px;
+    height: 0;
+    left: 50%;
+    margin-left: -1em;
+    position: absolute;
+    width: 0;
+  }
+}
+
+#toolbar .toggle-active:before {
+  border-bottom-color: #fff;
+  border-top-color: transparent;
+  bottom: 2.25em;
+}
+
+#toolbar > .toolbar-drawer {
+  position: relative;
+  padding: 0.5em 1em;
+}
+
+#toolbar > .toolbar-drawer a {
+  &:focus,
+  &:hover,
+  &.active {
+    background-color: #000;
+  }
+}

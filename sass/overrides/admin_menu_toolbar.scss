@@ -1,0 +1,28 @@
+// @file
+// Styles for the admin menu toolbar.
+
+@import '../partials/global';
+
+#admin-menu .admin-menu-icon {
+  height: 25px;
+  margin: 0;
+  padding: 0;
+
+  > a {
+  display: block;
+  margin: 0;
+  padding: 0 0.25em;
+
+    > span {
+      @include image-replace(26px, 20px);
+      @include svg-background(home);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: block;
+    }
+  }
+
+  > .dropdown {
+    margin-top: 7px;
+  }
+}

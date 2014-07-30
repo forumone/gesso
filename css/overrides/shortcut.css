@@ -1,0 +1,8 @@
+/* line 6, ../../sass/overrides/shortcut.scss */
+#edit-shortcuts {
+  float: right;
+}
+/* line 9, ../../sass/overrides/shortcut.scss */
+[dir="rtl"] #edit-shortcuts {
+  float: left;
+}

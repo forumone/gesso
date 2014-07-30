@@ -1,0 +1,13 @@
+// @file
+// Layout variables
+// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+
+$breakpoint-to-ems: true;
+$max-page-width: 1200px;
+
+// Mobile Menu
+$mobile-menu-bp: 700px;
+
+// Polyfill for box-sizing in IE7 and below. The url must be root relative to
+// the location of the htc script.
+$box-sizing-polyfill-path: '/sites/all/themes/gesso/polyfills/boxsizing.htc';
