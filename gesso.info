@@ -2,6 +2,7 @@ name = 'Gesso'
 description = 'Sass-based starter theme.'
 core = '7.x'
 engine = 'phptemplate'
+screenshot = 'images/screenshot.png'
 
 ; ========================================
 ; Features
