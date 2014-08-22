@@ -26,7 +26,7 @@
   background-repeat: no-repeat;
   display: block;
 }
-/* line 18, ../../sass/partials/global/helpers/_image-replace.scss */
+/* line 16, ../../sass/partials/global/helpers/_image-replace.scss */
 #admin-menu .admin-menu-icon > a > span:before {
   content: "";
   display: block;

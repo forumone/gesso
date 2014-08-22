@@ -1319,7 +1319,7 @@ input.throbbing {
   display: inline-block;
   margin-top: 0.5em;
 }
-/* line 18, ../sass/partials/global/helpers/_image-replace.scss */
+/* line 16, ../sass/partials/global/helpers/_image-replace.scss */
 .mobile-nav__icon:before {
   content: "";
   display: block;

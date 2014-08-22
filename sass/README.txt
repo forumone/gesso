@@ -76,8 +76,8 @@ partials/_base.scss
 CSS reset based on normalize.css (http://necolas.github.io/normalize.css) and
 default styles for HTML elements.
 
-partials/_utilities.scss
-Helper classes and extendables.
+partials/_helper-classes.scss
+Helper classes.
 
 partials/_layout.scss
 The layout of major regions that components will be placed into.
