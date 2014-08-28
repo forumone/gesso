@@ -13,17 +13,17 @@
 }
 
 .pager__link--first:before {
-  content: "|«";
+  content: "|\00AB";
 }
 
 .pager__link--previous:before {
-  content: "‹";
+  content: "\2038";
 }
 
 .pager__link--next:before {
-  content: "›";
+  content: "\2039";
 }
 
 .pager__link--last:before {
-  content: "»|";
+  content: "\00BB|";
 }
