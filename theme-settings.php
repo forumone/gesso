@@ -103,7 +103,7 @@ function gesso_recommended_modules() {
     $modules['clean_markup'] = array(
       'name' => t('Clean Markup'),
       'description' => t('Allows you to control the markup of blocks, panel regions, and panel panes via the UI.'),
-      'required' => TRUE,
+      'required' => FALSE,
     );
   }
 
@@ -127,22 +127,6 @@ function gesso_recommended_modules() {
     $modules['blockify'] = array(
       'name' => t('Blockify'),
       'description' => t('Exposes a number of core Drupal elements, traditionally found in page.tpl.php, as blocks. This theme does not include these items in page.tpl.php to allow greater flexibility in where to place them.'),
-      'required' => FALSE,
-    );
-  }
-
-  if (!module_exists('fences')) {
-    $modules['fences'] = array(
-      'name' => t('Fences'),
-      'description' => t("Allows you to control the markup of individual fields via the UI."),
-      'required' => FALSE,
-    );
-  }
-
-  if (!module_exists('jquery_update')) {
-    $modules['jquery_update'] = array(
-      'name' => t('jQuery Update'),
-      'description' => t("Upgrades the version of jQuery in Drupal core to a newer version of jQuery."),
       'required' => FALSE,
     );
   }
