@@ -1895,30 +1895,36 @@ tr.drag-previous {
 }
 
 /* line 89, ../sass/partials/components/_vertical-tabs.scss */
+.vertical-tabs-pane > legend {
+  display: none;
+}
+
+/* line 93, ../sass/partials/components/_vertical-tabs.scss */
+.vertical-tabs fieldset {
+  display: table-cell;
+  min-width: 0;
+}
+
+/* line 98, ../sass/partials/components/_vertical-tabs.scss */
 .vertical-tabs fieldset.fieldset {
   border-width: 0 0 0 1px;
   margin: 0;
   padding: 0;
   top: 0;
 }
-/* line 95, ../sass/partials/components/_vertical-tabs.scss */
+/* line 104, ../sass/partials/components/_vertical-tabs.scss */
 [dir="rtl"] .vertical-tabs fieldset.fieldset {
   border-width: 0 1px 0 0;
 }
 
-/* line 100, ../sass/partials/components/_vertical-tabs.scss */
+/* line 109, ../sass/partials/components/_vertical-tabs.scss */
 .vertical-tabs .fieldset__content {
   margin-top: 0;
   min-height: 100%;
   padding: 0.5em 1em;
 }
 
-/* line 106, ../sass/partials/components/_vertical-tabs.scss */
-.vertical-tabs > legend {
-  display: none;
-}
-
-/* line 110, ../sass/partials/components/_vertical-tabs.scss */
+/* line 115, ../sass/partials/components/_vertical-tabs.scss */
 .vertical-tabs .form-type-textfield input {
   width: 100%;
 }

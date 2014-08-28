@@ -86,6 +86,15 @@
   }
 }
 
+.vertical-tabs-pane > legend {
+  display: none;
+}
+
+.vertical-tabs fieldset {
+  display: table-cell;   // allows responsive form elements
+  min-width: 0; // necessary responsive form elements for webkit
+}
+
 .vertical-tabs fieldset.fieldset {
   border-width: 0 0 0 1px; // LTR
   margin: 0;
@@ -101,10 +110,6 @@
   margin-top: 0;
   min-height: 100%;
   padding: 0.5em 1em;
-}
-
-.vertical-tabs > legend {
-  display: none;
 }
 
 .vertical-tabs .form-type-textfield input {
