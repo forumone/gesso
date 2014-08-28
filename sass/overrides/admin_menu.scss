@@ -59,6 +59,7 @@
     padding: 0;
     position: absolute;
     width: 14em;
+    z-index: 2;
 
     li + li {
       border-top: 1px solid #555;
@@ -103,8 +104,13 @@
 
 #admin-menu-search {
   float: right;
+
   .form-item {
-    margin: 0;
+    margin: em(2px, 12px) 1em 0 0;
+
+    input {
+      max-width: 20em;
+    }
   }
 }
 

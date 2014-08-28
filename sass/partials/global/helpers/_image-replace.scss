@@ -1,8 +1,8 @@
 // @file
 // Image replacement.
 
-// After applying mixin, inline elements will need display set to block or
-// inline-block.
+// After applying mixin, inline elements will need 
+// display set to block or inline-block.
 @mixin image-replace($width, $height) {
   background-color: transparent;
   color: transparent;

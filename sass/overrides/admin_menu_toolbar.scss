@@ -3,26 +3,119 @@
 
 @import '../partials/global';
 
-#admin-menu .admin-menu-icon {
-  height: 25px;
-  margin: 0;
-  padding: 0;
+#admin-menu {
+  .admin-menu-icon {
+    height: 26px;
+    margin: 0;
+    padding: 0;
 
-  > a {
-  display: block;
-  margin: 0;
-  padding: 0 0.25em;
-
-    > span {
-      @include image-replace(26px, 20px);
-      @include svg-background(home);
-      background-position: 0 0;
-      background-repeat: no-repeat;
+    > a {
       display: block;
+      margin: 0;
+      padding: 0 0.25em;
+
+      > span {
+        @include image-replace(26px, 20px);
+        @include svg-background(home);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        display: block;
+      }
+    }
+
+    > .dropdown {
+      margin-top: 7px;
     }
   }
 
-  > .dropdown {
-    margin-top: 7px;
+  .shortcut-toggle {
+    @include image-replace(27px, 27px);
+    @include border-bottom-left-radius(0);
+    @include border-bottom-right-radius(0);
+    @include border-top-left-radius(0.5em);
+    @include border-top-right-radius(0.5em);
+    background: #555;
+    bottom: -0.5em;
+    cursor: pointer;
+    float: right;
+    margin: 0 0 0 1em;
+    padding: 0;
+    position: relative;
+    right: 0; // LTR
+
+    &:before {
+      border: 1em solid transparent;
+      border-top-color: #fff;
+      bottom: 1em;
+      content: "";
+      display: block;
+      font-size: 4px;
+      height: 0;
+      left: 50%;
+      margin-left: -1em;
+      position: absolute;
+      width: 0;
+    }
+
+    &.active:before {
+      border-bottom-color: #fff;
+      border-top-color: transparent;
+      bottom: 2.25em;
+    }
+  }
+
+  .shortcut-toolbar {
+    @include clearfix;
+    background-color: #555;
+    clear: both;
+    display: none;
+    margin: 0 -1em;
+    padding: 0.5em 1em;
+    position: relative;
+    top: 0.5em;
+    z-index: 1;
+
+    &.active {
+      display: block;
+    }
+
+    #edit-shortcuts {
+      float: right;
+    }
+
+    a {
+      @include border-radius(1em);
+      border: 2px solid transparent;
+      color: #fff;
+      display: block;
+      margin: 0;
+      outline: 0;
+      padding: 0 0.75em;
+      text-decoration: none;
+
+      &:hover,
+      &.active {
+        background-color: #000;
+      }
+
+      &:focus {
+        background-color: #000;
+        border-color: #ccc;
+      }
+    }
+  }
+
+  .toolbar-shortcuts {
+    ul {
+      float: left;
+      margin: 0;
+      padding: 0;
+
+      li {
+        float: left;
+        list-style-image: none;
+        list-style-type: none;
+      }
+    }
   }
 }

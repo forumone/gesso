@@ -1,16 +1,16 @@
-/* line 6, ../../sass/overrides/admin_menu_toolbar.scss */
+/* line 7, ../../sass/overrides/admin_menu_toolbar.scss */
 #admin-menu .admin-menu-icon {
-  height: 25px;
+  height: 26px;
   margin: 0;
   padding: 0;
 }
-/* line 11, ../../sass/overrides/admin_menu_toolbar.scss */
+/* line 12, ../../sass/overrides/admin_menu_toolbar.scss */
 #admin-menu .admin-menu-icon > a {
   display: block;
   margin: 0;
   padding: 0 0.25em;
 }
-/* line 16, ../../sass/overrides/admin_menu_toolbar.scss */
+/* line 17, ../../sass/overrides/admin_menu_toolbar.scss */
 #admin-menu .admin-menu-icon > a > span {
   background-color: transparent;
   color: transparent;
@@ -33,7 +33,129 @@
   height: 150%;
   width: 0;
 }
-/* line 25, ../../sass/overrides/admin_menu_toolbar.scss */
+/* line 26, ../../sass/overrides/admin_menu_toolbar.scss */
 #admin-menu .admin-menu-icon > .dropdown {
   margin-top: 7px;
+}
+/* line 31, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .shortcut-toggle {
+  background-color: transparent;
+  color: transparent;
+  height: 27px;
+  overflow: hidden;
+  *text-indent: -9999px;
+  text-shadow: none;
+  width: 27px;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-topleft: 0.5em;
+  -webkit-border-top-left-radius: 0.5em;
+  border-top-left-radius: 0.5em;
+  -moz-border-radius-topright: 0.5em;
+  -webkit-border-top-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  background: #555;
+  bottom: -0.5em;
+  cursor: pointer;
+  float: right;
+  margin: 0 0 0 1em;
+  padding: 0;
+  position: relative;
+  right: 0;
+}
+/* line 16, ../../sass/partials/global/helpers/_image-replace.scss */
+#admin-menu .shortcut-toggle:before {
+  content: "";
+  display: block;
+  height: 150%;
+  width: 0;
+}
+/* line 46, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .shortcut-toggle:before {
+  border: 1em solid transparent;
+  border-top-color: #fff;
+  bottom: 1em;
+  content: "";
+  display: block;
+  font-size: 4px;
+  height: 0;
+  left: 50%;
+  margin-left: -1em;
+  position: absolute;
+  width: 0;
+}
+/* line 60, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .shortcut-toggle.active:before {
+  border-bottom-color: #fff;
+  border-top-color: transparent;
+  bottom: 2.25em;
+}
+/* line 67, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .shortcut-toolbar {
+  *zoom: 1;
+  background-color: #555;
+  clear: both;
+  display: none;
+  margin: 0 -1em;
+  padding: 0.5em 1em;
+  position: relative;
+  top: 0.5em;
+  z-index: 1;
+}
+/* line 9, ../../sass/partials/global/helpers/_clearfix.scss */
+#admin-menu .shortcut-toolbar:after {
+  display: table;
+  content: "";
+}
+/* line 14, ../../sass/partials/global/helpers/_clearfix.scss */
+#admin-menu .shortcut-toolbar:after {
+  clear: both;
+}
+/* line 78, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .shortcut-toolbar.active {
+  display: block;
+}
+/* line 82, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .shortcut-toolbar #edit-shortcuts {
+  float: right;
+}
+/* line 86, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .shortcut-toolbar a {
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  -ms-border-radius: 1em;
+  -o-border-radius: 1em;
+  border-radius: 1em;
+  border: 2px solid transparent;
+  color: #fff;
+  display: block;
+  margin: 0;
+  outline: 0;
+  padding: 0 0.75em;
+  text-decoration: none;
+}
+/* line 97, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .shortcut-toolbar a:hover, #admin-menu .shortcut-toolbar a.active {
+  background-color: #000;
+}
+/* line 101, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .shortcut-toolbar a:focus {
+  background-color: #000;
+  border-color: #ccc;
+}
+/* line 109, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .toolbar-shortcuts ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+/* line 114, ../../sass/overrides/admin_menu_toolbar.scss */
+#admin-menu .toolbar-shortcuts ul li {
+  float: left;
+  list-style-image: none;
+  list-style-type: none;
 }

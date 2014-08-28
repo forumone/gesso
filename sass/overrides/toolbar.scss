@@ -101,6 +101,7 @@
   @include border-top-left-radius(0.5em);
   @include border-top-right-radius(0.5em);
   background: #555;
+  border: 0;
   bottom: 0;
   cursor: pointer;
   padding: 0;

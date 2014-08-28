@@ -141,6 +141,7 @@
   -webkit-border-top-right-radius: 0.5em;
   border-top-right-radius: 0.5em;
   background: #555;
+  border: 0;
   bottom: 0;
   cursor: pointer;
   padding: 0;
@@ -154,7 +155,7 @@
   height: 150%;
   width: 0;
 }
-/* line 110, ../../sass/overrides/toolbar.scss */
+/* line 111, ../../sass/overrides/toolbar.scss */
 #toolbar .toggle:before {
   border: 1em solid transparent;
   border-top-color: #fff;
@@ -169,20 +170,20 @@
   width: 0;
 }
 
-/* line 125, ../../sass/overrides/toolbar.scss */
+/* line 126, ../../sass/overrides/toolbar.scss */
 #toolbar .toggle-active:before {
   border-bottom-color: #fff;
   border-top-color: transparent;
   bottom: 2.25em;
 }
 
-/* line 131, ../../sass/overrides/toolbar.scss */
+/* line 132, ../../sass/overrides/toolbar.scss */
 #toolbar > .toolbar-drawer {
   position: relative;
   padding: 0.5em 1em;
 }
 
-/* line 139, ../../sass/overrides/toolbar.scss */
+/* line 140, ../../sass/overrides/toolbar.scss */
 #toolbar > .toolbar-drawer a:focus, #toolbar > .toolbar-drawer a:hover, #toolbar > .toolbar-drawer a.active {
   background-color: #000;
 }

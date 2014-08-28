@@ -84,8 +84,9 @@
   padding: 0;
   position: absolute;
   width: 14em;
+  z-index: 2;
 }
-/* line 63, ../../sass/overrides/admin_menu.scss */
+/* line 64, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown li + li,
 #admin-menu-menu .dropdown li + li,
 #admin-menu-account .dropdown li + li,
@@ -93,7 +94,7 @@
 #admin-menu-search .dropdown li + li {
   border-top: 1px solid #555;
 }
-/* line 68, ../../sass/overrides/admin_menu.scss */
+/* line 69, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown a,
 #admin-menu-icon .dropdown span,
 #admin-menu-menu .dropdown a,
@@ -110,7 +111,7 @@
   padding: 0 0.5em;
   text-decoration: none;
 }
-/* line 76, ../../sass/overrides/admin_menu.scss */
+/* line 77, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown a:hover, #admin-menu-icon .dropdown a:focus,
 #admin-menu-icon .dropdown span:hover,
 #admin-menu-icon .dropdown span:focus,
@@ -132,7 +133,7 @@
 #admin-menu-search .dropdown span:focus {
   background-color: #555;
 }
-/* line 81, ../../sass/overrides/admin_menu.scss */
+/* line 82, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown .dropdown,
 #admin-menu-menu .dropdown .dropdown,
 #admin-menu-account .dropdown .dropdown,
@@ -141,7 +142,7 @@
   margin: -1.75em 0 0 14em;
   position: absolute;
 }
-/* line 87, ../../sass/overrides/admin_menu.scss */
+/* line 88, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown .expandable > a,
 #admin-menu-icon .dropdown .expandable > span,
 #admin-menu-menu .dropdown .expandable > a,
@@ -154,7 +155,7 @@
 #admin-menu-search .dropdown .expandable > span {
   position: relative;
 }
-/* line 90, ../../sass/overrides/admin_menu.scss */
+/* line 91, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown .expandable > a:after,
 #admin-menu-icon .dropdown .expandable > span:after,
 #admin-menu-menu .dropdown .expandable > a:after,
@@ -171,26 +172,30 @@
   top: 0;
 }
 
-/* line 100, ../../sass/overrides/admin_menu.scss */
+/* line 101, ../../sass/overrides/admin_menu.scss */
 #admin-menu-account {
   float: right;
 }
 
-/* line 104, ../../sass/overrides/admin_menu.scss */
+/* line 105, ../../sass/overrides/admin_menu.scss */
 #admin-menu-search {
   float: right;
 }
-/* line 106, ../../sass/overrides/admin_menu.scss */
+/* line 108, ../../sass/overrides/admin_menu.scss */
 #admin-menu-search .form-item {
-  margin: 0;
+  margin: 0.16667em 1em 0 0;
+}
+/* line 111, ../../sass/overrides/admin_menu.scss */
+#admin-menu-search .form-item input {
+  max-width: 20em;
 }
 
-/* line 111, ../../sass/overrides/admin_menu.scss */
+/* line 117, ../../sass/overrides/admin_menu.scss */
 img.admin-menu-icon {
   vertical-align: middle;
 }
 
-/* line 115, ../../sass/overrides/admin_menu.scss */
+/* line 121, ../../sass/overrides/admin_menu.scss */
 body.admin-menu {
   margin-top: 0.25em;
   padding-top: 2.0625em;
