@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* line 65, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
 .clearfix:after, .l-grid__row:after {
   content: "";
@@ -1621,22 +1620,22 @@ input.throbbing {
 
 /* line 15, ../sass/partials/components/_pager.scss */
 .pager__link--first:before {
-  content: "|«";
+  content: "|\00AB";
 }
 
 /* line 19, ../sass/partials/components/_pager.scss */
 .pager__link--previous:before {
-  content: "‹";
+  content: "\2038";
 }
 
 /* line 23, ../sass/partials/components/_pager.scss */
 .pager__link--next:before {
-  content: "›";
+  content: "\2039";
 }
 
 /* line 27, ../sass/partials/components/_pager.scss */
 .pager__link--last:before {
-  content: "»|";
+  content: "\00BB|";
 }
 
 /* line 4, ../sass/partials/components/_progress-bar.scss */
