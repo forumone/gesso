@@ -55,8 +55,8 @@ function gesso_preprocess_panels_pane(&$vars) {
   }
 
   // Add id to the attributes array.
-  if ($vars['id']) {
-    $vars['attributes_array']['id'] = $vars['id'];
+  if ($vars['pane']->css['css_id']) {
+    $vars['attributes_array']['id'] = $vars['pane']->css['css_id'];
   }
 }
 
