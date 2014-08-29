@@ -9,13 +9,12 @@
  */
 function gesso_preprocess_views_view(&$vars) {
   // Modify classes to follow SMACSS naming convention.
-  $only_use_smacss = theme_get_setting('only_use_smacss');
   $tmp_classes_array = $vars['classes_array'];
-
   $vars['classes_array'] = preg_replace('/^view-/', 'view--', $vars['classes_array']);
-  if (!$only_use_smacss) {
-    $vars['classes_array'] = array_unique (array_merge($vars['classes_array'], $tmp_classes_array));
-  }
+
+  // We add back the default Views classes, regardless of SMACSS theme setting,
+  // to make sure ajaxified views still work.
+  $vars['classes_array'] = array_unique (array_merge($vars['classes_array'], $tmp_classes_array));
 }
 
 /**
