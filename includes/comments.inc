@@ -14,7 +14,7 @@ function gesso_preprocess_comment_wrapper(&$vars) {
   // Add the component class.
   $vars['attributes_array']['class'][] = 'comments';
 
-  // Add classes to subcomonents.
+  // Add classes to subcomponents.
   $vars['title_attributes_array']['class'][] = 'comments__title';
   $vars['form_title_attributes_array']['class'][] = 'comments__title comments__title--form';
 }
