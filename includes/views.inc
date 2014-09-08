@@ -10,7 +10,7 @@
 function gesso_preprocess_views_view(&$vars) {
   // Modify classes to follow SMACSS naming convention.
   $tmp_classes_array = $vars['classes_array'];
-  $vars['classes_array'] = preg_replace('/^view-/', 'view--', $vars['classes_array']);
+  $vars['classes_array'] = preg_replace('/^view-(?!-)/', 'view--', $vars['classes_array']);
 
   // We add back the default Views classes, regardless of SMACSS theme setting,
   // to make sure ajaxified views still work.
