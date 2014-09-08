@@ -4,24 +4,6 @@
  * CSS-related functions.
  */
 
-// Hide styles.css from IE8 and below.
-drupal_add_css(
-  drupal_get_path('theme', $GLOBALS['theme_key']) . '/css/styles.css',
-  array(
-    'group' => CSS_THEME,
-    'browsers' => array('IE' => 'gte IE 9'),
-  )
-);
-
-// Add non media-query stylesheet for IE8 and below.
-drupal_add_css(
-  drupal_get_path('theme', $GLOBALS['theme_key']) . '/css/no-mq.css',
-  array(
-    'group' => CSS_THEME,
-    'browsers' => array('IE' => 'lt IE 9', '!IE' => FALSE),
-  )
-);
-
 /**
  * Implements hook_css_alter().
  */
