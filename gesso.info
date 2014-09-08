@@ -68,6 +68,7 @@ settings[magic_css_excludes] = 'comment/*.css
 misc/vertical-tabs*.css
 node/*.css
 system/*.css
+admin_menu/admin_menu-rtl.css
 views/css/views.css'
 settings[magic_footer_js] = '0'
 settings[magic_library_head] = '1'
@@ -77,6 +78,6 @@ settings[magic_rebuild_registry] = '0'
 settings[magic_viewport_indicator] = '0'
 settings[magic_modernizr_debug] = '0'
 settings[magic_performance__active_tab] = 'edit-css'
-settings[magic_css_excludes_regex][exclude] = '/^(modules\/comment\/(.*)\.css|misc\/vertical\-tabs(.*)\.css|modules\/node\/(.*)\.css|modules\/system\/(.*)\.css|sites\/all\/modules\/contrib\/views\/css\/views\.css)$/'
+settings[magic_css_excludes_regex][exclude] = '/^(modules\/comment\/(.*)\.css|misc\/vertical\-tabs(.*)\.css|modules\/node\/(.*)\.css|modules\/system\/(.*)\.css|sites\/all\/modules\/contrib\/admin_menu\/admin_menu\-rtl\.css|sites\/all\/modules\/contrib\/views\/css\/views\.css)$/'
 settings[magic_css_excludes_regex][include] = ''
 settings[magic_js_excludes_regex] = ''

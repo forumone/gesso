@@ -12,8 +12,13 @@
   padding: 0.5em 1em;
   position: fixed;
   right: 0;
+  text-align: left; // LTR
   top: 0;
   z-index: 501;
+
+  [dir="rtl"] & {
+    text-align: right;
+  }
 }
 
 #admin-menu-icon,
@@ -26,8 +31,12 @@
   padding: 0;
 
   > li {
-    float: left;
+    float: left; // LTR
     margin: 0;
+
+    [dir="rtl"] & {
+      float: right;
+    }
 
     > a {
       @include border-radius(1em);
@@ -80,8 +89,12 @@
     }
 
     .dropdown {
-      margin: -1.75em 0 0 14em;
+      margin: -1.75em 0 0 14em; // LTR
       position: absolute;
+
+      [dir="rtl"] & {
+        margin: -1.75em 14em 0 0;
+      }
     }
 
     .expandable > a,
@@ -91,22 +104,39 @@
       &:after {
         content: "\00bb";
         position: absolute;
-        right: 0.5em;
+        right: 0.5em; // LTR
         top: 0;
+
+        [dir="rtl"] & {
+          left: 0.5em;
+          right: auto;
+        }
       }
     }
   }
 }
 
 #admin-menu-account {
-  float: right;
+  float: right; // LTR
+
+  [dir="rtl"] & {
+    float: left;
+  }
 }
 
 #admin-menu-search {
-  float: right;
+  float: right; // LTR
+
+  [dir="rtl"] & {
+    float: left;
+  }
 
   .form-item {
-    margin: em(2px, 12px) 1em 0 0;
+    margin: em(2px, 12px) 1em 0 0; // LTR
+
+    [dir="rtl"] & {
+      margin: em(2px, 12px) 0 0 1em;
+    }
 
     input {
       max-width: 20em;
