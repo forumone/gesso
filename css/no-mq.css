@@ -1802,6 +1802,20 @@ tr.drag-previous {
   background-color: #ffb;
 }
 
+/* line 4, ../sass/partials/components/_throbber.scss */
+.throbber {
+  background: url(../images/bg/throbber.gif) 1px -58px no-repeat;
+  display: inline-block;
+  height: 15px;
+  vertical-align: middle;
+  width: 15px;
+}
+
+/* line 12, ../sass/partials/components/_throbber.scss */
+.ajax-progress-throbber {
+  display: inline-block;
+}
+
 /* line 4, ../sass/partials/components/_vertical-tabs.scss */
 .vertical-tabs {
   background: white;

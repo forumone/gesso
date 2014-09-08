@@ -1,0 +1,14 @@
+// @file
+// Styles for a throbber.
+
+.throbber {
+  background: url(../images/bg/throbber.gif) 1px -58px no-repeat;
+  display: inline-block;
+  height: 15px;
+  vertical-align: middle;
+  width: 15px;
+}
+
+.ajax-progress-throbber {
+  display: inline-block;
+}
