@@ -34,7 +34,7 @@ function gesso_preprocess_comment(&$vars) {
   $comment = $vars['elements']['#comment'];
 
   // Fix original classes.
-  $vars['classes_array'] = preg_replace('/^comment-/', 'comment--', $vars['classes_array']);
+  $vars['classes_array'] = preg_replace('/^comment-(?!-)/', 'comment--', $vars['classes_array']);
 
   // Add original classes to attributes array.
   $vars['attributes_array']['class'] = $vars['classes_array'];
