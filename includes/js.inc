@@ -11,7 +11,10 @@ function gesso_js_alter(&$javascript) {
   // Add <main> support for HTML5shiv.
   // @todo Remove this if using Modernizr v3 or later.
   if (module_exists('modernizr')) {
-    $javascript = drupal_add_js("window.html5.elements = 'main';window.html5.shivDocument(document);", array('force header' => TRUE, 'type' => 'inline'));
+    $modernizr = drupal_js_defaults("window.html5.elements = 'main';window.html5.shivDocument(document);");
+    $modernizr['force header'] = TRUE;
+    $modernizr['type'] = 'inline';
+    $javascript[] = $modernizr;
   }
 
   // Swap out collapse.js with our custom version.
