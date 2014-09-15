@@ -1309,18 +1309,15 @@ input.throbbing {
 
 /* line 76, ../sass/partials/components/_mobile-menu.scss */
 .mobile-nav__icon {
-  background-color: transparent;
-  color: transparent;
   height: 20px;
   overflow: hidden;
-  text-shadow: none;
   width: 26px;
   background-position: 0 0;
   background-repeat: no-repeat;
   display: inline-block;
   margin-top: 0.5em;
 }
-/* line 16, ../sass/partials/global/helpers/_image-replace.scss */
+/* line 14, ../sass/partials/global/helpers/_image-replace.scss */
 .mobile-nav__icon:before {
   content: "";
   display: block;

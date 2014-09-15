@@ -12,12 +12,12 @@
   top: 0;
   z-index: 501;
 }
-/* line 20, ../../sass/overrides/admin_menu.scss */
+/* line 19, ../../sass/overrides/admin_menu.scss */
 [dir="rtl"] #admin-menu {
   text-align: right;
 }
 
-/* line 31, ../../sass/overrides/admin_menu.scss */
+/* line 28, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon,
 #admin-menu-menu,
 #admin-menu-account,
@@ -27,7 +27,7 @@
   margin: 0;
   padding: 0;
 }
-/* line 36, ../../sass/overrides/admin_menu.scss */
+/* line 33, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon > li,
 #admin-menu-menu > li,
 #admin-menu-account > li,
@@ -36,7 +36,7 @@
   float: left;
   margin: 0;
 }
-/* line 40, ../../sass/overrides/admin_menu.scss */
+/* line 37, ../../sass/overrides/admin_menu.scss */
 [dir="rtl"] #admin-menu-icon > li, [dir="rtl"]
 #admin-menu-menu > li, [dir="rtl"]
 #admin-menu-account > li, [dir="rtl"]
@@ -44,7 +44,7 @@
 #admin-menu-search > li {
   float: right;
 }
-/* line 44, ../../sass/overrides/admin_menu.scss */
+/* line 41, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon > li > a,
 #admin-menu-menu > li > a,
 #admin-menu-account > li > a,
@@ -63,7 +63,7 @@
   padding: 0 0.75em;
   text-decoration: none;
 }
-/* line 55, ../../sass/overrides/admin_menu.scss */
+/* line 52, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon > li > a:hover, #admin-menu-icon > li > a.active,
 #admin-menu-menu > li > a:hover,
 #admin-menu-menu > li > a.active,
@@ -75,7 +75,7 @@
 #admin-menu-search > li > a.active {
   background-color: #555;
 }
-/* line 59, ../../sass/overrides/admin_menu.scss */
+/* line 56, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon > li > a:focus,
 #admin-menu-menu > li > a:focus,
 #admin-menu-account > li > a:focus,
@@ -84,7 +84,7 @@
   background-color: #555;
   border-color: #ccc;
 }
-/* line 66, ../../sass/overrides/admin_menu.scss */
+/* line 63, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown,
 #admin-menu-menu .dropdown,
 #admin-menu-account .dropdown,
@@ -99,7 +99,7 @@
   width: 14em;
   z-index: 2;
 }
-/* line 76, ../../sass/overrides/admin_menu.scss */
+/* line 73, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown li + li,
 #admin-menu-menu .dropdown li + li,
 #admin-menu-account .dropdown li + li,
@@ -107,7 +107,7 @@
 #admin-menu-search .dropdown li + li {
   border-top: 1px solid #555;
 }
-/* line 81, ../../sass/overrides/admin_menu.scss */
+/* line 78, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown a,
 #admin-menu-icon .dropdown span,
 #admin-menu-menu .dropdown a,
@@ -124,7 +124,7 @@
   padding: 0 0.5em;
   text-decoration: none;
 }
-/* line 89, ../../sass/overrides/admin_menu.scss */
+/* line 86, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown a:hover, #admin-menu-icon .dropdown a:focus,
 #admin-menu-icon .dropdown span:hover,
 #admin-menu-icon .dropdown span:focus,
@@ -146,7 +146,7 @@
 #admin-menu-search .dropdown span:focus {
   background-color: #555;
 }
-/* line 94, ../../sass/overrides/admin_menu.scss */
+/* line 91, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown .dropdown,
 #admin-menu-menu .dropdown .dropdown,
 #admin-menu-account .dropdown .dropdown,
@@ -155,7 +155,7 @@
   margin: -1.75em 0 0 14em;
   position: absolute;
 }
-/* line 98, ../../sass/overrides/admin_menu.scss */
+/* line 95, ../../sass/overrides/admin_menu.scss */
 [dir="rtl"] #admin-menu-icon .dropdown .dropdown, [dir="rtl"]
 #admin-menu-menu .dropdown .dropdown, [dir="rtl"]
 #admin-menu-account .dropdown .dropdown, [dir="rtl"]
@@ -163,7 +163,7 @@
 #admin-menu-search .dropdown .dropdown {
   margin: -1.75em 14em 0 0;
 }
-/* line 104, ../../sass/overrides/admin_menu.scss */
+/* line 101, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown .expandable > a,
 #admin-menu-icon .dropdown .expandable > span,
 #admin-menu-menu .dropdown .expandable > a,
@@ -176,7 +176,7 @@
 #admin-menu-search .dropdown .expandable > span {
   position: relative;
 }
-/* line 107, ../../sass/overrides/admin_menu.scss */
+/* line 104, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown .expandable > a:after,
 #admin-menu-icon .dropdown .expandable > span:after,
 #admin-menu-menu .dropdown .expandable > a:after,
@@ -192,7 +192,7 @@
   right: 0.5em;
   top: 0;
 }
-/* line 113, ../../sass/overrides/admin_menu.scss */
+/* line 110, ../../sass/overrides/admin_menu.scss */
 [dir="rtl"] #admin-menu-icon .dropdown .expandable > a:after, [dir="rtl"]
 #admin-menu-icon .dropdown .expandable > span:after, [dir="rtl"]
 #admin-menu-menu .dropdown .expandable > a:after, [dir="rtl"]
@@ -207,42 +207,42 @@
   right: auto;
 }
 
-/* line 122, ../../sass/overrides/admin_menu.scss */
+/* line 119, ../../sass/overrides/admin_menu.scss */
 #admin-menu-account {
   float: right;
 }
-/* line 125, ../../sass/overrides/admin_menu.scss */
+/* line 122, ../../sass/overrides/admin_menu.scss */
 [dir="rtl"] #admin-menu-account {
   float: left;
 }
 
-/* line 130, ../../sass/overrides/admin_menu.scss */
+/* line 127, ../../sass/overrides/admin_menu.scss */
 #admin-menu-search {
   float: right;
 }
-/* line 133, ../../sass/overrides/admin_menu.scss */
+/* line 130, ../../sass/overrides/admin_menu.scss */
 [dir="rtl"] #admin-menu-search {
   float: left;
 }
-/* line 137, ../../sass/overrides/admin_menu.scss */
+/* line 134, ../../sass/overrides/admin_menu.scss */
 #admin-menu-search .form-item {
   margin: 0.16667em 1em 0 0;
 }
-/* line 140, ../../sass/overrides/admin_menu.scss */
+/* line 137, ../../sass/overrides/admin_menu.scss */
 [dir="rtl"] #admin-menu-search .form-item {
   margin: 0.16667em 0 0 1em;
 }
-/* line 144, ../../sass/overrides/admin_menu.scss */
+/* line 141, ../../sass/overrides/admin_menu.scss */
 #admin-menu-search .form-item input {
   max-width: 20em;
 }
 
-/* line 151, ../../sass/overrides/admin_menu.scss */
+/* line 147, ../../sass/overrides/admin_menu.scss */
 img.admin-menu-icon {
   vertical-align: middle;
 }
 
-/* line 155, ../../sass/overrides/admin_menu.scss */
+/* line 151, ../../sass/overrides/admin_menu.scss */
 body.admin-menu {
   margin-top: 0.25em;
   padding-top: 2.0625em;

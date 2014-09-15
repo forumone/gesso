@@ -12,12 +12,9 @@
 }
 /* line 17, ../../sass/overrides/admin_menu_toolbar.scss */
 #admin-menu .admin-menu-icon > a > span {
-  background-color: transparent;
-  color: transparent;
   height: 20px;
   overflow: hidden;
-  *text-indent: -9999px;
-  text-shadow: none;
+  *text-indent: 110%;
   width: 26px;
   background-image: url('../../images/bg/home.png');
   background-image: -webkit-linear-gradient(transparent, transparent), url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjIwIiB3aWR0aD0iMjYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgo8cGF0aCBmaWxsPSIjZmZmIiBkPSJtMTMsNC05LDYsMCwxMCw3LDAsMC03LDQsMCwwLDcsNywwLDAtMTB6Ii8+CjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01LDB2NS4zMTI1bC01LDMuMzQzNzUsMSwxLjM0Mzc1LDEyLTgsMTIsOCwxLTEuMzQzNzUtMTMtOC42NTYyNS01LDMuMzQzNzV2LTMuMzQzNzVoLTN6Ii8+Cjwvc3ZnPgo=');
@@ -26,7 +23,7 @@
   background-repeat: no-repeat;
   display: block;
 }
-/* line 16, ../../sass/partials/global/helpers/_image-replace.scss */
+/* line 14, ../../sass/partials/global/helpers/_image-replace.scss */
 #admin-menu .admin-menu-icon > a > span:before {
   content: "";
   display: block;
@@ -39,12 +36,9 @@
 }
 /* line 31, ../../sass/overrides/admin_menu_toolbar.scss */
 #admin-menu .shortcut-toggle {
-  background-color: transparent;
-  color: transparent;
   height: 27px;
   overflow: hidden;
-  *text-indent: -9999px;
-  text-shadow: none;
+  *text-indent: 110%;
   width: 27px;
   -moz-border-radius-bottomleft: 0;
   -webkit-border-bottom-left-radius: 0;
@@ -67,7 +61,7 @@
   position: relative;
   right: 0;
 }
-/* line 16, ../../sass/partials/global/helpers/_image-replace.scss */
+/* line 14, ../../sass/partials/global/helpers/_image-replace.scss */
 #admin-menu .shortcut-toggle:before {
   content: "";
   display: block;
