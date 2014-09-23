@@ -105,7 +105,7 @@ function gesso_preprocess_clean_markup_panels_clean_element(&$vars) {
 }
 
 /**
- * Implements hook_panels_default_style_render_region().
+ * Returns HTML for the default Panels region style.
  */
 function gesso_panels_default_style_render_region($vars) {
   // Remove the unecessary panel separator div.

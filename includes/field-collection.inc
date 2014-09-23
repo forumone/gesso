@@ -5,7 +5,7 @@
  */
 
 /**
- * Implements theme_field_collection_view().
+ * Returns HTML for field collection items.
  */
 function gesso_field_collection_view($vars) {
   // Don't output wrapper markup.

@@ -29,7 +29,7 @@ function gesso_preprocess_field(&$vars) {
 }
 
 /**
- * Implements theme_ds_field_minimal().
+ * Returns HTML for the Display Suite minimal field style.
  */
 function gesso_field__minimal($vars) {
   $only_use_smacss = theme_get_setting('only_use_smacss');
@@ -78,7 +78,7 @@ function gesso_field__minimal($vars) {
 }
 
 /**
- * Implements theme_ds_field_expert().
+ * Returns HTML for the Display Suite expert field style.
  */
 function gesso_field__expert($vars) {
   $only_use_smacss = theme_get_setting('only_use_smacss');
