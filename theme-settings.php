@@ -68,6 +68,16 @@ function gesso_form_system_theme_settings_alter(&$form, &$form_state, $form_id =
     '#description'   => t("Remove core classes that don't follow the Drupal 8 SMACSS naming convention. Unchecking this will add a TON of classes everywhere, but it might fix problems caused by modules depending on those classes."),
     '#default_value' => theme_get_setting('only_use_smacss'),
   );
+  $form['options_settings']['show_first_last'] = array(
+    '#type' => 'checkbox',
+    '#title' => t("Add first/last classes to menu items."),
+    '#default_value' => theme_get_setting('show_first_last'),
+  );
+  $form['options_settings']['show_collapsed_expanded'] = array(
+    '#type' => 'checkbox',
+    '#title' => t("Add collapsed/expanded classes to menu items."),
+    '#default_value' => theme_get_setting('show_collapsed_expanded'),
+  );
 }
 
 /**

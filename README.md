@@ -67,8 +67,8 @@ Check out the README within the sass directory for more information.
 
 ## Configuration
 
-Gesso includes a theme-specific setting to output only SMACSS classes, which you
-can change at admin/appearance/settings/gesso.
+Gesso includes several theme-specific settings for managing classes output by
+Drupal, which you can change at admin/appearance/settings/gesso.
 
 
 ## Maintainers

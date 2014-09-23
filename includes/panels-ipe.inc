@@ -22,6 +22,7 @@ function gesso_links__panels_ipe_linkbar(&$vars) {
   $attributes = $vars['attributes'];
   $heading = $vars['heading'];
   $only_use_smacss = theme_get_setting('only_use_smacss');
+  $show_first_last = theme_get_setting('show_first_last');
   global $language_url;
   $output = '';
 
@@ -71,7 +72,7 @@ function gesso_links__panels_ipe_linkbar(&$vars) {
 
       // Add first, last, and active classes to the list of links
       // to help out themers.
-      if (!$vars['hide_first_last'] && $i == 1) {
+      if ($show_first_last && $i == 1) {
         $class[] = 'nav__item--first';
 
         // Add default core class if wanted.
@@ -79,7 +80,7 @@ function gesso_links__panels_ipe_linkbar(&$vars) {
           $class[] = 'first';
         }
       }
-      if (!$vars['hide_first_last'] && $i == $num_links) {
+      if ($show_first_last && $i == $num_links) {
         $class[] = 'nav__item--last';
 
         // Add default core class if wanted.

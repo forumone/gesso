@@ -22,9 +22,6 @@ function gesso_preprocess_links(&$vars) {
     }
   }
 
-  // @todo Turn this into a theme setting.
-  $vars['hide_first_last'] = FALSE;
-
   // Change default classes.
   if (isset($vars['attributes']['class'])) {
 
@@ -58,11 +55,9 @@ function gesso_links($vars) {
   $attributes = $vars['attributes'];
   $heading = $vars['heading'];
   $only_use_smacss = theme_get_setting('only_use_smacss');
+  $show_first_last = theme_get_setting('show_first_last');
   global $language_url;
   $output = '';
-
-  // @todo Turn this into a theme setting.
-  $vars['hide_first_last'] = FALSE;
 
   if (count($links) > 0) {
     $output = '';
@@ -110,9 +105,8 @@ function gesso_links($vars) {
       }
       $link['attributes']['class'][] = 'nav__link';
 
-      // Add first, last, and active classes to the list of links
-      // to help out themers.
-      if (!$vars['hide_first_last'] && $i == 1) {
+      // Add first, last, and active classes to the list of links.
+      if ($show_first_last && $i == 1) {
         $class[] = 'nav__item--first';
 
         // Add default core class if wanted.
@@ -120,7 +114,7 @@ function gesso_links($vars) {
           $class[] = 'first';
         }
       }
-      if (!$vars['hide_first_last'] && $i == $num_links) {
+      if ($show_first_last && $i == $num_links) {
         $class[] = 'nav__item--last';
 
         // Add default core class if wanted.
@@ -193,6 +187,8 @@ function gesso_menu_tree__menu_block($vars) {
 function gesso_preprocess_menu_link(&$vars) {
   $element = $vars['element'];
   $only_use_smacss = theme_get_setting('only_use_smacss');
+  $show_first_last = theme_get_setting('show_first_last');
+  $show_collapsed_expanded = theme_get_setting('show_collapsed_expanded');
   $menu = '';
   $mlid = '';
   if (isset($element['#original_link'])) {
@@ -226,18 +222,14 @@ function gesso_preprocess_menu_link(&$vars) {
   }
   $link_classes = &$vars['element']['#localized_options']['attributes']['class'];
 
-  // @todo Turn these into theme settings.
-  $hide_collapsed_expanded = FALSE;
-  $hide_first_last = FALSE;
-
   // Remove unecessary list item classes.
   if ($only_use_smacss) {
     $remove = array('leaf');
-    if ($hide_collapsed_expanded) {
+    if (!$show_collapsed_expanded) {
       $remove[] = 'collapsed';
       $remove[] = 'expanded';
     }
-    if ($hide_first_last) {
+    if (!$show_first_last) {
       $remove[] = 'first';
       $remove[] = 'last';
     }
@@ -260,7 +252,7 @@ function gesso_preprocess_menu_link(&$vars) {
       $item_classes[] = 'is-active-trail';
     }
 
-    if (!$hide_collapsed_expanded) {
+    if ($show_collapsed_expanded) {
       if ($only_use_smacss) {
         $item_classes = preg_replace('/^collapsed$/', 'is-collapsed', $item_classes);
         $item_classes = preg_replace('/^expanded$/', 'is-expanded', $item_classes);
@@ -276,7 +268,7 @@ function gesso_preprocess_menu_link(&$vars) {
       }
     }
 
-    if (!$hide_first_last) {
+    if ($show_first_last) {
       if ($only_use_smacss) {
         $item_classes = preg_replace('/^first$/', 'nav__item--first', $item_classes);
         $item_classes = preg_replace('/^last$/', 'nav__item--last', $item_classes);

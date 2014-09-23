@@ -63,6 +63,8 @@ settings[favicon_path] = ''
 settings[favicon_upload] = ''
 settings[hide_recommended_modules] = '0'
 settings[only_use_smacss] = '1'
+settings[show_first_last] = '0'
+settings[show_collapsed_expanded] = '0'
 settings[magic_embedded_mqs] = '1'
 settings[magic_css_excludes] = 'comment/*.css
 misc/vertical-tabs*.css
