@@ -4,11 +4,11 @@
 $bp-first: 600px, 'no-query' true;
 $gutter: 1em;
 
-.l-slat {
+.layout-slat {
   @include clearfix;
 }
 
-.l-slat__media {
+.layout-slat__media {
   margin: 0;
   padding: 0 0 rhythm(1);
 
@@ -27,7 +27,7 @@ $gutter: 1em;
   }
 }
 
-.l-slat__content {
+.layout-slat__content {
   display: table-cell;
   width: 10000px;
 
@@ -37,8 +37,8 @@ $gutter: 1em;
   }
 }
 
-.l-slat--reversed {
-  .l-slat__media {
+.layout-slat--reversed {
+  .layout-slat__media {
     @include breakpoint($bp-first) {
       float: right;
       padding-left: $gutter;

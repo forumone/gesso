@@ -4,27 +4,27 @@
 // Media queries use: github.com/Team-Sass/breakpoint/wiki/No-Query-Fallbacks
 // Grid via: singularity.gs
 
-.l-panels-sidebar {
+.layout-panels-sidebar {
   $grids: 1;
   $grids: add-grid(12 at 700px);
   $gutters: 1;
   @include breakpoint(700px, $no-query: true) {
     &.main.sidebar {
-      .l-main {
+      .layout-main {
         @include grid-span(8,1);
       }
-      .l-sidebar {
+      .layout-sidebar {
         @include grid-span(4,9);
       }
     }
   }
 }
 
-.l-panels-sidebar {
+.layout-panels-sidebar {
   @include clearfix;
-  .l-preface,
-  .l-main,
-  .l-sidebar {
+  .layout-preface,
+  .layout-main,
+  .layout-sidebar {
     @include clearfix;
 
     @if $panels-admin {

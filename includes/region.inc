@@ -12,7 +12,7 @@ function gesso_preprocess_region(&$vars) {
   array_shift($vars['classes_array']);
 
   switch ($vars['region']) {
-    // Add l-constrain class to certain regions.
+    // Add layout-constrain class to certain regions.
     case 'utility':
     case 'header':
     case 'navigation':
@@ -20,7 +20,7 @@ function gesso_preprocess_region(&$vars) {
     case 'content':
     case 'postscript':
     case 'footer':
-      $vars['classes_array'][] = 'l-constrain';
+      $vars['classes_array'][] = 'layout-constrain';
       break;
 
     // Remove classes for these regions.

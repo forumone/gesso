@@ -24,13 +24,13 @@ function gesso_preprocess_views_view_grid(&$vars) {
   // Modify classes to follow SMACSS naming convention.
   $vars['class'] = preg_replace(
     array('/views-view-grid/', '/cols-/'),
-    array('l-grid', 'l-grid--cols-'),
+    array('layout-grid', 'layout-grid--cols-'),
     $vars['class']
   );
-  $vars['class'] .= ' l-grid--' . drupal_html_class($vars['view']->name);
-  $vars['row_classes'] = preg_replace('/row-/', 'l-grid__row--', $vars['row_classes']);
+  $vars['class'] .= ' layout-grid--' . drupal_html_class($vars['view']->name);
+  $vars['row_classes'] = preg_replace('/row-/', 'layout-grid__row--', $vars['row_classes']);
   foreach ($vars['column_classes'] as $key => $value) {
-    $vars['column_classes'][$key] = preg_replace('/col-/', 'l-grid__column--', $vars['column_classes'][$key]);
+    $vars['column_classes'][$key] = preg_replace('/col-/', 'layout-grid__column--', $vars['column_classes'][$key]);
   }
 }
 

@@ -1,6 +1,6 @@
 @media (min-width: 43.75em) {
   /* line 13, ../../sass/partials/layout/panels/_sidebar.scss */
-  .l-panels-sidebar.main.sidebar .l-main {
+  .layout-panels-sidebar.main.sidebar .layout-main {
     width: 65.21739%;
     float: left;
     margin-right: -100%;
@@ -8,7 +8,7 @@
     clear: none;
   }
   /* line 16, ../../sass/partials/layout/panels/_sidebar.scss */
-  .l-panels-sidebar.main.sidebar .l-sidebar {
+  .layout-panels-sidebar.main.sidebar .layout-sidebar {
     width: 30.43478%;
     float: right;
     margin-left: 0;
@@ -18,32 +18,32 @@
 }
 
 /* line 9, ../../sass/partials/global/helpers/_clearfix.scss */
-.l-panels-sidebar:after {
+.layout-panels-sidebar:after {
   display: table;
   content: "";
 }
 /* line 14, ../../sass/partials/global/helpers/_clearfix.scss */
-.l-panels-sidebar:after {
+.layout-panels-sidebar:after {
   clear: both;
 }
 /* line 27, ../../sass/partials/layout/panels/_sidebar.scss */
-.l-panels-sidebar .l-preface,
-.l-panels-sidebar .l-main,
-.l-panels-sidebar .l-sidebar {
+.layout-panels-sidebar .layout-preface,
+.layout-panels-sidebar .layout-main,
+.layout-panels-sidebar .layout-sidebar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 /* line 9, ../../sass/partials/global/helpers/_clearfix.scss */
-.l-panels-sidebar .l-preface:after,
-.l-panels-sidebar .l-main:after,
-.l-panels-sidebar .l-sidebar:after {
+.layout-panels-sidebar .layout-preface:after,
+.layout-panels-sidebar .layout-main:after,
+.layout-panels-sidebar .layout-sidebar:after {
   display: table;
   content: "";
 }
 /* line 14, ../../sass/partials/global/helpers/_clearfix.scss */
-.l-panels-sidebar .l-preface:after,
-.l-panels-sidebar .l-main:after,
-.l-panels-sidebar .l-sidebar:after {
+.layout-panels-sidebar .layout-preface:after,
+.layout-panels-sidebar .layout-main:after,
+.layout-panels-sidebar .layout-sidebar:after {
   clear: both;
 }
