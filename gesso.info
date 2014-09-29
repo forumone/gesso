@@ -67,6 +67,7 @@ settings[show_first_last] = '0'
 settings[show_collapsed_expanded] = '0'
 settings[magic_embedded_mqs] = '1'
 settings[magic_css_excludes] = 'comment/*.css
+file/*.css
 misc/vertical-tabs*.css
 node/*.css
 system/*.css
@@ -80,6 +81,6 @@ settings[magic_rebuild_registry] = '0'
 settings[magic_viewport_indicator] = '0'
 settings[magic_modernizr_debug] = '0'
 settings[magic_performance__active_tab] = 'edit-css'
-settings[magic_css_excludes_regex][exclude] = '/^(modules\/comment\/(.*)\.css|misc\/vertical\-tabs(.*)\.css|modules\/node\/(.*)\.css|modules\/system\/(.*)\.css|sites\/all\/modules\/contrib\/admin_menu\/admin_menu\-rtl\.css|sites\/all\/modules\/contrib\/views\/css\/views\.css)$/'
+settings[magic_css_excludes_regex][exclude] = '/^(modules\/comment\/(.*)\.css|modules\/file\/(.*)\.css|misc\/vertical\-tabs(.*)\.css|modules\/node\/(.*)\.css|modules\/system\/(.*)\.css|sites\/all\/modules\/contrib\/admin_menu\/admin_menu\-rtl\.css|sites\/all\/modules\/contrib\/views\/css\/views\.css)$/'
 settings[magic_css_excludes_regex][include] = ''
 settings[magic_js_excludes_regex] = ''
