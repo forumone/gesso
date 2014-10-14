@@ -713,9 +713,11 @@ ul.panels-ipe-linkbar li {
 
 /* line 4, ../sass/partials/layout/_page.scss */
 .layout-constrain {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 75em;
-  padding: 0 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 /* line 9, ../sass/partials/global/helpers/_clearfix.scss */
