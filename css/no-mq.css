@@ -28,8 +28,8 @@
   display: none;
 }
 
-/* line 48, ../sass/partials/global/helpers/_button.scss */
-.button--large, .button {
+/* line 49, ../sass/partials/global/helpers/_button.scss */
+.button {
   font-size: 0.875em;
   line-height: 1.5em;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(0, 0, 0, 0.2)));
@@ -61,27 +61,28 @@
   vertical-align: baseline;
 }
 /* line 36, ../sass/partials/global/helpers/_button.scss */
-.button--large:focus, .button:focus, .button--large:hover, .button:hover {
+.button:focus, .button:hover {
   background-color: white;
   border-color: #797979;
+  color: #333333;
   outline: 0;
 }
-/* line 42, ../sass/partials/global/helpers/_button.scss */
-.button--large:active, .button:active {
+/* line 43, ../sass/partials/global/helpers/_button.scss */
+.button:active {
   background-color: #e0e0e0;
   border-color: #acacac;
 }
-/* line 51, ../sass/partials/global/helpers/_button.scss */
-.button--large + .button--large, .button + .button--large, .button--large + .button, .button + .button {
+/* line 52, ../sass/partials/global/helpers/_button.scss */
+.button + .button {
   margin-left: 1em;
 }
-/* line 54, ../sass/partials/global/helpers/_button.scss */
-[dir="rtl"] .button--large + .button--large, [dir="rtl"] .button + .button--large, [dir="rtl"] .button--large + .button, [dir="rtl"] .button + .button {
+/* line 55, ../sass/partials/global/helpers/_button.scss */
+[dir="rtl"] .button + .button {
   margin-left: 0;
   margin-right: 1em;
 }
 
-/* line 61, ../sass/partials/global/helpers/_button.scss */
+/* line 62, ../sass/partials/global/helpers/_button.scss */
 .button--large {
   font-size: 1.1875em;
   line-height: 2.21053em;

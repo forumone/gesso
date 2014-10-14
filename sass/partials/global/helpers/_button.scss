@@ -36,6 +36,7 @@
   &:hover {
     background-color: lighten($bg-color, 20%);
     border-color: darken($bg-color, 50%);
+    color: $button-text-color;
     outline: 0;
   }
 
@@ -59,6 +60,5 @@
 }
 
 %button--large {
-  @extend %button;
   @include adjust-font-size-to($font-size-lg);
 }
