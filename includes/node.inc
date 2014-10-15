@@ -57,4 +57,8 @@ function gesso_preprocess_node(&$vars) {
 
   // Add classes array to attributes array.
   $vars['attributes_array']['class'] = $vars['classes_array'];
+
+  // Add theme hook suggestions based on view mode.
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['view_mode'];
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['view_mode'] . '__' . $vars['type'];
 }
