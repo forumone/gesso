@@ -54,7 +54,7 @@ audio {}
 b {}
 
 blockquote {
-  margin: rhythm(1) 1.5em;
+  margin: 0 1.5em rhythm(1);
 }
 
 body {
@@ -81,7 +81,9 @@ colgroup {}
 
 datalist {}
 
-dd {}
+dd {
+  margin-bottom: rhythm(1);
+}
 
 del {}
 
@@ -90,16 +92,10 @@ details {}
 dfn {}
 
 dl {
-  margin: rhythm(1) 0;
+  margin: 0 0 rhythm(1);
 }
 
-dt {
-  margin-top: rhythm(1);
-}
-
-dt + dt {
-  margin-top: 0;
-}
+dt {}
 
 em {}
 
@@ -126,37 +122,37 @@ form {}
 h1 {
   @extend %hN;
   font-size: em($font-size-xxl);
-  margin: rhythm(1, $font-size-xxl) 0;
+  margin: 0 0 rhythm(1, $font-size-xxl);
 }
 
 h2 {
   @extend %hN;
   font-size: em($font-size-xl);
-  margin: rhythm(1, $font-size-xl) 0;
+  margin: 0 0 rhythm(1, $font-size-xl);
 }
 
 h3 {
   @extend %hN;
   font-size: em($font-size-lg);
-  margin: rhythm(1, $font-size-lg) 0;
+  margin: 0 0 rhythm(1, $font-size-lg);
 }
 
 h4 {
   @extend %hN;
   font-size: em($font-size-normal);
-  margin: rhythm(1, $font-size-normal) 0;
+  margin: 0 0 rhythm(1, $font-size-normal);
 }
 
 h5 {
   @extend %hN;
   font-size: em($font-size-md);
-  margin: rhythm(1, $font-size-md) 0;
+  margin: 0 0 rhythm(1, $font-size-md);
 }
 
 h6 {
   @extend %hN;
   font-size: em($font-size-sm);
-  margin: rhythm(1, $font-size-sm) 0;
+  margin: 0 0 rhythm(1, $font-size-sm);
 }
 
 header {}
@@ -245,7 +241,7 @@ nav {}
 object {}
 
 ol {
-  margin: rhythm(1) 0;
+  margin: 0 0 rhythm(1);
   padding: 0 0 0 1.5em; // LTR
 
   [dir="rtl"] & {
@@ -265,13 +261,13 @@ option {}
 output {}
 
 p {
-  margin: 0 0 rhythm(1) 0;
+  margin: 0 0 rhythm(1);
 }
 
 param {}
 
 pre {
-  margin: rhythm(1) 0;
+  margin: 0 0 rhythm(1);
 }
 
 progress {}
@@ -319,7 +315,7 @@ tr {}
 u {}
 
 ul {
-  margin: rhythm(1) 0;
+  margin: 0 0 rhythm(1);
   padding: 0 0 0 1.2em; // LTR
 
   [dir="rtl"] & {
