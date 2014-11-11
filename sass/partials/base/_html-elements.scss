@@ -25,9 +25,8 @@
 
 a {
   color: $link-color;
-  // Uncomment the following to improve readability when focused.
-  // margin: -2px;
-  // padding: 2px;
+  // Improves readability when focused.
+  outline-offset: em(2px);
 
   &:hover,
   &:focus {
