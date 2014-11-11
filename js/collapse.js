@@ -1,103 +1,107 @@
 (function ($) {
 
-/**
- * Toggle the visibility of a fieldset using smooth animations.
- */
-Drupal.toggleFieldset = function (fieldset) {
-  var $fieldset = $(fieldset);
-  if ($fieldset.is('.is-collapsed')) {
-    var $content = $('> .fieldset__content', fieldset).hide();
-    $fieldset
-      .removeClass('is-collapsed')
-      .trigger({ type: 'collapsed', value: false })
-      .find('.fieldset__legend-link > .element-invisible').html(Drupal.t('Hide'));
-    $content.slideDown({
-      duration: 'fast',
-      easing: 'linear',
-      complete: function () {
-        Drupal.collapseScrollIntoView(fieldset);
-        fieldset.animating = false;
-      },
-      step: function () {
-        // Scroll the fieldset into view.
-        Drupal.collapseScrollIntoView(fieldset);
-      }
-    });
-  }
-  else {
-    $fieldset.trigger({ type: 'collapsed', value: true });
-    $('> .fieldset__content', fieldset).slideUp('fast', function () {
-      $fieldset
-        .addClass('is-collapsed')
-        .find('.fieldset__legend-link > .element-invisible').html(Drupal.t('Show'));
-      fieldset.animating = false;
-    });
-  }
-};
+  'use strict';
 
-/**
- * Scroll a given fieldset into view as much as possible.
- */
-Drupal.collapseScrollIntoView = function (node) {
-  var h = document.documentElement.clientHeight || document.body.clientHeight || 0;
-  var offset = document.documentElement.scrollTop || document.body.scrollTop || 0;
-  var posY = $(node).offset().top;
-  var fudge = 55;
-  if (posY + node.offsetHeight + fudge > h + offset) {
-    if (node.offsetHeight > h) {
-      window.scrollTo(0, posY);
+  /**
+   * Toggle the visibility of a fieldset using smooth animations.
+   */
+  Drupal.toggleFieldset = function (fieldset) {
+    var $fieldset = $(fieldset);
+    if ($fieldset.is('.is-collapsed')) {
+      var $content = $('> .fieldset__content', fieldset).hide();
+      $fieldset
+        .removeClass('is-collapsed')
+        .trigger({ type: 'collapsed', value: false })
+        .find('.fieldset__legend-link > .element-invisible').html(Drupal.t('Hide'));
+      $content.slideDown({
+        duration: 'fast',
+        easing: 'linear',
+        complete: function () {
+          Drupal.collapseScrollIntoView(fieldset);
+          fieldset.animating = false;
+        },
+        step: function () {
+          // Scroll the fieldset into view.
+          Drupal.collapseScrollIntoView(fieldset);
+        }
+      });
     }
     else {
-      window.scrollTo(0, posY + node.offsetHeight - h + fudge);
+      $fieldset.trigger({ type: 'collapsed', value: true });
+      $('> .fieldset__content', fieldset).slideUp('fast', function () {
+        $fieldset
+          .addClass('is-collapsed')
+          .find('.fieldset__legend-link > .element-invisible').html(Drupal.t('Show'));
+        fieldset.animating = false;
+      });
     }
-  }
-};
+  };
 
-Drupal.behaviors.collapse = {
-  attach: function (context, settings) {
-    $('.js-collapsible', context).once('collapse', function () {
-      var $fieldset = $(this);
-      // Expand fieldset if there are errors inside, or if it contains an
-      // element that is targeted by the URI fragment identifier.
-      var anchor = location.hash && location.hash !== '#' ? ', ' + location.hash : '';
-      if ($fieldset.find('.is-error' + anchor).length) {
-        $fieldset.removeClass('is-collapsed');
+  /**
+   * Scroll a given fieldset into view as much as possible.
+   */
+  Drupal.collapseScrollIntoView = function (node) {
+    var h = document.documentElement.clientHeight || document.body.clientHeight || 0;
+    var offset = document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var posY = $(node).offset().top;
+    var fudge = 55;
+    if (posY + node.offsetHeight + fudge > h + offset) {
+      if (node.offsetHeight > h) {
+        window.scrollTo(0, posY);
       }
+      else {
+        window.scrollTo(0, posY + node.offsetHeight - h + fudge);
+      }
+    }
+  };
 
-      var summary = $('<span class="summary"></span>');
-      $fieldset.
-        bind('summaryUpdated', function () {
-          var text = $.trim($fieldset.drupalGetSummary());
-          summary.html(text ? ' (' + text + ')' : '');
-        })
-        .trigger('summaryUpdated');
+  Drupal.behaviors.collapse = {
+    attach: function (context, settings) {
+      $('.js-collapsible', context).once('collapse', function () {
+        var $fieldset = $(this);
+        // Expand fieldset if there are errors inside, or if it contains an
+        // element that is targeted by the URI fragment identifier.
+        var anchor = location.hash && location.hash !== '#' ? ', ' + location.hash : '';
+        if ($fieldset.find('.is-error' + anchor).length) {
+          $fieldset.removeClass('is-collapsed');
+        }
 
-      // Turn the legend into a clickable link, but retain span.fieldset-legend
-      // for CSS positioning.
-      var $legend = $('.fieldset__legend-text', this);
+        var summary = $('<span class="summary"></span>');
+        $fieldset.
+          bind('summaryUpdated', function () {
+            var text = $.trim($fieldset.drupalGetSummary());
+            summary.html(text ? ' (' + text + ')' : '');
+          })
+          .trigger('summaryUpdated');
 
-      $('<span class="element-invisible"></span>')
-        .append($fieldset.hasClass('is-collapsed') ? Drupal.t('Show') : Drupal.t('Hide'))
-        .prependTo($legend)
-        .after(' ');
+        // Turn the legend into a clickable link, but retain span.fieldset-legend
+        // for CSS positioning.
+        var $legend = $('.fieldset__legend-text', this);
 
-      // .wrapInner() does not retain bound events.
-      var $link = $('<a class="fieldset__legend-link" href="#"></a>')
-        .prepend($legend.contents())
-        .appendTo($legend)
-        .click(function () {
-          var fieldset = $fieldset.get(0);
-          // Don't animate multiple times.
-          if (!fieldset.animating) {
-            fieldset.animating = true;
-            Drupal.toggleFieldset(fieldset);
-          }
-          return false;
-        });
+        $('<span class="element-invisible"></span>')
+          .append($fieldset.hasClass('is-collapsed') ? Drupal.t('Show') : Drupal.t('Hide'))
+          .prependTo($legend)
+          .after(' ');
 
-      $legend.append(summary);
-    });
-  }
-};
+        // .wrapInner() does not retain bound events.
+        var $link = $('<a class="fieldset__legend-link" href="#"></a>');
+
+        $link
+          .prepend($legend.contents())
+          .appendTo($legend)
+          .click(function () {
+            var fieldset = $fieldset.get(0);
+            // Don't animate multiple times.
+            if (!fieldset.animating) {
+              fieldset.animating = true;
+              Drupal.toggleFieldset(fieldset);
+            }
+            return false;
+          });
+
+        $legend.append(summary);
+      });
+    }
+  };
 
 })(jQuery);

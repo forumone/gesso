@@ -3,6 +3,8 @@
 
 (function ($) {
 
+  'use strict';
+
   // Generic function that runs on window resize.
   function resizeStuff() {
   }

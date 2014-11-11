@@ -1,5 +1,7 @@
 (function ($) {
 
+  'use strict';
+
   // Fixes skiplink behavior for Opera and Webkit browsers.
   Drupal.behaviors.skiplinks = {
     attach: function (context) {
