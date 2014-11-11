@@ -969,7 +969,7 @@ input.throbbing {
 
 /* line 18, ../sass/partials/components/_breadcrumb.scss */
 .breadcrumb__item {
-  display: inline-block;
+  display: inline;
   margin-right: 0.5em;
 }
 /* line 22, ../sass/partials/components/_breadcrumb.scss */
