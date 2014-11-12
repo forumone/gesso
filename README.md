@@ -55,10 +55,14 @@ Check out the README within the sass directory for more information.
     Instead, you should rename the Gesso directory or copy its contents to a new
     custom theme directory.
 
-    Replace all instances of 'gesso' within this directory with a machine-
-    readable name of your choice, including folder names, filenames, and all
-    occurences within files. This custom name must start with a letter and may
-    only contain lowercase letters, numbers, and underscores.
+    The easiest way to accomplish this is to use [Drush](https://github.com/drush-ops/drush).
+    Type `drush gesso --help` for more information.
+
+    If you can’t use Drush, then manually replace all instances of 'gesso'
+    within this directory with a machine-readable name of your choice, including
+    folder names, filenames, and all occurences within files. This custom name
+    must start with a letter and may only contain lowercase letters, numbers,
+    and underscores.
 
 3.  Edit the .info file and update the theme name and description. You can also
     change the screenshot image (images/screenshot.png) shown on the Appearance
