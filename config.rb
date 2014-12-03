@@ -22,6 +22,9 @@ require 'sass-globbing'
 # Disable cache busting on image assets.
 asset_cache_buster :none
 
+# Set default file encoding.
+Encoding.default_external = "UTF-8"
+
 #
 # You probably don't need to edit anything below this.
 #
