@@ -14,7 +14,7 @@ function gesso_file_icon($vars) {
   $mime = check_plain($file->filemime);
   $icon_url = file_icon_url($file, $icon_directory);
 
-  return '<img class="file__icon" alt="" title="' . $mime . '" src="' . $icon_url . '">';
+  return '<img class="file__icon" alt="' . $mime . '" src="' . $icon_url . '">';
 }
 
 /**
