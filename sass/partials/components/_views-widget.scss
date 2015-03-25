@@ -1,11 +1,16 @@
 // @file
-// Styles for views widget.
+// Styles for a views widget.
+
+$bp-inline-widgets: 300px, 'no-query' true;
 
 .views-widget {
-  display: inline-block;
-  margin: 0 1em rhythm(1) 0;
-  overflow: auto;
-  vertical-align: baseline;
+  margin: 0 0 rhythm(1) 0;
+  max-width: 100%;
+
+  @include breakpoint($bp-inline-widgets) {
+    display: inline-block;
+    margin-right: 1em;
+  }
 
   .button,
   .form-item {

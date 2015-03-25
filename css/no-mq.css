@@ -1943,20 +1943,20 @@ tr.drag-previous {
   margin-bottom: 1.3125em;
 }
 
-/* line 4, ../sass/partials/components/_views-widget.scss */
+/* line 6, ../sass/partials/components/_views-widget.scss */
 .views-widget {
+  margin: 0 0 1.3125em 0;
+  max-width: 100%;
   display: inline-block;
-  margin: 0 1em 1.3125em 0;
-  overflow: auto;
-  vertical-align: baseline;
+  margin-right: 1em;
 }
-/* line 11, ../sass/partials/components/_views-widget.scss */
+/* line 16, ../sass/partials/components/_views-widget.scss */
 .views-widget .button,
 .views-widget .form-item {
   margin-bottom: 0;
 }
 
-/* line 16, ../sass/partials/components/_views-widget.scss */
+/* line 21, ../sass/partials/components/_views-widget.scss */
 .views-widget__label {
   font-size: 0.875em;
   line-height: 1.5em;
