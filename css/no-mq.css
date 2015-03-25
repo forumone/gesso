@@ -1,4 +1,4 @@
-/* line 65, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
+/* line 65, ../../../../../../../../../.rbenv/versions/1.9.3-p484/lib/ruby/gems/1.9.1/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
 .clearfix:after, .layout-grid__row:after {
   content: "";
   display: table;
@@ -1738,7 +1738,7 @@ input.throbbing {
 
 /* line 14, ../sass/partials/components/_skiplinks.scss */
 .skiplinks__link,
-.skiplinks_link:visited,
+.skiplinks__link:visited,
 .skiplinks__link:focus {
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
