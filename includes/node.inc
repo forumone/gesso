@@ -9,16 +9,22 @@
  */
 function gesso_preprocess_node(&$vars) {
   $only_use_smacss = theme_get_setting('only_use_smacss');
+  $node_type_class = drupal_html_class($vars['node']->type);
+  $view_mode_class = drupal_html_class($vars['view_mode']);
 
   // Remove some default node classes.
   if ($only_use_smacss) {
     $vars['classes_array'] = array_values(array_diff($vars['classes_array'], array(
-      'node-' . $vars['node']->type,
+      'node-' . $node_type_class,
+      'node-' . $view_mode_class,
+      'node-promoted',
+      'node-sticky',
+      'node-unpublished',
     )));
   }
 
   // Add default node attributes.
-  $vars['classes_array'][] = 'node--' . drupal_html_class($vars['node']->type);
+  $vars['classes_array'][] = 'node--' . $node_type_class;
   $vars['attributes_array']['role'][] = 'article';
   $vars['title_attributes_array']['class'][] = 'node__title';
   $vars['content_attributes_array']['class'][] = 'node__content';
@@ -31,7 +37,17 @@ function gesso_preprocess_node(&$vars) {
 
   // Change attributes for view modes.
   if (isset($vars['view_mode'])) {
-    $vars['classes_array'][] = 'node--' . drupal_html_class($vars['view_mode']);
+    $vars['classes_array'][] = 'node--' . $view_mode_class;
+  }
+
+  // Add promoted class.
+  if ($vars['promote']) {
+    $vars['classes_array'][] = 'is-promoted';
+  }
+
+  // Add sticky class.
+  if ($vars['sticky']) {
+    $vars['classes_array'][] = 'is-sticky';
   }
 
   // Create submitted info using time element.
@@ -49,10 +65,11 @@ function gesso_preprocess_node(&$vars) {
     $vars['submitted'] = '';
   }
 
-  // Create unpublished variable.
+  // Create unpublished variable and add unpublished class.
   $vars['unpublished'] = '';
   if (!$vars['status']) {
     $vars['unpublished'] = '<div class="node__unpublished">' . t('Unpublished') . '</div>';
+    $vars['classes_array'][] = 'is-unpublished';
   }
 
   // Add classes array to attributes array.
