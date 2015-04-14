@@ -9,9 +9,9 @@
 
       // Create mobile menu container, create mobile bar, and clone the main
       // menu in the navigation region.
-      var $mobileNav = $('<nav class="mobile-nav" role="navigation"></nav>'),
-          $mobileBar = $('<div class="mobile-nav__bar"><a class="mobile-nav__button mobile-nav__button--home" href="/" rel="home"><span class="mobile-nav__icon mobile-nav__icon--home">Home</span></a><button class="mobile-nav__button js-mobile-menu-button mobile-nav__button--menu"><span class="mobile-nav__icon mobile-nav__icon--menu">Menu</span></button></div>'),
-          $mobileLinks = $('<div class="mobile-nav__links element-hidden"></div>'),
+      var $mobileNav = $('<nav class="mobile-menu" role="navigation"></nav>'),
+          $mobileBar = $('<div class="mobile-menu__bar"><a class="mobile-menu__button mobile-menu__button--home" href="/" rel="home"><span class="mobile-menu__icon mobile-menu__icon--home">Home</span></a><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>'),
+          $mobileLinks = $('<div class="mobile-menu__links element-hidden"></div>'),
           $mainMenu = $('.region-navigation', context).find('.nav--main-menu, .block--system-main-menu .nav').not('.contextual-links').first().clone(),
           $isSuperfish = ($mainMenu.hasClass('sf-menu')) ? true : false;
 
@@ -19,7 +19,7 @@
       if ($mainMenu.length > 0) {
 
         // Remove menu id, add class, and format subnav menus.
-        $mainMenu.removeAttr('id').attr('class', 'nav nav--mobile').find('ul').each(function () {
+        $mainMenu.removeAttr('id').attr('class', 'nav nav--mobile-menu').find('ul').each(function () {
           var $parentLink = $(this).prev('a');
 
           // Copy parent link to subnav list.
@@ -58,7 +58,7 @@
         // Add mobile menu to the page.
         $('.skiplinks', context).after($mobileNav);
 
-        var $mobileMenuWrapper = $('.mobile-nav__links', context),
+        var $mobileMenuWrapper = $('.mobile-menu__links', context),
             $mobileMenuLinks = $mobileMenuWrapper.find('a');
 
         // Initially take mobile menu links out of tab flow.
@@ -99,7 +99,6 @@
 
         // Set the height of the menu.
         $mobileMenuWrapper.height($(document).height());
-
       }
     }
   };
