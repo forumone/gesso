@@ -7,20 +7,23 @@
 
 /* line 41, ../sass/partials/global/helpers/_accessibility.scss */
 .element-focusable, .element-invisible, .breadcrumb__title {
-  position: absolute !important;
+  border: 0;
+  clip: rect(0 0 0 0);
   height: 1px;
-  width: 1px;
+  margin: -1px;
   overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /* line 45, ../sass/partials/global/helpers/_accessibility.scss */
 .element-focusable:active, .element-focusable:focus {
-  position: static !important;
   clip: auto;
   height: auto;
+  margin: 0;
+  overflow: visible;
   width: auto;
-  overflow: auto;
 }
 
 /* line 58, ../sass/partials/global/helpers/_accessibility.scss */

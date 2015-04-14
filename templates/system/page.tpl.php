@@ -23,7 +23,7 @@
 <?php endif; ?>
 
 <?php if ($page['content']): ?>
-  <main id="main" class="main" role="main">
+  <main id="main" class="main" role="main" tabindex="-1">
     <?php print render($page['content']); ?>
   </main>
 <?php endif; ?>
