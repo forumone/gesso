@@ -97,11 +97,21 @@ function gesso_links($vars) {
       $class[] = 'nav__item';
       $class[] = 'nav__item--' . $key;
 
+      // Make sure link attributes array exists.
+      if (!isset($link) || !is_array($link)) {
+        $link = array('attributes' => array());
+      }
+
       // Add link classes.
-      if (isset($link['attributes']['class']) && !is_array($link['attributes']['class'])) {
-        $this_class = $link['attributes']['class'];
+      if (isset($link['attributes']['class'])) {
+        if (!is_array($link['attributes']['class'])) {
+          $this_class = $link['attributes']['class'];
+          $link['attributes']['class'] = array();
+          $link['attributes']['class'][] = $this_class;
+        }
+      }
+      else {
         $link['attributes']['class'] = array();
-        $link['attributes']['class'][] = $this_class;
       }
       $link['attributes']['class'][] = 'nav__link';
 
