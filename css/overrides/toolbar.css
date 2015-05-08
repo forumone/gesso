@@ -31,7 +31,7 @@
   text-decoration: none;
 }
 /* line 32, ../../sass/overrides/toolbar.scss */
-#toolbar a:hover, #toolbar a.active {
+#toolbar a:hover, #toolbar a.is-active {
   background-color: #555;
 }
 /* line 36, ../../sass/overrides/toolbar.scss */
@@ -178,6 +178,6 @@
 }
 
 /* line 140, ../../sass/overrides/toolbar.scss */
-#toolbar > .toolbar-drawer a:focus, #toolbar > .toolbar-drawer a:hover, #toolbar > .toolbar-drawer a.active {
+#toolbar > .toolbar-drawer a:focus, #toolbar > .toolbar-drawer a:hover, #toolbar > .toolbar-drawer a.is-active {
   background-color: #000;
 }

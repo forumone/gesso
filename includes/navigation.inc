@@ -5,6 +5,25 @@
  */
 
 /**
+ * Returns HTML for a link.
+ */
+function gesso_link($vars) {
+  $only_use_smacss = theme_get_setting('only_use_smacss');
+
+  // Modify active class to follow SMACSS naming convention.
+  if (isset($vars['options']['attributes']['class'])) {
+    if ($only_use_smacss) {
+      $vars['options']['attributes']['class'] = preg_replace('/^active$/', 'is-active', $vars['options']['attributes']['class']);
+    }
+    else {
+      $vars['options']['attributes']['class'][] = 'is-active';
+    }
+  }
+
+  return '<a href="' . check_plain(url($vars['path'], $vars['options'])) . '"' . drupal_attributes($vars['options']['attributes']) . '>' . ($vars['options']['html'] ? $vars['text'] : check_plain($vars['text'])) . '</a>';
+}
+
+/**
  * Implements hook_preprocess_links().
  */
 function gesso_preprocess_links(&$vars) {
@@ -201,6 +220,7 @@ function gesso_preprocess_menu_link(&$vars) {
   $show_collapsed_expanded = theme_get_setting('show_collapsed_expanded');
   $menu = '';
   $mlid = '';
+
   if (isset($element['#original_link'])) {
     $menu = $element['#original_link']['menu_name'];
     $mlid = $element['#original_link']['mlid'];
@@ -234,15 +254,18 @@ function gesso_preprocess_menu_link(&$vars) {
 
   // Remove unecessary list item classes.
   if ($only_use_smacss) {
-    $remove = array('leaf');
+    $remove = array('leaf', 'menu-mlid-' . $mlid);
+
     if (!$show_collapsed_expanded) {
       $remove[] = 'collapsed';
       $remove[] = 'expanded';
     }
+
     if (!$show_first_last) {
       $remove[] = 'first';
       $remove[] = 'last';
     }
+
     $item_classes = array_values(array_diff($item_classes, $remove));
   }
 
@@ -305,17 +328,10 @@ function gesso_preprocess_menu_link(&$vars) {
     }
 
     if ($only_use_smacss) {
-      $link_classes = preg_replace('/^active$/', 'is-active', $link_classes);
       $link_classes = preg_replace('/^active-trail$/', 'is-active-trail', $link_classes);
     }
-    else {
-      if (in_array('active', $link_classes)) {
-        $link_classes[] = 'is-active';
-      }
-
-      if (in_array('active-trail', $link_classes)) {
-        $link_classes[] = 'is-active-trail';
-      }
+    elseif (in_array('active-trail', $link_classes)) {
+      $link_classes[] = 'is-active-trail';
     }
   }
 
@@ -330,8 +346,29 @@ function gesso_preprocess_menu_link(&$vars) {
 function gesso_menu_link($vars) {
   $element = $vars['element'];
   $sub_menu = '';
+  $only_use_smacss = theme_get_setting('only_use_smacss');
+
+  // Modify active class to follow SMACSS naming convention.
+  if (isset($element['#attributes']['class'])) {
+    if ($only_use_smacss) {
+      $element['#attributes']['class'] = preg_replace('/^active$/', 'is-active', $element['#attributes']['class']);
+    }
+    else {
+      if (in_array('active', $element['#attributes']['class'])) {
+        $element['#attributes']['class'][] = 'is-active';
+      }
+    }
+  }
+
+  // Add has-children class.
+  if ($element['#original_link']['has_children']) {
+    $element['#attributes']['class'][] = 'has-children';
+  }
 
   if ($element['#below']) {
+    // Add has-subnav class.
+    $element['#attributes']['class'][] = 'has-subnav';
+
     // Add subnav class.
     unset($element['#below']['#theme_wrappers']);
     $sub_menu = '<ul class="nav nav--subnav">' . drupal_render($element['#below']) . '</ul>';

@@ -64,15 +64,15 @@
   text-decoration: none;
 }
 /* line 52, ../../sass/overrides/admin_menu.scss */
-#admin-menu-icon > li > a:hover, #admin-menu-icon > li > a.active,
+#admin-menu-icon > li > a:hover, #admin-menu-icon > li > a.is-active,
 #admin-menu-menu > li > a:hover,
-#admin-menu-menu > li > a.active,
+#admin-menu-menu > li > a.is-active,
 #admin-menu-account > li > a:hover,
-#admin-menu-account > li > a.active,
+#admin-menu-account > li > a.is-active,
 #admin-menu-users > li > a:hover,
-#admin-menu-users > li > a.active,
+#admin-menu-users > li > a.is-active,
 #admin-menu-search > li > a:hover,
-#admin-menu-search > li > a.active {
+#admin-menu-search > li > a.is-active {
   background-color: #555;
 }
 /* line 56, ../../sass/overrides/admin_menu.scss */

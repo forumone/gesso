@@ -83,7 +83,7 @@
   width: 0;
 }
 /* line 60, ../../sass/overrides/admin_menu_toolbar.scss */
-#admin-menu .shortcut-toggle.active:before {
+#admin-menu .shortcut-toggle.is-active:before {
   border-bottom-color: #fff;
   border-top-color: transparent;
   bottom: 2.25em;
@@ -110,7 +110,7 @@
   clear: both;
 }
 /* line 78, ../../sass/overrides/admin_menu_toolbar.scss */
-#admin-menu .shortcut-toolbar.active {
+#admin-menu .shortcut-toolbar.is-active {
   display: block;
 }
 /* line 82, ../../sass/overrides/admin_menu_toolbar.scss */
@@ -133,7 +133,7 @@
   text-decoration: none;
 }
 /* line 97, ../../sass/overrides/admin_menu_toolbar.scss */
-#admin-menu .shortcut-toolbar a:hover, #admin-menu .shortcut-toolbar a.active {
+#admin-menu .shortcut-toolbar a:hover, #admin-menu .shortcut-toolbar a.is-active {
   background-color: #000;
 }
 /* line 101, ../../sass/overrides/admin_menu_toolbar.scss */

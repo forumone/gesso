@@ -29,7 +29,7 @@
   text-decoration: none;
 
   &:hover,
-  &.active {
+  &.is-active {
     background-color: #555;
   }
 
@@ -137,7 +137,7 @@
 #toolbar > .toolbar-drawer a {
   &:focus,
   &:hover,
-  &.active {
+  &.is-active {
     background-color: #000;
   }
 }

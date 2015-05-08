@@ -57,7 +57,7 @@
       width: 0;
     }
 
-    &.active:before {
+    &.is-active:before {
       border-bottom-color: #fff;
       border-top-color: transparent;
       bottom: 2.25em;
@@ -75,7 +75,7 @@
     top: 0.5em;
     z-index: 1;
 
-    &.active {
+    &.is-active {
       display: block;
     }
 
@@ -94,7 +94,7 @@
       text-decoration: none;
 
       &:hover,
-      &.active {
+      &.is-active {
         background-color: #000;
       }
 
