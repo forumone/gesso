@@ -205,8 +205,16 @@ function gesso_button($vars) {
   element_set_attributes($element, array('id', 'name', 'value'));
   $only_use_smacss = theme_get_setting('only_use_smacss');
 
+  // Add button classes.
   $element['#attributes']['class'][] = 'button';
-  $element['#attributes']['class'][] = 'button--' . $element['#button_type'];
+
+  // Adjust classes for reset buttons.
+  if (isset($element['#id']) && $element['#id'] == 'edit-reset') {
+    $element['#attributes']['class'][] = 'button--reset';
+  }
+  else {
+    $element['#attributes']['class'][] = 'button--' . drupal_html_class($element['#button_type']);
+  }
 
   // Add default class if wanted.
   if (!$only_use_smacss) {
