@@ -1,5 +1,6 @@
 // Includes resets and helper classes.
 // Inspiration: http://necolas.github.com/normalize.css
+// version 3.0.2
 
 article,
 aside,
@@ -10,6 +11,7 @@ footer,
 header,
 hgroup,
 main,
+menu,
 nav,
 section,
 summary {
@@ -18,8 +20,11 @@ summary {
 
 audio,
 canvas,
+progress,
 video {
   display: inline-block;
+  vertical-align: baseline;
+
   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     *display: inline;
     *zoom: 1;
@@ -36,11 +41,6 @@ template {
   display: none;
 }
 
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
 @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
   // Address font-family inconsistency between textarea and other form elements.
   button,
@@ -51,68 +51,9 @@ html {
   }
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  background: transparent;
-}
-
-a:focus {
-  outline: thin dotted;
-}
-
-a:active,
-a:hover {
-  outline: 0;
-}
-
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
 b,
 strong {
   font-weight: bold;
-}
-
-dfn {
-  font-style: italic;
-}
-
-hr {
-  @include box-sizing(content-box);
-  height: 0;
-}
-
-code,
-kbd,
-pre,
-samp,
-tt,
-var {
-  font-family: $monospace-font-family;
-  font-size: 1em;
-  @if $legacy-support-for-ie6 {
-    _font-family: 'courier new', monospace;
-  }
-}
-
-pre {
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-  @else {
-    white-space: pre-wrap;
-  }
-}
-
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
 sub,
@@ -123,61 +64,28 @@ sup {
   vertical-align: baseline;
 }
 
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-@if $legacy-support-for-ie7 {
-  // Correct list images handled incorrectly in IE 7.
-  nav ul,
-  nav ol {
-    list-style: none;
-    list-style-image: none;
-  }
-}
-
-img {
-  border: 0;
-
-  @if $legacy-support-for-ie7 {
-    /* Improve image quality when scaled in IE 7. */
-    -ms-interpolation-mode: bicubic;
-  }
-
-  @if $legacy-support-for-ie8 {
-    // Correct IE 8 not scaling image height when resized.
-    width: auto;
-  }
-}
-
 svg:not(:root) {
   overflow: hidden;
 }
 
-figure {
-  margin: 0;
-}
+code,
+kbd,
+pre,
+samp {
+  font-family: $monospace-font-family;
+  font-size: 1em;
 
-@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-  // Correct margin displayed oddly in IE 6/7.
-  form {
-    margin: 0;
+  @if $legacy-support-for-ie6 {
+    _font-family: 'courier new', monospace;
   }
-}
-
-legend {
-  border: 0;
-  padding: 0;
 }
 
 button,
 input,
+optgroup,
 select,
 textarea {
+  color: inherit;
   font-family: inherit;
   font-size: 100%;
   margin: 0;
@@ -187,11 +95,6 @@ textarea {
     vertical-align: baseline;
     *vertical-align: middle;
   }
-}
-
-button,
-input {
-  line-height: normal;
 }
 
 button,
@@ -205,15 +108,17 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
-
-  @if $legacy-support-for-ie7 {
-    *overflow: visible;
-  }
 }
 
 button[disabled],
 html input[disabled] {
   cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 
 input[type="checkbox"],
@@ -227,6 +132,11 @@ input[type="radio"] {
   }
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
 input[type="search"] {
   -webkit-appearance: textfield;
   @include box-sizing(content-box);
@@ -235,22 +145,6 @@ input[type="search"] {
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-textarea {
-  overflow: auto;
-  vertical-align: top;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 
 // http://meyerweb.com/eric/thoughts/2012/12/17/where-to-avoid-css-hyphenation

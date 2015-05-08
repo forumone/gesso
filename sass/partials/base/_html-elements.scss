@@ -24,9 +24,15 @@
 }
 
 a {
+  background-color: transparent;
   color: $link-color;
   // Improves readability when focused.
   outline-offset: em(2px);
+
+  &:active,
+  &:hover {
+    outline: 0;
+  }
 
   &:hover,
   &:focus {
@@ -36,6 +42,10 @@ a {
 
 abbr {
   @include smallcaps();
+
+  &[title] {
+    border-bottom: 1px dotted;
+  }
 
   &:hover {
     cursor: help;
@@ -59,12 +69,16 @@ blockquote {
 body {
   background-color: $body-color;
   color: $primary-text-color;
+  margin: 0;
+  padding: 0;
   word-wrap: break-word;
 }
 
 // Don't style button elements, since they're often styled as links for
 // accessible widgets. Use the .button class in partials/components/buttons.
-button {}
+button {
+  overflow: visible;
+}
 
 canvas {}
 
@@ -88,7 +102,9 @@ del {}
 
 details {}
 
-dfn {}
+dfn {
+  font-style: italic;
+}
 
 dl {
   margin: 0 0 rhythm(1);
@@ -104,11 +120,18 @@ fieldset {}
 
 figcaption {}
 
-figure {}
+figure {
+  margin: 0 0 rhythm(1);
+}
 
 footer {}
 
-form {}
+form {
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    // Correct margin displayed oddly in IE 6/7.
+    margin: 0;
+  }
+}
 
 %hN {
   color: $heading-text-color;
@@ -157,7 +180,9 @@ h6 {
 header {}
 
 hr {
+  @include box-sizing(content-box);
   border: 1px solid $form-border-color;
+  height: 0;
   margin: rhythm(1) 0;
   padding-bottom: -1px;
 }
@@ -167,18 +192,35 @@ html {
   @include hyphens(auto);
   font-family: $base-font-family;
   font-size: 100% * ($base-font-size / 16px);
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 i {}
 
 iframe {}
 
-img {}
+img {
+  border: 0;
+
+  @if $legacy-support-for-ie7 {
+    // Improve image quality when scaled in IE 7.
+    -ms-interpolation-mode: bicubic;
+  }
+
+  @if $legacy-support-for-ie8 {
+    // Correct IE 8 not scaling image height when resized.
+    width: auto;
+  }
+}
 
 // Don't style button, submit, or reset elements, since they're often styled as
 // links for accessible widgets. Use the .button class in
 // partials/components/buttons.
-input {}
+input {
+  line-height: normal;
+}
+
 input[type="button"] {}
 input[type="checkbox"] {}
 input[type="color"] {}
@@ -209,7 +251,10 @@ kbd {}
 label {}
 
 legend {
+  border: 0;
   margin: 0;
+  padding: 0;
+
   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     *margin-left: -7px; // LTR
 
@@ -253,7 +298,9 @@ ol {
   }
 }
 
-optgroup {}
+optgroup {
+  font-weight: bold;
+}
 
 option {}
 
@@ -267,6 +314,13 @@ param {}
 
 pre {
   margin: 0 0 rhythm(1);
+  overflow: auto;
+
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 }
 
 progress {}
@@ -287,19 +341,28 @@ small {
 
 strong {}
 
-sub {}
+sub {
+  bottom: -0.25em;
+}
 
 summary {}
 
-sup {}
+sup {
+  top: -0.5em;
+}
 
-table {}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 tbody {}
 
 td {}
 
-textarea {}
+textarea {
+  overflow: auto;
+}
 
 tfoot {}
 
@@ -337,11 +400,12 @@ video {}
     background: transparent !important;
     box-shadow: none !important;
     color: #000 !important;
+    text-shadow: none !important;
+
     @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
       -ms-filter: none !important;
       filter: none !important;
     }
-    text-shadow: none !important;
   }
 
   iframe,
