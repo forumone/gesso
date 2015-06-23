@@ -2,17 +2,11 @@
 // Styles for the mobile menu.
 
 .nav--mobile-menu {
-  border-bottom: 1px solid $mobile-menu-border-color;
-  border-top: 1px solid $mobile-menu-border-color;
-  margin: 0;
+  margin: 0.75em 0 0 0;
 
   .nav__item {
     margin: 0;
     padding: 0;
-
-    + .nav__item {
-      border-top: 1px solid $mobile-menu-border-color;
-    }
   }
 
   .nav__link {
@@ -21,48 +15,67 @@
     color: $mobile-menu-text-color;
     display: block;
     font-family: $mobile-menu-font-family;
-    font-size: $font-size-normal;
+    font-size: em(18px);
     font-weight: bold;
     line-height: 1.25;
     margin: 0;
-    padding: em(12px) 1em;
+    padding: em(10.75px, 18px) 1.25em;
+    position: relative;
     text-align: left;
     text-decoration: none;
     white-space: normal;
-    width: 100%;
+    width: auto;
+    z-index: 3;
 
     &:focus,
     &:hover,
     &:active,
     &.is-active {
-      background-color: $mobile-menu-link-color;
-      color: $mobile-menu-text-color;
-      outline: 0;
+      color: $mobile-menu-hover-color;
     }
   }
 
-  .nav__link--parent {
+  .nav__item--parent {
+    position: relative;
 
-    &:after {
-      @include svg-background(arrow-right); // LTR
-      background-position: 0 50%;
-      background-repeat: no-repeat;
-      content: '';
-      display: inline-block;
-      height: 20px;
-      margin-left: 1em; // LTR
-      vertical-align: top;
-      width: 20px;
-
-      [dir="rtl"] & {
-        @include svg-background(arrow-left);
-        margin-left: 0;
-        margin-right: 1em;
-      }
+    &.is-open {
+      background: $mobile-submenu-fallback-bg-color;
+      background: $mobile-submenu-bg-color;
     }
 
-    &.is-active:after {
-      @include svg-background(arrow-down);
+    > .nav__link {
+      display: inline-block;
+    }
+  }
+
+  .nav__subnav-arrow {
+    background: none;
+    @include image-replace(100%, 44px);
+    @include svg-background(mobile-arrow-down);
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
+    background-size: 19px 12px;
+    border: 0;
+    @include box-shadow(none);
+    display: inline-block;
+    height: em(44px);
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: top;
+    z-index: 2;
+
+    &:focus {
+      outline: thin dotted;
+    }
+
+    &.is-active {
+      @include svg-background(mobile-arrow-up);
+    }
+
+    [dir="rtl"] & {
+      left: 0;
+      right: auto;
     }
   }
 
@@ -72,22 +85,16 @@
     margin: 0;
     padding: 0;
 
-    .nav__item {
-      background: $mobile-submenu-bg-color;
-
-      + .nav__item {
-        border-top: 1px solid $mobile-submenu-border-color;
-      }
-    }
+    .nav__item {}
 
     .nav__link {
       color: $mobile-submenu-text-color;
-      padding-left: 1.5em;
+      padding-left: 2em;
 
       &:focus,
       &:hover,
       &:active {
-        background-color: $mobile-submenu-link-color;
+        color: $mobile-submenu-hover-color;
       }
     }
   }

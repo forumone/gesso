@@ -7,95 +7,98 @@
   }
 }
 
-// Hide navigation region while mobile menu is displayed.
-.region-navigation {
-  display: none;
-
-  @include breakpoint($mobile-menu-bp, $no-query: true) {
-    display: block;
-  }
-}
-
 .mobile-menu__bar {
-  @include background-image(
-    linear-gradient(
-      top,
-      $gradient-light 0%,
-      $gradient-dark 100%
-    )
-  );
-  background-color: $mobile-menu-bg-color-fallback;
   background-color: $mobile-menu-bg-color;
+  border-bottom: 1px solid $mobile-menu-border-color;
+  @include box-shadow(0 0px 2px 1px rgba(0, 0, 0, 0.4));
   color: $mobile-menu-text-color;
-  height: 3em;
-  padding: 0 0.25em;
-  text-align: right; // LTR
-
-  [dir="rtl"] & {
-    text-align: left;
-  }
+  height: em(55px);
+  text-align: center;
 }
 
 .mobile-menu__button {
-  @include background-image(
-    linear-gradient(
-      top,
-      $gradient-light 40%,
-      $gradient-dark 60%
-    )
-  );
-  @include border-radius();
+  @include border-radius(0);
   @include box-shadow(none);
   background-color: transparent;
-  border: 2px solid transparent;
+  border: 0;
   color: $mobile-menu-text-color;
   display: inline-block;
   font-family: $mobile-menu-font-family;
   font-size: $font-size-normal;
   font-weight: bold;
-  height: 2.5em;
-  line-height: 2.5;
-  margin: em(4px) 0.25em;
-  padding: 0 0.5em;
+  height: em(55px);
+  line-height: em(55px);
+  margin: 0;
+  padding: 0 1em;
   text-decoration: none;
 
-  &:focus,
-  &:hover,
-  &:active,
-  &.is-active {
-    background-color: $mobile-menu-link-color;
-    border-width: 2px;
-    color: $mobile-menu-text-color;
-    outline: 0;
-  }
-
   &:focus {
-    border-color: $mobile-menu-text-color;
+    outline: thin dotted;
   }
+}
+
+.mobile-menu__button--menu {
+  border-right: 1px solid $mobile-menu-border-color;
+  float: left;
+}
+
+.mobile-menu__button--search {
+  border-left: 1px solid $mobile-menu-border-color;
+  float: right;
 }
 
 .mobile-menu__icon {
-  @include image-replace(26px, 20px);
-  background-position: 0 0;
+  @include image-replace(22px, 22px);
+  background-position: 50% 50%;
   background-repeat: no-repeat;
+  background-size: 22px 22px;
   display: inline-block;
-  margin-top: 0.5em;
+  margin-top: 1em;
 }
 
-.mobile-menu__icon--home {
-  @include svg-background(home);
+%mobile-menu__icon--close {
+  @include svg-background(mobile-close);
 }
 
 .mobile-menu__icon--menu {
-  @include svg-background(hamburger);
+  @include svg-background(mobile-menu);
+  background-size: 33px 22px;
+  width: 33px;
+
+  .is-active & {
+    @extend %mobile-menu__icon--close;
+    background-size: 22px 22px;
+  }
+}
+
+.mobile-menu__icon--search {
+  @include svg-background(mobile-search);
+
+  .is-active & {
+    @extend %mobile-menu__icon--close;
+  }
 }
 
 .mobile-menu__links {
-  background-color: $mobile-menu-bg-color-fallback;
+  background-color: $mobile-menu-fallback-bg-color;
   background-color: $mobile-menu-bg-color;
   color: $mobile-menu-text-color;
-  padding: 0.5em 0;
   position: absolute;
   width: 100%;
   z-index: 100;
+}
+
+.mobile-menu__search {
+  display: none;
+  padding: 0.5em;
+
+  form,
+  .form-item,
+  .form-text {
+    width: 100%;
+  }
+
+  .form-text {
+    @include box-sizing(border-box);
+  }
 }
