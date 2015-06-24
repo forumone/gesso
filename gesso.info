@@ -71,6 +71,7 @@ node/*.css
 system/*.css
 taxonomy/*css
 admin_menu/admin_menu-rtl.css
+facetapi/facetapi.css
 views/css/views.css
 settings[magic_footer_js] = 0
 settings[magic_library_head] = 1

@@ -13,6 +13,17 @@ function gesso_item_list($vars) {
   $type = $vars['type'];
   $attributes = $vars['attributes'];
 
+  // Change attributes for facetapi links.
+  if (isset($attributes['class'][0]) && $attributes['class'][0] == 'facetapi-facetapi-links' && !empty($items)) {
+    $attributes['class'][] = 'nav';
+    $attributes['class'][] = 'nav--facets';
+
+    // Change item classes.
+    foreach ($items as $key => $item) {
+      $items[$key]['class'] = array('nav__item');
+    }
+  }
+
   // Only output the list container and title if there are any list items.
   // Check to see whether the block title exists before adding a header.
   // Empty headers are not semantic and present accessibility challenges.
