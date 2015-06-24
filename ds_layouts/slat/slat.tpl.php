@@ -4,16 +4,16 @@
  * slat.tpl.php
  */
 ?>
-<article class="layout-slat <?php print $classes; ?>"<?php print $attributes; ?>>
+<<?php print $layout_wrapper; ?> class="layout-slat <?php print $classes; ?>"<?php print $attributes; ?>>
   <?php if ($header && $header != "&nbsp;"): ?>
-    <div class="layout-slat__header"><?php print $header; ?></div>
+    <<?php print $header_wrapper; ?> class="layout-slat__header<?php print $header_classes; ?>"><?php print $header; ?></<?php print $header_wrapper; ?>>
   <?php endif; ?>
 
   <?php if ($media && $media != "&nbsp;"): ?>
-    <div class="layout-slat__media"><?php print $media; ?></div>
+    <<?php print $media_wrapper; ?> class="layout-slat__media<?php print $media_classes; ?>"><?php print $media; ?></<?php print $media_wrapper; ?>>
   <?php endif; ?>
 
   <?php if ($main_content && $main_content != "&nbsp;"): ?>
-    <div class="layout-slat__content"><?php print $main_content; ?></div>
+    <<?php print $main_content_wrapper; ?> class="layout-slat__content<?php print $main_content_classes; ?>"><?php print $main_content; ?></<?php print $main_content_wrapper; ?>>
   <?php endif; ?>
-</article>
+</<?php print $layout_wrapper; ?>>
