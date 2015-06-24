@@ -16,7 +16,7 @@ function gesso_drush_command() {
     'options' => array(
       'description' => 'A short description of your new theme.',
       'location' => 'The location of your new theme. Defaults to sites/all/themes.',
-      'machine_name' => 'The machine-readable name of your new theme. This will be auto-generated from the human-readable name if omitted.',
+      'machine-name' => 'The machine-readable name of your new theme. This will be auto-generated from the human-readable name if omitted.',
     ),
     'examples' => array(
       'drush gesso "New Theme Name"' => 'Creates a new theme called "New Theme Name" with a machine name of "new_theme_name".',
@@ -44,9 +44,9 @@ function drush_gesso_validate($name = NULL) {
 
   $description = drush_get_option('description');
   $location = drush_get_option('location', 'sites/all/themes');
-  $machine_name = drush_get_option('machine_name', _gesso_machine_name($name));
+  $machine_name = drush_get_option('machine-name', _gesso_machine_name($name));
 
-  drush_set_option('machine_name', $machine_name);
+  drush_set_option('machine-name', $machine_name);
 
   if (!_gesso_theme_exists('gesso')) {
     return drush_set_error(
@@ -103,7 +103,7 @@ function drush_gesso($name = NULL) {
   if (!isset($name)) {
     $name = drush_get_option('name');
   }
-  $machine_name = drush_get_option('machine_name', _gesso_machine_name($name));
+  $machine_name = drush_get_option('machine-name', _gesso_machine_name($name));
   $description = drush_get_option('description');
 
   // Get theme paths.
