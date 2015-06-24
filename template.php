@@ -28,5 +28,6 @@ require_once dirname(__FILE__) . '/includes/panels.inc';
 require_once dirname(__FILE__) . '/includes/panels-ipe.inc';
 require_once dirname(__FILE__) . '/includes/progress-bar.inc';
 require_once dirname(__FILE__) . '/includes/region.inc';
+require_once dirname(__FILE__) . '/includes/taxonomy.inc';
 require_once dirname(__FILE__) . '/includes/user.inc';
 require_once dirname(__FILE__) . '/includes/views.inc';

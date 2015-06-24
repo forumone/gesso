@@ -45,6 +45,12 @@ function gesso_preprocess_page(&$vars, $hook) {
     $vars['page']['content']['system_main']['#theme_wrappers'] = array_diff($vars['page']['content']['system_main']['#theme_wrappers'], array('block'));
   }
 
+  // Remove wrapper from taxonomy term pages.
+  if  (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
+    unset($vars['page']['content']['system_main']['term_heading']['#prefix']);
+    unset($vars['page']['content']['system_main']['term_heading']['#suffix']);
+  }
+
   // Uncomment the following if you want to change page.tpl.php variables based
   // on node type.
   //if (isset($vars['node'])) {
