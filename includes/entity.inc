@@ -7,11 +7,17 @@
 /**
  * Implements hook_preprocess_entity().
  */
-function gesso_preprocess_entity(&$vars) {
+function gesso_preprocess_entity(&$vars, $hook) {
   $only_use_smacss = theme_get_setting('only_use_smacss');
   $type_class = drupal_html_class($vars['elements']['#entity_type']);
   $bundle_class = drupal_html_class($vars['elements']['#bundle']);
   $view_mode_class = drupal_html_class($vars['elements']['#view_mode']);
+
+  // Create entity type preprocess functions (e.g., field collections).
+  $function = 'gesso_preprocess_' . $vars['entity_type'];
+  if (function_exists($function)) {
+    $function($vars, $hook);
+  }
 
   // Remove some default entity classes.
   if ($only_use_smacss) {
