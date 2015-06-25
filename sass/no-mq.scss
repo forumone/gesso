@@ -1,8 +1,11 @@
-// Variables for legacy browser support.
-$legacy-support-for-ie6: false;
-$legacy-support-for-ie7: false;
-$legacy-support-for-ie8: true;
-$legacy-support-for-mozilla: false;
+// Legacy browser support.
+// Since we only want to support IE8 and below in this stylesheet, we set the
+// thresholds to 100% and manually set which IE versions we want to support.
+$critical-usage-threshold: 100;
+$graceful-usage-threshold: 100;
+$browser-minimum-versions: (
+  'ie': '8'
+);
 
 // Don't print media queries & print no query fallbacks.
 // github.com/Team-Sass/breakpoint/wiki/No-Query-Fallbacks

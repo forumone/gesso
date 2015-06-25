@@ -44,7 +44,7 @@ input.form-autocomplete {
     padding-right: em(10px, $form-text-size);
   }
 
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
+  @if support-legacy-browser('ie', '6', '8') {
     background-position: 100% $icon-vertical-offset; // LTR
 
     [dir="rtl"] & {
@@ -60,7 +60,7 @@ input.throbbing {
     background-position: left $icon-horizontal-offset top $icon-throbbing-vertical-offset;
   }
 
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
+  @if support-legacy-browser('ie', '6', '8') {
     background-position: 100% $icon-throbbing-vertical-offset; // LTR
 
     [dir="rtl"] & {

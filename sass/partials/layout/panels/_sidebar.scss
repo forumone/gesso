@@ -5,9 +5,8 @@
 // Grid via: singularity.gs
 
 .layout-panels-sidebar {
-  $grids: 1;
-  $grids: add-grid(12 at 700px);
-  $gutters: 1;
+  @include add-grid(12 at 700px);
+  @include add-gutter(1);
   @include breakpoint(700px, $no-query: true) {
     &.main.sidebar {
       .layout-main {

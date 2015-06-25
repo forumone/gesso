@@ -1,8 +1,21 @@
-// Variables for legacy browser support.
-$legacy-support-for-ie6: false;
-$legacy-support-for-ie7: false;
-$legacy-support-for-ie8: false;
-$legacy-support-for-mozilla: false;
+// Legacy browser support.
+// Since $browser-minimum-versions doesn't exclude browser versions below what's
+// set if their usage is still above the thresholds, we set those thresholds to
+// 100% and manually specify which browser versions we want to support.
+// Revisit once this issue is fixed: https://github.com/Compass/compass/issues/1762
+$critical-usage-threshold: 100;
+$graceful-usage-threshold: 100;
+$browser-minimum-versions: (
+  android: '2.2',
+  blackberry: '10',
+  chrome: '5',
+  firefox: '3.5',
+  ie: '9',
+  ios-safari: '5.0-5.1',
+  opera: '10.5',
+  opera-mobile: '12.1',
+  safari: '5'
+);
 
 $breakpoint-no-queries: false;
 $breakpoint-no-query-fallbacks: false;

@@ -24,8 +24,7 @@ progress,
 video {
   display: inline-block;
   vertical-align: baseline;
-
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+  @if support-legacy-browser('ie', '6', '7') {
     *display: inline;
     *zoom: 1;
   }
@@ -41,7 +40,7 @@ template {
   display: none;
 }
 
-@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+@if support-legacy-browser('ie', '6', '7') {
   // Address font-family inconsistency between textarea and other form elements.
   button,
   input,
@@ -74,8 +73,7 @@ pre,
 samp {
   font-family: $monospace-font-family;
   font-size: 1em;
-
-  @if $legacy-support-for-ie6 {
+  @if support-legacy-browser('ie', '6') {
     _font-family: 'courier new', monospace;
   }
 }
@@ -90,8 +88,7 @@ textarea {
   font-size: 100%;
   margin: 0;
   max-width: 100%;
-
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+  @if support-legacy-browser('ie', '6', '7') {
     vertical-align: baseline;
     *vertical-align: middle;
   }
@@ -125,8 +122,7 @@ input[type="checkbox"],
 input[type="radio"] {
   @include box-sizing(border-box);
   padding: 0;
-
-  @if $legacy-support-for-ie7 {
+  @if support-legacy-browser('ie', '7') {
     *height: 13px;
     *width: 13px;
   }

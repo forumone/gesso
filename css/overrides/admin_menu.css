@@ -17,7 +17,7 @@
   text-align: right;
 }
 
-/* line 28, ../../sass/overrides/admin_menu.scss */
+/* line 24, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon,
 #admin-menu-menu,
 #admin-menu-account,
@@ -50,10 +50,8 @@
 #admin-menu-account > li > a,
 #admin-menu-users > li > a,
 #admin-menu-search > li > a {
-  -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
-  -ms-border-radius: 1em;
-  -o-border-radius: 1em;
+  -webkit-border-radius: 1em;
   border-radius: 1em;
   border: 2px solid transparent;
   color: #fff;
@@ -63,7 +61,7 @@
   padding: 0 0.75em;
   text-decoration: none;
 }
-/* line 52, ../../sass/overrides/admin_menu.scss */
+/* line 51, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon > li > a:hover, #admin-menu-icon > li > a.is-active,
 #admin-menu-menu > li > a:hover,
 #admin-menu-menu > li > a.is-active,
@@ -107,7 +105,7 @@
 #admin-menu-search .dropdown li + li {
   border-top: 1px solid #555;
 }
-/* line 78, ../../sass/overrides/admin_menu.scss */
+/* line 77, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown a,
 #admin-menu-icon .dropdown span,
 #admin-menu-menu .dropdown a,
@@ -124,7 +122,7 @@
   padding: 0 0.5em;
   text-decoration: none;
 }
-/* line 86, ../../sass/overrides/admin_menu.scss */
+/* line 85, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown a:hover, #admin-menu-icon .dropdown a:focus,
 #admin-menu-icon .dropdown span:hover,
 #admin-menu-icon .dropdown span:focus,
@@ -163,7 +161,7 @@
 #admin-menu-search .dropdown .dropdown {
   margin: -1.75em 14em 0 0;
 }
-/* line 101, ../../sass/overrides/admin_menu.scss */
+/* line 100, ../../sass/overrides/admin_menu.scss */
 #admin-menu-icon .dropdown .expandable > a,
 #admin-menu-icon .dropdown .expandable > span,
 #admin-menu-menu .dropdown .expandable > a,

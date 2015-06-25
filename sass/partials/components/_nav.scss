@@ -37,7 +37,7 @@
   .nav__link {
     @include background-image(
       linear-gradient(
-        top,
+        to bottom,
         $gradient-light 0%,
         $gradient-dark 100%
       )

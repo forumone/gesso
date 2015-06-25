@@ -2,7 +2,7 @@
 // Clearfix
 
 @mixin clearfix {
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+  @if support-legacy-browser('ie', '6', '7') {
     *zoom: 1;
   }
 

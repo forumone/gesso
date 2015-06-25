@@ -8,7 +8,7 @@
 .progress__track {
   @include background-image(
     linear-gradient(
-      top,
+      to bottom,
       $gradient-dark 0%,
       $gradient-light 100%
     )
@@ -27,7 +27,7 @@
 .progress__bar {
   @include background-image(
     linear-gradient(
-      top,
+      to bottom,
       $gradient-light 0%,
       $gradient-dark 100%
     )

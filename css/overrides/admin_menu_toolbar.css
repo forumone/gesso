@@ -18,7 +18,7 @@
   width: 26px;
   background-image: url('../../images/bg/home.png');
   background-image: -webkit-linear-gradient(transparent, transparent), url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjIwIiB3aWR0aD0iMjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIj4KPHBhdGggZmlsbD0iI2ZmZiIgZD0ibTEzIDQtOSA2IDAgMTAgNyAwIDAtNyA0IDAgMCA3IDcgMCAwLTEwek01IDB2NS4zbC01IDMuMyAxIDEuMyAxMi04IDEyIDggMS0xLjMtMTMtOC43LTUgMy4zdi0zLjNoLTN6Ii8+Cjwvc3ZnPgo=');
-  background-image: linear-gradient(transparent, transparent), url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjIwIiB3aWR0aD0iMjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIj4KPHBhdGggZmlsbD0iI2ZmZiIgZD0ibTEzIDQtOSA2IDAgMTAgNyAwIDAtNyA0IDAgMCA3IDcgMCAwLTEwek01IDB2NS4zbC01IDMuMyAxIDEuMyAxMi04IDEyIDggMS0xLjMtMTMtOC43LTUgMy4zdi0zLjNoLTN6Ii8+Cjwvc3ZnPgo=');
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjIwIiB3aWR0aD0iMjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIj4KPHBhdGggZmlsbD0iI2ZmZiIgZD0ibTEzIDQtOSA2IDAgMTAgNyAwIDAtNyA0IDAgMCA3IDcgMCAwLTEwek01IDB2NS4zbC01IDMuMyAxIDEuMyAxMi04IDEyIDggMS0xLjMtMTMtOC43LTUgMy4zdi0zLjNoLTN6Ii8+Cjwvc3ZnPgo=');
   background-position: 0 0;
   background-repeat: no-repeat;
   display: block;
@@ -119,10 +119,8 @@
 }
 /* line 86, ../../sass/overrides/admin_menu_toolbar.scss */
 #admin-menu .shortcut-toolbar a {
-  -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
-  -ms-border-radius: 1em;
-  -o-border-radius: 1em;
+  -webkit-border-radius: 1em;
   border-radius: 1em;
   border: 2px solid transparent;
   color: #fff;
@@ -132,7 +130,7 @@
   padding: 0 0.75em;
   text-decoration: none;
 }
-/* line 97, ../../sass/overrides/admin_menu_toolbar.scss */
+/* line 96, ../../sass/overrides/admin_menu_toolbar.scss */
 #admin-menu .shortcut-toolbar a:hover, #admin-menu .shortcut-toolbar a.is-active {
   background-color: #000;
 }

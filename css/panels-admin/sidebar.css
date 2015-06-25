@@ -1,13 +1,13 @@
 @media (min-width: 43.75em) {
-  /* line 13, ../../sass/partials/layout/panels/_sidebar.scss */
+  /* line 12, ../../sass/partials/layout/panels/_sidebar.scss */
   .layout-panels-sidebar.main.sidebar .layout-main {
     width: 65.21739%;
     float: left;
     margin-right: -100%;
-    margin-left: 0%;
+    margin-left: 0;
     clear: none;
   }
-  /* line 16, ../../sass/partials/layout/panels/_sidebar.scss */
+  /* line 15, ../../sass/partials/layout/panels/_sidebar.scss */
   .layout-panels-sidebar.main.sidebar .layout-sidebar {
     width: 30.43478%;
     float: right;
@@ -17,6 +17,10 @@
   }
 }
 
+/* line 22, ../../sass/partials/layout/panels/_sidebar.scss */
+.layout-panels-sidebar {
+  *zoom: 1;
+}
 /* line 9, ../../sass/partials/global/helpers/_clearfix.scss */
 .layout-panels-sidebar:after {
   display: table;
@@ -26,13 +30,16 @@
 .layout-panels-sidebar:after {
   clear: both;
 }
-/* line 27, ../../sass/partials/layout/panels/_sidebar.scss */
+/* line 24, ../../sass/partials/layout/panels/_sidebar.scss */
 .layout-panels-sidebar .layout-preface,
 .layout-panels-sidebar .layout-main,
 .layout-panels-sidebar .layout-sidebar {
-  -webkit-box-sizing: border-box;
+  *zoom: 1;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  *box-sizing: content-box;
+  *behavior: url("/sites/all/themes/gesso/polyfills/boxsizing.htc");
 }
 /* line 9, ../../sass/partials/global/helpers/_clearfix.scss */
 .layout-panels-sidebar .layout-preface:after,
