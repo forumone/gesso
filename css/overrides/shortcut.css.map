@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAKA,eAAgB;EACd,KAAK,EAAE,KAAK;;AAEZ,2BAAc;EACZ,KAAK,EAAE,IAAI",
+"sources": ["../../sass/overrides/shortcut.scss"],
+"names": [],
+"file": "shortcut.css"
+}
