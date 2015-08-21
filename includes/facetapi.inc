@@ -43,10 +43,10 @@ function gesso_facetapi_link_active($vars) {
   // Sets options to HTML since we already sanitized the link text.
   $vars['options']['html'] = TRUE;
 
-  // Change link classes.
-  $vars['options']['attributes']['class'] = array(
-    'facet',
-    'is-active',
+  // Add link classes. We don't strip existing classes due to facetapi.js.
+  $vars['options']['attributes']['class'] = array_merge(
+    $vars['options']['attributes']['class'],
+    array('facet', 'is-inactive')
   );
 
   return theme_link($vars);
@@ -77,10 +77,10 @@ function gesso_facetapi_link_inactive($vars) {
   // Sets options to HTML since we already sanitized the link text.
   $vars['options']['html'] = TRUE;
 
-  // Change link classes.
-  $vars['options']['attributes']['class'] = array(
-    'facet',
-    'is-inactive',
+  // Add link classes. We don't strip existing classes due to facetapi.js.
+  $vars['options']['attributes']['class'] = array_merge(
+    $vars['options']['attributes']['class'],
+    array('facet', 'is-inactive')
   );
 
   return theme_link($vars);
