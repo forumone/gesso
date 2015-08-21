@@ -86,6 +86,11 @@ function gesso_field__expert($vars) {
 
   $config = $vars['ds-config'];
 
+  // Render the prefix if given.
+  if (isset($config['prefix'])) {
+    $output .= $config['prefix'];
+  }
+
   // Render the label if it's not hidden.
   if (!$vars['label_hidden']) {
     $label_wrapper = isset($config['lb-el']) ? $config['lb-el'] : 'div';
@@ -152,6 +157,11 @@ function gesso_field__expert($vars) {
   // Closing field items wrapper.
   if (isset($config['fis'])) {
     $output .= '</' . $config['fis-el'] . '>';
+  }
+
+  // Render the suffix if given.
+  if (isset($config['suffix'])) {
+    $output .= $config['suffix'];
   }
 
   // Outer wrapper.
