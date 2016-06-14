@@ -20,7 +20,7 @@
   <?php endif; ?>
 
   <?php if ($exposed): ?>
-    <div class="view__filters">
+    <div class="view__filters view-filters">
       <?php print $exposed; ?>
     </div>
   <?php endif; ?>
@@ -32,9 +32,13 @@
   <?php endif; ?>
 
   <?php if ($rows): ?>
-    <?php print $rows; ?>
+    <div class="view__content view-content">
+      <?php print $rows; ?>
+    </div>
   <?php elseif ($empty): ?>
-    <?php print $empty; ?>
+    <div class="view__empty view-empty">
+      <?php print $empty; ?>
+    </div>
   <?php endif; ?>
 
   <?php if ($pager): ?>
