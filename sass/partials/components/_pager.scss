@@ -1,0 +1,29 @@
+// @file
+// Styles for pagers.
+
+.pager {
+  list-style: none;
+  padding: 0;
+}
+
+.pager__item {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.pager__link--first:before {
+  content: "|\00AB";
+}
+
+.pager__link--previous:before {
+  content: "\2039";
+}
+
+.pager__link--next:before {
+  content: "\203A";
+}
+
+.pager__link--last:before {
+  content: "\00BB|";
+}

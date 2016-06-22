@@ -1,0 +1,70 @@
+// @file
+// Styles for Drupal's autocomplete widget.
+
+$icon-horizontal-offset: em(8px, $form-text-size);
+$icon-vertical-offset: 12px;
+$icon-throbbing-vertical-offset: -47px;
+
+#autocomplete {
+  border: 1px solid $form-border-color;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    background: #fff;
+    color: #000;
+    cursor: default;
+    margin: 0;
+    padding: 0.25em;
+    white-space: pre;
+
+    &.selected {
+      background: $selection-background;
+      color: $selection-foreground;
+    }
+  }
+}
+
+input.form-autocomplete {
+  background-image: url(../images/bg/throbber.gif);
+  background-position: right $icon-horizontal-offset top $icon-vertical-offset; // LTR
+  background-repeat: no-repeat;
+  padding-right: em(30px, $form-text-size); // LTR
+
+  [dir="rtl"] & {
+    background-position: left $icon-horizontal-offset top $icon-vertical-offset;
+    padding-left: em(30px, $form-text-size);
+    padding-right: em(10px, $form-text-size);
+  }
+
+  @if support-legacy-browser('ie', '6', '8') {
+    background-position: 100% $icon-vertical-offset; // LTR
+
+    [dir="rtl"] & {
+      background-position: 0 $icon-vertical-offset;
+    }
+  }
+}
+
+input.throbbing {
+  background-position: right $icon-horizontal-offset top $icon-throbbing-vertical-offset; // LTR
+
+  [dir="rtl"] & {
+    background-position: left $icon-horizontal-offset top $icon-throbbing-vertical-offset;
+  }
+
+  @if support-legacy-browser('ie', '6', '8') {
+    background-position: 100% $icon-throbbing-vertical-offset; // LTR
+
+    [dir="rtl"] & {
+      background-position: 0 $icon-throbbing-vertical-offset;
+    }
+  }
+}

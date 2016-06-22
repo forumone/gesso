@@ -1,0 +1,71 @@
+// @file
+// Styles for form items.
+
+.form-item {
+  margin: 1.5em 0;
+}
+
+.form-item__label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-item__fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.form-item__legend {
+  font-weight: bold;
+}
+
+.form-item__description {
+  color: $secondary-text-color;
+  font-size: em($font-size-md);
+}
+
+.form-item__required-marker:before {
+  content: "*";
+}
+
+.form-item--checkbox,
+.form-item--radio {
+  .form-item__label {
+    display: inline;
+    font-weight: normal;
+  }
+}
+
+.form-item--checkboxes .form-item--checkbox,
+.form-item--radio {
+  margin: 0;
+}
+
+.form-item--date-day,
+.form-item--date-month,
+.form-item--date-year {
+  display: inline-block;
+  margin: 0;
+}
+
+.form-item--password-confirm-pass-1 {
+  margin-bottom: 0.75em;
+}
+
+.form-item--password-confirm-pass-2 {
+  margin: 0.75em 0;
+}
+
+.form-select,
+.form-text,
+.form-textarea {
+  border: 1px solid $form-border-color;
+  font-size: em($form-text-size);
+  padding: em(5px, $form-text-size) em(10px, $form-text-size);
+
+  &:focus {
+    border-color: darken($form-border-color, 50%);
+    outline: 0;
+  }
+}

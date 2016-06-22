@@ -1,0 +1,64 @@
+// @file
+// Styles for progress bars.
+
+.progress {
+  position: relative;
+}
+
+.progress__track {
+  background-color: #fff;
+  background-image: linear-gradient(to bottom, $gradient-dark 0%, $gradient-light 100%);
+  border: 1px solid $form-border-color;
+  border-radius: 1em;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+  height: 1em;
+  margin-bottom: 0.25em;
+  max-width: 100%;
+  min-width: 6em;
+  overflow: hidden;
+}
+
+.progress__bar {
+  background-color: lighten($link-color, 15%);
+  background-image: linear-gradient(to bottom, $gradient-light 0%, $gradient-dark 100%);
+  border: 1px solid darken($link-color, 15%);
+  border-radius: 1em;
+  height: 1em;
+  transition-duration: 0.5s;
+  transition-property: width;
+  transition-timing-function: ease-out;
+  width: 3%;
+}
+
+.progress__description,
+.progress__percentage {
+  color: $secondary-text-color;
+  font-size: em($font-size-sm);
+  overflow: hidden;
+}
+
+.progress__description {
+  float: left; // LTR
+
+  [dir="rtl"] & {
+    float: right;
+  }
+}
+
+.progress__percentage {
+  float: right; // LTR
+
+  [dir="rtl"] & {
+    float: left;
+  }
+}
+
+.progress--small {
+  .progress__track {
+    height: 0.5em;
+  }
+
+  .progress__bar {
+    height: 0.5em;
+  }
+}

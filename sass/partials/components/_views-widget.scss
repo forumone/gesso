@@ -1,0 +1,25 @@
+// @file
+// Styles for a views widget.
+
+$bp-inline-widgets: 300px, 'no-query' true;
+
+.views-widget {
+  margin: 0 0 1.5em 0;
+  max-width: 100%;
+
+  @include breakpoint($bp-inline-widgets) {
+    display: inline-block;
+    margin-right: 1em;
+  }
+
+  .button,
+  .form-item {
+    margin-bottom: 0;
+  }
+}
+
+.views-widget__label {
+  display: block;
+  font-family: $header-font-family;
+  font-size: em($font-size-md);
+}

@@ -1,0 +1,10 @@
+// @file
+// Styles for secondary local tasks menu.
+
+.nav--secondary-local-tasks {
+  @extend %nav--pipeline;
+
+  @media print {
+    display: none;
+  }
+}

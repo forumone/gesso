@@ -1,0 +1,478 @@
+// @file
+// Default styling of html elements.
+
+*,
+*:before,
+*:after {
+  // Box-sizing: border-box
+  @include border-box;
+}
+
+* {
+  // Universal transitions
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+  transition-timing-function:linear;
+}
+
+a {
+  background-color: transparent;
+  color: $link-color;
+  // Improves readability when focused.
+  outline-offset: em(2px);
+
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+  }
+}
+
+abbr {
+  @include smallcaps();
+
+  &[title] {
+    border-bottom: 1px dotted;
+  }
+
+  &:hover {
+    cursor: help;
+  }
+}
+
+address {}
+
+article {}
+
+aside {}
+
+audio {}
+
+b {}
+
+blockquote {
+  margin: 0 1.5em 1.5em;
+}
+
+body {
+  background-color: $body-color;
+  color: $primary-text-color;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+// Don't style button elements, since they're often styled as links for
+// accessible widgets. Use the .button class in partials/components/buttons.
+button {
+  overflow: visible;
+}
+
+canvas {}
+
+caption {}
+
+cite {}
+
+code {}
+
+col {}
+
+colgroup {}
+
+datalist {}
+
+dd {
+  margin-bottom: 1.5em;
+}
+
+del {}
+
+details {}
+
+dfn {
+  font-style: italic;
+}
+
+dl {
+  margin: 0 0 1.5em;
+}
+
+dt {}
+
+em {}
+
+embed {}
+
+fieldset {}
+
+figcaption {}
+
+figure {
+  margin: 0 0 1.5em;
+}
+
+footer {}
+
+form {
+  @if support-legacy-browser('ie', '6', '7') {
+    // Correct margin displayed oddly in IE 6/7.
+    margin: 0;
+  }
+}
+
+%hN {
+  color: $heading-text-color;
+  font-family: $header-font-family;
+  hyphens: none;
+  line-height: 1.1;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  @extend %hN;
+  font-size: em($font-size-xxl);
+  margin: 0 0 1em;
+}
+
+h2 {
+  @extend %hN;
+  font-size: em($font-size-xl);
+  margin: 0 0 1em;
+}
+
+h3 {
+  @extend %hN;
+  font-size: em($font-size-lg);
+  margin: 0 0 1em;
+}
+
+h4 {
+  @extend %hN;
+  font-size: em($font-size-normal);
+  margin: 0 0 1.5em;
+}
+
+h5 {
+  @extend %hN;
+  font-size: em($font-size-md);
+  margin: 0 0 1.5em;
+}
+
+h6 {
+  @extend %hN;
+  font-size: em($font-size-sm);
+  margin: 0 0 1.5em;
+}
+
+header {}
+
+hr {
+  border: 1px solid $form-border-color;
+  box-sizing: content-box;
+  height: 0;
+  margin: 1.5em 0;
+  padding-bottom: -1px;
+}
+
+html {
+  font-family: $base-font-family;
+  font-size: 100% * ($base-font-size / 16px);
+  hyphens: none;
+  line-height: $base-line-height;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+i {}
+
+iframe {}
+
+img {
+  border: 0;
+  @if support-legacy-browser('ie', '7') {
+    // Improve image quality when scaled in IE 7.
+    -ms-interpolation-mode: bicubic;
+  }
+  @if support-legacy-browser('ie', '8') {
+    // Correct IE 8 not scaling image height when resized.
+    width: auto;
+  }
+}
+
+// Don't style button, submit, or reset elements, since they're often styled as
+// links for accessible widgets. Use the .button class in
+// partials/components/buttons.
+input {
+  line-height: normal;
+}
+
+input[type="button"] {}
+input[type="checkbox"] {}
+input[type="color"] {}
+input[type="date"] {}
+input[type="datetime"] {}
+input[type="datetime-local"] {}
+input[type="email"] {}
+input[type="file"] {}
+input[type="image"] {}
+input[type="month"] {}
+input[type="number"] {}
+input[type="password"] {}
+input[type="radio"] {}
+input[type="range"] {}
+input[type="reset"] {}
+input[type="search"] {}
+input[type="submit"] {}
+input[type="tel"] {}
+input[type="text"] {}
+input[type="time"] {}
+input[type="url"] {}
+input[type="week"] {}
+
+ins {}
+
+kbd {}
+
+label {}
+
+legend {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  @if support-legacy-browser('ie', '6', '7') {
+    *margin-left: -7px; // LTR
+
+    [dir="rtl"] & {
+      *margin-left: 0;
+      *margin-right: -7px;
+    }
+  }
+}
+
+li {}
+
+main {}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+menu {}
+
+menuitem {}
+
+meter {}
+
+nav {}
+
+object {}
+
+ol {
+  margin: 0 0 1.5em;
+  padding: 0 0 0 1.5em; // LTR
+
+  [dir="rtl"] & {
+    padding: 0 1.5em 0 0;
+  }
+
+  ol,
+  ul {
+    margin: 0;
+  }
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+option {}
+
+output {}
+
+p {
+  margin: 0 0 1.5em;
+}
+
+param {}
+
+pre {
+  margin: 0 0 1.5em;
+  overflow: auto;
+  @if support-legacy-browser('ie', '6', '7') {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+progress {}
+
+q {}
+
+s {}
+
+samp {}
+
+section {}
+
+select {}
+
+small {
+  font-size: em($font-size-md);
+}
+
+strong {}
+
+sub {
+  bottom: -0.25em;
+}
+
+summary {}
+
+sup {
+  top: -0.5em;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tbody {}
+
+td {}
+
+textarea {
+  overflow: auto;
+}
+
+tfoot {}
+
+th {}
+
+thead {}
+
+time {}
+
+tr {}
+
+u {}
+
+ul {
+  margin: 0 0 1.5em;
+  padding: 0 0 0 1.2em; // LTR
+
+  [dir="rtl"] & {
+    padding: 0 1.2em 0 0;
+  }
+
+  ol,
+  ul {
+    margin: 0;
+  }
+}
+
+var {}
+
+video {}
+
+// Default print styles
+@media print {
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    text-shadow: none !important;
+    @if support-legacy-browser('ie', '6', '8') {
+      -ms-filter: none !important;
+      filter: none !important;
+    }
+  }
+
+  iframe,
+  nav {
+    display: none;
+  }
+
+  a,
+  a:visited {
+    text-decoration: none;
+  }
+
+  a[href]:after {
+    content: " <" attr(href) ">";
+    font-family: $base-font-family;
+    font-size: 10pt;
+    font-weight: normal;
+    text-transform: lowercase;
+  }
+
+  // Uncomment and replace example.com with your site's domain.
+  //a[href^="/"]:after {
+  //  content: " <http://example.com" attr(href) ">";
+  //}
+
+  a[href^="javascript:"]:after,
+  a[href^="mailto:"]:after,
+  a[href^="tel:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  blockquote,
+  pre {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  img,
+  tr,
+  ul {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  h1 a:after,
+  h2 a:after,
+  h3 a:after,
+  h4 a:after,
+  h5 a:after,
+  h6 a:after {
+    display: inline-block;
+  }
+
+  h2,
+  h3,
+  h4,
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3,
+  h4 {
+    page-break-after: avoid;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}

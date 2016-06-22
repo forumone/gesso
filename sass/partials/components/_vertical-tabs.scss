@@ -1,0 +1,117 @@
+// @file
+// Styles for vertical tabs.
+
+.vertical-tabs {
+  background: $body-color;
+  border: 1px solid $form-border-color;
+  margin: 1.5em 0;
+  position: relative;
+}
+
+.vertical-tabs-list {
+  background: $form-bg-color;
+  border-bottom: 1px solid $form-border-color;
+  float: left; // LTR
+  list-style: none;
+  margin: 0 -100% -1px 0; // LTR
+  padding: 0;
+  position: relative;
+  width: 256px;
+  z-index: 1;
+
+  [dir="rtl"] & {
+    float: right;
+    margin: 0 0 -1px -100%;
+    padding: 0;
+  }
+}
+
+.vertical-tabs-list li {
+  margin: 0;
+  padding: 0;
+
+  @if support-legacy-browser('ie', '6', '7') {
+    *min-width: 0;
+  }
+}
+
+.vertical-tabs-list a {
+  border: 1px solid $form-border-color;
+  border-width: 1px 1px 0 0; // LTR
+  display: block;
+  margin: 0;
+  outline: 0;
+  padding: 0.5em 0.6em;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+
+  [dir="rtl"] & {
+    border-width: 1px 0 0 1px;
+  }
+}
+
+.vertical-tabs-list .first a {
+  border-top: 0;
+}
+
+.vertical-tabs-list .selected a {
+  background: #fff;
+  border-right: 1px solid #fff; // LTR
+
+  [dir="rtl"] & {
+    border-left: 1px solid #fff;
+    border-right: 0;
+  }
+}
+
+.vertical-tabs-list .selected strong {
+  color: #333;
+}
+
+.vertical-tabs-list .summary {
+  display: block;
+}
+
+.vertical-tab-button {
+  outline: 0;
+}
+
+.vertical-tabs-panes {
+  background: #fff;
+  border-left: 255px solid $form-bg-color; // LTR
+
+  [dir="rtl"] & {
+    border-right: 255px solid $form-bg-color; // LTR
+    border-left: 0;
+  }
+}
+
+.vertical-tabs-pane > legend {
+  display: none;
+}
+
+.vertical-tabs fieldset {
+  display: table-cell;   // allows responsive form elements
+  min-width: 0; // necessary responsive form elements for webkit
+}
+
+.vertical-tabs fieldset.fieldset {
+  border-width: 0 0 0 1px; // LTR
+  margin: 0;
+  padding: 0;
+  top: 0;
+
+  [dir="rtl"] & {
+    border-width: 0 1px 0 0;
+  }
+}
+
+.vertical-tabs .fieldset__content {
+  margin-top: 0;
+  min-height: 100%;
+  padding: 0.5em 1em;
+}
+
+.vertical-tabs .form-type-textfield input {
+  width: 100%;
+}

@@ -1,0 +1,60 @@
+// @file
+// Accessibility mixins and extendables.
+
+// Makes an element visually hidden, but accessible.
+// @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+@mixin element-invisible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Turns off the element-invisible effect.
+@mixin element-invisible-off {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  width: auto;
+}
+
+// Makes an element visually hidden by default, but visible when focused.
+@mixin element-focusable {
+  @include element-invisible;
+
+  &:active,
+  &:focus {
+    @include element-invisible-off;
+  }
+}
+
+// Makes an element completely hidden, visually and to screen readers.
+@mixin element-hidden {
+  display: none;
+}
+
+%element-invisible {
+  @include element-invisible;
+}
+
+%element-invisible-off {
+  @include element-invisible-off;
+}
+
+%element-focusable {
+  @extend %element-invisible;
+
+  &:active,
+  &:focus {
+    @extend %element-invisible-off;
+  }
+}
+
+%element-hidden {
+  @include element-hidden;
+}

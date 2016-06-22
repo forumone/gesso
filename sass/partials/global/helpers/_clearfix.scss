@@ -1,0 +1,21 @@
+// @file
+// Clearfix
+
+@mixin clearfix {
+  @if support-legacy-browser('ie', '6', '7') {
+    *zoom: 1;
+  }
+
+  &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+%clearfix {
+  @include clearfix;
+}

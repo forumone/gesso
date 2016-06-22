@@ -1,0 +1,42 @@
+// @file
+// Color variables
+// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+
+$primary-text-color: #333;
+$secondary-text-color: #555;
+$heading-text-color: #333;
+$body-color: #fff;
+$link-color: blue;
+$link-hover-color: green;
+$selection-background: blue;
+$selection-foreground: #fff;
+$status-color: #4d8e4d;
+$warning-color: #fcce00;
+$error-color: #900;
+$border-color: #ccc;
+$gradient-light: rgba(255, 255, 255, 0.2);
+$gradient-dark: rgba(0, 0, 0, 0.2);
+
+// Buttons
+$button-bg-color: #f9f9f9;
+$button-text-color: #333;
+
+// Forms
+$form-bg-color: #eee; // Used for fieldsets and vertical-tabs.
+$form-border-color: #ccc;
+
+// Mobile Menu
+$mobile-menu-fallback-bg-color: #f3f3f3;
+$mobile-menu-bg-color: rgba(243, 243, 243, 0.98);
+$mobile-menu-border-color: #dadada;
+$mobile-menu-text-color: #555559;
+$mobile-menu-hover-color: #000000;
+$mobile-submenu-fallback-bg-color: #fff;
+$mobile-submenu-bg-color: rgba(255, 255, 255, 0.98);
+$mobile-submenu-text-color: #555559;
+$mobile-submenu-hover-color: #000000;
+
+// Nav
+$pillbox-bg-color: #f9f9f9;
+$pillbox-text-color: #333;
+$pipeline-border-color: #ccc;

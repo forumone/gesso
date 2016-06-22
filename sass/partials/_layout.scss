@@ -1,0 +1,8 @@
+// @file
+// Layout partials
+//
+// The layout of major regions that components will be placed into. Build
+// sub-folders and partials in the 'layout' folder. Sass globbing will
+// automatically import these partials.
+
+@import 'sass-globbing/layout';

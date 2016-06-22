@@ -1,0 +1,9 @@
+// @file
+// Smallcaps mixin
+
+@mixin smallcaps() {
+  // Some font-families don’t support small caps or don’t provide them with
+  // their web font.
+  font-variant: small-caps;
+  text-transform: lowercase;
+}

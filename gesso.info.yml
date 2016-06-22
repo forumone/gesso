@@ -1,0 +1,24 @@
+name: Gesso
+type: theme
+description: Gesso
+package: Core
+core: 8.x
+base theme: stable
+
+libraries:
+  - gesso/global
+
+regions:
+  page_top: 'Page top'
+  header: Header
+  navigation: Navigation
+  breadcrumb: Breadcrumb
+  help: Help
+  highlighted: Highlighted
+  preface: Preface
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  content: Content
+  postscript: Postscript
+  footer: Footer
+  page_bottom: 'Page bottom'

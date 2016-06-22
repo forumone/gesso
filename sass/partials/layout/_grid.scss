@@ -1,0 +1,41 @@
+// @file
+// Generic grid styles.
+
+$gutter-width: 1em;
+
+.layout-grid {
+  // So .layout-grid__row negative margins don't create horizontal scrollbar.
+  overflow: hidden;
+}
+
+.layout-grid__row {
+  @extend %clearfix;
+  margin-left: -$gutter-width;
+  margin-right: -$gutter-width;
+}
+
+.layout-grid__column {
+  float: left;
+  padding: 0 $gutter-width;
+  width: 100%;
+}
+
+.layout-grid--cols-2 .layout-grid__column {
+  width: (1/2) * 100%;
+}
+
+.layout-grid--cols-3 .layout-grid__column {
+  width: (1/3) * 100%;
+}
+
+.layout-grid--cols-4 .layout-grid__column {
+  width: (1/4) * 100%;
+}
+
+.layout-grid--cols-5 .layout-grid__column {
+  width: (1/5) * 100%;
+}
+
+.layout-grid--cols-6 .layout-grid__column {
+  width: (1/6) * 100%;
+}

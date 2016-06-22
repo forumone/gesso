@@ -1,0 +1,10 @@
+// @file
+// Component partials
+//
+// Discrete, reusable UI components. (SMACSS "modules") Build sub-folders and
+// partials in the 'components' folder. Sass globbing will automatically
+// import partials in the 'components' directory, but NOT in sub-directories
+// to ensure load order. Sub-directories will need to be manually imported
+// from a partial in the 'components' directory. See _nav.scss for an example.
+
+@import 'sass-globbing/components';
