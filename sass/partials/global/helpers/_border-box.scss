@@ -5,7 +5,7 @@
   box-sizing: border-box;
 
   // Courtesy of Zen Grids. Modified a bit.
-  @if support-legacy-browser('ie', '7') {
+  @if $legacy-support-for-ie7 {
     @if $box-sizing-polyfill-path == '' {
       @warn 'IE legacy support is on, but the $box-sizing-polyfill-path is empty.';
     }

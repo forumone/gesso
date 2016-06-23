@@ -41,21 +41,21 @@
 }
 
 .messages--status {
-  @include svg-background(messages-status);
+  @include svg-background-inline(messages-status);
   background-color: lighten($status-color, 50%);
   border-color: $status-color;
   color: darken($status-color, 20%);
 }
 
 .messages--warning {
-  @include svg-background(messages-warning);
+  @include svg-background-inline(messages-warning);
   background-color: lighten($warning-color, 40%);
   border-color: $warning-color;
   color: darken($warning-color, 40%);
 }
 
 .messages--error {
-  @include svg-background(messages-error);
+  @include svg-background-inline(messages-error);
   background-color: lighten($error-color, 65%);
   border-color: $error-color;
   color: darken($error-color, 20%);

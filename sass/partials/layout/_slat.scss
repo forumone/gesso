@@ -5,7 +5,7 @@ $bp-first: 600px, 'no-query' true;
 $gutter: 1em;
 
 .layout-slat {
-  @include clearfix;
+  @extend %clearfix;
 }
 
 .layout-slat__media {

@@ -57,11 +57,11 @@
 }
 
 %mobile-menu__icon--close {
-  @include svg-background(mobile-close);
+  @include svg-background-inline(mobile-close);
 }
 
 .mobile-menu__icon--menu {
-  @include svg-background(mobile-menu);
+  @include svg-background-inline(mobile-menu);
   background-size: 33px 22px;
   width: 33px;
 
@@ -72,7 +72,7 @@
 }
 
 .mobile-menu__icon--search {
-  @include svg-background(mobile-search);
+  @include svg-background-inline(mobile-search);
 
   .is-active & {
     @extend %mobile-menu__icon--close;
