@@ -4,8 +4,7 @@
 *,
 *:before,
 *:after {
-  // Box-sizing: border-box
-  @include border-box;
+  box-sizing: border-box;
 }
 
 * {
