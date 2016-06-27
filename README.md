@@ -7,15 +7,50 @@ leverages [SMACSS](https://smacss.com/) to organize styles as outlined in the
 This encourages a component-based approach to theming through the creation of
 discrete, reusable UI elements.
 
-For a full description of this theme, view the
-[Gesso project page](https://drupal.org/project/gesso/). To submit bug reports
-or feature requests, visit the
-[Gesso issue queue](https://drupal.org/project/issues/gesso/).
+For more information, view the
+[Gesso project page](https://drupal.org/project/gesso/) or [Gesso GitHub repo](https://github.com/forumone/gesso). 
+To submit bug reports or feature requests, visit the
+[Gesso issue queue](https://github.com/forumone/gesso/issues).
 
-### Installation
-npm install (use --no-bin-links flag if on PC)
 
-### Pattern Lab (twig version) installation
+## Installation
+
+1.  Place the Gesso theme in your site’s theme directory.
+    (e.g., sites/all/themes/gesso) Read documentation on
+    [installing themes](https://drupal.org/getting-started/install-contrib/themes)
+    for more information.
+
+2.  Because Gesso is a starter theme, it may be best to rename the Gesso
+    directory or copy its contents to a new custom theme directory based on the
+    name of your project.
+
+    The easiest way to accomplish this is to use [Drush](https://github.com/drush-ops/drush).
+    Type `drush gesso --help` for more information.
+
+    If you can’t use Drush, then manually replace all instances of 'gesso'
+    within this directory with a machine-readable name of your choice, including
+    folder names, filenames, and all occurrences within files. This custom name
+    must start with a letter and may only contain lowercase letters, numbers,
+    and underscores.
+
+3.  Edit the .info file and update the theme name and description. You can also
+    change the screenshot image (images/screenshot.png) shown on the Appearance
+    admin page.
+
+
+## Configuration
+
+Gesso includes several theme-specific settings for managing classes output by
+Drupal, which you can change at admin/appearance/settings/gesso.
+
+
+### Pattern Lab installation
+
+The included Grunt tasks assume that an instance of the Drupal standard edition
+of Pattern Lab and the Gesso Twig starter kit are installed in a subdirectory
+of the theme called 'pattern-lab'.  To install Pattern Lab, run the following
+Composer command in the theme directory.
+
 ```
 $ composer create-project pattern-lab/edition-drupal-standard pattern-lab
 ```
@@ -23,7 +58,33 @@ When prompted, select /forumone/starterkit-twig-drupal-gesso as the starterkit.
 
 If prompted, select 'r' to overwrite existing /source/ files.
 
-### Sass dependencies
+(If you do not install Pattern Lab but still wish to use the Grunt tasks,
+remove the buildPatternlab call from the /tasks/register/build.js file)
+
+
+### Compiling Sass
+
+[LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
+CSS. Gesso includes Grunt tasks to compile the CSS/Pattern Lab files and to
+watch them for changes.  To use these tasks, run the following NPM command in
+the theme folder (you may need to include the --no-bin-links flag at the end of
+the command if on PC).
+```
+npm install
+```
+To run the Grunt build task, run
+```
+grunt
+```
+
+### Build Artifacts
+
+By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/public/
+and /css/) are ignored by Git as these files should be build during deployment.  
+To change this, edit the included .gitignore file.
+
+
+### Sass/Grunt dependencies
 
 * [Breakpoint](http://breakpoint-sass.com): Easy to write media queries.
 
@@ -35,6 +96,9 @@ based imports to Sass.
 
 * [Singularity](http://singularity.gs): Grid-based layout system.
 
+* [SVG2PNG](https://github.com/dbushell/grunt-svg2png): Creates PNG fallbacks for SVG files
+
+* [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary browser CSS property prefixes during Sass compilation.
 
 ## Maintainers
 
