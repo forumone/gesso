@@ -2,6 +2,11 @@
 // Admin syles for Panels layout: three-column
 
 $panels-admin: true;
-
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+@import 'breakpoint-sass/stylesheets/breakpoint'; // github.com/Team-Sass/breakpoint
+@include breakpoint-set('no queries', false);
+@include breakpoint-set('no query fallbacks', false);
 @import '../partials/global';
-@import '../partials/layout/panels/three-column';
+@import '../partials/layout/three-column';

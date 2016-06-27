@@ -4,7 +4,7 @@
 .vertical-tabs {
   background: $body-color;
   border: 1px solid $form-border-color;
-  margin: rhythm(1) 0;
+  margin: 1.5em 0;
   position: relative;
 }
 
@@ -30,7 +30,7 @@
   margin: 0;
   padding: 0;
 
-  @if support-legacy-browser('ie', '6', '7') {
+   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     *min-width: 0;
   }
 }

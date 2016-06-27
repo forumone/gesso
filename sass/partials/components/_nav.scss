@@ -35,14 +35,8 @@
   }
 
   .nav__link {
-    @include background-image(
-      linear-gradient(
-        to bottom,
-        $gradient-light 0%,
-        $gradient-dark 100%
-      )
-    );
     background-color: $pillbox-bg-color;
+    background-image: linear-gradient(to bottom, $gradient-light 0%, $gradient-dark 100%);
     border: 1px solid darken($pillbox-bg-color, 20%);
     border-bottom-color: darken($pillbox-bg-color, 25%);
     border-top-color: darken($pillbox-bg-color, 15%);
@@ -85,35 +79,35 @@
   }
 
   > .nav__item:first-child > .nav__link {
-    @include border-top-left-radius();
-    @include border-top-right-radius();
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;;
 
     @include breakpoint(30em) {
-      @include border-bottom-left-radius(); // LTR
-      @include border-top-right-radius(0); // LTR
+      border-bottom-left-radius: 5px; // LTR
+      border-top-right-radius: 0; // LTR
 
       [dir="rtl"] & {
-        @include border-bottom-left-radius(0);
-        @include border-bottom-right-radius();
-        @include border-top-left-radius(0);
-        @include border-top-right-radius();
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 5px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 5px;
       }
     }
   }
 
   > .nav__item:last-child > .nav__link {
-    @include border-bottom-left-radius();
-    @include border-bottom-right-radius();
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 
     @include breakpoint(30em) {
-      @include border-bottom-left-radius(0); // LTR
-      @include border-top-right-radius(); // LTR
+      border-bottom-left-radius: 0; // LTR
+      border-top-right-radius: 5px; // LTR
 
       [dir="rtl"] & {
-        @include border-bottom-left-radius();
-        @include border-bottom-right-radius(0);
-        @include border-top-left-radius();
-        @include border-top-right-radius(0);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 0;
       }
     }
   }
@@ -157,6 +151,4 @@
     font-weight: bold;
   }
 }
-
-// Custom nav styles imported via sass globbing.
-@import 'nav/*.*';
+ 

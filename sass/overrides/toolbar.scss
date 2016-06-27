@@ -1,6 +1,11 @@
 // @file
 // Styles for the admin toolbar.
-
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+@import 'breakpoint-sass/stylesheets/breakpoint'; // github.com/Team-Sass/breakpoint
+@include breakpoint-set('no queries', false);
+@include breakpoint-set('no query fallbacks', false);
 @import '../partials/global';
 
 #toolbar {
@@ -20,8 +25,8 @@
 }
 
 #toolbar a {
-  @include border-radius(1em);
   border: 2px solid transparent;
+  border-radius: 1em;
   color: #fff;
   margin: 0;
   outline: 0;
@@ -96,12 +101,12 @@
 
 #toolbar .toggle {
   @include image-replace(25px, 25px);
-  @include border-bottom-left-radius(0);
-  @include border-bottom-right-radius(0);
-  @include border-top-left-radius(0.5em);
-  @include border-top-right-radius(0.5em);
   background: #555;
   border: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
   bottom: 0;
   cursor: pointer;
   padding: 0;

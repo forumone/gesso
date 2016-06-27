@@ -24,7 +24,7 @@ progress,
 video {
   display: inline-block;
   vertical-align: baseline;
-  @if support-legacy-browser('ie', '6', '7') {
+   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     *display: inline;
     *zoom: 1;
   }
@@ -40,7 +40,7 @@ template {
   display: none;
 }
 
-@if support-legacy-browser('ie', '6', '7') {
+ @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
   // Address font-family inconsistency between textarea and other form elements.
   button,
   input,
@@ -73,7 +73,7 @@ pre,
 samp {
   font-family: $monospace-font-family;
   font-size: 1em;
-  @if support-legacy-browser('ie', '6') {
+   @if $legacy-support-for-ie6 {
     _font-family: 'courier new', monospace;
   }
 }
@@ -88,7 +88,7 @@ textarea {
   font-size: 100%;
   margin: 0;
   max-width: 100%;
-  @if support-legacy-browser('ie', '6', '7') {
+   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     vertical-align: baseline;
     *vertical-align: middle;
   }
@@ -120,9 +120,9 @@ input::-moz-focus-inner {
 
 input[type="checkbox"],
 input[type="radio"] {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   padding: 0;
-  @if support-legacy-browser('ie', '7') {
+   @if $legacy-support-for-ie7 {
     *height: 13px;
     *width: 13px;
   }
@@ -135,7 +135,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield;
-  @include box-sizing(content-box);
+  box-sizing: content-box;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -152,7 +152,7 @@ q,
 samp,
 tt,
 var {
-  @include hyphens(none);
+  hyphens: none;
 }
 
 img,

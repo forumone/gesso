@@ -12,10 +12,10 @@
 .skiplinks__link,
 .skiplinks__link:visited,
 .skiplinks__link:focus {
-  @include border-bottom-left-radius();
-  @include border-bottom-right-radius();
   background-color: #333;
   border: 2px solid #eee;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   border-top: 0;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   color: #eee;

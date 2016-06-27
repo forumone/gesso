@@ -60,8 +60,4 @@
 .layout-sidebar-multi-row__row-4-third,
 .layout-sidebar-multi-row__postscript {
   @include clearfix;
-
-  @if $panels-admin {
-    @include border-box;
-  }
 }

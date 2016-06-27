@@ -1,2 +1,7 @@
-# Ignore Sass cache directory
+.DS_Store
+node_modules
+bower_components
 .sass-cache
+sass/partials/sass-globbing/
+css/**/*.css
+css/**/*.map
