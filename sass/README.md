@@ -7,7 +7,6 @@ SCSS. [Variables](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#va
 and [Mixins](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#mixins)
 are just a few of Sass’s powerful features.
 
-
 ## File Structure
 
 This Sass file structure uses many of the ideas discussed in Jonathan Snook’s
@@ -26,6 +25,10 @@ compiled styles.css file is sent to all browsers except IE8 and below.
 A duplicate of styles.scss, but includes legacy support for older browsers. By
 default, the compiled no-mq.css file is only sent to IE8 and below.
 
+### pattern-lab.scss
+A file only loaded by Pattern Lab.  Styles specific to the Pattern Lab UI (or other
+styles that the theme should not output to Drupal) may be placed here.
+
 ### partials/_global.scss
 Global extensions, variables, functions, and mixins that should be imported into
 all scss files.
@@ -36,9 +39,6 @@ default styles for HTML elements. Custom font declarations go here as well.
 
 ### partials/_helper-classes.scss
 Helper classes that aren’t components themselves, such as clearfix.
-
-### partials/_module_tweaks.scss
-Minor tweaks for styles provided by Drupal modules.
 
 ### partials/_layout.scss
 The layout of major regions that components will be placed into.
@@ -53,12 +53,7 @@ later to move/re-factor these styles into their proper place.
 
 ### overrides/
 Stylesheets provided by Drupal modules that you want to completely override go
-here. Please update gesso_css_alter() in includes/css.inc to ensure the module’s
-stylesheet is not added and this stylesheet is added in its place.
-
-### panels-admin/
-When creating Panels layouts, stylesheets for the Panels admin interface belong
-in this directory.
+here. 
 
 
 ## SMACSS
