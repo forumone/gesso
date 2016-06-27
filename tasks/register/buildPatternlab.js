@@ -1,6 +1,10 @@
 module.exports = function (grunt) {
-  grunt.registerTask('buildPatternlab', [
-    'shell:patternlabComposer',
-    'shell:patternlab'
-  ]);
+  if (grunt.file.exists('pattern-lab')) {
+    grunt.registerTask('buildPatternlab', [
+      'shell:patternlabComposer',
+      'shell:patternlab'
+    ]);
+  } else {
+    grunt.registerTask('buildPatternlab', []);
+  }
 };
