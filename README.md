@@ -46,10 +46,13 @@ Drupal, which you can change at admin/appearance/settings/gesso.
 
 ### Pattern Lab installation
 
-The included Grunt tasks assume that an instance of the Drupal standard edition
-of Pattern Lab and the Gesso Twig starter kit are installed in a subdirectory
-of the theme called 'pattern-lab'.  To install Pattern Lab, run the following
-Composer command in the theme directory.
+The included Grunt tasks look for an instance of the Drupal standard edition of
+Pattern Lab and the Gesso Twig starter kit in a subdirectory of the theme called
+'pattern-lab'.  The Grunt build task will skip building Pattern Lab if this
+directory is not found.
+
+To install Pattern Lab, run the following Composer command in
+the theme directory.
 
 ```
 $ composer create-project pattern-lab/edition-drupal-standard pattern-lab
@@ -57,9 +60,6 @@ $ composer create-project pattern-lab/edition-drupal-standard pattern-lab
 When prompted, select /forumone/starterkit-twig-drupal-gesso as the starterkit.
 
 If prompted, select 'r' to overwrite existing /source/ files.
-
-(If you do not install Pattern Lab but still wish to use the Grunt tasks,
-remove the buildPatternlab call from the /tasks/register/build.js file)
 
 
 ### Compiling Sass
