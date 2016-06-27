@@ -108,6 +108,8 @@ function gesso_links($vars) {
     $i = 1;
 
     foreach ($links as $key => $link) {
+      $class = array();
+
       // Add default core classes if wanted.
       if (!$only_use_smacss) {
         $class = array($key);
