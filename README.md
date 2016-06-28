@@ -16,7 +16,7 @@ To submit bug reports or feature requests, visit the
 ## Installation
 
 1.  Place the Gesso theme in your site’s theme directory.
-    (e.g., sites/all/themes/gesso) Read documentation on
+    (e.g., themes/gesso) Read documentation on
     [installing themes](https://drupal.org/getting-started/install-contrib/themes)
     for more information.
 
