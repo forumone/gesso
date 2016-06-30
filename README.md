@@ -8,7 +8,7 @@ This encourages a component-based approach to theming through the creation of
 discrete, reusable UI elements.
 
 For more information, view the
-[Gesso project page](https://drupal.org/project/gesso/) or [Gesso GitHub repo](https://github.com/forumone/gesso).
+[Gesso Drupal project page](https://drupal.org/project/gesso/) or [Gesso GitHub repo](https://github.com/forumone/gesso).
 To submit bug reports or feature requests, visit the
 [Gesso issue queue](https://github.com/forumone/gesso/issues).
 
@@ -95,8 +95,7 @@ If prompted, select 'r' to overwrite existing /source/ files.
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
 CSS. Gesso includes Grunt tasks to compile the CSS/Pattern Lab files and to
 watch them for changes.  To use these tasks, run the following NPM command in
-the theme folder (you may need to include the --no-bin-links flag at the end of
-the command if on PC).
+the theme folder (Windows users may need to include the `--no-bin-links` flag at the end of the command).
 ```
 npm install
 ```
@@ -108,7 +107,7 @@ grunt
 ### Build Artifacts
 
 By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/public/
-and /css/) are ignored by Git as these files should be build during deployment.  
+and /css/) are ignored by Git as these files are built during deployment.  
 To change this, edit the included .gitignore file.
 
 
@@ -124,7 +123,7 @@ based imports to Sass.
 
 * [Singularity](http://singularity.gs): Grid-based layout system.
 
-* [SVG2PNG](https://github.com/dbushell/grunt-svg2png): Creates PNG fallbacks for SVG files
+* [SVG2PNG](https://github.com/dbushell/grunt-svg2png): Rasterizes SVG to PNG images using PhantomJS.
 
 * [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary browser CSS property prefixes during Sass compilation.
 
