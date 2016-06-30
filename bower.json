@@ -2,9 +2,9 @@
   "name": "Gesso",
   "description": "",
   "main": "",
-  "license": "MIT",
+  "license": "GPLv2",
   "moduleType": [],
-  "homepage": "",
+  "homepage": "https://github.com/forumone/gesso",
   "private": true,
   "ignore": [
     "**/.*",

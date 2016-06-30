@@ -5,9 +5,9 @@ module.exports = function(grunt) {
       gesso: {
         files : [{
           expand : true,
-          cwd : 'sass/',
+          cwd : '<%= pkg.themePath %>/sass/',
           src : [ '**/*.scss' ],
-          dest : 'css',
+          dest : '<%= pkg.themePath %>/css',
           ext : '.css'
         }],
         options : {

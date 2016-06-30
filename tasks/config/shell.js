@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         command: 'composer install',
         options : {
           execOptions : {
-            cwd : 'pattern-lab'
+            cwd : '<%= pkg.themePath %>/pattern-lab'
           }
         }
       },
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         command: 'php core/console --generate',
         options : {
           execOptions : {
-            cwd : 'pattern-lab'
+            cwd : '<%= pkg.themePath %>/pattern-lab'
           }
         }
       }

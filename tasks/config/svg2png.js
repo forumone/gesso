@@ -8,9 +8,9 @@ module.exports = function(grunt) {
         files: [{
           expand: false,
           flatten: true,
-          cwd: 'images/bg/',
+          cwd: '<%= pkg.themePath %>/images/bg/',
           src: ['*.svg'],
-          dest: 'images/bg/'
+          dest: '<%= pkg.themePath %>/images/bg/'
         }]
       }
     }
