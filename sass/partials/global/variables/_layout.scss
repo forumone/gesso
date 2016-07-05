@@ -2,7 +2,7 @@
 // Layout variables
 // http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
 
-$breakpoint-to-ems: true;
+@include breakpoint-set('to ems', true);
 $max-page-width: 1200px;
 
 // Mobile Menu

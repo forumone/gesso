@@ -7,4 +7,4 @@
 // to ensure load order. Sub-directories will need to be manually imported
 // from a partial in the 'components' directory. See _nav.scss for an example.
 
-@import 'components/*.*';
+@import 'sass-globbing/components';

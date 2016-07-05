@@ -10,17 +10,9 @@
 
 * {
   // Universal transitions
-  @include transition-property(
-    background-color,
-    border-color,
-    box-shadow,
-    color,
-    opacity,
-    text-shadow,
-    transform
-  );
-  @include transition-duration(0.2s);
-  @include transition-timing-function(linear);
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+  transition-timing-function:linear;
 }
 
 a {
@@ -63,7 +55,7 @@ audio {}
 b {}
 
 blockquote {
-  margin: 0 1.5em rhythm(1);
+  margin: 0 1.5em 1.5em;
 }
 
 body {
@@ -95,7 +87,7 @@ colgroup {}
 datalist {}
 
 dd {
-  margin-bottom: rhythm(1);
+  margin-bottom: 1.5em;
 }
 
 del {}
@@ -107,7 +99,7 @@ dfn {
 }
 
 dl {
-  margin: 0 0 rhythm(1);
+  margin: 0 0 1.5em;
 }
 
 dt {}
@@ -121,13 +113,13 @@ fieldset {}
 figcaption {}
 
 figure {
-  margin: 0 0 rhythm(1);
+  margin: 0 0 1.5em;
 }
 
 footer {}
 
 form {
-  @if support-legacy-browser('ie', '6', '7') {
+   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     // Correct margin displayed oddly in IE 6/7.
     margin: 0;
   }
@@ -136,7 +128,7 @@ form {
 %hN {
   color: $heading-text-color;
   font-family: $header-font-family;
-  @include hyphens(none);
+  hyphens: none;
   line-height: 1.1;
   text-rendering: optimizeLegibility;
 }
@@ -144,56 +136,55 @@ form {
 h1 {
   @extend %hN;
   font-size: em($font-size-xxl);
-  margin: 0 0 rhythm(1, $font-size-xxl);
+  margin: 0 0 1em;
 }
 
 h2 {
   @extend %hN;
   font-size: em($font-size-xl);
-  margin: 0 0 rhythm(1, $font-size-xl);
+  margin: 0 0 1em;
 }
 
 h3 {
   @extend %hN;
   font-size: em($font-size-lg);
-  margin: 0 0 rhythm(1, $font-size-lg);
+  margin: 0 0 1em;
 }
 
 h4 {
   @extend %hN;
   font-size: em($font-size-normal);
-  margin: 0 0 rhythm(1, $font-size-normal);
+  margin: 0 0 1.5em;
 }
 
 h5 {
   @extend %hN;
   font-size: em($font-size-md);
-  margin: 0 0 rhythm(1, $font-size-md);
+  margin: 0 0 1.5em;
 }
 
 h6 {
   @extend %hN;
   font-size: em($font-size-sm);
-  margin: 0 0 rhythm(1, $font-size-sm);
+  margin: 0 0 1.5em;
 }
 
 header {}
 
 hr {
-  @include box-sizing(content-box);
   border: 1px solid $form-border-color;
+  box-sizing: content-box;
   height: 0;
-  margin: rhythm(1) 0;
+  margin: 1.5em 0;
   padding-bottom: -1px;
 }
 
 html {
-  @include adjust-leading-to(1);
-  @include hyphens(auto);
   font-family: $base-font-family;
   font-size: 100% * ($base-font-size / 16px);
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  hyphens: none;
+  line-height: $base-line-height;
+  text-size-adjust: 100%;
 }
 
 i {}
@@ -202,11 +193,11 @@ iframe {}
 
 img {
   border: 0;
-  @if support-legacy-browser('ie', '7') {
+   @if $legacy-support-for-ie7 {
     // Improve image quality when scaled in IE 7.
     -ms-interpolation-mode: bicubic;
   }
-  @if support-legacy-browser('ie', '8') {
+   @if $legacy-support-for-ie8 {
     // Correct IE 8 not scaling image height when resized.
     width: auto;
   }
@@ -252,7 +243,7 @@ legend {
   border: 0;
   margin: 0;
   padding: 0;
-  @if support-legacy-browser('ie', '6', '7') {
+   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     *margin-left: -7px; // LTR
 
     [dir="rtl"] & {
@@ -282,7 +273,7 @@ nav {}
 object {}
 
 ol {
-  margin: 0 0 rhythm(1);
+  margin: 0 0 1.5em;
   padding: 0 0 0 1.5em; // LTR
 
   [dir="rtl"] & {
@@ -304,15 +295,15 @@ option {}
 output {}
 
 p {
-  margin: 0 0 rhythm(1);
+  margin: 0 0 1.5em;
 }
 
 param {}
 
 pre {
-  margin: 0 0 rhythm(1);
+  margin: 0 0 1.5em;
   overflow: auto;
-  @if support-legacy-browser('ie', '6', '7') {
+   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -332,7 +323,7 @@ section {}
 select {}
 
 small {
-  @include adjust-font-size-to($font-size-md);
+  font-size: em($font-size-md);
 }
 
 strong {}
@@ -373,7 +364,7 @@ tr {}
 u {}
 
 ul {
-  margin: 0 0 rhythm(1);
+  margin: 0 0 1.5em;
   padding: 0 0 0 1.2em; // LTR
 
   [dir="rtl"] & {
@@ -397,7 +388,7 @@ video {}
     box-shadow: none !important;
     color: #000 !important;
     text-shadow: none !important;
-    @if support-legacy-browser('ie', '6', '8') {
+     @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
       -ms-filter: none !important;
       filter: none !important;
     }

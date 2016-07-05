@@ -1,6 +1,11 @@
 // @file
 // Styles for the admin menu.
-
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+@import 'breakpoint-sass/stylesheets/breakpoint'; // github.com/Team-Sass/breakpoint
+@include breakpoint-set('no queries', false);
+@include breakpoint-set('no query fallbacks', false);
 @import '../partials/global';
 
 #admin-menu {
@@ -39,8 +44,8 @@
     }
 
     > a {
-      @include border-radius(1em);
       border: 2px solid transparent;
+      border-radius: 1em;
       color: #fff;
       display: block;
       margin: 0;

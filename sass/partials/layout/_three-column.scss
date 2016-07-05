@@ -1,0 +1,41 @@
+// @file
+// Panels layout: three column
+// Media queries use: http://breakpoint-sass.com
+// Media queries use: github.com/Team-Sass/breakpoint/wiki/No-Query-Fallbacks
+// Grid via: singularity.gs
+
+.layout-three-column {
+  @include add-grid(12 at 700px);
+  @include add-gutter(1);
+  @include breakpoint(700px, $no-query: true) {
+    &.has-first {
+      &.has-second {
+        &.has-third { // 1, 2, 3 have content
+          .layout-three-column__first { @include grid-span(4,1); }
+          .layout-three-column__second { @include grid-span(4,5); }
+          .layout-three-column__third { @include grid-span(4,9); }
+        }
+        &.empty-third { // 1, 2 have content
+          .layout-three-column__first { @include grid-span(6,1); }
+          .layout-three-column__second { @include grid-span(6,7); }
+        }
+      }
+      &.empty-second.has-third { // 1, 3 have content
+        .layout-three-column__first { @include grid-span(6,1); }
+        .layout-three-column__third { @include grid-span(6,7); }
+      }
+    }
+    &.empty-first.has-second.has-third { // 2, 3 have content
+      .layout-three-column__second { @include grid-span(6,1); }
+      .layout-three-column__third { @include grid-span(6,7); }
+    }
+  }
+}
+
+.layout-three-column,
+.layout-three-column__preface,
+.layout-three-column__first,
+.layout-three-column__second,
+.layout-three-column__third {
+  @include clearfix;
+}

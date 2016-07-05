@@ -6,7 +6,7 @@
 @mixin image-replace($width, $height) {
   height: $height;
   overflow: hidden;
-  @if support-legacy-browser('ie', '6', '7') {
+   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     *text-indent: 110%;
   }
   width: $width;

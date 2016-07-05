@@ -1,0 +1,17 @@
+{
+  "name": "Gesso",
+  "description": "",
+  "main": "",
+  "license": "GPLv2",
+  "moduleType": [],
+  "homepage": "https://github.com/forumone/gesso",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "singularity": "~1.7.0"
+  }
+}
