@@ -1,19 +1,19 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.config.merge({
-    shell : {
+    shell: {
       patternlabComposer: {
         command: 'composer install',
-        options : {
+        options: {
           execOptions : {
-            cwd : '<%= pkg.themePath %>/pattern-lab'
+            cwd: '<%= pkg.themePath %>/pattern-lab'
           }
         }
       },
       patternlab: {
         command: 'php core/console --generate',
-        options : {
-          execOptions : {
-            cwd : '<%= pkg.themePath %>/pattern-lab'
+        options: {
+          execOptions: {
+            cwd: '<%= pkg.themePath %>/pattern-lab'
           }
         }
       }

@@ -2,7 +2,8 @@ $legacy-support-for-ie6: false;
 $legacy-support-for-ie7: false;
 $legacy-support-for-ie8: false;
 
-// overrides for Pattern Lab only.  not loaded by Drupal theme.
+// CSS overrides for Pattern Lab only.  This stylesheet is not loaded by the
+// Drupal theme.
 
 @import 'breakpoint-sass/stylesheets/breakpoint'; // github.com/Team-Sass/breakpoint
 @include breakpoint-set('no queries', false);
