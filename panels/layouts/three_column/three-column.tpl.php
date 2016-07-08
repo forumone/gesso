@@ -27,7 +27,8 @@ if (!empty($content['first'])) {
   $wrapper_attributes['class'][] = 'has-first';
   $first_open = '<div class="layout-three-column__first">';
   $first_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-first';
 }
 
@@ -35,7 +36,8 @@ if (!empty($content['second'])) {
   $wrapper_attributes['class'][] = 'has-second';
   $second_open = '<div class="layout-three-column__second">';
   $second_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-second';
 }
 
@@ -43,7 +45,8 @@ if (!empty($content['third'])) {
   $wrapper_attributes['class'][] = 'has-third';
   $third_open = '<div class="layout-three-column__third">';
   $third_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-third';
 }
 ?>

@@ -45,18 +45,19 @@ if (!empty($content['sidebar'])) {
   $wrapper_attributes['class'][] = 'has-sidebar';
   $sidebar_open = '<div class="layout-sidebar-multi-row__sidebar">';
   $sidebar_close = '</div>';
-} 
+}
 
 if (!empty($content['row-1'])) {
   $row_1_open = '<div class="layout-sidebar-multi-row__row-1">';
   $row_1_close = '</div>';
-} 
+}
 
 if (!empty($content['row-2-first'])) {
   $wrapper_attributes['class'][] = 'has-row-2-first';
   $row_2_first_open = '<div class="layout-sidebar-multi-row__row-2-first">';
   $row_2_first_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-row-2-first';
 }
 
@@ -64,7 +65,8 @@ if (!empty($content['row-2-second'])) {
   $wrapper_attributes['class'][] = 'has-row-2-second';
   $row_2_second_open = '<div class="layout-sidebar-multi-row__row-2-second">';
   $row_2_second_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-row-2-second';
 }
 
@@ -72,7 +74,8 @@ if (!empty($content['row-2-third'])) {
   $wrapper_attributes['class'][] = 'has-row-2-third';
   $row_2_third_open = '<div class="layout-sidebar-multi-row__row-2-third">';
   $row_2_third_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-row-2-third';
 }
 
@@ -80,7 +83,8 @@ if (!empty($content['row-3-first'])) {
   $wrapper_attributes['class'][] = 'has-row-3-first';
   $row_3_first_open = '<div class="layout-sidebar-multi-row__row-3-first">';
   $row_3_first_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-row-3-first';
 }
 
@@ -88,7 +92,8 @@ if (!empty($content['row-3-second'])) {
   $wrapper_attributes['class'][] = 'has-row-3-second';
   $row_3_second_open = '<div class="layout-sidebar-multi-row__row-3-second">';
   $row_3_second_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-row-3-second';
 }
 
@@ -96,7 +101,8 @@ if (!empty($content['row-3-third'])) {
   $wrapper_attributes['class'][] = 'has-row-3-third';
   $row_3_third_open = '<div class="layout-sidebar-multi-row__row-3-third">';
   $row_3_third_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-row-3-third';
 }
 
@@ -104,7 +110,8 @@ if (!empty($content['row-4-first'])) {
   $wrapper_attributes['class'][] = 'has-row-4-first';
   $row_4_first_open = '<div class="layout-sidebar-multi-row__row-4-first">';
   $row_4_first_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-row-4-first';
 }
 
@@ -112,7 +119,8 @@ if (!empty($content['row-4-second'])) {
   $wrapper_attributes['class'][] = 'has-row-4-second';
   $row_4_second_open = '<div class="layout-sidebar-multi-row__row-4-second">';
   $row_4_second_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-row-4-second';
 }
 
@@ -120,7 +128,8 @@ if (!empty($content['row-4-third'])) {
   $wrapper_attributes['class'][] = 'has-row-4-third';
   $row_4_third_open = '<div class="layout-sidebar-multi-row__row-4-third">';
   $row_4_third_close = '</div>';
-} else {
+}
+else {
   $wrapper_attributes['class'][] = 'empty-row-4-third';
 }
 
@@ -137,7 +146,7 @@ if (!empty($content['postscript'])) {
     <?php print $sidebar_open; ?>
       <?php print $content['sidebar']; ?>
     <?php print $sidebar_close; ?>
-    
+
     <div class="layout-sidebar-multi-row__rows-wrapper">
       <?php print $row_1_open; ?>
         <?php print $content['row-1']; ?>

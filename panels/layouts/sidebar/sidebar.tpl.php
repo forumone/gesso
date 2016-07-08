@@ -45,4 +45,3 @@ if (!empty($content['sidebar'])) {
     <?php print $content['sidebar']; ?>
   <?php print $sidebar_close; ?>
 </div>
-
