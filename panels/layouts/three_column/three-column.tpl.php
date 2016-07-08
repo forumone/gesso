@@ -1,30 +1,69 @@
 <?php
-  $preface = (empty($content['preface']) ? 'preface-empty' : 'preface');
-  $first = (empty($content['first']) ? 'first-empty' : 'first');
-  $second = (empty($content['second']) ? 'second-empty' : 'second');
-  $third = (empty($content['third']) ? 'third-empty' : 'third');
-  $classes = "$preface $first $second $third";
-?>
+/**
+ * @file
+ * Template for the three column panels layout.
+ */
 
-<div<?php if (!empty($css_id)): ?> id="<?php print $css_id; ?>"<?php endif; ?> class="layout-panels-three-column <?php print $classes; ?>">
-  <?php if (!empty($content['preface'])): ?>
-    <div class="layout-preface">
-      <?php print $content['preface']; ?>
-    </div>
-  <?php endif; ?>
-  <?php if (!empty($content['first'])): ?>
-    <aside class="layout-first">
-      <?php print $content['first']; ?>
-    </aside>
-  <?php endif; ?>
-  <?php if (!empty($content['second'])): ?>
-    <div class="layout-second">
-      <?php print $content['second']; ?>
-    </div>
-  <?php endif; ?>
-  <?php if (!empty($content['third'])): ?>
-    <div class="layout-third">
-      <?php print $content['third']; ?>
-    </div>
-  <?php endif; ?>
+$wrapper_attributes = array('class' => array('layout-three-column'));
+$preface_open = '';
+$preface_close = '';
+$first_open = '';
+$first_close = '';
+$second_open = '';
+$second_close = '';
+$third_open = '';
+$third_close = '';
+
+if (!empty($css_id)) {
+  $wrapper_attributes['id'] = $css_id;
+}
+
+if (!empty($content['preface'])) {
+  $preface_open = '<div class="layout-three-column__preface">';
+  $preface_close = '</div>';
+}
+
+if (!empty($content['first'])) {
+  $wrapper_attributes['class'][] = 'has-first';
+  $first_open = '<div class="layout-three-column__first">';
+  $first_close = '</div>';
+}
+else {
+  $wrapper_attributes['class'][] = 'empty-first';
+}
+
+if (!empty($content['second'])) {
+  $wrapper_attributes['class'][] = 'has-second';
+  $second_open = '<div class="layout-three-column__second">';
+  $second_close = '</div>';
+}
+else {
+  $wrapper_attributes['class'][] = 'empty-second';
+}
+
+if (!empty($content['third'])) {
+  $wrapper_attributes['class'][] = 'has-third';
+  $third_open = '<div class="layout-three-column__third">';
+  $third_close = '</div>';
+}
+else {
+  $wrapper_attributes['class'][] = 'empty-third';
+}
+?>
+<div<?php print drupal_attributes($wrapper_attributes); ?>>
+  <?php print $preface_open; ?>
+    <?php print $content['preface']; ?>
+  <?php print $preface_close; ?>
+
+  <?php print $first_open; ?>
+    <?php print $content['first']; ?>
+  <?php print $first_close; ?>
+
+   <?php print $second_open; ?>
+    <?php print $content['second']; ?>
+  <?php print $second_close; ?>
+
+   <?php print $third_open; ?>
+    <?php print $content['third']; ?>
+  <?php print $third_close; ?>
 </div>

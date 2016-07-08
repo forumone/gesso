@@ -4,14 +4,14 @@
  */
 function gesso_sidebar_panels_layouts() {
   $items['sidebar'] = array(
-    'title' => t('Preface and right sidebar'),
-    'category' => t('Responsive'),
+    'title' => t('Sidebar'),
+    'category' => t('Gesso'),
     'icon' => 'sidebar.png',
     'theme' => 'sidebar',
     'admin css' => '../../../css/panels-admin/sidebar.css',
     'regions' => array(
       'preface' => t('Preface'),
-      'main' => t('Main column'),
+      'main' => t('Main'),
       'sidebar' => t('Sidebar'),
     ),
   );
