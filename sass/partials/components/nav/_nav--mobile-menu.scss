@@ -56,7 +56,7 @@
     background-repeat: no-repeat;
     background-size: 19px 12px;
     border: 0;
-    @include box-shadow(none);
+    box-shadow: none;
     display: inline-block;
     height: em(44px);
     position: absolute;

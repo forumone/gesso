@@ -2,28 +2,28 @@
 // Styles for Drupal messages.
 
 .messages {
-  @include border-radius();
-  @include adjust-font-size-to($font-size-md);
-  background-position: rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md); // LTR
+  background-position: 0.75em 0.75em; // LTR
   background-repeat: no-repeat;
+  border-radius: 5px;
   border-style: solid;
   border-width: 4px 1px;
-  margin: rhythm(1, $font-size-md) 0;
-  padding: rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md) rhythm(2, $font-size-md); // LTR
+  font-size: em($font-size-md);
+  margin: 1.5em 0;
+  padding: 0.75em 0.75em 0.75em 3em; // LTR
   position: relative;
   word-wrap: break-word;
 
   [dir="rtl"] & {
     background-position: 98.5% 50%;
-    padding: rhythm(0.5, $font-size-md) rhythm(2, $font-size-md) rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md);
+    padding: 0.75em 3em 0.75em 0.75em;
   }
 
   @media print {
     background-image: none !important;
-    padding-left: rhythm(0.5, $font-size-md); // LTR
+    padding-left: 0.75em; // LTR
 
     [dir="rtl"] & {
-      padding-right: rhythm(0.5, $font-size-md);
+      padding-right: 0.75em;
     }
   }
 
@@ -36,7 +36,7 @@
   margin: 0;
 
   > li + li {
-    margin-top: rhythm(0.5, $font-size-md);
+    margin-top: 0.75em;
   }
 }
 

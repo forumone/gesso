@@ -1,6 +1,11 @@
 // @file
 // Styles for the admin menu toolbar.
-
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+@import 'breakpoint-sass/stylesheets/breakpoint'; // github.com/Team-Sass/breakpoint
+@include breakpoint-set('no queries', false);
+@include breakpoint-set('no query fallbacks', false);
 @import '../partials/global';
 
 #admin-menu {
@@ -30,11 +35,11 @@
 
   .shortcut-toggle {
     @include image-replace(27px, 27px);
-    @include border-bottom-left-radius(0);
-    @include border-bottom-right-radius(0);
-    @include border-top-left-radius(0.5em);
-    @include border-top-right-radius(0.5em);
     background: #555;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
     bottom: -0.5em;
     cursor: pointer;
     float: right;
@@ -84,8 +89,8 @@
     }
 
     a {
-      @include border-radius(1em);
       border: 2px solid transparent;
+      border-radius: 1em;
       color: #fff;
       display: block;
       margin: 0;

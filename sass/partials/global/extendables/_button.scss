@@ -2,32 +2,27 @@
 // Button helpers
 
 @mixin button($bg-color: $button-bg-color, $text-color: $button-text-color, $font-size: $font-size-md, $font-family: $button-font-family) {
-  @include adjust-font-size-to($font-size);
-  @include background-image(
-    linear-gradient(
-      to bottom,
-      $gradient-light 0%,
-      $gradient-dark 100%
-    )
-  );
-  @include border-radius();
-  @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
   background-color: $bg-color;
+  background-image: linear-gradient(to bottom, $gradient-light 0%, $gradient-dark 100%);
   border: 1px solid darken($bg-color, 20%);
   border-bottom-color: darken($bg-color, 25%);
   border-top-color: darken($bg-color, 15%);
+  border-radius: 5px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   color: $button-text-color;
   cursor: pointer;
   display: inline-block;
   font-family: $font-family;
-  margin: 0 0 rhythm(1);
+  font-size: $font-size;
+  line-height: $base-line-height;
+  margin: 0 0 1em;
   padding: 0 0.5em;
   text-align: center;
   text-decoration: none;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   vertical-align: baseline;
 
-  @if support-legacy-browser('ie', '6', '7') {
+   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     *line-height: normal;
     *zoom: 1;
   }
@@ -60,5 +55,5 @@
 }
 
 %button--large {
-  @include adjust-font-size-to($font-size-lg);
+  font-size: $font-size-lg;
 }

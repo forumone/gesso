@@ -2,7 +2,7 @@
 // Styles for form items.
 
 .form-item {
-  margin: rhythm(1) 0;
+  margin: 1.5em 0;
 }
 
 .form-item__label {
@@ -21,8 +21,8 @@
 }
 
 .form-item__description {
-  @include adjust-font-size-to($font-size-md);
   color: $secondary-text-color;
+  font-size: em($font-size-md);
 }
 
 .form-item__required-marker:before {
@@ -50,11 +50,11 @@
 }
 
 .form-item--password-confirm-pass-1 {
-  margin-bottom: rhythm(0.5);
+  margin-bottom: 0.75em;
 }
 
 .form-item--password-confirm-pass-2 {
-  margin: rhythm(0.5) 0;
+  margin: 0.75em 0;
 }
 
 .form-select,

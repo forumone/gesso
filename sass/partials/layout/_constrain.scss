@@ -8,7 +8,7 @@
   padding-left: 1em;
   padding-right: 1em;
 
-  @if $breakpoint-no-queries {
+  @if breakpoint-get('no queries') == true {
     width: em($max-page-width);
   }
 }
