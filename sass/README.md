@@ -53,7 +53,7 @@ later to move/re-factor these styles into their proper place.
 
 ### overrides/
 Stylesheets provided by Drupal modules that you want to completely override go
-here. 
+here.
 
 
 ## SMACSS

@@ -8,4 +8,3 @@ global:
     js/scripts.js: {}
   dependencies:
     - core/jquery
- 

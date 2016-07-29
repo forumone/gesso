@@ -37,12 +37,12 @@
  */
 #}
 {%
-set classes = [
-'section',
-'section--type-' ~ paragraph.bundle|clean_class,
-view_mode ? 'section--display-mode-' ~ view_mode|clean_class,
-]
+  set classes = [
+    'section',
+    'section--type-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
+  ]
 %}
 <div{{ attributes.addClass(classes) }}>
-    {{ content }}
+  {{ content }}
 </div>

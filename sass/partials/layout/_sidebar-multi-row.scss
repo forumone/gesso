@@ -1,5 +1,5 @@
 // @file
-// Panels layout: sidebar multi-row
+// Styles for the sidebar multi-row layout.
 
 .layout-sidebar-multi-row {
   @include add-grid(12 at 700px);
@@ -13,7 +13,7 @@
         @include grid-span(3,1);
       }
     }
-    
+
     @for $i from 2 through 4 {
       &.has-row-#{$i}-first {
         &.has-row-#{$i}-second {
@@ -37,7 +37,7 @@
         .layout-sidebar-multi-row__row-#{$i}-third { @include grid-span(6,7); }
       }
     }
-  }  
+  }
 }
 
 .layout-sidebar-multi-row,

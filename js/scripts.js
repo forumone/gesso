@@ -1,7 +1,7 @@
 // Custom scripts file
 // to load, uncomment the call to this file in gesso.info
 
-(function($) {
+(function ($) {
 
   'use strict';
 
@@ -12,7 +12,7 @@
 
   // Runs function once on window resize.
   var TO = false;
-  $(window).resize(function() {
+  $(window).resize(function () {
     if (TO !== false) {
       clearTimeout(TO);
     }

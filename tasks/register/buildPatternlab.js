@@ -4,7 +4,8 @@ module.exports = function (grunt) {
       'shell:patternlabComposer',
       'shell:patternlab'
     ]);
-  } else {
+  }
+  else {
     grunt.registerTask('buildPatternlab', []);
   }
 };

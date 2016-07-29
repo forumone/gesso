@@ -3,10 +3,10 @@
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
  * @param array $suggestions
- * @param array $variables
+ * @param array $vars
  */
-function gesso_theme_suggestions_block_alter(array &$suggestions, array $variables) {
-  $block = $variables['elements'];
+function gesso_theme_suggestions_block_alter(array &$suggestions, array $vars) {
+  $block = $vars['elements'];
   $blockType = $block['#configuration']['provider'];
 
   if ($blockType == "block_content") {
@@ -18,7 +18,5 @@ function gesso_theme_suggestions_block_alter(array &$suggestions, array $variabl
       $template = $block['content']['field_template_name'][0]['#context']['value'];
       $suggestions[] = 'block__' . $bundle . '__' . $template;
     }
-
   }
-
 }

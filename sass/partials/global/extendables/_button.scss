@@ -48,8 +48,8 @@
     margin-left: 1em; // LTR
 
     [dir="rtl"] & {
-    margin-left: 0;
-    margin-right: 1em;
+      margin-left: 0;
+      margin-right: 1em;
     }
   }
 }

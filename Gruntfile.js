@@ -12,8 +12,9 @@
  * Check out the `tasks` directory instead.
  */
 'use strict';
-module.exports = function(grunt) {
-  
+
+module.exports = function (grunt) {
+
   // Load grunt contrib tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -27,7 +28,8 @@ module.exports = function(grunt) {
   var includeAll;
   try {
     includeAll = require('include-all');
-  } catch (e0) {
+  }
+  catch (e0) {
     console.error('Could not find `include-all` module.');
     console.error('Skipping grunt tasks...');
     console.error('To fix this, please run:');

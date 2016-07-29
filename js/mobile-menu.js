@@ -1,10 +1,11 @@
-(function ($) {
+(function ($, Drupal) {
 
   'use strict';
 
   // The styling for this mobile menu is located in sass/components/mobile-menu/_mobile-menu.scss.
 
-  $(document).ready(function() {
+  Drupal.behaviors.mobileMenu = {
+    attach: function (context) {
 
       // Create mobile menu container, create mobile bar, and clone the main
       // menu in the navigation region.
@@ -132,7 +133,6 @@
         // Set the height of the menu.
         $mobileMenuWrapper.height($(document).height());
       }
-
-  });
-
-})(jQuery);
+    }
+  };
+})(jQuery, Drupal);

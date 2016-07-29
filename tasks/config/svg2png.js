@@ -1,7 +1,6 @@
 // https://github.com/dbushell/grunt-svg2png
 
-module.exports = function(grunt) {
-
+module.exports = function (grunt) {
   grunt.config.merge({
     svg2png: {
       dist: {
