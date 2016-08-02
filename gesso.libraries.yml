@@ -8,3 +8,4 @@ global:
     js/scripts.js: {}
   dependencies:
     - core/jquery
+    - core/drupal
