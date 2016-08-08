@@ -6,7 +6,7 @@
 }
 
 .breadcrumb__title {
-  @extend %element-invisible;
+  @extend %visually-hidden;
 }
 
 .breadcrumb__list {
