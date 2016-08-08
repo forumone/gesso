@@ -246,9 +246,11 @@ legend {
   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     *margin-left: -7px; // LTR
 
-    [dir="rtl"] & {
-      *margin-left: 0;
-      *margin-right: -7px;
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        *margin-left: 0;
+        *margin-right: -7px;
+      }
     }
   }
 }
@@ -276,8 +278,10 @@ ol {
   margin: 0 0 1.5em;
   padding: 0 0 0 1.5em; // LTR
 
-  [dir="rtl"] & {
-    padding: 0 1.5em 0 0;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      padding: 0 1.5em 0 0;
+    }
   }
 
   ol,
@@ -367,8 +371,10 @@ ul {
   margin: 0 0 1.5em;
   padding: 0 0 0 1.2em; // LTR
 
-  [dir="rtl"] & {
-    padding: 0 1.2em 0 0;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      padding: 0 1.2em 0 0;
+    }
   }
 
   ol,
