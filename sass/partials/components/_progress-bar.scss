@@ -52,16 +52,20 @@
 .progress__description {
   float: left; // LTR
 
-  [dir="rtl"] & {
-    float: right;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      float: right;
+    }
   }
 }
 
 .progress__percentage {
   float: right; // LTR
 
-  [dir="rtl"] & {
-    float: left;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      float: left;
+    }
   }
 }
 
