@@ -3,14 +3,18 @@
 //
 // Extended from global/helpers/_accessibility.scss.
 
-.element-invisible {
-  @extend %element-invisible;
+.visually-hidden {
+  @extend %visually-hidden;
 }
 
-.element-focusable {
-  @extend %element-focusable;
+.focusable {
+  @extend %focusable;
 }
 
-.element-hidden {
-  @extend %element-hidden;
+.hidden {
+  @extend %hidden;
+}
+
+.invisible {
+  @extend %invisible;
 }
