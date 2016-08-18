@@ -2,6 +2,7 @@
 $legacy-support-for-ie6: false;
 $legacy-support-for-ie7: false;
 $legacy-support-for-ie8: true;
+$support-for-rtl: true;
 
 @import 'breakpoint-sass/stylesheets/breakpoint'; // github.com/Team-Sass/breakpoint
 // Don't print media queries & print no query fallbacks.

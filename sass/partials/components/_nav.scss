@@ -28,8 +28,10 @@
       float: left; // LTR
       margin: 0 0 0.1em 0;
 
-      [dir="rtl"] & {
-        float: right;
+      @if $support-for-rtl {
+        [dir="rtl"] & {
+          float: right;
+        }
       }
     }
   }
@@ -86,11 +88,13 @@
       border-bottom-left-radius: 5px; // LTR
       border-top-right-radius: 0; // LTR
 
-      [dir="rtl"] & {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 5px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 5px;
+      @if $support-for-rtl {
+        [dir="rtl"] & {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 5px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 5px;
+        }
       }
     }
   }
@@ -103,11 +107,13 @@
       border-bottom-left-radius: 0; // LTR
       border-top-right-radius: 5px; // LTR
 
-      [dir="rtl"] & {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 0;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 0;
+      @if $support-for-rtl {
+        [dir="rtl"] & {
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 0;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 0;
+        }
       }
     }
   }
@@ -124,14 +130,16 @@
     margin-right: 0.75em; // LTR
     padding-right: 0.75em; // LTR
 
-    [dir="rtl"] & {
-      border-left: 1px solid $pipeline-border-color;
-      border-right: 0;
-      float: right;
-      margin-left: 0.75em;
-      margin-right: 0;
-      padding-left: 0.75em;
-      padding-right: 0;
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        border-left: 1px solid $pipeline-border-color;
+        border-right: 0;
+        float: right;
+        margin-left: 0.75em;
+        margin-right: 0;
+        padding-left: 0.75em;
+        padding-right: 0;
+      }
     }
 
     &:last-child {
@@ -139,10 +147,12 @@
       margin-right: 0; // LTR
       padding-right: 0; // LTR
 
-      [dir="rtl"] & {
-        border-left: 0;
-        margin-left: 0;
-        padding-left: 0;
+      @if $support-for-rtl {
+        [dir="rtl"] & {
+          border-left: 0;
+          margin-left: 0;
+          padding-left: 0;
+        }
       }
     }
   }
