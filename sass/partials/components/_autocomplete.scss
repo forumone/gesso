@@ -38,17 +38,21 @@ input.form-autocomplete {
   background-repeat: no-repeat;
   padding-right: em(30px, $form-text-size); // LTR
 
-  [dir="rtl"] & {
-    background-position: left $icon-horizontal-offset top $icon-vertical-offset;
-    padding-left: em(30px, $form-text-size);
-    padding-right: em(10px, $form-text-size);
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      background-position: left $icon-horizontal-offset top $icon-vertical-offset;
+      padding-left: em(30px, $form-text-size);
+      padding-right: em(10px, $form-text-size);
+    }
   }
 
    @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
     background-position: 100% $icon-vertical-offset; // LTR
 
-    [dir="rtl"] & {
-      background-position: 0 $icon-vertical-offset;
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        background-position: 0 $icon-vertical-offset;
+      }
     }
   }
 }
@@ -56,15 +60,19 @@ input.form-autocomplete {
 input.throbbing {
   background-position: right $icon-horizontal-offset top $icon-throbbing-vertical-offset; // LTR
 
-  [dir="rtl"] & {
-    background-position: left $icon-horizontal-offset top $icon-throbbing-vertical-offset;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      background-position: left $icon-horizontal-offset top $icon-throbbing-vertical-offset;
+    }
   }
 
    @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
     background-position: 100% $icon-throbbing-vertical-offset; // LTR
 
-    [dir="rtl"] & {
-      background-position: 0 $icon-throbbing-vertical-offset;
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        background-position: 0 $icon-throbbing-vertical-offset;
+      }
     }
   }
 }

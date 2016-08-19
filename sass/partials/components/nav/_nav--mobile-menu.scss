@@ -73,9 +73,11 @@
       @include svg-background(mobile-arrow-up);
     }
 
-    [dir="rtl"] & {
-      left: 0;
-      right: auto;
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        left: 0;
+        right: auto;
+      }
     }
   }
 

@@ -19,10 +19,12 @@
   width: 256px;
   z-index: 1;
 
-  [dir="rtl"] & {
-    float: right;
-    margin: 0 0 -1px -100%;
-    padding: 0;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      float: right;
+      margin: 0 0 -1px -100%;
+      padding: 0;
+    }
   }
 }
 
@@ -45,8 +47,10 @@
   text-decoration: none;
   text-shadow: 0 1px 0 #fff;
 
-  [dir="rtl"] & {
-    border-width: 1px 0 0 1px;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      border-width: 1px 0 0 1px;
+    }
   }
 }
 
@@ -58,9 +62,11 @@
   background: #fff;
   border-right: 1px solid #fff; // LTR
 
-  [dir="rtl"] & {
-    border-left: 1px solid #fff;
-    border-right: 0;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      border-left: 1px solid #fff;
+      border-right: 0;
+    }
   }
 }
 
@@ -80,9 +86,11 @@
   background: #fff;
   border-left: 255px solid $form-bg-color; // LTR
 
-  [dir="rtl"] & {
-    border-right: 255px solid $form-bg-color; // LTR
-    border-left: 0;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      border-right: 255px solid $form-bg-color; // LTR
+      border-left: 0;
+    }
   }
 }
 
@@ -101,8 +109,10 @@
   padding: 0;
   top: 0;
 
-  [dir="rtl"] & {
-    border-width: 0 1px 0 0;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      border-width: 0 1px 0 0;
+    }
   }
 }
 

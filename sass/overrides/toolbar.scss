@@ -54,8 +54,10 @@ $legacy-support-for-ie8: false;
   float: left; // LTR
   margin: 0;
 
-  [dir="rtl"] & {
-    float: right;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      float: right;
+    }
   }
 }
 
@@ -65,24 +67,29 @@ $legacy-support-for-ie8: false;
   padding: 0.5em 4em 0.5em 1em; // LTR
   position: relative;
 
-  [dir="rtl"] & {
-    padding: 0.5em 1em 0.5em 4em;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      padding: 0.5em 1em 0.5em 4em;
+    }
   }
 }
 
 #toolbar-user {
   float: right; // LTR
-
-  [dir="rtl"] & {
-    float: left;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      float: left;
+    }
   }
 }
 
 #toolbar-menu {
   float: left; // LTR
 
-  [dir="rtl"] & {
-    float: right;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      float: right;
+    }
   }
 }
 

@@ -21,8 +21,10 @@ $legacy-support-for-ie8: false;
   top: 0;
   z-index: 501;
 
-  [dir="rtl"] & {
-    text-align: right;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      text-align: right;
+    }
   }
 }
 
@@ -39,8 +41,10 @@ $legacy-support-for-ie8: false;
     float: left; // LTR
     margin: 0;
 
-    [dir="rtl"] & {
-      float: right;
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        float: right;
+      }
     }
 
     > a {
@@ -97,8 +101,10 @@ $legacy-support-for-ie8: false;
       margin: -1.75em 0 0 14em; // LTR
       position: absolute;
 
-      [dir="rtl"] & {
-        margin: -1.75em 14em 0 0;
+      @if $support-for-rtl {
+        [dir="rtl"] & {
+          margin: -1.75em 14em 0 0;
+        }
       }
     }
 
@@ -112,9 +118,11 @@ $legacy-support-for-ie8: false;
         right: 0.5em; // LTR
         top: 0;
 
-        [dir="rtl"] & {
-          left: 0.5em;
-          right: auto;
+        @if $support-for-rtl {
+          [dir="rtl"] & {
+            left: 0.5em;
+            right: auto;
+          }
         }
       }
     }
@@ -124,23 +132,29 @@ $legacy-support-for-ie8: false;
 #admin-menu-account {
   float: right; // LTR
 
-  [dir="rtl"] & {
-    float: left;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      float: left;
+    }
   }
 }
 
 #admin-menu-search {
   float: right; // LTR
 
-  [dir="rtl"] & {
-    float: left;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      float: left;
+    }
   }
 
   .form-item {
     margin: em(2px, 12px) 1em 0 0; // LTR
 
-    [dir="rtl"] & {
-      margin: em(2px, 12px) 0 0 1em;
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        margin: em(2px, 12px) 0 0 1em;
+      }
     }
 
     input {

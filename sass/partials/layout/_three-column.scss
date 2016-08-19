@@ -38,4 +38,8 @@
 .layout-three-column__second,
 .layout-three-column__third {
   @include clearfix;
+
+  @if $panels-admin {
+    @include border-box;
+  }
 }

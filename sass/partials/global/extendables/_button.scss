@@ -47,9 +47,11 @@
   & + & {
     margin-left: 1em; // LTR
 
-    [dir="rtl"] & {
-    margin-left: 0;
-    margin-right: 1em;
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        margin-left: 0;
+        margin-right: 1em;
+      }
     }
   }
 }
