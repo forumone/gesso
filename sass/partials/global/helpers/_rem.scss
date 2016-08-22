@@ -1,0 +1,12 @@
+// @file
+// Rem conversion
+//
+// Convert pixel values to rem with fallback for old IE.
+
+@function rem($px, $base: $base-font-size) {
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
+    @return $px;
+  }
+
+  @return ($px / $base) * 1rem;
+}
