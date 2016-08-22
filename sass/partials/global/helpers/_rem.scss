@@ -8,5 +8,5 @@
     @return $px;
   }
 
-  @return ($px / $base) * 1em;
+  @return ($px / $base) * 1rem;
 }
