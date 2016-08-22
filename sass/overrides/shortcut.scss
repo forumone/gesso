@@ -11,7 +11,9 @@ $legacy-support-for-ie8: false;
 #edit-shortcuts {
   float: right; // LTR
 
-  [dir="rtl"] & {
-    float: left;
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      float: left;
+    }
   }
 }

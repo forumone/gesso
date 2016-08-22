@@ -24,4 +24,8 @@
 .layout-sidebar__main,
 .layout-sidebar__sidebar {
   @include clearfix;
+
+  @if $panels-admin {
+    @include border-box;
+  }
 }
