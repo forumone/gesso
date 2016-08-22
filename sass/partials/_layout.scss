@@ -5,7 +5,4 @@
 // sub-folders and partials in the 'layout' folder. Sass globbing will
 // automatically import these partials.
 
-// Variable to add special styles for Panels admin interface.
-$panels-admin: false;
-
 @import 'layout/**/*.*';

@@ -28,8 +28,10 @@
       float: left; // LTR
       margin: 0 0 0.1em 0;
 
-      [dir="rtl"] & {
-        float: right;
+      @if $support-for-rtl {
+        [dir="rtl"] & {
+          float: right;
+        }
       }
     }
   }
@@ -92,11 +94,13 @@
       @include border-bottom-left-radius(); // LTR
       @include border-top-right-radius(0); // LTR
 
-      [dir="rtl"] & {
-        @include border-bottom-left-radius(0);
-        @include border-bottom-right-radius();
-        @include border-top-left-radius(0);
-        @include border-top-right-radius();
+      @if $support-for-rtl {
+        [dir="rtl"] & {
+          @include border-bottom-left-radius(0);
+          @include border-bottom-right-radius();
+          @include border-top-left-radius(0);
+          @include border-top-right-radius();
+        }
       }
     }
   }
@@ -109,11 +113,13 @@
       @include border-bottom-left-radius(0); // LTR
       @include border-top-right-radius(); // LTR
 
-      [dir="rtl"] & {
-        @include border-bottom-left-radius();
-        @include border-bottom-right-radius(0);
-        @include border-top-left-radius();
-        @include border-top-right-radius(0);
+      @if $support-for-rtl {
+        [dir="rtl"] & {
+          @include border-bottom-left-radius();
+          @include border-bottom-right-radius(0);
+          @include border-top-left-radius();
+          @include border-top-right-radius(0);
+        }
       }
     }
   }
@@ -129,15 +135,16 @@
     float: left; // LTR
     margin-right: 0.75em; // LTR
     padding-right: 0.75em; // LTR
-
-    [dir="rtl"] & {
-      border-left: 1px solid $pipeline-border-color;
-      border-right: 0;
-      float: right;
-      margin-left: 0.75em;
-      margin-right: 0;
-      padding-left: 0.75em;
-      padding-right: 0;
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        border-left: 1px solid $pipeline-border-color;
+        border-right: 0;
+        float: right;
+        margin-left: 0.75em;
+        margin-right: 0;
+        padding-left: 0.75em;
+        padding-right: 0;
+      }
     }
 
     &:last-child {
@@ -145,10 +152,12 @@
       margin-right: 0; // LTR
       padding-right: 0; // LTR
 
-      [dir="rtl"] & {
-        border-left: 0;
-        margin-left: 0;
-        padding-left: 0;
+      @if $support-for-rtl {
+        [dir="rtl"] & {
+          border-left: 0;
+          margin-left: 0;
+          padding-left: 0;
+        }
       }
     }
   }

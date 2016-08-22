@@ -13,17 +13,21 @@
   position: relative;
   word-wrap: break-word;
 
-  [dir="rtl"] & {
-    background-position: 98.5% 50%;
-    padding: rhythm(0.5, $font-size-md) rhythm(2, $font-size-md) rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md);
+  @if $support-for-rtl {
+    [dir="rtl"] & {
+      background-position: 98.5% 50%;
+      padding: rhythm(0.5, $font-size-md) rhythm(2, $font-size-md) rhythm(0.5, $font-size-md) rhythm(0.5, $font-size-md);
+    }
   }
 
   @media print {
     background-image: none !important;
     padding-left: rhythm(0.5, $font-size-md); // LTR
 
-    [dir="rtl"] & {
-      padding-right: rhythm(0.5, $font-size-md);
+    @if $support-for-rtl {
+      [dir="rtl"] & {
+        padding-right: rhythm(0.5, $font-size-md);
+      }
     }
   }
 
