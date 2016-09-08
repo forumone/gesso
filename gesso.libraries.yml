@@ -9,3 +9,5 @@ global:
   dependencies:
     - core/jquery
     - core/drupal
+    - core/drupalSettings
+    - core/modernizr
