@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
   grunt.config.merge({
     bower: {
-      install: {
+      gesso: {
         options: {
           targetDir: 'bower_components',
           layout: 'byComponent',
