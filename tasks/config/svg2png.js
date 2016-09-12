@@ -3,7 +3,7 @@
 module.exports = function (grunt) {
   grunt.config.merge({
     svg2png: {
-      dist: {
+      gesso: {
         files: [{
           expand: false,
           flatten: true,
