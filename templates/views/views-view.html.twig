@@ -35,6 +35,7 @@
     'view',
     'view--' ~ id|clean_class,
     'view--display-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
