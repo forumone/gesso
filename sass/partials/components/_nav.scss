@@ -82,7 +82,7 @@
 
   > .nav__item:first-child > .nav__link {
     border-top-left-radius: 5px;
-    border-top-right-radius: 5px;;
+    border-top-right-radius: 5px;
 
     @include breakpoint(30em) {
       border-bottom-left-radius: 5px; // LTR
