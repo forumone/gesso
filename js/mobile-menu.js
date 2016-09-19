@@ -11,7 +11,7 @@
       // menu in the navigation region.
       var $mobileNav = $('<nav class="mobile-menu" role="navigation"></nav>'),
           $mobileBar = $('<div class="mobile-menu__bar"><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>'),
-          $mobileLinks = $('<div class="mobile-menu__links element-hidden"></div>'),
+          $mobileLinks = $('<div class="mobile-menu__links hidden"></div>'),
           $mainMenu = $('.region-navigation', context).find('.nav--main-menu, .block--system-main-menu .nav, .block--superfish .sf-menu').not('.contextual-links').first().clone(),
           $isSuperfish = ($mainMenu.hasClass('sf-menu')) ? true : false;
 
@@ -71,7 +71,7 @@
         // Open/close mobile menu when menu button is clicked.
         $('.js-mobile-menu-button', context).click(function (e) {
           $(this).toggleClass('is-active');
-          $mobileMenuWrapper.toggleClass('element-hidden');
+          $mobileMenuWrapper.toggleClass('hidden');
 
           // Close search bar if open.
           if ($('.js-mobile-search-button').hasClass('is-active')) {
@@ -85,7 +85,7 @@
           });
 
           // Take mobile menu links out of tab flow if hidden.
-          if ($mobileMenuWrapper.hasClass('element-hidden')) {
+          if ($mobileMenuWrapper.hasClass('hidden')) {
             $mobileMenuLinks.attr('tabindex', -1);
           }
           else {
@@ -115,7 +115,7 @@
           // Close menu if open.
           if ($('.js-mobile-menu-button').hasClass('is-active')) {
             $('.js-mobile-menu-button').removeClass('is-active');
-            $mobileMenuWrapper.addClass('element-hidden');
+            $mobileMenuWrapper.addClass('hidden');
             $mobileMenuLinks.attr('tabindex', -1);
           }
 
