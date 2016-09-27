@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0, menu_name) }}
+
+{% macro menu_links(items, attributes, menu_level, menu_name) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      {%
+        set menu_classes = [
+          'nav',
+          "nav--#{menu_name}",
+        ]
+      %}
+      <ul{{ attributes.addClass(menu_classes) }}>
+    {% else %}
+      <ul class="nav__subnav">
+    {% endif %}
+    {% for item in items %}
+      {%
+        set item_classes = [
+          'nav__item',
+          item.below ? 'has-subnav',
+          item.in_active_trail ? 'is-active-trail',
+          item.is_collapsed ? 'is-collapsed',
+          item.is_expanded ? 'is-expanded',
+        ]
+      %}
+      {%
+        set link_attributes = {
+          'class': [
+            'nav__link',
+            item.below ? 'has-subnav',
+            item.in_active_trail ? 'is-active-trail',
+            item.is_collapsed ? 'is-collapsed',
+            item.is_expanded ? 'is-expanded',
+          ]
+        }
+      %}
+      <li{{ item.attributes.addClass(item_classes) }}>
+        {{ link(item.title, item.url, link_attributes) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
