@@ -1,7 +1,16 @@
 {
-  "name": "Gesso",
+  "name": "gesso",
   "version": "0.1.0",
+  "description": "A Drupal theme.",
+  "bugs": "https://github.com/forumone/gesso/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forumone/gesso.git"
+  },
+  "license": "GPL-2.0+",
+  "private": true,
   "themePath": ".",
+  "main": "Gruntfile.js",
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-contrib-watch": "^0.6.1",
