@@ -1,0 +1,63 @@
+// @file
+// Styles for the sidebar multi-row layout.
+
+.layout-sidebar-multi-row {
+  @include add-grid(12 at 700px);
+  @include add-gutter(1);
+  @include breakpoint(700px, $no-query: true) {
+    &.has-sidebar {
+      .layout-sidebar-multi-row__rows-wrapper {
+        @include grid-span(9,4);
+      }
+      .layout-sidebar-multi-row__sidebar {
+        @include grid-span(3,1);
+      }
+    }
+
+    @for $i from 2 through 4 {
+      &.has-row-#{$i}-first {
+        &.has-row-#{$i}-second {
+          &.has-row-#{$i}-third { // 1, 2, 3 have content
+            .layout-sidebar-multi-row__row-#{$i}-first { @include grid-span(4,1); }
+            .layout-sidebar-multi-row__row-#{$i}-second { @include grid-span(4,5); }
+            .layout-sidebar-multi-row__row-#{$i}-third { @include grid-span(4,9); }
+          }
+          &.empty-row-#{$i}-third { // 1, 2 have content
+            .layout-sidebar-multi-row__row-#{$i}-first { @include grid-span(6,1); }
+            .layout-sidebar-multi-row__row-#{$i}-second { @include grid-span(6,7); }
+          }
+        }
+        &.empty-row-#{$i}-second.has-row-#{$i}-third { // 1, 3 have content
+          .layout-sidebar-multi-row__row-#{$i}-first { @include grid-span(6,1); }
+          .layout-sidebar-multi-row__row-#{$i}-third { @include grid-span(6,7); }
+        }
+      }
+      &.empty-row-#{$i}-first.has-row-#{$i}-second.has-row-#{$i}-third { // 2, 3 have content
+        .layout-sidebar-multi-row__row-#{$i}-second { @include grid-span(6,1); }
+        .layout-sidebar-multi-row__row-#{$i}-third { @include grid-span(6,7); }
+      }
+    }
+  }
+}
+
+.layout-sidebar-multi-row,
+.layout-sidebar-multi-row__preface,
+.layout-sidebar-multi-row__sidebar,
+.layout-sidebar-multi-row__main-wrapper,
+.layout-sidebar-multi-row__rows-wrapper,
+.layout-sidebar-multi-row__row-1,
+.layout-sidebar-multi-row__row-2,
+.layout-sidebar-multi-row__row-2-first,
+.layout-sidebar-multi-row__row-2-second,
+.layout-sidebar-multi-row__row-2-third,
+.layout-sidebar-multi-row__row-3,
+.layout-sidebar-multi-row__row-3-first,
+.layout-sidebar-multi-row__row-3-second,
+.layout-sidebar-multi-row__row-3-third,
+.layout-sidebar-multi-row__row-4,
+.layout-sidebar-multi-row__row-4-first,
+.layout-sidebar-multi-row__row-4-second,
+.layout-sidebar-multi-row__row-4-third,
+.layout-sidebar-multi-row__postscript {
+  @include clearfix;
+}
