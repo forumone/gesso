@@ -1,0 +1,110 @@
+// @file
+// Styles for a pillbox nav.
+
+$pillbox-color-bg: #f9f9f9 !default;
+$pillbox-color-text: #333 !default;
+$pillbox-gradient-top: $gradient-light !default;
+$pillbox-gradient-bottom: $gradient-dark !default;
+
+%nav--pillbox {
+  @include clearfix;
+
+  .nav__item {
+    display: block;
+    margin: 0;
+
+    @include breakpoint(30em, $no-query: true) {
+      float: left; // LTR
+      margin: 0 0 0.1em 0;
+
+      @if $support-for-rtl {
+        [dir='rtl'] & {
+          float: right;
+        }
+      }
+    }
+  }
+
+  .nav__link {
+    background-color: $pillbox-color-bg;
+    background-image: linear-gradient(to bottom, $pillbox-gradient-top 0%, $pillbox-gradient-bottom 100%);
+    border: 1px solid darken($pillbox-color-bg, 20%);
+    border-bottom-color: darken($pillbox-color-bg, 25%);
+    border-top-color: darken($pillbox-color-bg, 15%);
+    color: $pillbox-color-text;
+    display: block;
+    line-height: 1.1;
+    margin: 0;
+    padding: 0.5em;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      border-color: darken($pillbox-color-bg, 50%);
+      outline: 0;
+    }
+
+    &:active {
+      background-color: darken($pillbox-color-bg, 10%);
+      border-color: darken($pillbox-color-bg, 30%);
+    }
+  }
+
+  .is-active > .nav__link {
+    background-color: darken($pillbox-color-bg, 50%);
+    border-color: darken($pillbox-color-bg, 40%);
+    color: lighten($pillbox-color-bg, 50%);
+    font-weight: bold;
+
+    &:focus {
+      background-color: darken($pillbox-color-bg, 70%);
+    }
+
+    &:hover {
+      border-color: darken($pillbox-color-bg, 60%);
+    }
+
+    &:active {
+      background-color: darken($pillbox-color-bg, 80%);
+    }
+  }
+
+  > .nav__item:first-child > .nav__link {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    @include breakpoint(30em) {
+      border-bottom-left-radius: 5px; // LTR
+      border-top-right-radius: 0; // LTR
+
+      @if $support-for-rtl {
+        [dir='rtl'] & {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 5px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 5px;
+        }
+      }
+    }
+  }
+
+  > .nav__item:last-child > .nav__link {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    @include breakpoint(30em) {
+      border-bottom-left-radius: 0; // LTR
+      border-top-right-radius: 5px; // LTR
+
+      @if $support-for-rtl {
+        [dir='rtl'] & {
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 0;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 0;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,11 @@
+// @file
+// Styles for an inline nav.
+
+%nav--inline {
+  > .nav__item {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+}

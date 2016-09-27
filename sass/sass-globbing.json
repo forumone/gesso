@@ -1,9 +1,9 @@
 {
-  "partials/sass-globbing/_variables.scss": "partials/global/variables/**/*.scss",
-  "partials/sass-globbing/_helpers.scss": "partials/global/helpers/**/*.scss",
-  "partials/sass-globbing/_extendables.scss": "partials/global/extendables/**/*.scss",
-  "partials/sass-globbing/_helper-classes.scss": "partials/helper-classes/**/*.scss",
+  "partials/sass-globbing/global/_variables.scss": "partials/global/variables/**/*.scss",
+  "partials/sass-globbing/global/_helpers.scss": "partials/global/helpers/**/*.scss",
+  "partials/sass-globbing/global/_styles.scss": "partials/global/styles/**/*.scss",
+  "partials/sass-globbing/base/_extendables.scss": "partials/base/extendables/**/*.scss",
   "partials/sass-globbing/_layout.scss": "partials/layout/**/*.scss",
   "partials/sass-globbing/_components.scss": "partials/components/**/*.scss",
-  "partials/sass-globbing/_overrides.scss": "partials/overrides/**/*.scss"
+  "partials/sass-globbing/_utilities.scss": "partials/utilities/**/*.scss"
 }

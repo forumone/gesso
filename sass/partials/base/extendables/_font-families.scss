@@ -1,0 +1,18 @@
+// @file
+// Extendable font families
+
+%system-font-family {
+  font-family: $system-font-family;
+}
+
+%base-font-family {
+  font-family: $base-font-family;
+}
+
+%header-font-family {
+  font-family: $header-font-family;
+}
+
+%monospace-font-family {
+  font-family: $monospace-font-family;
+}

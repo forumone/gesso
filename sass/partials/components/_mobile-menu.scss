@@ -1,8 +1,18 @@
 // @file
 // Styles for the mobile menu.
 
+$mobile-menu-fallback-bg-color: #f3f3f3 !default;
+$mobile-menu-bg-color: rgba(243, 243, 243, 0.98) !default;
+$mobile-menu-border-color: #dadada !default;
+$mobile-menu-text-color: #555559 !default;
+$mobile-menu-hover-color: #000 !default;
+$mobile-submenu-fallback-bg-color: #fff !default;
+$mobile-submenu-bg-color: rgba(255, 255, 255, 0.98) !default;
+$mobile-submenu-text-color: #555559 !default;
+$mobile-submenu-hover-color: #000 !default;
+
 .mobile-menu {
-  @include breakpoint($mobile-menu-bp, $no-query: true) {
+  @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
     display: none;
   }
 }
@@ -17,14 +27,14 @@
 }
 
 .mobile-menu__button {
+  @extend %system-font-family;
   border-radius: 0;
   box-shadow: none;
   background-color: transparent;
   border: 0;
   color: $mobile-menu-text-color;
   display: inline-block;
-  font-family: $mobile-menu-font-family;
-  font-size: $font-size-normal;
+  font-size: rem(map-get($font-size, m));
   font-weight: bold;
   height: em(55px);
   line-height: em(55px);

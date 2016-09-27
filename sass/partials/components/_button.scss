@@ -2,9 +2,16 @@
 // Styles for buttons.
 
 .button {
-  @extend %button;
-}
+  @include button();
 
-.button--large {
-  @extend %button--large;
+  & + & {
+    margin-left: 1em; // LTR
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        margin-left: 0;
+        margin-right: 1em;
+      }
+    }
+  }
 }

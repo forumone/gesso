@@ -20,12 +20,12 @@
   margin-right: 0.5em;
 
   &:after {
-    content: "\2794";
+    content: '\2794';
     margin-left: 0.5em;
   }
 
   &:last-child:after {
-    content: "";
+    content: '';
     margin-left: 0;
   }
 }

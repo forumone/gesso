@@ -1,0 +1,46 @@
+// @file
+// Styles for a pipeline nav.
+
+$pipeline-border-color: #ccc !default;
+
+%nav--pipeline {
+  @include clearfix;
+
+  .nav__item {
+    border-right: 1px solid $pipeline-border-color; // LTR
+    display: block;
+    float: left; // LTR
+    margin-right: 0.75em; // LTR
+    padding-right: 0.75em; // LTR
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        border-left: 1px solid $pipeline-border-color;
+        border-right: 0;
+        float: right;
+        margin-left: 0.75em;
+        margin-right: 0;
+        padding-left: 0.75em;
+        padding-right: 0;
+      }
+    }
+
+    &:last-child {
+      border-right: 0; // LTR
+      margin-right: 0; // LTR
+      padding-right: 0; // LTR
+
+      @if $support-for-rtl {
+        [dir='rtl'] & {
+          border-left: 0;
+          margin-left: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  .is-active > .nav__link {
+    font-weight: bold;
+  }
+}

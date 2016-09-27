@@ -1,6 +1,8 @@
 // @file
 // Styles for form items.
 
+$form-text-size: map-get($font-size, m) !default;
+
 .form-item {
   margin: 1.5em 0;
 }
@@ -22,44 +24,14 @@
 
 .form-item__description {
   color: $secondary-text-color;
-  font-size: em($font-size-md);
+  font-size: em(map-get($font-size, s));
 }
 
 .form-item__required-marker:before {
-  content: "*";
+  content: '*';
 }
 
-.form-item--checkbox,
-.form-item--radio {
-  .form-item__label {
-    display: inline;
-    font-weight: normal;
-  }
-}
-
-.form-item--checkboxes .form-item--checkbox,
-.form-item--radio {
-  margin: 0;
-}
-
-.form-item--date-day,
-.form-item--date-month,
-.form-item--date-year {
-  display: inline-block;
-  margin: 0;
-}
-
-.form-item--password-confirm-pass-1 {
-  margin-bottom: 0.75em;
-}
-
-.form-item--password-confirm-pass-2 {
-  margin: 0.75em 0;
-}
-
-.form-select,
-.form-text,
-.form-textarea {
+%form-item__textbox {
   border: 1px solid $form-border-color;
   font-size: em($form-text-size);
   padding: em(5px, $form-text-size) em(10px, $form-text-size);
@@ -69,3 +41,15 @@
     outline: 0;
   }
 }
+
+.form-select,
+.form-text,
+.form-textarea {
+  @extend %form-item__textbox;
+}
+
+// Custom form item styles.
+@import 'form-item/form-item--checkbox';
+@import 'form-item/form-item--date';
+@import 'form-item/form-item--password-confirm';
+@import 'form-item/form-item--radio';

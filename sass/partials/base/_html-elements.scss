@@ -4,15 +4,14 @@
 *,
 *:before,
 *:after {
-  // Box-sizing: border-box
-  @include border-box;
+  box-sizing: inherit;
 }
 
 * {
   // Universal transitions
   transition-duration: 0.2s;
   transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
-  transition-timing-function:linear;
+  transition-timing-function: linear;
 }
 
 a {
@@ -33,8 +32,6 @@ a {
 }
 
 abbr {
-  @include smallcaps();
-
   &[title] {
     border-bottom: 1px dotted;
   }
@@ -66,7 +63,7 @@ body {
   word-wrap: break-word;
 }
 
-// Don't style button elements, since they're often styled as links for
+// Don’t style button elements, since they’re often styled as links for
 // accessible widgets. Use the .button class in partials/components/buttons.
 button {
   overflow: visible;
@@ -126,53 +123,59 @@ form {
 }
 
 %hN {
+  @extend %header-font-family;
   color: $heading-text-color;
-  font-family: $header-font-family;
   hyphens: none;
   line-height: 1.1;
   text-rendering: optimizeLegibility;
 }
 
-h1 {
+h1,
+%h1 {
   @extend %hN;
-  font-size: em($font-size-xxl);
+  font-size: em(map-get($font-size, xxl));
   margin: 0 0 1em;
 }
 
-h2 {
+h2,
+%h2 {
   @extend %hN;
-  font-size: em($font-size-xl);
+  font-size: em(map-get($font-size, xl));
   margin: 0 0 1em;
 }
 
-h3 {
+h3,
+%h3 {
   @extend %hN;
-  font-size: em($font-size-lg);
+  font-size: em(map-get($font-size, l));
   margin: 0 0 1em;
 }
 
-h4 {
+h4,
+%h4 {
   @extend %hN;
-  font-size: em($font-size-normal);
+  font-size: em(map-get($font-size, m));
   margin: 0 0 1.5em;
 }
 
-h5 {
+h5,
+%h5 {
   @extend %hN;
-  font-size: em($font-size-md);
+  font-size: em(map-get($font-size, s));
   margin: 0 0 1.5em;
 }
 
-h6 {
+h6,
+%h6 {
   @extend %hN;
-  font-size: em($font-size-sm);
+  font-size: em(map-get($font-size, xs));
   margin: 0 0 1.5em;
 }
 
 header {}
 
 hr {
-  border: 1px solid $form-border-color;
+  border: 1px solid $secondary-text-color;
   box-sizing: content-box;
   height: 0;
   margin: 1.5em 0;
@@ -180,19 +183,24 @@ hr {
 }
 
 html {
-  font-family: $base-font-family;
+  @extend %base-font-family;
+  @include border-box;
   font-size: 100% * ($base-font-size / 16px);
   hyphens: none;
   line-height: $base-line-height;
+  min-height: 100%;
   text-size-adjust: 100%;
 }
 
 i {}
 
-iframe {}
+iframe {
+  border: 0;
+}
 
 img {
   border: 0;
+  font-style: italic; // Makes alt text stand out from surrounding text.
   @if $legacy-support-for-ie7 {
     // Improve image quality when scaled in IE 7.
     -ms-interpolation-mode: bicubic;
@@ -210,28 +218,28 @@ input {
   line-height: normal;
 }
 
-input[type="button"] {}
-input[type="checkbox"] {}
-input[type="color"] {}
-input[type="date"] {}
-input[type="datetime"] {}
-input[type="datetime-local"] {}
-input[type="email"] {}
-input[type="file"] {}
-input[type="image"] {}
-input[type="month"] {}
-input[type="number"] {}
-input[type="password"] {}
-input[type="radio"] {}
-input[type="range"] {}
-input[type="reset"] {}
-input[type="search"] {}
-input[type="submit"] {}
-input[type="tel"] {}
-input[type="text"] {}
-input[type="time"] {}
-input[type="url"] {}
-input[type="week"] {}
+input[type='button'] {}
+input[type='checkbox'] {}
+input[type='color'] {}
+input[type='date'] {}
+input[type='datetime'] {}
+input[type='datetime-local'] {}
+input[type='email'] {}
+input[type='file'] {}
+input[type='image'] {}
+input[type='month'] {}
+input[type='number'] {}
+input[type='password'] {}
+input[type='radio'] {}
+input[type='range'] {}
+input[type='reset'] {}
+input[type='search'] {}
+input[type='submit'] {}
+input[type='tel'] {}
+input[type='text'] {}
+input[type='time'] {}
+input[type='url'] {}
+input[type='week'] {}
 
 ins {}
 
@@ -247,7 +255,7 @@ legend {
     *margin-left: -7px; // LTR
 
     @if $support-for-rtl {
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         *margin-left: 0;
         *margin-right: -7px;
       }
@@ -279,7 +287,7 @@ ol {
   padding: 0 0 0 1.5em; // LTR
 
   @if $support-for-rtl {
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       padding: 0 1.5em 0 0;
     }
   }
@@ -327,7 +335,7 @@ section {}
 select {}
 
 small {
-  font-size: em($font-size-md);
+  font-size: em(map-get($font-size, s));
 }
 
 strong {}
@@ -372,7 +380,7 @@ ul {
   padding: 0 0 0 1.2em; // LTR
 
   @if $support-for-rtl {
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       padding: 0 1.2em 0 0;
     }
   }
@@ -387,10 +395,10 @@ var {}
 
 video {}
 
-// Default print styles
+// Default print styles.
 @media print {
   * {
-    background: transparent !important;
+    background-color: transparent !important;
     box-shadow: none !important;
     color: #000 !important;
     text-shadow: none !important;
@@ -400,58 +408,42 @@ video {}
     }
   }
 
-  iframe,
-  nav {
-    display: none;
-  }
-
   a,
   a:visited {
     text-decoration: none;
   }
 
   a[href]:after {
-    content: " <" attr(href) ">";
     font-family: $base-font-family;
+    content: ' <' attr(href) '>';
     font-size: 10pt;
     font-weight: normal;
     text-transform: lowercase;
   }
 
-  // Uncomment and replace example.com with your site's domain.
-  //a[href^="/"]:after {
-  //  content: " <http://example.com" attr(href) ">";
+  // Uncomment and replace example.com with your site’s domain.
+  //a[href^='/']:after {
+  //  content: ' <http://example.com' attr(href) '>';
   //}
 
-  a[href^="javascript:"]:after,
-  a[href^="mailto:"]:after,
-  a[href^="tel:"]:after,
-  a[href^="#"]:after {
-    content: "";
+  a[href^='javascript:']:after,
+  a[href^='mailto:']:after,
+  a[href^='tel:']:after,
+  a[href^='#']:after,
+  a[href*='?']:after {
+    content: '';
   }
 
   abbr[title]:after {
-    content: " (" attr(title) ")";
+    content: ' (' attr(title) ')';
   }
 
   blockquote,
-  pre {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  thead {
-    display: table-header-group;
-  }
-
   img,
-  tr,
-  ul {
+  li,
+  pre,
+  tr {
     page-break-inside: avoid;
-  }
-
-  img {
-    max-width: 100% !important;
   }
 
   h1 a:after,
@@ -465,16 +457,29 @@ video {}
 
   h2,
   h3,
+  h4 {
+    page-break-after: avoid;
+  }
+
+  h2,
+  h3,
   h4,
   p {
     orphans: 3;
     widows: 3;
   }
 
-  h2,
-  h3,
-  h4 {
-    page-break-after: avoid;
+  iframe,
+  nav {
+    display: none;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  thead {
+    display: table-header-group;
   }
 
   @page {

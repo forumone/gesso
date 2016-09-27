@@ -1,9 +1,12 @@
 // @file
 // Styles for form fieldsets.
 
+$fieldset-bg-color: $form-bg-color !default;
+$fieldset-border-color: $form-border-color !default;
+
 .fieldset {
   background: #fff;
-  border: 1px solid $form-border-color;
+  border: 1px solid $fieldset-border-color;
   margin: 1.5em 0 1.5em + em(12px);
   padding: 0 1em;
   position: relative;
@@ -11,8 +14,8 @@
 }
 
 .fieldset__legend {
-    background: $form-bg-color;
-    border: 1px solid $form-border-color;
+    background: $fieldset-bg-color;
+    border: 1px solid $fieldset-border-color;
     border-bottom: none;
     box-sizing: content-box;
     color: #333;
@@ -48,7 +51,7 @@
 
 .fieldset--collapsible {
   .fieldset__legend-link:before {
-    content: "-";
+    content: '-';
     display: inline-block;
     font-weight: bold;
     margin-right: 1em;
@@ -61,11 +64,11 @@
     margin-bottom: 3em + em(12px);
 
     .fieldset__legend {
-      border-bottom: 1px solid $form-border-color;
+      border-bottom: 1px solid $fieldset-border-color;
     }
 
     .fieldset__legend-link:before {
-      content: "+";
+      content: '+';
     }
 
     .fieldset__content {

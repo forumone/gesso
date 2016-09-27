@@ -1,20 +1,24 @@
 // @file
 // Styles for Drupal messages.
 
+$status-color: #4d8e4d !default;
+$warning-color: #fcce00 !default;
+$error-color: #900 !default;
+
 .messages {
   background-position: 0.75em 0.75em; // LTR
   background-repeat: no-repeat;
   border-radius: 5px;
   border-style: solid;
   border-width: 4px 1px;
-  font-size: em($font-size-md);
+  font-size: em(map-get($font-size, s));
   margin: 1.5em 0;
   padding: 0.75em 0.75em 0.75em 3em; // LTR
   position: relative;
   word-wrap: break-word;
 
   @if $support-for-rtl {
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       background-position: 98.5% 50%;
       padding: 0.75em 3em 0.75em 0.75em;
     }
@@ -25,7 +29,7 @@
     padding-left: 0.75em; // LTR
 
     @if $support-for-rtl {
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         padding-right: 0.75em;
       }
     }

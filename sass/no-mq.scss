@@ -1,4 +1,6 @@
+// @file
 // Styles for browsers that don't support media queries.
+
 $legacy-support-for-ie8: true;
 
 @import 'breakpoint-sass/stylesheets/breakpoint'; // github.com/Team-Sass/breakpoint
@@ -9,8 +11,7 @@ $legacy-support-for-ie8: true;
 
 @import 'partials/global';
 @import 'partials/base';
-@import 'partials/helper-classes';
 @import 'partials/layout';
 @import 'partials/components';
-@import 'partials/overrides';
+@import 'partials/utilities';
 @import 'partials/quick-fixes';

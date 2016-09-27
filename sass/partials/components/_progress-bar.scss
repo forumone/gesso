@@ -33,7 +33,7 @@
 .progress__description,
 .progress__percentage {
   color: $secondary-text-color;
-  font-size: em($font-size-sm);
+  font-size: em(map-get($font-size, xs));
   overflow: hidden;
 }
 
@@ -41,7 +41,7 @@
   float: left; // LTR
 
   @if $support-for-rtl {
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       float: right;
     }
   }
@@ -51,7 +51,7 @@
   float: right; // LTR
 
   @if $support-for-rtl {
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       float: left;
     }
   }
