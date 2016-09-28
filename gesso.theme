@@ -1,1 +1,7 @@
 <?php
+/**
+ * @file
+ * Functions to support theming.
+ */
+
+ require_once dirname(__FILE__) . '/includes/html.inc';
