@@ -4,6 +4,6 @@
   "partials/sass-globbing/global/_styles.scss": "partials/global/styles/**/*.scss",
   "partials/sass-globbing/base/_extendables.scss": "partials/base/extendables/**/*.scss",
   "partials/sass-globbing/_layout.scss": "partials/layout/**/*.scss",
-  "partials/sass-globbing/_components.scss": "partials/components/**/*.scss",
+  "partials/sass-globbing/_components.scss": "partials/components/*.scss",
   "partials/sass-globbing/_utilities.scss": "partials/utilities/**/*.scss"
 }
