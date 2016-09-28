@@ -1,0 +1,14 @@
+// @file
+// Styles for the secondary local tasks menu.
+
+.nav--secondary-local-tasks {
+  @extend %nav--pipeline;
+
+  @media print {
+    display: none;
+  }
+
+  .nav__link {
+    font-size: em(map-get($font-size, s));
+  }
+}

@@ -1,0 +1,15 @@
+// @file
+// Styles for the primary local tasks menu.
+
+.nav--primary-local-tasks {
+  @extend %nav--pillbox;
+
+  @media print {
+    display: none;
+  }
+
+  .nav__link {
+    @extend %system-font-family;
+    font-size: em(map-get($font-size, s));
+  }
+}
