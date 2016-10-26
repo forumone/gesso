@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Theme override to display a block without wrapper markup.
+ */
+#}
+{{ title_prefix }}
+{% if label %}
+  <h2{{ title_attributes }}>{{ label }}</h2>
+{% endif %}
+{{ title_suffix }}
+{% block content %}
+  {{ content }}
+{% endblock %}
