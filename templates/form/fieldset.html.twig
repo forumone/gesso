@@ -1,0 +1,60 @@
+{%
+  set removeClasses = [
+    'required',
+  ]
+%}
+{%
+  set addClasses = [
+    'fieldset',
+    required ? 'is-required',
+    'js-form-wrapper',
+  ]
+%}
+{% if type == 'fieldset' %}
+  {%
+    set addClasses = addClasses|merge([
+      'fieldset--default',
+    ])
+  %}
+{% else %}
+  {%
+    set removeClasses = removeClasses|merge([
+      'fieldgroup',
+      'form-composite',
+      'js-form-wrapper',
+    ])
+  %}
+  {%
+    set addClasses = addClasses|merge([
+      'fieldset--' ~ type|clean_class,
+    ])
+  %}
+{% endif %}
+<fieldset{{ attributes.removeClass(removeClasses).addClass(addClasses) }}>
+  {%
+    set legend_span_classes = [
+      'fieldset__legend-text',
+      required ? 'is-required',
+      required ? 'js-form-required',
+    ]
+  %}
+  {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
+  <legend{{ legend.attributes.addClass('fieldset__legend') }}>
+    <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
+  </legend>
+  <div class="fieldset__content">
+    {% if errors %}
+      <div class="fieldset__error-message">{{ errors }}</div>
+    {% endif %}
+    {% if prefix %}
+      <span class="fieldset__prefix">{{ prefix }}</span>
+    {% endif %}
+    {{ children }}
+    {% if suffix %}
+      <span class="fieldset__suffix">{{ suffix }}</span>
+    {% endif %}
+    {% if description.content %}
+      <div{{ description.attributes.addClass('fieldset__description') }}>{{ description.content }}</div>
+    {% endif %}
+  </div>
+</fieldset>
