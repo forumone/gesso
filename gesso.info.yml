@@ -6,7 +6,11 @@ core: 8.x
 base theme: stable
 
 libraries:
+  - gesso/modernizr
   - gesso/global
+
+libraries-override:
+  core/modernizr: false
 
 regions:
   page_top: 'Page top'

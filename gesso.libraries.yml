@@ -8,6 +8,11 @@ global:
     js/scripts.js: {}
   dependencies:
     - core/jquery
+    - core/jquery-once
     - core/drupal
     - core/drupalSettings
-    - core/modernizr
+
+modernizr:
+  version: VERSION
+  js:
+    js/modernizr.js: {weight: -21}
