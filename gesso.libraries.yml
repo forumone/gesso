@@ -8,12 +8,6 @@ global:
     js/scripts.js: {}
   dependencies:
     - core/jquery
-    - core/jquery-once
     - core/drupal
     - core/drupalSettings
-
-modernizr:
-  header: true
-  version: "3.3.1"
-  js:
-    js/lib/modernizr.min.js: { weight: -21, minified: true }
+    - core/modernizr
