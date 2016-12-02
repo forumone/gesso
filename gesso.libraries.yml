@@ -13,6 +13,7 @@ global:
     - core/drupalSettings
 
 modernizr:
-  version: VERSION
+  header: true
+  version: "3.3.1"
   js:
-    js/modernizr.js: {weight: -21}
+    js/lib/modernizr.min.js: { weight: -21, minified: true }
