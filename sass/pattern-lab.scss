@@ -57,3 +57,18 @@
 	font-size: 90%;
 	line-height: 1;
 }
+
+.sg-subtype {
+  h2 {
+    font-size: 24px;
+    margin: 3em 0 0.25em;
+    text-transform: capitalize;
+  }
+  a {
+    color: #666;
+    text-decoration: none;
+    &:hover, &:focus {
+      color: #333;
+    }
+  }
+}
