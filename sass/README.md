@@ -29,11 +29,15 @@ Discrete, reusable UI components. (Think SMACSS “modules”.) The majority of 
 ### partials/_utilities.scss
 Utility classes that aren’t components themselves, such as clearfix.
 
+### partials/_overrides.scss
+Styles provided by Drupal modules that you want to override or add to go here.
+
 ### partials/_quick-fixes.scss
 Deadlines happen, so put your quick fixes here. Hopefully there will be time later to move/re-factor these styles into their proper place.
 
 ### overrides/
 Stylesheets provided by Drupal modules that you want to completely override go here. Please update *.libraries.yml to ensure that the module’s stylesheets are not added and your override stylesheets are added in their place.
+
 
 ## SMACSS
 

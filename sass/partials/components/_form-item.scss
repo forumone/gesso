@@ -47,9 +47,3 @@ $form-text-size: map-get($font-size, m) !default;
 .form-textarea {
   @extend %form-item__textbox;
 }
-
-// Custom form item styles.
-@import 'form-item/form-item--checkbox';
-@import 'form-item/form-item--date';
-@import 'form-item/form-item--password-confirm';
-@import 'form-item/form-item--radio';

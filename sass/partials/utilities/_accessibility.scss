@@ -3,11 +3,11 @@
 //
 // Included from global/helpers/_accessibility.scss.
 
-.u-visually-hidden {
+.visually-hidden {
   @include visually-hidden-important;
 }
 
-.u-focusable {
+.focusable {
   @include visually-hidden-important;
 
   &:active,
@@ -16,10 +16,10 @@
   }
 }
 
-.u-hidden {
+.hidden {
   @include hidden-important;
 }
 
-.u-invisible {
+.invisible {
   @include invisible-important;
 }
