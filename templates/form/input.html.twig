@@ -1,0 +1,13 @@
+{%
+  set removeClasses = [
+    'form-' ~ type|clean_class,
+    'required',
+  ]
+%}
+{%
+  set addClasses = [
+    'form-item__' ~ type|clean_class,
+    required ? 'is-required',
+  ]
+%}
+<input{{ attributes.removeClass(removeClasses).addClass(addClasses) }}>{{ children }}

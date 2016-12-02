@@ -1,0 +1,13 @@
+{%
+  set removeClasses = [
+    'form-textarea',
+    'required',
+  ]
+%}
+{%
+  set addClasses = [
+    'form-item__textarea',
+    required ? 'is-required',
+  ]
+%}
+<textarea{{ attributes.removeClass(removeClasses).addClass(addClasses) }}>{{ value }}</textarea>

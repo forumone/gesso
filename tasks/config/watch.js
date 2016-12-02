@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     watch: {
       gesso: {
         files: ['<%= pkg.themePath %>/sass/**/*.scss'],
-        tasks: ['buildStyles'],
+        tasks: ['gessoBuildStyles'],
       },
       patternlab: {
         files: ['<%= pkg.themePath %>/pattern-lab/source/**/*'],
@@ -14,7 +14,7 @@ module.exports = function (grunt) {
       },
       svgs: {
         files: ['<%= pkg.themePath %>/images/bg/*.svg'],
-        tasks: ['buildImages', 'buildStyles'],
+        tasks: ['gessoBuildImages', 'gessoBuildStyles'],
       },
     }
   });
