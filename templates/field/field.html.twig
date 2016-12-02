@@ -53,20 +53,9 @@
 %}
 
 {% if label_hidden %}
-  {% if multiple %}
-    <div{{ attributes.addClass(addClasses) }}>
-      <div class="field__items">
-        {% for item in items %}
-          <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
-        {% endfor %}
-      </div>
-    </div>
-  {% else %}
-    {% for item in items %}
-      {# if no label on single value field, just print content #}
-      {{ item.content }}
-    {% endfor %}
-  {% endif %}
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
 {% else %}
   <div{{ attributes.addClass(addClasses) }}>
     <div{{ title_attributes.addClass(addTitleClasses) }}>{{ label }}</div>
