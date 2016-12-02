@@ -1,0 +1,24 @@
+gesso.images.mobile:
+  label: mobile
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+  group: gesso.images
+gesso.images.tablet:
+  label: tablet
+  mediaQuery: '(min-width: 700px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+  group: gesso.images
+gesso.images.desktop:
+  label: desktop
+  mediaQuery: '(min-width: 1024px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+  group: gesso.images

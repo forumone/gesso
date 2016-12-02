@@ -8,6 +8,11 @@ base theme: stable
 libraries:
   - gesso/global
 
+libraries-override:
+  core/modernizr:
+    js:
+      assets/vendor/modernizr/modernizr.min.js: js/lib/modernizr.min.js
+
 regions:
   page_top: 'Page top'
   header: Header
