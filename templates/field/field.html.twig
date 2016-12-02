@@ -33,12 +33,11 @@
  * - field_type: The type of the field.
  * - label_display: The display settings for the label.
  *
- *
  * @see template_preprocess_field()
  */
 #}
 {%
-  set classes = [
+  set addClasses = [
     'field',
     'field--name-' ~ field_name|clean_class,
     'field--type-' ~ field_type|clean_class,
@@ -46,15 +45,16 @@
   ]
 %}
 {%
-  set title_classes = [
+  set addTitleClasses = [
     'field__label',
+    label_display == 'inline' ? 'is-inline',
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]
 %}
 
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes.addClass(classes) }}>
+    <div{{ attributes.addClass(addClasses) }}>
       <div class="field__items">
         {% for item in items %}
           <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
@@ -68,8 +68,8 @@
     {% endfor %}
   {% endif %}
 {% else %}
-  <div{{ attributes.addClass(classes) }}>
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+  <div{{ attributes.addClass(addClasses) }}>
+    <div{{ title_attributes.addClass(addTitleClasses) }}>{{ label }}</div>
     {% if multiple %}
       <div class="field__items">
     {% endif %}
