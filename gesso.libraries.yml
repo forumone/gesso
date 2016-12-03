@@ -15,5 +15,5 @@ global:
 messages:
   version: VERSION
   css:
-    component:
-      css/overrides/messages.css: {}
+    theme:
+      css/components/messages.css: {}
