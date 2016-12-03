@@ -1,9 +1,13 @@
 // @file
 // Styles for pagers.
+
+@import '../partials/global';
+$image-location: '../../images/bg/';
+
 $pager-bg-color: #666;
 $pager-border-color: #000;
 $pager-bg-active-color: #333;
-$pager-font-size: $font-size-sm; 
+$pager-font-size: $font-size-sm;
 
 .pager {
   font-size: 0%;

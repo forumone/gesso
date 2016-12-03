@@ -17,3 +17,9 @@ messages:
   css:
     theme:
       css/components/messages.css: {}
+
+pager:
+  version: VERSION
+  css:
+    theme:
+      css/components/pager.css: {}
