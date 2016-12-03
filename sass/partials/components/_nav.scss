@@ -6,9 +6,7 @@
   padding: 0;
 }
 
-// Extendable nav styles.
-
-// Styles for an inline nav.
+// Extendable styles for an inline nav.
 %nav--inline {
   > .nav__item {
     display: -moz-inline-stack;
@@ -18,7 +16,7 @@
   }
 }
 
-// Styles for a pillbox nav.
+// Extendable styles for a pillbox nav.
 $pillbox-color-bg: #f9f9f9 !default;
 $pillbox-color-text: #333 !default;
 $pillbox-gradient-top: $gradient-light !default;
@@ -126,7 +124,7 @@ $pillbox-gradient-bottom: $gradient-dark !default;
   }
 }
 
-// Styles for a pipeline nav.
+// Extendable styles for a pipeline nav.
 $pipeline-border-color: #ccc !default;
 
 %nav--pipeline {
@@ -170,10 +168,3 @@ $pipeline-border-color: #ccc !default;
     font-weight: bold;
   }
 }
-
-// Custom nav styles.
-@import 'nav/nav--account';
-@import 'nav/nav--main';
-@import 'nav/nav--mobile-menu';
-@import 'nav/nav--primary-local-tasks';
-@import 'nav/nav--secondary-local-tasks';
