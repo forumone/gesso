@@ -3,7 +3,7 @@
 
 $button-color-bg: #f9f9f9 !default;
 $button-color-text: #333 !default;
-$button-font-size: map-get($font-size, s) !default;
+$button-font-size: $font-size-sm !default;
 $button-gradient-top: $gradient-light !default;
 $button-gradient-bottom: $gradient-dark !default;
 

@@ -1,7 +1,7 @@
 // @file
 // Styles for form items.
 
-$form-text-size: map-get($font-size, m) !default;
+$form-text-size: $font-size-md !default;
 
 .form-item {
   margin: 1.5em 0;
@@ -24,7 +24,7 @@ $form-text-size: map-get($font-size, m) !default;
 
 .form-item__description {
   color: $secondary-text-color;
-  font-size: em(map-get($font-size, s));
+  font-size: em($font-size-sm);
 }
 
 .form-item__required-marker:before {

@@ -34,7 +34,7 @@ $mobile-submenu-hover-color: #000 !default;
   border: 0;
   color: $mobile-menu-text-color;
   display: inline-block;
-  font-size: rem(map-get($font-size, m));
+  font-size: rem($font-size-md);
   font-weight: bold;
   height: em(55px);
   line-height: em(55px);

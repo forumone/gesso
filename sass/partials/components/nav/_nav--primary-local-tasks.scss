@@ -10,6 +10,6 @@
 
   .nav__link {
     @extend %system-font-family;
-    font-size: em(map-get($font-size, s));
+    font-size: em($font-size-sm);
   }
 }

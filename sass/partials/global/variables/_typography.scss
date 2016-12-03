@@ -13,12 +13,10 @@ $header-font-family: $base-font-family;
 $monospace-font-family: Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif;
 
 // Typographic Scale
-$font-size: (
-  xxl: 26px,
-  xl: 22px,
-  l: 19px,
-  m: $base-font-size,
-  s: 14px,
-  xs: 12px,
-  xxs: 10px
-);
+$font-size-xxl: 26px;
+$font-size-xl: 22px;
+$font-size-lg: 19px;
+$font-size-md: $base-font-size;
+$font-size-sm: 14px;
+$font-size-xs: 12px;
+$font-size-xxs: 10px;

@@ -133,42 +133,42 @@ form {
 h1,
 %h1 {
   @extend %hN;
-  font-size: em(map-get($font-size, xxl));
+  font-size: em($font-size-xxl);
   margin: 0 0 1em;
 }
 
 h2,
 %h2 {
   @extend %hN;
-  font-size: em(map-get($font-size, xl));
+  font-size: em($font-size-xl);
   margin: 0 0 1em;
 }
 
 h3,
 %h3 {
   @extend %hN;
-  font-size: em(map-get($font-size, l));
+  font-size: em($font-size-lg);
   margin: 0 0 1em;
 }
 
 h4,
 %h4 {
   @extend %hN;
-  font-size: em(map-get($font-size, m));
+  font-size: em($font-size-md);
   margin: 0 0 1.5em;
 }
 
 h5,
 %h5 {
   @extend %hN;
-  font-size: em(map-get($font-size, s));
+  font-size: em($font-size-sm);
   margin: 0 0 1.5em;
 }
 
 h6,
 %h6 {
   @extend %hN;
-  font-size: em(map-get($font-size, xs));
+  font-size: em($font-size-xs);
   margin: 0 0 1.5em;
 }
 
@@ -335,7 +335,7 @@ section {}
 select {}
 
 small {
-  font-size: em(map-get($font-size, s));
+  font-size: em($font-size-sm);
 }
 
 strong {}

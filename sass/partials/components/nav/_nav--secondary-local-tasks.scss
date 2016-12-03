@@ -9,6 +9,6 @@
   }
 
   .nav__link {
-    font-size: em(map-get($font-size, s));
+    font-size: em($font-size-sm);
   }
 }
