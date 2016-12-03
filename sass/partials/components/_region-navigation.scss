@@ -5,7 +5,7 @@
 .region-navigation {
   display: none;
 
-  @include breakpoint($mobile-menu-bp, $no-query: true) {
+  @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
     display: block;
   }
 }

@@ -1,6 +1,16 @@
 // @file
 // Styles for the mobile menu.
 
+$mobile-menu-fallback-bg-color: #f3f3f3 !default;
+$mobile-menu-bg-color: rgba(243, 243, 243, 0.98) !default;
+$mobile-menu-border-color: #dadada !default;
+$mobile-menu-text-color: #555559 !default;
+$mobile-menu-hover-color: #000 !default;
+$mobile-submenu-fallback-bg-color: #fff !default;
+$mobile-submenu-bg-color: rgba(255, 255, 255, 0.98) !default;
+$mobile-submenu-text-color: #555559 !default;
+$mobile-submenu-hover-color: #000 !default;
+
 .nav--mobile-menu {
   margin: 0.75em 0 0 0;
 
@@ -10,11 +20,11 @@
   }
 
   .nav__link {
+    @extend %system-font-family;
     background-color: transparent;
     border: 0;
     color: $mobile-menu-text-color;
     display: block;
-    font-family: $mobile-menu-font-family;
     font-size: em(18px);
     font-weight: bold;
     line-height: 1.25;
@@ -74,7 +84,7 @@
     }
 
     @if $support-for-rtl {
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         left: 0;
         right: auto;
       }

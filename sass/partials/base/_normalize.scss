@@ -71,7 +71,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: $monospace-font-family;
+  @extend %monospace-font-family;
   font-size: 1em;
   @if $legacy-support-for-ie6 {
     _font-family: 'courier new', monospace;
@@ -100,9 +100,9 @@ select {
 }
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -118,8 +118,8 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   box-sizing: border-box;
   padding: 0;
   @if $legacy-support-for-ie7 {
@@ -128,18 +128,18 @@ input[type="radio"] {
   }
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
-input[type="search"] {
+input[type='search'] {
   -webkit-appearance: textfield;
   box-sizing: content-box;
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -179,4 +179,9 @@ object {
   background: $selection-background;
   color: $selection-foreground;
   text-shadow: none;
+}
+
+// Don’t show focus styles for elements that can’t be accessed via keyboard.
+[tabindex='-1']:focus {
+  outline: none !important;
 }

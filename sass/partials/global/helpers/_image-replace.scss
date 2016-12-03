@@ -1,5 +1,5 @@
 // @file
-// Image replacement.
+// Image replacement
 
 // After applying mixin, inline elements will need the display property set to
 // block or inline-block.
@@ -12,7 +12,7 @@
   width: $width;
 
   &:before {
-    content: "";
+    content: '';
     display: block;
     height: 150%;
     width: 0;
