@@ -11,3 +11,9 @@ global:
     - core/drupal
     - core/drupalSettings
     - core/modernizr
+
+messages:
+  version: VERSION
+  css:
+    theme:
+      css/components/messages.css: {}

@@ -144,6 +144,7 @@ function drush_gesso($name = NULL) {
     $libraries_file,
     $theme_file,
     'js/scripts.js',
+    'templates/misc/status-messages.html.twig',
   );
   foreach ($files as $file) {
     drush_op('gesso_file_str_replace', drush_normalize_path($new_path . '/' . $file), 'gesso', $machine_name);
