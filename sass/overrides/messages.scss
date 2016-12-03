@@ -1,9 +1,11 @@
 // @file
 // Styles for Drupal messages.
 
+@import '../partials/global';
+
+$error-color: #900 !default;
 $status-color: #4d8e4d !default;
 $warning-color: #fcce00 !default;
-$error-color: #900 !default;
 
 .messages {
   background-position: 0.75em 0.75em; // LTR
@@ -48,20 +50,6 @@ $error-color: #900 !default;
   }
 }
 
-.messages--status {
-  @include svg-background-inline(messages-status);
-  background-color: lighten($status-color, 50%);
-  border-color: $status-color;
-  color: darken($status-color, 20%);
-}
-
-.messages--warning {
-  @include svg-background-inline(messages-warning);
-  background-color: lighten($warning-color, 40%);
-  border-color: $warning-color;
-  color: darken($warning-color, 40%);
-}
-
 .messages--error {
   @include svg-background-inline(messages-error);
   background-color: lighten($error-color, 65%);
@@ -74,4 +62,18 @@ $error-color: #900 !default;
       font-weight: bold;
     }
   }
+}
+
+.messages--status {
+  @include svg-background-inline(messages-status);
+  background-color: lighten($status-color, 50%);
+  border-color: $status-color;
+  color: darken($status-color, 20%);
+}
+
+.messages--warning {
+  @include svg-background-inline(messages-warning);
+  background-color: lighten($warning-color, 40%);
+  border-color: $warning-color;
+  color: darken($warning-color, 40%);
 }

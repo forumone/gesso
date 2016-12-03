@@ -21,19 +21,16 @@
  *   - class: HTML classes.
  */
 #}
-{{ attach_library('classy/messages') }}
-{% block messages %}
+{{ attach_library('gesso/messages') }}
 {% for type, messages in message_list %}
   {%
-    set classes = [
+    set addClasses = [
       'messages',
       'messages--' ~ type,
     ]
   %}
-  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes.addClass(classes)|without('role', 'aria-label') }}>
-    {% if type == 'error' %}
-      <div role="alert">
-    {% endif %}
+  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes.addClass(addClasses)|without('role', 'aria-label') }}>
+    <div class="messages__content"{% if type == 'error' %} role="alert"{% endif %}>
       {% if status_headings[type] %}
         <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
       {% endif %}
@@ -46,11 +43,8 @@
       {% else %}
         {{ messages|first }}
       {% endif %}
-    {% if type == 'error' %}
-      </div>
-    {% endif %}
+    </div>
   </div>
   {# Remove type specific classes. #}
-  {% set attributes = attributes.removeClass(classes) %}
+  {% set attributes = attributes.removeClass(addClasses) %}
 {% endfor %}
-{% endblock messages %}
