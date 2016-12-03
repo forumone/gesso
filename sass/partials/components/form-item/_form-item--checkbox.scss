@@ -1,0 +1,13 @@
+// @file
+// Styles for checkbox form items.
+
+.form-item--checkbox {
+  .form-item__label {
+    display: inline;
+    font-weight: normal;
+  }
+}
+
+.form-item--checkboxes .form-item--checkbox {
+  margin: 0;
+}

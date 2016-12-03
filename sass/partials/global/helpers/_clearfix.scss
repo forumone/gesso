@@ -8,11 +8,19 @@
 
   &:after {
     clear: both;
-    content: "";
+    content: '';
     display: table;
   }
 }
 
-%clearfix {
-  @include clearfix;
+@mixin clearfix-important {
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *zoom: 1;
+  }
+
+  &:after {
+    clear: both !important;
+    content: '' !important;
+    display: table !important;
+  }
 }
