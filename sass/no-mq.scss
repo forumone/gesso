@@ -11,8 +11,8 @@ $legacy-support-for-ie8: true;
 
 @import 'partials/global';
 @import 'partials/base';
+@import 'partials/module-tweaks';
 @import 'partials/layout';
 @import 'partials/components';
 @import 'partials/utilities';
-@import 'partials/overrides';
 @import 'partials/quick-fixes';
