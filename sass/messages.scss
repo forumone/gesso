@@ -3,7 +3,6 @@
 
 @import '../partials/global';
 $bp-larger-message-icon: 600px, 'no-query' true;
-$image-location: '../../images/bg/';
 
 .messages {
   background-color: #f1f1f1;
@@ -53,7 +52,7 @@ $image-location: '../../images/bg/';
 }
 
 .messages--error {
-  @include svg-background(messages-error, $image-location);
+  @include svg-background(messages-error);
   background-color: #f9dede;
 
   .messages__item {
@@ -65,11 +64,11 @@ $image-location: '../../images/bg/';
 }
 
 .messages--status {
-  @include svg-background(messages-status, $image-location);
+  @include svg-background(messages-status);
   background-color: #e7f4e4;
 }
 
 .messages--warning {
-  @include svg-background(messages-warning, $image-location);
+  @include svg-background(messages-warning);
   background-color: #fff1d2;;
 }
