@@ -2,8 +2,7 @@ global:
   version: VERSION
   css:
     theme:
-      css/styles.css: { browsers: { IE: 'gte IE 9' } }
-      css/no-mq.css: { browsers: { IE: 'lte IE 8', '!IE': false } }
+      css/styles.css: {}
   js:
     js/scripts.js: {}
   dependencies:

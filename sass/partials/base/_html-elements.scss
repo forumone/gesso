@@ -115,12 +115,7 @@ figure {
 
 footer {}
 
-form {
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    // Correct margin displayed oddly in IE 6/7.
-    margin: 0;
-  }
-}
+form {}
 
 %hN {
   @extend %header-font-family;
@@ -184,7 +179,7 @@ hr {
 
 html {
   @extend %base-font-family;
-  @include border-box;
+  box-sizing: border-box;
   font-size: 100% * ($base-font-size / 16px);
   hyphens: none;
   line-height: $base-line-height;
@@ -201,14 +196,6 @@ iframe {
 img {
   border: 0;
   font-style: italic; // Makes alt text stand out from surrounding text.
-  @if $legacy-support-for-ie7 {
-    // Improve image quality when scaled in IE 7.
-    -ms-interpolation-mode: bicubic;
-  }
-  @if $legacy-support-for-ie8 {
-    // Correct IE 8 not scaling image height when resized.
-    width: auto;
-  }
 }
 
 // Don't style button, submit, or reset elements, since they're often styled as
@@ -251,16 +238,6 @@ legend {
   border: 0;
   margin: 0;
   padding: 0;
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *margin-left: -7px; // LTR
-
-    @if $support-for-rtl {
-      [dir='rtl'] & {
-        *margin-left: 0;
-        *margin-right: -7px;
-      }
-    }
-  }
 }
 
 li {}
@@ -315,11 +292,6 @@ param {}
 pre {
   margin: 0 0 1.5em;
   overflow: auto;
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
 }
 
 progress {}
@@ -402,10 +374,6 @@ video {}
     box-shadow: none !important;
     color: #000 !important;
     text-shadow: none !important;
-    @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
-      -ms-filter: none !important;
-      filter: none !important;
-    }
   }
 
   a,

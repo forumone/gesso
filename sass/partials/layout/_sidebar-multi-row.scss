@@ -4,7 +4,7 @@
 .l-sidebar-multi-row {
   @include add-grid(12 at 700px);
   @include add-gutter(1);
-  @include breakpoint(700px, $no-query: true) {
+  @include breakpoint(700px) {
     &.has-sidebar {
       .l-sidebar-multi-row__rows-wrapper {
         @include grid-span(9,4);

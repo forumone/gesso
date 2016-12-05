@@ -8,7 +8,7 @@
 .l-sidebar {
   @include add-grid(12 at 700px);
   @include add-gutter(1);
-  @include breakpoint(700px, $no-query: true) {
+  @include breakpoint(700px) {
     &.has-sidebar {
       .l-sidebar__main {
         @include grid-span(8,1);

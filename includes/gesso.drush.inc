@@ -150,9 +150,6 @@ function drush_gesso($name = NULL) {
     drush_op('gesso_file_str_replace', drush_normalize_path($new_path . '/' . $file), 'gesso', $machine_name);
   }
 
-  // Update box-sizing polyfill path.
-  drush_op('gesso_file_str_replace', drush_normalize_path($new_path . '/sass/partials/global/variables/_layout.scss'), 'themes/gesso', $theme_path . '/' . $machine_name);
-
   // Notify user of the newly created theme.
   drush_print(dt(
     "\nThe \"!name\" theme has been created in: !path\n",
