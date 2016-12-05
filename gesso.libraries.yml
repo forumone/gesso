@@ -22,4 +22,4 @@ pager:
   version: VERSION
   css:
     theme:
-      css/components/pager.css: {}
+      css/pager.css: {}

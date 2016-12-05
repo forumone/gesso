@@ -1,9 +1,7 @@
 // @file
 // Styles for pagers.
 
-@import '../partials/global';
-$image-location: '../../images/bg/';
-
+@import 'partials/global';
 $bp-ellipsis: 800px, 'no-query' true;
 $bp-pager: 600px, 'no-query' true;
 $pager-bg-color: #f1f1f1;
