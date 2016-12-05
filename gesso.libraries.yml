@@ -16,7 +16,7 @@ messages:
   version: VERSION
   css:
     theme:
-      css/components/messages.css: {}
+      css/messages.css: {}
 
 pager:
   version: VERSION
