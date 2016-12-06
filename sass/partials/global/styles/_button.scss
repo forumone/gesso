@@ -39,6 +39,7 @@ $button-font-size: $font-size-md !default;
   text-align: center;
   text-decoration: none;
   vertical-align: baseline;
+  white-space: normal;
 
   &:focus,
   &:hover {
