@@ -3,15 +3,44 @@
 
 .button {
   @include button();
+  margin: 0 0 0.5em;
 
   & + & {
-    margin-left: 1em; // LTR
+    margin-left: 0.5em; // LTR
 
     @if $support-for-rtl {
       [dir='rtl'] & {
         margin-left: 0;
-        margin-right: 1em;
+        margin-right: 0.5em;
       }
     }
   }
+}
+
+.button--secondary {
+  background-color: #5b616b;
+  color: #fff;
+
+  &:focus,
+  &:hover {
+    background-color: #323a45;
+    color: #fff;
+  }
+
+  &:active {
+    background-color: #212121;
+    color: #fff;
+  }
+}
+
+// Size variations.
+
+.button--lg {
+  font-size: rem($font-size-lg);
+  padding: rem(15px) rem(30px);
+}
+
+.button--sm {
+  font-size: rem($font-size-sm);
+  padding: rem(8px) rem(16px);
 }
