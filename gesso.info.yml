@@ -9,6 +9,13 @@ libraries:
   - gesso/global
 
 libraries-override:
+  core/drupal.dropbutton:
+    js:
+      misc/dropbutton/dropbutton.js: js/dropbutton.js
+    css:
+      component:
+        /core/themes/stable/css/core/dropbutton/dropbutton.css: css/dropbutton.css
+
   core/modernizr:
     js:
       assets/vendor/modernizr/modernizr.min.js: js/lib/modernizr.min.js

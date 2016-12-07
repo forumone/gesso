@@ -1,0 +1,102 @@
+// @file
+// Styles for Drupal dropbuttons.
+
+@import 'partials/global';
+@import 'partials/base/extendables/font-families';
+$toggle-width: 2em;
+
+.dropbutton {
+  display: inline-block;
+  margin: 0 0 0.5em;
+  position: relative;
+  vertical-align: top;
+
+  &.has-multiple {
+    padding-right: $toggle-width; // LTR
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        padding-left: $toggle-width;
+        padding-right: 0;
+      }
+    }
+  }
+
+  &.is-open {
+    .dropbutton__item {
+      display: block;
+
+      &:first-child .dropbutton__button {
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    .dropbutton__toggle-button {
+      @include svg-background(arrow-up-white);
+    }
+  }
+
+  & + &,
+  & + .button,
+  .button + & {
+    margin-left: 0.5em; // LTR
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        margin-left: 0;
+        margin-right: 0.5em;
+      }
+    }
+  }
+}
+
+.dropbutton__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropbutton__toggle {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: $toggle-width;
+}
+
+.dropbutton__toggle-button {
+  @include button();
+  @include svg-background(arrow-down-white);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  height: 100%;
+  padding: 0;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.dropbutton__item {
+  &.is-secondary-action {
+    display: none;
+
+    &:not(:last-child) .dropbutton__button {
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &:not(:first-child) .dropbutton__button {
+    border-top-left-radius: 0;
+  }
+}
+
+.dropbutton .dropbutton__button { // Nested to override default button styles.
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  display: block;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}

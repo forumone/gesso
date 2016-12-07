@@ -6,7 +6,8 @@
 %}
 {%
   set addClasses = [
-    'form-item__' ~ type|clean_class,
+    dropbutton ? 'dropbutton__button',
+    type != 'submit' ? 'form-item__' ~ type|clean_class,
     required ? 'is-required',
   ]
 %}
