@@ -238,7 +238,13 @@ legend {
   padding: 0;
 }
 
-li {}
+li {
+  margin-bottom: rem($vertical-spacing / 2);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
 
 main {}
 
@@ -269,7 +275,7 @@ ol {
 
   ol,
   ul {
-    margin: 0;
+    margin: rem($vertical-spacing / 2) 0 0;
   }
 }
 
@@ -346,6 +352,7 @@ tr {}
 u {}
 
 ul {
+  list-style-type: disc;
   margin: 0 0 rem($vertical-spacing);
   padding: 0 0 0 1.2em; // LTR
 
@@ -357,7 +364,7 @@ ul {
 
   ol,
   ul {
-    margin: 0;
+    margin: rem($vertical-spacing / 2) 0 0;
   }
 }
 
