@@ -1,6 +1,7 @@
 // @file
 // Styles for form items.
 
+$form-border-color: #5b616b !default;
 $form-text-size: $font-size-md !default;
 
 .form-item {
@@ -23,7 +24,7 @@ $form-text-size: $font-size-md !default;
 }
 
 .form-item__description {
-  color: $secondary-text-color;
+  color: $color-text-secondary;
   font-size: em($font-size-sm);
 }
 
