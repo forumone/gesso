@@ -13,21 +13,21 @@ $button-color-text-hover: #fff !default;
 $button-font-size: $font-size-md !default;
 
 @mixin button(
-  $bg-color: $button-color-bg,
-  $text-color: $button-color-text,
-  $bg-color-hover: $button-color-bg-hover,
-  $text-color-hover: $button-color-text-hover,
-  $bg-color-active: $button-color-bg-active,
-  $text-color-active: $button-color-text-active,
-  $bg-color-disabled: $button-color-bg-disabled,
-  $text-color-disabled: $button-color-text-disabled,
+  $color-bg: $button-color-bg,
+  $color-text: $button-color-text,
+  $color-bg-hover: $button-color-bg-hover,
+  $color-text-hover: $button-color-text-hover,
+  $color-bg-active: $button-color-bg-active,
+  $color-text-active: $button-color-text-active,
+  $color-bg-disabled: $button-color-bg-disabled,
+  $color-text-disabled: $button-color-text-disabled,
   $border-radius: $button-border-radius,
   $font-size: $button-font-size) {
   @extend %base-font-family;
-  background-color: $bg-color;
+  background-color: $color-bg;
   border: 0;
   border-radius: $border-radius;
-  color: $text-color;
+  color: $color-text;
   cursor: pointer;
   display: inline-block;
   font-size: rem($font-size);
@@ -43,19 +43,19 @@ $button-font-size: $font-size-md !default;
 
   &:focus,
   &:hover {
-    background-color: $bg-color-hover;
-    color: $text-color-hover;
+    background-color: $color-bg-hover;
+    color: $color-text-hover;
     outline: 0;
   }
 
   &:active {
-    background-color: $bg-color-active;
-    color: $text-color-active;
+    background-color: $color-bg-active;
+    color: $color-text-active;
   }
 
   &[disabled] {
-    background-color: $bg-color-disabled;
-    color: $text-color-disabled;
+    background-color: $color-bg-disabled;
+    color: $color-text-disabled;
     cursor: default;
     pointer-events: none;
   }
