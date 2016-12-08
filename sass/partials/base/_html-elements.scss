@@ -52,7 +52,7 @@ audio {}
 b {}
 
 blockquote {
-  margin: 0 1.5em 1.5em;
+  margin: 0 1.5em rem($vertical-spacing);
 }
 
 body {
@@ -84,7 +84,7 @@ colgroup {}
 datalist {}
 
 dd {
-  margin-bottom: 1.5em;
+  margin-bottom: rem($vertical-spacing);
 }
 
 del {}
@@ -96,7 +96,7 @@ dfn {
 }
 
 dl {
-  margin: 0 0 1.5em;
+  margin: 0 0 rem($vertical-spacing);
 }
 
 dt {}
@@ -110,7 +110,7 @@ fieldset {}
 figcaption {}
 
 figure {
-  margin: 0 0 1.5em;
+  margin: 0 0 rem($vertical-spacing);
 }
 
 footer {}
@@ -149,7 +149,6 @@ h4,
 %h4 {
   @extend %hN;
   font-size: em($font-size-md);
-  margin: 0 0 1.5em;
 }
 
 h5,
@@ -172,7 +171,7 @@ hr {
   border: 1px solid $color-text-secondary;
   box-sizing: content-box;
   height: 0;
-  margin: 1.5em 0;
+  margin: rem($vertical-spacing) 0;
   padding-bottom: -1px;
 }
 
@@ -259,7 +258,7 @@ nav {}
 object {}
 
 ol {
-  margin: 0 0 1.5em;
+  margin: 0 0 rem($vertical-spacing);
   padding: 0 0 0 1.5em; // LTR
 
   @if $support-for-rtl {
@@ -283,13 +282,13 @@ option {}
 output {}
 
 p {
-  margin: 0 0 1.5em;
+  margin: 0 0 rem($vertical-spacing);
 }
 
 param {}
 
 pre {
-  margin: 0 0 1.5em;
+  margin: 0 0 rem($vertical-spacing);
   overflow: auto;
 }
 
@@ -347,7 +346,7 @@ tr {}
 u {}
 
 ul {
-  margin: 0 0 1.5em;
+  margin: 0 0 rem($vertical-spacing);
   padding: 0 0 0 1.2em; // LTR
 
   @if $support-for-rtl {

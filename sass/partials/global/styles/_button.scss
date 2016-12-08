@@ -21,7 +21,7 @@ $button-gradient-bottom: $color-gradient-dark !default;
   display: inline-block;
   font-size: rem($font-size);
   line-height: $base-line-height;
-  margin: 0 0 1em;
+  margin: 0 0 rem($vertical-spacing);
   padding: 0 0.5em;
   text-align: center;
   text-decoration: none;

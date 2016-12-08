@@ -5,7 +5,7 @@ $form-border-color: #5b616b !default;
 $form-text-size: $font-size-md !default;
 
 .form-item {
-  margin: 1.5em 0;
+  margin: rem($vertical-spacing) 0;
 }
 
 .form-item__label {
