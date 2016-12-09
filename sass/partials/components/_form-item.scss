@@ -3,6 +3,7 @@
 
 $form-color-border: #5b616b !default;
 $form-text-size: $font-size-md !default;
+$form-select-arrow-size: 13px !default;
 
 .form-item {
   margin: 0 0 rem($vertical-spacing);
@@ -59,6 +60,19 @@ $form-text-size: $font-size-md !default;
 
   .is-full-width > & {
     width: 100%;
+  }
+}
+
+.form-item__select {
+  @include svg-background(arrow-down);
+  background-color: #fff;
+  background-position: right rem($form-select-arrow-size) center; // LTR
+  background-repeat: no-repeat;
+  background-size: rem($form-select-arrow-size);
+  padding-right: rem(($form-select-arrow-size * 2) + 7px); // LTR
+
+  &::-ms-expand {
+    display: none;
   }
 }
 
