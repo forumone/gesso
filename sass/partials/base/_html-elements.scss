@@ -19,6 +19,7 @@ a {
   color: $color-link;
   // Improves readability when focused.
   outline-offset: em(2px);
+  -webkit-text-decoration-skip: objects
 
   &:active,
   &:hover {
@@ -33,7 +34,9 @@ a {
 
 abbr {
   &[title] {
-    border-bottom: 1px dotted;
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
   }
 
   &:hover {
@@ -47,7 +50,12 @@ article {}
 
 aside {}
 
-audio {}
+audio {
+  &:not([controls]) {
+    display: none;
+    height: 0;
+  }
+}
 
 b {}
 
@@ -69,7 +77,9 @@ button {
   overflow: visible;
 }
 
-canvas {}
+canvas {
+  display: inline-block;
+}
 
 caption {}
 
@@ -179,7 +189,6 @@ html {
   @extend %base-font-family;
   box-sizing: border-box;
   font-size: 100% * ($base-font-size / 16px);
-  hyphens: none;
   line-height: $base-line-height;
   min-height: 100%;
   text-size-adjust: 100%;
@@ -234,8 +243,13 @@ label {}
 
 legend {
   border: 0;
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
   margin: 0;
+  max-width: 100%;
   padding: 0;
+  white-space: normal;
 }
 
 li {
@@ -320,10 +334,18 @@ sub {
   bottom: -0.25em;
 }
 
-summary {}
+summary {
+  display: list-item;
+}
 
 sup {
   top: -0.5em;
+}
+
+svg {
+  &:not(:root) {
+    overflow: hidden;
+  }
 }
 
 table {
