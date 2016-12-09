@@ -9,48 +9,21 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 main,
 menu,
 nav,
-section,
-summary {
+section {
   display: block;
-}
-
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-[hidden],
-template {
-  display: none;
 }
 
 b,
 strong {
-  font-weight: bold;
+  font-weight: inherit;
 }
 
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-svg:not(:root) {
-  overflow: hidden;
+b,
+strong {
+  font-weight: bolder;
 }
 
 code,
@@ -61,16 +34,34 @@ samp {
   font-size: 1em;
 }
 
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+audio,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
 button,
 input,
 optgroup,
 select,
 textarea {
-  color: inherit;
   font-family: inherit;
   font-size: 100%;
   margin: 0;
-  max-width: 100%;
+}
+
+button,
+input {
+  overflow: visible;
 }
 
 button,
@@ -79,46 +70,58 @@ select {
 }
 
 button,
-html input[type='button'],
-input[type='reset'],
-input[type='submit'] {
+html [type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
-  cursor: pointer;
-}
-
-button[disabled],
-html input[disabled] {
-  cursor: default;
 }
 
 button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
   padding: 0;
 }
 
-input[type='checkbox'],
-input[type='radio'] {
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type'reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box;
   padding: 0;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
-input[type='search'] {
+[type='search'] {
   -webkit-appearance: textfield;
-  box-sizing: content-box;
+  outline-offset: -2px;
 }
 
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration {
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-// http://meyerweb.com/eric/thoughts/2012/12/17/where-to-avoid-css-hyphenation
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+template,
+[hidden] {
+  display: none;
+}
+
 abbr,
 blockquote,
 code,
@@ -130,18 +133,9 @@ var {
   hyphens: none;
 }
 
-img,
-input,
-textarea,
-video {
-  height: auto;
-  max-width: 100%;
-}
-
-embed,
-iframe,
-object {
-  max-width: 100%;
+// Don’t show focus styles for elements that can’t be accessed via keyboard.
+[tabindex='-1']:focus {
+  outline: none !important;
 }
 
 ::-moz-selection {
@@ -154,9 +148,4 @@ object {
   background: $color-selection-background;
   color: $color-selection-foreground;
   text-shadow: none;
-}
-
-// Don’t show focus styles for elements that can’t be accessed via keyboard.
-[tabindex='-1']:focus {
-  outline: none !important;
 }
