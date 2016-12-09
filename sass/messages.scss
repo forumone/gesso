@@ -10,7 +10,7 @@ $bp-larger-message-icon: 600px;
   background-repeat: no-repeat;
   background-size: em(40px);
   color: #212121;
-  margin-bottom: em($base-line-height);
+  margin-bottom: rem($vertical-spacing);
   padding: 1em;
   position: relative;
   word-wrap: break-word;
