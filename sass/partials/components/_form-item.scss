@@ -152,7 +152,7 @@ $form-text-size: $font-size-md !default;
     color: $color-text-secondary;
 
     &:before {
-      background: $form-color-disabled;
+      background-color: $form-color-disabled;
       box-shadow: 0 0 0 1px $form-border-color-disabled;
       cursor: not-allowed;
     }
@@ -173,6 +173,14 @@ $form-text-size: $font-size-md !default;
     background-position: 50%;
     background-repeat: no-repeat;
     box-shadow: 0 0 0 1px #0071bc;
+  }
+
+  &:disabled + .form-item__label:before {
+    box-shadow: 0 0 0 1px $form-border-color-disabled;
+  }
+
+  &:checked:disabled + .form-item__label:before {
+    background-color: $form-border-color-disabled;
   }
 }
 
