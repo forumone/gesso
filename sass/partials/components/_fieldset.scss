@@ -5,7 +5,7 @@ $fieldset-color-border: #aeb0b5 !default;
 $fieldset-color-legend: #d6d7d9 !default;
 
 .fieldset {
-  margin-bottom: rem($vertical-spacing + $base-line-height);
+  margin-bottom: rem($vertical-spacing-forms + $base-line-height);
   padding: 0;
   position: relative;
   top: rem($base-line-height); // Offsets the negative margin of legends.
