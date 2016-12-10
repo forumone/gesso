@@ -3,6 +3,10 @@
 
 .form-item--checkbox {}
 
-.form-item--checkboxes .form-item--checkbox {
-  margin-bottom: 0.5em;
+.form-item--checkboxes {
+  margin-bottom: 0;
+
+  .form-item--checkbox {
+    margin-bottom: 0.5em;
+  }
 }
