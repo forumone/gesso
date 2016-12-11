@@ -29,7 +29,7 @@ $pillbox-gradient-bottom: $gradient-dark !default;
     display: block;
     margin: 0;
 
-    @include breakpoint(30em, $no-query: true) {
+    @include breakpoint(30em) {
       float: left; // LTR
       margin: 0 0 0.1em 0;
 

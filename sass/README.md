@@ -9,10 +9,7 @@ This Sass file structure uses many of the ideas discussed in Jonathan Snook’s 
 It’s recommended that you follow the [Drupal 8 CSS architecture guidelines](https://drupal.org/node/1887918).
 
 ### styles.scss
-This file shouldn’t contain any CSS code. It only serves to combine the CSS contained in other Sass partials through @import directives. By default, the compiled styles.css file is sent to all browsers except IE8 and below.
-
-### no-mq.scs
-A duplicate of styles.scss, but includes legacy support for older browsers. By default, the compiled no-mq.css file is only sent to IE8 and below.
+This file shouldn’t contain any CSS code. It only serves to combine the CSS contained in other Sass partials through @import directives.
 
 ### partials/_global.scss
 Global variables, functions, and mixins that should be imported into all scss files.

@@ -8,7 +8,7 @@
 .l-three-column {
   @include add-grid(12 at 700px);
   @include add-gutter(1);
-  @include breakpoint(700px, $no-query: true) {
+  @include breakpoint(700px) {
     &.has-first {
       &.has-second {
         &.has-third { // 1, 2, 3 have content

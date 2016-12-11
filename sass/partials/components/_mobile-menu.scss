@@ -12,7 +12,7 @@ $mobile-submenu-text-color: #555559 !default;
 $mobile-submenu-hover-color: #000 !default;
 
 .mobile-menu {
-  @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
+  @include breakpoint($bp-hide-mobile-menu) {
     display: none;
   }
 }
