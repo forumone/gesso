@@ -32,7 +32,7 @@
 {{ attach_library('gesso/pager') }}
 {% if items %}
   <nav role="navigation" aria-labelledby="pagination-heading">
-    <h4 id="pagination-heading" class="visually-hidden">{{ 'Pagination'|t }}</h4>
+    <h2 id="pagination-heading" class="visually-hidden">{{ 'Pagination'|t }}</h2>
     <ul class="pager js-pager__items">
       {% spaceless %}
 
@@ -58,7 +58,7 @@
 
         {# Add an ellipsis if there are further previous pages. #}
         {% if ellipses.previous %}
-          <li class="pager__item pager__item--ellipsis" role="presentation">&hellip;</li>
+          <li class="pager__item pager__item--ellipsis" role="presentation">…</li>
         {% endif %}
 
         {# Now generate the actual pager piece. #}
@@ -71,14 +71,16 @@
             {% endif %}
 
             {% if current == key %}
-                <span class="visually-hidden">
-                  {{ current == key ? 'Currently on page'|t : 'Page'|t }}
-                </span>
-                {{- key -}}
+              <span class="visually-hidden">
+                {{ current == key ? 'Currently on page'|t : 'Page'|t }}
+                &nbsp;
+              </span>
+              {{- key -}}
             {% else %}
               <a class="pager__link" href="{{ item.href }}" title="{{ title }}"{{ item.attributes|without('href', 'title') }}>
                 <span class="visually-hidden">
                   {{ current == key ? 'Current page'|t : 'Page'|t }}
+                  &nbsp;
                 </span>
                 {{- key -}}
               </a>
@@ -88,7 +90,7 @@
 
         {# Add an ellipsis if there are further next pages. #}
         {% if ellipses.next %}
-          <li class="pager__item pager__item--ellipsis" role="presentation">&hellip;</li>
+          <li class="pager__item pager__item--ellipsis" role="presentation">…</li>
         {% endif %}
 
         {# Print next item if we are not on the last page. #}
