@@ -53,10 +53,12 @@
 
 .button--lg {
   font-size: rem($font-size-lg);
+  line-height: (25px / $font-size-lg);
   padding: rem(15px) rem(30px);
 }
 
 .button--sm {
   font-size: rem($font-size-sm);
+  line-height: (17px / $font-size-sm);
   padding: rem(8px) rem(16px);
 }
