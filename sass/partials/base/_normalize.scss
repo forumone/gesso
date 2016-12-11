@@ -139,13 +139,13 @@ var {
 }
 
 ::-moz-selection {
-  background: $selection-background;
-  color: $selection-foreground;
+  background: $color-selection-background;
+  color: $color-selection-foreground;
   text-shadow: none;
 }
 
 ::selection {
-  background: $selection-background;
-  color: $selection-foreground;
+  background: $color-selection-background;
+  color: $color-selection-foreground;
   text-shadow: none;
 }

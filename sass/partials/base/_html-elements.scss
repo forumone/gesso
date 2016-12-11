@@ -16,7 +16,7 @@
 
 a {
   background-color: transparent;
-  color: $link-color;
+  color: $color-link;
   // Improves readability when focused.
   outline-offset: em(2px);
   -webkit-text-decoration-skip: objects
@@ -28,7 +28,7 @@ a {
 
   &:hover,
   &:focus {
-    color: $link-hover-color;
+    color: $color-link-hover;
   }
 }
 
@@ -64,8 +64,8 @@ blockquote {
 }
 
 body {
-  background-color: $body-color;
-  color: $primary-text-color;
+  background-color: $color-body;
+  color: $color-text-primary;
   margin: 0;
   padding: 0;
   word-wrap: break-word;
@@ -129,7 +129,7 @@ form {}
 
 %hN {
   @extend %header-font-family;
-  color: $heading-text-color;
+  color: inherit;
   hyphens: none;
   line-height: 1.1;
   text-rendering: optimizeLegibility;
@@ -180,7 +180,7 @@ h6,
 header {}
 
 hr {
-  border: 1px solid $secondary-text-color;
+  border: 1px solid $color-text-secondary;
   box-sizing: content-box;
   height: 0;
   margin: 1.5em 0;

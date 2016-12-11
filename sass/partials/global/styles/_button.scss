@@ -4,8 +4,8 @@
 $button-color-bg: #f9f9f9 !default;
 $button-color-text: #333 !default;
 $button-font-size: $font-size-sm !default;
-$button-gradient-top: $gradient-light !default;
-$button-gradient-bottom: $gradient-dark !default;
+$button-gradient-top: $color-gradient-light !default;
+$button-gradient-bottom: $color-gradient-dark !default;
 
 @mixin button($bg-color: $button-color-bg, $text-color: $button-color-text, $font-size: $button-font-size) {
   @extend %base-font-family;

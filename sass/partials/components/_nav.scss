@@ -19,8 +19,8 @@
 // Extendable styles for a pillbox nav.
 $pillbox-color-bg: #f9f9f9 !default;
 $pillbox-color-text: #333 !default;
-$pillbox-gradient-top: $gradient-light !default;
-$pillbox-gradient-bottom: $gradient-dark !default;
+$pillbox-gradient-top: $color-gradient-light !default;
+$pillbox-gradient-bottom: $color-gradient-dark !default;
 
 %nav--pillbox {
   @include clearfix;
