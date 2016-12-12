@@ -22,3 +22,9 @@ pager:
   css:
     theme:
       css/pager.css: {}
+
+progress:
+  version: VERSION
+  css:
+    theme:
+      css/progress.css: {}

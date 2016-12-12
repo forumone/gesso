@@ -12,6 +12,10 @@ libraries-override:
   core/modernizr:
     js:
       assets/vendor/modernizr/modernizr.min.js: js/lib/modernizr.min.js
+  system/base:
+    css:
+      component:
+        /core/themes/stable/css/system/components/progress.module.css: false
 
 regions:
   page_top: 'Page top'
