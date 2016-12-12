@@ -11,8 +11,8 @@
 // The container for the 'view all' screen, which contains the list of patterns.
 #sg-patterns {
   box-sizing: border-box !important;
-	max-width: 100%; // Fully fluid by default, but can be modified by giving it a different `max-width`
-	padding: 0 0.5em; // this determines the gutter between the edge of the viewport and the pattern container
+	max-width: em($max-page-width);
+	padding: 0 ($gutter-width / 2);
 }
 
 // Demo box for animation
