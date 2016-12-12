@@ -3,12 +3,13 @@
 
 $fieldset-color-border: #aeb0b5 !default;
 $fieldset-color-legend: #d6d7d9 !default;
+$fieldset-legend-offset:  rem($base-line-height * $base-font-size) !default;
 
 .fieldset {
-  margin-bottom: rem($vertical-spacing-forms + $base-line-height);
+  margin-bottom: rem($vertical-spacing-forms + ($base-line-height * $base-font-size));
   padding: 0;
   position: relative;
-  top: rem($base-line-height); // Offsets the negative margin of legends.
+  top: $fieldset-legend-offset; // Offsets the negative margin of legends.
 }
 
 .fieldset__legend {
@@ -17,7 +18,7 @@ $fieldset-color-legend: #d6d7d9 !default;
   left: -1px; // LTR
   position: absolute;
   text-indent: 0;
-  top: rem(-$base-line-height);
+  top: -$fieldset-legend-offset;
   width: 100%;
 
   @if $support-for-rtl {
