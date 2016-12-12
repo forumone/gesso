@@ -81,7 +81,9 @@ canvas {
   display: inline-block;
 }
 
-caption {}
+caption {
+  margin-bottom: rem($vertical-spacing / 2);
+}
 
 cite {}
 
@@ -352,21 +354,42 @@ svg {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  margin-bottom: rem($vertical-spacing);
+  min-width: 100%;
 }
 
 tbody {}
 
-td {}
+td {
+  background-color: #ffffff;
+  border: 1px solid #5b616b;
+  padding: rem(15px);
+}
 
 textarea {
   overflow: auto;
 }
 
-tfoot {}
+tfoot {
+  td,
+  th {
+    background-color: #f1f1f1;
+  }
+}
 
-th {}
+th {
+  background-color: #ffffff;
+  border: 1px solid #5b616b;
+  padding: rem(15px);
+  text-align: left;
+}
 
-thead {}
+thead {
+  td,
+  th {
+    background-color: #f1f1f1;
+  }
+}
 
 time {}
 
