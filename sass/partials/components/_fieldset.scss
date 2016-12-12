@@ -7,10 +7,10 @@ $fieldset-border-color: #aeb0b5 !default;
 .fieldset {
   background: #fff;
   border: 1px solid $fieldset-border-color;
-  margin: 1.5em 0 1.5em + em(12px);
+  margin: rem($vertical-spacing) 0 (rem($vertical-spacing) + rem(12px));
   padding: 0 1em;
   position: relative;
-  top: em(12px); // Offsets the negative margin of legends.
+  top: rem(12px); // Offsets the negative margin of legends.
 }
 
 .fieldset__legend {
@@ -27,7 +27,7 @@ $fieldset-border-color: #aeb0b5 !default;
     position: absolute;
     text-indent: 0;
     text-shadow: 0 1px 0 #fff;
-    top: em(-12px);
+    top: rem(-12px);
     width: 100%;
   }
 
@@ -46,7 +46,7 @@ $fieldset-border-color: #aeb0b5 !default;
 
 .fieldset__description {
   font-style: italic;
-  margin: 1.5em 0;
+  margin: rem($vertical-spacing) 0;
 }
 
 .fieldset--collapsible {
@@ -61,7 +61,7 @@ $fieldset-border-color: #aeb0b5 !default;
     border-bottom-width: 0;
     border-left-width: 0;
     border-right-width: 0;
-    margin-bottom: 3em + em(12px);
+    margin-bottom: (rem($vertical-spacing * 2) + rem(12px));
 
     .fieldset__legend {
       border-bottom: 1px solid $fieldset-border-color;

@@ -3,14 +3,15 @@
 
 .button {
   @include button();
+  margin: 0 0 0.5em;
 
   & + & {
-    margin-left: 1em; // LTR
+    margin-left: 0.5em; // LTR
 
     @if $support-for-rtl {
       [dir='rtl'] & {
         margin-left: 0;
-        margin-right: 1em;
+        margin-right: 0.5em;
       }
     }
   }
