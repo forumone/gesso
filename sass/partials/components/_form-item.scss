@@ -1,16 +1,15 @@
 // @file
 // Styles for form items.
 
-$form-border-color: #5b616b !default;
+$form-color-border: #5b616b !default;
 $form-text-size: $font-size-md !default;
 
 .form-item {
-  margin: rem($vertical-spacing) 0;
+  margin: 0 0 rem($vertical-spacing);
 }
 
 .form-item__label {
   display: block;
-  font-weight: bold;
 }
 
 .form-item__fieldset {
@@ -19,32 +18,49 @@ $form-text-size: $font-size-md !default;
   padding: 0;
 }
 
-.form-item__legend {
-  font-weight: bold;
-}
+.form-item__legend {}
 
 .form-item__description {
   color: $color-text-secondary;
   font-size: em($font-size-sm);
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .form-item__required-marker:before {
   content: '*';
 }
 
-%form-item__textbox {
-  border: 1px solid $form-border-color;
-  font-size: em($form-text-size);
-  padding: em(5px, $form-text-size) em(10px, $form-text-size);
+%form-item__box,
+.form-item__date,
+.form-item__email,
+.form-item__number,
+.form-item__password,
+.form-item__search,
+.form-item__select,
+.form-item__tel,
+.form-item__text,
+.form-item__textarea,
+.form-item__time {
+  appearance: none;
+  border: 1px solid $form-color-border;
+  font-size: rem($form-text-size);
+  height: rem(44px);
+  line-height: 1.3;
+  padding: em(10px, $form-text-size) em(7px, $form-text-size);
 
   &:focus {
-    border-color: darken($form-border-color, 50%);
+    box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
     outline: 0;
+  }
+
+  .is-full-width > & {
+    width: 100%;
   }
 }
 
-.form-select,
-.form-text,
-.form-textarea {
-  @extend %form-item__textbox;
+.form-item__textarea {
+  height: auto;
 }
