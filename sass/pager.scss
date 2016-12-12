@@ -10,7 +10,7 @@ $pager-bg-color-active: #d6d7d9;
 .pager {
   clear: both;
   list-style: none;
-  margin: em($base-line-height * 2) 0;
+  margin: em($vertical-spacing * 2) 0;
   padding: 0;
   text-align: center;
 }
