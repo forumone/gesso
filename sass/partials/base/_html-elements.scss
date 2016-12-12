@@ -141,6 +141,7 @@ h1,
 %h1 {
   @extend %hN;
   font-size: em($font-size-xxl);
+  margin-bottom: 0.5em;
 }
 
 h2,

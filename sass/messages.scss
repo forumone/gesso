@@ -10,7 +10,7 @@ $bp-larger-message-icon: 600px;
   background-repeat: no-repeat;
   background-size: em(40px);
   color: #212121;
-  margin-bottom: em($base-line-height);
+  margin-bottom: rem($vertical-spacing);
   padding: 1em;
   position: relative;
   word-wrap: break-word;
@@ -41,13 +41,9 @@ $bp-larger-message-icon: 600px;
       padding-right: em(50px);
     }
   }
-}
 
-.messages__list {
-  margin: 0;
-
-  > li + li {
-    margin-top: em($base-line-height / 2);
+  > *:last-child {
+    margin-bottom: 0;
   }
 }
 

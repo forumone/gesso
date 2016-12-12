@@ -3,9 +3,8 @@
 // http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
 
 $base-font-size: 17px;
-$base-line-height: 25.5px;
-$base-line-height-ratio: $base-line-height / $base-font-size;
-$vertical-spacing: $base-font-size;
+$base-line-height: 1.5;
+$vertical-spacing: $base-font-size; // Used as the default spacing below items such as paragraphs, lists, etc.
 
 // Fonts
 $system-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Open Sans', 'Helvetica Neue', sans-serif;
