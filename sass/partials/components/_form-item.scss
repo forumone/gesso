@@ -62,7 +62,8 @@ $form-text-size: $font-size-md !default;
 .form-item__tel,
 .form-item__text,
 .form-item__textarea,
-.form-item__time {
+.form-item__time,
+.form-item__url {
   appearance: none;
   background-color: $form-color;
   border: 1px solid $form-border-color;
