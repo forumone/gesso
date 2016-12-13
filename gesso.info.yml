@@ -9,6 +9,9 @@ libraries:
   - gesso/global
 
 libraries-override:
+  core/drupal.collapse:
+    js:
+      misc/collapse.js: js/overrides/collapse.js
   core/modernizr:
     js:
       assets/vendor/modernizr/modernizr.min.js: js/lib/modernizr.min.js
@@ -18,6 +21,7 @@ libraries-override:
         /core/themes/stable/css/system/components/align.module.css: false
         /core/themes/stable/css/system/components/clearfix.module.css: false
         /core/themes/stable/css/system/components/container-inline.module.css: false
+        /core/themes/stable/css/system/components/details.module.css: false
         /core/themes/stable/css/system/components/fieldgroup.module.css: false
         /core/themes/stable/css/system/components/hidden.module.css: false
         /core/themes/stable/css/system/components/item-list.module.css: false
