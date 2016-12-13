@@ -32,9 +32,6 @@ Utility classes that aren’t components themselves, such as clearfix.
 ### partials/_quick-fixes.scss
 Deadlines happen, so put your quick fixes here. Hopefully there will be time later to move/re-factor these styles into their proper place.
 
-### overrides/
-Stylesheets provided by Drupal modules that you want to completely override go here. Please update *.libraries.yml to ensure that the module’s stylesheets are not added and your override stylesheets are added in their place.
-
 ## SMACSS
 
 You should try to abstract your components as much as possible to promote reuse throughout the theme. Components should be flexible enough to respond to any width and should never rely on context (e.g., .sidebar-first .component) for styling. This allows components to be placed anywhere in the markup with no risk of them breaking.

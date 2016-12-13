@@ -144,6 +144,7 @@ function drush_gesso($name = NULL) {
     $libraries_file,
     $theme_file,
     'js/scripts.js',
+    'templates/misc/progress-bar.html.twig',
     'templates/misc/status-messages.html.twig',
     'templates/navigation/pager.html.twig',
     'templates/views/views-mini-pager.html.twig',
