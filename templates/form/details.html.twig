@@ -14,7 +14,7 @@
  * @see template_preprocess_details()
  */
 #}
-<details{{ attributes.removeClass('form-wrapper').addClass('details') }}>
+<details{{ attributes.removeClass('form-wrapper').addClass('details js-details') }}>
   {%- if title -%}
     <summary{{ summary_attributes.addClass('details__summary') }}>{{ title }}</summary>
   {%- else -%}

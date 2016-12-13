@@ -9,6 +9,9 @@ libraries:
   - gesso/global
 
 libraries-override:
+  core/drupal.collapse:
+    js:
+      misc/collapse.js: js/overrides/collapse.js
   core/modernizr:
     js:
       assets/vendor/modernizr/modernizr.min.js: js/lib/modernizr.min.js

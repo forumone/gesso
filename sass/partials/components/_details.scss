@@ -9,6 +9,11 @@ $details-padding: rem(30px) !default;
 
 .details {
   margin: 0 0 rem($vertical-spacing-forms);
+
+  // Fallback for browsers that don’t support details.
+  .js &:not([open]) > .details__content {
+    display: none;
+  }
 }
 
 .details__summary {
@@ -47,6 +52,13 @@ $details-padding: rem(30px) !default;
   &::-webkit-details-marker {
     display: none;
   }
+}
+
+.details__fallback-link {
+  color: inherit !important;
+  display: block;
+  outline: 0;
+  text-decoration: none;
 }
 
 .details__content {
