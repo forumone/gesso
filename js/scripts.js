@@ -7,7 +7,7 @@
 
   // Generic function that runs on window resize.
   function resizeStuff() {
-    // mosaicGrid();
+    
   }
 
   // Runs function once on window resize.
