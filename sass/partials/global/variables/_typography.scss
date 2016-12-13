@@ -4,7 +4,8 @@
 
 $base-font-size: 17px;
 $base-line-height: 1.5;
-$vertical-spacing: $base-font-size; // Used as the default spacing below items such as paragraphs, lists, etc.
+$vertical-spacing: $base-font-size; // Used as the default spacing below most items such as paragraphs, lists, etc.
+$vertical-spacing-forms: 30px; // Used as the default spacing below form elements.
 
 // Fonts
 $system-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Open Sans', 'Helvetica Neue', sans-serif;
