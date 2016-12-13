@@ -173,6 +173,7 @@ $form-text-size: $font-size-md !default;
     @include svg-background(correct);
     background-position: 50%;
     background-repeat: no-repeat;
+    background-size: rem(20px);
     box-shadow: 0 0 0 1px #0071bc;
   }
 
