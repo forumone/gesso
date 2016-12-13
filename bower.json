@@ -12,6 +12,6 @@
     "bower_components"
   ],
   "dependencies": {
-    "singularity": "~1.7.0"
+    "singularity": "^1.7.1"
   }
 }
