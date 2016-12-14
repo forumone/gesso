@@ -11,7 +11,7 @@ libraries:
 libraries-override:
   core/drupal.dropbutton:
     js:
-      misc/dropbutton/dropbutton.js: js/dropbutton.js
+      misc/dropbutton/dropbutton.js: js/overrides/dropbutton.js
     css:
       component:
         /core/themes/stable/css/core/dropbutton/dropbutton.css: css/dropbutton.css
