@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+.nav__item {
+  margin-bottom: 0;
+}
+
 // Extendable styles for an inline nav.
 %nav--inline {
   > .nav__item {
@@ -18,14 +22,15 @@
 
 // Extendable styles for a pillbox nav.
 $pillbox-border-radius: rem(3px) !default;
-$pillbox-color-bg: #5b616b !default;
+$pillbox-color-bg: #d6d7d9 !default;
 $pillbox-color-bg-active: #212121 !default;
 $pillbox-color-bg-disabled: #d6d7d9 !default;
-$pillbox-color-bg-hover: #323a45 !default;
-$pillbox-color-text: #fff !default;
+$pillbox-color-bg-hover: #aeb0b5 !default;
+$pillbox-color-border: #aeb0b5 !default;
+$pillbox-color-text: #212121 !default;
 $pillbox-color-text-active: #fff !default;
 $pillbox-color-text-disabled: #323a45 !default;
-$pillbox-color-text-hover: #fff !default;
+$pillbox-color-text-hover: #f212121 !default;
 $pillbox-font-size: $font-size-md !default;
 
 %nav--pillbox {
@@ -53,8 +58,8 @@ $pillbox-font-size: $font-size-md !default;
       $pillbox-color-text-active,
       $pillbox-color-bg-disabled,
       $pillbox-color-text-disabled,
-      0,
-      $pillbox-font-size);
+      0);
+    border-left: 1px solid $pillbox-color-border;
     display: block;
     margin: 0;
 
@@ -66,6 +71,7 @@ $pillbox-font-size: $font-size-md !default;
 
   > .nav__item:first-child > .nav__link {
     border-bottom-left-radius: $pillbox-border-radius; // LTR
+    border-left: 0;
     border-top-left-radius: $pillbox-border-radius; // LTR
 
     @if $support-for-rtl {

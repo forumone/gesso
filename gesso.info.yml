@@ -15,10 +15,27 @@ libraries-override:
     css:
       component:
         /core/themes/stable/css/core/dropbutton/dropbutton.css: css/dropbutton.css
-
+  core/drupal.collapse:
+    js:
+      misc/collapse.js: js/overrides/collapse.js
   core/modernizr:
     js:
       assets/vendor/modernizr/modernizr.min.js: js/lib/modernizr.min.js
+  system/base:
+    css:
+      component:
+        /core/themes/stable/css/system/components/align.module.css: false
+        /core/themes/stable/css/system/components/clearfix.module.css: false
+        /core/themes/stable/css/system/components/container-inline.module.css: false
+        /core/themes/stable/css/system/components/details.module.css: false
+        /core/themes/stable/css/system/components/fieldgroup.module.css: false
+        /core/themes/stable/css/system/components/hidden.module.css: false
+        /core/themes/stable/css/system/components/item-list.module.css: false
+        /core/themes/stable/css/system/components/nowrap.module.css: false
+        /core/themes/stable/css/system/components/position-container.module.css: false
+        /core/themes/stable/css/system/components/progress.module.css: false
+        /core/themes/stable/css/system/components/reset-appearance.module.css: false
+        /core/themes/stable/css/system/components/resize.module.css: false
 
 regions:
   page_top: 'Page top'

@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Theme override for a details element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the details element.
+ * - errors: (optional) Any errors for this details element, may not be set.
+ * - title: (optional) The title of the element, may not be set.
+ * - description: (optional) The description of the element, may not be set.
+ * - children: (optional) The children of the element, may not be set.
+ * - value: (optional) The value of the element, may not be set.
+ *
+ * @see template_preprocess_details()
+ */
+#}
+<details{{ attributes.removeClass('form-wrapper').addClass('details js-details') }}>
+  {%- if title -%}
+    <summary{{ summary_attributes.addClass('details__summary') }}>{{ title }}</summary>
+  {%- else -%}
+    <summary{{ summary_attributes.addClass('details__summary') }}>{{ 'Details'|t }}</summary>
+  {%- endif -%}
+  <div class="details__content">
+    {% if errors %}
+      <div class="details__error-message">
+        <strong>{{ errors }}</strong>
+      </div>
+    {% endif %}
+    {%- if description -%}
+      <div class="details__description">{{ description }}</div>
+    {%- endif -%}
+    {%- if children -%}
+      {{ children }}
+    {%- endif -%}
+    {%- if value -%}
+      {{ value }}
+    {%- endif -%}
+  </div>
+</details>

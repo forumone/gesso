@@ -16,3 +16,15 @@ messages:
   css:
     theme:
       css/messages.css: {}
+
+pager:
+  version: VERSION
+  css:
+    theme:
+      css/pager.css: {}
+
+progress:
+  version: VERSION
+  css:
+    theme:
+      css/progress.css: {}

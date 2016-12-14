@@ -1,0 +1,19 @@
+// @file
+// Styles for secondary buttons.
+
+// This custom button class, included as an example, is not output by Drupal by default.
+.button--secondary {
+  background-color: #5b616b;
+  color: #fff;
+
+  &:focus,
+  &:hover {
+    background-color: #323a45;
+    color: #fff;
+  }
+
+  &:active {
+    background-color: #212121;
+    color: #fff;
+  }
+}
