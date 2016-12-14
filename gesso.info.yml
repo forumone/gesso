@@ -9,6 +9,12 @@ libraries:
   - gesso/global
 
 libraries-override:
+  core/drupal.dropbutton:
+    js:
+      misc/dropbutton/dropbutton.js: js/overrides/dropbutton.js
+    css:
+      component:
+        /core/themes/stable/css/core/dropbutton/dropbutton.css: css/dropbutton.css
   core/drupal.collapse:
     js:
       misc/collapse.js: js/overrides/collapse.js
