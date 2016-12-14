@@ -53,8 +53,10 @@ $form-text-size: $font-size-md !default;
 }
 
 %form-item__box,
+.form-item__color,
 .form-item__date,
 .form-item__email,
+.form-item__month,
 .form-item__number,
 .form-item__password,
 .form-item__search,
@@ -62,7 +64,9 @@ $form-text-size: $font-size-md !default;
 .form-item__tel,
 .form-item__text,
 .form-item__textarea,
-.form-item__time {
+.form-item__time,
+.form-item__url,
+.form-item__week {
   appearance: none;
   background-color: $form-color;
   border: 1px solid $form-border-color;
