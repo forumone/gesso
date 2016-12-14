@@ -3,7 +3,9 @@
 
 @import 'partials/global';
 @import 'partials/base/extendables/font-families';
-$toggle-width: 2em;
+$dropbutton-toggle-height: rem(44px) !default;
+$dropbutton-toggle-width: 2em !default;
+$dropbutton-toggle-icon-size: rem(12px) !default;
 
 .dropbutton {
   display: inline-block;
@@ -12,11 +14,11 @@ $toggle-width: 2em;
   vertical-align: top;
 
   &.has-multiple {
-    padding-right: $toggle-width; // LTR
+    padding-right: $dropbutton-toggle-width; // LTR
 
     @if $support-for-rtl {
       [dir='rtl'] & {
-        padding-left: $toggle-width;
+        padding-left: $dropbutton-toggle-width;
         padding-right: 0;
       }
     }
@@ -58,18 +60,19 @@ $toggle-width: 2em;
 
 .dropbutton__toggle {
   bottom: 0;
+  margin: 0;
   position: absolute;
   top: 0;
   right: 0;
-  width: $toggle-width;
+  width: $dropbutton-toggle-width;
 }
 
 .dropbutton__toggle-button {
   @include button();
   @include svg-background(arrow-down-white);
-  background-position: 50% 50%;
+  background-position: 50% (($dropbutton-toggle-height / 2) - ($dropbutton-toggle-icon-size / 2));
   background-repeat: no-repeat;
-  background-size: 25%;
+  background-size: $dropbutton-toggle-icon-size;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   height: 100%;
@@ -79,6 +82,8 @@ $toggle-width: 2em;
 }
 
 .dropbutton__item {
+  margin: 0;
+
   &.is-secondary-action {
     display: none;
 
