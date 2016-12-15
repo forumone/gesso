@@ -19,12 +19,12 @@
   display: inline;
   margin-right: 0.5em;
 
-  &:after {
+  &::after {
     content: '\2794';
     margin-left: 0.5em;
   }
 
-  &:last-child:after {
+  &:last-child::after {
     content: '';
     margin-left: 0;
   }

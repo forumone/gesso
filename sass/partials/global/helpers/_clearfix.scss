@@ -2,7 +2,7 @@
 // Clearfix
 
 @mixin clearfix {
-  &:after {
+  &::after {
     clear: both;
     content: '';
     display: table;
@@ -10,7 +10,7 @@
 }
 
 @mixin clearfix-important {
-  &:after {
+  &::after {
     clear: both !important;
     content: '' !important;
     display: table !important;
