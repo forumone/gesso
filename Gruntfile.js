@@ -9,7 +9,7 @@
  *
  * WARNING:
  * Unless you know what you're doing, you shouldn't change this file.
- * Check out the `tasks` directory instead.
+ * Check out the `grunt-tasks` directory instead.
  */
 'use strict';
 
@@ -66,8 +66,8 @@ module.exports = function (grunt) {
   }
 
   // Load task functions
-  var taskConfigurations = loadTasks('./tasks/config'),
-      registerDefinitions = loadTasks('./tasks/register');
+  var taskConfigurations = loadTasks('./grunt-tasks/config'),
+      registerDefinitions = loadTasks('./grunt-tasks/register');
 
   // Ensure that a default task exists
   if (!registerDefinitions.default) {
