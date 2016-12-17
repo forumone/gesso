@@ -12,5 +12,16 @@
   "themePath": ".",
   "main": "gulpfile.js",
   "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sizereport": "^1.2.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "run-sequence": "^1.2.2"
   }
 }

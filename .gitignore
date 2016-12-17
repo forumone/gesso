@@ -3,5 +3,7 @@ node_modules
 bower_components
 .sass-cache
 sass/partials/sass-globbing/
-css/*.css
-css/*.map
+css/**/*.css
+css/**/*.map
+js/**/*.min.js
+js/**/*.map
