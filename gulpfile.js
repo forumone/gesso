@@ -49,46 +49,16 @@ var showError = function (error) {
   // Uncomment to inspect the error object.
   //console.log(error);
 
-  // Prevent the watch task from stopping.
+  // Prevent the watch task from stopping on errors.
   this.emit('end');
 };
 
-// Install Bower components.
-gulp.task('bower', function () { 
-  plugins.bower({ cwd: '.' })
-    .pipe(gulp.dest('./bower_components'));
-});
-
-// Minify js files with sourcemaps.
-gulp.task('js', function () {
-  gulp.src(['./js/**/*.js', '!./js/**/*.min.js'], { base: "./" })
-    .pipe(plugins.plumber({ errorHandler: showError }))
-    .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.uglify())
-    .pipe(plugins.rename({ suffix: '.min' }))
-    .pipe(plugins.sourcemaps.write('.'))
-    .pipe(gulp.dest('.'));
-});
-
-// Show filesize report for js files.
-gulp.task('report:js', function () {
-  gulp.src(['./js/**/*.min.js'])
-    .pipe(plugins.sizereport({ gzip: true }));
-});
-
-// The build task.
-gulp.task('build', function (callback) {
-  runSequence(
-    ['bower', ],
-    ['js'],
-    callback
-  );
-});
-
-// The watch task.
-gulp.task('watch', function () {
-  gulp.watch(['./js/**/*.js', '!./js/**/*.min.js'], ['js']);
-});
+// Load external tasks.
+gulp.task('bower', require('./gulp-tasks/bower')(gulp, plugins));
+gulp.task('build', require('./gulp-tasks/build')(gulp, runSequence));
+gulp.task('minify-js', require('./gulp-tasks/minify-js')(gulp, plugins, showError));
+gulp.task('report-js', ['minify-js'], require('./gulp-tasks/report-js')(gulp, plugins));
+gulp.task('watch', require('./gulp-tasks/watch')(gulp, plugins, runSequence));
 
 // The default task, which builds then watches files.
 gulp.task('default', ['build', 'watch']);
