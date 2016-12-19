@@ -12,7 +12,6 @@
   "themePath": ".",
   "main": "gulpfile.js",
   "devDependencies": {
-    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-bower": "0.0.13",
     "gulp-eslint": "^3.0.1",

@@ -1,21 +1,20 @@
 'use strict';
 
-var gulp = require('gulp'),
-    plugins = require('gulp-load-plugins')(),
-    del = require('del'),
-    runSequence = require('run-sequence');
+var gulp = require('gulp');
+var plugins = require('gulp-load-plugins')();
+var runSequence = require('run-sequence');
 
 // Create helpful error mesages.
 var showError = function (error) {
-  var report = '',
-      color = plugins.util.colors.white.bgRed,
-      task = error.plugin,
-      prob,
-      file,
-      line,
-      cause;
+  var report = '';
+  var color = plugins.util.colors.white.bgRed;
+  var task = error.plugin;
+  var prob;
+  var file;
+  var line;
+  var cause;
 
-  if (task == 'gulp-uglify') {
+  if (task === 'gulp-uglify') {
     prob = error.message;
     if (error.cause) {
       if (error.cause.message) {
@@ -47,7 +46,7 @@ var showError = function (error) {
   console.error(report);
 
   // Uncomment to inspect the error object.
-  //console.log(error);
+  // console.log(error);
 
   // Prevent the watch task from stopping on errors.
   this.emit('end');
