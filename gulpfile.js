@@ -59,6 +59,7 @@ gulp.task('build', require('./gulp-tasks/build')(gulp, runSequence));
 gulp.task('lint-js', require('./gulp-tasks/lint-js')(gulp, plugins, showError));
 gulp.task('minify-js', require('./gulp-tasks/minify-js')(gulp, plugins, showError));
 gulp.task('report-js', ['minify-js'], require('./gulp-tasks/report-js')(gulp, plugins));
+gulp.task('test', require('./gulp-tasks/test')(gulp, plugins));
 gulp.task('watch', require('./gulp-tasks/watch')(gulp, plugins, runSequence));
 
 // The default task, which builds then watches files.
