@@ -6,7 +6,7 @@
 
   // Generic function that runs on window resize.
   function resizeStuff() {
-    
+
   }
 
   // Runs function once on window resize.
