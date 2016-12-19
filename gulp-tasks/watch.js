@@ -5,6 +5,6 @@
 
 module.exports = function (gulp, plugins, runSequence) {
   return function () {
-    gulp.watch(['./js/**/*.js', '!./js/**/*.min.js'], ['minify-js', 'report-js']);
+    gulp.watch(['./js/**/*.js', '!./js/**/*.min.js'], ['lint-js', 'minify-js', 'report-js']);
   };
 }

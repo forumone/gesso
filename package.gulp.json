@@ -15,6 +15,7 @@
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-bower": "0.0.13",
+    "gulp-eslint": "^3.0.1",
     "gulp-load-plugins": "^1.4.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
