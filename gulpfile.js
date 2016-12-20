@@ -28,6 +28,9 @@ var showError = function (error) {
       }
     }
   }
+  else if (task === 'gulp-sass') {
+    prob = error.formatted;
+  }
   else {
     prob = error.message;
     if (error.fileName) {
@@ -55,11 +58,20 @@ var showError = function (error) {
 // Load external tasks.
 gulp.task('bower', require('./gulp-tasks/bower')(gulp, plugins));
 gulp.task('build', require('./gulp-tasks/build')(gulp, runSequence));
+gulp.task('compile-css', ['sass-globbing'], require('./gulp-tasks/compile-css')(gulp, plugins, showError));
 gulp.task('lint-js', require('./gulp-tasks/lint-js')(gulp, plugins, showError));
 gulp.task('minify-js', require('./gulp-tasks/minify-js')(gulp, plugins, showError));
+gulp.task('report-css', ['compile-css'], require('./gulp-tasks/report-css')(gulp, plugins));
 gulp.task('report-js', ['minify-js'], require('./gulp-tasks/report-js')(gulp, plugins));
+gulp.task('sass-globbing', require('./gulp-tasks/sass-globbing')(gulp, plugins, showError));
 gulp.task('test', require('./gulp-tasks/test')(gulp, plugins));
 gulp.task('watch', require('./gulp-tasks/watch')(gulp, plugins, runSequence));
 
 // The default task, which builds then watches files.
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', function (done) {
+  return runSequence(
+    ['build'],
+    ['watch'],
+    done
+  );
+});

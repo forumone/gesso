@@ -5,10 +5,11 @@
 'use strict';
 
 module.exports = function (gulp, runSequence) {
-  return function () {
+  return function (done) {
     return runSequence(
       ['bower'],
-      ['minify-js']
+      ['compile-css', 'minify-js'],
+      done
     );
   };
 };
