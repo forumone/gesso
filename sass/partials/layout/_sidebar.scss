@@ -13,6 +13,7 @@
       .l-sidebar__main {
         @include grid-span(8,1);
       }
+
       .l-sidebar__sidebar {
         @include grid-span(4,9);
       }

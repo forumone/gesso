@@ -20,7 +20,7 @@ $mobile-submenu-hover-color: #000 !default;
 .mobile-menu__bar {
   background-color: $mobile-menu-bg-color;
   border-bottom: 1px solid $mobile-menu-border-color;
-  box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
   color: $mobile-menu-text-color;
   height: em(55px);
   text-align: center;
@@ -28,10 +28,10 @@ $mobile-submenu-hover-color: #000 !default;
 
 .mobile-menu__button {
   @extend %system-font-family;
-  border-radius: 0;
-  box-shadow: none;
   background-color: transparent;
   border: 0;
+  border-radius: 0;
+  box-shadow: none;
   color: $mobile-menu-text-color;
   display: inline-block;
   font-size: rem($font-size-md);

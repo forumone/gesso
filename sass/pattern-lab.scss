@@ -9,53 +9,53 @@
 @import 'partials/base';
 
 // The container for the 'view all' screen, which contains the list of patterns.
-#sg-patterns {
+.sg-main {
   box-sizing: border-box !important;
-	max-width: em($max-page-width);
-	padding: 0 ($gutter-width / 2);
+  max-width: em($max-page-width);
+  padding: 0 ($gutter-width / 2);
 }
 
 // Demo box for animation
 .demo-animate {
-	background: #ddd;
+  background: #ddd;
   border-radius: 8px;
   cursor: pointer;
   margin-bottom: 1em;
-	padding: 1em;
-	text-align: center;
+  padding: 1em;
+  text-align: center;
 }
 
 // Color swatch list
 .sg-colors {
-	display: flex;
-	flex-wrap: wrap;
-	list-style: none !important;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none !important;
   margin: 0 !important;
-	padding: 0 !important;
+  padding: 0 !important;
 
-	li {
+  li {
     border: 1px solid #ddd;
-		border-radius: 8px;
-		flex: auto;
+    border-radius: 8px;
+    flex: auto;
     margin: 0 0.5em 0.5em 0;
     max-width: 14em;
-		min-width: 5em;
-		padding: 0.3em;
-	}
+    min-width: 5em;
+    padding: 0.3em;
+  }
 }
 
 // Color swatch tile
 .sg-swatch {
-	display: block;
-	height: 4em;
-	margin-bottom: 0.3em;
-	border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  height: 4em;
+  margin-bottom: 0.3em;
 }
 
 // Color swatch label
 .sg-label {
-	font-size: 90%;
-	line-height: 1;
+  font-size: 90%;
+  line-height: 1;
 }
 
 .sg-subtype {
@@ -64,10 +64,13 @@
     margin: 3em 0 0.25em;
     text-transform: capitalize;
   }
+
   a {
     color: #666;
     text-decoration: none;
-    &:hover, &:focus {
+
+    &:focus,
+    &:hover {
       color: #333;
     }
   }

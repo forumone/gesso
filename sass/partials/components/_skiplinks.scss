@@ -32,6 +32,6 @@
 }
 
 // Remove :focus styles for skiplink targets.
-#main:focus {
+.main:focus {
   outline: 0;
 }

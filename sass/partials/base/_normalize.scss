@@ -80,7 +80,7 @@ button::-moz-focus-inner,
 [type='button']::-moz-focus-inner,
 [type='reset']::-moz-focus-inner,
 [type='submit']::-moz-focus-inner {
-  border-style: none;
+  border: 0;
   padding: 0;
 }
 
@@ -136,12 +136,6 @@ var {
 // Don’t show focus styles for elements that can’t be accessed via keyboard.
 [tabindex='-1']:focus {
   outline: none !important;
-}
-
-::-moz-selection {
-  background: $color-selection-background;
-  color: $color-selection-foreground;
-  text-shadow: none;
 }
 
 ::selection {

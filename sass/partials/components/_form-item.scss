@@ -75,9 +75,9 @@ $form-text-size: $font-size-md !default;
   font-size: rem($form-text-size);
   height: rem(44px);
   line-height: (22px / $form-text-size);
-  padding: em(10px, $form-text-size) em(7px, $form-text-size);
   margin: 0.2em 0;
   max-width: 100%;
+  padding: em(10px, $form-text-size) em(7px, $form-text-size);
 
   &:focus {
     box-shadow: $form-box-shadow-focus;
@@ -122,14 +122,14 @@ $form-text-size: $font-size-md !default;
 .form-item__radio {
   @extend %visually-hidden;
 
-  & + .form-item__label {
+  + .form-item__label {
     cursor: pointer;
     display: block;
 
     &:before {
       background: #fff;
       border-radius: 50%;
-      box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #757575;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 3px #757575;
       content: '\a0';
       display: inline-block;
       height: rem(16px);
@@ -146,11 +146,11 @@ $form-text-size: $font-size-md !default;
 
   &:checked + .form-item__label:before {
     background-color: #0071bc;
-    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0071bc;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0071bc;
   }
 
   &:focus + .form-item__label:before {
-    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf, 0 0 7px 4px #3e94cf;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf, 0 0 7px 4px #3e94cf;
   }
 
   &:disabled + .form-item__label {
@@ -165,7 +165,7 @@ $form-text-size: $font-size-md !default;
 }
 
 .form-item__checkbox {
-  & + .form-item__label:before {
+  + .form-item__label:before {
     border-radius: rem(3px);
     box-shadow: 0 0 0 1px #757575;
     height: rem(18px);
@@ -276,7 +276,7 @@ $form-text-size: $font-size-md !default;
       @include form-item__range-thumb-disabled;
     }
 
-    &::webkit-slider-runnable-track {
+    &::-webkit-slider-runnable-track {
       @include form-item__range-track-disabled;
     }
   }

@@ -16,16 +16,19 @@
           .l-three-column__second { @include grid-span(4,5); }
           .l-three-column__third { @include grid-span(4,9); }
         }
+
         &.empty-third { // 1, 2 have content
           .l-three-column__first { @include grid-span(6,1); }
           .l-three-column__second { @include grid-span(6,7); }
         }
       }
+
       &.empty-second.has-third { // 1, 3 have content
         .l-three-column__first { @include grid-span(6,1); }
         .l-three-column__third { @include grid-span(6,7); }
       }
     }
+
     &.empty-first.has-second.has-third { // 2, 3 have content
       .l-three-column__second { @include grid-span(6,1); }
       .l-three-column__third { @include grid-span(6,7); }

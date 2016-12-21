@@ -19,7 +19,7 @@ a {
   color: $color-link;
   // Improves readability when focused.
   outline-offset: em(2px);
-  -webkit-text-decoration-skip: objects
+  text-decoration-skip: objects;
 
   &:active,
   &:hover {
@@ -34,7 +34,7 @@ a {
 
 abbr {
   &[title] {
-    border-bottom: none;
+    border-bottom: 0;
     text-decoration: underline;
     text-decoration: underline dotted;
   }
@@ -133,7 +133,7 @@ footer {}
 
 form {}
 
-%hN {
+%heading {
   @extend %header-font-family;
   color: inherit;
   font-weight: 700;
@@ -145,38 +145,38 @@ form {}
 
 h1,
 %h1 {
-  @extend %hN;
+  @extend %heading;
   font-size: em($font-size-xxl);
   margin-bottom: 0.5em;
 }
 
 h2,
 %h2 {
-  @extend %hN;
+  @extend %heading;
   font-size: em($font-size-xl);
 }
 
 h3,
 %h3 {
-  @extend %hN;
+  @extend %heading;
   font-size: em($font-size-lg);
 }
 
 h4,
 %h4 {
-  @extend %hN;
+  @extend %heading;
   font-size: em($font-size-md);
 }
 
 h5,
 %h5 {
-  @extend %hN;
+  @extend %heading;
   font-size: em($font-size-sm);
 }
 
 h6,
 %h6 {
-  @extend %hN;
+  @extend %heading;
   font-size: em($font-size-xs);
   font-weight: 400;
   text-transform: uppercase;
@@ -365,7 +365,7 @@ table {
 tbody {}
 
 td {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #5b616b;
   padding: rem(15px);
 }
@@ -382,7 +382,7 @@ tfoot {
 }
 
 th {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #5b616b;
   padding: rem(15px);
   text-align: left;
@@ -437,8 +437,8 @@ video {}
   }
 
   a[href]:after {
-    font-family: $base-font-family;
     content: ' <' attr(href) '>';
+    font-family: $base-font-family;
     font-size: 10pt;
     font-weight: normal;
     text-transform: lowercase;

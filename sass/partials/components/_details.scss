@@ -75,7 +75,7 @@ $details-padding: rem(30px) !default;
 .details__description {
   color: $color-text-secondary;
   font-size: rem($font-size-sm);
-  margin-bottom:rem($vertical-spacing);
+  margin-bottom: rem($vertical-spacing);
 
   > :last-child {
     margin-bottom: 0;
