@@ -59,6 +59,7 @@ var showError = function (error) {
 gulp.task('bower', require('./gulp-tasks/bower')(gulp, plugins));
 gulp.task('build', require('./gulp-tasks/build')(gulp, runSequence));
 gulp.task('compile-css', ['sass-globbing'], require('./gulp-tasks/compile-css')(gulp, plugins, showError));
+gulp.task('lint-css', require('./gulp-tasks/lint-css')(gulp, plugins, showError));
 gulp.task('lint-js', require('./gulp-tasks/lint-js')(gulp, plugins, showError));
 gulp.task('minify-js', require('./gulp-tasks/minify-js')(gulp, plugins, showError));
 gulp.task('report-css', ['compile-css'], require('./gulp-tasks/report-css')(gulp, plugins));

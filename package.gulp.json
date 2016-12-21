@@ -23,9 +23,11 @@
     "gulp-sass-globbing": "0.0.2",
     "gulp-sizereport": "^1.2.0",
     "gulp-sourcemaps": "^1.9.1",
+    "gulp-stylelint": "^3.7.0",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "postcss-assets": "^4.1.0",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "stylelint-scss": "^1.4.1"
   }
 }
