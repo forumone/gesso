@@ -10,6 +10,7 @@ module.exports = function (gulp, plugins, showError) {
     var pngquant = require('imagemin-pngquant');
     return gulp.src(['./images/**/*.{gif,jpg,jpeg,png,svg}'], {base: '.'})
       .pipe(plugins.plumber({errorHandler: showError}))
+      .pipe(plugins.cached('images'))
       .pipe(plugins.imagemin({
         progressive: true,
         svgoPlugins: [
@@ -21,6 +22,7 @@ module.exports = function (gulp, plugins, showError) {
         ],
         use: [pngcrush(), pngquant()]
       }))
+      .pipe(plugins.cached('images'))
       .pipe(gulp.dest('.'));
   };
 };
