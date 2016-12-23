@@ -58,6 +58,7 @@ var showError = function (error) {
 // Load external tasks.
 gulp.task('bower', require('./gulp-tasks/bower')(gulp, plugins));
 gulp.task('build', require('./gulp-tasks/build')(gulp, runSequence));
+gulp.task('build-css', require('./gulp-tasks/build-css')(gulp, runSequence));
 gulp.task('compile-css', ['sass-globbing'], require('./gulp-tasks/compile-css')(gulp, plugins, showError));
 gulp.task('compile-pattern-lab', ['install-pattern-lab'], require('./gulp-tasks/compile-pattern-lab')(gulp, plugins, showError));
 gulp.task('create-png-fallbacks', ['optimize-images'], require('./gulp-tasks/create-png-fallbacks')(gulp, plugins, showError));
