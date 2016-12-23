@@ -62,9 +62,10 @@ gulp.task('compile-css', ['sass-globbing'], require('./gulp-tasks/compile-css')(
 gulp.task('create-png-fallbacks', ['optimize-images'], require('./gulp-tasks/create-png-fallbacks')(gulp, plugins, showError));
 gulp.task('lint-css', require('./gulp-tasks/lint-css')(gulp, plugins, showError));
 gulp.task('lint-js', require('./gulp-tasks/lint-js')(gulp, plugins, showError));
+gulp.task('minify-css', ['compile-css'], require('./gulp-tasks/minify-css')(gulp, plugins, showError));
 gulp.task('minify-js', require('./gulp-tasks/minify-js')(gulp, plugins, showError));
 gulp.task('optimize-images', require('./gulp-tasks/optimize-images')(gulp, plugins, showError));
-gulp.task('report-css', ['compile-css'], require('./gulp-tasks/report-css')(gulp, plugins));
+gulp.task('report-css', ['minify-css'], require('./gulp-tasks/report-css')(gulp, plugins));
 gulp.task('report-images', ['optimize-images'], require('./gulp-tasks/report-images')(gulp, plugins));
 gulp.task('report-js', ['minify-js'], require('./gulp-tasks/report-js')(gulp, plugins));
 gulp.task('sass-globbing', require('./gulp-tasks/sass-globbing')(gulp, plugins, showError));
