@@ -87,6 +87,7 @@ $form-text-size: $font-size-md !default;
   &:disabled {
     background: $form-color-disabled;
     border-color: $form-border-color-disabled;
+    cursor: default;
   }
 
   .is-full-width > & {
@@ -155,6 +156,7 @@ $form-text-size: $font-size-md !default;
 
   &:disabled + .form-item__label {
     color: $color-text-secondary;
+    cursor: default;
 
     &:before {
       background-color: $form-color-disabled;
