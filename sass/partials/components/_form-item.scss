@@ -48,7 +48,7 @@ $form-text-size: $font-size-md !default;
   }
 }
 
-.form-item__required-marker:before {
+.form-item__required-marker::before {
   content: '*';
 }
 
@@ -127,7 +127,7 @@ $form-text-size: $font-size-md !default;
     cursor: pointer;
     display: block;
 
-    &:before {
+    &::before {
       background: #fff;
       border-radius: 50%;
       box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #757575;
@@ -145,12 +145,12 @@ $form-text-size: $font-size-md !default;
     }
   }
 
-  &:checked + .form-item__label:before {
+  &:checked + .form-item__label::before {
     background-color: #0071bc;
     box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0071bc;
   }
 
-  &:focus + .form-item__label:before {
+  &:focus + .form-item__label::before {
     box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf, 0 0 7px 4px #3e94cf;
   }
 
@@ -158,7 +158,7 @@ $form-text-size: $font-size-md !default;
     color: $color-text-secondary;
     cursor: default;
 
-    &:before {
+    &::before {
       background-color: $form-color-disabled;
       box-shadow: 0 0 0 1px $form-border-color-disabled;
       cursor: not-allowed;
@@ -167,7 +167,7 @@ $form-text-size: $font-size-md !default;
 }
 
 .form-item__checkbox {
-  & + .form-item__label:before {
+  & + .form-item__label::before {
     border-radius: rem(3px);
     box-shadow: 0 0 0 1px #757575;
     height: rem(18px);
@@ -175,7 +175,7 @@ $form-text-size: $font-size-md !default;
     width: rem(18px);
   }
 
-  &:checked + .form-item__label:before {
+  &:checked + .form-item__label::before {
     @include svg-background(correct);
     background-position: 50%;
     background-repeat: no-repeat;
@@ -183,11 +183,11 @@ $form-text-size: $font-size-md !default;
     box-shadow: 0 0 0 1px #0071bc;
   }
 
-  &:disabled + .form-item__label:before {
+  &:disabled + .form-item__label::before {
     box-shadow: 0 0 0 1px $form-border-color-disabled;
   }
 
-  &:checked:disabled + .form-item__label:before {
+  &:checked:disabled + .form-item__label::before {
     background-color: $form-border-color-disabled;
   }
 }

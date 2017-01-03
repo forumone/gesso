@@ -8,7 +8,7 @@
   overflow: hidden;
   width: $width;
 
-  &:before {
+  &::before {
     content: '';
     display: block;
     height: 150%;
