@@ -35,7 +35,7 @@
 
           // Remove inline styles from Superfish.
           if ($isSuperfish) {
-            $(this).removeAttr('style').addClass('nav--subnav').find('ul, li, a').removeAttr('style');
+            $(this).removeAttr('style').addClass('nav__subnav').find('ul, li, a').removeAttr('style');
           }
         });
 
@@ -98,7 +98,7 @@
         // Open/close submenus.
         $('.nav__subnav-arrow', context).click(function (e) {
           $(this).toggleClass('is-active').parent().toggleClass('is-open');
-          $(this).siblings('.nav--subnav').slideToggle();
+          $(this).siblings('.nav__subnav').slideToggle();
 
           // Remove focus for mouse clicks after closing the menu.
           $(this).not('.is-active').mouseleave(function () {
