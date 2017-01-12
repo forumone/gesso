@@ -2,8 +2,8 @@
 // Default styling of html elements.
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -436,7 +436,7 @@ video {}
     text-decoration: none;
   }
 
-  a[href]:after {
+  a[href]::after {
     content: ' <' attr(href) '>';
     font-family: $base-font-family;
     font-size: 10pt;
@@ -445,19 +445,19 @@ video {}
   }
 
   // Uncomment and replace example.com with your site’s domain.
-  //a[href^='/']:after {
+  //a[href^='/']::after {
   //  content: ' <http://example.com' attr(href) '>';
   //}
 
-  a[href^='javascript:']:after,
-  a[href^='mailto:']:after,
-  a[href^='tel:']:after,
-  a[href^='#']:after,
-  a[href*='?']:after {
+  a[href^='javascript:']::after,
+  a[href^='mailto:']::after,
+  a[href^='tel:']::after,
+  a[href^='#']::after,
+  a[href*='?']::after {
     content: '';
   }
 
-  abbr[title]:after {
+  abbr[title]::after {
     content: ' (' attr(title) ')';
   }
 
@@ -469,12 +469,12 @@ video {}
     page-break-inside: avoid;
   }
 
-  h1 a:after,
-  h2 a:after,
-  h3 a:after,
-  h4 a:after,
-  h5 a:after,
-  h6 a:after {
+  h1 a::after,
+  h2 a::after,
+  h3 a::after,
+  h4 a::after,
+  h5 a::after,
+  h6 a::after {
     display: inline-block;
   }
 
