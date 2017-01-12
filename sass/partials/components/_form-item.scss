@@ -150,7 +150,7 @@ $form-text-size: $font-size-md !default;
     box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0071bc;
   }
 
-  &:focus + .form-item__label:before {
+  &:focus + .form-item__label::before {
     box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf, 0 0 7px 4px #3e94cf;
   }
 
@@ -167,7 +167,7 @@ $form-text-size: $font-size-md !default;
 }
 
 .form-item__checkbox {
-  & + .form-item__label::before {
+  + .form-item__label::before {
     border-radius: rem(3px);
     box-shadow: 0 0 0 1px #757575;
     height: rem(18px);
