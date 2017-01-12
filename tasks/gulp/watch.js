@@ -11,13 +11,8 @@ module.exports = function (gulp, plugins, runSequence) {
     gulp.watch(['./bower.json'], ['bower']);
     gulp.watch(['./images/bg/*.svg'], ['create-png-fallbacks']);
     gulp.watch(['./images/**/*.{gif,jpg,jpeg,png,svg}'], ['optimize-images']);
-    gulp.watch(['./js/**/*.js', '!./js/**/*.min.js'], ['lint-js', 'minify-js', 'report-js']);
+    gulp.watch(['./js/**/*.js', '!./js/**/*.min.js'], ['minify-js', 'lint-js', 'report-js']);
     gulp.watch(['./pattern-lab/source/**/*'], ['compile-pattern-lab']);
-    gulp.watch(['./sass/**/*.scss', '!./sass/partials/sass-globbing/**/*.scss'], function () {
-      runSequence(
-        'lint-css',
-        'compile-css'
-      );
-    });
+    gulp.watch(['./sass/**/*.scss', '!./sass/partials/sass-globbing/**/*.scss'], ['compile-css', 'lint-css']);
   };
 };

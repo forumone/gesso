@@ -16,6 +16,7 @@ module.exports = function (gulp, plugins, showError) {
     ];
     return gulp.src(['./css/**/*.css'], {base: '.'})
       .pipe(plugins.plumber({errorHandler: showError}))
+      .pipe(plugins.cached('minify-css'))
       .pipe(plugins.sourcemaps.init({loadMaps: true}))
       .pipe(plugins.postcss(processors))
       .pipe(plugins.sourcemaps.write('.'))
