@@ -67,6 +67,7 @@ $mobile-submenu-hover-color: #000 !default;
     background-size: 19px 12px;
     border: 0;
     box-shadow: none;
+    cursor: pointer;
     display: inline-block;
     height: em(44px);
     position: absolute;
@@ -91,7 +92,7 @@ $mobile-submenu-hover-color: #000 !default;
     }
   }
 
-  .nav--subnav {
+  .nav__subnav {
     display: none;
     list-style: none;
     margin: 0;
