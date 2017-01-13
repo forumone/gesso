@@ -61,6 +61,7 @@ gulp.task('bower', require('./tasks/gulp/bower')(gulp, plugins));
 gulp.task('browser-sync', require('./tasks/gulp/browser-sync')(gulp, browserSync));
 gulp.task('build', require('./tasks/gulp/build')(gulp, runSequence));
 gulp.task('build-css', require('./tasks/gulp/build-css')(gulp, runSequence));
+gulp.task('clear-drupal-cache', require('./tasks/gulp/clear-drupal-cache')(gulp, plugins, browserSync, showError));
 gulp.task('compile-css', ['sass-globbing'], require('./tasks/gulp/compile-css')(gulp, plugins, browserSync, showError));
 gulp.task('compile-pattern-lab', ['install-pattern-lab'], require('./tasks/gulp/compile-pattern-lab')(gulp, plugins, browserSync, showError));
 gulp.task('create-png-fallbacks', ['optimize-images'], require('./tasks/gulp/create-png-fallbacks')(gulp, plugins, showError));

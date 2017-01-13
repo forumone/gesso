@@ -14,5 +14,6 @@ module.exports = function (gulp, plugins, browserSync, runSequence) {
     gulp.watch(['./js/**/*.js', '!./js/**/*.min.js'], ['minify-js', 'lint-js']);
     gulp.watch(['./pattern-lab/source/**/*'], ['compile-pattern-lab']);
     gulp.watch(['./sass/**/*.scss', '!./sass/partials/sass-globbing/**/*.scss'], ['compile-css', 'lint-css']);
+    gulp.watch(['./templates/**/*.twig'], ['clear-drupal-cache']);
   };
 };
