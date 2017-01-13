@@ -4,6 +4,7 @@ global:
     theme:
       css/styles.css: {}
   js:
+    js/mobile-menu.js: {}
     js/scripts.js: {}
   dependencies:
     - core/jquery
