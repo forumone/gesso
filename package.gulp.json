@@ -13,6 +13,7 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "autoprefixer": "^6.5.4",
+    "browser-sync": "^2.18.6",
     "css-mqpacker": "^4.0.1",
     "cssnano": "^3.9.1",
     "del": "^2.2.2",
