@@ -46,9 +46,9 @@ Drupal, which you can change at admin/appearance/settings/gesso.
 
 ### Pattern Lab installation
 
-The included Grunt tasks look for an instance of the Drupal standard edition of
-Pattern Lab and [the Gesso Twig starter kit](https://github.com/forumone/starterkit-twig-drupal-gesso)
-in a subdirectory of the theme called 'pattern-lab'. The Grunt build task will
+The included Grunt/Gulp tasks look for an instance of Pattern Lab with the
+[Gesso Twig starter kit](https://github.com/forumone/starterkit-twig-drupal-gesso)
+in a subdirectory of the theme called 'pattern-lab'. The Grunt/Gulp build tasks will
 skip building Pattern Lab if this directory is not found.
 
 To install Pattern Lab, run the following Composer command in
@@ -58,52 +58,110 @@ the theme directory.
 $ composer create-project pattern-lab/edition-drupal-standard pattern-lab
 ```
 
-When prompted, select /forumone/starterkit-twig-drupal-gesso as the starterkit.
-
-If prompted, select 'r' to overwrite existing /source/ files.
+When prompted, always choose `r` to replace existing files and select `4: forumone/starterkit-twig-drupal-gesso` as the starterkit.
 
 
-### Compiling Sass
+### Grunt/Gulp installation
 
-[LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
-CSS. Gesso includes Grunt tasks to compile the CSS/Pattern Lab files and to
-watch them for changes. To use these tasks, run the following NPM command in
-the theme folder (Windows users may need to include the `--no-bin-links` flag at
-the end of the command).
+The Gesso theme comes with the option to use either [Grunt](http://gruntjs.com/)
+or [Gulp](http://gulpjs.com/) to run automated tasks.
 
-```
-npm install
-```
+Copy the `package.grunt.json` or `package.gulp.json` file and rename it to
+`package.json`, depending on whether you want to use Grunt or Gulp.
 
-To run the Grunt build task, run:
+Run the following [npm](https://www.npmjs.com/) command in the theme folder:
 
 ```
-grunt
+$ npm install
+```
+
+Windows users may need to include the `--no-bin-links` flag at the end of the
+command.
+
+
+## Grunt tasks
+
+To run the default Grunt task, run:
+
+```
+$ grunt
 ```
 
 
-### Build Artifacts
+### Grunt dependencies
 
-By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/public/
-and /css/) are ignored by Git as these files are built during deployment.
-To change this, edit the included .gitignore file.
+* [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
+browser CSS property prefixes during Sass compilation.
+
+* [Sass Globbing](https://github.com/DennisBecker/grunt-sass-globbing): Adds glob-
+based imports to Sass.
+
+* [SVG2PNG](https://github.com/dbushell/grunt-svg2png): Rasterizes SVG to PNG images using PhantomJS.
 
 
-### Sass/Grunt dependencies
+## Gulp tasks
+
+To run the default Gulp task, run:
+
+```
+$ gulp
+```
+
+The default task will run the build task and watch files for changes. The build
+task will install any required Bower dependencies, optimize the images in
+`images/` using lossless compression, compile the Sass files into CSS using
+[LibSass](http://sass-lang.com/libsass), minify the compiled CSS, compile
+Pattern Lab, and minify the JS files in `js/`.
+
+The watch task will:
+* start up browser sync
+* lint (using stylelint) and compile any new or changed Sass files in `sass/`
+* lint (using eslint) and minify any new or changed JS files in `js/`
+* create PNG fallback images for any new or changed SVG files in `images/bg/`
+* optimize any new or changed images in `images/`
+* compile Pattern Lab when changes are made to `pattern-lab/source/`
+* clear the Drupal 8 cache when changes are made to `templates/`
+
+You can also get a report of filesizes for CSS, images, and JS files by running:
+
+```
+$ gulp report
+```
+
+For a detailed list of all tasks, check out `gulpfile.js`.
+
+
+### Gulp dependencies
+
+* [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
+browser CSS property prefixes during Sass compilation.
+
+* [Browsersync](https://browsersync.io/): Adds live-reloading and mirroring of
+clicks, scrolling, form elements, and form submissions across multiple devices.
+
+* [CSSNano](): Adds minification of CSS files.
+
+* [Sass Globbing](https://github.com/mdrummond/gulp-sass-globbing): Adds glob-
+based imports to Sass.
+
+* [Uglify](http://lisperator.net/uglifyjs/): Adds minification of JS files.
+
+
+## Build Artifacts
+
+By default, the compiled Pattern Lab and Sass files (e.g., `pattern-lab/public/`
+and `css/`) are ignored by Git as these files are built during deployment.
+To change this, edit the included `.gitignore` file.
+
+
+## Sass dependencies
 
 * [Breakpoint](http://breakpoint-sass.com): Easy to write media queries.
 
 * [Sass](http://sass-lang.com): CSS on steroids. Adds nested rules, variables,
 mixins, selector inheritance, and more.
 
-* [Sass Globbing](https://github.com/DennisBecker/grunt-sass-globbing): Adds glob-
-based imports to Sass.
-
 * [Singularity](http://singularity.gs): Grid-based layout system.
-
-* [SVG2PNG](https://github.com/dbushell/grunt-svg2png): Rasterizes SVG to PNG images using PhantomJS.
-
-* [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary browser CSS property prefixes during Sass compilation.
 
 
 ## Maintainers
