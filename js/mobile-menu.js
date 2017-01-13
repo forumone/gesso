@@ -9,11 +9,11 @@
 
       // Create mobile menu container, create mobile bar, and clone the main
       // menu in the navigation region.
-      var $mobileNav = $('<nav class="mobile-menu" role="navigation"></nav>'),
-          $mobileBar = $('<div class="mobile-menu__bar"><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>'),
-          $mobileLinks = $('<div class="mobile-menu__links hidden"></div>'),
-          $mainMenu = $('.region-navigation', context).find('.nav--main, .block--system-main-menu .nav, .block--superfish .sf-menu').not('.contextual-links').first().clone(),
-          $isSuperfish = ($mainMenu.hasClass('sf-menu')) ? true : false;
+      var $mobileNav = $('<nav class="mobile-menu" role="navigation"></nav>');
+      var $mobileBar = $('<div class="mobile-menu__bar"><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>');
+      var $mobileLinks = $('<div class="mobile-menu__links hidden"></div>');
+      var $mainMenu = $('.region-navigation', context).find('.nav--main, .block--system-main-menu .nav, .block--superfish .sf-menu').not('.contextual-links').first().clone();
+      var $isSuperfish = ($mainMenu.hasClass('sf-menu')) ? true : false;
 
       // Only create mobile menu if there is a main menu.
       if ($mainMenu.length > 0) {
