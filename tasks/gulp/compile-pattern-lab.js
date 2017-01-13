@@ -4,7 +4,7 @@
  */
 'use strict';
 
-module.exports = function (gulp, plugins, showError) {
+module.exports = function (gulp, plugins, browserSync, showError) {
   return function (done) {
     var exec = require('child_process').exec;
     exec('php core/console --generate', {cwd: './pattern-lab'}, function (error, stdout, stderr) {
@@ -12,6 +12,7 @@ module.exports = function (gulp, plugins, showError) {
       if (stdout) {
         plugins.util.log(stdout);
       }
+      browserSync.reload();
       done(error);
     });
   };

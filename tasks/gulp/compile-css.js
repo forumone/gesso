@@ -4,7 +4,7 @@
  */
 'use strict';
 
-module.exports = function (gulp, plugins, showError) {
+module.exports = function (gulp, plugins, browserSync, showError) {
   return function () {
     var assets = require('postcss-assets');
     var autoprefixer = require('autoprefixer');
@@ -26,6 +26,7 @@ module.exports = function (gulp, plugins, showError) {
       }))
       .pipe(plugins.postcss(processors))
       .pipe(plugins.sourcemaps.write('.'))
-      .pipe(gulp.dest('./css'));
+      .pipe(gulp.dest('./css'))
+      .pipe(browserSync.reload({stream: true}));
   };
 };

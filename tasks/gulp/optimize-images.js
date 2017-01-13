@@ -4,7 +4,7 @@
  */
 'use strict';
 
-module.exports = function (gulp, plugins, showError) {
+module.exports = function (gulp, plugins, browserSync, showError) {
   return function () {
     var pngcrush = require('imagemin-pngcrush');
     var pngquant = require('imagemin-pngquant');
@@ -23,6 +23,7 @@ module.exports = function (gulp, plugins, showError) {
         use: [pngcrush(), pngquant()]
       }))
       .pipe(plugins.cached('images'))
-      .pipe(gulp.dest('.'));
+      .pipe(gulp.dest('.'))
+      .pipe(browserSync.reload({stream: true}));
   };
 };
