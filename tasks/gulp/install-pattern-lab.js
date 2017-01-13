@@ -13,17 +13,8 @@ module.exports = function (gulp, plugins, showError) {
       done();
     }
     else {
-      exec('composer create-project pattern-lab/edition-drupal-standard pattern-lab', {cwd: './'}, function (error, stdout, stderr) {
-        stdout = stdout.trim();
-        stderr = stderr.trim();
-        if (stdout) {
-          plugins.util.log(stdout);
-        }
-        if (stderr) {
-          plugins.util.log(stderr);
-        }
-        done(error);
-      });
+      var error = new plugins.util.PluginError('install-pattern-lab', 'You need to manually install Pattern Lab first by running:\ncomposer create-project pattern-lab/edition-drupal-standard pattern-lab\nAlways choose \'r\' to replace when prompted and select #4 for the Gesso starterkit.');
+      done(error);
     }
   };
 };
