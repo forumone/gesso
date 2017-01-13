@@ -93,10 +93,11 @@ $ grunt
 * [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
 browser CSS property prefixes during Sass compilation.
 
-* [Sass Globbing](https://github.com/DennisBecker/grunt-sass-globbing): Adds glob-
-based imports to Sass.
+* [Sass Globbing](https://github.com/DennisBecker/grunt-sass-globbing): Adds
+glob-based imports to Sass.
 
-* [SVG2PNG](https://github.com/dbushell/grunt-svg2png): Rasterizes SVG to PNG images using PhantomJS.
+* [SVG2PNG](https://github.com/dbushell/grunt-svg2png): Rasterizes SVG to PNG
+images using PhantomJS.
 
 
 ## Gulp tasks
@@ -139,10 +140,14 @@ browser CSS property prefixes during Sass compilation.
 * [Browsersync](https://browsersync.io/): Adds live-reloading and mirroring of
 clicks, scrolling, form elements, and form submissions across multiple devices.
 
-* [CSSNano](): Adds minification of CSS files.
+* [CSSNano](http://cssnano.co/): Adds minification of CSS files.
 
-* [Sass Globbing](https://github.com/mdrummond/gulp-sass-globbing): Adds glob-
-based imports to Sass.
+* [ESLint](http://eslint.org/): Adds JavaScript linting.
+
+* [imagemin](https://github.com/imagemin/imagemin): Adds lossless image
+optimization.
+
+* [StyleLint](http://stylelint.io/): Adds Sass linting.
 
 * [Uglify](http://lisperator.net/uglifyjs/): Adds minification of JS files.
 
