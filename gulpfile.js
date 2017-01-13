@@ -71,6 +71,7 @@ gulp.task('lint-js', require('./tasks/gulp/lint-js')(gulp, plugins, showError));
 gulp.task('minify-css', ['compile-css'], require('./tasks/gulp/minify-css')(gulp, plugins, showError));
 gulp.task('minify-js', require('./tasks/gulp/minify-js')(gulp, plugins, browserSync, showError));
 gulp.task('optimize-images', require('./tasks/gulp/optimize-images')(gulp, plugins, browserSync, showError));
+gulp.task('report', ['report-css', 'report-images', 'report-js']);
 gulp.task('report-css', ['minify-css'], require('./tasks/gulp/report-css')(gulp, plugins));
 gulp.task('report-images', ['optimize-images'], require('./tasks/gulp/report-images')(gulp, plugins));
 gulp.task('report-js', ['minify-js'], require('./tasks/gulp/report-js')(gulp, plugins));
