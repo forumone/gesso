@@ -21,9 +21,9 @@
     "grunt-svg2png": "~0.2.7",
     "grunt-sass-globbing": "~1.5.1",
     "grunt-sass": "~1.2.0",
+    "breakpoint-sass": "~2.7.1",
     "grunt-postcss": "~0.8.0",
     "postcss-assets": "~4.1.0",
-    "autoprefixer": "~6.3.6",
-    "grunt-bower-task": "~0.4.0"
+    "autoprefixer": "~6.3.6"
   }
 }
