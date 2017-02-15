@@ -126,6 +126,11 @@ function drush_gesso($name = NULL) {
   );
   drush_op('gesso_file_str_replace', $new_info_file, array_keys($changes), $changes);
 
+  // Rename the .breakpoints.yml file.
+  $gesso_info_file = drush_normalize_path($new_path . '/' . 'gesso.breakpoints.yml');
+  $new_info_file = drush_normalize_path($new_path . '/' . $machine_name . '.breakpoints.yml');
+  drush_op('rename', $gesso_info_file, $new_info_file);
+
   // Rename the .libraries.yml file.
   $gesso_libraries_file = drush_normalize_path($new_path . '/' . 'gesso.libraries.yml');
   $new_libraries_file = drush_normalize_path($new_path . '/' . $machine_name . '.libraries.yml');
@@ -136,14 +141,17 @@ function drush_gesso($name = NULL) {
   $new_theme_file = drush_normalize_path($new_path . '/' . $machine_name . '.theme');
   drush_op('rename', $gesso_theme_file, $new_theme_file);
 
-
   // Replace all occurrences of 'gesso' with the machine name of the new theme.
+  $breakpoints_file = $machine_name . '.breakpoints.yml';
   $libraries_file = $machine_name . '.libraries.yml';
   $theme_file = $machine_name . '.theme';
   $files = array(
+    $breakpoints_file,
     $libraries_file,
     $theme_file,
     'js/scripts.js',
+    'includes/form.inc',
+    'includes/html.inc',
     'templates/misc/progress-bar.html.twig',
     'templates/misc/status-messages.html.twig',
     'templates/navigation/pager.html.twig',
