@@ -57,26 +57,41 @@
   {{ page.help }}
 
   <main id="main" class="main" role="main" tabindex="-1">
+    <div class="l-constrain">
+      <div class="l-sidebars">
 
-    {{ page.preface}}
+        {% if page.preface %}
+          <div class="l-sidebars__full">
+            {{ page.preface }}
+          </div>
+        {% endif %}
 
-    {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
-    {% endif %}
+        {% if page.sidebar_first %}
+          <aside class="l-sidebars__sidebar" role="complementary">
+            {{ page.sidebar_first }}
+          </aside>
+        {% endif %}
 
-    <div class="layout-content">
-      {{ page.content }}
-    </div>{# /.layout-content #}
+        {% if page.content %}
+          <div class="l-sidebars__main">
+            {{ page.content }}
+          </div>
+        {% endif %}
 
-    {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
+        {% if page.sidebar_second %}
+          <aside class="l-sidebars__sidebar" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endif %}
 
-    {{ page.postscript }}
+        {% if page.postscript %}
+          <div class="l-sidebars__full">
+            {{ page.postscript }}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
   </main>
 
   {% if page.footer %}
