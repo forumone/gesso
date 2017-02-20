@@ -1,5 +1,5 @@
 // @file
-// Styles for the hero component.
+// Styles for Pattern Lab Gesso starterkit hero component.
 
 .hero {
   background-position: 50% 50%;
@@ -7,39 +7,41 @@
   color: #fff;
   padding: 4em 1em;
   text-align: center;
-
-  &.has-overlay {
-    position: relative;
-
-    &:after {
-      background: rgba(0, 0, 0, 0.5);
-      bottom: 0;
-      content: '';
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 1;
-    }
-
-    .hero__content {
-      position: relative;
-      z-index: 2;
-    }
-  }
 }
 
 .hero__title {
   margin-bottom: 0.25em;
 }
 
-// Variant that uses <picture> or <img> instead of a background image.
+// optional overlay for greater text contrast
+.hero--overlay {
+  position: relative;
+  &:after {
+    background: rgba(0,0,0,0.5);
+    bottom: 0;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+  .hero__content {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// version that uses <picture> or <img> instead of a background image
 .hero--inline-image {
   padding: 0;
   position: relative;
-
+  .hero__picture {
+    display: block;
+    line-height: 0;
+  }
   .hero__content {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     bottom: 5%;
     padding: 1em;
     position: absolute;
