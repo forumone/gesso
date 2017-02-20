@@ -51,11 +51,12 @@
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]
 %}
-
 {% if label_hidden %}
-  {% for item in items %}
-    {{ item.content }}
-  {% endfor %}
+  {% spaceless %}
+    {% for item in items %}
+      {{ item.content }}
+    {% endfor %}
+  {% endspaceless %}
 {% else %}
   <div{{ attributes.addClass(addClasses) }}>
     <div{{ title_attributes.addClass(addTitleClasses) }}>{{ label }}</div>
