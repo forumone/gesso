@@ -7,28 +7,32 @@
   color: #fff;
   padding: 4em 1em;
   text-align: center;
+
   &.has-overlay {
     position: relative;
+
     &:after {
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       bottom: 0;
-      content: "";
-      position: absolute;
+      content: '';
       left: 0;
+      position: absolute;
       right: 0;
       top: 0;
       z-index: 1;
     }
-  }
-}
 
-.hero-bg-image__content {
-  .hero-bg-image.has-overlay & {
-    position: relative;
-    z-index: 2;
+    .hero-bg-image__content {
+      position: relative;
+      z-index: 2;
+    }
   }
 }
 
 .hero-bg-image__title {
   margin-bottom: 0.25em;
+}
+
+.hero-bg-image__subtitle {
+  @extend %h3;
 }
