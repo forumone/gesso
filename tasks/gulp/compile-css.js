@@ -21,7 +21,6 @@ module.exports = function (gulp, plugins, browserSync, showError) {
       .pipe(plugins.plumber({errorHandler: showError}))
       .pipe(plugins.sourcemaps.init())
       .pipe(plugins.sass({
-        includePaths: ['./bower_components'],
         precision: 10
       }))
       .pipe(plugins.postcss(processors))

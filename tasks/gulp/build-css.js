@@ -7,7 +7,7 @@
 module.exports = function (gulp, runSequence) {
   return function (done) {
     return runSequence(
-      ['bower', 'optimize-images'],
+      ['optimize-images'],
       ['compile-css', 'minify-css'],
       done
     );
