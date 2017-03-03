@@ -21,6 +21,7 @@ module.exports = function (gulp, plugins, browserSync, showError) {
       .pipe(plugins.plumber({errorHandler: showError}))
       .pipe(plugins.sourcemaps.init())
       .pipe(plugins.sass({
+        includePaths: ['./node_modules/breakpoint-sass/stylesheets'],
         precision: 10
       }))
       .pipe(plugins.postcss(processors))

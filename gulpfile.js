@@ -57,7 +57,6 @@ var showError = function (error) {
 };
 
 // Load external tasks.
-gulp.task('bower', require('./tasks/gulp/bower')(gulp, plugins));
 gulp.task('browser-sync', require('./tasks/gulp/browser-sync')(gulp, browserSync));
 gulp.task('build', require('./tasks/gulp/build')(gulp, runSequence));
 gulp.task('build-css', require('./tasks/gulp/build-css')(gulp, runSequence));

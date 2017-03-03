@@ -13,11 +13,11 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "autoprefixer": "^6.5.4",
+    "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.18.6",
     "css-mqpacker": "^4.0.1",
     "cssnano": "^3.9.1",
     "gulp": "^3.9.1",
-    "gulp-bower": "0.0.13",
     "gulp-cached": "^1.1.1",
     "gulp-eslint": "^3.0.1",
     "gulp-imagemin": "^3.1.1",
