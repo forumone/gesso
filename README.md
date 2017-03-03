@@ -166,8 +166,6 @@ To change this, edit the included `.gitignore` file.
 * [Sass](http://sass-lang.com): CSS on steroids. Adds nested rules, variables,
 mixins, selector inheritance, and more.
 
-* [Singularity](http://singularity.gs): Grid-based layout system.
-
 
 ## Maintainers
 
