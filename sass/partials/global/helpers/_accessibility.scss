@@ -38,10 +38,8 @@
   width: auto !important;
 }
 
-// Makes an element visually hidden by default, but visible when focused.
+// Makes an element visible when focused if it also has the visually-hidden styles.
 @mixin focusable {
-  @include visually-hidden;
-
   &:active,
   &:focus {
     @include visually-hidden-off;
@@ -49,8 +47,6 @@
 }
 
 @mixin focusable-important {
-  @include visually-hidden-important;
-
   &:active,
   &:focus {
     @include visually-hidden-off-important;

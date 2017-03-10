@@ -8,8 +8,6 @@
 }
 
 .focusable {
-  @include visually-hidden-important;
-
   &:active,
   &:focus {
     @include visually-hidden-off-important;
