@@ -1,11 +1,11 @@
 // @file
-// Create pseudo Block
-@mixin pseudoblock($position: before, $display: inline-block) {
+// Create pseudo block styles
 
+@mixin pseudo-block($position: before, $display: inline-block) {
   &::#{$position} {
     content: '';
     display: $display;
-    // Rules above set via pseudoblock mixin
+    // Rules above set via pseudo-block mixin.
     @content;
   }
 }
