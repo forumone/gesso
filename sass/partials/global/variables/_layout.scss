@@ -4,6 +4,7 @@
 
 @include breakpoint-set('to ems', true);
 $max-page-width: 1200px;
+$global-max-page-width: 2500px;
 $gutter-width: 2em;
 $gutter-width-px: 32px;
 
