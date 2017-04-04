@@ -21,7 +21,7 @@
     "grunt-sass-globbing": "~1.5.1",
     "grunt-shell": "^1.1.2",
     "grunt-simple-watch": "^0.1.2",
-    "grunt-svg2png": "~0.2.7",
+    "grunt-svg2png": "https://github.com/jdforrester/grunt-svg2png.git",
     "include-all": "^0.1.6",
     "load-grunt-tasks": "^3.2.0",
     "postcss-assets": "~4.1.0"
