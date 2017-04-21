@@ -8,3 +8,6 @@
 // from a partial in the 'components' directory. See _nav.scss for an example.
 
 @import 'sass-globbing/components';
+
+// Imports any component Sass partials in /pattern-lab/source/_patterns
+@import 'sass-globbing/components-pattern-lab';
