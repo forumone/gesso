@@ -6,5 +6,6 @@
   "partials/sass-globbing/_module-tweaks.scss" : "partials/module-tweaks/**/*.scss",
   "partials/sass-globbing/_layout.scss": "partials/layout/**/*.scss",
   "partials/sass-globbing/_components.scss": "partials/components/**/*.scss",
+  "partials/sass-globbing/_components-pattern-lab.scss": "../pattern-lab/source/_patterns/**/*.scss",
   "partials/sass-globbing/_utilities.scss": "partials/utilities/**/*.scss"
 }
