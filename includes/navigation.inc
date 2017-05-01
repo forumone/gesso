@@ -389,7 +389,7 @@ function gesso_menu_local_tasks($vars) {
   $output = '';
 
   if (!empty($vars['primary'])) {
-    $vars['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tasks') . '</h2>';
+    $vars['primary']['#prefix'] = '<h2 class="visually-hidden">' . t('Primary tasks') . '</h2>';
 
     if ($only_use_smacss) {
       $vars['primary']['#prefix'] .= '<ul class="nav nav--primary-local-tasks">';
@@ -403,7 +403,7 @@ function gesso_menu_local_tasks($vars) {
   }
 
   if (!empty($vars['secondary'])) {
-    $vars['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tasks') . '</h2>';
+    $vars['secondary']['#prefix'] = '<h2 class="visually-hidden">' . t('Secondary tasks') . '</h2>';
 
     if ($only_use_smacss) {
       $vars['secondary']['#prefix'] .= '<ul class="nav nav--secondary-local-tasks">';
@@ -429,7 +429,7 @@ function gesso_menu_local_task($vars) {
 
   if (!empty($vars['element']['#active'])) {
     // Add text to indicate active tab for non-visual users.
-    $active = '<span class="element-invisible">' . t('(active tab)') . '</span>';
+    $active = '<span class="visually-hidden">' . t('(active tab)') . '</span>';
 
     // If the link does not contain HTML already, check_plain() it now.
     // After we set 'html'=TRUE the link will not be sanitized by l().

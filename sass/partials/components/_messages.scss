@@ -46,23 +46,23 @@
 
 .messages--status {
   @include svg-background(messages-status);
-  background-color: lighten($status-color, 50%);
-  border-color: $status-color;
-  color: darken($status-color, 20%);
+  background-color: #c3f79a;
+  border-color: #41870b;
+  color: #142903;
 }
 
 .messages--warning {
   @include svg-background(messages-warning);
-  background-color: lighten($warning-color, 40%);
-  border-color: $warning-color;
-  color: darken($warning-color, 40%);
+  background-color: #fff5c9;
+  border-color: #fcce00;
+  color: #302700;
 }
 
 .messages--error {
   @include svg-background(messages-error);
-  background-color: lighten($error-color, 65%);
-  border-color: $error-color;
-  color: darken($error-color, 20%);
+  background-color: #ffe1e1;
+  border-color: #940000;
+  color: #2e0000;
 
   .messages__item {
     .placeholder:first-child {

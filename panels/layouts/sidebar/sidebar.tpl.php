@@ -4,7 +4,7 @@
  * Template for the sidebar panels layout.
  */
 
-$wrapper_attributes = array('class' => array('layout-sidebar'));
+$wrapper_attributes = array('class' => array('l-sidebar'));
 $preface_open = '';
 $preface_close = '';
 $main_open = '';
@@ -17,18 +17,17 @@ if (!empty($css_id)) {
 }
 
 if (!empty($content['preface'])) {
-  $preface_open = '<div class="layout-sidebar__header">';
+  $preface_open = '<div class="l-sidebar__full">';
   $preface_close = '</div>';
 }
 
 if (!empty($content['main'])) {
-  $main_open = '<div class="layout-sidebar__main">';
+  $main_open = '<div class="l-sidebar__main">';
   $main_close = '</div>';
 }
 
 if (!empty($content['sidebar'])) {
-  $wrapper_attributes['class'][] = 'has-sidebar';
-  $sidebar_open = '<div class="layout-sidebar__sidebar">';
+  $sidebar_open = '<div class="l-sidebar__sidebar">';
   $sidebar_close = '</div>';
 }
 ?>

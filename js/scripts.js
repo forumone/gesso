@@ -1,5 +1,4 @@
 // Custom scripts file
-// to load, uncomment the call to this file in gesso.info
 
 (function ($) {
 
@@ -7,6 +6,7 @@
 
   // Generic function that runs on window resize.
   function resizeStuff() {
+
   }
 
   // Runs function once on window resize.

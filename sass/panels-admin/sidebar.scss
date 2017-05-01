@@ -2,8 +2,5 @@
 // Admin syles for Panels layout: sidebar
 
 $panels-admin: true;
-@import 'breakpoint-sass/stylesheets/breakpoint'; // github.com/Team-Sass/breakpoint
-@include breakpoint-set('no queries', false);
-@include breakpoint-set('no query fallbacks', false);
 @import '../partials/global';
 @import '../partials/layout/sidebar';

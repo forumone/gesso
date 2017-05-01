@@ -13,14 +13,14 @@ function gesso_facetapi_accessible_markup($vars) {
   // inline with this and we don't want the words to run together. However, the
   // spaces must be inside the <span> so as not to disrupt the layout for
   // sighted users.
-  return '<span class="element-invisible"> ' . $text . ' </span>';
+  return '<span class="visually-hidden"> ' . $text . ' </span>';
 }
 
 /**
  * Implements hook_facetapi_count.
  */
 function gesso_facetapi_count($vars) {
-  return '<span class="facet__count">(' . (int) $vars['count'] . '<span class="element-invisible"> ' . t('items') . '</span>)</span>';
+  return '<span class="facet__count">(' . (int) $vars['count'] . '<span class="visually-hidden"> ' . t('items') . '</span>)</span>';
 }
 
 /**

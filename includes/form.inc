@@ -169,7 +169,7 @@ function gesso_form_element_label($vars) {
 
   // Show label only to screen readers to avoid disruption in visual flows.
   if ($element['#title_display'] == 'invisible') {
-    $attributes['class'][] = 'element-invisible';
+    $attributes['class'][] = 'visually-hidden';
   }
 
   if (!empty($element['#id'])) {
@@ -193,7 +193,7 @@ function gesso_form_required_marker($vars) {
     $attributes['class'][] = 'form-required';
   }
 
-  return '<span' . drupal_attributes($attributes) . '><span class="element-invisible">' . $t('This field is required.') . '</span></span>';
+  return '<span' . drupal_attributes($attributes) . '><span class="visually-hidden">' . $t('This field is required.') . '</span></span>';
 }
 
 /**

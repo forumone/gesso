@@ -12,7 +12,7 @@
       $fieldset
         .removeClass('is-collapsed')
         .trigger({ type: 'collapsed', value: false })
-        .find('.fieldset__legend-link > .element-invisible').html(Drupal.t('Hide'));
+        .find('.fieldset__legend-link > .visually-hidden').html(Drupal.t('Hide'));
       $content.slideDown({
         duration: 'fast',
         easing: 'linear',
@@ -31,7 +31,7 @@
       $('> .fieldset__content', fieldset).slideUp('fast', function () {
         $fieldset
           .addClass('is-collapsed')
-          .find('.fieldset__legend-link > .element-invisible').html(Drupal.t('Show'));
+          .find('.fieldset__legend-link > .visually-hidden').html(Drupal.t('Show'));
         fieldset.animating = false;
       });
     }
@@ -78,7 +78,7 @@
         // for CSS positioning.
         var $legend = $('.fieldset__legend-text', this);
 
-        $('<span class="element-invisible"></span>')
+        $('<span class="visually-hidden"></span>')
           .append($fieldset.hasClass('is-collapsed') ? Drupal.t('Show') : Drupal.t('Hide'))
           .prependTo($legend)
           .after(' ');

@@ -9,50 +9,29 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 main,
 menu,
 nav,
-section,
-summary {
+section {
   display: block;
-}
-
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
-   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *display: inline;
-    *zoom: 1;
-  }
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-[hidden],
-template {
-  display: none;
-}
-
- @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-  // Address font-family inconsistency between textarea and other form elements.
-  button,
-  input,
-  select,
-  textarea {
-    font-family: $base-font-family;
-  }
 }
 
 b,
 strong {
-  font-weight: bold;
+  font-weight: inherit;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+pre,
+samp {
+  @extend %monospace-font-family;
+  font-size: 1em;
 }
 
 sub,
@@ -63,19 +42,11 @@ sup {
   vertical-align: baseline;
 }
 
-svg:not(:root) {
-  overflow: hidden;
-}
-
-code,
-kbd,
-pre,
-samp {
-  font-family: $monospace-font-family;
-  font-size: 1em;
-   @if $legacy-support-for-ie6 {
-    _font-family: 'courier new', monospace;
-  }
+audio,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 button,
@@ -83,15 +54,14 @@ input,
 optgroup,
 select,
 textarea {
-  color: inherit;
   font-family: inherit;
   font-size: 100%;
   margin: 0;
-  max-width: 100%;
-   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    vertical-align: baseline;
-    *vertical-align: middle;
-  }
+}
+
+button,
+input {
+  overflow: visible;
 }
 
 button,
@@ -100,50 +70,58 @@ select {
 }
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html [type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
-  cursor: pointer;
-}
-
-button[disabled],
-html input[disabled] {
-  cursor: default;
 }
 
 button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
   padding: 0;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+button::-moz-focusring,
+[type='button']::-moz-focusring,
+[type='reset']::-moz-focusring,
+[type='submit']::-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box;
   padding: 0;
-   @if $legacy-support-for-ie7 {
-    *height: 13px;
-    *width: 13px;
-  }
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
-input[type="search"] {
+[type='search'] {
   -webkit-appearance: textfield;
-  box-sizing: content-box;
+  outline-offset: -2px;
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-// http://meyerweb.com/eric/thoughts/2012/12/17/where-to-avoid-css-hyphenation
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+template,
+[hidden] {
+  display: none;
+}
+
 abbr,
 blockquote,
 code,
@@ -155,28 +133,19 @@ var {
   hyphens: none;
 }
 
-img,
-input,
-textarea,
-video {
-  height: auto;
-  max-width: 100%;
-}
-
-embed,
-iframe,
-object {
-  max-width: 100%;
+// Don’t show focus styles for elements that can’t be accessed via keyboard.
+[tabindex='-1']:focus {
+  outline: none !important;
 }
 
 ::-moz-selection {
-  background: $selection-background;
-  color: $selection-foreground;
+  background: $color-selection-background;
+  color: $color-selection-foreground;
   text-shadow: none;
 }
 
 ::selection {
-  background: $selection-background;
-  color: $selection-foreground;
+  background: $color-selection-background;
+  color: $color-selection-foreground;
   text-shadow: none;
 }

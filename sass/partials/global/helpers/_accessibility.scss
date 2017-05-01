@@ -1,60 +1,73 @@
 // @file
-// Accessibility mixins and extendables.
+// Accessibility mixins
 
 // Makes an element visually hidden, but accessible.
 // @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-@mixin element-invisible {
-  border: 0;
-  clip: rect(0 0 0 0);
+@mixin visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
-  margin: -1px;
   overflow: hidden;
-  padding: 0;
   position: absolute;
   width: 1px;
+  word-wrap: normal;
 }
 
-// Turns off the element-invisible effect.
-@mixin element-invisible-off {
+@mixin visually-hidden-important {
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  width: 1px !important;
+  word-wrap: normal !important;
+}
+
+// Turns off the visually-hidden effect.
+@mixin visually-hidden-off {
   clip: auto;
   height: auto;
-  margin: 0;
   overflow: visible;
+  position: static;
   width: auto;
 }
 
-// Makes an element visually hidden by default, but visible when focused.
-@mixin element-focusable {
-  @include element-invisible;
+@mixin visually-hidden-off-important {
+  clip: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  position: static !important;
+  width: auto !important;
+}
 
+// Makes an element visible when focused if it also has the visually-hidden styles.
+@mixin focusable {
   &:active,
   &:focus {
-    @include element-invisible-off;
+    @include visually-hidden-off;
+  }
+}
+
+@mixin focusable-important {
+  &:active,
+  &:focus {
+    @include visually-hidden-off-important;
   }
 }
 
 // Makes an element completely hidden, visually and to screen readers.
-@mixin element-hidden {
+@mixin hidden {
   display: none;
 }
 
-%element-invisible {
-  @include element-invisible;
+@mixin hidden-important {
+  display: none !important;
 }
 
-%element-invisible-off {
-  @include element-invisible-off;
+// Makes an element completely hidden, visually and to screen readers, but
+// maintains its layout.
+@mixin invisible {
+  visibility: hidden;
 }
 
-%element-focusable {
-  @extend %element-invisible;
-
-  &:active,
-  &:focus {
-    @extend %element-invisible-off;
-  }
-}
-
-%element-hidden {
-  @include element-hidden;
+@mixin invisible-important {
+  visibility: hidden !important;
 }

@@ -74,9 +74,9 @@ Drupal, which you can change at admin/appearance/settings/gesso.
 ### Pattern Lab installation
 
 The included Grunt tasks look for an instance of the Drupal standard edition of
-Pattern Lab and the Gesso Twig starter kit in a subdirectory of the theme called
-'pattern-lab'. The Grunt build task will skip building Pattern Lab if this
-directory is not found.
+Pattern Lab and [the Gesso Twig starter kit](https://github.com/forumone/starterkit-twig-drupal-gesso)
+in a subdirectory of the theme called 'pattern-lab'. The Grunt build task will
+skip building Pattern Lab if this directory is not found.
 
 To install Pattern Lab, run the following Composer command in
 the theme directory.

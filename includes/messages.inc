@@ -27,7 +27,7 @@ function gesso_status_messages($vars) {
     }
 
     if (!empty($status_heading[$type])) {
-      $output .= '<h2 class="element-invisible">' . $status_heading[$type] . "</h2>\n";
+      $output .= '<h2 class="visually-hidden">' . $status_heading[$type] . "</h2>\n";
     }
 
     if (count($messages) > 1) {

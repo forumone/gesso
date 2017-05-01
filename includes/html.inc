@@ -64,16 +64,6 @@ function gesso_preprocess_html(&$vars, $hook) {
     $vars['theme_path'] . '/css/styles.css',
     array(
       'group' => CSS_THEME,
-      'browsers' => array('IE' => 'gte IE 9'),
-    )
-  );
-
-  // Add non media-query stylesheet for IE8 and below.
-  drupal_add_css(
-    $vars['theme_path'] . '/css/no-mq.css',
-    array(
-      'group' => CSS_THEME,
-      'browsers' => array('IE' => 'lt IE 9', '!IE' => FALSE),
     )
   );
 

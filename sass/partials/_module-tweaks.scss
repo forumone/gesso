@@ -1,9 +1,6 @@
 // @file
-// Module tweak partials
+// Module tweaks
 //
-// Small fixes and tweaks for module CSS that needs customization or is
-// negatively affected by the theme. Build sub-folders and partials in the
-// 'module-tweaks' folder. Sass globbing will automatically import these
-// partials.
+// Minor tweaks for styles provided by Drupal modules.
 
 @import 'sass-globbing/module-tweaks';

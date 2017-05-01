@@ -1,16 +1,19 @@
 // @file
 // Styles for vertical tabs.
 
+$vertical-tabs-border-color: #cccccc;
+$vertical-tabs-pane-color: #eeeeee;
+
 .vertical-tabs {
-  background: $body-color;
-  border: 1px solid $form-border-color;
+  background: #ffffff;
+  border: 1px solid $vertical-tabs-border-color;
   margin: 1.5em 0;
   position: relative;
 }
 
 .vertical-tabs-list {
-  background: $form-bg-color;
-  border-bottom: 1px solid $form-border-color;
+  background: $vertical-tabs-pane-color;
+  border-bottom: 1px solid $vertical-tabs-border-color;
   float: left; // LTR
   list-style: none;
   margin: 0 -100% -1px 0; // LTR
@@ -31,14 +34,10 @@
 .vertical-tabs-list li {
   margin: 0;
   padding: 0;
-
-   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *min-width: 0;
-  }
 }
 
 .vertical-tabs-list a {
-  border: 1px solid $form-border-color;
+  border: 1px solid $vertical-tabs-border-color;
   border-width: 1px 1px 0 0; // LTR
   display: block;
   margin: 0;
@@ -84,11 +83,11 @@
 
 .vertical-tabs-panes {
   background: #fff;
-  border-left: 255px solid $form-bg-color; // LTR
+  border-left: 255px solid $vertical-tabs-pane-color; // LTR
 
   @if $support-for-rtl {
     [dir="rtl"] & {
-      border-right: 255px solid $form-bg-color; // LTR
+      border-right: 255px solid $vertical-tabs-pane-color; // LTR
       border-left: 0;
     }
   }

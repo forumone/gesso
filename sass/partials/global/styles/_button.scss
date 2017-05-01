@@ -1,0 +1,62 @@
+// @file
+// Button styles
+
+$button-border-radius: rem(3px) !default;
+$button-color-bg: #0071bc !default;
+$button-color-bg-active: #112e51 !default;
+$button-color-bg-disabled: #d6d7d9 !default;
+$button-color-bg-hover: #205493 !default;
+$button-color-text: #fff !default;
+$button-color-text-active: #fff !default;
+$button-color-text-disabled: #323a45 !default;
+$button-color-text-hover: #fff !default;
+$button-font-size: $font-size-md !default;
+
+@mixin button(
+  $color-bg: $button-color-bg,
+  $color-text: $button-color-text,
+  $color-bg-hover: $button-color-bg-hover,
+  $color-text-hover: $button-color-text-hover,
+  $color-bg-active: $button-color-bg-active,
+  $color-text-active: $button-color-text-active,
+  $color-bg-disabled: $button-color-bg-disabled,
+  $color-text-disabled: $button-color-text-disabled,
+  $border-radius: $button-border-radius,
+  $font-size: $button-font-size) {
+  @extend %base-font-family;
+  background-color: $color-bg;
+  border: 0;
+  border-radius: $border-radius;
+  color: $color-text;
+  cursor: pointer;
+  display: inline-block;
+  font-size: rem($font-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+  line-height: (20px / $font-size);
+  padding: rem(12px) rem(20px);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: normal;
+
+  &:focus,
+  &:hover {
+    background-color: $color-bg-hover;
+    color: $color-text-hover;
+    outline: 0;
+  }
+
+  &:active {
+    background-color: $color-bg-active;
+    color: $color-text-active;
+  }
+
+  &[disabled] {
+    background-color: $color-bg-disabled;
+    color: $color-text-disabled;
+    cursor: default;
+    pointer-events: none;
+  }
+}

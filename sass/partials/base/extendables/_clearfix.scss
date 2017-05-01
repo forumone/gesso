@@ -1,0 +1,8 @@
+// @file
+// Clearfix
+//
+// Included from global/helpers/_clearfix.scss.
+
+%clearfix {
+  @include clearfix;
+}

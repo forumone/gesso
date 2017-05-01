@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         options: {
           sourceMap: true,
           outputStyle: 'nested',
-          includePaths: ['bower_components'],
+          includePaths: ['node_modules/breakpoint-sass/stylesheets'],
           quiet: true
         }
       }

@@ -1,0 +1,47 @@
+// @file
+// Styles for Pattern Lab Gesso starterkit hero-inline-image component.
+
+.hero-inline-image {
+  color: #fff;
+  padding: 0;
+  position: relative;
+  text-align: center;
+
+  &.has-overlay {
+    &:after {
+      background: rgba(0, 0, 0, 0.5);
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    .hero-inline-image__content {
+      z-index: 2;
+    }
+  }
+}
+
+.hero-inline-image__title {
+  margin-bottom: 0.25em;
+}
+
+.hero-inline-image__subtitle {
+  @extend %h3;
+}
+
+.hero-inline-image__picture {
+  display: block;
+  line-height: 0;
+}
+
+.hero-inline-image__content {
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 5%;
+  padding: 1em;
+  position: absolute;
+  right: 5%;
+}

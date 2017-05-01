@@ -101,7 +101,7 @@ function gesso_pager($vars) {
         if ($i == $pager_current) {
           $items[] = array(
             'class' => array('pager__item', 'pager__item--current'),
-            'data' => '<span class="element-invisible">' . t('Currently on page') . ' </span>' . $i,
+            'data' => '<span class="visually-hidden">' . t('Currently on page') . ' </span>' . $i,
           );
         }
         if ($i > $pager_current) {
@@ -137,7 +137,7 @@ function gesso_pager($vars) {
         'data' => $li_last,
       );
     }
-    return '<nav role="navigation"><h2 class="element-invisible">' . t('Pages') . '</h2>' . theme('item_list', array(
+    return '<nav role="navigation"><h2 class="visually-hidden">' . t('Pages') . '</h2>' . theme('item_list', array(
       'items' => $items,
       'attributes' => array('class' => array('pager')),
     )) . '</nav>';
@@ -216,5 +216,5 @@ function gesso_pager_link($vars) {
   //   possible to use l() here.
   // @see http://drupal.org/node/1410574
   $attributes['href'] = url($_GET['q'], array('query' => $query));
-  return '<a' . drupal_attributes($attributes) . '>' . '<span class="element-invisible">' . check_plain($a11y_text) . '</span>' . check_plain($text) . '</a>';
+  return '<a' . drupal_attributes($attributes) . '>' . '<span class="visually-hidden">' . check_plain($a11y_text) . '</span>' . check_plain($text) . '</a>';
 }

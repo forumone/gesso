@@ -7,8 +7,8 @@
 
 .progress__track {
   background-color: #fff;
-  background-image: linear-gradient(to bottom, $gradient-dark 0%, $gradient-light 100%);
-  border: 1px solid $form-border-color;
+  background-image: linear-gradient(to bottom, #000000 0%, #ffffff 100%);
+  border: 1px solid #cccccc;
   border-radius: 1em;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
   height: 1em;
@@ -19,9 +19,9 @@
 }
 
 .progress__bar {
-  background-color: lighten($link-color, 15%);
-  background-image: linear-gradient(to bottom, $gradient-light 0%, $gradient-dark 100%);
-  border: 1px solid darken($link-color, 15%);
+  background-color: #63b6d5;
+  background-image: linear-gradient(to bottom, #ffffff 0%, #000000 100%);
+  border: 1px solid #22657e;
   border-radius: 1em;
   height: 1em;
   transition-duration: 0.5s;
@@ -32,7 +32,7 @@
 
 .progress__description,
 .progress__percentage {
-  color: $secondary-text-color;
+  color: $color-text-secondary;
   font-size: em($font-size-sm);
   overflow: hidden;
 }

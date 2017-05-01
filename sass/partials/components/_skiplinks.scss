@@ -2,6 +2,7 @@
 // Styles for accessible skiplinks.
 
 .skiplinks {
+  @extend %system-font-family;
   left: 50%;
   margin-left: -7em;
   position: absolute;
