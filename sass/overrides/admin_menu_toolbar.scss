@@ -15,7 +15,7 @@
 
       > span {
         @include image-replace(26px, 20px);
-        @include svg-background(home);
+        @include svg-background(home,'../../images/bg/');
         background-position: 0 0;
         background-repeat: no-repeat;
         display: block;
