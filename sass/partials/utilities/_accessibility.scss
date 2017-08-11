@@ -2,19 +2,23 @@
 // Accessibility utility classes
 //
 // Included from global/helpers/_accessibility.scss.
+// .element-[] class names included for compatibility with D7 core and modules.
 
-.visually-hidden {
+.visually-hidden,
+.element-invisible {
   @include visually-hidden-important;
 }
 
-.focusable {
+.focusable,
+.element-focusable {
   &:active,
   &:focus {
     @include visually-hidden-off-important;
   }
 }
 
-.hidden {
+.hidden,
+.element-hidden {
   @include hidden-important;
 }
 
