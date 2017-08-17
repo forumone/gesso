@@ -20,7 +20,7 @@ function gesso_preprocess_region(&$vars) {
     case 'content':
     case 'postscript':
     case 'footer':
-      $vars['classes_array'][] = 'layout-constrain';
+      $vars['classes_array'][] = 'l-constrain';
       break;
 
     // Remove classes for these regions.
