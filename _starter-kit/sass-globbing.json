@@ -1,0 +1,6 @@
+{
+  "sass-globbing/_global.scss": "_patterns/00-global/**/*.scss",
+  "sass-globbing/_base.scss": "_patterns/01-base/**/*.scss",
+  "sass-globbing/_layouts.scss": "_patterns/02-layouts/**/*.scss",
+  "sass-globbing/_components.scss": "_patterns/03-components/**/*.scss"
+}

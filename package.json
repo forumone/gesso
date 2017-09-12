@@ -25,5 +25,8 @@
     "include-all": "^0.1.6",
     "load-grunt-tasks": "^3.2.0",
     "postcss-assets": "~4.1.0"
+  },
+  "scripts": {
+    "postinstall": "[ -e pattern-lab ] || composer create-project pattern-lab/edition-drupal-standard pattern-lab --no-interaction || true && find pattern-lab/source -maxdepth 1 -not -name '_twig-components' -not -name 'source' -exec rm -r {} + && mv _starter-kit/* pattern-lab/source/. && find _starter-kit -delete"
   }
 }

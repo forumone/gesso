@@ -1,0 +1,9 @@
+{
+  "customClass": false,
+  "image": "http://lorempixel.com/1600/800/nature/",
+  "hasOverlay": true,
+  "title": "Hero Title",
+  "subtitle": "Hero Subtitle",
+  "summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+  "button": "Hero Button"
+}

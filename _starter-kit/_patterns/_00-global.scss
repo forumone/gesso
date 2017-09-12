@@ -1,0 +1,10 @@
+// @file
+// Global partials
+//
+// These partials will be shared across all CSS files and include variables,
+// functions, and mixins. None of these partials should output any CSS by themselves.
+
+// Helper functions and mixins from external libraries.
+@import 'breakpoint'; // github.com/Team-Sass/breakpoint
+
+@import '../sass-globbing/global';

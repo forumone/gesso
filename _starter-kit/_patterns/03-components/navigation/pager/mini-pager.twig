@@ -1,0 +1,23 @@
+<nav role="navigation" aria-labelledby="pagination-heading">
+  <h2 id="pagination-heading" class="visually-hidden">Pagination</h2>
+  <ul class="pager pager--mini js-pager__items">
+    {% spaceless %}
+      <li class="pager__item pager__item--previous">
+        <a class="pager__link pager__link--previous" href="#" title="Go to previous page" rel="prev">
+          <span class="visually-hidden">Previous page</span>
+          <span aria-hidden="true">‹</span>
+        </a>
+      </li>
+      <li class="pager__item pager__item--current">
+        <span class="visually-hidden">Currently on page&nbsp;</span>
+        6
+      </li>
+      <li class="pager__item pager__item--next">
+        <a class="pager__link pager__link--next" href="#" title="Go to next page" rel="next">
+          <span class="visually-hidden">Next page</span>
+          <span aria-hidden="true">›</span>
+        </a>
+      </li>
+    {% endspaceless %}
+  </ul>
+</nav>

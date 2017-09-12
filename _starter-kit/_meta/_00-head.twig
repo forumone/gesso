@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="no-js {{ htmlClass }}" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ pageTitle }} | {{ siteName }}</title>
+
+    <link rel="stylesheet" href="../../../../css/styles.css?{{ cacheBuster }}" media="all">
+
+    <link rel="stylesheet" href="../../../../css/dropbutton.css?{{ cacheBuster }}" media="all">
+    <link rel="stylesheet" href="../../../../css/messages.css?{{ cacheBuster }}" media="all">
+    <link rel="stylesheet" href="../../../../css/pager.css?{{ cacheBuster }}" media="all">
+    <link rel="stylesheet" href="../../../../css/progress.css?{{ cacheBuster }}" media="all">
+
+    <!--[if lte IE 8]>
+    <script src="../../../../../../core/assets/vendor/html5shiv/html5shiv.min.js?v=3.7.3"></script>
+    <![endif]-->
+
+    <script src="../../../../js/lib/modernizr.min.js?v=3.3.1"></script>
+    <link rel="stylesheet" href="../../../../css/pattern-lab.css?{{ cacheBuster }}" media="all">
+
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    {{ patternLabHead | raw }}
+    <!-- End Pattern Lab -->
+
+  </head>
+  <body class="{{ bodyClass }}">
+    <div class="skiplinks">
+      <a href="#main" class="skiplinks__link visually-hidden focusable">Skip to main content</a>
+    </div>

@@ -1,0 +1,26 @@
+{%
+  set classes = [
+    'hero-bg-image',
+    customClass ? customClass,
+    hasOverlay ? 'has-overlay',
+  ]|join(' ')|trim
+%}
+
+<div class="{{ classes }}" style="background-image: url({{ image }});">
+  <div class="hero-bg-image__content">
+    {% if title %}
+      <h1 class="hero-bg-image__title">{{ title }}</h1>
+    {% endif %}
+    {% if subtitle %}
+      <div class="hero-bg-image__subtitle">{{ subtitle }}</div>
+    {% endif %}
+    {% if summary %}
+      <div class="hero-bg-image__text">{{ summary|raw }}</div>
+    {% endif %}
+    {% if button %}
+      <div class="hero-bg-image__call-to-action">
+        <a href="#" class="button">{{ button }}</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
