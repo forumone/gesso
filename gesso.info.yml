@@ -51,3 +51,20 @@ regions:
   postscript: Postscript
   footer: Footer
   page_bottom: 'Page bottom'
+
+component-libraries:
+  atoms:
+    paths:
+      - pattern-lab/source/_patterns/01-base
+  molecules:
+    paths:
+      - pattern-lab/source/_patterns/02-layouts
+  organisms:
+    paths:
+      - pattern-lab/source/_patterns/03-components
+  layouts:
+    paths:
+      - pattern-lab/source/_patterns/04-templates
+  pages:
+    paths:
+      - pattern-lab/source/_patterns/05-pages

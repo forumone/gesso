@@ -6,7 +6,11 @@
   <div class="region-content">
     <div class="l-constrain">
 
-      {% include "components-page-title" %}
+      {% include "components-page-title"
+        with {
+          pageTitle: "Landing Page"
+        }
+      %}
 
       {% for listItem in listItems.four %}
         {% include "components-image-teaser" %}
