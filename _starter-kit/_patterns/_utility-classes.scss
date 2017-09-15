@@ -1,6 +1,31 @@
 // @file
-// Styles for accessible skiplinks.
 
+// Clearfix
+.clearfix {
+  @include clearfix-important;
+}
+
+// Accessibility utility classes
+.visually-hidden {
+  @include visually-hidden-important;
+}
+
+.focusable {
+  &:active,
+  &:focus {
+    @include visually-hidden-off-important;
+  }
+}
+
+.hidden {
+  @include hidden-important;
+}
+
+.invisible {
+  @include invisible-important;
+}
+
+// Styles for accessible skiplinks.
 .skiplinks {
   @extend %system-font-family;
   left: 50%;
