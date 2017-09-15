@@ -1,0 +1,60 @@
+// @file
+// Styles for progress bars.
+
+$progress-border-radius: rem(3px) !default;
+$progress-color: #aeb0b5 !default;
+$progress-color-bar: $color-link !default;
+$progress-color-border: #5b616b !default;
+
+.progress {
+  position: relative;
+}
+
+.progress__track {
+  background-color: $progress-color;
+  border: 1px solid $progress-color-border;
+  border-radius: $progress-border-radius;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+  height: 1rem;
+  margin: 0.2em 0;
+  max-width: 100%;
+  min-width: 6em;
+  overflow: hidden;
+}
+
+.progress__bar {
+  background-color: $progress-color-bar;
+  border-radius: $progress-border-radius;
+  height: 1rem;
+  transition-duration: 0.5s;
+  transition-property: width;
+  transition-timing-function: ease-out;
+  width: 3%;
+}
+
+.progress__description,
+.progress__percentage {
+  color: $color-text-secondary;
+  font-size: rem($font-size-xs);
+  overflow: hidden;
+}
+
+.progress__description {
+  float: left; // LTR
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      float: right;
+    }
+  }
+}
+
+.progress__percentage {
+  float: right; // LTR
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      float: left;
+    }
+  }
+}

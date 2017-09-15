@@ -7,7 +7,6 @@ font:
   headings: "'Helvetica Neue', Helvetica, Arial, sans-serif;"
   monospace: "Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif;"
   primary: "'Helvetica Neue', Helvetica, Arial, sans-serif;"
-adminView: false
 body: "<p>This is the body content, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. There is no limit to how long this content can be.</p>"
 summary: "<p>This is the summary, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. It should be 600 characters or less.</p>"
 title: "Title"
@@ -18,26 +17,16 @@ file:
   name: "file name"
   size: "115.83 KB"
 img:
-  icon:
-    src: "http://fpoimg.com/48x48?text=Icon"
-    alt: "Icon"
-    height: "48"
-    width: "48"
   thumbnail:
     src: "http://fpoimg.com/140x105?text=Thumbnail 4:3"
     alt: "Thumbnail 4:3"
     height: "105"
     width: "140"
-  portrait:
-    src: "http://fpoimg.com/300x400?text=Portrait 3:4"
-    alt: "Portrait 3:4"
-    height: "400"
-    width: "300"
-  landscape:
-    src: "http://fpoimg.com/800x450?text=Landscape 16:9"
-    alt: "Landscape 16:9"
-    height: "450"
-    width: "800"
+  hero:
+    src: "http://fpoimg.com/1600x800?text=Hero 2:1"
+    alt: "Hero 2:1"
+    height: "800"
+    width: "1600"
 year:
   long: "2016"
   short: "16"

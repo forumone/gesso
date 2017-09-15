@@ -3,18 +3,12 @@
   title: "You can't take the sky from me"
   summary: "<p> We're gonna explode? I don't wanna explode. Boy, when they were handing out school spirit, you didn't even stand in line, did you? We will rule over all this land, and we will call it...This Land. It's about power and it's about women and you just hate those two words in the same sentence, don't you? Just once I would like to run into a cult of bunny worshippers. Put your words in word places please. </p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/animals/8/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/animals/4/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/animals/6/"
-      alt: "Portrait 3:4"
-    landscape:
+    hero:
       src: "http://lorempixel.com/800/450/animals/2/"
-      alt: "Landscape 16:9"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -43,18 +37,12 @@
   title: "Veggies sunt bona vobis, proinde vos postulo"
   summary: "<p>Mung bean squash sorrel taro coriander collard greens gumbo bitterleaf tomato. Taro water chestnut celtuce turnip yarrow celery endive scallion black-eyed pea onion. Aubergine dulse turnip greens mustard salsify garlic soybean parsley bitterleaf desert raisin courgette.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/food/1/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/food/5/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/food/9/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/food/7/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/food/7/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -83,18 +71,12 @@
   title: "Bacon ipsum dolor sit amet turducken strip steak beef ribs shank"
   summary: "<p>Boudin sausage jerky pastrami ground round salami biltong. Sausage fatback strip steak doner pork loin, pork belly drumstick ham short loin hamburger shankle. Short ribs sirloin rump tri-tip beef biltong. Meatball pig salami, jowl pork loin fatback short loin drumstick andouille.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/city/6/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/city/7/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/city/4/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/city/9/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/city/9/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -123,18 +105,12 @@
   title: "Whatever swag accusamus occupy, gentrify butcher tote bag"
   summary: "<p>Fanny pack ullamco et veniam semiotics. Shoreditch PBR reprehenderit cliche, magna Tonx aesthetic. Narwhal photo booth DIY aute post-ironic anim. Vice cliche brunch est before they sold out fap, street art Odd Future fashion axe messenger bag nihil Tonx tattooed. Nihil hashtag incididunt, do eu art party Banksy jean shorts four loko typewriter.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/business/7/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/business/10/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/business/7/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/business/8/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/business/8/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -163,18 +139,12 @@
   title: "Marshall McLuhan Colbert bump backpack journalist vast wasteland Romenesko CPM"
   summary: "<p>Like button audience atomization overcome Colbert bump Free Darko inverted pyramid we will make them pay, digital circulation strategy Like button totally blowing up on Twitter church of the savvy. Pictures of Goats section open source discuss Frontline analog thinking filters paidContent.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/nature/7/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/nature/3/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/nature/1/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/nature/1/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/nature/1/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -203,18 +173,12 @@
   title: "Thunder, thunder, thundercats, Ho!"
   summary: "<p>Beats all you've ever saw, been in trouble with the law since the day they was born. Straight'nin' the curve, flat'nin' the hills. Someday the mountain might get 'em, but the law never will. Makin' their way, the only way they know how, that's just a little bit more than the law will allow. Just good ol' boys, wouldn't change if they could, fightin' the system like a true modern day Robin Hood.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/sports/2/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/sports/4/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/sports/3/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/sports/6/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/sports/6/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -243,18 +207,12 @@
   title: "Yeah, I like animals better than people sometimes"
   summary: "<p>Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people. Like pit bulls. The dog of dogs. Pit bull can be the right man's best friend... or the wrong man's worst enemy. You going to give me a dog for a pet, give me a pit bull.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/people/1/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/people/4/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/people/3/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/people/2/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/people/2/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -283,18 +241,12 @@
   title: "Webtwo ipsum dolor sit amet, eskobo chumby doostang bebo"
   summary: "<p>Wufoo diigo grockit sifteo divvyshot, unigo zooomr revver. Edmodo appjet joyent skype bubbli jajah zoodles joukuu xobni hojoki edmodo appjet, mozy mzinga akismet yuntaa joost yuntaa geni tivo insala yoono chumby, grockit sococo loopt zanga etsy cloudera koofers empressr jiglu blippy. Omgpop lanyrd joukuu sococo zimbra airbnb movity jibjab, foodzie.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/technics/1/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/technics/2/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/technics/9/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/technics/7/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/technics/7/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -323,18 +275,12 @@
   title: "Rebel mission to Ord Mantell"
   summary: "<p>I find your lack of faith disturbing. A tremor in the Force. The last time I felt it was in the presence of my old master. Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you. The plans you refer to will soon be back in our hands.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/transport/8/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/transport/7/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/transport/8/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/transport/5/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/transport/5/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -363,18 +309,12 @@
   title: "Help, help, I'm being repressed!"
   summary: "<p>The Knights Who Say Ni demand a sacrifice! …Are you suggesting that coconuts migrate? Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods. You don't frighten us, English pig-dogs! Go and boil your bottoms, sons of a silly person! I blow my nose at you, so-called Ah-thoor Keeng, you and all your silly English K-n-n-n-n-n-n-n-niggits!</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/cats/1/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/cats/3/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/cats/8/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/cats/4/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/cats/4/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -403,18 +343,12 @@
   title: "Danish danish candy canes bonbon cheesecake danish marzipan"
   summary: "<p>Sugar plum wafer soufflé ice cream. Wafer topping biscuit pie gummi bears topping. Gummies toffee powder applicake oat cake cookie. Bear claw candy tootsie roll fruitcake danish applicake candy canes macaroon. Liquorice tiramisu danish cotton candy gummies. Tiramisu dessert gummi bears macaroon sweet roll jelly-o gummi bears marzipan.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/nightlife/3/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/nightlife/5/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/nightlife/8/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/nightlife/4/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/nightlife/4/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
@@ -443,18 +377,12 @@
   title: "Cottage cheese brie lancashire the cheese comes out"
   summary: "<p>Queso caerphilly cheesecake. Parmesan chalk and cheese port-salut port-salut babybel cottage cheese cheesy grin pepper jack. Croque monsieur paneer st. agur blue cheese emmental airedale monterey jack bavarian bergkase cheese triangles. Halloumi parmesan.</p>"
   img:
-    icon:
-      src: "http://lorempixel.com/48/48/abstract/4/"
-      alt: "Icon"
     thumbnail:
       src: "http://lorempixel.com/140/105/abstract/6/"
       alt: "Thumbnail 4:3"
-    portrait:
-      src: "http://lorempixel.com/300/400/abstract/5/"
-      alt: "Portrait 3:4"
-    landscape:
-      src: "http://lorempixel.com/800/450/abstract/1/"
-      alt: "Landscape 16:9"
+    hero:
+      src: "http://lorempixel.com/1600/800/abstract/1/"
+      alt: "Hero 2:1"
   year:
     long: "2013"
     short: "13"
