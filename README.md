@@ -44,25 +44,6 @@ Gesso includes several theme-specific settings for managing classes output by
 Drupal, which you can change at admin/appearance/settings/gesso.
 
 
-### Pattern Lab installation
-
-The included Grunt tasks look for an instance of the Drupal standard edition of
-Pattern Lab and [the Gesso Twig starter kit](https://github.com/forumone/starterkit-twig-drupal-gesso)
-in a subdirectory of the theme called 'pattern-lab'. The Grunt build task will
-skip building Pattern Lab if this directory is not found.
-
-To install Pattern Lab, run the following Composer command in
-the theme directory.
-
-```
-$ composer create-project pattern-lab/edition-drupal-standard pattern-lab
-```
-
-When prompted, select /forumone/starterkit-twig-drupal-gesso as the starterkit.
-
-If prompted, select 'r' to overwrite existing /source/ files.
-
-
 ### Compiling Sass
 
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
