@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         tasks: ['gessoBuildStyles'],
       },
       patternlab: {
-        files: ['<%= pkg.themePath %>/pattern-lab/source/**/*.twig','<%= pkg.themePath %>/pattern-lab/source/**/*.json','<%= pkg.themePath %>/pattern-lab/source/**/*.yaml'],
+        files: ['<%= pkg.themePath %>/pattern-lab/source/**/*.twig','<%= pkg.themePath %>/pattern-lab/source/**/*.json','<%= pkg.themePath %>/pattern-lab/source/**/*.yaml','<%= pkg.themePath %>/pattern-lab/source/**/*.yml'],
         tasks: ['shell:patternlab'],
         options: {
           livereload: true
