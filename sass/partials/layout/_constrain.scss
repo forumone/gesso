@@ -7,6 +7,10 @@
   max-width: em($max-page-width);
   padding-left: $gutter-width / 2;
   padding-right: $gutter-width / 2;
+  & & { // just in case .l-constrain is nested within another .l-constrain
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .l-constrain--no-padding {
