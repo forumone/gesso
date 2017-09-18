@@ -10,7 +10,7 @@
 
 <?php foreach ($rows as $id => $row): ?>
 
-  <?php if ($classes_array[$id]) { print '<div class="' . $classes_array[$id] . '">'; } ?>
+  <?php if ($classes_array[$id]) { print '<div class="view__row ' . $classes_array[$id] . '">'; } ?>
     <?php print $row; ?>
   <?php if ($classes_array[$id]) { print '</div>'; } ?>
 
