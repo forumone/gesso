@@ -1,0 +1,18 @@
+// @file
+// Ordered list styles.
+
+ol {
+  margin: 0 0 rem($vertical-spacing);
+  padding: 0 0 0 1.5em; // LTR
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      padding: 0 1.5em 0 0;
+    }
+  }
+
+  ol,
+  ul {
+    margin: rem($vertical-spacing / 2) 0 0;
+  }
+}

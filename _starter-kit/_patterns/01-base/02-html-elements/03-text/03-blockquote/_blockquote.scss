@@ -1,0 +1,12 @@
+// @file
+// Blockquote styles.
+
+blockquote {
+  margin: 0 1.5em rem($vertical-spacing);
+
+  @media print {
+    & {
+      page-break-inside: avoid;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+// @file
+// Table styles.
+
+caption {
+  margin-bottom: rem($vertical-spacing / 2);
+}
+
+col {}
+
+colgroup {}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: rem($vertical-spacing);
+  min-width: 100%;
+}
+
+tbody {}
+
+td {
+  background-color: #ffffff;
+  border: 1px solid #5b616b;
+  padding: rem(15px);
+}
+
+
+tfoot {
+  td,
+  th {
+    background-color: #f1f1f1;
+  }
+}
+
+th {
+  background-color: #ffffff;
+  border: 1px solid #5b616b;
+  padding: rem(15px);
+  text-align: left;
+}
+
+thead {
+  @media print {
+    & {
+      display: table-header-group;
+    }
+  }
+
+  td,
+  th {
+    background-color: #f1f1f1;
+  }
+}
+
+tr {
+  @media print {
+    & {
+      page-break-inside: avoid;
+    }
+  }
+}
