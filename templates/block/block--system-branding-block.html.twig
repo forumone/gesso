@@ -12,11 +12,9 @@
     </a>
   {% endif %}
   {% if site_name %}
-    <span class="site-name">
-      <a class="site-name__link" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-        <h1 class="site-name__text">{{ site_name }}</h1>
-      </a>
-    </span>
+    <a class="site-name" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+      <h1 class="site-name__text">{{ site_name }}</h1>
+    </a>
   {% endif %}
   {% if site_slogan %}
     <span class="site-slogan">{{ site_slogan }}</span>
