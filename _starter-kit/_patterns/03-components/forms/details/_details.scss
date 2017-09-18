@@ -7,8 +7,8 @@ $details-color-content: #fff !default;
 $details-color-hover: #d6d7d9 !default;
 $details-padding: rem(30px) !default;
 
-// 'details' can appear as a modernizr class on html tag, so this class
-// is limited to only the details element
+// 'details' can appear as a modernizr class on the html tag, so this
+// class is limited to only the details element
 details.details {
   margin: 0 0 rem($vertical-spacing-forms);
 
