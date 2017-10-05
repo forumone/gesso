@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 .sass-cache
-pattern-lab/source/_twig-components/
 pattern-lab/source/sass-globbing/
 css/*.css
 css/*.map
