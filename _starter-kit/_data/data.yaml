@@ -3,6 +3,8 @@ htmlClass: ""
 pageTitle: "Page Title"
 section: "Section"
 siteName: "Site Name"
+siteSlogan: "This is the site slogan."
+siteLogo: "http://fpoimg.com/250x100?text=Logo"
 font:
   headings: "'Helvetica Neue', Helvetica, Arial, sans-serif;"
   monospace: "Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif;"

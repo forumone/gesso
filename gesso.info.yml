@@ -53,16 +53,16 @@ regions:
   page_bottom: 'Page bottom'
 
 component-libraries:
-  atoms:
+  base:
     paths:
       - pattern-lab/source/_patterns/01-base
-  molecules:
+  layouts:
     paths:
       - pattern-lab/source/_patterns/02-layouts
-  organisms:
+  components:
     paths:
       - pattern-lab/source/_patterns/03-components
-  layouts:
+  templates:
     paths:
       - pattern-lab/source/_patterns/04-templates
   pages:

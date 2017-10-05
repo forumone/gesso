@@ -5,7 +5,7 @@ accessible HTML5 markup. It uses a mobile-first responsive approach and
 leverages [SMACSS](https://smacss.com/) to organize styles as outlined in the
 [Drupal 8 CSS architecture guidelines](https://www.drupal.org/node/1887918).
 This encourages a component-based approach to theming through the creation of
-discrete, reusable UI elements.
+discrete, reusable UI elements. Gesso is heavily integrated with [Pattern Lab](http://patternlab.io/) and the [Component Libraries](https://www.drupal.org/project/components) module, allowing Drupal and Pattern Lab to share the same markup.
 
 For more information, view the
 [Gesso Drupal project page](https://drupal.org/project/gesso/) or [Gesso GitHub repo](https://github.com/forumone/gesso).
@@ -20,7 +20,14 @@ To submit bug reports or feature requests, visit the
     [installing themes](https://drupal.org/getting-started/install-contrib/themes)
     for more information.
 
-2.  Because Gesso is a starter theme, it may be best to rename the Gesso
+2.  Install the [Component Libraries](https://www.drupal.org/project/components) module.
+    Since many of the Drupal templates reference twig files inside Pattern Lab using
+    Twig namespaces, this module is required for the theme to function.
+
+3.  Optional: Install the [Twig Tweak](https://www.drupal.org/project/twig_tweak) and
+    [Twig Field Value](https://www.drupal.org/project/twig_field_value) modules. These are not required, but may make working with Twig templates easier.    
+
+4.  Optional: Because Gesso is a starter theme, you may want to rename the Gesso
     directory or copy its contents to a new custom theme directory based on the
     name of your project.
 
@@ -33,7 +40,7 @@ To submit bug reports or feature requests, visit the
     must start with a letter and may only contain lowercase letters, numbers,
     and underscores.
 
-3.  Edit the .info.yml file and update the theme name and description. You can also
+    Edit the .info.yml file and update the theme name and description. You can also
     change the screenshot image (images/screenshot.png) shown on the Appearance
     admin page.
 
