@@ -16,7 +16,7 @@ function gesso_link($vars) {
       $vars['options']['attributes']['class'] = preg_replace('/^active$/', 'is-active', $vars['options']['attributes']['class']);
     }
     else {
-      $vars['options']['attributes']['class'][] = 'is-active';
+      $vars['options']['attributes']['class'] = 'is-active';
     }
   }
 
