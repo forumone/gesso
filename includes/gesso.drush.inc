@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Drush command to create a new theme based on the Gesso theme.
@@ -8,20 +9,22 @@
  * Implements hook_drush_command().
  */
 function gesso_drush_command() {
-  return array('gesso' => array(
-    'description' => 'Create a new theme based on the Gesso theme.',
-    'arguments' => array(
-      'name' => 'The name of your theme.',
-    ),
-    'options' => array(
-      'description' => 'A short description of your new theme.',
-      'machine-name' => 'The machine-readable name of your new theme. This will be auto-generated from the human-readable name if omitted.',
-    ),
-    'examples' => array(
-      'drush gesso "New Theme Name"' => 'Creates a new theme called "New Theme Name" with a machine name of "new_theme_name".',
-      'drush gesso "New Theme Name" --machine-name=new_theme' => 'Creates a new theme called "New Theme Name" with a machine name of "new_theme".',
-    ),
-  ));
+  return [
+    'gesso' => [
+      'description' => 'Create a new theme based on the Gesso theme.',
+      'arguments' => [
+        'name' => 'The name of your theme.',
+      ],
+      'options' => [
+        'description' => 'A short description of your new theme.',
+        'machine-name' => 'The machine-readable name of your new theme. This will be auto-generated from the human-readable name if omitted.',
+      ],
+      'examples' => [
+        'drush gesso "New Theme Name"' => 'Creates a new theme called "New Theme Name" with a machine name of "new_theme_name".',
+        'drush gesso "New Theme Name" --machine-name=new_theme' => 'Creates a new theme called "New Theme Name" with a machine name of "new_theme".',
+      ],
+    ],
+  ];
 }
 
 /**
@@ -38,7 +41,6 @@ function gesso_drush_help($section) {
  * Implements drush_hook_COMMAND_validate().
  */
 function drush_gesso_validate($name = NULL) {
-  $description = drush_get_option('description');
   $machine_name = drush_get_option('machine-name', _gesso_machine_name($name));
 
   drush_set_option('machine-name', $machine_name);
@@ -70,10 +72,12 @@ function drush_gesso_validate($name = NULL) {
  */
 function _gesso_machine_name($name) {
   $name = str_replace(' ', '_', strtolower($name));
-  $search = array(
-    '/[^a-z0-9_]/', // Remove characters not valid in function names.
-    '/^[^a-z]+/',   // Functions must begin with an alpha character.
-  );
+  $search = [
+  // Remove characters not valid in function names.
+    '/[^a-z0-9_]/',
+  // Functions must begin with an alpha character.
+    '/^[^a-z]+/',
+  ];
   $name = preg_replace($search, '', $name);
   $name = str_replace('__', '_', $name);
   $name = trim($name, '_');
@@ -119,11 +123,11 @@ function drush_gesso($name = NULL) {
   drush_op('rename', $gesso_info_file, $new_info_file);
 
   // Update the .info.yml file based on the command options.
-  $changes = array(
+  $changes = [
     'Gesso' => $name,
     'Sass-based starter theme.' => $description,
     'gesso' => $machine_name,
-  );
+  ];
   drush_op('gesso_file_str_replace', $new_info_file, array_keys($changes), $changes);
 
   // Rename the .breakpoints.yml file.
@@ -145,7 +149,7 @@ function drush_gesso($name = NULL) {
   $breakpoints_file = $machine_name . '.breakpoints.yml';
   $libraries_file = $machine_name . '.libraries.yml';
   $theme_file = $machine_name . '.theme';
-  $files = array(
+  $files = [
     $breakpoints_file,
     $libraries_file,
     $theme_file,
@@ -156,7 +160,7 @@ function drush_gesso($name = NULL) {
     'templates/misc/status-messages.html.twig',
     'templates/navigation/pager.html.twig',
     'templates/views/views-mini-pager.html.twig',
-  );
+  ];
   foreach ($files as $file) {
     drush_op('gesso_file_str_replace', drush_normalize_path($new_path . '/' . $file), 'gesso', $machine_name);
   }
@@ -164,10 +168,10 @@ function drush_gesso($name = NULL) {
   // Notify user of the newly created theme.
   drush_print(dt(
     "\nThe \"!name\" theme has been created in: !path\n",
-    array(
+    [
       '!name' => $name,
       '!path' => $new_path,
-    )
+    ]
   ));
 }
 
