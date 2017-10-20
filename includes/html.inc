@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * HTML template functions.
@@ -10,14 +11,14 @@
 function gesso_preprocess_html(&$vars, $hook) {
   // Add x-ua-compatible meta tag.
   $vars['page']['#attached']['html_head'][] = [
-    array(
+    [
       '#tag' => 'meta',
-      '#attributes' => array(
+      '#attributes' => [
         'http-equiv' => 'x-ua-compatible',
         'content' => 'ie=edge',
-      ),
-    ),
-    'x_ua_compatible'
+      ],
+    ],
+    'x_ua_compatible',
   ];
 }
 
@@ -37,4 +38,5 @@ function gesso_preprocess_maintenance_page(&$vars, $hook) {
 /**
  * Implements hook_preprocess_page().
  */
-function gesso_preprocess_page(&$vars, $hook) {}
+function gesso_preprocess_page(&$vars, $hook) {
+}

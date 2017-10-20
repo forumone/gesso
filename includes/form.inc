@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Form template functions.
