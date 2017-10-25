@@ -1,27 +1,36 @@
 // @file
 // Styles for Drupal messages.
 
-$bp-larger-message-icon: 600px;
-
 .messages {
-  background-color: #f1f1f1;
+  background-color: #ecf6fa;
   background-position: em(10px) em(10px); // LTR
   background-repeat: no-repeat;
   background-size: em(40px);
-  color: #212121;
+  border: 1px solid #bcdeee;
+  color: #424242;
   margin-bottom: rem($vertical-spacing);
+  overflow: hidden;
   padding: 1em;
   position: relative;
   word-wrap: break-word;
 
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      background-position: right em(10px) top em(10px);
-    }
+  &::before {
+    background-repeat: no-repeat;
+    background-size: em(52px);
+    bottom: -.5em;
+    content: '';
+    display: block;
+    height: em(52px);
+    position: absolute;
+    right: -.5em;
+    transform: rotate(-20deg);
+    width: em(52px);
   }
 
-  @include breakpoint($bp-larger-message-icon) {
-    background-size: em(52px);
+  a {
+    color: #bcdeee;
+    font-weight: 600;
+    text-decoration: underline;
   }
 
   @media print {
@@ -30,40 +39,20 @@ $bp-larger-message-icon: 600px;
 }
 
 .messages__content {
-  display: table-cell;
-  padding-left: em(50px); // LTR
-  vertical-align: top;
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      padding-left: 0;
-      padding-right: em(50px);
-    }
-  }
-
   > *:last-child {
     margin-bottom: 0;
   }
 }
 
-.messages--error {
-  @include svg-background(messages-error);
-  background-color: #f9dede;
-
-  .messages__item {
-    em:first-child {
-      font-style: normal;
-      font-weight: bold;
-    }
-  }
-}
-
 .messages--status {
-  @include svg-background(messages-status);
-  background-color: #e7f4e4;
-}
+  background-color: #eff8e6;
+  border-color: #c9e8a9;
 
-.messages--warning {
-  @include svg-background(messages-warning);
-  background-color: #fff1d2;;
+  &::before {
+    @include svg-background(messages-status);
+  }
+
+  a {
+    color: #71b02f;
+  }
 }
