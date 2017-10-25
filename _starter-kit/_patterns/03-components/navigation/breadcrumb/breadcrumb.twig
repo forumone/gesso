@@ -1,9 +1,18 @@
 {% spaceless %}
 <nav class="breadcrumb" role="navigation" aria-labelledby="breadcrumb-label">
-  <h2 class="breadcrumb__title" id="breadcrumb-label">You are here</h2>
+  {% if heading %}
+    <h2 class="breadcrumb__title" id="breadcrumb-label">{{ heading|raw }}</h2>
+  {% endif %}
   <ol class="breadcrumb__list">
-    <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Home</a></li>
-    <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Section</a></li>
+    {% for item in breadcrumb %}
+      <li class="breadcrumb__item">
+        {%- if item.url -%}
+          <a class="breadcrumb__link" href="{{ item.url }}">{{ item.text }}</a>
+        {%- else -%}
+          {{ item.text }}
+        {%- endif -%}
+      </li>
+    {% endfor %}
   </ol>
 </nav>
 {% endspaceless %}
