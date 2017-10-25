@@ -12,12 +12,6 @@ global:
     - core/drupalSettings
     - core/modernizr
 
-pager:
-  version: VERSION
-  css:
-    theme:
-      css/pager.css: {}
-
 progress:
   version: VERSION
   css:

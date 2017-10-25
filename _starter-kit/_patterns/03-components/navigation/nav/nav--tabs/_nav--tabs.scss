@@ -1,8 +1,9 @@
 // @file
-// Styles for the primary local tasks menu.
+// Styles for tabs menu.
 
-.nav--primary-local-tasks {
+.nav--tabs-primary {
   @extend %nav--pillbox;
+  margin-top: 2em;
 
   @media print {
     display: none;
@@ -13,5 +14,17 @@
     font-size: rem($font-size-sm);
     line-height: (17px / $font-size-sm);
     padding: rem(8px) rem(16px);
+  }
+}
+
+.nav--tabs-secondary {
+  @extend %nav--pipeline;
+
+  @media print {
+    display: none;
+  }
+
+  .nav__link {
+    font-size: em($font-size-sm);
   }
 }
