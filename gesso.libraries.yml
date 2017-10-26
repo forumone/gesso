@@ -11,9 +11,3 @@ global:
     - core/drupal
     - core/drupalSettings
     - core/modernizr
-
-progress:
-  version: VERSION
-  css:
-    theme:
-      css/progress.css: {}
