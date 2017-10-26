@@ -1,7 +1,0 @@
-{#
-/**
- * @file
- * Theme override for a local task link.
- */
-#}
- <li{{ attributes.addClass('nav__item', is_active ? 'is-active') }}>{{ link|merge({'#attributes' :{'class':['nav__link', is_active ? 'is-active']}})  }}</li>

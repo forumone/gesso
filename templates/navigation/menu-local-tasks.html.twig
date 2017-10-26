@@ -5,10 +5,15 @@
  */
 #}
 {% if primary %}
-  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
-  <ul class="nav nav--primary-local-tasks">{{ primary }}</ul>
+  {% include "@components/navigation/nav/nav--tabs-primary/nav--tabs-primary.twig" with {
+    tabs: primary
+    } only
+  %}
 {% endif %}
+
 {% if secondary %}
-  <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
-  <ul class="nav nav--secondary-local-tasks">{{ secondary }}</ul>
+  {% include "@components/navigation/nav/nav--tabs-secondary/nav--tabs-secondary.twig" with {
+      tabs: secondary
+    } only
+  %}
 {% endif %}

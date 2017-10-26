@@ -1,0 +1,22 @@
+// @file
+// Styles for Drupal messages.
+
+.messages--error {
+  background-color: #ffe6e5;
+  border-color: #ffc5c2;
+
+  &::before {
+    @include svg-background(messages-error);
+  }
+
+  a {
+    color: #ff645c;
+  }
+
+  .messages__item {
+    em:first-child {
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+}

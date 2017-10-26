@@ -1,85 +1,77 @@
-<nav role="navigation" aria-labelledby="pagination-heading">
-  <h2 id="pagination-heading" class="visually-hidden">Pagination</h2>
-  <ul class="pager js-pager__items">
-    {% spaceless %}
-      <li class="pager__item pager__item--first">
-        <a class="pager__link pager__link--first" href="#" title="Go to first page">
-          <span class="visually-hidden">First page</span>
-          <span aria-hidden="true">|«</span>
-        </a>
-      </li>
-      <li class="pager__item pager__item--previous">
-        <a class="pager__link pager__link--previous" href="#" title="Go to previous page" rel="prev">
-          <span class="visually-hidden">Previous page</span>
-          <span aria-hidden="true">‹</span>
-        </a>
-      </li>
-      <li class="pager__item pager__item--ellipsis" role="presentation">…</li>
-      <li class="pager__item">
-        <a class="pager__link" href="#">
-          <span class="visually-hidden">Page&nbsp;</span>
-          2
-        </a>
-      </li>
-      <li class="pager__item">
-        <a class="pager__link" href="#">
-          <span class="visually-hidden">Page&nbsp;</span>
-          3
-        </a>
-      </li>
-      <li class="pager__item">
-        <a class="pager__link" href="#">
-          <span class="visually-hidden">Page&nbsp;</span>
-          4
-        </a>
-      </li>
-      <li class="pager__item">
-        <a class="pager__link" href="#">
-          <span class="visually-hidden">Page&nbsp;</span>
-          5
-        </a>
-      </li>
-      <li class="pager__item pager__item--current">
-        <span class="visually-hidden">Currently on page&nbsp;</span>
-        6
-      </li>
-      <li class="pager__item">
-        <a class="pager__link" href="#">
-          <span class="visually-hidden">Page&nbsp;</span>
-          7
-        </a>
-      </li>
-      <li class="pager__item">
-        <a class="pager__link" href="#">
-          <span class="visually-hidden">Page&nbsp;</span>
-          8
-        </a>
-      </li>
-      <li class="pager__item">
-        <a class="pager__link" href="#">
-          <span class="visually-hidden">Page&nbsp;</span>
-          9
-        </a>
-      </li>
-      <li class="pager__item">
-        <a class="pager__link" href="#">
-          <span class="visually-hidden">Page&nbsp;</span>
-          10
-        </a>
-      </li>
-      <li class="pager__item pager__item--ellipsis" role="presentation">…</li>
-      <li class="pager__item pager__item--next">
-        <a class="pager__link pager__link--next" href="#" title="Go to next page" rel="next">
-          <span class="visually-hidden">Next page</span>
-          <span aria-hidden="true">›</span>
-        </a>
-      </li>
-      <li class="pager__item pager__item--last">
-        <a class="pager__link pager__link--last" href="#" title="Go to last page">
-          <span class="visually-hidden">Last page</span>
-          <span aria-hidden="true">»|</span>
-        </a>
-      </li>
-    {% endspaceless %}
-  </ul>
-</nav>
+{% if items %}
+  <nav role="navigation" aria-labelledby="pagination-heading">
+    <h2 id="pagination-heading" class="visually-hidden">{{ 'Pagination'|t }}</h2>
+    <ul class="pager js-pager__items">
+      {% spaceless %}
+
+      {# Print first item if we are not on the first page. #}
+      {% if items.first %}
+        <li class="pager__item pager__item--first">
+          <a class="pager__link pager__link--first" href="{{ items.first.href }}" title="{{ 'Go to first page'|t }}">
+            <span class="visually-hidden">{{ 'First page'|t }}</span>
+            <span aria-hidden="true">First</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {# Print previous item if we are not on the first page. #}
+      {% if items.previous %}
+        <li class="pager__item pager__item--previous">
+          <a class="pager__link pager__link--previous" href="{{ items.previous.href }}" title="{{ 'Go to previous page'|t }}" rel="prev">
+            <span class="visually-hidden">{{ 'Previous page'|t }}</span>
+            <span aria-hidden="true">Previous</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {# Add an ellipsis if there are further previous pages. #}
+      {% if ellipses.previous %}
+        <li class="pager__item pager__item--ellipsis" role="presentation">…</li>
+      {% endif %}
+
+      {# Now generate the actual pager piece. #}
+      {% for key, item in items.pages %}
+        <li class="pager__item{{ current == key ? ' is-active' : '' }}">
+          {% if current == key %}
+            {% set title = 'Current page'|t %}
+          {% else %}
+            {% set title = 'Go to page @key'|t({'@key': key}) %}
+          {% endif %}
+          <a class="pager__link" href="{{ item.href }}" title="{{ title }}">
+            <span class="visually-hidden">
+              {{ current == key ? 'Current page'|t : 'Page'|t }}
+            </span>
+            {{- key -}}
+          </a>
+        </li>
+      {% endfor %}
+
+      {# Add an ellipsis if there are further next pages. #}
+      {% if ellipses.next %}
+        <li class="pager__item pager__item--ellipsis" role="presentation">…</li>
+      {% endif %}
+
+      {# Print next item if we are not on the last page. #}
+      {% if items.next %}
+        <li class="pager__item pager__item--next">
+          <a class="pager__link pager__link--next" href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" rel="next">
+            <span class="visually-hidden">{{ 'Next page'|t }}</span>
+            <span aria-hidden="true">Next</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {# Print last item if we are not on the last page. #}
+      {% if items.last %}
+        <li class="pager__item pager__item--last">
+          <a class="pager__link pager__link--last" href="{{ items.last.href }}" title="{{ 'Go to last page'|t }}">
+            <span class="visually-hidden">{{ 'Last page'|t }}</span>
+            <span aria-hidden="true">Last</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {% endspaceless %}
+    </ul>
+  </nav>
+{% endif %}

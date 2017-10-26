@@ -1,0 +1,15 @@
+// @file
+// Styles for Drupal messages.
+
+.messages--warning {
+  background-color: #fcf8e3;
+  border-color: #faf2cc;
+
+  &::before {
+    @include svg-background(messages-warning);
+  }
+
+  a {
+    color: #8a6d3b;
+  }
+}

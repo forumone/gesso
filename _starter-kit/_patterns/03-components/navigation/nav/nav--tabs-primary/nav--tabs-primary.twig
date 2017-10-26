@@ -1,0 +1,20 @@
+<nav role="navigation">
+  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
+  {% spaceless %}
+  <ul class="nav nav--tabs-primary">
+    {% for tab in tabs %}
+      {% set activeClass = tab.active ? 'is-active' : '' %}
+      <li class="nav__item {{ activeClass }}">
+        {% block link %}
+          <a href="{{ tab.url }}" class="nav__link {{ activeClass }}">
+            {{ tab.text }}
+            {% if tab.active %}
+              <span class="visually-hidden">{{ activeLabel|default('(active tab)') }}</span>
+            {% endif %}
+          </a>
+        {% endblock link %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% endspaceless %}
+</nav>

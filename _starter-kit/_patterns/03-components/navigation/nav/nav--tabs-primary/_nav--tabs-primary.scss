@@ -1,8 +1,9 @@
 // @file
-// Styles for the primary local tasks menu.
+// Styles for tabs menu.
 
-.nav--primary-local-tasks {
+.nav--tabs-primary {
   @extend %nav--pillbox;
+  margin-top: 2em;
 
   @media print {
     display: none;

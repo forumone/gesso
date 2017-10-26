@@ -2,7 +2,8 @@
 // Styles for the breadcrumb trail.
 
 .breadcrumb {
-  margin: rem($vertical-spacing) 0;
+  @include clearfix();
+  padding-top: rem($vertical-spacing);
 }
 
 .breadcrumb__title {
@@ -17,15 +18,20 @@
 
 .breadcrumb__item {
   display: inline;
-  margin-right: 0.5em;
+  font-size: $font-size-sm;
+  margin-right: 0.25em;
 
   &::after {
-    content: '\2794';
-    margin-left: 0.5em;
+    content: '/';
+    margin-left: 0.25em;
   }
 
   &:last-child::after {
     content: '';
     margin-left: 0;
   }
+}
+
+.breadcrumb__link {
+  text-decoration: none;
 }

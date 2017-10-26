@@ -10,7 +10,7 @@
     {% include "@components/page-elements/site-logo/site-logo.twig"
       with {
         "url": path('<front>'),
-        "siteLogo": site_logo
+        "site_logo": site_logo
       }
     %}
   {% endif %}
@@ -18,14 +18,14 @@
     {% include "@components/page-elements/site-name/site-name.twig"
       with {
         "url": path('<front>'),
-        "siteName": site_name
+        "site_name": site_name
       }
     %}
   {% endif %}
   {% if site_slogan %}
     {% include "@components/page-elements/site-slogan/site-slogan.twig"
       with {
-        "siteSlogan": site_slogan
+        "site_slogan": site_slogan
       }
     %}
   {% endif %}

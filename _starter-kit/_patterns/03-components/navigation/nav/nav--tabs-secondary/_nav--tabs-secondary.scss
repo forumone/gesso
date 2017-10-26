@@ -1,7 +1,7 @@
 // @file
-// Styles for the secondary local tasks menu.
+// Styles for tabs menu.
 
-.nav--secondary-local-tasks {
+.nav--tabs-secondary {
   @extend %nav--pipeline;
 
   @media print {
