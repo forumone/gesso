@@ -11,6 +11,7 @@
 }
 
 // hide headers for some Gesso folders
+#viewall-global-variables,
 #viewall-global-helpers,
 #viewall-global-styles,
 #viewall-base-fonts,
@@ -89,10 +90,14 @@
   transition: 0.2s all;
 }
 
-.patterlab-swatch__variable,
-.patterlab-swatch__hex {
+.patterlab-swatch__variable {
   display: block;
   font-size: 11px;
+}
+
+.patterlab-swatch__hex {
+  display: block;
+  font-size: 14px;
 }
 
 .patterlab-swatch--light {
