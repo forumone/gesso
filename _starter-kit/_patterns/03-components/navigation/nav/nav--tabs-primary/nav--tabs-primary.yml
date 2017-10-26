@@ -1,5 +1,3 @@
-heading: "Primary tabs"
-modifier_class: "nav--tabs-primary"
 tabs:
 -
   text: "View"

@@ -5,18 +5,14 @@
  */
 #}
 {% if primary %}
-  {% include "@components/navigation/nav/nav--tabs/nav--tabs.twig" with {
-    heading: 'Primary tabs'|t,
-    modifier_class: 'nav--tabs-primary',
+  {% include "@components/navigation/nav/nav--tabs-primary/nav--tabs-primary.twig" with {
     tabs: primary
     } only
   %}
 {% endif %}
 
 {% if secondary %}
-  {% include "@components/navigation/nav/nav--tabs/nav--tabs.twig" with {
-      heading: 'Secondary tabs'|t,
-      modifier_class: 'nav--tabs-secondary',
+  {% include "@components/navigation/nav/nav--tabs-secondary/nav--tabs-secondary.twig" with {
       tabs: secondary
     } only
   %}

@@ -16,15 +16,3 @@
     padding: rem(8px) rem(16px);
   }
 }
-
-.nav--tabs-secondary {
-  @extend %nav--pipeline;
-
-  @media print {
-    display: none;
-  }
-
-  .nav__link {
-    font-size: em($font-size-sm);
-  }
-}

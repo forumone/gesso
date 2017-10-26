@@ -1,9 +1,7 @@
 <nav role="navigation">
-  {% if heading %}
-    <h2 class="visually-hidden">{{ heading|raw }}</h2>
-  {% endif %}
+  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
   {% spaceless %}
-  <ul class="nav nav--tabs {{ modifier_class }}">
+  <ul class="nav nav--tabs-primary">
     {% for tab in tabs %}
       {% set activeClass = tab.active ? 'is-active' : '' %}
       <li class="nav__item {{ activeClass }}">

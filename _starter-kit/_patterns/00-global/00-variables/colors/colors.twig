@@ -1,13 +1,13 @@
-<ul class="color-list">
+<ul class="patterlab-color-list">
 	{% for color in colors %}
 	<li>
-		<ul class="color-set">
+		<ul class="patterlab-color-list__set">
 			{% for color_set in color.color_set %}
 		  <li>
-		    <figure class="{{ color_set.swatch }}" style="{{ color_set.style }}">
-		      <div class="meta-data">
-		        <span class="variable">{{ color_set.variable }}</span>
-		        <span class="hex">{{ color_set.hex }}</span>
+		    <figure class="patterlab-swatch{% if color_set.lighttext %} patterlab-swatch--light{% endif %}" style="{{ color_set.style }}">
+		      <div class="patterlab-swatch__meta-data">
+		        <span class="patterlab-swatch__variable">{{ color_set.variable }}</span>
+		        <span class="patterlab-swatch__hex">{{ color_set.hex }}</span>
 		      </div>
 		    </figure>
 		  </li>
