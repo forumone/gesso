@@ -1,0 +1,18 @@
+<ul class="color-list">
+	{% for color in colors %}
+	<li>
+		<ul class="color-set">
+			{% for color_set in color.color_set %}
+		  <li>
+		    <figure class="{{ color_set.swatch }}" style="{{ color_set.style }}">
+		      <div class="meta-data">
+		        <span class="variable">{{ color_set.variable }}</span>
+		        <span class="hex">{{ color_set.hex }}</span>
+		      </div>
+		    </figure>
+		  </li>
+			{% endfor %}
+		</ul>
+	</li>
+	{% endfor %}
+</ul>

@@ -1,0 +1,16 @@
+{% for webfont in webfonts %}
+  <div class="fonts">
+    <h3 class="family-name" style="{{ webfont.style }}">{{ webfont.family_name }}<span class="usage-badge">WEB</span></h3>
+    {% for font in webfont.font %}
+      <div class="font">
+        <div class="font-preview-character" style="{{ font.font_preview_style }}">{{ font.font_preview_character }}</div>
+        <div class="font-preview" style="{{ font.font_preview_style }}">{{ font.font_preview|raw }}</div>
+        <div class="font-preview-meta">
+          <div class="font-name">{{ font.font_name }}</div>
+          <div class="font-weight"><span class="label">Weight:</span> {{ font.font_weight }}</div>
+          <div class="font-style"><span class="label">Style:</span> {{ font.font_style }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
