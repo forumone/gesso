@@ -68,7 +68,7 @@
 }
 
 .patterlab-swatch {
-  color: white;
+  color: #fff;
   display: block;
   font-size: 32px;
   height: 2.5em;
@@ -77,29 +77,22 @@
   position: relative;
   width: 100%;
 
-  &:hover {
-    .patterlab-swatch__meta-data {
-      opacity: 1;
-      right: 0;
-    }
-  }
+}
 
-  .patterlab-swatch__meta-data {
-    bottom: 0;
-    display: block;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    right: -100%;
-    top: .55em;
-    transition: 0.2s all;
-  }
+.patterlab-swatch__meta-data {
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: .55em;
+  transition: 0.2s all;
+}
 
-  .patterlab-swatch__variable,
-  .patterlab-swatch__hex {
-    display: block;
-    font-size: 11px;
-  }
+.patterlab-swatch__variable,
+.patterlab-swatch__hex {
+  display: block;
+  font-size: 11px;
 }
 
 .patterlab-swatch--light {
@@ -124,7 +117,7 @@
 }
 
 .patterlab-font__preview {
-  border-right: 2px solid #EEE;
+  border-right: 2px solid #eee;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -140,28 +133,27 @@
   width: 125px;
 }
 
-.patterlab-font__preview-meta {
+.patterlab-font__preview-meta {}
 
-  .patterlab-font__label {
-    color: #999;
-  }
+.patterlab-font__label {
+  color: #999;
+}
 
-  .patterlab-font__name {
-    color: #565454;
-    font-size: .9rem;
-    line-height: 1.5;
-    margin: 5px 0;
-  }
+.patterlab-font__name {
+  color: #565454;
+  font-size: .9rem;
+  line-height: 1.5;
+  margin: 5px 0;
+}
 
-  .patterlab-font__weight {
-    color: #000;
-    font-size: 13px;
-    margin-bottom: 5px;
-  }
+.patterlab-font__weight {
+  color: #000;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
 
-  .patterlab-font__style {
-    color: #000;
-    font-size: 13px;
-    margin-bottom: 5px;
-  }
+.patterlab-font__style {
+  color: #000;
+  font-size: 13px;
+  margin-bottom: 5px;
 }

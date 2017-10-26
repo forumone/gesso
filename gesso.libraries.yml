@@ -2,6 +2,7 @@ global:
   version: VERSION
   css:
     theme:
+      //fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:300,400,600,700: { type: external }
       css/styles.css: {}
   js:
     js/mobile-menu.js: {}
