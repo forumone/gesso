@@ -4,7 +4,7 @@
 		<ul class="patterlab-color-list__set">
 			{% for color_set in color.color_set %}
 		  <li>
-		    <figure class="patterlab-swatch{% if color_set.lighttext %} patterlab-swatch--light{% endif %}" style="{{ color_set.style }}">
+		    <figure class="patterlab-swatch{% if color_set.light_text %} patterlab-swatch--light{% endif %}" style="{{ color_set.style }}">
 		      <div class="patterlab-swatch__meta-data">
 		        <span class="patterlab-swatch__variable">{{ color_set.variable }}</span>
 		        <span class="patterlab-swatch__hex">{{ color_set.hex }}</span>
