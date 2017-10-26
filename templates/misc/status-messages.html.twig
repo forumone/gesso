@@ -7,7 +7,7 @@
 
 {% for type, messages in message_list %}
   {%
-    include "@components/drupal/messages/messages.twig" with {
+    include "@base/drupal/messages/messages.twig" with {
       type: type,
       messages: messages,
       heading: status_headings[type],
