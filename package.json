@@ -26,9 +26,12 @@
     "grunt-svg2png": "https://github.com/jdforrester/grunt-svg2png.git",
     "include-all": "^0.1.6",
     "load-grunt-tasks": "^3.2.0",
-    "postcss-assets": "~4.1.0"
+    "postcss-assets": "~4.1.0",
+    "lodash.includes": "^4.1.3",
+    "yeoman-generator": "^0.23.3",
+    "yo": "^1.8.5"
   },
   "scripts": {
-    "postinstall": "grunt gessoSetup"
+    "postinstall": "grunt gessoSetup", "new": "yo ./pattern-lab/generator/index.js"
   }
 }
