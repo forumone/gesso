@@ -10,7 +10,7 @@ summary: "<p>This is the summary, which can contain <abbr title='Hyper Text Mark
 title: "Title"
 url: "#"
 file:
-  icon: "../../drupal/images/application-pdf.png"
+  icon: "../../images/application-pdf.png"
   mime: "application/pdf"
   name: "file name"
   size: "115.83 KB"

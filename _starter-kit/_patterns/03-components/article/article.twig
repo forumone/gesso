@@ -1,0 +1,14 @@
+<article class="article" role="article">
+  {% include "components-page-title"
+    with { page_title: page_title }
+  %}
+  <footer>
+    {% include "components-date"
+      with { format: "long-datetime" }
+    %}
+    {% include "components-author"
+      with { author: author }
+    %}
+  </footer>
+  {{ body | raw }}
+</article>

@@ -5,14 +5,14 @@
  */
 #}
 {% if primary %}
-  {% include "@components/navigation/nav/nav--tabs-primary/nav--tabs-primary.twig" with {
+  {% include "@components/nav/nav--tabs-primary/nav--tabs-primary.twig" with {
     tabs: primary
     } only
   %}
 {% endif %}
 
 {% if secondary %}
-  {% include "@components/navigation/nav/nav--tabs-secondary/nav--tabs-secondary.twig" with {
+  {% include "@components/nav/nav--tabs-secondary/nav--tabs-secondary.twig" with {
       tabs: secondary
     } only
   %}

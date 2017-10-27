@@ -23,7 +23,7 @@
   }
   & {
     * + & { // add top margin when headers are preceded by other elements
-      margin-top: rem($vertical-spacing);
+      margin-top: 1em;
     }
     & + & { // remove top margin for adjacent subheadings
       margin-top: 0;
