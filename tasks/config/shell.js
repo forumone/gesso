@@ -24,7 +24,15 @@ module.exports = function (grunt) {
             cwd: '<%= pkg.themePath %>/pattern-lab'
           }
         }
-      }
+      },
+      newComponent: {
+        command: 'yo ./pattern-lab/source/component-generator/index.js',
+        options: {
+          execOptions: {
+            cwd: '<%= pkg.themePath %>',
+          },
+        },
+      },
     }
   });
 
