@@ -32,6 +32,6 @@
     "yo": "^1.8.5"
   },
   "scripts": {
-    "postinstall": "grunt gessoSetup", "new": "yo ./pattern-lab/generator/index.js"
+    "postinstall": "grunt gessoSetup", "new": "yo ./pattern-lab/component-generator/index.js"
   }
 }
