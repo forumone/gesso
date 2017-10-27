@@ -3,7 +3,7 @@
 
 .breadcrumb {
   @include clearfix();
-  padding-top: rem($vertical-spacing);
+  margin: rem($vertical-spacing) 0;
 }
 
 .breadcrumb__title {
