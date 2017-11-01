@@ -13,7 +13,7 @@
 <?php endif; ?>
 <?php if ($only_use_smacss): ?>
   <?php foreach ($widgets as $id => $widget): ?>
-    <div id="<?php print $widget->id; ?>" class="views-widget views-widget--<?php print $id; ?>">
+    <div id="<?php print $widget->id; ?>-wrapper" class="views-widget views-widget--<?php print $id; ?>">
       <?php if (!empty($widget->label)): ?>
         <label class="views-widget__label" for="<?php print $widget->id; ?>">
           <?php print $widget->label; ?>
