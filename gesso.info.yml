@@ -45,8 +45,6 @@ regions:
   help: Help
   highlighted: Highlighted
   preface: Preface
-  sidebar_first: 'Sidebar first'
-  sidebar_second: 'Sidebar second'
   content: Content
   postscript: Postscript
   footer: Footer
