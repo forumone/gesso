@@ -1,0 +1,91 @@
+
+$bp-grid-small: 700px;
+$bp-grid-large: 1000px;
+$bp-grid-mega: 1300px;
+
+$grid-item-minwidth: 400px;
+$grid-gutter: $gutter-width;
+
+.l-grid-3col {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -($grid-gutter/2);
+  margin-right: -($grid-gutter/2);
+  
+  > * {
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 0 0 $grid-gutter;
+    
+    @include breakpoint($bp-grid-small){
+      width: calc(50% - #{$grid-gutter});
+      margin: 0 ($grid-gutter/2) $grid-gutter;
+    }
+    
+    @include breakpoint($bp-grid-large){
+      width: calc(33.333333% - #{$grid-gutter});
+    }
+  }
+  
+  @supports(display:grid) {
+    // CSS Grid
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(#{$grid-item-minwidth}, 1fr ));
+    grid-gap: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    
+     @include breakpoint($bp-grid-large){
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    > * {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+
+.l-grid-4col {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -($grid-gutter/2);
+  margin-right: -($grid-gutter/2);
+  
+  > * {
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 0 0 $grid-gutter;
+    
+    @include breakpoint($bp-grid-small){
+      width: calc(50% - #{$grid-gutter});
+      margin: 0 ($grid-gutter/2) $grid-gutter;
+    }
+    
+    @include breakpoint($bp-grid-large){
+      width: calc(33.333333% - #{$grid-gutter});
+    }
+    @include breakpoint($bp-grid-mega){
+      width: calc(25% - #{$grid-gutter});
+    }
+  }
+  
+  @supports(display:grid) {
+    // CSS Grid
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(#{$grid-item-minwidth}, 1fr ));
+    grid-gap: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    
+     @include breakpoint($bp-grid-mega){
+      grid-template-columns: repeat(4, 1fr );
+    }
+    
+    > * {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
