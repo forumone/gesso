@@ -48,6 +48,7 @@ regions:
   content: Content
   postscript: Postscript
   footer: Footer
+  disabled: Disabled
   page_bottom: 'Page bottom'
 
 component-libraries:
