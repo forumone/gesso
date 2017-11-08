@@ -7,7 +7,7 @@
 
 {% for type, messages in message_list %}
   {%
-    include "@base/04-cms-overrides/messages/messages.twig" with {
+    include "@components/00-cms-specific/messages/messages.twig" with {
       type: type,
       messages: messages,
       heading: status_headings[type],
