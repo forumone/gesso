@@ -1,0 +1,40 @@
+
+
+@mixin align-left($margin) {
+  float: left;
+  @if $margin {
+    margin-right: $margin;
+  }
+}
+
+@mixin align-right($margin) {
+  float: right;
+  @if $margin {
+    margin-left: $margin;
+  }
+}
+
+@mixin align-none {
+  float: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+@mixin layout-constrain($max-page-width:$layout-max-page-width, $gutter-width: $layout-gutter-width) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: rem($layout-max-page-width);
+  @if $gutter-width {
+    padding-left: $layout-gutter-width / 2;
+    padding-right: $layout-gutter-width / 2;
+  }
+  & & { // just in case .l-constrain is nested within another .l-constrain
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+  
+
+  
+

@@ -1,0 +1,26 @@
+// Clean
+%list-reset {
+  list-style:none;
+  margin-left: 0;
+}
+
+.l-list-clean {
+  @extend %list-reset;
+}
+
+.l-list-inline {
+  @extend %list-reset;
+
+  > li  {
+    display: inline;
+  }
+}
+ 
+.l-list-bordered {
+  @extend %list-reset;
+
+  > li {
+    padding: $spacing-small;
+    border-bottom: 1px solid $color-text-secondary;
+  }
+}

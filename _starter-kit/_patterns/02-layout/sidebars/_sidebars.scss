@@ -1,0 +1,55 @@
+// @file
+// Styles for the sidebar layout.
+
+$l-sidebars-bp: $layout-display-sidebar;
+$l-sidebar-width: 300px;
+$l-sidebar-minor: $l-sidebar-width;
+$l-sidebar-gutter: 1rem;
+
+.l-sidebar {
+  @include breakpoint($l-sidebars-bp) {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      flex: 1 1 calc(100% - #{$l-sidebar-width} - #{$l-sidebar-gutter * 2});
+      margin-right: $l-sidebar-gutter;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .l-sidebar__full {
+      flex: 1 1 100%;
+      margin-right: 0;
+    }
+
+    .l-sidebar__sidebar {
+      flex: 1 0 #{$l-sidebar-width}
+    }
+  }
+
+  // For Browsers that support CSS Grid
+  @supports(display:grid) {
+    display: grid;
+    grid-template-columns: 1fr $l-sidbar-width;
+    grid-gap: $l-sidebar-gutter;
+
+    .l-sidebar__full {
+      grid-column: span 2;
+    }
+  }
+}
+
+
+.l-sidebar--multi-2{
+
+  > * {
+    flex: 1 1 calc(100% - #{$l-sidebar-width + $l-sidebar-minor} - #{$l-sidebar-gutter});
+  }
+
+  @supports(display:grid) {
+    grid-template-columns: $l-sidebar-minor 1fr $l-sidbar-width;
+  }
+    
+}

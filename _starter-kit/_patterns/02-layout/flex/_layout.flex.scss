@@ -1,0 +1,30 @@
+
+
+.l-flex--media {
+  display: flex;
+  
+  .l-flex-media__rich-media {
+    flex: none;
+    margin-right: $spacing-small;
+  }
+
+  .l-media-object__content {
+    flex: 1 1 auto;
+  }
+}
+
+.l-flex-media--column { 
+  flex-direction: column;
+}
+
+.l-flex-row {
+  display: flex;  
+}
+
+.l-flex-row--l {
+  justify-content: flex-start;
+}
+
+.l-flex-row--r {
+  justify-content: flex-end;
+}
