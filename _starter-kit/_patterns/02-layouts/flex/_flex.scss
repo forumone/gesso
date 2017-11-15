@@ -1,0 +1,38 @@
+
+$flex-gutter: 1rem;
+
+.l-flex-media {
+  display: flex;
+  
+  .l-flex-media__rich-media {
+    flex: none;
+    margin: 0 $flex-gutter 0 0;
+  }
+
+  .l-media-object__content {
+    flex: 1 1 auto;
+  }
+}
+
+.l-flex-media--reversed {
+  > .l-flex-media__media {
+    margin: 0 0 0 $flex-gutter;
+    order: 1;
+  }
+}
+
+.l-flex-media--column { 
+  flex-direction: column;
+}
+
+.l-flex-row {
+  display: flex;  
+}
+
+.l-flex-row--l {
+  justify-content: flex-start;
+}
+
+.l-flex-row--r {
+  justify-content: flex-end;
+}
