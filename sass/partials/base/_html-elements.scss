@@ -19,7 +19,7 @@ a {
   color: $color-link;
   // Improves readability when focused.
   outline-offset: em(2px);
-  -webkit-text-decoration-skip: objects
+  -webkit-text-decoration-skip: objects;
 
   &:active,
   &:hover {
