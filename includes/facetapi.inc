@@ -46,7 +46,7 @@ function gesso_facetapi_link_active($vars) {
   // Add link classes. We don't strip existing classes due to facetapi.js.
   $vars['options']['attributes']['class'] = array_merge(
     $vars['options']['attributes']['class'],
-    array('facet', 'is-inactive')
+    array('facet', 'is-active')
   );
 
   return theme_link($vars);
