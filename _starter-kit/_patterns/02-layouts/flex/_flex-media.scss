@@ -9,7 +9,7 @@ $flex-gutter: 1rem;
     margin: 0 $flex-gutter 0 0;
   }
 
-  .l-media-object__content {
+  .l-flex-media__content {
     flex: 1 1 auto;
   }
 }
@@ -25,14 +25,3 @@ $flex-gutter: 1rem;
   flex-direction: column;
 }
 
-.l-flex-row {
-  display: flex;  
-}
-
-.l-flex-row--l {
-  justify-content: flex-start;
-}
-
-.l-flex-row--r {
-  justify-content: flex-end;
-}

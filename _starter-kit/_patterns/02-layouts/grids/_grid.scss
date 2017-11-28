@@ -7,11 +7,15 @@ $bp-grid-mega: 1300px;
 $grid-item-minwidth: 400px;
 $grid-gutter: $layout-gutter-width;
 
-.l-grid-3col {
+%grid-base {
   display: flex;
   flex-wrap: wrap;
   margin-left: -($grid-gutter/2);
   margin-right: -($grid-gutter/2);
+}
+
+.l-grid-3col {
+  @extend %grid-base;
   
   > * {
     flex: 0 0 auto;
@@ -49,10 +53,7 @@ $grid-gutter: $layout-gutter-width;
 
 
 .l-grid-4col {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -($grid-gutter/2);
-  margin-right: -($grid-gutter/2);
+  @extend %grid-base;
   
   > * {
     flex: 0 0 auto;
