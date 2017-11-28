@@ -1,0 +1,16 @@
+{% for webfont in webfonts %}
+  <div class="patterlab-font">
+    <h3 class="patterlab-font__family" style="{{ webfont.style }}">{{ webfont.family_name }}</h3>
+    {% for font in webfont.font %}
+      <div class="patterlab-font__item">
+        <div class="patterlab-font__preview-character" style="{{ font.font_preview_style }}">{{ font.font_preview_character }}</div>
+        <div class="patterlab-font__preview" style="{{ font.font_preview_style }}">{{ font.font_preview|raw }}</div>
+        <div class="patterlab-font__preview-meta">
+          <div class="patterlab-font__name">{{ font.font_name }}</div>
+          <div class="patterlab-font__weight"><span class="patterlab-font__label">Weight:</span> {{ font.font_weight }}</div>
+          <div class="patterlab-font__style"><span class="patterlab-font__label">Style:</span> {{ font.font_style }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}

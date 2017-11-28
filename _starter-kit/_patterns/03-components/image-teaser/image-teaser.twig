@@ -1,0 +1,12 @@
+<article class="image-teaser" role="article">
+  <div class="l-slat">
+    <div class="l-slat__media">
+      <a href="{{ url }}">{% include "base-thumbnail-image" %}</a>
+    </div>
+    <div class="l-slat__content">
+      <h2><a href="{{ url }}">{{ title }}</a></h2>
+      {% include "components-date" %}
+      {{ summary | raw }}
+    </div>
+  </div>
+</article>

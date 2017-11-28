@@ -1,0 +1,14 @@
+// @file
+// Styles for tabs menu.
+
+.nav--tabs-secondary {
+  @extend %nav--pipeline;
+
+  @media print {
+    display: none;
+  }
+
+  .nav__link {
+    font-size: em($font-size-sm);
+  }
+}

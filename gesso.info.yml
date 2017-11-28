@@ -14,7 +14,7 @@ libraries-override:
       misc/dropbutton/dropbutton.js: js/overrides/dropbutton.js
     css:
       component:
-        /core/themes/stable/css/core/dropbutton/dropbutton.css: css/dropbutton.css
+        /core/themes/stable/css/core/dropbutton/dropbutton.css: false
   core/drupal.collapse:
     js:
       misc/collapse.js: js/overrides/collapse.js
@@ -45,11 +45,10 @@ regions:
   help: Help
   highlighted: Highlighted
   preface: Preface
-  sidebar_first: 'Sidebar first'
-  sidebar_second: 'Sidebar second'
   content: Content
   postscript: Postscript
   footer: Footer
+  disabled: Disabled
   page_bottom: 'Page bottom'
 
 component-libraries:

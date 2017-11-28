@@ -58,36 +58,18 @@
 
   <main id="main" class="main" role="main" tabindex="-1">
     <div class="l-constrain">
-      <div class="l-sidebars">
 
         {% if page.preface %}
-          <div class="l-sidebars__full">
-            {{ page.preface }}
-          </div>
-        {% endif %}
-
-        {% if page.sidebar_first %}
-          <aside class="l-sidebars__sidebar" role="complementary">
-            {{ page.sidebar_first }}
-          </aside>
+          {{ page.preface }}
         {% endif %}
 
         {% if page.content %}
-          <div class="l-sidebars__main">
-            {{ page.content }}
-          </div>
+          {{ page.content }}
         {% endif %}
 
-        {% if page.sidebar_second %}
-          <aside class="l-sidebars__sidebar" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endif %}
 
         {% if page.postscript %}
-          <div class="l-sidebars__full">
-            {{ page.postscript }}
-          </div>
+          {{ page.postscript }}
         {% endif %}
 
       </div>

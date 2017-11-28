@@ -1,0 +1,11 @@
+<article class="search-result" role="article">
+  <div class="l-slat">
+    <div class="l-slat__media">
+      <a href="{{ url }}">{% include "base-thumbnail-image" %}</a>
+    </div>
+    <div class="l-slat__content">
+      <h3><a href="{{ url }}">{{ title }}</a></h3>
+      {{ summary | raw }}
+    </div>
+  </div>
+</article>

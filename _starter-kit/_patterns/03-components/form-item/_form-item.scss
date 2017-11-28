@@ -1,0 +1,325 @@
+// @file
+// Styles for form items.
+
+$form-border-color: #5b616b !default;
+$form-border-color-disabled: #aeb0b5 !default;
+$form-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
+$form-color: #fff;
+$form-color-disabled: #d6d7d9;
+$form-range-thumb-border-color: #f1f1f1 !default;
+$form-range-thumb-border-radius: rem(3px) !default;
+$form-range-thumb-border-width: 1px !default;
+$form-range-thumb-color: #757575 !default;
+$form-range-thumb-height: 44px !default;
+$form-range-thumb-width: 22px !default;
+$form-range-track-border-color: #757575 !default;
+$form-range-track-border-width: 1px !default;
+$form-range-track-color: #aeb0b5 !default;
+$form-range-track-height: 10px !default;
+$form-select-arrow-size: 13px !default;
+$form-text-size: $font-size-md !default;
+
+.form-item {
+  margin: 0 0 rem($vertical-spacing-forms);
+}
+
+.form-item__label {
+  display: block;
+
+  .is-disabled > & {
+    color: $color-text-secondary;
+  }
+}
+
+.form-item__fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.form-item__legend {}
+
+.form-item__description {
+  color: $color-text-secondary;
+  font-size: rem($font-size-sm);
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-item__required-marker::before {
+  content: '*';
+}
+
+%form-item__box,
+.form-item__color,
+.form-item__date,
+.form-item__email,
+.form-item__month,
+.form-item__number,
+.form-item__password,
+.form-item__search,
+.form-item__select,
+.form-item__tel,
+.form-item__text,
+.form-item__textarea,
+.form-item__time,
+.form-item__url,
+.form-item__week {
+  appearance: none;
+  background-color: $form-color;
+  border: 1px solid $form-border-color;
+  border-radius: 0;
+  display: inline-block;
+  font-size: rem($form-text-size);
+  height: rem(44px);
+  line-height: (22px / $form-text-size);
+  padding: em(10px, $form-text-size) em(7px, $form-text-size);
+  margin: 0.2em 0;
+  max-width: 100%;
+
+  &:focus {
+    box-shadow: $form-box-shadow-focus;
+    outline: 0;
+  }
+
+  &:disabled {
+    background: $form-color-disabled;
+    border-color: $form-border-color-disabled;
+    cursor: default;
+  }
+
+  .is-full-width > & {
+    width: 100%;
+  }
+}
+
+.form-item__select {
+  @include svg-background(arrow-down);
+  background-position: right rem($form-select-arrow-size) center; // LTR
+  background-repeat: no-repeat;
+  background-size: rem($form-select-arrow-size);
+  padding-right: rem(($form-select-arrow-size * 2) + 7px); // LTR
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      background-position: left rem($form-select-arrow-size) center;
+      padding-left: rem(($form-select-arrow-size * 2) + 7px);
+      padding-right: 0;
+    }
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.form-item__textarea {
+  height: auto;
+}
+
+.form-item__checkbox,
+.form-item__radio {
+  @extend %visually-hidden;
+
+  & + .form-item__label {
+    cursor: pointer;
+    display: block;
+
+    &::before {
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #757575;
+      content: '\a0';
+      display: inline-block;
+      height: rem(16px);
+      line-height: rem(16px);
+      margin-right: 0.6em;
+      text-indent: 0.15em;
+      transition-duration: 0.2s;
+      transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+      transition-timing-function: ease-in-out;
+      vertical-align: middle;
+      width: rem(16px);
+    }
+  }
+
+  &:checked + .form-item__label::before {
+    background-color: #0071bc;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0071bc;
+  }
+
+  &:focus + .form-item__label::before {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf, 0 0 7px 4px #3e94cf;
+  }
+
+  &:disabled + .form-item__label {
+    color: $color-text-secondary;
+    cursor: default;
+
+    &::before {
+      background-color: $form-color-disabled;
+      box-shadow: 0 0 0 1px $form-border-color-disabled;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.form-item__checkbox {
+  & + .form-item__label::before {
+    border-radius: rem(3px);
+    box-shadow: 0 0 0 1px #757575;
+    height: rem(18px);
+    line-height: rem(18px);
+    width: rem(18px);
+  }
+
+  &:checked + .form-item__label::before {
+    @include svg-background(correct);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: rem(20px);
+    box-shadow: 0 0 0 1px #0071bc;
+  }
+
+  &:disabled + .form-item__label::before {
+    box-shadow: 0 0 0 1px $form-border-color-disabled;
+  }
+
+  &:checked:disabled + .form-item__label::before {
+    background-color: $form-border-color-disabled;
+  }
+}
+
+@mixin form-item__range-thumb {
+  background: $form-range-thumb-color;
+  border: $form-range-thumb-border-width solid $form-range-thumb-border-color;
+  border-radius: $form-range-thumb-border-radius;
+  cursor: pointer;
+  height: rem($form-range-thumb-height);
+  outline: 0;
+  width: rem($form-range-thumb-width);
+}
+
+@mixin form-item__range-thumb-focus {
+  box-shadow: $form-box-shadow-focus;
+}
+
+@mixin form-item__range-thumb-disabled {
+  background: $form-color-disabled;
+  border-color: $form-border-color-disabled;
+  cursor: default;
+}
+
+@mixin form-item__range-track {
+  background: $form-range-track-color;
+  border: $form-range-track-border-width solid $form-range-track-border-color;
+  cursor: pointer;
+  display: block;
+  height: rem($form-range-track-height);
+  margin: 0;
+  outline: 0;
+  width: 100%;
+}
+
+@mixin form-item__range-track-disabled {
+  background: $form-color-disabled;
+  border-color: $form-border-color-disabled;
+  cursor: default;
+}
+
+.form-item__range {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  height: rem($form-range-thumb-height);
+  margin: 0.2em 0;
+  padding: 0;
+
+  &:focus {
+    box-shadow: none;
+    outline: 0;
+
+    &::-moz-range-thumb {
+      @include form-item__range-thumb-focus;
+    }
+
+    &::-ms-thumb {
+      @include form-item__range-thumb-focus;
+    }
+
+    &::-webkit-slider-thumb {
+      @include form-item__range-thumb-focus;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+
+    &::-moz-range-thumb {
+      @include form-item__range-thumb-disabled;
+    }
+
+    &::-moz-range-track {
+      @include form-item__range-track-disabled;
+    }
+
+    &::-ms-thumb {
+      @include form-item__range-thumb-disabled;
+    }
+
+    &::-ms-fill-lower,
+    &::-ms-fill-upper {
+      @include form-item__range-track-disabled;
+    }
+
+    &::-webkit-slider-thumb {
+      @include form-item__range-thumb-disabled;
+    }
+
+    &::webkit-slider-runnable-track {
+      @include form-item__range-track-disabled;
+    }
+  }
+
+  &::-moz-range-thumb {
+    @include form-item__range-thumb;
+  }
+
+  &::-moz-range-track {
+    @include form-item__range-track;
+  }
+
+  &::-ms-thumb {
+    @include form-item__range-thumb;
+    margin-top: 0 !important; // Removes webkit-specific margin since IE uses webkit prefixes.
+  }
+
+  &::-ms-track {
+    @include form-item__range-track;
+    background: transparent;
+    border: 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower,
+  &::-ms-fill-upper {
+    background: $form-range-track-color;
+    border: $form-range-track-border-width solid $form-range-track-border-color;
+  }
+
+  &::-webkit-slider-thumb {
+    @include form-item__range-thumb;
+    -webkit-appearance: none;
+    margin-top: rem(((-$form-range-track-border-width * 2) + $form-range-track-height) / 2) - rem($form-range-thumb-height / 2);
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include form-item__range-track;
+  }
+
+  .is-full-width > & {
+    width: 100%;
+  }
+}

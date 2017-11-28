@@ -11,6 +11,7 @@
 }
 
 // hide headers for some Gesso folders
+#viewall-global-variables,
 #viewall-global-helpers,
 #viewall-global-styles,
 #viewall-base-fonts,
@@ -20,49 +21,6 @@
 #viewall-base-utilities,
 #viewall-base-module-tweaks {
     display: none;
-}
-
-// Demo box for animation
-.demo-animate {
-	background: #ddd;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 1em;
-	padding: 1em;
-	text-align: center;
-}
-
-// Color swatch list
-.sg-colors {
-	display: flex;
-	flex-wrap: wrap;
-	list-style: none !important;
-  margin: 0 !important;
-	padding: 0 !important;
-
-	li {
-    border: 1px solid #ddd;
-		border-radius: 8px;
-		flex: auto;
-    margin: 0 0.5em 0.5em 0;
-    max-width: 14em;
-		min-width: 5em;
-		padding: 0.3em;
-	}
-}
-
-// Color swatch tile
-.sg-swatch {
-	display: block;
-	height: 4em;
-	margin-bottom: 0.3em;
-	border-radius: 5px;
-}
-
-// Color swatch label
-.sg-label {
-	font-size: 90%;
-	line-height: 1;
 }
 
 .sg-subtype {
@@ -78,4 +36,129 @@
       color: #333;
     }
   }
+}
+
+// Color Swatches
+.patterlab-color-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  li {
+    display: block;
+    float: left;
+    margin: 1%;
+    width: 14.666667%;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.patterlab-color-list__set {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  li {
+    margin-top: 1.2em;
+    width: 100%;
+  }
+}
+
+.patterlab-swatch {
+  color: #fff;
+  display: block;
+  font-size: 32px;
+  height: 2.5em;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+}
+
+.patterlab-swatch__meta-data {
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: .55em;
+  transition: 0.2s all;
+}
+
+.patterlab-swatch__variable {
+  display: block;
+  font-size: 11px;
+}
+
+.patterlab-swatch__hex {
+  display: block;
+  font-size: 14px;
+}
+
+.patterlab-swatch--light {
+  color: #546673;
+}
+
+// Typography
+.patterlab-font {
+  margin-bottom: 30px;
+}
+
+.patterlab-font__family {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.patterlab-font__item {
+  display: flex;
+  flex: 1 0;
+  margin: 30px 0;
+}
+
+.patterlab-font__preview {
+  border-right: 2px solid #eee;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 5px 30px 0 0;
+  padding: 0 20px 0 0;
+  width: 300px;
+}
+
+.patterlab-font__preview-character {
+  font-size: 90px;
+  font-weight: 400;
+  line-height: 1;
+  width: 125px;
+}
+
+.patterlab-font__preview-meta {}
+
+.patterlab-font__label {
+  color: #999;
+}
+
+.patterlab-font__name {
+  color: #565454;
+  font-size: .9rem;
+  line-height: 1.5;
+  margin: 5px 0;
+}
+
+.patterlab-font__weight {
+  color: #000;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.patterlab-font__style {
+  color: #000;
+  font-size: 13px;
+  margin-bottom: 5px;
 }
