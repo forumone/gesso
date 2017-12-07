@@ -28,6 +28,7 @@ module.exports = function (grunt) {
       newComponent: {
         command: 'yo ./pattern-lab/source/component-generator/index.js',
         options: {
+          stdinRawMode: true,
           execOptions: {
             cwd: '<%= pkg.themePath %>',
           },
