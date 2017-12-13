@@ -1,3 +1,6 @@
-<button class="button button--large">Large Button</button>
-<a href="#" class="button button--large">Large Button Link</a>
-<button class="button button--large" disabled>Large Disabled Button</button>
+{% include "components-button"
+  with {
+    modifier_classes: "button--large",
+    text: "Large Button"
+  }
+%}

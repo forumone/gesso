@@ -1,3 +1,5 @@
-<button class="button">Button</button>
-<a href="#" class="button">Button Link</a>
-<button class="button" disabled>Disabled Button</button>
+{% if buttontag %}
+  <button class="button {{ modifier_classes }}">{{ text }}</button>
+{% else %}
+  <a href="{{ url }}" class="button {{ modifier_classes }}">{{ text }}</a>
+{% endif %}

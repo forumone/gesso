@@ -25,7 +25,11 @@
     {% endif %}
     {% if button %}
       <div class="hero-inline-image__call-to-action">
-        <a href="#" class="button">{{ button }}</a>
+        {% include "components-button"
+          with {
+            text: button 
+          }
+        %}
       </div>
     {% endif %}
   </div>
