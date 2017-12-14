@@ -1,0 +1,20 @@
+
+{% if section_wrapper != false %}
+  <{{ section_tag ?: 'section' }} class="section {{ section_class }}">
+{% endif %}
+
+  {% if section_constrain %}
+    <div class="l-constrain">
+  {% endif %}
+
+  {% block content %}
+    {{ section_content }}
+  {% endblock %}
+
+  {% if section_constrain %}
+    </div>
+  {% endif %}
+
+{% if section_wrapper != false %}
+  </{{ section_tag ?: 'section' }}>
+{% endif %}

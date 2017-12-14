@@ -1,13 +1,13 @@
 // @file
 // Styles for the sidebar layout.
 
-$l-sidebars-bp: 900px;
+$l-sidebar-bp: 900px;
 $l-sidebar-width: 300px;
 $l-sidebar-minor-width: $l-sidebar-width;
 $l-sidebar-gutter: 1rem;
 
 .l-sidebar {
-  @include breakpoint($l-sidebars-bp) {
+  @include breakpoint($l-sidebar-bp) {
     display: flex;
     flex-wrap: wrap;
 
@@ -27,6 +27,7 @@ $l-sidebar-gutter: 1rem;
     .l-sidebar__sidebar {
       flex: 1 0 #{$l-sidebar-width}
     }
+
   }
 
   // For Browsers that support CSS Grid
@@ -39,10 +40,11 @@ $l-sidebar-gutter: 1rem;
       grid-column: span 2;
     }
   }
+
 }
 
 
-.l-sidebar--multi-2{
+.l-sidebar--multi-2 {
 
   > * {
     flex: 1 1 calc(100% - #{$l-sidebar-width + $l-sidebar-minor-width} - #{$l-sidebar-gutter * 3});
@@ -55,5 +57,5 @@ $l-sidebar-gutter: 1rem;
       grid-column: span 3;
     }
   }
-    
+
 }
