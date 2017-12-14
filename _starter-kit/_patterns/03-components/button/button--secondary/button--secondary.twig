@@ -1,3 +1,6 @@
-<button class="button button--secondary">Secondary Button</button>
-<a href="#" class="button button--secondary">Secondary Button Link</a>
-<button class="button button--secondary" disabled>Disabled Secondary Button</button>
+{% include "components-button"
+  with {
+    modifier_classes: "button--secondary",
+    text: "Secondary Button"
+  }
+%}
