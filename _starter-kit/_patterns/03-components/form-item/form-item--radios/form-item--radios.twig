@@ -6,28 +6,33 @@
     <div class="form-item form-item--radios">
       {% include "components-form-item--radio"
         with {
-          radioOptionLabel: "Option One"
+          radio_option_id: "edit-radios-one",
+          radio_option_label: "Option One"
         }
       %}
       {% include "components-form-item--radio"
         with {
-          radioOptionLabel: "Option Two"
+          radio_option_id: "edit-radios-two",
+          radio_option_label: "Option Two"
         }
       %}
       {% include "components-form-item--radio"
         with {
-          radioOptionLabel: "Option Three"
+          radio_option_id: "edit-radios-three",
+          radio_option_label: "Option Three"
         }
       %}
       {% include "components-form-item--radio"
         with {
-          radioOptionLabel: "Option Four"
+          radio_option_id: "edit-radios-four",
+          radio_option_label: "Option Four"
         }
       %}
       {% include "components-form-item--radio"
         with {
-          radioOptionLabel: "Disabled Option",
-          radioOptionDisabled: true
+          radio_option_id: "edit-radios-five",
+          radio_option_label: "Disabled Option",
+          radio_option_disabled: true
         }
       %}
     </div>
