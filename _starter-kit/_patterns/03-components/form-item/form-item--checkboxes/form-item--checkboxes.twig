@@ -1,0 +1,51 @@
+<fieldset class="fieldset fieldset--checkboxes" aria-describedby="edit-checkboxes-description">
+  <legend class="fieldset__legend">
+    <span class="fieldset__legend-text">Checkboxes</span>
+  </legend>
+  <div class="fieldset__content">
+    <div class="form-item form-item--checkboxes">
+      {% include "components-form-item--checkbox"
+        with {
+          checkbox_id: "edit-checkboxes-a",
+          checkbox_label: "Choice A"
+        }
+      %}
+      {% include "components-form-item--checkbox"
+        with {
+          checkbox_id: "edit-checkboxes-b",
+          checkbox_label: "Choice B"
+        }
+      %}
+      {% include "components-form-item--checkbox"
+        with {
+          checkbox_id: "edit-checkboxes-c",
+          checkbox_label: "Choice C"
+        }
+      %}
+      {% include "components-form-item--checkbox"
+        with {
+          checkbox_id: "edit-checkboxes-d",
+          checkbox_label: "Choice D"
+        }
+      %}
+      {% include "components-form-item--checkbox"
+        with {
+          checkbox_id: "edit-checkboxes-e",
+          checkbox_label: "Disabled Choice",
+          checkbox_disabled: true
+        }
+      %}
+       {% include "components-form-item--checkbox"
+        with {
+          checkbox_id: "edit-checkboxes-f",
+          checkbox_label: "Disabled Checked Choice",
+          checkbox_disabled: true,
+          checkbox_checked: true
+        }
+      %}
+    </div>
+    <div class="fieldset__description" id="edit-checkboxes-description">
+      <p>The description for this form field.</p>
+    </div>
+  </div>
+</fieldset>
