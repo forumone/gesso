@@ -37,6 +37,10 @@ libraries-override:
         /core/themes/stable/css/system/components/reset-appearance.module.css: false
         /core/themes/stable/css/system/components/resize.module.css: false
 
+ckeditor_stylesheets:
+  - https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:300,400,600,700
+  - css/styles.css
+
 regions:
   page_top: 'Page top'
   header: Header
