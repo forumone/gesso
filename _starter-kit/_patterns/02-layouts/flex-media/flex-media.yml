@@ -1,4 +1,5 @@
-flex_modifier_classes: ""
+---
+modifier_classes: ""
 flex_media: |
   <img src="https://picsum.photos/200/300">
 flex_content: |

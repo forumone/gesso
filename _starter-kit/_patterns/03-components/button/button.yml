@@ -1,4 +1,5 @@
-buttontag: false
+---
+is_button_tag: false
 url: "#"
 text: "Button Text"
 modifier_classes: ""

@@ -1,3 +1,4 @@
+---
 has_header: true
 multiple_sidebar: false
-sidebar_modifier_classes: ""
+modifier_classes: ""
