@@ -1,0 +1,28 @@
+{#
+  /**
+  * @file
+  * Component for a breadcrumb trail.
+  *
+  * Variables:
+  * - modifier: [string] Classes to modify the default component styling.
+  * - heading: [string] Accessible heading.
+  * - breadcrumb: [array] The breadcrumb trail items. Each item is an object containing:
+  *   - text: [string] Text of the item.
+  *   - url: [string] URL of the item (optional).
+  */
+#}
+
+<nav class="breadcrumb {{ modifier }}" role="navigation" aria-labelledby="breadcrumb-label">
+  <h2 class="breadcrumb__title visually-hidden" id="breadcrumb-label">{{ heading|default('You are here') }}</h2>
+  <ol class="breadcrumb__list">
+    {% for item in breadcrumb %}
+      <li class="breadcrumb__item">
+        {% if item.url %}
+          <a class="breadcrumb__link" href="{{ item.url }}">{{ item.text }}</a>
+        {% else %}
+          {{ item.text }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+</nav>

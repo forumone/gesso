@@ -2,3 +2,19 @@
 // Styles for list.
 
 .list {}
+
+.list--clean {
+  @include list-clean();
+}
+
+.list--inline {
+  @include list-inline();
+}
+
+.list--border {
+  @include list-border();
+}
+
+.list--column {
+  @include list-column();
+}
