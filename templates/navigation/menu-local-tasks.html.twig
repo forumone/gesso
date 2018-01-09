@@ -14,7 +14,7 @@
 
 {% if primary %}
   {% include "@components/tabs/tabs.twig" with {
-    modifier: 'tabs--primary',
+    modifier_classes: 'tabs--primary',
     heading: 'Primary tabs'|t,
     tabs: primary
     } only
@@ -23,7 +23,7 @@
 
 {% if secondary %}
   {% include "@components/tabs/tabs.twig" with {
-    modifier: 'tabs--secondary',
+    modifier_classes: 'tabs--secondary',
     heading: 'Secondary tabs'|t,
     tabs: secondary
     } only

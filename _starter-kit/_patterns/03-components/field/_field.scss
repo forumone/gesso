@@ -1,0 +1,19 @@
+.field {
+  margin: 0 0 1em 0;
+}
+
+.field__label {
+  display: block;
+  font-weight: 700;
+}
+
+.field__label--inline {
+  display: inline-block;
+  margin-right: 0.1em;
+  + .field__items {
+    display: inline;
+    .field__item {
+      display: inline;
+    }
+  }
+}

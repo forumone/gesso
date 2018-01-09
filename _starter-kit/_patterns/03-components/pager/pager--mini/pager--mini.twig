@@ -4,7 +4,7 @@
   * Component for a Mini Pager.
   *
   * Variables:
-  * - modifier: [string] Classes to modify the default component styling.
+  * - modifier_classes: [string] Classes to modify the default component styling.
   * - heading: [string] Accessible heading.
   * - items: [array] The pager items. Each item is an object containing:
   *   - url: [string] URL of the item (optional).
@@ -24,14 +24,14 @@
           </a>
         </li>
       {% endif %}
-      
+
       {% if items.current %}
         <li class="pager__item pager__item--current">
           <span class="visually-hidden">Currently on page {{ items.current }}</span>
           {{ items.current }}
         </li>
       {% endif %}
-      
+
       {% if items.next %}
         <li class="pager__item pager__item--next">
           <a class="pager__link pager__link--next" href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" rel="next"{{ items.next.attributes|without('href', 'title', 'rel') }}>
@@ -40,7 +40,7 @@
           </a>
         </li>
       {% endif %}
-      
+
     </ul>
   </nav>
 {% endif %}
