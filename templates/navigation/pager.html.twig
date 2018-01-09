@@ -1,16 +1,16 @@
 {#
-/**
- * @file
- * Theme override for a pager.
- *
- * Available variables:
- * - items: List of pager items.
- */
+  /**
+  * @file
+  * Theme override for a pager.
+  *
+  * Available variables:
+  * - items: List of pager items.
+  */
 #}
 
 {% if items %}
   {%
-    include '@components/navigation/pager/pager.twig' with {
+    include '@components/pager/pager.twig' with {
       modifier: "",
       heading: 'Pagination'|t,
       items: items

@@ -11,14 +11,10 @@
  * - message: A string containing information to be displayed.
  */
 #}
-<div class="progress" data-drupal-progress>
-  {% if label %}
-    <div class="progress__label">{{ label }}</div>
-  {% endif %}
 
-  <div class="progress__track">
-    <div class="progress__bar" style="width: {{ percent }}%"></div>
-  </div>
-  <div class="progress__percentage">{{ percent }}%</div>
-  <div class="progress__description">{{ message }}</div>
-</div>
+{% include '@components/progress/progress.twig'
+  with {
+    'label': label,
+    'percent': percent,
+    'message': message
+  } %}

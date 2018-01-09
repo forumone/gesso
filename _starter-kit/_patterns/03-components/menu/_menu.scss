@@ -1,0 +1,10 @@
+// @file
+// Styles for the Menu.
+
+.menu {
+  @include list-inline;
+
+  @media print {
+    display: none;
+  }
+}
