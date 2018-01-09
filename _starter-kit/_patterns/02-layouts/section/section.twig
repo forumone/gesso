@@ -1,20 +1,34 @@
+{#
+  /**
+  * @file
+  * Component for a Section.
+  *
+  * Variables:
+  * - has_wrapper: [boolean] True/False whether to add a main wrapping element.
+  * - element: [string] HTML element to use for main wrapper.
+  * - attributes: [array] HTML attributes for the containing element
+  *   - class: [string] any classed added by user or system 
+  * - has_constrain: [boolean] True/False whether to add a constraint to block.
+  * - content:  The content of this block.
+  */
+#}
 
-{% if section_wrapper != false %}
-  <{{ section_tag ?: 'section' }} class="section {{ section_class }}">
+{% if has_wrapper %}
+  <{{ element ?: "section" }}{{- attributes.addClass(classes)|raw -}}>
 {% endif %}
 
-  {% if section_constrain %}
+  {% if has_constrain %}
     <div class="l-constrain">
   {% endif %}
 
   {% block content %}
-    {{ section_content }}
+    {{ content }}
   {% endblock %}
 
-  {% if section_constrain %}
+  {% if has_constrain %}
     </div>
   {% endif %}
 
-{% if section_wrapper != false %}
-  </{{ section_tag ?: 'section' }}>
+{% if has_wrapper %}
+  </{{ element ?: 'section' }}>
 {% endif %}

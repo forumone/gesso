@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a block.
+ * Theme override to display system branding block.
  *
  * Available variables:
  * - plugin_id: The ID of the block implementation.
@@ -17,8 +17,9 @@
  * - title_attributes: Same as attributes, except applied to the main title tag that appears in the template.
  * - title_prefix: Additional output populated by modules, intended to be displayed in front of the main title tag that appears in the template.
  * - title_suffix: Additional output populated by modules, intended to be displayed after the main title tag that appears in the template.
- *
- * @see template_preprocess_block()
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
 
@@ -30,32 +31,17 @@
   ]
 %}
 
-{%
-  set title_classes = [
-    'block__title',
-    'block-' ~ configuration.provider|clean_class ~ '__title',
-    'block-' ~ plugin_id|clean_class ~ '__title',
-  ]
-%}
-
-{%
-  set content_classes = [
-    'block__content',
-  ]
-%}
-
 {% embed '@layouts/block/block.twig'
   with {
     'has_wrapper': true,
-    'element': "",
+    'element': "section",
     'has_constrain': true,
     'has_label': label ? true : false,
     'title_prefix': title_prefix,
     'title_suffix': title_suffix,
     'label_element': "h2",
     'label': label,
-    'has_content_wrapper': true,
-    'content_element': "div"    
+    'has_content_wrapper': false
   }
 %}
 

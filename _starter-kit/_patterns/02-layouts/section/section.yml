@@ -1,4 +1,9 @@
 ---
-section_class: ""
-section_wrapper: true
-section_content: "This is some section content"
+has_wrapper: true
+element: "section"
+attributes:
+  Attribute():
+    class:
+    - section
+has_constrain: true
+content: "This is some section content"
