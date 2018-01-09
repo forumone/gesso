@@ -1,0 +1,36 @@
+---
+attributes:
+  Attribute():
+    id: nav
+    role: navigation
+    aria-labelledby: nav-label
+    class:
+    - nav
+    - nav--account
+content:
+  join():
+  - include():
+      pattern: components-menu
+      with:
+        menu_name: "account"
+        attributes:
+          Attribute():
+            class:
+            - menu
+        items:
+        - title: My Account
+          url: "#"
+          attributes:
+            Attribute():
+              class: []
+        - title: Logout
+          url: "#"
+          attributes:
+            Attribute():
+              class: []
+          in_active_trail: true
+configuration:
+  label: Account Menu
+title_attributes:
+  Attribute():
+    class: visually-hidden

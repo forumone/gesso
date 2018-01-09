@@ -1,9 +1,9 @@
-<nav role="navigation">
-  <h2 class="visually-hidden">User account menu</h2>
-  {% spaceless %}
-  <ul class="nav nav--account">
-    <li class="nav__item"><a class="nav__link" href="#">My Account</a></li>
-    <li class="nav__item"><a class="nav__link" href="#">Logout</a></li>
-  </ul>
-  {% endspaceless %}
-</nav>
+{% embed 'components-nav' with {
+  attributes: attributes
+} %}
+
+  {% block content %}
+    {{ content|raw }}
+  {% endblock %}
+
+{% endembed %}
