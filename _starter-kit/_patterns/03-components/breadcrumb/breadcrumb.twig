@@ -4,7 +4,7 @@
   * Component for a breadcrumb trail.
   *
   * Variables:
-  * - modifier: [string] Classes to modify the default component styling.
+  * - modifier_classes: [string] Classes to modify the default component styling.
   * - heading: [string] Accessible heading.
   * - breadcrumb: [array] The breadcrumb trail items. Each item is an object containing:
   *   - text: [string] Text of the item.
@@ -12,7 +12,7 @@
   */
 #}
 
-<nav class="breadcrumb {{ modifier }}" role="navigation" aria-labelledby="breadcrumb-label">
+<nav class="breadcrumb {{ modifier_classes }}" role="navigation" aria-labelledby="breadcrumb-label">
   <h2 class="breadcrumb__title visually-hidden" id="breadcrumb-label">{{ heading|default('You are here') }}</h2>
   <ol class="breadcrumb__list">
     {% for item in breadcrumb %}

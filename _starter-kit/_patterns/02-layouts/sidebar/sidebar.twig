@@ -1,4 +1,4 @@
-<div class="l-sidebar{{ multiple_sidebar ? ' l-sidebar--multi-2' }} {{ modifier_classes }}">
+<div class="l-sidebar{{ has_multiple_sidebar ? ' l-sidebar--multi-2' }} {{ modifier_classes }}">
 
   {% if has_header %}
     <div class="l-sidebar__full">
@@ -8,7 +8,7 @@
     </div>
   {% endif %}
 
-   {% if multiple_sidebar %}
+   {% if has_multiple_sidebar %}
     <aside class="l-sidebar__sidebar">
       {% block sidebar_minor %}
         <p style="background:#333;color:#fff;padding:1em; margin:0;">Sidebar Minor</p>
