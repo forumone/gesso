@@ -1,6 +1,19 @@
-<article class="page" role="article">
-  {% include "components-page-title"
-    with { page_title: page_title }
-  %}
-  {{ body | raw }}
+{#
+  /**
+  * @file
+  * Component for a Page.
+  *
+  * Variables:
+  * - attributes: [array] HTML attributes for the page
+  *   - class: [string] any classed added by user or system 
+  */
+#}
+
+<article{{- attributes.addClass(classes)|raw -}}>
+  <div class="l-constrain">
+    {% block main %}
+      {{ page_title|raw }}
+      {{ page_content|raw }}
+    {% endblock %}
+  </div>
 </article>

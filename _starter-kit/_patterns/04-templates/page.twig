@@ -3,13 +3,8 @@
 {% include "layouts-preface" %}
 
 <main id="main" class="main" role="main" tabindex="-1">
-  <div class="region-content">
-    <div class="l-constrain">
-
-      {% include "components-page" %}
-
-    </div>
-
+  <div class="l-constrain">
+    {{ content|raw }}
   </div>
 </main>
 
