@@ -1,0 +1,10 @@
+---
+content:
+  join():
+    - include():
+        pattern: components-hero-bg-image
+        with:
+          title: "Homepage Hero Title"
+          subtitle: false
+    -
+      "<p>Homepage content goes here</p>"

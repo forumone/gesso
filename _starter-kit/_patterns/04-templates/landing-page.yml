@@ -1,0 +1,17 @@
+---
+content:
+  join():
+    - include():
+        pattern: components-page-title
+        with:
+          page_title: "Landing Page"
+    - include():
+        pattern: components-image-teaser
+    - include():
+        pattern: components-image-teaser
+    - include():
+        pattern: components-image-teaser
+    - include():
+        pattern: components-image-teaser
+    - include():
+        pattern: components-pager
