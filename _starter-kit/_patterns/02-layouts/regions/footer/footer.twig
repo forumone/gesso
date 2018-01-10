@@ -1,5 +1,7 @@
 <footer class="footer" role="contentinfo">
   <div class="l-constrain">
-    {{ content|raw }}
+    {% block content %}
+      {{ content|raw }}
+    {% endblock %}
   </div>
 </footer>

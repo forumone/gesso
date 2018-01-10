@@ -44,11 +44,11 @@
   ]
 %}
 
-{% embed '@layouts/block/block.twig'
+{% embed '@layouts/section/section.twig'
   with {
     'has_wrapper': true,
-    'element': "",
-    'has_constrain': true,
+    'element': "div",
+    'has_constrain': false,
     'has_label': label ? true : false,
     'title_prefix': title_prefix,
     'title_suffix': title_suffix,

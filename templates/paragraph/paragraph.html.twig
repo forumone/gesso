@@ -37,8 +37,9 @@
 
 {% embed '@layouts/section/section.twig' with {
   'has_wrapper': true,
-  'element': 'section',
-  'has_constrain': true
+  'has_constrain': false,
+  'has_label': false,
+  'has_content_wrapper': false
  } %}
 
   {% block content %}

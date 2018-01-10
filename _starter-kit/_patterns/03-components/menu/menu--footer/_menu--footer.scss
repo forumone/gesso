@@ -1,14 +1,10 @@
 // @file
-// Styles for the Menu.
+// Styles for the footer menu.
 
-.menu {
+.menu--footer {
   @include list-inline;
 
   @media print {
     display: none;
   }
-}
-
-.menu__item {
-  margin-bottom: 0;
 }

@@ -11,6 +11,10 @@
   @include list-inline();
 }
 
+.list--pipeline {
+  @include list-pipeline();
+}
+
 .list--border {
   @include list-border();
 }

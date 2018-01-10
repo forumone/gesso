@@ -1,16 +1,16 @@
 ---
-menu_name: ""
+menu_name: "account"
 attributes:
   Attribute():
     class:
     - menu
 items:
-- title: Link 1
+- title: My Account
   url: "#"
   attributes:
     Attribute():
       class: []
-- title: Link 2
+- title: Logout
   url: "#"
   attributes:
     Attribute():

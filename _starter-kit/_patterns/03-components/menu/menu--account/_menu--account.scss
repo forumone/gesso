@@ -1,14 +1,14 @@
 // @file
 // Styles for the account menu.
 
-.nav--account {
-  @extend %nav--pipeline;
+.menu--account {
+  @include list-pipeline;
 
   @media print {
     display: none;
   }
 
-  .nav__link {
+  .menu__link {
     font-size: em($font-size-sm);
   }
 }
