@@ -2,7 +2,7 @@
 // Styles for navigation.
 
 // Hide navigation region while mobile menu is displayed.
-.region-navigation {
+.l-navigation {
   display: none;
 
   @include breakpoint($bp-hide-mobile-menu) {
