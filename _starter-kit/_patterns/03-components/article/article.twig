@@ -5,24 +5,22 @@
   *
   * Variables:
   * - attributes: [array] HTML attributes for the page
-  *   - class: [string] any classed added by user or system 
+  *   - class: [string] any classed added by user or system
   */
 #}
 
 <article{{- attributes.addClass(classes)|raw -}}>
-  <div class="l-constrain">
-    {% block title %}
-      {{ page_title|raw }}
-    {% endblock %}
+  {% block title %}
+    {{ page_title|raw }}
+  {% endblock %}
 
-    <footer>
-      {% block footer %}
-        {{ page_footer|raw }}
-      {% endblock %}
-    </footer>
-
-    {% block main %}
-      {{ page_content|raw }}
+  <footer>
+    {% block footer %}
+      {{ page_footer|raw }}
     {% endblock %}
-  </div>
+  </footer>
+
+  {% block main %}
+    {{ page_content|raw }}
+  {% endblock %}
 </article>
