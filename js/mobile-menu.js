@@ -12,32 +12,20 @@
       var $mobileNav = $('<nav class="mobile-menu" role="navigation"></nav>'),
           $mobileBar = $('<div class="mobile-menu__bar"><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>'),
           $mobileLinks = $('<div class="mobile-menu__links hidden"></div>'),
-          $mainMenu = $('.l-navigation', context).find('.nav--main, .block--system-main-menu .nav, .block--superfish .sf-menu').not('.contextual-links').first().clone(),
-          $isSuperfish = ($mainMenu.hasClass('sf-menu')) ? true : false;
+          $mainMenu = $('.l-navigation', context).find('.menu--main').first().clone();
 
       // Only create mobile menu if there is a main menu.
       if ($mainMenu.length > 0) {
 
-        // Set classes on superfish items.
-        if ($isSuperfish) {
-          $mainMenu.find('li').each(function(){
-            $(this).attr('class', 'nav__item').find('a').attr('class', 'nav__link');
-          });
-        }
-
         // Remove menu id, add class, and format subnav menus.
-        $mainMenu.removeAttr('id').attr('class', 'nav nav--mobile-menu').find('ul').each(function () {
+        $mainMenu.removeAttr('id').attr('class', 'menu menu--mobile').find('ul').each(function () {
           var $parentLink = $(this).siblings('a');
-          $parentLink.addClass('nav__link--parent').parent('li').addClass('nav__item--parent');
-          if ($parentLink.siblings('.nav__subnav-arrow').length < 1) {
-            $parentLink.after('<button class="nav__subnav-arrow">Show</button>');
+          $parentLink.addClass('menu__link--parent').parent('li').addClass('menu__item--parent');
+          if ($parentLink.siblings('.menu__subnav-arrow').length < 1) {
+            $parentLink.after('<button class="menu__subnav-arrow">Show</button>');
           }
 
-          // Remove inline styles from Superfish.
-          if ($isSuperfish) {
-            $(this).removeAttr('style').addClass('nav__subnav').find('ul, li, a').removeAttr('style');
-          }
-        });
+      });
 
         // Remove third level menu items.
         $mainMenu.find('ul ul').remove();
@@ -96,9 +84,9 @@
         });
 
         // Open/close submenus.
-        $('.nav__subnav-arrow', context).click(function (e) {
+        $('.menu__subnav-arrow', context).click(function (e) {
           $(this).toggleClass('is-active').parent().toggleClass('is-open');
-          $(this).siblings('.nav__subnav').slideToggle();
+          $(this).siblings('.menu__subnav').slideToggle();
 
           // Remove focus for mouse clicks after closing the menu.
           $(this).not('.is-active').mouseleave(function () {
