@@ -1,6 +1,2 @@
 ---
 body_class: "not-front page page--node-type-article"
-content:
-  join():
-    - include():
-        pattern: components-article
