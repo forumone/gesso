@@ -1,4 +1,4 @@
-body_class: "not-front node-type-page"
+body_class: "not-front page page--node-type-page"
 content:
   join():
     - include():
