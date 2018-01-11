@@ -17,11 +17,11 @@
     {% if summary %}
       <div class="hero-bg-image__text">{{ summary|raw }}</div>
     {% endif %}
-    {% if button %}
+    {% if has_button %}
       <div class="hero-bg-image__call-to-action">
         {% include "components-button"
           with {
-            text: button
+            text: button_text
           }
         %}
       </div>
