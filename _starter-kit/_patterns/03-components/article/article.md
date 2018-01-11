@@ -1,8 +1,8 @@
 ---
-el: .l-grid
-title: Grid
+el: .article
+title: Article
 ---
-_Layout for Grid_
+_Component for Article_
 
 ### Variables:
 * modifier_classes: [string] modifier class for creating variant.

@@ -1,5 +1,7 @@
 <div class="l-content">
   <div class="l-constrain">
-    {{ content|raw }}
+    {% block content %}
+      {{ content|raw }}
+    {% endblock %}
   </div>
 </div>

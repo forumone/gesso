@@ -1,6 +1,6 @@
 ---
 modifier_classes: ""
-flex_media: |
+media: |-
   <img src="https://picsum.photos/200/300">
-flex_content: |
+content: |-
   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae necessitatibus fuga provident aut.</p>

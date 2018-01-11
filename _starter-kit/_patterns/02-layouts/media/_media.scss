@@ -1,0 +1,28 @@
+// @file
+// Styles for Media Object.
+
+$media-gutter: 1rem;
+
+.l-media {
+  display: flex;
+}
+
+.l-media__object {
+  flex: none;
+  margin: 0 $media-gutter 0 0;
+}
+
+.l-media__content {
+  flex: 1 1 auto;
+}
+
+.l-media--column {
+  flex-direction: column;
+}
+
+.l-media--reversed {
+  > .l-media__object {
+    margin: 0 0 0 $media-gutter;
+    order: 1;
+  }
+}
