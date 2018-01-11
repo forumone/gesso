@@ -2,4 +2,4 @@
 content:
   join():
     - include():
-        pattern: components-nav--menu-footer
+        pattern: components-menu--footer

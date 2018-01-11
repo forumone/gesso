@@ -3,9 +3,9 @@
 {% include 'layouts-preface' %}
 
 <main id="main" class="main" role="main" tabindex="-1">
-  <div class="l-constrain">
-    {{ content|raw }}
-  </div>
+  {% include 'layouts-content' with {
+      content: content
+  } %}
 </main>
 
 {% include 'layouts-postscript' %}
