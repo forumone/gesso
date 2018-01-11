@@ -5,5 +5,8 @@ title: Article
 _Component for Article_
 
 ### Variables:
-* modifier_classes: [string] modifier class for creating variant.
-* content: [object] grid content.
+* attributes: [array] HTML attributes for the article.
+  * class: [string] any classed added by user or system
+* page_title: [object] content for _title_ twig block.
+* page_footer: [object] content for _footer_ twig block.
+* page_content: [object] content for _main_ twig block.
