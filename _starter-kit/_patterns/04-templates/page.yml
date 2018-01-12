@@ -1,0 +1,18 @@
+---
+content:
+  join():
+    - include():
+        pattern: components-article
+        with:
+          title:
+            join():
+              - include():
+                  pattern: components-page-title
+                  with:
+                    page_title: "Basic Page"
+          has_footer: false
+          content: |-
+            <p>I do not claim that I can tell a story as it ought to be told. I only claim to know how a story ought to be told, for I have been almost daily in the company of the most expert story-tellers for many years.</p>
+            <p>There are several kinds of stories, but only one difficult kind&mdash;the humorous. I will talk mainly about that one. The humorous story is American, the comic story is English, the witty story is French. The humorous story depends for its effect upon the <em>manner</em> of the telling; the comic story and the witty story upon the <em>matter.</em></p>
+            <p>The humorous story may be spun out to great length, and may wander around as much as it pleases, and arrive nowhere in particular; but the comic and witty stories must be brief and end with a point. The humorous story bubbles gently along, the others burst.</p>
+            <p>The humorous story is strictly a work of art&mdash;high and delicate art&mdash;and only an artist can tell it; but no art is necessary in telling the comic and the witty story; anybody can do it. The art of telling a humorous story&mdash;understand, I mean by word of mouth, not print&mdash;was created in America, and has remained at home.</p>

@@ -1,19 +1,31 @@
 {#
-/**
- * @file
- * Theme override to display primary and secondary local tasks.
- */
+  /**
+  * @file
+  * Theme override to display primary and secondary local tasks.
+  *
+  * Available variables:
+  * - primary: HTML list items representing primary tasks.
+  * - secondary: HTML list items representing primary tasks.
+  *
+  * Each item in these variables (primary and secondary) can be individually
+  * themed in menu-local-task.html.twig.
+  */
 #}
+
 {% if primary %}
-  {% include "@components/nav/nav--tabs-primary/nav--tabs-primary.twig" with {
+  {% include "@components/tabs/tabs.twig" with {
+    modifier_classes: 'tabs--primary',
+    heading: 'Primary tabs'|t,
     tabs: primary
     } only
   %}
 {% endif %}
 
 {% if secondary %}
-  {% include "@components/nav/nav--tabs-secondary/nav--tabs-secondary.twig" with {
-      tabs: secondary
+  {% include "@components/tabs/tabs.twig" with {
+    modifier_classes: 'tabs--secondary',
+    heading: 'Secondary tabs'|t,
+    tabs: secondary
     } only
   %}
 {% endif %}

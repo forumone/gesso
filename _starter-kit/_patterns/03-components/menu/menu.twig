@@ -1,0 +1,69 @@
+{#
+  /**
+  * @file
+  * Component for a Menu.
+  *
+  * Available variables:
+  * - menu_name: The machine name of the menu.
+  * - items: A nested list of menu items. Each menu item contains:
+  *   - attributes: HTML attributes for the menu item.
+  *   - below: The menu item child items.
+  *   - title: The menu link title.
+  *   - url: The menu link url, instance of \Drupal\Core\Url
+  *   - localized_options: Menu link localized options.
+  *   - is_expanded: TRUE if the link has visible children within the current menu tree.
+  *   - is_collapsed: TRUE if the link has children within the current menu tree that are not currently visible.
+  *   - in_active_trail: TRUE if the link is in the active trail.
+  */
+#}
+
+{% import _self as menus %}
+
+{{ menus.menu_links(items, attributes, 0, menu_name) }}
+
+{% macro menu_links(items, attributes, menu_level, menu_name) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      {%
+        set menu_classes = [
+          "menu",
+          "menu--#{menu_name}",
+        ]
+      %}
+      <ul{{- attributes.addClass(menu_classes)|raw -}}>
+    {% else %}
+      <ul class="menu menu__subnav">
+    {% endif %}
+    {% for item in items %}
+      {%
+        set item_classes = [  
+          "menu__item",
+          item.below ? "has-subnav",
+          item.in_active_trail ? "is-active-trail",
+          item.is_collapsed ? "is-collapsed",
+          item.is_expanded ? "is-expanded",
+        ]
+      %}
+      {%
+        set link_attributes = {
+          'class': [
+            "menu__link",
+            item.below ? "has-subnav",
+            item.in_active_trail ? "is-active-trail",
+            item.is_collapsed ? "is-collapsed",
+            item.is_expanded ? "is-expanded",
+            item['original_link'].options.attributes.class ? item['original_link'].options.attributes.class
+          ]
+        }
+      %}
+      <li{{- item.attributes.addClass(item_classes)|raw -}}>
+        {{ link(item.title, item.url, link_attributes) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

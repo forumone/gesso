@@ -1,14 +1,34 @@
-<article class="article" role="article">
-  {% include "components-page-title"
-    with { page_title: page_title }
-  %}
-  <footer>
-    {% include "components-date"
-      with { format: "long-datetime" }
-    %}
-    {% include "components-author"
-      with { author: author }
-    %}
-  </footer>
-  {{ body | raw }}
+{#
+  /**
+  * @file
+  * Component for a Article.
+  *
+  * Variables:
+  * - attributes: [array] HTML attributes for the page
+  *   - class: [string] any classed added by user or system
+  */
+#}
+{%
+  set classes = classes|merge([
+    'article',
+    'article--full'
+  ])|join(' ')|trim
+%}
+
+<article{{- attributes.addClass(classes)|raw -}}>
+  {% block title %}
+    {{ title|raw }}
+  {% endblock %}
+
+  {% if has_footer %}
+    <footer>
+      {% block footer %}
+        {{ footer|raw }}
+      {% endblock %}
+    </footer>
+  {% endif %}
+
+  {% block main %}
+    {{ content|raw }}
+  {% endblock %}
 </article>

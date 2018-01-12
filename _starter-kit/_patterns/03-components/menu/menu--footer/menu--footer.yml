@@ -1,0 +1,32 @@
+---
+menu_name: "footer"
+attributes:
+  Attribute():
+    class:
+      - menu
+items:
+- title: Footer Link 1
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+- title: Footer Link 2
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+- title: Footer Link 3
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+- title: Footer Link 4
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+  in_active_trail: true

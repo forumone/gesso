@@ -6,5 +6,11 @@
 $max-page-width: 1200px;
 $gutter-width: 2em;
 
-// Breakpoints
+// Default Breakpoints
+$bp-small: 600px;
+$bp-medium: 800px;
+$bp-large: 900px;
+$bp-xlarge: 1200px;
+
+// Mobile Breakpoint
 $bp-hide-mobile-menu: 700px;

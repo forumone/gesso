@@ -1,0 +1,22 @@
+{#
+  /**
+  * @file
+  * Component for progress bar.
+  *
+  * Variables:
+  * - label: [string] Label for progress bar.
+  * - percent: [string] Progress bar percentage complete
+  * - message: [string] Progress bar description.
+  */
+#}
+
+<div class="progress" data-drupal-progress>
+  {% if label %}
+    <div class="progress__label">{{ label }}</div>
+  {% endif %}
+  <div class="progress__track">
+    <div class="progress__bar" style="width: {{ percent }}"></div>
+  </div>
+  <div class="progress__percentage">{{ percent }}</div>
+  <div class="progress__description">{{ message }}</div>
+</div>

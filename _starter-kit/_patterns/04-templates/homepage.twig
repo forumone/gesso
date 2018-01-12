@@ -1,25 +1,12 @@
-{% include "layouts-region-header" %}
-{% include "layouts-region-navigation" %}
-{% include "layouts-region-preface" %}
+{% include 'layouts-header' %}
+{% include 'layouts-navigation' %}
+{% include 'layouts-preface' %}
 
 <main id="main" class="main" role="main" tabindex="-1">
-  <div class="region-content">
-    <div class="l-constrain">
-
-      {% include "components-hero-bg-image"
-        with {
-          "hero": {
-            "title": "Homepage Hero Title",
-            "subtitle": false
-          }
-        }
-      %}
-
-      <p>Homepage content goes here&hellip;</p>
-
-    </div>
-  </div>
+  {% include 'layouts-content' with {
+      content: content
+  } %}
 </main>
 
-{% include "layouts-region-postscript" %}
-{% include "layouts-region-footer" %}
+{% include 'layouts-postscript' %}
+{% include 'layouts-footer' %}

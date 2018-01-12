@@ -1,0 +1,32 @@
+---
+menu_name: "main"
+attributes:
+  Attribute():
+    class:
+      - menu
+items:
+- title: Home
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+- title: About
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+- title: Contact
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+- title: Search
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+  in_active_trail: true

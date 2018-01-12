@@ -1,5 +1,5 @@
 // @file
-// Styles for the breadcrumb trail.
+// Styles for Breadcrumb trail.
 
 .breadcrumb {
   @include clearfix();
@@ -11,13 +11,10 @@
 }
 
 .breadcrumb__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  @include list-inline();
 }
 
 .breadcrumb__item {
-  display: inline;
   font-size: $font-size-sm;
   margin-right: 0.25em;
 

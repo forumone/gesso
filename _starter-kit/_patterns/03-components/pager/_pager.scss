@@ -1,21 +1,22 @@
 // @file
-// Styles for pagers.
+// Styles for Pager.
 
 $bp-ellipsis: 800px;
 $bp-pager: 600px;
 $pager-bg-color: #f1f1f1;
 $pager-bg-color-active: #d6d7d9;
 
-.pager {
+.pager {}
+
+.pager__items {
+  @include list-inline();
   clear: both;
-  list-style: none;
   margin: em($vertical-spacing * 2) 0;
   padding: 0;
   text-align: center;
 }
 
 .pager__item {
-  display: inline-block;
   font-weight: bold;
   line-height: 1;
   margin: 0;

@@ -1,8 +1,19 @@
 {#
-/**
- * @file
- * Theme override to display a pager.
- */
+  /**
+  * @file
+  * Theme override for a pager.
+  *
+  * Available variables:
+  * - items: List of pager items.
+  */
 #}
 
-{% include "@components/pager/pager.twig" %}
+{% if items %}
+  {%
+    include '@components/pager/pager.twig' with {
+      modifier_classes: "",
+      heading: 'Pagination'|t,
+      items: items
+    } only
+  %}
+{% endif %}

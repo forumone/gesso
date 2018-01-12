@@ -73,29 +73,30 @@
     view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
   ]
 %}
-{{ attach_library('classy/node') }}
-<article{{ attributes.addClass(classes) }}>
 
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
+{% embed '@components/article/article.twig' with {
+  'has_footer': display_submitted ? true : false,
+ } %}
 
-  {% if display_submitted %}
-    <footer class="node__meta">
+  {% block title %}
+    {% include '@components/page-title/page-title.twig'
+      with {
+        'page_title': label|field_value
+     } %}
+  {% endblock %}
+
+  {% block footer %}
+    {% if display_submitted %}
       {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
+      <div{{ author_attributes }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         {{ metadata }}
       </div>
-    </footer>
-  {% endif %}
+    {% endif %}
+  {% endblock %}
 
-  <div{{ content_attributes.addClass('node__content') }}>
+  {% block main %}
     {{ content }}
-  </div>
+  {% endblock %}
 
-</article>
+{% endembed %}

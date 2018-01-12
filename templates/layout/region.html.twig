@@ -6,26 +6,23 @@
 #}
 {%
   set classes, constrain = [
-    'region-' ~ region|clean_class,
+    'l-' ~ region|clean_class,
   ],
   [
-    'page_top',
-    'header',
     'navigation',
     'breadcrumb',
     'help',
     'highlighted',
     'preface',
     'content',
-    'postscript',
-    'footer',
-    'page_bottom'
+    'postscript'
   ]
 %}
+
 {% if content %}
-  <div{{ attributes.addClass(classes) }}>
+  <section{{ attributes.addClass(classes) }}>
     {% if region in constrain %}<div class="l-constrain">{% endif %}
       {{ content }}
     {% if region in constrain %}</div>{% endif %}
-  </div>
+  </section>
 {% endif %}

@@ -1,0 +1,9 @@
+{% embed '@layouts/nav/nav.twig' with {
+  'label': "Main Menu"
+ } %}
+
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+
+{% endembed %}

@@ -1,17 +1,33 @@
 {#
-/**
- * @file
- * Theme override to display status messages.
- */
+  /**
+  * @file
+  * Theme override for a status message.
+  *
+  * Available variables: 
+ * - message_list: List of messages to be displayed, grouped by type.
+ * - status_headings: List of all status types.
+ * - display: (optional) May have a value of 'status' or 'error' when only
+ *   displaying messages of that specific type.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.  */
 #}
 
 {% for type, messages in message_list %}
   {%
-    include "@components/00-cms-specific/messages/messages.twig" with {
+    set classes = [
+      'messages',
+      'messages--' ~ type,
+    ]
+  %}
+  
+  {%
+    include "@components/messages/messages.twig" with {
       type: type,
-      messages: messages,
       heading: status_headings[type],
-      modifier_class: attributes.addClass('messages--' ~ type).class|safe_join(' ')
+      attributes: attributes.addClass(classes)|without('role', 'aria-label'),
+      messages: messages
     }
   %}
+
+  {% set attributes = attributes.removeClass(classes) %}
 {% endfor %}

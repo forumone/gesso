@@ -44,42 +44,23 @@
  */
 #}
 <div class="layout-container">
-  <header class="header" role="banner">
-    {{ page.header }}
-  </header>
+  
+  {{ page.header }}
 
   {{ page.navigation }}
 
   {{ page.breadcrumb }}
 
   {{ page.highlighted }}
-
+  
   {{ page.help }}
 
   <main id="main" class="main" role="main" tabindex="-1">
-    <div class="l-constrain">
-
-        {% if page.preface %}
-          {{ page.preface }}
-        {% endif %}
-
-        {% if page.content %}
-          {{ page.content }}
-        {% endif %}
-
-
-        {% if page.postscript %}
-          {{ page.postscript }}
-        {% endif %}
-
-      </div>
-    </div>
+    {{ page.preface }}
+    {{ page.content }}
+    {{ page.postscript }}
   </main>
 
-  {% if page.footer %}
-    <footer class="footer" role="contentinfo">
-      {{ page.footer }}
-    </footer>
-  {% endif %}
-
+  {{ page.footer }}
+   
 </div>

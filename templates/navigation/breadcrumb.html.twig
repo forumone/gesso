@@ -2,12 +2,17 @@
 /**
  * @file
  * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
  */
 #}
 
 {% if breadcrumb %}
   {%
-    include "@components/breadcrumb/breadcrumb.twig" with {
+    include '@components/breadcrumb/breadcrumb.twig' with {
+      modifier_classes: "",
+      heading: 'Breadcrumb'|t,
       breadcrumb: breadcrumb
     } only
   %}

@@ -1,18 +1,28 @@
-{% spaceless %}
-<nav class="breadcrumb" role="navigation" aria-labelledby="breadcrumb-label">
-  {% if heading %}
-    <h2 class="breadcrumb__title" id="breadcrumb-label">{{ heading|raw }}</h2>
-  {% endif %}
+{#
+  /**
+  * @file
+  * Component for a breadcrumb trail.
+  *
+  * Variables:
+  * - modifier_classes: [string] Classes to modify the default component styling.
+  * - heading: [string] Accessible heading.
+  * - breadcrumb: [array] The breadcrumb trail items. Each item is an object containing:
+  *   - text: [string] Text of the item.
+  *   - url: [string] URL of the item (optional).
+  */
+#}
+
+<nav class="breadcrumb {{ modifier_classes }}" role="navigation" aria-labelledby="breadcrumb-label">
+  <h2 class="breadcrumb__title visually-hidden" id="breadcrumb-label">{{ heading|default('You are here') }}</h2>
   <ol class="breadcrumb__list">
     {% for item in breadcrumb %}
       <li class="breadcrumb__item">
-        {%- if item.url -%}
+        {% if item.url %}
           <a class="breadcrumb__link" href="{{ item.url }}">{{ item.text }}</a>
-        {%- else -%}
+        {% else %}
           {{ item.text }}
-        {%- endif -%}
+        {% endif %}
       </li>
     {% endfor %}
   </ol>
 </nav>
-{% endspaceless %}
