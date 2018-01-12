@@ -2,24 +2,17 @@
 content:
   join():
     - include():
-        pattern: layouts-section
+        pattern: components-article
         with:
-          has_wrapper: true
-          element: "article"
-          has_constrain: false
-          has_label: false
-          has_content_wrapper: false
-          attributes:
-            Attribute():
-              role: "article"
-              class:
-              -
-          content:
+          title:
             join():
               - include():
                   pattern: components-page-title
                   with:
                     page_title: "Basic Page"
+          has_footer: false
+          content:
+            join():
               - |-
                   <p>I do not claim that I can tell a story as it ought to be told. I only claim to know how a story ought to be told, for I have been almost daily in the company of the most expert story-tellers for many years.</p>
                   <p>There are several kinds of stories, but only one difficult kind&mdash;the humorous. I will talk mainly about that one. The humorous story is American, the comic story is English, the witty story is French. The humorous story depends for its effect upon the <em>manner</em> of the telling; the comic story and the witty story upon the <em>matter.</em></p>

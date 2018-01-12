@@ -20,11 +20,13 @@
     {{ title|raw }}
   {% endblock %}
 
-  <footer>
-    {% block footer %}
-      {{ footer|raw }}
-    {% endblock %}
-  </footer>
+  {% if has_footer %}
+    <footer>
+      {% block footer %}
+        {{ footer|raw }}
+      {% endblock %}
+    </footer>
+  {% endif %}
 
   {% block main %}
     {{ content|raw }}

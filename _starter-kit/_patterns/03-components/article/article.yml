@@ -10,19 +10,12 @@ title:
   join():
     - include():
         pattern: components-page-title
-        with:
-          page_title: "Concerning the American Language"
+has_footer: true
 footer:
   join():
     - include():
         pattern: components-date
-        with:
-          format: "long-datetime"
     - include():
         pattern: components-author
-        with:
-          author: "Mark Twain"
 content: |-
-  <p>There was an <em>Englishman</em> in our compartment, and he complimented me on&mdash;on what? But you would never guess. He complimented me on my English. He said Americans in general did not speak the English language as correctly as I did. I said I was obliged to him for his compliment, since I knew he meant it for one, but that I was not fairly entitled to it, for I did not speak English at all&mdash;I only spoke American.</p>
-  <p>He laughed, and said it was a distinction without a difference. I said no, the difference was not prodigious, but still it was considerable. We fell into a friendly dispute over the matter. I put my case as well as I could, and said:</p>
-  <p>&ldquo;The languages were identical several generations ago, but our changed conditions and the spread of our people far to the south and far to the west have made many alterations in our pronunciation, and have introduced new words among us and changed the meanings of many old ones. English people talk through their noses; we do not. We say know, English people say nao; we say cow, the Briton says kaow; we&mdash;&rdquo;</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et accumsan augue. Morbi non laoreet lorem. Ut mauris erat, sollicitudin ac hendrerit tincidunt, iaculis eget purus. Nullam pharetra eu nibh auctor ultrices. Phasellus non aliquam felis. Mauris varius varius commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed est sapien, venenatis quis urna et, vulputate porta metus. Duis scelerisque sollicitudin nunc, vel finibus lorem ultricies id. In hac habitasse platea dictumst. Pellentesque eget turpis blandit augue sagittis iaculis nec at felis. Vestibulum gravida sapien ut aliquam rutrum. Suspendisse leo neque, varius id consectetur in, aliquam quis magna. Phasellus vel felis eu libero feugiat accumsan. Maecenas aliquet ex vel nisi fermentum, ac congue nibh porttitor. </p>

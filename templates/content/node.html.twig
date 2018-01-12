@@ -74,19 +74,28 @@
   ]
 %}
 
-{% embed '@layouts/section/section.twig' with {
-  'has_wrapper': true,
-  'element': "article",
-  'has_constrain': false,
-  'has_label': false,
-  'has_content_wrapper': false
+{% embed '@components/article/article.twig' with {
+  'has_footer': display_submitted ? true : false,
  } %}
 
-  {% block content %}
+  {% block title %}
     {% include '@components/page-title/page-title.twig'
       with {
         'page_title': label|field_value
      } %}
+  {% endblock %}
+
+  {% block footer %}
+    {% if display_submitted %}
+      {{ author_picture }}
+      <div{{ author_attributes }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block main %}
     {{ content }}
   {% endblock %}
 

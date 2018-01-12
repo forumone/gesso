@@ -5,7 +5,7 @@ attributes:
   Attribute():
     class:
     - l-section
-has_constrain: true
+has_constrain: false
 has_label: true
 label_element: h2
 label: Section title
