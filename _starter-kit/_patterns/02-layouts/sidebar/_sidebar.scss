@@ -12,7 +12,9 @@ $l-sidebar-gutter: 1rem;
     flex-wrap: wrap;
 
     > * {
-      flex: 1 1 calc(100% - #{$l-sidebar-width} - #{$l-sidebar-gutter * 2});
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: calc(100% - #{$l-sidebar-width} - #{$l-sidebar-gutter * 2});
       margin-right: $l-sidebar-gutter;
       &:last-child {
         margin-right: 0;
@@ -20,12 +22,16 @@ $l-sidebar-gutter: 1rem;
     }
 
     .l-sidebar__full {
-      flex: 1 1 100%;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 100%;
       margin-right: 0;
     }
 
     .l-sidebar__sidebar {
-      flex: 1 0 #{$l-sidebar-width}
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: #{$l-sidebar-width}
     }
 
   }
@@ -47,7 +53,9 @@ $l-sidebar-gutter: 1rem;
 .l-sidebar--multi-2 {
 
   > * {
-    flex: 1 1 calc(100% - #{$l-sidebar-width + $l-sidebar-minor-width} - #{$l-sidebar-gutter * 3});
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: calc(100% - #{$l-sidebar-width + $l-sidebar-minor-width} - #{$l-sidebar-gutter * 3});
   }
 
   @supports(display:grid) {

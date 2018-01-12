@@ -1,3 +1,6 @@
+// @file
+// CSS Grid mixins
+
 @mixin css-grid($columns: 0, $gutter: 2em, $item-minwidth: 300px) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(#{$item-minwidth}, 1fr ));
