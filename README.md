@@ -105,7 +105,9 @@ browser CSS property prefixes during Sass compilation.
 ## Maintainers
 
 The Gesso theme is maintained by [Dan Mouyard](https://drupal.org/u/dcmouyard)
-([@dcmouyard](http://twitter.com/dcmouyard)) and
+([@dcmouyard](http://twitter.com/dcmouyard)),
+[Chaz Chumley](https://drupal.org/u/chazchumley)
+([@chazchumley](http://twitter.com/chazchumley)) and
 [Corey Lafferty](https://drupal.org/u/clafferty)
 ([@coreylafferty](http://twitter.com/coreylafferty)).
 
