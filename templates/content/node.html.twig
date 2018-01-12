@@ -74,14 +74,19 @@
   ]
 %}
 
-{% embed '@components/page/page.twig' %}
+{% embed '@layouts/section/section.twig' with {
+  'has_wrapper': true,
+  'element': "article",
+  'has_constrain': false,
+  'has_label': false,
+  'has_content_wrapper': false
+ } %}
 
-  {% block main %}
+  {% block content %}
     {% include '@components/page-title/page-title.twig'
-      with { 
+      with {
         'page_title': label|field_value
      } %}
-     
     {{ content }}
   {% endblock %}
 

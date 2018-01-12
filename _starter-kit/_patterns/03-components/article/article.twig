@@ -8,19 +8,25 @@
   *   - class: [string] any classed added by user or system
   */
 #}
+{%
+  set classes = classes|merge([
+    'article',
+    'article--full'
+  ])|join(' ')|trim
+%}
 
 <article{{- attributes.addClass(classes)|raw -}}>
   {% block title %}
-    {{ page_title|raw }}
+    {{ title|raw }}
   {% endblock %}
 
   <footer>
     {% block footer %}
-      {{ page_footer|raw }}
+      {{ footer|raw }}
     {% endblock %}
   </footer>
 
   {% block main %}
-    {{ page_content|raw }}
+    {{ content|raw }}
   {% endblock %}
 </article>

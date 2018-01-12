@@ -28,7 +28,7 @@
     logged_in ? 'user-logged-in',
     not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
     not root_path ? 'front' : 'not-front',
-    node_type ? 'page--node-type-' ~ node_type|clean_class,
+    node_type ? 'node-page node-page--node-type-' ~ node_type|clean_class,
   ]
 %}
 
