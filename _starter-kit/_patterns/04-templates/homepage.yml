@@ -6,5 +6,5 @@ content:
         with:
           title: "Homepage Hero Title"
           subtitle: false
-    -
-      "<p>Homepage content goes here</p>"
+    - |-
+      <p>Homepage content goes here</p>

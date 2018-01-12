@@ -3,15 +3,17 @@ menu_name: ""
 attributes:
   Attribute():
     class:
-    - menu
+      - menu
 items:
 - title: Link 1
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
 - title: Link 2
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -

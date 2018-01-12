@@ -3,26 +3,30 @@ menu_name: "footer"
 attributes:
   Attribute():
     class:
-    - menu
+      - menu
 items:
 - title: Footer Link 1
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
 - title: Footer Link 2
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
 - title: Footer Link 3
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
 - title: Footer Link 4
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
   in_active_trail: true

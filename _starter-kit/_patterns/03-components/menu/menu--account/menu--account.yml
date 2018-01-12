@@ -3,15 +3,17 @@ menu_name: "account"
 attributes:
   Attribute():
     class:
-    - menu
+      - menu
 items:
 - title: My Account
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
 - title: Logout
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -

@@ -3,26 +3,30 @@ menu_name: "main"
 attributes:
   Attribute():
     class:
-    - menu
+      - menu
 items:
 - title: Home
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
 - title: About
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
 - title: Contact
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
 - title: Search
   url: "#"
   attributes:
     Attribute():
-      class: []
+      class:
+        -
   in_active_trail: true

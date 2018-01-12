@@ -2,10 +2,10 @@
 attributes:
   Attribute():
     class:
-    - messages
-    - messages--error
+      - messages
+      - messages--error
 type: "error"
 heading: "Error message"
 messages:
-- 'Error message one'
-- 'Error message two'
+  - 'Error message one'
+  - 'Error message two'
