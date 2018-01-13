@@ -27,3 +27,10 @@ function views_theme_suggestions_views_view_unformatted(array $variables) {
   
   return $suggestions;
 }
+
+/**
+ * Implements preprocess_views_view().
+ */
+function gesso_preprocess_views_view(&$variables) {
+  $variables['path'] = $variables['view']->getRequest()->getPathInfo();
+}

@@ -3,6 +3,7 @@
     'required',
   ]
 %}
+
 {%
   set addClasses = [
     'fieldset',
@@ -10,6 +11,7 @@
     'js-form-wrapper',
   ]
 %}
+
 {% if type == 'fieldset' %}
   {%
     set addClasses = addClasses|merge([
@@ -30,6 +32,7 @@
     ])
   %}
 {% endif %}
+
 <fieldset{{ attributes.removeClass(removeClasses).addClass(addClasses) }}>
   {%
     set legend_span_classes = [
