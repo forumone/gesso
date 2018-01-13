@@ -2,8 +2,11 @@
 custom_class: false
 image: "http://lorempixel.com/1600/800/nature/"
 has_overlay: true
+has_title: true
 title: "Hero Title"
+has_subtitle: true
 subtitle: "Hero Subtitle"
+has_summary: true
 summary: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
 has_button: true
 button_text: "Hero Button"

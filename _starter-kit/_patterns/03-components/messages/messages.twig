@@ -1,17 +1,3 @@
-{#
-  /**
-  * @file
-  * Component for messages.
-  *
-  * Variables:
-  * - type: [string] Identifies type of error (status, warning, error).
-  * - heading: [string] Accessible heading.
-  * - attributes: [array] HTML attributes for the message
-  *   - class: [string] any classed added by user or system 
-  * - message: [array] The message:
-  */
-#}
-
 <div {% if type == 'error' %} role="alert" {% else %} role="contentinfo" {% endif %} {% if heading %}aria-label="{{ heading }}"{% endif %}{{- attributes|raw -}}>
   {% if messages|length > 1 %}
     <h2 class="visually-hidden">{{ heading }}</h2>
