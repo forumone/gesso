@@ -1,16 +1,3 @@
-{#
-  /**
-  * @file
-  * Component for a Mini Pager.
-  *
-  * Variables:
-  * - modifier_classes: [string] Classes to modify the default component styling.
-  * - heading: [string] Accessible heading.
-  * - items: [array] The pager items. Each item is an object containing:
-  *   - url: [string] URL of the item (optional).
-  */
-#}
-
 {% if items.previous or items.next %}
   <nav class="pager pager--mini" role="navigation" aria-labelledby="pagination-heading">
     <h4 id="pagination-heading" class="visually-hidden">{{ heading|default('Pagination') }}</h4>

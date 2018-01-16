@@ -1,3 +1,6 @@
+// @file
+// Flex Grid mixins
+
 @mixin flex-grid($columns: 0, $gutter: 2em, $item-minwidth: 300px) {
   display: flex;
   flex-wrap: wrap;

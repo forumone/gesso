@@ -8,8 +8,11 @@ _Component for Hero Bg Image_
 * custom_class: [string] Classes to modify the default component styling.
 * image: [string] Background image for component.
 * has_overlay: [boolean] True/False identifying component has overlay class.
+* has_title: [boolean] True/False identifying component has title.
 * title: [string] Title of hero.
+* has_subtitle: [boolean] True/False identifying component has subtitle.
 * subtitle: [string] Subtitle of hero.
+* has_summary: [boolean] True/False identifying component has summary.
 * summary: [string] Summary of hero.
 * has_button: [boolean] True/False identifying component has a button element.
 * button_text: [string] Label of button on hero.

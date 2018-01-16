@@ -4,6 +4,7 @@
     'required',
   ]
 %}
+
 {%
   set addClasses = [
     dropbutton ? 'dropbutton__button',
@@ -11,4 +12,5 @@
     required ? 'is-required',
   ]
 %}
+
 <input{{ attributes.removeClass(removeClasses).addClass(addClasses) }}>{{ children }}

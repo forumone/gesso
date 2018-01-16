@@ -11,12 +11,14 @@
     errors ? 'has-error',
   ]
 %}
+
 {%
   set add_description_classes = [
     'form-item__description',
     description_display == 'invisible' ? 'visually-hidden',
   ]
 %}
+
 <div{{ attributes.addClass(add_classes) }}>
   {% if label_display in ['before', 'invisible'] %}
     {{ label }}

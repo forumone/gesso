@@ -20,3 +20,11 @@ function gesso_preprocess_input(&$vars) {
 function gesso_preprocess_fieldset(&$vars) {
   $vars['type'] = isset($vars['element']['#type']) ? $vars['element']['#type'] : NULL;
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function gesso_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  $form_id = $variables['element']['#form_id'];
+  $suggestions[] = 'form__' . $form_id;
+}

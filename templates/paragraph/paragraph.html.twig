@@ -1,30 +1,28 @@
 {#
-/**
- * @file
- * Theme override to display a paragraph.
- *
- * Available variables:
- * - paragraph: Full paragraph entity.
- *   - id: The paragraph ID.
- *   - bundle: The type of the paragraph, for example, "image" or "text".
- *   - authorid: The user ID of the paragraph author.
- *   - createdtime: Formatted creation date. Preprocess functions can
- *     reformat it by calling format_date() with the desired parameters on
- *     $variables['paragraph']->getCreatedTime().
- * - content: All paragraph items. Use {{ content }} to print them all, or print a subset such as {{ content.field_example }}.
- * - attributes: HTML attributes for the containing element.
- *   The attributes.class element may contain one or more of the following classes:
- *   - paragraph: The current template type (also known as a "theming hook").
- *   - paragraph--type-[type]: The current paragraph type. For example, if the paragraph is an "Image" it would result in "paragraph--type-image". Note that the machine name will often be in a short form of the human readable label.
- *   - paragraph--view-mode-[view_mode]: The View Mode of the paragraph; for example, a preview would result in: "paragraph--view-mode-preview", and default: "paragraph--view-mode-default".
- * - view_mode: View mode; for example, "preview" or "full".
- * - logged_in: Flag for authenticated user status. Will be true when the current user is a logged-in member.
- * - is_admin: Flag for admin user status. Will be true when the current user is an administrator.
- *
- * @see template_preprocess_paragraph()
- *
- * @ingroup themeable
- */
+ /**
+  * @file
+  * Theme override to display a paragraph.
+  *
+  * Available variables:
+  * - paragraph: Full paragraph entity.
+  *   - id: The paragraph ID.
+  *   - bundle: The type of the paragraph, for example, "image" or "text".
+  *   - authorid: The user ID of the paragraph author.
+  *   - createdtime: Formatted creation date.
+  * - content: All paragraph items. Use {{ content }} to print them all, or print a subset such as {{ content.field_example }}.
+  * - attributes: HTML attributes for the containing element.
+  *   The attributes.class element may contain one or more of the following classes:
+  *   - paragraph: The current template type (also known as a "theming hook").
+  *   - paragraph--type-[type]: The current paragraph type. For example, if the paragraph is an "Image" it would result in "paragraph--type-image". Note that the machine name will often be in a short form of the human readable label.
+  *   - paragraph--view-mode-[view_mode]: The View Mode of the paragraph; for example, a preview would result in: "paragraph--view-mode-preview", and default: "paragraph--view-mode-default".
+  * - view_mode: View mode; for example, "preview" or "full".
+  * - logged_in: Flag for authenticated user status. Will be true when the current user is a logged-in member.
+  * - is_admin: Flag for admin user status. Will be true when the current user is an administrator.
+  *
+  * @see template_preprocess_paragraph()
+  *
+  * @ingroup themeable
+  */
 #}
 
 {%

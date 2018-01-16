@@ -8,13 +8,13 @@
 
 <div class="{{ classes }}" style="background-image: url({{ image }});">
   <div class="hero-bg-image__content">
-    {% if title %}
+    {% if has_title %}
       <h1 class="hero-bg-image__title">{{ title }}</h1>
     {% endif %}
-    {% if subtitle %}
+    {% if has_subtitle %}
       <div class="hero-bg-image__subtitle">{{ subtitle }}</div>
     {% endif %}
-    {% if summary %}
+    {% if has_summary %}
       <div class="hero-bg-image__text">{{ summary|raw }}</div>
     {% endif %}
     {% if has_button %}
