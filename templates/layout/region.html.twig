@@ -21,9 +21,16 @@
 %}
 
 {% if content %}
-  <section{{ attributes.addClass(classes) }}>
-    {% if region in constrain %}<div class="l-constrain">{% endif %}
+  {% embed '@layouts/section/section.twig' with {
+    'has_wrapper': true,
+    'has_constrain': region in constrain ? true : false,
+    'has_label': false,
+    'has_content_wrapper': false
+  } %}
+
+    {% block content %}
       {{ content }}
-    {% if region in constrain %}</div>{% endif %}
-  </section>
+    {% endblock %}
+
+  {% endembed %}
 {% endif %}
