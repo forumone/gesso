@@ -1,0 +1,14 @@
+// @file
+// Styles for the subnav menu.
+
+.menu--submenu {
+  @include list-pipeline;
+
+  @media print {
+    display: none;
+  }
+
+  .menu__link {
+    font-size: em($font-size-sm);
+  }
+}
