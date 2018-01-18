@@ -1,6 +1,7 @@
 ---
 has_wrapper: true
 element: "section"
+hide_section_classes: false 
 attributes:
   Attribute():
     class:

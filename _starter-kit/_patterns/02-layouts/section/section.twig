@@ -1,21 +1,25 @@
-{% if not classes %}
-  {% set classes = [] %}
+{% if not hide_section_classes %}
+  {% if not classes %}
+    {% set classes = [] %}
+  {% endif %}
+  {% set classes =
+    classes|merge(['l-section'])|join(' ')|trim
+  %}
+  {% if not title_classes %}
+    {% set title_classes = [] %}
+  {% endif %}
+  {% set title_classes =
+    title_classes|merge(['l-section__title'])|join(' ')|trim
+  %}
+
+  {% if not content_classes %}
+    {% set content_classes = [] %}
+  {% endif %}
+  {% set content_classes =
+    content_classes|merge(['l-section__content'])|join(' ')|trim
+  %}
 {% endif %}
-{% set classes =
-  classes|merge(['l-section'])|join(' ')|trim
-%}
-{% if not title_classes %}
-  {% set title_classes = [] %}
-{% endif %}
-{% set title_classes =
-  title_classes|merge(['l-section__title'])|join(' ')|trim
-%}
-{% if not content_classes %}
-  {% set content_classes = [] %}
-{% endif %}
-{% set content_classes =
-  content_classes|merge(['l-section__content'])|join(' ')|trim
-%}
+
 {% if has_wrapper %}
   <{{ element ?: "section" }}{{- attributes.addClass(classes)|raw -}}>
 {% endif %}
