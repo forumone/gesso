@@ -1,4 +1,6 @@
-{% set classes = [] %}
+{% if not classes %}
+  {% set classes = [] %}
+{% endif %}
 {% set classes =
   classes|merge(['article','article--full'])|join(' ')|trim
 %}
