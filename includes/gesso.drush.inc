@@ -108,8 +108,8 @@ function drush_gesso($name = NULL) {
 
   // Get theme paths.
   $gesso_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'gesso'));
-  $theme_path = 'themes';
-  $new_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . $theme_path . '/' . $machine_name);
+  $theme_path = substr($gesso_path, 0, strrpos( $gesso_path, '/'));
+  $new_path = drush_normalize_path($theme_path . '/' . $machine_name);
 
   // Copy the Gesso theme directory recursively to the new theme’s location.
   drush_op('drush_copy_dir', $gesso_path, $new_path);
@@ -154,12 +154,12 @@ function drush_gesso($name = NULL) {
     $libraries_file,
     $theme_file,
     'js/scripts.js',
+    'includes/block.inc',
     'includes/form.inc',
     'includes/html.inc',
-    'templates/misc/progress-bar.html.twig',
-    'templates/misc/status-messages.html.twig',
-    'templates/navigation/pager.html.twig',
-    'templates/views/views-mini-pager.html.twig',
+    'includes/navigation.inc',
+    'includes/taxonomy.inc',
+    'includes/views.inc',
   ];
   foreach ($files as $file) {
     drush_op('gesso_file_str_replace', drush_normalize_path($new_path . '/' . $file), 'gesso', $machine_name);
