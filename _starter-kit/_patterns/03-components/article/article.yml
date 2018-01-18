@@ -2,6 +2,8 @@
 attributes:
   Attribute():
     role: "article"
+    class:
+      -
 title:
   join():
     - include():
