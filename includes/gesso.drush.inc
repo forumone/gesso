@@ -108,8 +108,8 @@ function drush_gesso($name = NULL) {
 
   // Get theme paths.
   $gesso_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'gesso'));
-  $theme_path = 'themes';
-  $new_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . $theme_path . '/' . $machine_name);
+  $theme_path = substr($gesso_path, 0, strrpos( $gesso_path, '/'));
+  $new_path = drush_normalize_path($theme_path . '/' . $machine_name);
 
   // Copy the Gesso theme directory recursively to the new theme’s location.
   drush_op('drush_copy_dir', $gesso_path, $new_path);
