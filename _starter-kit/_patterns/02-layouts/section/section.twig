@@ -1,3 +1,16 @@
+{% set classes = [] %}
+{% set classes =
+  classes|merge(['l-section'])|join(' ')|trim
+%}
+{% set title_classes = [] %}
+{% set title_classes =
+  title_classes|merge(['l-section__title'])|join(' ')|trim
+%}
+{% set content_classes = [] %}
+{% set content_classes =
+  content_classes|merge(['l-section__content'])|join(' ')|trim
+%}
+
 {% if has_wrapper %}
   <{{ element ?: "section" }}{{- attributes.addClass(classes)|raw -}}>
 {% endif %}

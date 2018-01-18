@@ -1,8 +1,6 @@
-{%
-  set classes = classes|merge([
-    'article',
-    'article--full'
-  ])|join(' ')|trim
+{% set classes = [] %}
+{% set classes =
+  classes|merge(['article','article--full'])|join(' ')|trim
 %}
 
 <article{{- attributes.addClass(classes)|raw -}}>
