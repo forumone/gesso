@@ -19,11 +19,9 @@
     {% endif %}
     {% if has_button %}
       <div class="hero-bg-image__call-to-action">
-        {% include "components-button"
-          with {
-            text: button_text
-          }
-        %}
+        {% block call_to_action %}
+          {{ call_to_action_content|raw }}
+        {% endblock %}
       </div>
     {% endif %}
   </div>

@@ -9,4 +9,10 @@ subtitle: "Hero Subtitle"
 has_summary: true
 summary: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
 has_button: true
-button_text: "Hero Button"
+call_to_action_content:
+  join():
+    - include():
+        pattern: components-button
+        with:
+          text: 'Hero Button'
+          url: '#'

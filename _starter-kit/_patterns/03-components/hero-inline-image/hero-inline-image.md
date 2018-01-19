@@ -15,4 +15,4 @@ _Component for Hero Inline Image_
 * has_summary: [boolean] True/False identifying component has summary.
 * summary: [string] Summary of hero.
 * has_button: [boolean] True/False identifying component has a button element.
-* button_text: [string] Label of button on hero.
+* call_to_action_content: Content for the call to action section.

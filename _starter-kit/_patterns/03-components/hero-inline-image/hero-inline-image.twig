@@ -25,11 +25,9 @@
     {% endif %}
     {% if has_button %}
       <div class="hero-inline-image__call-to-action">
-        {% include "components-button"
-          with {
-            text: button 
-          }
-        %}
+        {% block call_to_action %}
+          {{ call_to_action_content|raw }}
+        {% endblock %}
       </div>
     {% endif %}
   </div>
