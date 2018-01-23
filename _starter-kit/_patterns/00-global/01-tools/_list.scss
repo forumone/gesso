@@ -6,6 +6,10 @@
   margin: 0;
   padding: 0;
 
+  > li  {
+    display: block;
+  }
+
   li::before {
     display: none;
   }
@@ -68,11 +72,10 @@
   }
 }
 
-
-
 @mixin list-border($list-border-padding: .25rem) {
   list-style: none;
   margin-left: 0;
+  padding-left: 0;
 
   > li {
     border-bottom: 1px solid #ccc;
@@ -80,10 +83,10 @@
   }
 }
 
-
 @mixin list-column ($list-column-count: 2, $list-column-gap: 2em, $list-item-padding: 0.25em) {
   list-style: none;
   margin-left: 0;
+  padding-left: 0;
 
   @include breakpoint(500px) {
     column-count: $list-column-count;
