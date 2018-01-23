@@ -2,7 +2,7 @@
 // Styles for the Menu.
 
 .menu {
-  @include list-inline;
+  @include list-clean;
 
   @media print {
     display: none;
