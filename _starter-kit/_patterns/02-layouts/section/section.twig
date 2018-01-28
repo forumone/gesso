@@ -25,7 +25,7 @@
 {% endif %}
 
   {% if has_constrain %}
-    <div class="l-constrain">
+    <div class="{{ constrain_classes ?: "l-constrain" }}">
   {% endif %}
 
   {% if has_label %}
