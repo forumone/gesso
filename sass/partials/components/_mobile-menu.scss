@@ -5,11 +5,6 @@ $mobile-menu-fallback-bg-color: #f3f3f3 !default;
 $mobile-menu-bg-color: rgba(243, 243, 243, 0.98) !default;
 $mobile-menu-border-color: #dadada !default;
 $mobile-menu-text-color: #555559 !default;
-$mobile-menu-hover-color: #000 !default;
-$mobile-submenu-fallback-bg-color: #fff !default;
-$mobile-submenu-bg-color: rgba(255, 255, 255, 0.98) !default;
-$mobile-submenu-text-color: #555559 !default;
-$mobile-submenu-hover-color: #000 !default;
 
 .mobile-menu {
   @include breakpoint($bp-hide-mobile-menu) {
