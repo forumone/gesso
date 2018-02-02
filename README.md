@@ -16,6 +16,13 @@ For more information, view the
 To submit bug reports or feature requests, visit the
 [Gesso issue queue](https://github.com/forumone/gesso/issues).
 
+### Global Prerequisites
+The following packages need to be installed on your system in order to use
+Gesso WordPress.
+
+- [composer](https://getcomposer.org)
+- [npm](https://www.npmjs.com/get-npm)
+- [grunt](https://gruntjs.com/getting-started)
 
 ## Installation
 
@@ -32,7 +39,7 @@ Twig namespaces, this module is required for the theme to function.
 3.  Optional: Install the
 [Twig Tweak](https://www.drupal.org/project/twig_tweak) and
 [Twig Field Value](https://www.drupal.org/project/twig_field_value) modules.
-These are not required, but may make working with Twig templates easier.    
+These are not required, but may make working with Twig templates easier.
 
 4.  Optional: Because Gesso is a starter theme, you may want to rename the
 Gesso directory or copy its contents to a new custom theme directory based on

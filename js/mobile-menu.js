@@ -2,7 +2,7 @@
 
   'use strict';
 
-  // The styling for this mobile menu is located in sass/components/mobile-menu/_mobile-menu.scss.
+  // The styling for this mobile menu is located in pattern-lab/source/_patterns/03-components/mobile-menu/_mobile-menu.scss.
 
   Drupal.behaviors.mobileMenu = {
     attach: function (context) {
