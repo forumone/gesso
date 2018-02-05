@@ -9,7 +9,7 @@ $pager-bg-color-active: #d6d7d9;
 .pager {}
 
 .pager__items {
-  @include list-inline();
+  @include list-clean();
   clear: both;
   margin: em($vertical-spacing * 2) 0;
   padding: 0;
@@ -17,6 +17,7 @@ $pager-bg-color-active: #d6d7d9;
 }
 
 .pager__item {
+  display: inline-block;
   font-weight: bold;
   line-height: 1;
   margin: 0;
