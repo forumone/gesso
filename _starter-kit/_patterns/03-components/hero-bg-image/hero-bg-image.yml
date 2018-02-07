@@ -1,5 +1,5 @@
 ---
-custom_class: false
+custom_classes: false
 image: "http://lorempixel.com/1600/800/nature/"
 has_overlay: true
 has_title: true

@@ -11,5 +11,7 @@
     {% include "base-short-date" %}
   {% elseif format == "short-datetime" %}
     {% include "base-short-datetime" %}
+  {% else %}
+    {{ content }}
   {% endif %}
 </div>
