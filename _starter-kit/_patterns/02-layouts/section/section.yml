@@ -1,13 +1,12 @@
 ---
 has_wrapper: true
-element: "section"
-hide_section_classes: false
+element: section
 attributes:
   Attribute():
     class:
       -
 has_constrain: false
-constrain_classes: "l-constrain"
+constrain_classes: l-constrain
 has_label: true
 label_element: h2
 label: Section title
