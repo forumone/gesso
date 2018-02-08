@@ -21,13 +21,10 @@
       }
     }
   }
-  & {
-    * + & { // add top margin when headers are preceded by other elements
-      margin-top: 1em;
-    }
-    & + & { // remove top margin for adjacent subheadings
-      margin-top: 0;
-    }
+
+  // Add top margin when headers are preceded by other elements (p, ul, etc.)
+  * + & {
+    margin-top: 1em;
   }
 }
 
@@ -68,4 +65,11 @@ h6,
   font-size: em($font-size-h6);
   font-weight: 400;
   text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  // Remove top margin for adjacent subheadings.
+  & + & {
+    margin-top: 0;
+  }
 }
