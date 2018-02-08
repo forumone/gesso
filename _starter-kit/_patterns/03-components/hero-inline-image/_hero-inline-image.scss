@@ -29,9 +29,7 @@
   margin-bottom: 0.25em;
 }
 
-.hero-inline-image__subtitle {
-  @extend %h3;
-}
+.hero-inline-image__subtitle {}
 
 .hero-inline-image__picture {
   display: block;
