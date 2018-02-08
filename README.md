@@ -36,12 +36,16 @@ for more information.
 Since many of the Drupal templates reference twig files inside Pattern Lab using
 Twig namespaces, this module is required for the theme to function.
 
-3.  Optional: Install the
-[Twig Tweak](https://www.drupal.org/project/twig_tweak) and
-[Twig Field Value](https://www.drupal.org/project/twig_field_value) modules.
-These are not required, but may make working with Twig templates easier.
+3.  Install the
+[Twig Field Value](https://www.drupal.org/project/twig_field_value) module.
+Some of the Drupal templates make use of this module's functionality to
+reference field values.
 
-4.  Optional: Because Gesso is a starter theme, you may want to rename the
+4.  Optional: Install the
+[Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
+This is not required, but will make working with Twig templates easier.
+
+5.  Optional: Because Gesso is a starter theme, you may want to rename the
 Gesso directory or copy its contents to a new custom theme directory based on
 the name of your project.
 
