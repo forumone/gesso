@@ -1,0 +1,46 @@
+---
+title:
+title_element: h3
+has_wrapper: true
+element: div
+rows:
+- content:
+    join():
+      - include():
+          pattern: components-teaser
+  attributes:
+    Attribute():
+      class:
+      - view__row
+- content:
+    join():
+      - include():
+          pattern: components-teaser
+  attributes:
+    Attribute():
+      class:
+      - view__row
+- content:
+    join():
+      - include():
+          pattern: components-teaser
+  attributes:
+    Attribute():
+      class:
+      - view__row
+- content:
+    join():
+      - include():
+          pattern: components-teaser
+  attributes:
+    Attribute():
+      class:
+      - view__row
+- content:
+    join():
+      - include():
+          pattern: components-teaser
+  attributes:
+    Attribute():
+      class:
+      - view__row

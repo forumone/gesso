@@ -1,0 +1,13 @@
+{% if title %}
+  <{{ title_element ?: 'h3' }}>{{ title }}</{{ title_element ?: 'h3' }}>
+{% endif %}
+
+{% for row in rows %}
+  {% if has_wrapper %}
+    <{{ element ?: 'div' }}{{- row.attributes.addClass('view__row')|raw -}}>
+      {{ row.content|raw }}
+    </{{ element ?: 'div' }}>
+  {% else %}
+    {{ row.content|raw }}
+  {% endif %}
+{% endfor %}
