@@ -1,6 +1,6 @@
 ---
 el: .messages
-title: MEssages
+title: Messages
 ---
 _Component for Messages_
 
