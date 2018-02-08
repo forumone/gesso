@@ -141,6 +141,11 @@ form {}
   line-height: 1.3;
   margin: 0 0 rem($vertical-spacing);
   text-rendering: optimizeLegibility;
+
+  // Add top margin when headers are preceded by other elements (p, ul, etc.)
+  * + & {
+    margin-top: 1em;
+  }
 }
 
 h1,
@@ -180,6 +185,13 @@ h6,
   font-size: em($font-size-xs);
   font-weight: 400;
   text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  // Remove top margin for adjacent subheadings.
+  & + & {
+    margin-top: 0;
+  }
 }
 
 header {}
