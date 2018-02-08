@@ -1,0 +1,63 @@
+<{{ element ?: 'div' }}{{- attributes.addClass(classes)|raw -}}>
+
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if header %}
+    <div class="view__header">
+      {{ header|raw }}
+    </div>
+  {% endif %}
+
+  {% if exposed %}
+    <div class="view__filters">
+      {{ exposed|raw }}
+    </div>
+  {% endif %}
+
+  {% if attachment_before %}
+    <div class="attachment attachment--before">
+      {{ attachment_before|raw }}
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    <div class="view__content">
+      {{ rows|raw }}
+    </div>
+  {% elseif empty %}
+    <div class="view__empty">
+      {{ empty|raw }}
+    </div>
+  {% endif %}
+
+  {% if pager %}
+    {{ pager|raw }}
+  {% endif %}
+
+  {% if attachment_after %}
+    <div class="attachment attachment--after">
+      {{ attachment_after|raw }}
+    </div>
+  {% endif %}
+
+  {% if more %}
+    {{ more|raw }}
+  {% endif %}
+
+  {% if footer %}
+    <div class="view__footer">
+      {{ footer|raw }}
+    </div>
+  {% endif %}
+
+  {% if feed_icons %}
+    <div class="feed-icons">
+      {{ feed_icons|raw }}
+    </div>
+  {% endif %}
+
+</{{ element ?: 'div' }}>

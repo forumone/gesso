@@ -14,16 +14,11 @@
   * @see template_preprocess_views_view_unformatted()
   */
 #}
-{% if title %}
-  <h3>{{ title }}</h3>
-{% endif %}
-{% for row in rows %}
-  {%
-    set row_classes = [
-      default_row_class ? 'view__row',
-    ]
-  %}
-  <div{{ row.attributes.addClass(row_classes) }}>
-    {{ row.content }}
-  </div>
-{% endfor %}
+
+{% include '@components/views/views-view-unformatted/views-view-unformatted.twig' with {
+  'title': title,
+  'title_element': "h3",
+  'has_wrapper': true,
+  'element': "div",
+  'rows': rows
+} %}
