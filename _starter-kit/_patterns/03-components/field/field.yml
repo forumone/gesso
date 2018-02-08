@@ -1,0 +1,20 @@
+---
+label: Field Label
+label_hidden: false
+label_element: h3
+title_attributes:
+  Attribute():
+    class:
+    - field__label
+attributes:
+  Attribute():
+    class:
+    - field
+multiple: false
+items:
+- content: Field Item
+  attributes:
+    Attribute():
+      class:
+      - field__item
+element: div
