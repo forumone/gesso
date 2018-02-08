@@ -7,7 +7,6 @@ _Layout for Section_.
 ### Variables:
 * has_wrapper: [boolean] True/False whether to add a main wrapping element.
 * element: [string] HTML element to use for main wrapper.
-* hide_section_classes: [boolean]  True/False whether section component classes (l-section, l-section__title, l-section__content) are output
 * attributes: [array] HTML attributes for the containing element.
   * class: [string] any classes added by user or system.
 * has_constrain: [boolean] True/False whether to add a constraint to block.

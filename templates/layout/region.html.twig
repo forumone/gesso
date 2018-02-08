@@ -6,32 +6,13 @@
 #}
 
 {%
-  set classes, constrain = [
+  set classes = [
     'l-' ~ region|clean_class,
-  ],
-  [
-    'navigation',
-    'breadcrumb',
-    'help',
-    'highlighted',
-    'preface',
-    'content',
-    'postscript'
   ]
 %}
 
 {% if content %}
-  {% embed '@layouts/section/section.twig' with {
-    'has_wrapper': true,
-    'element': 'div',
-    'has_constrain': region in constrain ? true : false,
-    'has_label': false,
-    'has_content_wrapper': false
-  } %}
-
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-
-  {% endembed %}
+  <div{{ attributes.addClass(classes) }}>
+    {{ content }}
+  </div>
 {% endif %}
