@@ -1,12 +1,15 @@
 {% include 'layouts-header' %}
 {% include 'layouts-navigation' %}
-{% include 'layouts-preface' %}
+{% include 'layouts-breadcrumb' %}
 
 <main id="main" class="main" role="main" tabindex="-1">
-  {% include 'layouts-content' with {
+  {% include 'layouts-preface' %}
+  {% include 'layouts-content' with
+    {
       content: content
-  } %}
+    }
+  %}
+  {% include 'layouts-postscript' %}
 </main>
 
-{% include 'layouts-postscript' %}
 {% include 'layouts-footer' %}

@@ -1,2 +1,5 @@
 ---
-content: "Breadcrumb Region"
+content:
+  join():
+    - include():
+        pattern: components-breadcrumb
