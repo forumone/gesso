@@ -5,19 +5,19 @@ attributes:
     class:
       - view
 title:
-header:
-exposed:
-attachment_before:
+header: ''
+exposed: ''
+attachment_before: ''
 rows:
   join():
     - include():
         pattern: components-views-view-unformatted
-empty:
+empty: ''
 pager:
   join():
     - include():
         pattern: components-pager
-attachment_after:
-more:
-footer:
-feed_icons:
+attachment_after: ''
+more: ''
+footer: ''
+feed_icons: ''
