@@ -4,7 +4,7 @@ var inquirer= require('inquirer');
 init();
 
 function init() {
-  var patternsDir = "./pattern-lab/source/_patterns/";
+  var patternsDir = process.cwd() +  "/pattern-lab/source/_patterns/";
   var questions = [
     {
       type: 'input',
