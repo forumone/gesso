@@ -11,32 +11,52 @@
 
 .l-grid--2col {
   @include flex-grid(2);
-  
+
   @supports(display:grid) {
     @include css-grid(2);
-  }  
+  }
 }
 
 .l-grid--3col {
-  @include flex-grid(3);
+  @include breakpoint(600px) {
+    @include flex-grid(3);
 
-  @supports(display:grid) {
-    @include css-grid(3);
+    @supports(display:grid) {
+      @include css-grid(3);
+   }
   }
 }
 
 .l-grid--4col {
-  @include flex-grid(4);
+  @include breakpoint(500px 799px) {
+    @include flex-grid(2);
 
-  @supports(display:grid) {
-    @include css-grid(4);
+    @supports(display:grid) {
+      @include css-grid(2);
+    }
+  }
+  @include breakpoint(800px) {
+    @include flex-grid(4);
+
+    @supports(display:grid) {
+      @include css-grid(4);
+    }
   }
 }
 
 .l-grid--6col {
-  @include flex-grid(6);
+  @include breakpoint(600px 899px) {
+    @include flex-grid(3);
 
-  @supports(display:grid) {
-    @include css-grid(6);
+    @supports(display:grid) {
+      @include css-grid(3);
+    }
+  }
+  @include breakpoint(900px) {
+    @include flex-grid(6);
+
+    @supports(display:grid) {
+      @include css-grid(6);
+    }
   }
 }

@@ -9,7 +9,7 @@ content:
               - include():
                   pattern: components-page-title
                   with:
-                    page_title: "Concerning the American Language"
+                    page_title: "Red Five Standing By"
           has_footer: true
           footer:
             join():
@@ -20,8 +20,8 @@ content:
               - include():
                   pattern: components-author
                   with:
-                    author: "Mark Twain"
+                    author: "Anakin Skywalker"
           content: |-
-            <p>There was an <em>Englishman</em> in our compartment, and he complimented me on&mdash;on what? But you would never guess. He complimented me on my English. He said Americans in general did not speak the English language as correctly as I did. I said I was obliged to him for his compliment, since I knew he meant it for one, but that I was not fairly entitled to it, for I did not speak English at all&mdash;I only spoke American.</p>
-            <p>He laughed, and said it was a distinction without a difference. I said no, the difference was not prodigious, but still it was considerable. We fell into a friendly dispute over the matter. I put my case as well as I could, and said:</p>
-            <p>&ldquo;The languages were identical several generations ago, but our changed conditions and the spread of our people far to the south and far to the west have made many alterations in our pronunciation, and have introduced new words among us and changed the meanings of many old ones. English people talk through their noses; we do not. We say know, English people say nao; we say cow, the Briton says kaow; we&mdash;&rdquo;</p>
+            <p>I want to come with you to Alderaan. There's nothing for me here now. I want to learn the ways of the Force and be a Jedi, like my father before me. She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time!</p>
+            <p>Don't underestimate the Force. Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money. But with the blast shield down, I can't even see! How am I supposed to fight? Oh God, my uncle. How am I ever gonna explain this? I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time!</p>
+            <p>I need your help, Luke. She needs your help. I'm getting too old for this sort of thing. Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you. Your eyes can deceive you. Don't trust them. Hokey religions and ancient weapons are no match for a good blaster at your side, kid. The plans you refer to will soon be back in our hands. Still, she's got a lot of spirit. I don't know, what do you think?</p>

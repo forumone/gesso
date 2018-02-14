@@ -6,12 +6,59 @@ content:
         with:
           page_title: "Landing Page"
     - include():
-        pattern: components-image-teaser
-    - include():
-        pattern: components-image-teaser
-    - include():
-        pattern: components-image-teaser
-    - include():
-        pattern: components-image-teaser
+        pattern: layouts-section
+        with:
+          has_constrain: false
+          has_label: false
+          content:
+            join():
+              - include():
+                  pattern: layouts-grid
+                  with:
+                    modifier_classes: 'l-grid--3col'
+                    content:
+                      join():
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "Don't Underestimate The Force"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=558"
+                              content: "You are a part of the Rebel Alliance and a traitor! Take her away! Oh God, my uncle. How am I ever gonna explain this?"
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "Rebel Spies"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=582"
+                              content: "Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. "
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "Dantooine"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=604"
+                              content: "What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage."
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "Red Five"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=613"
+                              content: "Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force."
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "May The Force Be With You"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=659"
+                              content: "I can't get involved! I've got work to do! It's not that I like the Empire, I hate it, but there's nothing I can do about it right now. It's such a long way from here."
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "Mos Eisley"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=660"
+                              content: " I need your help, Luke. She needs your help. I'm getting too old for this sort of thing."
     - include():
         pattern: components-pager

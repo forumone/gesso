@@ -1,9 +1,9 @@
 ---
 custom_classes: false
 image:
-  small: "http://lorempixel.com/800/400/nature/"
-  medium: "http://lorempixel.com/1200/600/nature/"
-  large: "http://lorempixel.com/1600/800/nature/"
+  small: "https://picsum.photos/800/400?random"
+  medium: "https://picsum.photos/1200/600?random"
+  large: "https://picsum.photos/1600/800?random"
 has_overlay: true
 title: "Hero Title"
 has_subtitle: true

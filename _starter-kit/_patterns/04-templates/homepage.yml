@@ -2,9 +2,52 @@
 content:
   join():
     - include():
-        pattern: components-hero-bg-image
+        pattern: layouts-section
         with:
-          title: "Homepage Hero Title"
-          has_subtitle: false
-    - |-
-      <p>Homepage content goes here</p>
+          has_constrain: false
+          has_label: false
+          content:
+            join():
+              - include():
+                  pattern: components-hero-bg-image
+                  with:
+                    title: "Homepage Hero Title"
+                    has_subtitle: false
+    - include():
+        pattern: layouts-section
+        with:
+          has_constrain: false
+          has_label: true
+          label: "Hidden Plans in the Escape Pod"
+          content:
+            join():
+              - include():
+                  pattern: layouts-grid
+                  with:
+                    modifier_classes: 'l-grid--4col'
+                    content:
+                      join():
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "I've Seen a Lot of Strange Stuff"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=600"
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "Diplomatic Mission to Alderaan"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=700"
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "Rebel Alliance"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=800"
+                        - include():
+                            pattern: components-card
+                            with:
+                              title: "Tarkin"
+                              url: "#"
+                              media: "https://picsum.photos/550/309?image=900"
