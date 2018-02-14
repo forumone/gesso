@@ -1,41 +1,26 @@
-{% set classes = [
-  'card',
-  card_media ? 'card--media',
-] %}
-
-{% set classes = card_modifier|merge(classes)|join(' ')|trim %}
-<div {{- attributes.addClass(classes)|raw -}}>
-    <div class="card__body">
-        <div class="card__header">
-            {% block card_header %}
-              <h4 class="card__title">
-                {% if url %}<a href="{{url}}">{% endif %}
-                  {{title}}
-                {% if url %}</a>{% endif %}
-              </h4>
-            {% endblock %}
-        </div>
-        <div class="card__content">
-            {% block card_content %}
-                {{ content|raw }}
-            {% endblock %}
-        </div>
-        {% if card_footer %}
-          <div class="card__footer">
-            {% block card_footer %}
-              {{ footer|raw }}
-            {% endblock %}
-          </div>
-        {% endif %}
+<div class="card">
+  <div class="card__body">
+    <div class="card__header">
+      <h4 class="card__title">
+        {% if url %}<a href="{{ url }}">{% endif %}
+          {{title}}
+        {% if url %}</a>{% endif %}
+      </h4>
     </div>
-    {% if media %}
-        <div class="card__media">
-          {% block card_media %}
-            {% if url %}<a href="{{url}}">{% endif %}
-                <div class="card__media-image" style="background-image: url({{ media|raw }});">
-                </div> 
-              {% if url %}</a>{% endif %}
-          {% endblock %}
-        </div>
+    <div class="card__content">
+      {{ content|raw }}
+    </div>
+    {% if footer %}
+      <div class="card__footer">
+        {{ footer|raw }}
+      </div>
     {% endif %}
+  </div>
+  {% if media %}
+    <div class="card__media">
+      {% if url %}<a href="{{ url }}">{% endif %}
+        <div class="card__media-image" style="background-image: url({{ media|raw }});"></div>
+      {% if url %}</a>{% endif %}
+    </div>
+  {% endif %}
 </div>
