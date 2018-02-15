@@ -4,7 +4,7 @@ content:
     - include():
         pattern: components-page-title
         with:
-          page_title: "Landing Page"
+          page_title: "Great Scott!"
     - include():
         pattern: layouts-section
         with:
@@ -21,44 +21,44 @@ content:
                         - include():
                             pattern: components-card
                             with:
-                              title: "Don't Underestimate The Force"
+                              title: "Delorean"
                               url: "#"
                               media: "https://picsum.photos/550/309?image=558"
-                              content: "You are a part of the Rebel Alliance and a traitor! Take her away! Oh God, my uncle. How am I ever gonna explain this?"
+                              content: " It's a board with wheels. What's with the life preserver?"
                         - include():
                             pattern: components-card
                             with:
-                              title: "Rebel Spies"
+                              title: "Eighty Eight MPH"
                               url: "#"
                               media: "https://picsum.photos/550/309?image=582"
-                              content: "Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. "
+                              content: "No no no this sucker's electrical, but I need a nuclear reaction to generate the one point twenty-one gigawatts of electricity that I need."
                         - include():
                             pattern: components-card
                             with:
-                              title: "Dantooine"
+                              title: "1.21 Gigawatts"
                               url: "#"
                               media: "https://picsum.photos/550/309?image=604"
-                              content: "What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage."
+                              content: "If you guys ever have kids and one of them when he's eight years old, accidentally sets fire to the living room rug, be easy on him."
                         - include():
                             pattern: components-card
                             with:
-                              title: "Red Five"
+                              title: "Doctor Brown"
                               url: "#"
                               media: "https://picsum.photos/550/309?image=613"
-                              content: "Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force."
+                              content: " Hey, Doc, we better back up, we don't have enough road to get up to 88."
                         - include():
                             pattern: components-card
                             with:
-                              title: "May The Force Be With You"
+                              title: "Enchantment Under The Sea"
                               url: "#"
                               media: "https://picsum.photos/550/309?image=659"
-                              content: "I can't get involved! I've got work to do! It's not that I like the Empire, I hate it, but there's nothing I can do about it right now. It's such a long way from here."
+                              content: "Not a word, not a word, not a word now. Quiet... you want me to make a donation to the coast guard youth auxiliary?"
                         - include():
                             pattern: components-card
                             with:
-                              title: "Mos Eisley"
+                              title: "Twin Pines Mall"
                               url: "#"
                               media: "https://picsum.photos/550/309?image=660"
-                              content: " I need your help, Luke. She needs your help. I'm getting too old for this sort of thing."
+                              content: "You fell and you hit your head on the sink, and that's when you came up with the idea for the flux capacitor, which makes time travel possible."
     - include():
         pattern: components-pager

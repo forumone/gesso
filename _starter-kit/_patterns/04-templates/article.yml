@@ -9,7 +9,7 @@ content:
               - include():
                   pattern: components-page-title
                   with:
-                    page_title: "Red Five Standing By"
+                    page_title: "As You Wish"
           has_footer: true
           footer:
             join():
@@ -20,8 +20,8 @@ content:
               - include():
                   pattern: components-author
                   with:
-                    author: "Anakin Skywalker"
+                    author: "Inigo Montoya"
           content: |-
-            <p>I want to come with you to Alderaan. There's nothing for me here now. I want to learn the ways of the Force and be a Jedi, like my father before me. She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time!</p>
-            <p>Don't underestimate the Force. Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money. But with the blast shield down, I can't even see! How am I supposed to fight? Oh God, my uncle. How am I ever gonna explain this? I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time!</p>
-            <p>I need your help, Luke. She needs your help. I'm getting too old for this sort of thing. Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you. Your eyes can deceive you. Don't trust them. Hokey religions and ancient weapons are no match for a good blaster at your side, kid. The plans you refer to will soon be back in our hands. Still, she's got a lot of spirit. I don't know, what do you think?</p>
+            <p>You're the Dread Pirate Roberts, admit it. How many do you think you could handle? You mean you wish to surrender to me? Very well, I accept. But how can you be sure? Will this do? You truly love each other and so you might have been truly happy. Not one couple in a century has that chance, no matter what the story books say. And so I think no man in a century will suffer as greatly as you will. You only think I guessed wrong! That's what's so funny! I switched glasses when your back was turned! Ha ha! You fool! You fell victim to one of the classic blunders - The most famous of which is "never get involved in a land war in Asia" - but only slightly less well-known is this: "Never go against a Sicilian when death is on the line"! Ha ha ha ha ha ha ha! Ha ha ha ha ha ha ha! Ha ha ha...</p>
+            <p>They were both poisoned. I spent the last few years building up an immunity to iocane powder. Unless the enemy has studied his Agrippa... which I have. Move? You're alive. If you want I can fly. You just shook your head... doesn't that make you happy? Truly, you have a dizzying intellect. Probably he means no *harm*.</p>
+            <p>Well, I'm not saying I'd like to build a summer home here, but the trees are actually quite lovely. And YOU: friendless, brainless, helpless, hopeless! Do you want me to send you back to where you were? Unemployed, in Greenland? No, there is too much. Let me sum up. Buttercup is marry' Humperdinck in a little less than half an hour. So all we have to do is get in, break up the wedding, steal the princess, make our escape... after I kill Count Rugen. You seem a decent fellow... I hate to kill you. Naturally... but I find that Thibault cancels out Capa Ferro. Don't you?</p>
