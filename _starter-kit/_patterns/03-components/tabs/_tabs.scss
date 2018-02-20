@@ -17,7 +17,7 @@ $tab-font-size: $font-size-md !default;
   @include clearfix;
 }
 
-.tab__items {
+.tabs__items {
   @include list-clean;
   display: flex;
   flex-direction: column;
@@ -31,23 +31,23 @@ $tab-font-size: $font-size-md !default;
   }
 }
 
-.tab__item {
+.tabs__item {
   &:first-child {
-    .tab__link {
+    .tabs__link {
       border-bottom-left-radius: $tab-border-radius;
       border-left: 0;
       border-top-left-radius: $tab-border-radius;
     }
   }
   &:last-child {
-    .tab__link {
+    .tabs__link {
       border-bottom-right-radius: $tab-border-radius;
       border-top-right-radius: $tab-border-radius;
     }
   }
 }
 
-.tab__link {
+.tabs__link {
   @extend %system-font-family;
   @include button(
     $tab-color-bg,
