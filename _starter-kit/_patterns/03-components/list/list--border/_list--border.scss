@@ -1,0 +1,6 @@
+// @file
+// Styles for border list.
+
+.list--border {
+  @include list-border();
+}
