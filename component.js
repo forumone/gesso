@@ -1,10 +1,22 @@
 var fs= require('fs');
 var inquirer= require('inquirer');
+var path = require('path');
+var mkdirp = require('mkdirp');
+
+const isDirectory = source => fs.lstatSync(source).isDirectory(); 
+
+const getDirectories = source => {
+  return fs.readdirSync(source)
+  .map(name => path.join(source, name))
+  .filter(isDirectory);
+}
 
 init();
 
 function init() {
-  var patternsDir = process.cwd() +  "/pattern-lab/source/_patterns/";
+  const patternSrc = process.cwd() +  "/pattern-lab/source/_patterns/";
+  const patternDir = getDirectories(patternSrc);
+
   var questions = [
     {
       type: 'input',
@@ -12,27 +24,36 @@ function init() {
       message: 'What is the name your component?'
     },
     {
-      type: 'input',
-      name: 'component_location',
-      message: 'Component Location',
-      default: '03-components'
-    },
-    {
       type: 'confirm',
       name: 'document',
       message: 'Do you want documentation (markdown)?'
     },
+    {
+      type: 'list',
+      name: 'component_folder',
+      message: 'Component Location',
+      choices: patternDir.map(item => path.basename(item)),
+    },
+    {
+      type: 'input',
+      name: 'component_folder_sub',
+      message: 'Include subfolder or leave blank',
+    },
   ];
 
   inquirer.prompt(questions).then(answers => {
-    var componentName = answers.component_name;
+    var componentName = answers.component_name.trim();
     var componentDocumentation = answers.document;
-    var componentLocation = patternsDir +  answers.component_location;
+    var componentLocation = path.join(
+      patternSrc,
+      answers.component_folder,
+      machineName(answers.component_folder_sub),
+      machineName(componentName),
+    );
     var output = '---\n' + 
       'Component Name: ' + componentName + '\n' +
-      'Include Documentation: ' + componentDocumentation + '\n' +
-      'Component Location: ' + componentLocation + '/' + machineName(componentName);
-      
+      'Include Documentation: '+ ((componentDocumentation) ? 'Yes': 'No') + '\n' +
+      'Component Location: ' + componentLocation + '\n';      
     console.log(output);
 
     var confirm = [
@@ -46,7 +67,6 @@ function init() {
     inquirer.prompt(confirm).then(answers => {
       if (answers.confirm) {
         createComponent(componentName, componentLocation, componentDocumentation); 
-        console.log(componentName + ' created');
       } else {
         console.log('Component cancelled');
       }
@@ -60,29 +80,33 @@ function machineName(name) {
 
 function createComponent(component, location, documentation) {
 
-  var componentName= component ;
-  var componentLocation = location + '/' + machineName(component);
+  if (fs.existsSync(location)) {
+    console.log('Component directory already exists');
+  } else {
 
+    mkdirp(location, function (err) {
+      if (err) {
+        console.error(err)
+      
+      } else {
+        var filesArray = ['scss', 'twig', 'yml'];
+        filesArray.forEach(function (file) {
+          makeComponentFile(component, location, file);
+        });
+    
+        if(documentation == true ) {
+          makeComponentFile(component, location, 'md');
+        }
 
-  fs.mkdir( componentLocation , function(err) {
-    if(err) {
-      return console.error(err)
-    }
-
-    var filesArray = ['scss', 'twig', 'yml'];
-    filesArray.forEach(function (file) {
-      makeComponentFile(component, componentLocation, file);
+        console.log(component + ' created');
+        
+      }
     });
-
-    if(documentation == true ) {
-      makeComponentFile(component, componentLocation, 'md');
-    } 
-  });
+  }
 } 
 
 function makeComponentFile(componentName, location, ext) {
   var componentFile = machineName((ext=='scss')? '_'+ componentName : componentName);
-
   var output='';
 
   switch(ext) {
@@ -99,7 +123,7 @@ function makeComponentFile(componentName, location, ext) {
         'title: ' + componentName + '\n' +
         '---';
       break;
-    default:
+    default:  
       output='';
   }
 

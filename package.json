@@ -26,6 +26,7 @@
     "include-all": "^4.0.3",
     "inquirer": "^5.1.0",
     "load-grunt-tasks": "^3.5.2",
+    "mkdirp": "^0.5.1",
     "postcss-assets": "~5.0.0"
   },
   "scripts": {
