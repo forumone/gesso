@@ -69,22 +69,36 @@ Gesso includes several theme-specific settings for managing classes output by
 Drupal, which you can change at admin/appearance/settings/gesso.
 
 
-### Compiling Sass
+### Compiling Pattern Lab and Sass
 
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
-CSS. Gesso includes Grunt tasks to compile the CSS/Pattern Lab files and to
-watch them for changes. To use these tasks, run the following NPM command in
-the theme folder (Windows users may need to include the `--no-bin-links` flag
-at the end of the command).
+CSS. Gesso includes Grunt tasks to compile the CSS and generate the compiled
+Pattern Lab files and to watch both for changes. To use these tasks, first run
+the following NPM command in the theme folder (Windows users may need to
+include the `--no-bin-links` flag at the end of the command).
 
 ```
 npm install
 ```
 
-To run the Grunt build task, run:
+Once the above command is run, the _starter-kit folder that comes with Gesso
+will be renamed to pattern-lab/source. This directory contains all of the
+Pattern Lab Twig templates and Sass files.
+
+To initiate the Grunt build tasks that compile the Sass and Pattern Lab files,
+run the following command in the theme directory:
 
 ```
 grunt
+```
+
+### Creating New Components
+
+Gesso includes a script to generate new component files. To use, run
+the following command in the theme folder.
+
+```
+npm run component
 ```
 
 
