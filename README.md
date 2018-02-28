@@ -92,6 +92,7 @@ run the following command in the theme directory:
 grunt
 ```
 
+
 ### Creating New Components
 
 Gesso includes a script to generate new component files. To use, run
