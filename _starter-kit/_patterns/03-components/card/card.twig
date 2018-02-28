@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card__body">
+    <div class="card__header">
+      <h3 class="card__title">
+        {% if url %}<a href="{{ url }}">{% endif %}
+          {{title}}
+        {% if url %}</a>{% endif %}
+      </h3>
+    </div>
+    <div class="card__content">
+      {{ content|raw }}
+    </div>
+    {% if footer %}
+      <div class="card__footer">
+        {{ footer|raw }}
+      </div>
+    {% endif %}
+  </div>
+  {% if media %}
+    <div class="card__media">
+      {% if url %}<a href="{{ url }}">{% endif %}
+        <div class="card__media-image" style="background-image: url({{ media|raw }});"></div>
+      {% if url %}</a>{% endif %}
+    </div>
+  {% endif %}
+</div>

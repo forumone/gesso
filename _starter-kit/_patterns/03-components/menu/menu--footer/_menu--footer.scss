@@ -3,8 +3,4 @@
 
 .menu--footer {
   @include list-inline;
-
-  @media print {
-    display: none;
-  }
 }

@@ -1,0 +1,32 @@
+// @file
+// Styles for Cards.
+$card_padding: 1rem;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  padding: $card_padding*1.5 $card_padding;
+}
+
+.card__content {
+  margin-bottom: $card_padding*.5;
+}
+
+.card__media {
+  order: -1;
+}
+
+.card__media-image {
+  @include aspect-ratio(16, 9);
+  background-size: cover;
+}
+
+.card__footer {
+  margin-top: auto;
+}

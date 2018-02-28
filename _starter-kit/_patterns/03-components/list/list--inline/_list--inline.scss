@@ -1,0 +1,6 @@
+// @file
+// Styles for inline list.
+
+.list--inline {
+  @include list-inline();
+}

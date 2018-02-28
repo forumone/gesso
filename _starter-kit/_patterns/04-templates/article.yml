@@ -9,7 +9,7 @@ content:
               - include():
                   pattern: components-page-title
                   with:
-                    page_title: "Concerning the American Language"
+                    page_title: "As You Wish"
           has_footer: true
           footer:
             join():
@@ -20,8 +20,8 @@ content:
               - include():
                   pattern: components-author
                   with:
-                    author: "Mark Twain"
+                    author: "Inigo Montoya"
           content: |-
-            <p>There was an <em>Englishman</em> in our compartment, and he complimented me on&mdash;on what? But you would never guess. He complimented me on my English. He said Americans in general did not speak the English language as correctly as I did. I said I was obliged to him for his compliment, since I knew he meant it for one, but that I was not fairly entitled to it, for I did not speak English at all&mdash;I only spoke American.</p>
-            <p>He laughed, and said it was a distinction without a difference. I said no, the difference was not prodigious, but still it was considerable. We fell into a friendly dispute over the matter. I put my case as well as I could, and said:</p>
-            <p>&ldquo;The languages were identical several generations ago, but our changed conditions and the spread of our people far to the south and far to the west have made many alterations in our pronunciation, and have introduced new words among us and changed the meanings of many old ones. English people talk through their noses; we do not. We say know, English people say nao; we say cow, the Briton says kaow; we&mdash;&rdquo;</p>
+            <p>You're the Dread Pirate Roberts, admit it. How many do you think you could handle? You mean you wish to surrender to me? Very well, I accept. But how can you be sure? Will this do? You truly love each other and so you might have been truly happy. Not one couple in a century has that chance, no matter what the story books say. And so I think no man in a century will suffer as greatly as you will. You only think I guessed wrong! That's what's so funny! I switched glasses when your back was turned! Ha ha! You fool! You fell victim to one of the classic blunders - The most famous of which is "never get involved in a land war in Asia" - but only slightly less well-known is this: "Never go against a Sicilian when death is on the line"! Ha ha ha ha ha ha ha! Ha ha ha ha ha ha ha! Ha ha ha...</p>
+            <p>They were both poisoned. I spent the last few years building up an immunity to iocane powder. Unless the enemy has studied his Agrippa... which I have. Move? You're alive. If you want I can fly. You just shook your head... doesn't that make you happy? Truly, you have a dizzying intellect. Probably he means no *harm*.</p>
+            <p>Well, I'm not saying I'd like to build a summer home here, but the trees are actually quite lovely. And YOU: friendless, brainless, helpless, hopeless! Do you want me to send you back to where you were? Unemployed, in Greenland? No, there is too much. Let me sum up. Buttercup is marry Humperdinck in a little less than half an hour. So all we have to do is get in, break up the wedding, steal the princess, make our escape... after I kill Count Rugen. You seem a decent fellow... I hate to kill you. Naturally... but I find that Thibault cancels out Capa Ferro. Don't you?</p>
