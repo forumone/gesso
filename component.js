@@ -3,7 +3,7 @@ var inquirer= require('inquirer');
 var path = require('path');
 var mkdirp = require('mkdirp');
 
-const isDirectory = source => fs.lstatSync(source).isDirectory(); 
+const isDirectory = source => fs.lstatSync(source).isDirectory();
 
 const getDirectories = source => {
   return fs.readdirSync(source)
@@ -48,12 +48,12 @@ function init() {
       patternSrc,
       answers.component_folder,
       machineName(answers.component_folder_sub),
-      machineName(componentName),
+      machineName(componentName)
     );
-    var output = '---\n' + 
+    var output = '---\n' +
       'Component Name: ' + componentName + '\n' +
       'Include Documentation: '+ ((componentDocumentation) ? 'Yes': 'No') + '\n' +
-      'Component Location: ' + componentLocation + '\n';      
+      'Component Location: ' + componentLocation + '\n';
     console.log(output);
 
     var confirm = [
@@ -66,11 +66,11 @@ function init() {
 
     inquirer.prompt(confirm).then(answers => {
       if (answers.confirm) {
-        createComponent(componentName, componentLocation, componentDocumentation); 
+        createComponent(componentName, componentLocation, componentDocumentation);
       } else {
         console.log('Component cancelled');
       }
-    });  
+    });
   });
 }
 
@@ -87,23 +87,23 @@ function createComponent(component, location, documentation) {
     mkdirp(location, function (err) {
       if (err) {
         console.error(err)
-      
+
       } else {
         var filesArray = ['scss', 'twig', 'yml'];
         filesArray.forEach(function (file) {
           makeComponentFile(component, location, file);
         });
-    
+
         if(documentation == true ) {
           makeComponentFile(component, location, 'md');
         }
 
         console.log(component + ' created');
-        
+
       }
     });
   }
-} 
+}
 
 function makeComponentFile(componentName, location, ext) {
   var componentFile = machineName((ext=='scss')? '_'+ componentName : componentName);
@@ -111,19 +111,19 @@ function makeComponentFile(componentName, location, ext) {
 
   switch(ext) {
     case 'scss':
-      output= '// @file\n' + 
+      output= '// @file\n' +
         '// Component: '+ componentName + '\n' ;
       break;
     case 'twig':
       output= '{# '+ componentName +' #}';
       break;
     case 'md':
-      output= '---\n' + 
+      output= '---\n' +
         'el: .' + machineName(componentName) + '\n' +
         'title: ' + componentName + '\n' +
         '---';
       break;
-    default:  
+    default:
       output='';
   }
 
