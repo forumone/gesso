@@ -99,7 +99,7 @@ Gesso includes a script to generate new component files. To use, run
 the following command in the theme folder.
 
 ```
-npm run component
+node component
 ```
 
 
