@@ -16,16 +16,4 @@ ul {
   ul {
     margin: rem($vertical-spacing / 2) 0 0;
   }
-}li {
-  margin-bottom: rem($vertical-spacing / 2);
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @media print {
-    & {
-      page-break-inside: avoid;
-    }
-  }
 }
