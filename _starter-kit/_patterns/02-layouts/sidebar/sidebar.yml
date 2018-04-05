@@ -1,0 +1,12 @@
+---
+has_header: true
+has_multiple_sidebar: false
+modifier_classes: ""
+sidebar_header_content: |-
+  <p style="background:#333;color:#fff;padding:1em; margin:0;">Header</p>
+sidebar_minor_content: |-
+  <p style="background:#333;color:#fff;padding:1em; margin:0;">Sidebar Minor</p>
+sidebar_main_content: |-
+  <p style="background:#333;color:#fff;padding:1em; margin:0;">Main Content</p>
+sidebar_aside_content: |-
+  <p style="background:#333;color:#fff;padding:1em; margin:0;">Sidebar</p>

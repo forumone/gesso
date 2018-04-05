@@ -1,0 +1,33 @@
+{% if has_wrapper %}
+  <{{ element ?: "section" }}{{- attributes.addClass(classes,'l-section')|raw -}}>
+{% endif %}
+
+  {% if has_constrain %}
+    <div class="{{ constrain_classes ?: "l-constrain" }}">
+  {% endif %}
+
+  {% if has_label %}
+    {{ title_prefix }}
+    <{{ label_element ?: "h2" }}{{- title_attributes.addClass(title_classes,'l-section__title')|raw -}}>{{ label }}</{{ label_element ?: "h2" }}>
+    {{ title_suffix }}
+  {% endif %}
+
+  {% if has_content_wrapper %}
+    <{{ content_element ?: "div" }}{{- content_attributes.addClass(content_classes,'l-section__content')|raw -}}>
+  {% endif %}
+
+  {% block content %}
+    {{ content|raw }}
+  {% endblock %}
+
+  {% if has_content_wrapper %}
+    </{{ content_element ?: "div" }}>
+  {% endif %}
+
+  {% if has_constrain %}
+    </div>
+  {% endif %}
+
+{% if has_wrapper %}
+  </{{ element ?: 'section' }}>
+{% endif %}

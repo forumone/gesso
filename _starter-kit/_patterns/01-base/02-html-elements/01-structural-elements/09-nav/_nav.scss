@@ -1,0 +1,10 @@
+// @file
+// Nav element styles.
+
+nav {
+  @media print {
+    & {
+      display: none;
+    }
+  }
+}

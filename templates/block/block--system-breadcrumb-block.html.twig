@@ -1,0 +1,22 @@
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+
+{% embed '@layouts/section/section.twig'
+  with {
+    'has_wrapper': false,
+    'has_constrain': false,
+    'has_label': false,
+    'has_content_wrapper': false
+  }
+%}
+
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+
+{% endembed %}

@@ -1,0 +1,19 @@
+---
+attributes:
+  Attribute():
+    role: "article"
+    class:
+      -
+title:
+  join():
+    - include():
+        pattern: components-page-title
+has_footer: true
+footer:
+  join():
+    - include():
+        pattern: components-date
+    - include():
+        pattern: components-author
+content: |-
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et accumsan augue. Morbi non laoreet lorem. Ut mauris erat, sollicitudin ac hendrerit tincidunt, iaculis eget purus. Nullam pharetra eu nibh auctor ultrices. Phasellus non aliquam felis. Mauris varius varius commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed est sapien, venenatis quis urna et, vulputate porta metus. Duis scelerisque sollicitudin nunc, vel finibus lorem ultricies id. In hac habitasse platea dictumst. Pellentesque eget turpis blandit augue sagittis iaculis nec at felis. Vestibulum gravida sapien ut aliquam rutrum. Suspendisse leo neque, varius id consectetur in, aliquam quis magna. Phasellus vel felis eu libero feugiat accumsan. Maecenas aliquet ex vel nisi fermentum, ac congue nibh porttitor. </p>

@@ -1,28 +1,18 @@
 {#
-/**
- * @file
- * Theme override to display a region.
- */
+ /**
+  * @file
+  * Theme override to display a region.
+  */
 #}
+
 {%
-  set classes, constrain = [
-    'region-' ~ region|clean_class,
-  ],
-  [
-    'page_top',
-    'header',
-    'navigation',
-    'breadcrumb',
-    'help',
-    'highlighted',
-    'footer',
-    'page_bottom'
+  set classes = [
+    'l-' ~ region|clean_class,
   ]
 %}
+
 {% if content %}
   <div{{ attributes.addClass(classes) }}>
-    {% if region in constrain %}<div class="l-constrain">{% endif %}
-      {{ content }}
-    {% if region in constrain %}</div>{% endif %}
+    {{ content }}
   </div>
 {% endif %}

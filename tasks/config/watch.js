@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   grunt.config.merge({
     watch: {
       gesso: {
-        files: ['<%= pkg.themePath %>/sass/**/*.scss','<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss'],
+        files: ['<%= pkg.themePath %>/pattern-lab/source/**/*.scss','<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss'],
         tasks: ['gessoBuildStyles'],
       },
       patternlab: {

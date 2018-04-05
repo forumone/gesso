@@ -1,0 +1,58 @@
+---
+colors:
+-
+  color_set:
+    -
+      style: "background-color: #ffffff; border: 1px solid #dddddd;"
+      variable: "$color-body"
+      hex: "#ffffff"
+      light_text: false
+    -
+      style: "background-color: rgba(0, 0, 0, 0.1);"
+      variable: "$color-gradient-dark"
+      hex: "#c2c9d4"
+      light_text: false
+    -
+      style: "background-color: rgba(255, 255, 255, 0.1); border: 1px solid #dddddd;"
+      variable: "$color-gradient-light"
+      hex: "#7f919e"
+      light_text: false
+-
+  color_set:
+    -
+      style: "background-color: #0071bc;"
+      variable: "$color-link"
+      hex: "#0071bc"
+      light_text: true
+    -
+      style: "background-color: #205493;"
+      variable: "$color-link-hover"
+      hex: "#205493"
+      light_text: true
+    -
+      style: "background-color: #4c2c92;"
+      variable: "$color-link-visited"
+      hex: "#4c2c92"
+      light_text: true
+-
+  color_set:
+    -
+      style: "background-color: #dce4ef;"
+      variable: "$color-selection-background"
+      hex: "#dce4ef"
+      light_text: false
+    -
+      style: "background-color: #212121;"
+      variable: "$color-selection-foreground"
+      hex: "#212121"
+      light_text: true
+    -
+      style: "background-color: #212121;"
+      variable: "$color-text-primary"
+      hex: "#212121"
+      light_text: true
+    -
+      style: "background-color: #5b616b;"
+      variable: "$color-text-secondary"
+      hex: "#5b616b"
+      light_text: true

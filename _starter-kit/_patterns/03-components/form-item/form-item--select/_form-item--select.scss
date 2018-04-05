@@ -1,0 +1,24 @@
+// @file
+// Styles for select form items.
+
+.form-item--select {
+  .form-item__select {
+    @include svg-background(arrow-down);
+    background-position: right rem($form-select-arrow-size) center; // LTR
+    background-repeat: no-repeat;
+    background-size: rem($form-select-arrow-size);
+    padding-right: rem(($form-select-arrow-size * 2) + 7px); // LTR
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        background-position: left rem($form-select-arrow-size) center;
+        padding-left: rem(($form-select-arrow-size * 2) + 7px);
+        padding-right: 0;
+      }
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+}

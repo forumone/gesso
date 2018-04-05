@@ -1,0 +1,22 @@
+---
+items:
+  pages:
+    1:
+      url: "#"
+    2:
+      url: "#"
+    3:
+      url: "#"
+    4:
+      url: "#"
+    5:
+      url: "#"
+    6:
+      url: "#"
+  first: false
+  previous: true
+  next: true
+  last: false
+  ellipses:
+    previous: true
+    next: true

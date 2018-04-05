@@ -1,0 +1,24 @@
+{% if not classes %}
+  {% set classes = [] %}
+{% endif %}
+{% set classes =
+  classes|merge(['article'])|join(' ')|trim
+%}
+
+<article{{- attributes.addClass(classes)|raw -}}>
+  {% block title %}
+    {{ title|raw }}
+  {% endblock %}
+
+  {% if has_footer %}
+    <footer>
+      {% block footer %}
+        {{ footer|raw }}
+      {% endblock %}
+    </footer>
+  {% endif %}
+
+  {% block main %}
+    {{ content|raw }}
+  {% endblock %}
+</article>

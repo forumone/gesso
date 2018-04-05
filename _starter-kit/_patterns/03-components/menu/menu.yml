@@ -1,0 +1,31 @@
+---
+menu_name: ""
+attributes:
+  Attribute():
+    class:
+      - menu
+items:
+- title: Link 1
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+  original_link:
+    options:
+      attributes:
+        Attribute():
+          class:
+            -
+- title: Link 2
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+  original_link:
+    options:
+      attributes:
+        Attribute():
+          class:
+            -

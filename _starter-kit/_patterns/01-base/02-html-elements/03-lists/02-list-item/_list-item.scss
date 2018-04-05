@@ -1,0 +1,16 @@
+// @file
+// List item styles.
+
+li {
+  margin-bottom: rem($vertical-spacing / 2);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media print {
+    & {
+      page-break-inside: avoid;
+    }
+  }
+}

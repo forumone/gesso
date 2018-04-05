@@ -5,7 +5,10 @@ accessible HTML5 markup. It uses a mobile-first responsive approach and
 leverages [SMACSS](https://smacss.com/) to organize styles as outlined in the
 [Drupal 8 CSS architecture guidelines](https://www.drupal.org/node/1887918).
 This encourages a component-based approach to theming through the creation of
-discrete, reusable UI elements.
+discrete, reusable UI elements. Gesso is heavily integrated with
+[Pattern Lab](http://patternlab.io/) and the
+[Component Libraries](https://www.drupal.org/project/components) module,
+allowing Drupal and Pattern Lab to share the same markup.
 
 For more information, view the
 [Gesso Drupal project page](https://drupal.org/project/gesso/) or
@@ -13,31 +16,51 @@ For more information, view the
 To submit bug reports or feature requests, visit the
 [Gesso issue queue](https://github.com/forumone/gesso/issues).
 
+### Global Prerequisites
+The following packages need to be installed on your system in order to use
+Gesso.
+
+- [composer](https://getcomposer.org)
+- [npm](https://www.npmjs.com/get-npm)
+- [grunt](https://gruntjs.com/getting-started)
 
 ## Installation
 
-1.  Place the Gesso theme in your site’s theme directory. (e.g., themes/gesso)
-    Read documentation on
-    [installing themes](https://drupal.org/getting-started/install-contrib/themes)
-    for more information.
+1.  Place the Gesso theme in your site’s theme directory. (e.g.,
+themes/gesso) Read documentation on
+[installing themes](https://drupal.org/getting-started/install-contrib/themes)
+for more information.
 
-2.  Because Gesso is a starter theme, it may be best to rename the Gesso
-    directory or copy its contents to a new custom theme directory based on the
-    name of your project.
+2.  Install the
+[Component Libraries](https://www.drupal.org/project/components) module.
+Since many of the Drupal templates reference twig files inside Pattern Lab using
+Twig namespaces, this module is required for the theme to function.
 
-    The easiest way to accomplish this is to use
-    [Drush](https://github.com/drush-ops/drush). Type `drush gesso --help` for
-    more information.
+3.  Optional: Install the
+[Twig Field Value](https://www.drupal.org/project/twig_field_value) module.
+This is not required, but will make working with Twig templates easier.
 
-    If you can’t use Drush, then manually replace all instances of 'gesso'
-    within this directory with a machine-readable name of your choice,
-    including folder names, filenames, and all occurrences within files. This
-    custom name must start with a letter and may only contain lowercase
-    letters, numbers, and underscores.
+4.  Optional: Install the
+[Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
+This is not required, but will make working with Twig templates easier.
 
-3.  Edit the .info.yml file and update the theme name and description. You can
-    also change the screenshot image (images/screenshot.png) shown on the
-    Appearance admin page.
+5.  Optional: Because Gesso is a starter theme, you may want to rename the
+Gesso directory or copy its contents to a new custom theme directory based on
+the name of your project.
+
+The easiest way to accomplish this is to use
+[Drush](https://github.com/drush-ops/drush).
+Type `drush gesso --help` for more information.
+
+If you can’t use Drush, then manually replace all instances of 'gesso'
+within this directory with a machine-readable name of your choice, including
+folder names, filenames, and all occurrences within files. This custom name
+must start with a letter and may only contain lowercase letters, numbers,
+and underscores.
+
+Edit the .info.yml file and update the theme name and description. You can also
+change the screenshot image (images/screenshot.png) shown on the Appearance
+admin page.
 
 
 ## Configuration
@@ -46,42 +69,37 @@ Gesso includes several theme-specific settings for managing classes output by
 Drupal, which you can change at admin/appearance/settings/gesso.
 
 
-### Pattern Lab installation
-
-The included Grunt tasks look for an instance of the Drupal standard edition of
-Pattern Lab and
-[the Gesso Twig starter kit](https://github.com/forumone/starterkit-twig-drupal-gesso)
-in a subdirectory of the theme called 'pattern-lab'. The Grunt build task will
-skip building Pattern Lab if this directory is not found.
-
-To install Pattern Lab, run the following Composer command in the theme
-directory.
-
-```
-$ composer create-project pattern-lab/edition-drupal-standard pattern-lab
-```
-
-When prompted, select /forumone/starterkit-twig-drupal-gesso as the starterkit.
-
-If prompted, select 'r' to overwrite existing /source/ files.
-
-
-### Compiling Sass
+### Compiling Pattern Lab and Sass
 
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
-CSS. Gesso includes Grunt tasks to compile the CSS/Pattern Lab files and to
-watch them for changes. To use these tasks, run the following NPM command in
-the theme folder (Windows users may need to include the `--no-bin-links` flag
-at the end of the command).
+CSS. Gesso includes Grunt tasks to compile the CSS and generate the compiled
+Pattern Lab files and to watch both for changes. To use these tasks, first run
+the following NPM command in the theme folder (Windows users may need to
+include the `--no-bin-links` flag at the end of the command).
 
 ```
 npm install
 ```
 
-To run the Grunt build task, run:
+Once the above command is run, the _starter-kit folder that comes with Gesso
+will be renamed to pattern-lab/source. This directory contains all of the
+Pattern Lab Twig templates and Sass files.
+
+To initiate the Grunt build tasks that compile the Sass and Pattern Lab files,
+run the following command in the theme directory:
 
 ```
 grunt
+```
+
+
+### Creating New Components
+
+Gesso includes a script to generate new component files. To use, run
+the following command in the theme folder.
+
+```
+node component
 ```
 
 
@@ -112,7 +130,9 @@ browser CSS property prefixes during Sass compilation.
 ## Maintainers
 
 The Gesso theme is maintained by [Dan Mouyard](https://drupal.org/u/dcmouyard)
-([@dcmouyard](http://twitter.com/dcmouyard)) and
+([@dcmouyard](http://twitter.com/dcmouyard)),
+[Chaz Chumley](https://drupal.org/u/chazchumley)
+([@chazchumley](http://twitter.com/chazchumley)) and
 [Corey Lafferty](https://drupal.org/u/clafferty)
 ([@coreylafferty](http://twitter.com/coreylafferty)).
 

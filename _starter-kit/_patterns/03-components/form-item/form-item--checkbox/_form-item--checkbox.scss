@@ -1,0 +1,57 @@
+// @file
+// Styles for checkbox form items.
+
+.form-item--checkbox {
+  margin-bottom: 0.5em;
+
+  .form-item__checkbox {
+    @extend %visually-hidden;
+
+    & + .form-item__label {
+      cursor: pointer;
+      display: block;
+
+      &::before {
+        background: #fff;
+        border-radius: rem(3px);
+        box-shadow: 0 0 0 1px #757575;
+        content: '\a0';
+        display: inline-block;
+        height: rem(18px);
+        line-height: rem(18px);
+        margin-right: 0.6em;
+        text-indent: 0.15em;
+        transition-duration: 0.2s;
+        transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+        transition-timing-function: ease-in-out;
+        vertical-align: middle;
+        width: rem(18px);
+      }
+    }
+
+    &:checked + .form-item__label::before {
+      @include svg-background(correct);
+      background-color: #0071bc;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: rem(20px);
+      box-shadow: 0 0 0 1px #0071bc;
+    }
+
+    &:checked:disabled + .form-item__label::before {
+      background-color: #AEB0B5;
+    }
+
+    &:disabled + .form-item__label {
+      color: $color-text-secondary;
+      cursor: default;
+
+      &::before {
+        background-color: #AEB0B5;
+        box-shadow: 0 0 0 1px #AEB0B5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+}

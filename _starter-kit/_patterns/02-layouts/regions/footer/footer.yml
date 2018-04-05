@@ -1,0 +1,7 @@
+---
+content:
+  join():
+    - include():
+        pattern: components-menu--footer
+    - include():
+        pattern: components-copyright

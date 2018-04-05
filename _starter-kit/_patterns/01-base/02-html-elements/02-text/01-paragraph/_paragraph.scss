@@ -1,0 +1,13 @@
+// @file
+// Paragraph styles.
+
+p {
+  margin: 0 0 rem($vertical-spacing);
+
+  @media print {
+    & {
+      orphans: 3;
+      widows: 3;
+    }
+  }
+}

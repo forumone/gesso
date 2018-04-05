@@ -1,0 +1,9 @@
+// @file
+// Styles for large buttons.
+
+// This custom button class, included as an example, is not output by Drupal by default.
+.button--large {
+  font-size: rem($font-size-lg);
+  line-height: (25px / $font-size-lg);
+  padding: rem(15px) rem(30px);
+}

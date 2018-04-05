@@ -1,0 +1,18 @@
+<ul class="pattern-lab-color-list">
+	{% for color in colors %}
+	<li>
+		<ul class="pattern-lab-color-list__set">
+			{% for color_set in color.color_set %}
+		  <li>
+		    <figure class="pattern-lab-swatch{% if color_set.light_text %} pattern-lab-swatch--light-text{% endif %}" style="{{ color_set.style }}">
+		      <div class="pattern-lab-swatch__meta-data">
+		        <span class="pattern-lab-swatch__variable">{{ color_set.variable }}</span>
+		        <span class="pattern-lab-swatch__hex">{{ color_set.hex }}</span>
+		      </div>
+		    </figure>
+		  </li>
+			{% endfor %}
+		</ul>
+	</li>
+	{% endfor %}
+</ul>

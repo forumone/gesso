@@ -1,0 +1,52 @@
+---
+webfonts:
+-
+  family_name: "Open Sans"
+  style: "font-family: 'Open Sans', sans-serif;"
+  font:
+    -
+      font_preview_character: "Aa"
+      font_preview: "ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />1234567890(,.;:?!$&*)"
+      font_preview_style: "font-family: 'Open Sans'; font-weight: 300; font-style: normal;"
+      font_name: "Open Sans"
+      font_weight: "300"
+      font_style: "normal"
+    -
+      font_preview_character: "Aa"
+      font_preview: "ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />1234567890(,.;:?!$&*)"
+      font_preview_style: "font-family: 'Open Sans'; font-weight: 400; font-style: normal;"
+      font_name: "Open Sans"
+      font_weight: "400"
+      font_style: "normal"
+    -
+      font_preview_character: "Aa"
+      font_preview: "ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />1234567890(,.;:?!$&*)"
+      font_preview_style: "font-family: 'Open Sans'; font-weight: 600; font-style: normal;"
+      font_name: "Open Sans"
+      font_weight: "600"
+      font_style: "normal"
+    -
+      font_preview_character: "Aa"
+      font_preview: "ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />1234567890(,.;:?!$&*)"
+      font_preview_style: "font-family: 'Open Sans'; font-weight: 700; font-style: normal;"
+      font_name: "Open Sans"
+      font_weight: "700"
+      font_style: "normal"
+-
+  family_name: "Lora"
+  style: "font-family: 'Lora', serif;"
+  font:
+    -
+      font_preview_character: "Aa"
+      font_preview: "ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />1234567890(,.;:?!$&*)"
+      font_preview_style: "font-family: 'Lora'; font-weight: 400; font-style: normal;"
+      font_name: "Lora"
+      font_weight: "400"
+      font_style: "normal"
+    -
+      font_preview_character: "Aa"
+      font_preview: "ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />1234567890(,.;:?!$&*)"
+      font_preview_style: "font-family: 'Lora'; font-weight: 700; font-style: normal;"
+      font_name: "Lora"
+      font_weight: "700"
+      font_style: "normal"

@@ -1,0 +1,58 @@
+// @file
+// Styles for Drupal messages.
+
+.messages {
+  background-color: #ecf6fa;
+  background-position: em(10px) em(10px); // LTR
+  background-repeat: no-repeat;
+  background-size: em(40px);
+  border: 1px solid #bcdeee;
+  color: #424242;
+  margin-bottom: rem($vertical-spacing);
+  overflow: hidden;
+  padding: 1em;
+  position: relative;
+  word-wrap: break-word;
+
+  &::before {
+    background-repeat: no-repeat;
+    background-size: em(52px);
+    bottom: -.5em;
+    content: '';
+    display: block;
+    height: em(52px);
+    position: absolute;
+    right: -.5em;
+    transform: rotate(-20deg);
+    width: em(52px);
+  }
+
+  a {
+    color: #bcdeee;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  @media print {
+    background-image: none !important;
+  }
+}
+
+.messages__content {
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.messages--status {
+  background-color: #eff8e6;
+  border-color: #c9e8a9;
+
+  &::before {
+    @include svg-background(messages-status);
+  }
+
+  a {
+    color: #71b02f;
+  }
+}

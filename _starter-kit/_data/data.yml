@@ -1,0 +1,50 @@
+body_class: ""
+html_class: ""
+page_title: "Page Title"
+section: "Section"
+site_name: "Site Name"
+site_slogan: "This is the site slogan."
+site_logo: "http://fpoimg.com/250x100?text=Logo"
+body: "<p>This is the body content, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. There is no limit to how long this content can be.</p>"
+summary: "<p>This is the summary, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. It should be 600 characters or less.</p>"
+title: "Title"
+url: "#"
+file:
+  icon: "../../images/application-pdf.png"
+  mime: "application/pdf"
+  name: "file name"
+  size: "115.83 KB"
+img:
+  thumbnail:
+    src: "http://fpoimg.com/140x105?text=Thumbnail 4:3"
+    alt: "Thumbnail 4:3"
+    height: "105"
+    width: "140"
+  hero:
+    src: "http://fpoimg.com/1600x800?text=Hero 2:1"
+    alt: "Hero 2:1"
+    height: "800"
+    width: "1600"
+year:
+  long: "2016"
+  short: "16"
+month:
+  long: "September"
+  short: "Sep"
+  digit: "09"
+weekday:
+  long: "Wednesday"
+  short: "Wed"
+day:
+  long: "28"
+  short: "28"
+  ordinal: "th"
+hour:
+  long: "01"
+  short: "1"
+  military: "13"
+  ampm: "pm"
+minute:
+  long: "20"
+  short: "20"
+seconds: "31"

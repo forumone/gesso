@@ -1,0 +1,40 @@
+---
+content:
+  join():
+    - include():
+        pattern: components-article
+        with:
+          title:
+            join():
+              - include():
+                  pattern: components-page-title
+                  with:
+                    page_title: "Look, I Can Take You As Far As Anchorhead"
+          has_footer: false
+          content: |-
+            <p>Alderaan? I'm not going to Alderaan. I've got to go home. It's late, I'm in for it as it is. Still, <a href="#">she's got a lot of spirit</a>. I don't know, what do you think? Partially, but it also obeys your commands. Ye-ha! Escape is not his plan. I must face him, alone. Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid.  <em>Your eyes can deceive you.</em> Don't trust them.</p>
+            <p>I need your help, Luke. She needs your help. <strong> I'm in it for the money.</strong> I'm getting too old for this sort of thing. Don't underestimate the Force. I'm surprised you had the courage to take the responsibility yourself. I call it luck. A tremor in the Force. The last time I felt it was in the presence of my old master. I don't know what you're talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan-- But with the blast shield down, I can't even see! How am I supposed to fight?</p>
+            <h2>Don't underestimate the Force</h2>
+            <p>Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force. The more you tighten your grip, Tarkin, the more star systems will slip through your fingers.</p>
+            <ul>
+              <li>Remember, a Jedi can feel the Force flowing through him.</li>
+              <li>The plans you refer to will soon be back in our hands.</li>
+              <li>He is here.</li>
+            </ul>
+            <p>Hey, Luke! May the Force be with you. I have traced the Rebel spies to her. Now she is my only link to finding their secret base. Hokey religions and ancient weapons are no match for a good blaster at your side, kid.</p>
+            <blockquote>Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense.<cite>Han Solo</cite></blockquote>
+            <p>Obi-Wan is here. The Force is with him. You're all clear, kid. Let's blow this thing and go home! Your eyes can deceive you. Don't trust them. I find your lack of faith disturbing. All right. Well, take care of yourself, Han. I guess that's what you're best at, ain't it? I'm trying not to, kid. What?! What!? Obi-Wan is here. The Force is with him. He is here.</p>
+            <h2>Dantooine. They're on Dantooine.</h2>
+            <p>Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you. I need your help, Luke. She needs your help. I'm getting too old for this sort of thing.</p>
+            <ol>
+                <li>Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you're going.</li>
+                <li>Escape is not his plan. I must face him, alone.</li>
+                <li>The Force is strong with this one. I have you now.</li>
+            </ol>
+            <h1>Header One</h1>
+            <h2>Header Two</h2>
+            <h3>Header Three</h3>
+            <h4>Header Four</h4>
+            <h5>Header Five</h5>
+            <h6>Header Six</h6>
+            <div><a href="#" class="button">Button</a></div>

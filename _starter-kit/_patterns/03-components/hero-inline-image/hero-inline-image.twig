@@ -1,0 +1,34 @@
+{%
+  set classes = [
+    'hero-inline-image',
+    custom_classes ? custom_classes,
+    has_overlay ? 'has-overlay',
+  ]|join(' ')|trim
+%}
+
+<div class="{{ classes }}">
+  <picture class="hero-inline-image__picture">
+    <source srcset="{{ image.large }}" media="(min-width: 1024px)" type="image/jpeg">
+    <source srcset="{{ image.medium }}" media="(min-width: 760px)" type="image/jpeg">
+    <source srcset="{{ image.small }}" type="image/jpeg">
+    <img srcset="{{ image.large }}" alt="Hero Image Alt Text">
+  </picture>
+  <div class="hero-inline-image__content">
+    {% if has_title %}
+      <h1 class="hero-inline-image__title">{{ title }}</h1>
+    {% endif %}
+    {% if has_subtitle %}
+      <h3 class="hero-inline-image__subtitle">{{ subtitle }}</h3>
+    {% endif %}
+    {% if has_summary %}
+      <div class="hero-inline-image__text">{{ summary|raw }}</div>
+    {% endif %}
+    {% if has_button %}
+      <div class="hero-inline-image__call-to-action">
+        {% block call_to_action %}
+          {{ call_to_action_content|raw }}
+        {% endblock %}
+      </div>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,10 @@
+// @file
+// Styles for the account menu.
+
+.menu--account {
+  @include list-pipeline;
+
+  .menu__link {
+    font-size: em($font-size-sm);
+  }
+}

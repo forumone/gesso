@@ -1,0 +1,85 @@
+// @file
+// Styles for collapsible details.
+
+$details-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
+$details-color: #f1f1f1 !default;
+$details-color-content: #fff !default;
+$details-color-hover: #d6d7d9 !default;
+$details-padding: rem(30px) !default;
+
+// 'details' can appear as a modernizr class on the html tag, so this
+// class is limited to only the details element
+details.details {
+  margin: 0 0 rem($vertical-spacing-forms);
+
+  // Fallback for browsers that don’t support details.
+  .js &:not([open]) > .details__content {
+    display: none;
+  }
+}
+
+.details__summary {
+  @include svg-background(plus);
+  background-color: $details-color;
+  background-position: right $details-padding center; // LTR
+  background-repeat: no-repeat;
+  background-size: rem(13px);
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  line-height: 1;
+  outline: 0;
+  padding: rem(15px) rem(55px) rem(15px) $details-padding; // LTR
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      background-position: left $details-padding center;
+      padding-left: rem(55px);
+      padding-right: $details-padding;
+    }
+  }
+
+  [open] > & {
+    @include svg-background(minus);
+  }
+
+  &:hover {
+    background-color: $details-color-hover;
+  }
+
+  &:focus {
+    box-shadow: $details-box-shadow-focus;
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.details__fallback-link {
+  color: inherit !important;
+  display: block;
+  outline: 0;
+  text-decoration: none;
+}
+
+.details__content {
+  background: $details-color-content;
+  border: 3px solid $details-color;
+  border-top: 0;
+  padding: $details-padding;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.details__description {
+  color: $color-text-secondary;
+  font-size: rem($font-size-sm);
+  margin-bottom:rem($vertical-spacing);
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

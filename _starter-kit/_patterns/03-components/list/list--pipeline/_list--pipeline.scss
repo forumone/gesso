@@ -1,0 +1,6 @@
+// @file
+// Styles for pipeline list.
+
+.list--pipeline {
+  @include list-pipeline();
+}

@@ -1,0 +1,38 @@
+---
+menu_name: "submenu"
+attributes:
+  Attribute():
+    class:
+      - menu
+items:
+- title: Menu item one
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+- title: Menu item two
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+  below:
+  - title: Submenu item one
+    url: "#"
+    attributes:
+      Attribute():
+        class:
+          -
+  - title: Submenu item two
+    url: "#"
+    attributes:
+      Attribute():
+        class:
+          -
+  - title: Submenu item three
+    url: "#"
+    attributes:
+      Attribute():
+        class:
+          -

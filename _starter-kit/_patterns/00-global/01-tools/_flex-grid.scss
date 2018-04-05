@@ -1,0 +1,34 @@
+// @file
+// Flex Grid mixins
+
+@mixin flex-grid($columns: 0, $gutter: 2em, $item-minwidth: 300px) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+  
+  > * {
+    margin-bottom: $gutter;
+    margin-right: $gutter;
+    padding-left: $gutter;
+    flex-grow: 1;
+    min-width: $item-minwidth;
+  }
+
+  @if $columns > 0 {
+    margin-left: 0;
+    margin-right: 0;
+
+    > * {
+      margin-bottom: $gutter;
+      margin-right: $gutter;
+      padding-left: 0;
+      flex-grow: 0;
+      min-width: auto;
+      width: calc(100% / #{$columns} - (#{$columns} - 1) * #{$gutter} / #{$columns});
+      &:nth-child(#{$columns}n) {
+        margin-right: 0;
+      }
+    } 
+  }
+}

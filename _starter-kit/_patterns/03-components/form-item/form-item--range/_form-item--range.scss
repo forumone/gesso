@@ -1,0 +1,139 @@
+// @file
+// Styles for range form items.
+
+@mixin form-item__range-thumb {
+  background: $form-range-thumb-color;
+  border: $form-range-thumb-border-width solid $form-range-thumb-border-color;
+  border-radius: $form-range-thumb-border-radius;
+  cursor: pointer;
+  height: rem($form-range-thumb-height);
+  outline: 0;
+  width: rem($form-range-thumb-width);
+}
+
+@mixin form-item__range-thumb-focus {
+  box-shadow: $form-box-shadow-focus;
+}
+
+@mixin form-item__range-thumb-disabled {
+  background: $form-color-disabled;
+  border-color: $form-border-color-disabled;
+  cursor: default;
+}
+
+@mixin form-item__range-track {
+  background: $form-range-track-color;
+  border: $form-range-track-border-width solid $form-range-track-border-color;
+  cursor: pointer;
+  display: block;
+  height: rem($form-range-track-height);
+  margin: 0;
+  outline: 0;
+  width: 100%;
+}
+
+@mixin form-item__range-track-disabled {
+  background: $form-color-disabled;
+  border-color: $form-border-color-disabled;
+  cursor: default;
+}
+
+.form-item--range {
+
+  .form-item__range {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    height: rem($form-range-thumb-height);
+    margin: 0.2em 0;
+    padding: 0;
+
+    &:focus {
+      box-shadow: none;
+      outline: 0;
+
+      &::-moz-range-thumb {
+        @include form-item__range-thumb-focus;
+      }
+
+      &::-ms-thumb {
+        @include form-item__range-thumb-focus;
+      }
+
+      &::-webkit-slider-thumb {
+        @include form-item__range-thumb-focus;
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+
+      &::-moz-range-thumb {
+        @include form-item__range-thumb-disabled;
+      }
+
+      &::-moz-range-track {
+        @include form-item__range-track-disabled;
+      }
+
+      &::-ms-thumb {
+        @include form-item__range-thumb-disabled;
+      }
+
+      &::-ms-fill-lower,
+      &::-ms-fill-upper {
+        @include form-item__range-track-disabled;
+      }
+
+      &::-webkit-slider-thumb {
+        @include form-item__range-thumb-disabled;
+      }
+
+      &::webkit-slider-runnable-track {
+        @include form-item__range-track-disabled;
+      }
+    }
+
+    &::-moz-range-thumb {
+      @include form-item__range-thumb;
+    }
+
+    &::-moz-range-track {
+      @include form-item__range-track;
+    }
+
+    &::-ms-thumb {
+      @include form-item__range-thumb;
+      margin-top: 0 !important; // Removes webkit-specific margin since IE uses webkit prefixes.
+    }
+
+    &::-ms-track {
+      @include form-item__range-track;
+      background: transparent;
+      border: 0;
+      color: transparent;
+    }
+
+    &::-ms-fill-lower,
+    &::-ms-fill-upper {
+      background: $form-range-track-color;
+      border: $form-range-track-border-width solid $form-range-track-border-color;
+    }
+
+    &::-webkit-slider-thumb {
+      @include form-item__range-thumb;
+      -webkit-appearance: none;
+      margin-top: rem(((-$form-range-track-border-width * 2) + $form-range-track-height) / 2) - rem($form-range-thumb-height / 2);
+    }
+
+    &::-webkit-slider-runnable-track {
+      @include form-item__range-track;
+    }
+
+  }
+
+  &.is-full-width > .form-item__range {
+    width: 100%;
+  }
+
+}

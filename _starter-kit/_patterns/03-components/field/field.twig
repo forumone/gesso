@@ -1,0 +1,14 @@
+<{{ element ?: 'div' }}{{- attributes.addClass(classes)|raw -}}>
+  {% if not label_hidden %}
+    <{{ label_element ?: 'h3' }}{{- title_attributes.addClass(title_classes)|raw -}}>{{ label }}</{{ label_element ?: 'h3' }}>
+  {% endif %}
+  {% if multiple %}
+    <div class="field__items">
+  {% endif %}
+  {% for item in items %}
+    <div{{- item.attributes.addClass('field__item')|raw -}}>{{ item.content }}</div>
+  {% endfor %}
+  {% if multiple %}
+    </div>
+  {% endif %}
+</{{ element ?: 'div' }}>

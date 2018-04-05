@@ -1,0 +1,14 @@
+// @file
+// Styles for the Menu.
+
+.menu {
+  @include list-clean;
+
+  @media print {
+    display: none;
+  }
+}
+
+.menu__item {
+  margin-bottom: 0;
+}

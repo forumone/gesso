@@ -1,0 +1,14 @@
+<article class="image-teaser" role="article">
+  <div class="l-media">
+    {% if image %}
+      <div class="l-media__object">
+        <a href="{{ url }}">{{ image|raw }}</a>
+      </div>
+    {% endif %}
+    <div class="l-media__content">
+      <h2><a href="{{ url }}">{{ title }}</a></h2>
+      {{ date|raw }}
+      {{ summary | raw }}
+    </div>
+  </div>
+</article>

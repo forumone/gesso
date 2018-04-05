@@ -1,0 +1,100 @@
+// @file
+// Styles for form items.
+
+$form-border-color: #5b616b !default;
+$form-border-color-disabled: #aeb0b5 !default;
+$form-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
+$form-color: #fff;
+$form-color-disabled: #d6d7d9;
+$form-range-thumb-border-color: #f1f1f1 !default;
+$form-range-thumb-border-radius: rem(3px) !default;
+$form-range-thumb-border-width: 1px !default;
+$form-range-thumb-color: #757575 !default;
+$form-range-thumb-height: 44px !default;
+$form-range-thumb-width: 22px !default;
+$form-range-track-border-color: #757575 !default;
+$form-range-track-border-width: 1px !default;
+$form-range-track-color: #aeb0b5 !default;
+$form-range-track-height: 10px !default;
+$form-select-arrow-size: 13px !default;
+$form-text-size: $font-size-md !default;
+
+.form-item {
+  margin: 0 0 rem($vertical-spacing-forms);
+}
+
+.form-item__label {
+  display: block;
+
+  .is-disabled > & {
+    color: $color-text-secondary;
+  }
+}
+
+.form-item__fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.form-item__legend {}
+
+.form-item__description {
+  color: $color-text-secondary;
+  font-size: rem($font-size-sm);
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-item__required-marker::before {
+  content: '*';
+}
+
+%form-item__box,
+.form-item__color,
+.form-item__date,
+.form-item__email,
+.form-item__month,
+.form-item__number,
+.form-item__password,
+.form-item__search,
+.form-item__select,
+.form-item__tel,
+.form-item__text,
+.form-item__textarea,
+.form-item__time,
+.form-item__url,
+.form-item__week {
+  appearance: none;
+  background-color: $form-color;
+  border: 1px solid $form-border-color;
+  border-radius: 0;
+  display: inline-block;
+  font-size: rem($form-text-size);
+  height: rem(44px);
+  line-height: (22px / $form-text-size);
+  padding: em(10px, $form-text-size) em(7px, $form-text-size);
+  margin: 0.2em 0;
+  max-width: 100%;
+
+  &:focus {
+    box-shadow: $form-box-shadow-focus;
+    outline: 0;
+  }
+
+  &:disabled {
+    background: $form-color-disabled;
+    border-color: $form-border-color-disabled;
+    cursor: default;
+  }
+
+  .is-full-width > & {
+    width: 100%;
+  }
+}
+
+.form-item__textarea {
+  height: auto;
+}

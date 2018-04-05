@@ -154,12 +154,12 @@ function drush_gesso($name = NULL) {
     $libraries_file,
     $theme_file,
     'js/scripts.js',
+    'includes/block.inc',
     'includes/form.inc',
     'includes/html.inc',
-    'templates/misc/progress-bar.html.twig',
-    'templates/misc/status-messages.html.twig',
-    'templates/navigation/pager.html.twig',
-    'templates/views/views-mini-pager.html.twig',
+    'includes/navigation.inc',
+    'includes/taxonomy.inc',
+    'includes/views.inc',
   ];
   foreach ($files as $file) {
     drush_op('gesso_file_str_replace', drush_normalize_path($new_path . '/' . $file), 'gesso', $machine_name);

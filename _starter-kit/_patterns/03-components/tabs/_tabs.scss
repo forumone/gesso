@@ -1,0 +1,90 @@
+// @file
+// Styles for Tabs.
+
+$tab-border-radius: rem(3px) !default;
+$tab-color-bg: #d6d7d9 !default;
+$tab-color-bg-active: #212121 !default;
+$tab-color-bg-disabled: #d6d7d9 !default;
+$tab-color-bg-hover: #aeb0b5 !default;
+$tab-color-border: #aeb0b5 !default;
+$tab-color-text: #212121 !default;
+$tab-color-text-active: #fff !default;
+$tab-color-text-disabled: #323a45 !default;
+$tab-color-text-hover: #f212121 !default;
+$tab-font-size: $font-size-md !default;
+
+.tabs {
+  @include clearfix;
+}
+
+.tabs__items {
+  @include list-clean;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint($bp-small) {
+    flex-direction: row;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.tabs__item {
+  &:first-child {
+    .tabs__link {
+      border-bottom-left-radius: $tab-border-radius;
+      border-left: 0;
+      border-top-left-radius: $tab-border-radius;
+    }
+  }
+  &:last-child {
+    .tabs__link {
+      border-bottom-right-radius: $tab-border-radius;
+      border-top-right-radius: $tab-border-radius;
+    }
+  }
+}
+
+.tabs__link {
+  @extend %system-font-family;
+  @include button(
+    $tab-color-bg,
+    $tab-color-text,
+    $tab-color-bg-hover,
+    $tab-color-text-hover,
+    $tab-color-bg-active,
+    $tab-color-text-active,
+    $tab-color-bg-disabled,
+    $tab-color-text-disabled,
+  0);
+  border-left: 1px solid $tab-color-border;
+  display: block;
+  font-size: rem($font-size-sm);
+  line-height: (17px / $font-size-sm);
+  margin: 0;
+  padding: rem(8px) rem(16px);
+
+  &:active {
+    background-color: $tab-color-bg-active;
+    color: $tab-color-text-active;
+  }
+
+  &:focus {
+    background-color: $tab-color-bg-hover;
+  }
+
+  &:hover,
+  &:visited {
+    color: $tab-color-text;
+  }
+
+  &.is-active {
+    background-color: $tab-color-bg-active;
+    color: $tab-color-text-active;
+    &:hover {
+      color: $tab-color-text-active;
+    }
+  }
+}

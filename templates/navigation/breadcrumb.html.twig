@@ -1,24 +1,21 @@
 {#
-/**
- * @file
- * Theme override for a breadcrumb trail.
- */
+ /**
+  * @file
+  * Theme override for a breadcrumb trail.
+  *
+  * Available variables:
+  * - modifier_class: Variant classes to modify component.
+  * - heading: Accessible heading.
+  * - breadcrumb: Breadcrumb trail items.
+  */
 #}
+
 {% if breadcrumb %}
-  <nav class="breadcrumb" role="navigation" aria-labelledby="breadcrumb-label">
-    <h2 class="breadcrumb__title" id="breadcrumb-label">{{ 'You are here'|t }}</h2>
-    {% spaceless %}
-      <ol class="breadcrumb__list">
-      {% for item in breadcrumb %}
-        <li class="breadcrumb__item">
-          {% if item.url %}
-            <a class="breadcrumb__link" href="{{ item.url }}">{{ item.text }}</a>
-          {% else %}
-            {{ item.text }}
-          {% endif %}
-        </li>
-      {% endfor %}
-      </ol>
-    {% endspaceless %}
-  </nav>
+  {%
+    include '@components/breadcrumb/breadcrumb.twig' with {
+      modifier_classes: "",
+      heading: 'Breadcrumb'|t,
+      breadcrumb: breadcrumb
+    } only
+  %}
 {% endif %}

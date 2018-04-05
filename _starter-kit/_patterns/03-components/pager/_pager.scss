@@ -1,0 +1,68 @@
+// @file
+// Styles for Pager.
+
+$bp-ellipsis: 800px;
+$bp-pager: 600px;
+$pager-bg-color: #f1f1f1;
+$pager-bg-color-active: #d6d7d9;
+
+.pager {}
+
+.pager__items {
+  @include list-clean();
+  clear: both;
+  margin: em($vertical-spacing * 2) 0;
+  padding: 0;
+  text-align: center;
+}
+
+.pager__item {
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: top;
+
+  &:not([class*=pager__item--]) {
+    display: none;
+
+    @include breakpoint($bp-pager) {
+      display: inline-block;
+    }
+  }
+}
+
+%pager__link {
+  background-color: $pager-bg-color;
+  color: #212121;
+  min-width: rem(44px);
+  padding: em(13px);
+}
+
+.pager__item--ellipsis {
+  @extend %pager__link;
+  display: none;
+
+  @include breakpoint($bp-ellipsis) {
+    display: inline-block;
+  }
+}
+
+.pager__item--current {
+  @extend %pager__link;
+  background-color: $pager-bg-color-active;
+}
+
+.pager__link {
+  @extend %pager__link;
+  display: inline-block;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    background-color: $pager-bg-color-active;
+    color: inherit;
+  }
+}

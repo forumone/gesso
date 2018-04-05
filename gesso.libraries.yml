@@ -2,6 +2,7 @@ global:
   version: VERSION
   css:
     theme:
+      //fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:300,400,600,700: { type: external }
       css/styles.css: {}
   js:
     js/mobile-menu.js: {}
@@ -11,21 +12,3 @@ global:
     - core/drupal
     - core/drupalSettings
     - core/modernizr
-
-messages:
-  version: VERSION
-  css:
-    theme:
-      css/messages.css: {}
-
-pager:
-  version: VERSION
-  css:
-    theme:
-      css/pager.css: {}
-
-progress:
-  version: VERSION
-  css:
-    theme:
-      css/progress.css: {}

@@ -1,0 +1,11 @@
+// @file
+// HTML styles.
+
+html {
+  @extend %base-font-family;
+  box-sizing: border-box;
+  font-size: 100% * ($base-font-size / 16px);
+  line-height: $base-line-height;
+  min-height: 100%;
+  text-size-adjust: 100%;
+}

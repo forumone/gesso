@@ -1,0 +1,117 @@
+// @file
+// Inline element styles.
+
+a {
+  background-color: transparent;
+  color: $color-link;
+  // Improves readability when focused.
+  outline-offset: em(2px);
+  -webkit-text-decoration-skip: objects;
+
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-link-hover;
+  }
+
+  @media print {
+    &,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &[href]::after {
+      font-family: $base-font-family;
+      content: ' <' attr(href) '>';
+      font-size: 10pt;
+      font-weight: normal;
+      text-transform: lowercase;
+    }
+
+    // Uncomment and replace example.com with your site’s domain.
+    //&[href^='/']::after {
+    //  content: ' <http://example.com' attr(href) '>';
+    //}
+
+    &[href^='javascript:']::after,
+    &[href^='mailto:']::after,
+    &[href^='tel:']::after,
+    &[href^='#']::after,
+    &[href*='?']::after {
+      content: '';
+    }
+  }
+}
+
+abbr {
+  &[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+  }
+
+  &:hover {
+    cursor: help;
+  }
+
+  @media print {
+    &[title]::after {
+      content: ' (' attr(title) ')';
+    }
+  }
+}
+
+b {}
+
+cite {}
+
+code {}
+
+del {}
+
+dfn {
+  font-style: italic;
+}
+
+em {}
+
+i {}
+
+ins {}
+
+kbd {}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+q {}
+
+s {}
+
+samp {}
+
+small {
+  font-size: em($font-size-sm);
+}
+
+strong {}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+time {}
+
+u {}
+
+var {}

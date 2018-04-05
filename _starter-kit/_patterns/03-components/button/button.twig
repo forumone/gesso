@@ -1,0 +1,5 @@
+{% if is_button_tag %}
+  <button class="button {{ modifier_classes }}">{{ text }}</button>
+{% else %}
+  <a href="{{ url }}" class="button {{ modifier_classes }}">{{ text }}</a>
+{% endif %}

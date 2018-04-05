@@ -1,14 +1,32 @@
 {#
-/**
- * @file
- * Theme override to display primary and secondary local tasks.
- */
+ /**
+  * @file
+  * Theme override to display primary and secondary local tasks.
+  *
+  * Available variables:
+  * - primary: HTML list items representing primary tasks.
+  * - secondary: HTML list items representing primary tasks.
+  * - modifier_class: Variant classes to modify component.
+  * - heading: Accessible heading.
+  * - tabs: Primary or Secondary tabs.
+  *
+  */
 #}
+
 {% if primary %}
-  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
-  <ul class="nav nav--primary-local-tasks">{{ primary }}</ul>
+  {% include "@components/tabs/tabs.twig" with {
+    modifier_classes: 'tabs--primary',
+    heading: 'Primary tabs'|t,
+    tabs: primary
+    } only
+  %}
 {% endif %}
+
 {% if secondary %}
-  <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
-  <ul class="nav nav--secondary-local-tasks">{{ secondary }}</ul>
+  {% include "@components/tabs/tabs.twig" with {
+    modifier_classes: 'tabs--secondary',
+    heading: 'Secondary tabs'|t,
+    tabs: secondary
+    } only
+  %}
 {% endif %}

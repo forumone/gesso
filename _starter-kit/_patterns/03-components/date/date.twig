@@ -1,0 +1,17 @@
+<div class="date">
+  {% if format == "long-date" %}
+    {% include "base-long-date" %}
+  {% elseif format == "long-datetime" %}
+    {% include "base-long-datetime" %}
+  {% elseif format == "medium-date" %}
+    {% include "base-medium-date" %}
+  {% elseif format == "medium-datetime" %}
+    {% include "base-medium-datetime" %}
+  {% elseif format == "short-date" %}
+    {% include "base-short-date" %}
+  {% elseif format == "short-datetime" %}
+    {% include "base-short-datetime" %}
+  {% else %}
+    {{ content }}
+  {% endif %}
+</div>

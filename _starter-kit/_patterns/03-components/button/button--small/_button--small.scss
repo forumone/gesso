@@ -1,0 +1,9 @@
+// @file
+// Styles for small buttons.
+
+// This custom button class, included as an example, is not output by Drupal by default.
+.button--small {
+  font-size: rem($font-size-sm);
+  line-height: (17px / $font-size-sm);
+  padding: rem(8px) rem(16px);
+}

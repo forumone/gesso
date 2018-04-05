@@ -1,0 +1,20 @@
+---
+custom_classes: false
+image:
+  small: "https://picsum.photos/800/400?random"
+  medium: "https://picsum.photos/1200/600?random"
+  large: "https://picsum.photos/1600/800?random"
+has_overlay: true
+title: "Hero Title"
+has_subtitle: true
+subtitle: "Hero Subtitle"
+has_summary: true
+summary: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
+has_button: true
+call_to_action_content:
+  join():
+    - include():
+        pattern: components-button
+        with:
+          text: 'Hero Button'
+          url: '#'

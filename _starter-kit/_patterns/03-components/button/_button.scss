@@ -1,0 +1,18 @@
+// @file
+// Styles for Button.
+
+.button {
+  @include button();
+  margin: 0 0 0.5em;
+
+  & + & {
+    margin-left: 0.5em; // LTR
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        margin-left: 0;
+        margin-right: 0.5em;
+      }
+    }
+  }
+}

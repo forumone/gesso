@@ -1,0 +1,34 @@
+// @file
+// Styles for Breadcrumb trail.
+
+.breadcrumb {
+  @include clearfix();
+  margin: rem($vertical-spacing) 0;
+}
+
+.breadcrumb__title {
+  @extend %visually-hidden;
+}
+
+.breadcrumb__list {
+  @include list-inline();
+}
+
+.breadcrumb__item {
+  font-size: $font-size-sm;
+  margin-right: 0.25em;
+
+  &::after {
+    content: '/';
+    margin-left: 0.25em;
+  }
+
+  &:last-child::after {
+    content: '';
+    margin-left: 0;
+  }
+}
+
+.breadcrumb__link {
+  text-decoration: none;
+}

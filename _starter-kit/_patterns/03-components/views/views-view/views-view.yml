@@ -1,0 +1,23 @@
+---
+element: div
+attributes:
+  Attribute():
+    class:
+      - view
+title:
+header: ''
+exposed: ''
+attachment_before: ''
+rows:
+  join():
+    - include():
+        pattern: components-views-view-unformatted
+empty: ''
+pager:
+  join():
+    - include():
+        pattern: components-pager
+attachment_after: ''
+more: ''
+footer: ''
+feed_icons: ''

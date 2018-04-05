@@ -1,0 +1,10 @@
+// @file
+// Styles for the subnav menu.
+
+.menu--submenu {
+  @include list-pipeline;
+
+  .menu__link {
+    font-size: em($font-size-sm);
+  }
+}

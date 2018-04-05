@@ -1,0 +1,11 @@
+// @file
+// Styles for Navigation Layout.
+
+// Hide navigation region while mobile menu is displayed.
+.l-navigation {
+  display: none;
+
+  @include breakpoint($bp-hide-mobile-menu) {
+    display: block;
+  }
+}
