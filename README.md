@@ -18,7 +18,7 @@ To submit bug reports or feature requests, visit the
 
 ### Global Prerequisites
 The following packages need to be installed on your system in order to use
-Gesso WordPress.
+Gesso.
 
 - [composer](https://getcomposer.org)
 - [npm](https://www.npmjs.com/get-npm)
