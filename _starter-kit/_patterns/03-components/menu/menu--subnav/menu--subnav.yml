@@ -11,12 +11,24 @@ items:
     Attribute():
       class:
         -
+  original_link:
+    options:
+      attributes:
+        Attribute():
+          class:
+            -
 - title: Menu item two
   url: "#"
   attributes:
     Attribute():
       class:
         -
+  original_link:
+    options:
+      attributes:
+        Attribute():
+          class:
+            -
   below:
   - title: Submenu item one
     url: "#"
@@ -24,15 +36,33 @@ items:
       Attribute():
         class:
           -
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
   - title: Submenu item two
     url: "#"
     attributes:
       Attribute():
         class:
           -
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
   - title: Submenu item three
     url: "#"
     attributes:
       Attribute():
         class:
           -
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
