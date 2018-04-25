@@ -22,7 +22,6 @@
     "grunt-sass-globbing": "^1.5.1",
     "grunt-shell": "^2.1.0",
     "grunt-simple-watch": "0.1.3",
-    "grunt-svg2png": "github:jdforrester/grunt-svg2png#c5d8d82e16f17ee09ca0337eaffe87c8c5edb954",
     "include-all": "^4.0.3",
     "inquirer": "^5.1.0",
     "load-grunt-tasks": "^3.5.2",
