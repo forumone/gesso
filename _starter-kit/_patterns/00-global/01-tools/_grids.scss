@@ -79,7 +79,7 @@
 // @param {Boolean} $flex-override set overrides for grid cells
 @mixin set-css-fixed-columns($columns, $gutter, $flex-override: false) {
   $column-adjust: if($columns < 1 , 1, $columns  );
-  grid-template-columns: repeat($columns-adjust, 1fr);
+  grid-template-columns: repeat($column-adjust, 1fr);
 
   @if $gutter {
     grid-gap: $gutter;
