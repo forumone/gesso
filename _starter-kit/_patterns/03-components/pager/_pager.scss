@@ -50,18 +50,14 @@ $pager-bg-color-active: #d6d7d9;
   }
 }
 
-.pager__item--current {
-  @extend %pager__link;
-  background-color: $pager-bg-color-active;
-}
-
 .pager__link {
   @extend %pager__link;
   display: inline-block;
   text-decoration: none;
 
   &:focus,
-  &:hover {
+  &:hover,
+  .pager__item--current & {
     background-color: $pager-bg-color-active;
     color: inherit;
   }

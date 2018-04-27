@@ -43,7 +43,7 @@
 
       {# Now generate the actual pager piece. #}
       {% for key, item in items.pages %}
-        <li class="pager__item{{ current == key ? ' is-active' : '' }}">
+        <li class="pager__item{{ current == key ? ' pager__item--current' : '' }}">
           {% if current == key %}
             {% set title = 'Current page'|t %}
           {% else %}
