@@ -13,8 +13,8 @@ module.exports = function (grunt) {
         }
       },
       svgs: {
-        files: ['<%= pkg.themePath %>/images/bg/*.svg'],
-        tasks: ['gessoBuildImages', 'gessoBuildStyles'],
+        files: ['<%= pkg.themePath %>/images/*.svg'],
+        tasks: ['gessoBuildStyles'],
       },
     }
   });
