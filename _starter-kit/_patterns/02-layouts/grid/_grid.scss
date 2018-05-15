@@ -3,8 +3,13 @@
 
 $grid-gutter: 2em;
 
-// .l-grid {
-// }
+.l-grid {
+  @include flex-grid(1, $grid-gutter, 0);
+
+  @supports(display:grid) {
+    @include css-fixed-grid(1);
+  }
+}
 
 .l-grid--2col {
   @include flex-grid(1, $grid-gutter, 0);
