@@ -120,9 +120,6 @@ mixins, selector inheritance, and more.
 * [Sass Globbing](https://github.com/DennisBecker/grunt-sass-globbing): Adds
 glob-based imports to Sass.
 
-* [SVG2PNG](https://github.com/dbushell/grunt-svg2png): Rasterizes SVG to PNG
-images using PhantomJS.
-
 * [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
 browser CSS property prefixes during Sass compilation.
 
