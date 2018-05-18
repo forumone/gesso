@@ -6,7 +6,7 @@
  * @param $variables
  */
  function gesso_preprocess_menu_local_tasks(&$variables) {
-   foreach (array['primary', 'secondary') as $type] {
+   foreach (['primary', 'secondary'] as $type) {
      $tabs = [];
 
      // Sort the tabs by #weight.
