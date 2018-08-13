@@ -17,7 +17,7 @@
     {% if has_summary %}
       <div class="hero-bg-image__text">{{ summary|raw }}</div>
     {% endif %}
-    {% if has_button %}
+    {% if has_call_to_action %}
       <div class="hero-bg-image__call-to-action">
         {% block call_to_action %}
           {{ call_to_action_content|raw }}

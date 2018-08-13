@@ -54,14 +54,8 @@
 
 {% embed '@components/article/article.twig' with {
   'has_footer': display_submitted ? true : false,
+  'article_page_title': label
  } %}
-
-  {% block title %}
-    {% include '@components/page-title/page-title.twig'
-      with {
-        'page_title': label
-     } %}
-  {% endblock %}
 
   {% block footer %}
     {% if display_submitted %}
