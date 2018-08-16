@@ -1,6 +1,6 @@
 ---
 custom_classes: false
-image: "https://picsum.photos/1600/800?random"
+image: "https://picsum.photos/1600/800?image=11"
 has_overlay: true
 has_title: true
 title: "Hero Title"

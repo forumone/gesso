@@ -35,7 +35,7 @@ content:
                                                     with:
                                                       title: "Delorean"
                                                       url: "#"
-                                                      media: "https://picsum.photos/800/450?image=558"
+                                                      media: "https://picsum.photos/800/600?image=429"
                                                       content: " It's a board with wheels. What's with the life preserver?"
                                           - content:
                                               join():
@@ -44,7 +44,7 @@ content:
                                                     with:
                                                       title: "Eighty Eight MPH"
                                                       url: "#"
-                                                      media: "https://picsum.photos/800/450?image=582"
+                                                      media: "https://picsum.photos/800/600?image=823"
                                                       content: "No no no this sucker's electrical, but I need a nuclear reaction to generate the one point twenty-one gigawatts of electricity that I need."
                                           - content:
                                               join():
@@ -53,7 +53,7 @@ content:
                                                     with:
                                                       title: "1.21 Gigawatts"
                                                       url: "#"
-                                                      media: "https://picsum.photos/800/450?image=604"
+                                                      media: "https://picsum.photos/800/600?image=967"
                                                       content: "If you guys ever have kids and one of them when he's eight years old, accidentally sets fire to the living room rug, be easy on him."
                                           - content:
                                               join():
@@ -62,7 +62,7 @@ content:
                                                     with:
                                                       title: "Doctor Brown"
                                                       url: "#"
-                                                      media: "https://picsum.photos/800/450?image=613"
+                                                      media: "https://picsum.photos/800/600?image=1024"
                                                       content: " Hey, Doc, we better back up, we don't have enough road to get up to 88."
                                           - content:
                                               join():
@@ -71,7 +71,7 @@ content:
                                                     with:
                                                       title: "Enchantment Under The Sea"
                                                       url: "#"
-                                                      media: "https://picsum.photos/800/450?image=659"
+                                                      media: "https://picsum.photos/800/600?image=659"
                                                       content: "Not a word, not a word, not a word now. Quiet... you want me to make a donation to the coast guard youth auxiliary?"
                                           - content:
                                               join():
@@ -80,7 +80,7 @@ content:
                                                     with:
                                                       title: "Twin Pines Mall"
                                                       url: "#"
-                                                      media: "https://picsum.photos/800/450?image=660"
+                                                      media: "https://picsum.photos/800/600?image=660"
                                                       content: "You fell and you hit your head on the sink, and that's when you came up with the idea for the flux capacitor, which makes time travel possible."
 
 

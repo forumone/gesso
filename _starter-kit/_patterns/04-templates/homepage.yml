@@ -1,5 +1,5 @@
 ---
-homepage_hero_image: "https://picsum.photos/1600/800?random"
+homepage_hero_image: "https://picsum.photos/1600/800?image=62"
 homepage_hero_title: "Hero Title"
 homepage_hero_summary: "<p>Nam auctor laoreet ipsum, nec finibus tellus interdum vel. Nunc dui nisi, cursus ut tortor vel, porta porttitor quam.</p>"
 homepage_hero_call_to_action_text: 'Call To Action Text'
@@ -9,33 +9,9 @@ homepage_grid_content:
   join():
     - include():
         pattern: components-card
-        with:
-          title: "Card Title"
-          url: "#"
-          media: "https://picsum.photos/800/450?random"
-          content: |-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis mattis ipsum, non hendrerit justo.</p>
     - include():
         pattern: components-card
-        with:
-          title: "Card Title"
-          url: "#"
-          media: "https://picsum.photos/800/450?random"
-          content: |-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis mattis ipsum, non hendrerit justo.</p>
     - include():
         pattern: components-card
-        with:
-          title: "Card Title"
-          url: "#"
-          media: "https://picsum.photos/800/450?random"
-          content: |-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis mattis ipsum, non hendrerit justo.</p>
     - include():
         pattern: components-card
-        with:
-          title: "Card Title"
-          url: "#"
-          media: "https://picsum.photos/800/450?random"
-          content: |-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis mattis ipsum, non hendrerit justo.</p>

@@ -1,9 +1,9 @@
 ---
 custom_classes: false
 image:
-  small: "https://picsum.photos/800/400?random"
-  medium: "https://picsum.photos/1200/600?random"
-  large: "https://picsum.photos/1600/800?random"
+  small: "https://picsum.photos/800/400?image=11"
+  medium: "https://picsum.photos/1200/600?image=11"
+  large: "https://picsum.photos/1600/800?image=11"
 has_overlay: true
 title: "Hero Title"
 has_subtitle: true
