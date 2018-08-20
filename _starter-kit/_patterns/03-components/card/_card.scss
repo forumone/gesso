@@ -20,10 +20,9 @@ $card_padding: 1rem;
 
 .card__media {
   order: -1;
-}
-
-.card__media-image {
-  width: 100%;
+  img {
+    width: 100%;
+  }
 }
 
 .card__footer {

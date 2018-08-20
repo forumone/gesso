@@ -19,7 +19,7 @@
   {% if media %}
     <div class="card__media">
       {% if url %}<a href="{{ url }}">{% endif %}
-        <img class="card__media-image" src="{{ media|raw }}">
+        {{ media|raw }}
       {% if url %}</a>{% endif %}
     </div>
   {% endif %}

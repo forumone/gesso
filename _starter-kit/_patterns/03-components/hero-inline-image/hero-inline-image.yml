@@ -1,9 +1,12 @@
 ---
 custom_classes: false
-image:
-  small: "https://picsum.photos/800/400?image=11"
-  medium: "https://picsum.photos/1200/600?image=11"
-  large: "https://picsum.photos/1600/800?image=11"
+media: |-
+  <picture>
+    <source srcset="https://picsum.photos/1600/800?image=11" media="(min-width: 1024px)" type="image/jpeg">
+    <source srcset="https://picsum.photos/1200/600?image=11" media="(min-width: 760px)" type="image/jpeg">
+    <source srcset="https://picsum.photos/800/400?image=11" type="image/jpeg">
+    <img srcset="https://picsum.photos/1600/800?image=11" alt="Hero Image Alt Text">
+  </picture>
 has_overlay: true
 title: "Hero Title"
 has_subtitle: true
