@@ -1,6 +1,6 @@
 ---
 custom_classes: false
-image: "https://picsum.photos/1600/800?random"
+image: "https://picsum.photos/1600/800?image=11"
 has_overlay: true
 has_title: true
 title: "Hero Title"
@@ -8,7 +8,7 @@ has_subtitle: true
 subtitle: "Hero Subtitle"
 has_summary: true
 summary: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
-has_button: true
+has_call_to_action: true
 call_to_action_content:
   join():
     - include():
