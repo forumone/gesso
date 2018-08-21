@@ -4,10 +4,7 @@ attributes:
     role: "article"
     class:
       -
-title:
-  join():
-    - include():
-        pattern: components-page-title
+article_page_title: 'A Diplomatic Mission to Alderaan'
 has_footer: true
 footer:
   join():

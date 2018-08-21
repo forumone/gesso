@@ -1,16 +1,19 @@
 ---
 custom_classes: false
-image:
-  small: "https://picsum.photos/800/400?random"
-  medium: "https://picsum.photos/1200/600?random"
-  large: "https://picsum.photos/1600/800?random"
+media: |-
+  <picture>
+    <source srcset="https://picsum.photos/1600/800?image=11" media="(min-width: 1024px)" type="image/jpeg">
+    <source srcset="https://picsum.photos/1200/600?image=11" media="(min-width: 760px)" type="image/jpeg">
+    <source srcset="https://picsum.photos/800/400?image=11" type="image/jpeg">
+    <img srcset="https://picsum.photos/1600/800?image=11" alt="Hero Image Alt Text">
+  </picture>
 has_overlay: true
 title: "Hero Title"
 has_subtitle: true
 subtitle: "Hero Subtitle"
 has_summary: true
 summary: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
-has_button: true
+has_call_to_action: true
 call_to_action_content:
   join():
     - include():

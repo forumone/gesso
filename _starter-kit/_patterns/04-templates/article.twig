@@ -1,17 +1,6 @@
-{% include 'layouts-header' %}
-{% include 'layouts-navigation' %}
-{% include 'layouts-breadcrumb' %}
-{% include 'layouts-highlighted' %}
-{% include 'layouts-help' %}
-
-<main id="main" class="main" role="main" tabindex="-1">
-  {% include 'layouts-preface' %}
-  {% include 'layouts-content' with
-    {
-      content: content
-    }
-  %}
-  {% include 'layouts-postscript' %}
-</main>
-
-{% include 'layouts-footer' %}
+{% include '@components/article/article.twig' with {
+  'article_page_title': article_title,
+  'has_footer': true,
+  'footer': article_footer,
+  'content': article_content
+} %}

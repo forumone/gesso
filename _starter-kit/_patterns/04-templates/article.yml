@@ -1,27 +1,6 @@
 ---
-content:
-  join():
-    - include():
-        pattern: components-article
-        with:
-          title:
-            join():
-              - include():
-                  pattern: components-page-title
-                  with:
-                    page_title: "As You Wish"
-          has_footer: true
-          footer:
-            join():
-              - include():
-                  pattern: components-date
-                  with:
-                    format: "long-datetime"
-              - include():
-                  pattern: components-author
-                  with:
-                    author: "Inigo Montoya"
-          content: |-
-            <p>You're the Dread Pirate Roberts, admit it. How many do you think you could handle? You mean you wish to surrender to me? Very well, I accept. But how can you be sure? Will this do? You truly love each other and so you might have been truly happy. Not one couple in a century has that chance, no matter what the story books say. And so I think no man in a century will suffer as greatly as you will. You only think I guessed wrong! That's what's so funny! I switched glasses when your back was turned! Ha ha! You fool! You fell victim to one of the classic blunders - The most famous of which is "never get involved in a land war in Asia" - but only slightly less well-known is this: "Never go against a Sicilian when death is on the line"! Ha ha ha ha ha ha ha! Ha ha ha ha ha ha ha! Ha ha ha...</p>
-            <p>They were both poisoned. I spent the last few years building up an immunity to iocane powder. Unless the enemy has studied his Agrippa... which I have. Move? You're alive. If you want I can fly. You just shook your head... doesn't that make you happy? Truly, you have a dizzying intellect. Probably he means no *harm*.</p>
-            <p>Well, I'm not saying I'd like to build a summer home here, but the trees are actually quite lovely. And YOU: friendless, brainless, helpless, hopeless! Do you want me to send you back to where you were? Unemployed, in Greenland? No, there is too much. Let me sum up. Buttercup is marry Humperdinck in a little less than half an hour. So all we have to do is get in, break up the wedding, steal the princess, make our escape... after I kill Count Rugen. You seem a decent fellow... I hate to kill you. You seem a decent fellow... I hate to die. Naturally... but I find that Thibault cancels out Capa Ferro. Don't you?</p>
+article_title: "Article Title"
+article_content: |-
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis mattis ipsum, non hendrerit justo. Pellentesque libero dui, varius ut ex quis, interdum aliquet est. Integer iaculis sapien libero, ut ullamcorper est tristique et. Vivamus orci nunc, commodo at vulputate gravida, tempus id nisi. Praesent feugiat elit at nunc dignissim consequat. Cras posuere venenatis augue, quis ultricies mauris sagittis quis. Proin blandit arcu est, ac pulvinar ante tristique non. Suspendisse eu maximus erat. Vestibulum hendrerit arcu id ex ullamcorper, id ultrices magna euismod. Maecenas id elit ultrices purus elementum sollicitudin. Sed id magna id metus pretium vulputate id a risus. Curabitur tellus quam, congue tristique rutrum in, sagittis vel nibh. Mauris aliquet purus vel faucibus faucibus. Nullam lacinia diam ante, nec consequat sem pulvinar non. Mauris et dolor quis metus cursus fermentum nec vitae risus.</p>
+  <p>Nam auctor laoreet ipsum, nec finibus tellus interdum vel. Nunc dui nisi, cursus ut tortor vel, porta porttitor quam. Curabitur tempor tellus a eros bibendum rhoncus. Quisque faucibus volutpat malesuada. Aliquam dapibus libero sem, et mollis libero rutrum eu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam vel pharetra augue, sed feugiat est. Donec in velit sed libero sollicitudin eleifend. Nunc et erat mollis, placerat ex vitae, volutpat risus. Nam in enim quis nibh volutpat egestas nec a magna. Curabitur congue pretium arcu ac hendrerit. Sed iaculis tempor tellus, nec scelerisque diam ornare id. Aenean interdum accumsan tincidunt. Maecenas commodo lacinia nibh id iaculis.</p>
+article_footer: "Footer Content"

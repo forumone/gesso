@@ -1,6 +1,6 @@
 ---
 modifier_classes: ""
 media: |-
-  <img src="https://picsum.photos/200/300?random">
+  <img src="http://fpoimg.com/200x150?text=Media Image">
 content: |-
   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae necessitatibus fuga provident aut.</p>

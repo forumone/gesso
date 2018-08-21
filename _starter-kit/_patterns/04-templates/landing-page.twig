@@ -1,17 +1,11 @@
-{% include 'layouts-header' %}
-{% include 'layouts-navigation' %}
-{% include 'layouts-breadcrumb' %}
-{% include 'layouts-highlighted' %}
-{% include 'layouts-help' %}
+{% include '@components/page-title/page-title.twig' with {
+  'page_title': landing_page_title
+} %}
 
-<main id="main" class="main" role="main" tabindex="-1">
-  {% include 'layouts-preface' %}
-  {% include 'layouts-content' with
-    {
-      content: content
-    }
-  %}
-  {% include 'layouts-postscript' %}
-</main>
-
-{% include 'layouts-footer' %}
+{% include '@layouts/section/section.twig' with {
+  'has_wrapper': true,
+  'has_constrain': false,
+  'has_label': false,
+  'has_content_wrapper': true,
+  'content': landing_page_content
+} %}
