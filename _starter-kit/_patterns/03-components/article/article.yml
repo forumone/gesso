@@ -4,7 +4,7 @@ attributes:
     role: "article"
     class:
       -
-article_page_title: 'A Diplomatic Mission to Alderaan'
+article_page_title: 'Article Title'
 has_footer: true
 footer:
   join():
