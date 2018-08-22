@@ -45,16 +45,18 @@
       {% for key, item in items.pages %}
         <li class="pager__item{{ current == key ? ' pager__item--current' : '' }}">
           {% if current == key %}
-            {% set title = 'Current page'|t %}
-          {% else %}
-            {% set title = 'Go to page @key'|t({'@key': key}) %}
-          {% endif %}
-          <a class="pager__link" href="{{ item.href }}" title="{{ title }}"{{ item.attributes|without('href', 'title') }}>
             <span class="visually-hidden">
-              {{ current == key ? 'Current page'|t : 'Page'|t }}
+              {{ 'Current page'|t }}
             </span>
             {{- key -}}
-          </a>
+          {% else %}
+            <a class="pager__link" href="{{ item.href }}" title="{{ 'Go to page @key'|t({'@key': key}) }}"{{ item.attributes|without('href', 'title') }}>
+              <span class="visually-hidden">
+                {{ 'Page'|t }}
+              </span>
+              {{- key -}}
+            </a>
+          {% endif %}
         </li>
       {% endfor %}
 
