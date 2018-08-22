@@ -31,9 +31,12 @@
 
 .hero-inline-image__subtitle {}
 
-.hero-inline-image__picture {
+.hero-inline-image__media {
   display: block;
   line-height: 0;
+  img, picture {
+    width: 100%;
+  }
 }
 
 .hero-inline-image__content {

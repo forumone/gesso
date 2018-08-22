@@ -1,2 +1,51 @@
 ---
 body_class: "front"
+content:
+  join():
+    - include():
+        pattern: templates-homepage
+        with:
+          homepage_hero_image: "https://picsum.photos/1600/800/?image=96&gravity=north"
+          homepage_hero_title: "Where'd You Get The Coconuts?"
+          homepage_hero_summary: "<p>The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land. Are you suggesting that coconuts migrate? Not at all. They could be carried. What? A swallow carrying a coconut? It could grip it by the husk!</p>"
+          homepage_hero_call_to_action_text: 'Ni! Ni! Ni! Ni!'
+          homepage_hero_call_to_action_url: '#'
+          homepage_grid_titlelabel: "You Don't Vote For Kings"
+          homepage_grid_content:
+            join():
+              - include():
+                  pattern: components-card
+                  with:
+                    title: "It's Only a Model"
+                    url: "#"
+                    media: |-
+                      <img src="https://picsum.photos/800/600?image=1069">
+                    content: |-
+                      <p>The Lady of the Lake, her arm clad in the purest shimmering samite, held aloft Excalibur from the bosom of the water, signifying by divine providence that I, Arthur, was to carry Excalibur.</p>
+              - include():
+                  pattern: components-card
+                  with:
+                    title: "Let Us Ride To Camelot"
+                    url: "#"
+                    media: |-
+                      <img src="https://picsum.photos/800/600?image=1025">
+                    content: |-
+                      <p>Well, we did do the nose. I don't want to talk to you no more, you empty-headed animal food trough water!</p>
+              - include():
+                  pattern: components-card
+                  with:
+                    title: "What a Strange Person"
+                    url: "#"
+                    media: |-
+                      <img src="https://picsum.photos/800/600?image=1040">
+                    content: |-
+                      <p>Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!</p>
+              - include():
+                  pattern: components-card
+                  with:
+                    title: "The Knights Who Say Ni"
+                    url: "#"
+                    media: |-
+                      <img src="https://picsum.photos/800/600?image=870">
+                    content: |-
+                      <p>Ah, now we see the violence inherent in the system! How do you know she is a witch? We shall say 'Ni' again to you, if you do not appease us.</p>

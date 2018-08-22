@@ -2,6 +2,7 @@
 title: "Card title"
 url: '#'
 footer: ''
-media: "https://picsum.photos/550/309?random"
+media: |-
+  <img src="http://fpoimg.com/800x600?text=Card Image">
 content: |-
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et accumsan augue. Morbi non laoreet lorem.</p>

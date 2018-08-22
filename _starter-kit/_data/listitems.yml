@@ -7,7 +7,7 @@
       src: "https://picsum.photos/140/105?image=0"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=0"
+      src: "https://picsum.photos/1600/800?image=0"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -41,7 +41,7 @@
       src: "https://picsum.photos/140/105?image=11"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=11"
+      src: "https://picsum.photos/1600/800?image=11"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -75,7 +75,7 @@
       src: "https://picsum.photos/140/105?image=12"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=12"
+      src: "https://picsum.photos/1600/800?image=12"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -109,7 +109,7 @@
       src: "https://picsum.photos/140/105?image=13"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=13"
+      src: "https://picsum.photos/1600/800?image=13"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -143,7 +143,7 @@
       src: "https://picsum.photos/140/105?image=16"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=16"
+      src: "https://picsum.photos/1600/800?image=16"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -177,7 +177,7 @@
       src: "https://picsum.photos/140/105?image=23"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=23"
+      src: "https://picsum.photos/1600/800?image=23"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -211,7 +211,7 @@
       src: "https://picsum.photos/140/105?image=26"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=26"
+      src: "https://picsum.photos/1600/800?image=26"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -245,7 +245,7 @@
       src: "https://picsum.photos/140/105?image=27"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=27"
+      src: "https://picsum.photos/1600/800?image=27"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -279,7 +279,7 @@
       src: "https://picsum.photos/140/105?image=35"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=35"
+      src: "https://picsum.photos/1600/800?image=35"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -313,7 +313,7 @@
       src: "https://picsum.photos/140/105?image=39"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=39"
+      src: "https://picsum.photos/1600/800?image=39"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -347,7 +347,7 @@
       src: "https://picsum.photos/140/105?image=43"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=43"
+      src: "https://picsum.photos/1600/800?image=43"
       alt: "Hero 2:1"
   year:
     long: "2013"
@@ -381,7 +381,7 @@
       src: "https://picsum.photos/140/105?image=50"
       alt: "Thumbnail 4:3"
     hero:
-      src: "https://picsum.photos/140/105?image=50"
+      src: "https://picsum.photos/1600/800?image=50"
       alt: "Hero 2:1"
   year:
     long: "2013"

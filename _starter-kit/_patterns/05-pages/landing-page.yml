@@ -1,2 +1,92 @@
 ---
 body_class: "not-front"
+content:
+  join():
+    - include():
+        pattern: templates-landing-page
+        with:
+          landing_page_title: "Great Scott!"
+          landing_page_content:
+            join():
+              - include():
+                  pattern: components-views-view
+                  with:
+                    pager:
+                      join():
+                        - include():
+                            pattern: components-pager
+                    rows:
+                      join():
+                        - include():
+                            pattern: layouts-grid
+                            with:
+                              modifier_classes: 'l-grid--3col'
+                              content:
+                                join():
+                                  - include():
+                                      pattern: components-views-view-unformatted
+                                      with:
+                                        has_wrapper: false
+                                        rows:
+                                          - content:
+                                              join():
+                                                - include():
+                                                    pattern: components-card
+                                                    with:
+                                                      title: "Delorean"
+                                                      url: "#"
+                                                      media: |-
+                                                        <img src="https://picsum.photos/800/600?image=429">
+                                                      content: " It's a board with wheels. What's with the life preserver?"
+                                          - content:
+                                              join():
+                                                - include():
+                                                    pattern: components-card
+                                                    with:
+                                                      title: "Eighty Eight MPH"
+                                                      url: "#"
+                                                      media: |-
+                                                        <img src="https://picsum.photos/800/600?image=823">
+                                                      content: "No no no this sucker's electrical, but I need a nuclear reaction to generate the one point twenty-one gigawatts of electricity that I need."
+                                          - content:
+                                              join():
+                                                - include():
+                                                    pattern: components-card
+                                                    with:
+                                                      title: "1.21 Gigawatts"
+                                                      url: "#"
+                                                      media: |-
+                                                        <img src="https://picsum.photos/800/600?image=967">
+                                                      content: "If you guys ever have kids and one of them when he's eight years old, accidentally sets fire to the living room rug, be easy on him."
+                                          - content:
+                                              join():
+                                                - include():
+                                                    pattern: components-card
+                                                    with:
+                                                      title: "Doctor Brown"
+                                                      url: "#"
+                                                      media: |-
+                                                        <img src="https://picsum.photos/800/600?image=1024">
+                                                      content: " Hey, Doc, we better back up, we don't have enough road to get up to 88."
+                                          - content:
+                                              join():
+                                                - include():
+                                                    pattern: components-card
+                                                    with:
+                                                      title: "Enchantment Under The Sea"
+                                                      url: "#"
+                                                      media: |-
+                                                        <img src="https://picsum.photos/800/600?image=659">
+                                                      content: "Not a word, not a word, not a word now. Quiet... you want me to make a donation to the coast guard youth auxiliary?"
+                                          - content:
+                                              join():
+                                                - include():
+                                                    pattern: components-card
+                                                    with:
+                                                      title: "Twin Pines Mall"
+                                                      url: "#"
+                                                      media: |-
+                                                        <img src="https://picsum.photos/800/600?image=660">
+                                                      content: "You fell and you hit your head on the sink, and that's when you came up with the idea for the flux capacitor, which makes time travel possible."
+
+

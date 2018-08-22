@@ -20,11 +20,9 @@ $card_padding: 1rem;
 
 .card__media {
   order: -1;
-}
-
-.card__media-image {
-  @include aspect-ratio(16, 9);
-  background-size: cover;
+  img {
+    width: 100%;
+  }
 }
 
 .card__footer {

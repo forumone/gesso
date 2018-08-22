@@ -19,5 +19,8 @@ function gesso_theme_suggestions_block_alter(array &$suggestions, array $variabl
     $suggestions[] = 'block__' . $bundle;
     $suggestions[] = 'block__' . $view_mode;
     $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
+    if (!empty($variables['elements']['#id'])) {
+      $suggestions[] = 'block__' . $variables['elements']['#id'];
+    }
   }
 }

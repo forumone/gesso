@@ -7,7 +7,9 @@
 
 <article{{- attributes.addClass(classes)|raw -}}>
   {% block title %}
-    {{ title|raw }}
+    {% include '@components/page-title/page-title.twig' with {
+      'page_title': article_page_title
+    } %}
   {% endblock %}
 
   {% if has_footer %}
