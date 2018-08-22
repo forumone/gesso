@@ -16,7 +16,8 @@
     include '@components/pager/pager.twig' with {
       modifier_classes: "",
       heading: 'Pagination'|t,
-      items: items
+      items: items,
+      current: current
     } only
   %}
 {% endif %}
