@@ -1,6 +1,7 @@
 ---
 custom_classes: false
 image: "https://picsum.photos/1600/800?image=11"
+image_alt: "alt text"
 has_overlay: true
 has_title: true
 title: "Hero Title"
