@@ -6,13 +6,13 @@
   ]|join(' ')|trim
 %}
 
-<div class="{{ classes }}" style="background-image: url({{ image }});">
+<div class="{{ classes }}" style="background-image: url({{ image|raw }});" role="img" aria-label="{{ image_alt|raw }}">
   <div class="hero-bg-image__content">
     {% if has_title %}
-      <h1 class="hero-bg-image__title">{{ title }}</h1>
+      <h1 class="hero-bg-image__title">{{ title|raw }}</h1>
     {% endif %}
     {% if has_subtitle %}
-      <h3 class="hero-bg-image__subtitle">{{ subtitle }}</h3>
+      <h3 class="hero-bg-image__subtitle">{{ subtitle|raw }}</h3>
     {% endif %}
     {% if has_summary %}
       <div class="hero-bg-image__text">{{ summary|raw }}</div>
