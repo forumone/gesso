@@ -7,6 +7,7 @@ _Component for Hero Bg Image_
 ## Variables
 * custom_classes: [string] Classes to modify the default component styling.
 * image: [string] Background image for component.
+* image_alt: [string] Alt text for image.
 * has_overlay: [boolean] True/False identifying component has overlay class.
 * has_title: [boolean] True/False identifying component has title.
 * title: [string] Title of hero.
