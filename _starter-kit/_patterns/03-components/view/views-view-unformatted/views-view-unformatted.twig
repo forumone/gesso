@@ -1,5 +1,5 @@
 {% if title %}
-  <{{ title_element ?: 'h3' }}>{{ title }}</{{ title_element ?: 'h3' }}>
+  <{{ title_element ?: 'h3' }}>{{ title|raw }}</{{ title_element ?: 'h3' }}>
 {% endif %}
 
 {% for row in rows %}

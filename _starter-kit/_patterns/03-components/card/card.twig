@@ -2,8 +2,8 @@
   <div class="card__body">
     <div class="card__header">
       <h3 class="card__title">
-        {% if url %}<a href="{{ url }}">{% endif %}
-          {{title}}
+        {% if url %}<a href="{{ url|raw }}">{% endif %}
+          {{ title|raw }}
         {% if url %}</a>{% endif %}
       </h3>
     </div>
@@ -18,7 +18,7 @@
   </div>
   {% if media %}
     <div class="card__media">
-      {% if url %}<a href="{{ url }}">{% endif %}
+      {% if url %}<a href="{{ url|raw }}">{% endif %}
         {{ media|raw }}
       {% if url %}</a>{% endif %}
     </div>
