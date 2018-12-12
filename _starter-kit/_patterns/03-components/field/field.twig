@@ -1,6 +1,6 @@
 <{{ element ?: 'div' }}{{- attributes.addClass(classes)|raw -}}>
   {% if not label_hidden %}
-    <{{ label_element ?: 'h3' }}{{- title_attributes.addClass(title_classes)|raw -}}>{{ label }}</{{ label_element ?: 'h3' }}>
+    <{{ label_element ?: 'h3' }}{{- title_attributes.addClass(title_classes)|raw -}}>{{ label|raw }}</{{ label_element ?: 'h3' }}>
   {% endif %}
   {% if multiple %}
     <div class="field__items">

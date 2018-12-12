@@ -8,16 +8,16 @@
 
 <div class="{{ classes }}" style="background-image: url({{ image|raw }});" role="img" aria-label="{{ image_alt|raw }}">
   <div class="hero-bg-image__content">
-    {% if has_title %}
+    {% if title %}
       <h1 class="hero-bg-image__title">{{ title|raw }}</h1>
     {% endif %}
-    {% if has_subtitle %}
+    {% if subtitle %}
       <h3 class="hero-bg-image__subtitle">{{ subtitle|raw }}</h3>
     {% endif %}
-    {% if has_summary %}
+    {% if summary %}
       <div class="hero-bg-image__text">{{ summary|raw }}</div>
     {% endif %}
-    {% if has_call_to_action %}
+    {% if call_to_action_content %}
       <div class="hero-bg-image__call-to-action">
         {% block call_to_action %}
           {{ call_to_action_content|raw }}

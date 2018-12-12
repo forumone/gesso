@@ -12,6 +12,6 @@
   {% elseif format == "short-datetime" %}
     {% include "base-short-datetime" %}
   {% else %}
-    {{ content }}
+    {{ content|raw }}
   {% endif %}
 </div>

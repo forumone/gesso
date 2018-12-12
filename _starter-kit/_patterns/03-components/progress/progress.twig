@@ -1,10 +1,10 @@
 <div class="progress" data-drupal-progress>
   {% if label %}
-    <div class="progress__label">{{ label }}</div>
+    <div class="progress__label">{{ label|raw }}</div>
   {% endif %}
   <div class="progress__track">
-    <div class="progress__bar" style="width: {{ percent }}"></div>
+    <div class="progress__bar" style="width: {{ percent|raw }}"></div>
   </div>
-  <div class="progress__percentage">{{ percent }}</div>
-  <div class="progress__description">{{ message }}</div>
+  <div class="progress__percentage">{{ percent|raw }}</div>
+  <div class="progress__description">{{ message|raw }}</div>
 </div>
