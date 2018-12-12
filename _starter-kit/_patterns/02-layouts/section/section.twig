@@ -6,9 +6,9 @@
     <div class="{{ constrain_classes ?: "l-constrain" }}">
   {% endif %}
 
-  {% if has_label %}
+  {% if label %}
     {{ title_prefix }}
-    <{{ label_element ?: "h2" }}{{- title_attributes.addClass(title_classes,'l-section__title')|raw -}}>{{ label }}</{{ label_element ?: "h2" }}>
+    <{{ label_element ?: "h2" }}{{- title_attributes.addClass(title_classes,'l-section__title')|raw -}}>{{ label|raw }}</{{ label_element ?: "h2" }}>
     {{ title_suffix }}
   {% endif %}
 

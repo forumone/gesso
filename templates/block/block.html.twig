@@ -49,10 +49,9 @@
     'has_wrapper': true,
     'element': "div",
     'has_constrain': false,
-    'has_label': label ? true : false,
     'title_prefix': title_prefix,
     'title_suffix': title_suffix,
-    'label': label,
+    'label': label is not empty ? label : false,
     'has_content_wrapper': true
   }
 %}

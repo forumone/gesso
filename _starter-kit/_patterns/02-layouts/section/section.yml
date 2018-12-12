@@ -7,7 +7,6 @@ attributes:
       -
 has_constrain: false
 constrain_classes: l-constrain
-has_label: true
 label_element: h2
 label: Section title
 title_attributes:

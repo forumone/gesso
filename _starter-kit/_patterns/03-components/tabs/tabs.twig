@@ -1,15 +1,15 @@
 {% if tabs %}
   <nav class="tabs {{ modifier_classes }}" role="navigation">
-    <h2 class="visually-hidden">{{ heading|default('Primary tabs'|t) }}</h2>
+    <h2 class="visually-hidden">{{ heading|default('Primary tabs'|raw|t) }}</h2>
     <ul class="tabs__items">
     {% for tab in tabs %}
       {% set active_class = tab.active ? 'is-active' : '' %}
       <li class="tabs__item {{ active_class }}">
         {% block link %}
-          <a href="{{ tab.url }}" class="tabs__link {{ active_class }}">
+          <a href="{{ tab.url|raw }}" class="tabs__link {{ active_class }}">
             {{ tab.text }}
             {% if tab.active %}
-              <span class="visually-hidden">{{ active_label|default('(active tab)') }}</span>
+              <span class="visually-hidden">{{ active_label|default('(active tab)')|raw }}</span>
             {% endif %}
           </a>
         {% endblock link %}

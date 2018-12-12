@@ -1,17 +1,14 @@
 {% include '@layouts/section/section.twig' with {
   'has_wrapper': true,
   'has_constrain': false,
-  'has_label': false,
+  'label': false,
   'has_content_wrapper': true,
   'content': include('@components/hero-bg-image/hero-bg-image.twig', {
     'image': homepage_hero_image,
     'title': homepage_hero_title,
     'has_overlay': true,
-    'has_title': true,
-    'has_subtitle': false,
-    'has_summary': true,
+    'subtitle': false,
     'summary': homepage_hero_summary,
-    'has_call_to_action': true,
     'call_to_action_content': include('@components/button/button.twig', {
       'text': homepage_hero_call_to_action_text,
       'url': homepage_hero_call_to_action_url
@@ -22,9 +19,8 @@
 {% include '@layouts/section/section.twig' with {
   'has_wrapper': true,
   'has_constrain': false,
-  'has_label': true,
-  'label': homepage_grid_title,
   'has_content_wrapper': true,
+  'label': homepage_grid_title,
   'content': include('@layouts/grid/grid.twig', {
     'modifier_classes': 'l-grid--2col',
     'content': homepage_grid_content

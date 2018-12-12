@@ -11,7 +11,6 @@ _Layout for Section_.
   * class: [string] any classes added by user or system.
 * has_constrain: [boolean] True/False whether to add a constraint to block.
 * constrain_classes: [string] Constrain classes used to control layout.
-* has_label: [boolean] True/False whether block label should be displayed.
 * label_element: [string] HTML element to use for block label.
 * label: [string] The configured label of the block if visible.
 * title_attributes: [array] HTML attributes for the label element.
