@@ -8,7 +8,7 @@
   background-size: em(40px);
   border: 1px solid #bcdeee;
   color: #424242;
-  margin-bottom: rem($vertical-spacing);
+  margin-bottom: rem($spacing-scale-level-3);
   overflow: hidden;
   padding: 1em;
   position: relative;
@@ -17,12 +17,12 @@
   &::before {
     background-repeat: no-repeat;
     background-size: em(52px);
-    bottom: -.5em;
+    bottom: -0.5em;
     content: '';
     display: block;
     height: em(52px);
     position: absolute;
-    right: -.5em;
+    right: -0.5em;
     transform: rotate(-20deg);
     width: em(52px);
   }

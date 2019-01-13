@@ -1,37 +1,89 @@
+// Spacing directions
+$spacing-directions: (
+  'top': 't',
+  'right': 'r',
+  'bottom': 'b',
+  'left': 'l',
+) !default;
+
+// Generate spacing override classes for the given property (e.g. margin)
+// for each point in the spacing scale.
+
+// These override classes are responsive - the 'r' before the scale point
+// TOD0: Add non repsonsive version
+//
+// Example output:
+//
+// .u-space-m-r0 {
+//   margin: 0;
+// }
+//
+// [..]
+//
+// .u-space-mt-r1 {
+//   margin-top: [whatever spacing point 1 is...]
+// }
+
+@mixin generate-spacing-overrides($property, $property-shorthand) {
+  // For each point in the spacing scale (defined in settings), create an
+  // override that affects all directions...
+  @each $scale-point, $scale-map in $spacing-responsive-scale {
+    .u-space-#{$property-shorthand}-r#{$scale-point} {
+      @include set-responsive-spacing($scale-map, $property, false, true, true);
+    }
+
+    // ... and then an override for each individual direction
+    @each $direction-name, $direction-shorthand in $spacing-directions {
+      .u-space-#{$property-shorthand}#{$direction-shorthand}-r#{$scale-point} {
+        @include set-responsive-spacing(
+          $scale-map,
+          $property,
+          ($direction-name),
+          true,
+          true
+        );
+      }
+    }
+  }
+}
+
+// @include generate-spacing-overrides('margin', 'm');
+// @include generate-spacing-overrides('padding', 'p');
+
 // @file
 
 // Clearfix
 .clearfix {
-  @include clearfix-important;
+  @include clearfix(true);
 }
 
 // Accessibility utility classes
 .visually-hidden {
-  @include visually-hidden-important;
+  @include visually-hidden(true);
   &.focusable {
     &:active,
     &:focus {
-      @include visually-hidden-off-important;
+      @include visually-hidden-off(true);
     }
   }
 }
 
 .hidden {
-  @include hidden-important;
+  @include hidden(true);
 }
 
 .invisible {
-  @include invisible-important;
+  @include invisible(true);
 }
 
 // Styles for accessible skiplinks.
 .skiplinks {
-  @extend %system-font-family;
+  @include display-font-family-system;
+  @include z-index(skiplinks);
   left: 50%;
   margin-left: -7em;
   position: absolute;
   width: 14em;
-  z-index: 9999;
 }
 
 .skiplinks__link,
@@ -56,6 +108,7 @@
 }
 
 // Remove :focus styles for skiplink targets.
+// stylelint-disable-next-line selector-max-id
 #main:focus {
   outline: 0;
 }

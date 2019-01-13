@@ -1,0 +1,26 @@
+// @file
+// Blockquote styles.
+
+blockquote {
+  @include display-body-text-large;
+  @include responsive-margin($spacing-responsive-large, (top, bottom));
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  cite {
+    display: block;
+    padding-top: rem($spacing-scale-level-2);
+
+    &::before {
+      content: '\2013';
+      margin-right: 0.5em;
+    }
+  }
+
+  @media print {
+    page-break-inside: avoid;
+  }
+}

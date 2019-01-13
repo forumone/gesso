@@ -30,7 +30,7 @@ code,
 kbd,
 pre,
 samp {
-  $font-family: $monospace-font-family;
+  $font-family: $font-family-monospace;
   font-size: 1em;
 }
 
@@ -138,14 +138,15 @@ var {
   outline: none !important;
 }
 
+// stylelint-disable-next-line selector-no-vendor-prefix
 ::-moz-selection {
-  background: $color-selection-background;
-  color: $color-selection-foreground;
+  background: $color-background-selection;
+  color: $color-text-selection;
   text-shadow: none;
 }
 
 ::selection {
-  background: $color-selection-background;
-  color: $color-selection-foreground;
+  background: $color-background-selection;
+  color: $color-text-selection;
   text-shadow: none;
 }

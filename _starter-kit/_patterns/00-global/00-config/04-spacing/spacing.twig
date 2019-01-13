@@ -1,0 +1,11 @@
+
+{% for space_unit in spacing %}
+<div class="pattern-lab-spacing">
+  <div class="pattern-lab-spacing__icon" style="height:{{space_unit}}px; width:{{space_unit}}px;">
+  </div>
+
+  <div class="pattern-lab-spacing__info">
+    {{space_unit}}px
+  </div>
+</div>
+{% endfor %}

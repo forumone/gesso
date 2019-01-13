@@ -1,0 +1,18 @@
+// @file
+// Ordered list styles.
+
+ol {
+  @extend %body-font;
+  padding: 0 0 0 rem($spacing-scale-level-1); // LTR
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      padding: 0 rem($spacing-scale-level-1) 0 0;
+    }
+  }
+
+  ol,
+  ul {
+    padding-top: rem($spacing-scale-level-1);
+  }
+}

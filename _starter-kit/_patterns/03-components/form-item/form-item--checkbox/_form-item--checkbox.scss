@@ -7,7 +7,7 @@
   .form-item__checkbox {
     @extend %visually-hidden;
 
-    & + .form-item__label {
+    + .form-item__label {
       cursor: pointer;
       display: block;
 
@@ -22,7 +22,8 @@
         margin-right: 0.6em;
         text-indent: 0.15em;
         transition-duration: 0.2s;
-        transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+        transition-property: background-color, border-color, box-shadow, color,
+          opacity, text-shadow, transform;
         transition-timing-function: ease-in-out;
         vertical-align: middle;
         width: rem(18px);
@@ -39,7 +40,7 @@
     }
 
     &:checked:disabled + .form-item__label::before {
-      background-color: #AEB0B5;
+      background-color: #aeb0b5;
     }
 
     &:disabled + .form-item__label {
@@ -47,11 +48,10 @@
       cursor: default;
 
       &::before {
-        background-color: #AEB0B5;
-        box-shadow: 0 0 0 1px #AEB0B5;
+        background-color: #aeb0b5;
+        box-shadow: 0 0 0 1px #aeb0b5;
         cursor: not-allowed;
       }
     }
   }
-
 }

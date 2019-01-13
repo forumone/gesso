@@ -2,12 +2,12 @@
 // Styles for fields.
 
 .field {
-  margin: 0 0 1em 0;
+  margin: 0 0 rem($spacing-scale-level-3) 0;
 }
 
 .field__label {
+  @include display-font-weight-bold;
   display: block;
-  font-weight: 700;
   &.is-inline {
     display: inline-block;
     margin-right: 0.1em;

@@ -9,9 +9,11 @@
   text-align: center;
 
   &.has-overlay {
+    @include z-index(default);
     position: relative;
 
-    &:after {
+    &::after {
+      @include z-index(level-1);
       background: rgba(0, 0, 0, 0.5);
       bottom: 0;
       content: '';
@@ -19,12 +21,11 @@
       position: absolute;
       right: 0;
       top: 0;
-      z-index: 1;
     }
 
     .hero-bg-image__content {
+      @include z-index(level-2);
       position: relative;
-      z-index: 2;
     }
   }
 }
@@ -33,4 +34,5 @@
   margin-bottom: 0.25em;
 }
 
-.hero-bg-image__subtitle {}
+// .hero-bg-image__subtitle {
+// }

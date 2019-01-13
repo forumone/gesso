@@ -1,0 +1,17 @@
+radii:
+  -
+    name: $border-radius-none
+    value: '0'
+  -
+    name: $border-radius-small
+    value: '2px'
+  -
+    name: $border-radius-medium
+    value: '4px'
+  -
+    name: $border-radius-circle
+    value: '50%'
+  -
+    name: $border-radius-pill
+    value: '250px'
+ 

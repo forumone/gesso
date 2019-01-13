@@ -1,0 +1,21 @@
+// @file
+// Unordered list styles.
+
+ul {
+  @extend %body-font;
+  list-style-type: disc;
+  padding: 0 0 0 rem($spacing-scale-level-3); // LTR
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      padding: 0 rem($spacing-scale-level-3) 0 0;
+    }
+  }
+
+  ol,
+  ul {
+    margin: rem($spacing-scale-level-3 / 2) 0 0;
+    margin-bottom: 0;
+    padding-top: rem($spacing-scale-level-1);
+  }
+}

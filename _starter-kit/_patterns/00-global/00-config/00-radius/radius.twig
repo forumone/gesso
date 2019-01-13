@@ -1,0 +1,17 @@
+<div class="pattern-lab-radius-group">
+    {% for radius in radii %}
+        {% set style = '"border-radius:' ~ radius.value  ~ ';"' %}
+        <div class="pattern-lab-radius-item">
+            <div class="pattern-lab-radius-item__block" style={{ style|raw }}></div>
+            <div class="pattern-lab-radius-item__label">
+                <div class="pattern-lab-radius-item__name">
+                    {{ radius.name }}
+                </div>
+                <div class="pattern-lab-radius-item__value">
+                    {{ radius.value }}
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
+</div>

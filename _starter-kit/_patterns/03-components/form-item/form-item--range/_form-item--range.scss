@@ -1,7 +1,7 @@
 // @file
 // Styles for range form items.
 
-@mixin form-item__range-thumb {
+@mixin form-item-range-thumb {
   background: $form-range-thumb-color;
   border: $form-range-thumb-border-width solid $form-range-thumb-border-color;
   border-radius: $form-range-thumb-border-radius;
@@ -11,17 +11,17 @@
   width: rem($form-range-thumb-width);
 }
 
-@mixin form-item__range-thumb-focus {
+@mixin form-item-range-thumb-focus {
   box-shadow: $form-box-shadow-focus;
 }
 
-@mixin form-item__range-thumb-disabled {
+@mixin form-item-range-thumb-disabled {
   background: $form-color-disabled;
   border-color: $form-border-color-disabled;
   cursor: default;
 }
 
-@mixin form-item__range-track {
+@mixin form-item-range-track {
   background: $form-range-track-color;
   border: $form-range-track-border-width solid $form-range-track-border-color;
   cursor: pointer;
@@ -32,14 +32,13 @@
   width: 100%;
 }
 
-@mixin form-item__range-track-disabled {
+@mixin form-item-range-track-disabled {
   background: $form-color-disabled;
   border-color: $form-border-color-disabled;
   cursor: default;
 }
 
 .form-item--range {
-
   .form-item__range {
     appearance: none;
     background: transparent;
@@ -53,15 +52,15 @@
       outline: 0;
 
       &::-moz-range-thumb {
-        @include form-item__range-thumb-focus;
+        @include form-item-range-thumb-focus;
       }
 
       &::-ms-thumb {
-        @include form-item__range-thumb-focus;
+        @include form-item-range-thumb-focus;
       }
 
       &::-webkit-slider-thumb {
-        @include form-item__range-thumb-focus;
+        @include form-item-range-thumb-focus;
       }
     }
 
@@ -69,46 +68,47 @@
       cursor: default;
 
       &::-moz-range-thumb {
-        @include form-item__range-thumb-disabled;
+        @include form-item-range-thumb-disabled;
       }
 
       &::-moz-range-track {
-        @include form-item__range-track-disabled;
+        @include form-item-range-track-disabled;
       }
 
       &::-ms-thumb {
-        @include form-item__range-thumb-disabled;
+        @include form-item-range-thumb-disabled;
       }
 
       &::-ms-fill-lower,
       &::-ms-fill-upper {
-        @include form-item__range-track-disabled;
+        @include form-item-range-track-disabled;
       }
 
       &::-webkit-slider-thumb {
-        @include form-item__range-thumb-disabled;
+        @include form-item-range-thumb-disabled;
       }
 
+      // stylelint-disable-next-line selector-pseudo-element-no-unknown
       &::webkit-slider-runnable-track {
-        @include form-item__range-track-disabled;
+        @include form-item-range-track-disabled;
       }
     }
 
     &::-moz-range-thumb {
-      @include form-item__range-thumb;
+      @include form-item-range-thumb;
     }
 
     &::-moz-range-track {
-      @include form-item__range-track;
+      @include form-item-range-track;
     }
 
     &::-ms-thumb {
-      @include form-item__range-thumb;
+      @include form-item-range-thumb;
       margin-top: 0 !important; // Removes webkit-specific margin since IE uses webkit prefixes.
     }
 
     &::-ms-track {
-      @include form-item__range-track;
+      @include form-item-range-track;
       background: transparent;
       border: 0;
       color: transparent;
@@ -117,23 +117,24 @@
     &::-ms-fill-lower,
     &::-ms-fill-upper {
       background: $form-range-track-color;
-      border: $form-range-track-border-width solid $form-range-track-border-color;
+      border: $form-range-track-border-width solid
+        $form-range-track-border-color;
     }
 
     &::-webkit-slider-thumb {
-      @include form-item__range-thumb;
+      @include form-item-range-thumb;
       -webkit-appearance: none;
-      margin-top: rem(((-$form-range-track-border-width * 2) + $form-range-track-height) / 2) - rem($form-range-thumb-height / 2);
+      margin-top: rem(
+          ((-$form-range-track-border-width * 2) + $form-range-track-height) / 2
+        ) - rem($form-range-thumb-height / 2);
     }
 
     &::-webkit-slider-runnable-track {
-      @include form-item__range-track;
+      @include form-item-range-track;
     }
-
   }
 
   &.is-full-width > .form-item__range {
     width: 100%;
   }
-
 }

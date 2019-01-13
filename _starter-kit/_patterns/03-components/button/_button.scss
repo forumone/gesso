@@ -2,16 +2,17 @@
 // Styles for Button.
 
 .button {
+  @extend %button-font;
   @include button();
-  margin: 0 0 0.5em;
+  margin: 0 0 rem($spacing-scale-level-2);
 
   & + & {
-    margin-left: 0.5em; // LTR
+    margin-left: rem($spacing-scale-level-2); // LTR
 
     @if $support-for-rtl {
       [dir='rtl'] & {
         margin-left: 0;
-        margin-right: 0.5em;
+        margin-right: rem($spacing-scale-level-2);
       }
     }
   }

@@ -1,0 +1,11 @@
+// @file
+// Preformatted text styles.
+
+pre {
+  margin: 0 0 rem($spacing-scale-level-4);
+  overflow: auto;
+
+  @media print {
+    page-break-inside: avoid;
+  }
+}

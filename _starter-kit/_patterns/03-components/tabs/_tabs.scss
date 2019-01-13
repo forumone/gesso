@@ -10,8 +10,7 @@ $tab-color-border: #aeb0b5 !default;
 $tab-color-text: #212121 !default;
 $tab-color-text-active: #fff !default;
 $tab-color-text-disabled: #323a45 !default;
-$tab-color-text-hover: #212121 !default;
-$tab-font-size: $font-size-md !default;
+$tab-color-text-hover: #f21212 !default;
 
 .tabs {
   @include clearfix;
@@ -22,7 +21,7 @@ $tab-font-size: $font-size-md !default;
   display: flex;
   flex-direction: column;
 
-  @include breakpoint($bp-small) {
+  @include breakpoint($layout-bp-small) {
     flex-direction: row;
   }
 
@@ -48,23 +47,13 @@ $tab-font-size: $font-size-md !default;
 }
 
 .tabs__link {
-  @extend %system-font-family;
-  @include button(
-    $tab-color-bg,
-    $tab-color-text,
-    $tab-color-bg-hover,
-    $tab-color-text-hover,
-    $tab-color-bg-active,
-    $tab-color-text-active,
-    $tab-color-bg-disabled,
-    $tab-color-text-disabled,
-  0);
+  @include display-font-family-system;
+  @include button;
+  @include display-body-text-small;
   border-left: 1px solid $tab-color-border;
   display: block;
-  font-size: rem($font-size-sm);
-  line-height: (17px / $font-size-sm);
   margin: 0;
-  padding: rem(8px) rem(16px);
+  padding: rem($spacing-scale-level-2) rem($spacing-scale-level-4);
 
   &:active {
     background-color: $tab-color-bg-active;

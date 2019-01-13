@@ -1,0 +1,222 @@
+//** Typeset
+//
+//@param {list} $type-list A list of font-size and line-height
+//@param {String|Number} $override-line-height
+//@param {Boolean} $important Add important bang
+@mixin typeset($type-list, $override-line-height: false, $important: false) {
+  $entered-param-type: type-of($type-list);
+  @if $entered-param-type != 'list' {
+    @error 'Expected a list of font size and line-height, but got a '
+    + '#{$entered-param-type}. Make sure you are passing a font map.';
+  }
+  // Grab list values for font-size and line-height
+  // Font Size from list
+  $fs: nth($type-list, 1);
+  // Line Height from list
+  $lh: nth($type-list, 2);
+
+  //Computed Values for conversion
+  // If font size is set to pixels convert to rem units
+  $fs-computed: if(unit($fs) != 'px', $fs, rem($fs));
+
+  // If line-height override is set use override
+  $lh-computed: if($override-line-height, $override-line-height, $lh);
+
+  // Unit-less line-height
+  @if (unit($lh-computed) == 'px' and unit($fs) == 'px') {
+    $lh-computed: decimal(strip-unit($lh-computed/$fs), 2);
+  }
+  // @else if (!is-number($lh-computed)) {
+  //   @error 'Enter line-height as a unitless or pixel value';
+  // }
+
+  font-size: $fs-computed iff($important, !important);
+  line-height: $lh-computed iff($important, !important);
+}
+
+//@param {Map} $font-map A map of font size and responsive settings
+//@param {String||False} $override-line-height
+//@param {Boolean} $important Add important bang
+@mixin typography-responsive($font-map) {
+  // Ensure that $font-map is actually a map
+  $actual-input-type: type-of($font-map);
+  @if $actual-input-type != 'map' {
+    @error 'Expected a map of breakpoints and font settings, but got a '
+    + '#{$actual-input-type}. Make sure you are passing a font map.';
+  }
+
+  @each $breakpoint, $breakpoint-map in $font-map {
+    @if $breakpoint == null {
+      @include typeset($breakpoint-map);
+    } @else if $breakpoint == 'print' {
+      @media print {
+        @include typeset($breakpoint-map);
+      }
+    } @else {
+      @include type-map-to-breakpoint($breakpoint) {
+        @include typeset($breakpoint-map);
+      }
+    }
+  }
+}
+
+//** Set Font Family
+// Sets the font family and associated properties, such as font smoothing. Also
+// overrides the font for print.
+//@param {string} $font-family font-family and fallbacks
+//@param {string} $font-family-print  font-family and fallbacks for print
+@mixin set-font-family(
+  $font-family: $font-family-primary,
+  $font-family-print: $font-family
+) {
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @if ($font-family-print != false) {
+    @media print {
+      font-family: $font-family-primary;
+    }
+  }
+}
+
+//** Set Font Colors
+//
+//@param {HEX} $font-color-screen Set font color for screen media
+//@param {HEX} $font-color-print Set font color for print media
+@mixin set-font-color(
+  $font-color-screen: $color-text-primary,
+  $font-color-print: $color-text-print
+) {
+  color: $color-text-primary;
+  @if ($font-color-print != false) {
+    @media print {
+      color: $color-text-print;
+    }
+  }
+}
+
+// Font weight helper
+@mixin set-font-weight($font-weight: regular, $important: false) {
+  font-weight: map-get($font-weight-values, $font-weight)
+    iff($important, !important);
+}
+
+// Font Family Mixins
+@mixin display-font-family-primary {
+  @include set-font-family;
+}
+
+//Todo Find and replace
+@mixin display-font-family-secondary {
+  @include set-font-family($font-family-secondary);
+}
+
+//Todo Find and replace
+@mixin display-font-family-system {
+  @include set-font-family($font-family-system);
+}
+
+// Regular font weight  & Style helpers
+//
+// @param {Boolean} $important - Whether to mark declarations as important.
+// Generally Used to create override classes.
+@mixin display-font-weight-regular($important: false) {
+  @include set-font-weight(regular, $important);
+}
+
+@mixin display-font-weight-medium($important: false) {
+  @include set-font-weight(medium, $important);
+}
+
+@mixin display-font-weight-bold($important: false) {
+  @include set-font-weight(bold, $important);
+}
+
+// Base Font Settings
+@mixin display-font-primary-regular {
+  @include display-font-family-primary;
+  @include display-font-weight-regular;
+}
+
+@mixin display-font-primary-bold {
+  @include display-font-family-primary;
+  @include display-font-weight-bold;
+}
+
+// Alternate Font Settings
+@mixin display-font-secondary-normal {
+  @include display-font-family-secondary;
+  @include display-font-weight-regular;
+}
+
+@mixin display-font-secondary-semi {
+  @include display-font-family-secondary;
+  @include display-font-weight-medium;
+}
+
+@mixin display-font-secondary-bold {
+  @include display-font-family-secondary;
+  @include display-font-weight-bold;
+}
+
+// Font Treatments
+@mixin display-headline1 {
+  @include display-font-secondary-semi;
+  @include typography-responsive($font-responsive-headline-1);
+}
+
+@mixin display-headline2 {
+  @include display-font-secondary-normal;
+  @include typography-responsive($font-responsive-headline-2);
+}
+
+@mixin display-headline3 {
+  @include display-font-secondary-normal;
+  @include typography-responsive($font-responsive-headline-3);
+}
+
+@mixin display-headline4 {
+  @include display-font-secondary-bold;
+  @include typography-responsive($font-responsive-headline-4);
+}
+
+@mixin display-headline5 {
+  @include display-font-secondary-semi;
+  @include typography-responsive($font-responsive-headline-5);
+}
+
+@mixin display-headline6 {
+  @include display-font-secondary-normal;
+  @include typography-responsive($font-responsive-headline-6);
+  text-transform: uppercase;
+}
+
+@mixin display-body-text-large {
+  @include display-font-primary-regular;
+  @include typography-responsive($font-responsive-body-large);
+}
+
+@mixin display-body-text {
+  @include display-font-primary-regular;
+  @include typography-responsive($font-responsive-body);
+}
+
+@mixin display-body-text-small {
+  @include display-font-secondary-normal;
+  @include typography-responsive($font-responsive-body-small);
+}
+
+@mixin display-button-text {
+  @include display-font-secondary-normal;
+  @include typography-responsive($font-responsive-body);
+}
+
+@mixin display-button-text-small {
+  @include display-font-secondary-normal;
+  @include typography-responsive($font-responsive-body-small);
+}
+
+@mixin display-button-text-large {
+  @include display-font-secondary-normal;
+  @include typography-responsive($font-responsive-body-large);
+}

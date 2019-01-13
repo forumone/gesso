@@ -1,0 +1,10 @@
+// @file
+// Clearfix
+//@param {boolean} $important Enable important 
+@mixin clearfix($important: false) {
+  &::after {
+    clear: both iff($important, !important);
+    content: '' iff($important, !important);
+    display: table iff($important, !important);
+  }
+}

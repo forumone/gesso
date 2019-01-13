@@ -1,0 +1,108 @@
+// @file
+//** Button Mixin
+//@param {Map} $base Map of default button styles
+//@param {Map} $hover Map of hover button styles
+//@param {Map} $active Map of active button styles
+//@param {Map} $disabled Map of active button styles
+//@param {string} $border-radius
+@mixin button(
+  $base: (),
+  $hover: (),
+  $active: (),
+  $disabled: (),
+  $border-radius: $border-radius-button
+) {
+  $base-default: (
+    'text-color': $color-text-button-primary,
+    'background-color': $color-background-button-primary,
+    'border-color': $color-border-button-primary,
+  );
+
+  $hover-default: (
+    'text-color': $color-text-button-primary-hover,
+    'background-color': $color-background-button-primary-hover,
+    'border-color': $color-border-button-primary-hover,
+  );
+
+  $active-default: (
+    'text-color': $color-text-button-primary-active,
+    'background-color': $color-background-button-primary-active,
+    'border-color': $color-border-button-primary-active,
+  );
+
+  $disabled-default: (
+    'text-color': $color-text-button-primary-disabled,
+    'background-color': $color-background-button-primary-disabled,
+    'border-color': $color-border-button-primary-disabled,
+  );
+
+  //Merge defaults
+  $opts-base: map-merge($base-default, $base);
+  $opts-hover: map-merge($hover-default, $hover);
+  $opts-active: map-merge($active-default, $active);
+  $opts-disabled: map-merge($disabled-default, $disabled);
+
+  background-color: map-get($opts-base, 'background-color');
+  border-color: map-get($opts-base, 'border-color');
+  border-radius: $border-radius;
+  border-style: solid;
+  border-width: 1px;
+  color: map-get($opts-base, 'text-color');
+  cursor: pointer;
+  display: inline-block;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  padding: rem($spacing-scale-level-1) rem($spacing-scale-level-1);
+  text-align: center;
+  text-decoration: none;
+  transition: background-color $animation-timing-medium
+    $animation-easing-quint-out;
+  vertical-align: top;
+  white-space: normal;
+
+  &:focus,
+  &:hover {
+    background-color: map-get($opts-hover, 'background-color');
+    border-color: map-get($opts-hover, 'border-color');
+    color: map-get($opts-hover, 'text-color');
+    outline: 0;
+  }
+
+  &:active {
+    background-color: map-get($opts-active, 'background-color');
+    border-color: map-get($opts-active, 'border-color');
+    color: map-get($opts-active, 'text-color');
+  }
+
+  &[disabled] {
+    background-color: map-get($opts-disabled, 'background-color');
+    border-color: map-get($opts-disabled, 'border-color');
+    color: map-get($opts-disabled, 'text-color');
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+@mixin button-primary {
+  @include button();
+}
+
+@mixin button-secondary {
+  @include button(
+    $base: (
+      'text-color': $color-text-button-secondary,
+      'background-color': $color-background-button-secondary,
+      'border-color': $color-border-button-secondary,
+    ),
+    $hover: (
+      'text-color': $color-text-button-secondary-hover,
+      'background-color': $color-background-button-secondary-hover,
+      'border-color': $color-border-button-secondary,
+    ),
+    $active: (
+      'text-color': $color-text-button-secondary-active,
+      'background-color': $color-background-button-secondary-active,
+      'border-color': $color-border-button-secondary-active,
+    )
+  );
+}

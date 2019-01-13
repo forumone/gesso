@@ -3,17 +3,7 @@
 
 // Drupal outputs this class on buttons that can delete content.
 .button--danger {
-  background-color: #e31c3d;
-  color: #fff;
-
-  &:focus,
-  &:hover {
-    background-color: #cd2026;
-    color: #fff;
-  }
-
-  &:active {
-    background-color: #981b1e;
-    color: #fff;
-  }
+  @include button-secondary;
 }
+
+

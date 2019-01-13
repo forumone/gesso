@@ -1,0 +1,15 @@
+// @file
+// HTML styles.
+
+html {
+  box-sizing: border-box;
+  font-size: 100% * ($font-size-base / 16px);
+  min-height: 100%;
+  text-size-adjust: 100%;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}

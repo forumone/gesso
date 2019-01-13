@@ -1,0 +1,84 @@
+// @file
+// Inline element styles.
+
+a {
+  @extend %link-base;
+  @include link;
+}
+
+abbr {
+  // stylelint-disable-next-line selector-no-qualifying-type
+  &[title] {
+    border-bottom: 0;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+  }
+
+  &:hover {
+    cursor: help;
+  }
+
+  @media print {
+    // stylelint-disable-next-line selector-no-qualifying-type
+    &[title]::after {
+      content: ' (' attr(title) ')';
+    }
+  }
+}
+
+b {
+  @include display-font-weight-bold;
+}
+
+// cite {}
+
+// code {}
+
+// del {}
+
+dfn {
+  font-style: italic;
+}
+
+em {
+  font-style: italic;
+}
+
+i {
+  font-style: italic;
+}
+
+// ins {}
+
+// kbd {}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+// q {}
+
+// s {}
+
+// samp {}
+
+small {
+  @extend %body-font-small;
+}
+
+// strong {}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+// time {}
+
+// u {}
+
+// var {}

@@ -1,0 +1,62 @@
+---
+colors:
+-
+  base_color:
+    -
+      hex: '#519cb0'
+      variable_name: "$blue-base" 
+      light_text: false
+  light_variant: 
+    -
+      hex: '#ddf9ff'
+      variable_name: "$blue--light" 
+      light_text: false
+    -
+      hex: '#99d3e1'
+      variable_name: "$blue-light-1" 
+      light_text: false
+    -
+      hex: '#82C0D0'
+      variable_name: "$blue-light-2" 
+      light_text: false
+  dark_variant:
+    -
+      hex: '#3A889D'
+      variable_name: "$blue-dark" 
+      light_text: false
+    -
+      hex: '#27768B'
+      variable_name: "$blue-dark-1" 
+      light_text: false
+-
+  base_color:
+    -
+      hex: '#0F1D2B'
+      variable_name: "$dark" 
+      light_text: true
+  light_variant: 
+    -
+      hex: '#ffffff'
+      variable_name: "$white" 
+      light_text: false
+    -
+      hex: '#EFF4F8'
+      variable_name: "$light-90" 
+      light_text: false
+    -
+      hex: '#B6C7D4'
+      variable_name: "$light-110" 
+      light_text: false
+  dark_variant:
+    -
+      hex: '#91A3B0'
+      variable_name: "$dark-50" 
+      light_text: false
+    -
+      hex: '#5B6B7C'
+      variable_name: "$dark-75" 
+      light_text: false
+    -
+      hex: '#3F4F5F'
+      variable_name: "$dark-85" 
+      light_text: false

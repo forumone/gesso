@@ -1,6 +1,37 @@
 // @file
 // Styles for form items.
 
+// TODO: remove all unused variables
+
+// $form-label-color: $color-form-label;
+// $form-label-color-disabled: $color-form-label;
+// form-label-font-family
+// form-lablel-font-size
+// form-label-font-weight
+// form-label-margin-bottom
+// form-description-color
+// form-description-font-family
+// form-description-font-size
+// form-description-font-weight
+// form-description-margin-bottom
+// form-input-font-family
+// form-input-font-size
+// $form-input-radius: $border-radius-medium;
+// $form-input-shadow: $shadow-form-input;
+// $form-background-input: $color-background-input;
+// $form-background-input-disabled: $color-background-input-disabled;
+// $form-background-input-error: $color-background-input-error;
+// // form-input-radius
+// $form-input-border-color: $color-border;
+// $form-input-border-focus: $color-border;
+// $form-input-border-disabled: $color-border;
+
+// form-input-width-small
+// form-input-width-medium
+// form-input-width-large
+// form-input-height
+// form-input-height-textarea
+
 $form-border-color: #5b616b !default;
 $form-border-color-disabled: #aeb0b5 !default;
 $form-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
@@ -17,17 +48,19 @@ $form-range-track-border-width: 1px !default;
 $form-range-track-color: #aeb0b5 !default;
 $form-range-track-height: 10px !default;
 $form-select-arrow-size: 13px !default;
-$form-text-size: $font-size-md !default;
 
 .form-item {
-  margin: 0 0 rem($vertical-spacing-forms);
+  margin: 0 0 rem($spacing-scale-level-4);
 }
 
 .form-item__label {
+  //inlcude Form label style
+  //include form margin
+  color: $color-text-input-label;
   display: block;
 
   .is-disabled > & {
-    color: $color-text-secondary;
+    color: $color-text-input-disabled;
   }
 }
 
@@ -37,11 +70,10 @@ $form-text-size: $font-size-md !default;
   padding: 0;
 }
 
-.form-item__legend {}
+// .form-item__legend {}
 
 .form-item__description {
-  color: $color-text-secondary;
-  font-size: rem($font-size-sm);
+  color: $color-text-input-label;
 
   > :last-child {
     margin-bottom: 0;
@@ -49,10 +81,10 @@ $form-text-size: $font-size-md !default;
 }
 
 .form-item__required-marker::before {
+  color: $color-text-input-error;
   content: '*';
 }
 
-%form-item__box,
 .form-item__color,
 .form-item__date,
 .form-item__email,
@@ -67,26 +99,24 @@ $form-text-size: $font-size-md !default;
 .form-item__time,
 .form-item__url,
 .form-item__week {
+  @include display-body-text;
   appearance: none;
-  background-color: $form-color;
-  border: 1px solid $form-border-color;
-  border-radius: 0;
+  background-color: $color-background-input;
+  border: 1px solid $color-border-input;
+  border-radius: $border-radius-small;
   display: inline-block;
-  font-size: rem($form-text-size);
-  height: rem(44px);
-  line-height: (22px / $form-text-size);
-  padding: em(10px, $form-text-size) em(7px, $form-text-size);
-  margin: 0.2em 0;
+  margin: 0 0 rem($spacing-scale-level-3);
   max-width: 100%;
+  padding: rem($spacing-scale-level-1) rem($spacing-scale-level-3);
 
   &:focus {
-    box-shadow: $form-box-shadow-focus;
+    box-shadow: $box-shadow-elevation-1;
     outline: 0;
   }
 
   &:disabled {
-    background: $form-color-disabled;
-    border-color: $form-border-color-disabled;
+    background: $color-background-input;
+    border-color: $color-border-input-disabled;
     cursor: default;
   }
 

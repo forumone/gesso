@@ -1,0 +1,11 @@
+// @file
+// Paragraph styles.
+
+p {
+  @extend %body-font;
+
+  @media print {
+    orphans: 3;
+    widows: 3;
+  }
+}

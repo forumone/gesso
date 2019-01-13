@@ -1,0 +1,150 @@
+%base-header {
+  display: block;
+  hyphens: none;
+  margin-top: 0;
+  text-rendering: optimizeLegibility;
+
+  @media print {
+    orphans: 3;
+    page-break-after: avoid;
+    widows: 3;
+
+    &::after {
+      display: inline-block;
+    }
+  }
+}
+
+%link-base {
+  @media print {
+    &,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &[href]::after {
+      content: '<' attr(href) '>';
+      font-family: $font-family-primary;
+      font-size: 10pt;
+      font-weight: normal;
+      line-height: 1.2;
+      text-transform: lowercase;
+    }
+
+    // Uncomment and replace example.com with your site’s domain.
+    //&[href^='/']::after {
+    //  content: ' <http://example.com' attr(href) '>';
+    //}
+
+    &[href^='javascript:']::after,
+    &[href^='mailto:']::after,
+    &[href^='tel:']::after,
+    &[href^='#']::after,
+    &[href*='?']::after {
+      content: '';
+    }
+  }
+}
+
+@mixin base-text {
+  margin-top: 0;
+}
+
+//
+//Header Extends
+//
+%heading-1 {
+  @extend %base-header;
+  @include display-headline1;
+  @include responsive-margin($spacing-responsive-large, (bottom));
+}
+
+%heading-2 {
+  @extend %base-header;
+  @include display-headline2;
+  @include responsive-margin($spacing-responsive-medium, (bottom));
+}
+
+%heading-3 {
+  @extend %base-header;
+  @include display-headline3;
+  @include responsive-margin($spacing-responsive-small, (bottom));
+}
+
+%heading-4 {
+  @extend %base-header;
+  @include display-headline4;
+  @include responsive-margin($spacing-responsive-x-small, (bottom));
+}
+
+%heading-5 {
+  @extend %base-header;
+  @include display-headline5;
+  @include responsive-margin($spacing-responsive-x-small, (bottom));
+}
+
+%heading-6 {
+  @extend %base-header;
+  // @include display-button-text-caps;
+  @include responsive-margin($spacing-responsive-x-small, (bottom));
+}
+
+//
+//Body Copy Extends
+//
+%body-font-large {
+  @include base-text;
+  @include display-body-text-large;
+  @include responsive-margin($spacing-responsive-large, (bottom));
+}
+
+%body-font {
+  @include base-text;
+  @include display-body-text;
+  @include responsive-margin($spacing-responsive-medium, (bottom));
+}
+
+%body-font-small {
+  @include base-text;
+  @include display-body-text-small;
+  @include responsive-margin($spacing-responsive-xx-small, (bottom));
+}
+
+%button-font {
+  @include base-text;
+  @include display-button-text;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+%button-font-large {
+  @include display-headline3;
+  @include responsive-margin($spacing-responsive-large);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+%button-font-small {
+  @include responsive-margin($spacing-responsive-medium);
+  @include display-button-text-small;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+//
+//Contextual Extends
+//
+%body-font-large + %heading-1,
+%body-font + %heading-1,
+%body-font-small + %heading-1 {
+  @include responsive-padding($spacing-responsive-x-large, (top));
+}
+
+%body-font-large + %heading-2,
+%body-font + %heading-2,
+%body-font-small + %heading-2,
+%body-font-large + %heading-3,
+%body-font + %heading-3,
+%body-font-small + %heading-3 {
+  @include responsive-padding($spacing-responsive-medium, (top));
+}

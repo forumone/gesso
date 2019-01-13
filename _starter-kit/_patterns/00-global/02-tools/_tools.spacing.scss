@@ -1,0 +1,106 @@
+// // Generic Responsive spacking
+// // Arguments:
+// $scale-map: Sass Map
+// $property: margin || padding
+// $value: false(default) || ({sass list of direction values (top, right, bottom, top})
+// $to-rem: Boolean
+// $important: Boolean
+// $adjustment: Pixel Value
+//@param {Map} $scale-map Map of sizes and corresponding breakpoints
+@mixin set-responsive-spacing(
+  $scale-map,
+  $property,
+  $value: false,
+  $to-rem: true,
+  $important: false,
+  $adjustment: false
+) {
+  // Ensure that $scale-map is actually a map -
+  $actual-input-type: type-of($scale-map);
+  @if $actual-input-type != 'map' {
+    @error 'Expected a map of breakpoints from the responsive scale, but got a '
+    + '#{$actual-input-type}. Make sure you are using a point from the '
+    + 'responsive spacing scale.';
+  }
+
+  // Loop through each breakpoint
+  @each $breakpoint, $breakpoint-value in $scale-map {
+    @if ($adjustment) {
+      $breakpoint-value: $breakpoint-value + $adjustment;
+    }
+
+    @if ($to-rem) {
+      @if ($breakpoint-value != 0) {
+        $breakpoint-value: rem($breakpoint-value);
+      }
+    }
+
+    // The 'null' breakpoint is for mobile.
+    @if $breakpoint == null {
+      @if $value == false {
+        #{$property}: $breakpoint-value iff($important, !important);
+      } @else {
+        @each $direction in $value {
+          #{$property}-#{$direction}: $breakpoint-value
+            iff($important, !important);
+        }
+      }
+    } @else {
+      // Use breakpoint-sas with min-width default
+      @include type-map-to-breakpoint($breakpoint) {
+        @if $value == false {
+          #{$property}: $breakpoint-value iff($important, !important);
+        } @else {
+          // Override nesting rule for mixin
+          // stylelint-disable-next-line
+          @each $direction in $value {
+            #{$property}-#{$direction}: $breakpoint-value
+              iff($important, !important);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Create responsive spacing, with media query for each breakpoint as set
+// in settings/spacing,
+
+// Create responsive margins
+// Arguments:
+// $value = false || (top, right, bottom, left)
+//@param {map} $spacing map 
+@mixin responsive-margin(
+  $scale-map,
+  $value: false,
+  $to-rem: true,
+  $important: false,
+  $adjustment: false
+) {
+  @include set-responsive-spacing(
+    $scale-map,
+    'margin',
+    $value,
+    $to-rem $important,
+    $adjustment
+  );
+}
+
+// // Create responsive padding
+// // Arguments:
+// $value = false || (top, right, bottom, left)
+@mixin responsive-padding(
+  $scale-map,
+  $value: false,
+  $to-rem: true,
+  $important: false,
+  $adjustment: false
+) {
+  @include set-responsive-spacing(
+    $scale-map,
+    'padding',
+    $value,
+    $to-rem $important,
+    $adjustment
+  );
+}

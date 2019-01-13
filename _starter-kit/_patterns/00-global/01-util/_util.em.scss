@@ -1,0 +1,7 @@
+// @file
+// Em conversion
+
+// Convert pixel values to em.
+@function em($px, $base: $font-size-base) {
+  @return ($px / $base) * 1em;
+}

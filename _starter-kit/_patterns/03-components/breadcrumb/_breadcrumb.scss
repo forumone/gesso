@@ -3,7 +3,7 @@
 
 .breadcrumb {
   @include clearfix();
-  margin: rem($vertical-spacing) 0;
+  margin: rem($spacing-scale-level-4) 0;
 }
 
 .breadcrumb__title {
@@ -15,7 +15,7 @@
 }
 
 .breadcrumb__item {
-  font-size: $font-size-sm;
+  @include display-body-text-small;
   margin-right: 0.25em;
 
   &::after {

@@ -1,12 +1,17 @@
 // @file
 // Styles for form fieldsets.
 
+$base-line-height: 1.5;
+$vertical-spacing-forms: 2;
+
 $fieldset-color-border: #aeb0b5 !default;
 $fieldset-color-legend: #d6d7d9 !default;
-$fieldset-legend-offset:  rem($base-line-height * $base-font-size) !default;
+$fieldset-legend-offset: rem($base-line-height * $font-size-base) !default;
 
 .fieldset {
-  margin-bottom: rem($vertical-spacing-forms + ($base-line-height * $base-font-size));
+  margin-bottom: rem(
+    $vertical-spacing-forms + ($base-line-height * $font-size-base)
+  );
   padding: 0;
   position: relative;
   top: $fieldset-legend-offset; // Offsets the negative margin of legends.
@@ -37,11 +42,12 @@ $fieldset-legend-offset:  rem($base-line-height * $base-font-size) !default;
   display: block;
 }
 
-.fieldset__content {}
+// .fieldset__content {
+// }
 
 .fieldset__description {
+  @include display-body-text-small;
   color: $color-text-secondary;
-  font-size: rem($font-size-sm);
 
   > :last-child {
     margin-bottom: 0;
@@ -51,13 +57,14 @@ $fieldset-legend-offset:  rem($base-line-height * $base-font-size) !default;
 .fieldset--default {
   background: #fff;
   border: 1px solid $fieldset-color-border;
-  margin: rem($vertical-spacing) 0 (rem($vertical-spacing) + rem(12px));
+  // TODO Fix this
+  // margin: rem($spacing-scale-level-3 0 (rem($spacing-scale-level-3 + rem(12px))));
   padding: 0 1em;
 
   .fieldset__legend {
     background: $fieldset-color-legend;
     border: 1px solid $fieldset-color-border;
-    border-bottom: none;
+    border-bottom: 0;
     color: #212121;
     height: 2em;
     line-height: 2;
@@ -82,6 +89,6 @@ $fieldset-legend-offset:  rem($base-line-height * $base-font-size) !default;
 
   .fieldset__description {
     font-style: italic;
-    margin: rem($vertical-spacing) 0;
+    margin: rem($spacing-scale-level-3) 0;
   }
 }

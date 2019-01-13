@@ -37,7 +37,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   }
 
   & + &,
-  & + .button,
+  // stylelint-disable-next-line 
   .button + & {
     margin-left: 0.5em; // LTR
 
@@ -60,15 +60,16 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   bottom: 0;
   margin: 0;
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
   width: $dropbutton-toggle-width;
 }
 
 .dropbutton__toggle-button {
   @include button();
   @include svg-background(arrow-down-white);
-  background-position: 50% (($dropbutton-toggle-height / 2) - ($dropbutton-toggle-icon-size / 2));
+  background-position: 50%
+    (($dropbutton-toggle-height / 2) - ($dropbutton-toggle-icon-size / 2));
   background-repeat: no-repeat;
   background-size: $dropbutton-toggle-icon-size;
   border-bottom-left-radius: 0;
@@ -95,7 +96,8 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   }
 }
 
-.dropbutton .dropbutton__button { // Nested to override default button styles.
+.dropbutton .dropbutton__button {
+  // Nested to override default button styles.
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   display: block;

@@ -1,0 +1,24 @@
+// Shadow Elevation Levels
+// Based on Material Designs
+
+$box-shadow-color: $color-box-shadow;
+
+$box-shadow-elevation-1: 0 1px 3px rgba($box-shadow-color, 0.12),
+  0 1px 2px rgba($box-shadow-color, 0.24);
+$box-shadow-elevation-2: 0 3px 6px rgba($box-shadow-color, 0.16),
+  0 3px 6px rgba($box-shadow-color, 0.23);
+$box-shadow-elevation-3: 0 10px 20px rgba($box-shadow-color, 0.19),
+  0 6px 6px rgba($box-shadow-color, 0.23);
+$box-shadow-elevation-4: 0 14px 28px rgba($box-shadow-color, 0.25),
+  0 10px 10px rgba($box-shadow-color, 0.22);
+$box-shadow-elevation-5: 0 19px 38px rgba($box-shadow-color, 0.3),
+  0 15px 12px rgba($box-shadow-color, 0.22);
+
+$box-shadow-button: $box-shadow-elevation-2;
+
+$box-shadow-map: (
+  1: $box-shadow-elevation-1,
+  2: $box-shadow-elevation-2,
+  3: $box-shadow-elevation-3,
+  4: $box-shadow-elevation-4
+);

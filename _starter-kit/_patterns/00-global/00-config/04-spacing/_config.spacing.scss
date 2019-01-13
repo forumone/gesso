@@ -1,0 +1,59 @@
+// Single points on spacing scale
+// Based on 8pt grid
+$spacing-scale-level-1: 4px;
+$spacing-scale-level-2: 8px;
+$spacing-scale-level-3: 16px;
+$spacing-scale-level-4: 24px;
+$spacing-scale-level-5: 32px;
+$spacing-scale-level-6: 40px;
+$spacing-scale-level-7: 48px;
+$spacing-scale-level-8: 56px;
+$spacing-scale-level-9: 64px;
+$spacing-scale-level-10: 80px;
+$spacing-scale-level-11: 104px;
+
+// Responsive spacing maps
+//
+// These definitions are used to generate responsive spacing that adapts
+// according to the breakpoints (see 'tools/spacing'). These maps should be
+// used wherever possible to standardise responsive spacing.
+
+// You can define different behaviour on tablet and desktop. The 'null'
+// breakpoint is for mobile, Additional breakpoin can be added to the breakpoint map
+// in config/layout
+
+// To use the responsive spacing maps, combine them with
+// 'responsive-margin' or 'responsive-padding' mixins
+// (see 'tools/spacing').
+$spacing-responsive-xx-small: (
+  null: $spacing-scale-level-1
+);
+
+$spacing-responsive-x-small: (
+  null: $spacing-scale-level-2
+);
+
+$spacing-responsive-small: (
+  null: $spacing-scale-level-3
+);
+
+$spacing-responsive-medium: (
+  null: $spacing-scale-level-4
+);
+
+$spacing-responsive-large: (
+  null: $spacing-scale-level-5
+);
+
+$spacing-responsive-x-large: (
+  null: $spacing-scale-level-6
+);
+
+$spacing-responsive-xx-large: (
+  null: $spacing-scale-level-7
+);
+
+$spacing-responsive-xxx-large: (
+  null: $spacing-scale-level-7,
+  tablet: $spacing-scale-level-8
+);

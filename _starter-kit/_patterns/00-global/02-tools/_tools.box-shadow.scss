@@ -1,0 +1,7 @@
+
+
+//** Box Shadow Mixin
+//@param {number} $elevation Select elevation setting from _config.box-shadow.scss 
+@mixin box-shadow ($elevation: 1) {
+  box-shadow: #{map-get($box-shadow-map, $elevation)};
+}

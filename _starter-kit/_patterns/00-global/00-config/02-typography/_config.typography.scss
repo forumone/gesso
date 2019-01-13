@@ -1,0 +1,100 @@
+// @file
+// Typography variables
+// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+
+//** Root Font Size
+$font-size-base: 16px;
+
+//** Font Families
+$font-family-primary: 'Lora', serif;
+$font-family-secondary: 'Open Sans', sans-serif;
+$font-family-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Open Sans',
+  'Helvetica Neue', sans-serif;
+$font-family-monospace: Consolas, 'Lucida Console', 'Liberation Mono',
+  'Courier New', monospace, sans-serif;
+
+//** Font Weights
+$font-weight-values: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 600,
+  bold: 700,
+  black: 900
+);
+
+//** Font Scale List
+// (Font-Size, Line-Height);
+$font-scale-level-1: 74px, 93px;
+$font-scale-level-2: 52px, 65px;
+$font-scale-level-3: 36px, 44px;
+$font-scale-level-4: 36px, 40px;
+$font-scale-level-5: 25px, 31px;
+$font-scale-level-6: 23px, 35px;
+$font-scale-level-7: 21px, 32px;
+$font-scale-level-8: 20px, 25px;
+$font-scale-level-9: 17px, 26px;
+$font-scale-level-10: 14px, 20px;
+$font-scale-level-11: 12px, 15px;
+
+//** Font Scale List Print
+// (Font-Size, Line-Height);
+$font-scale-print-level-1: 74px, 93px;
+
+//** Responsive Type Maps
+// ex:
+// $font-responsive-[type]: (
+//   null: $font-size-scale-2,
+//   tablet: $font-size-scale-1,
+//   print: $font-size-scale-print-1
+// );
+
+$font-responsive-display: (
+  null: $font-scale-level-2,
+  tablet: $font-scale-level-1
+);
+
+$font-responsive-headline-1: (
+  null: $font-scale-level-4,
+  tablet: $font-scale-level-3
+);
+
+$font-responsive-headline-2: (
+  null: $font-scale-level-4,
+  tablet: $font-scale-level-3
+);
+
+$font-responsive-headline-3: (
+  null: $font-scale-level-4,
+  tablet: $font-scale-level-3
+);
+
+$font-responsive-headline-4: (
+  null: $font-scale-level-4,
+  tablet: $font-scale-level-3
+);
+
+$font-responsive-headline-5: (
+  null: $font-scale-level-4,
+  tablet: $font-scale-level-3
+);
+
+$font-responsive-headline-6: (
+  null: $font-scale-level-4,
+  tablet: $font-scale-level-3
+);
+
+$font-responsive-body: (
+  null: $font-scale-level-4,
+  tablet: $font-scale-level-3
+);
+
+$font-responsive-body-large: (
+  null: $font-scale-level-5,
+  tablet: $font-scale-level-6
+);
+
+$font-responsive-body-small: (
+  null: $font-scale-level-10
+);

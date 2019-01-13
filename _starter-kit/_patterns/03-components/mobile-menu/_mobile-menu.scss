@@ -15,24 +15,22 @@ $mobile-menu-text-color: #555559 !default;
 .mobile-menu__bar {
   background-color: $mobile-menu-bg-color;
   border-bottom: 1px solid $mobile-menu-border-color;
-  box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
   color: $mobile-menu-text-color;
   height: em(55px);
   text-align: center;
 }
 
 .mobile-menu__button {
-  @extend %system-font-family;
-  border-radius: 0;
-  box-shadow: none;
+  @include display-font-family-system;
   background-color: transparent;
   border: 0;
+  border-radius: 0;
+  box-shadow: none;
   color: $mobile-menu-text-color;
   display: inline-block;
-  font-size: rem($font-size-md);
   font-weight: bold;
   height: em(55px);
-  line-height: em(55px);
   margin: 0;
   padding: 0 1em;
   text-decoration: none;
@@ -54,6 +52,7 @@ $mobile-menu-text-color: #555559 !default;
 
 .mobile-menu__icon {
   @include image-replace(22px, 22px);
+
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 22px 22px;
@@ -61,7 +60,7 @@ $mobile-menu-text-color: #555559 !default;
   margin-top: 1em;
 }
 
-%mobile-menu__icon--close {
+%mobile-menu-icon-close {
   @include svg-background-inline(mobile-close);
 }
 
@@ -71,7 +70,7 @@ $mobile-menu-text-color: #555559 !default;
   width: 33px;
 
   .is-active & {
-    @extend %mobile-menu__icon--close;
+    @extend %mobile-menu-icon-close;
     background-size: 22px 22px;
   }
 }
@@ -80,17 +79,17 @@ $mobile-menu-text-color: #555559 !default;
   @include svg-background-inline(mobile-search);
 
   .is-active & {
-    @extend %mobile-menu__icon--close;
+    @extend %mobile-menu-icon-close;
   }
 }
 
 .mobile-menu__links {
+  @include z-index(navigation);
   background-color: $mobile-menu-fallback-bg-color;
   background-color: $mobile-menu-bg-color;
   color: $mobile-menu-text-color;
   position: absolute;
   width: 100%;
-  z-index: 100;
 }
 
 .mobile-menu__search {

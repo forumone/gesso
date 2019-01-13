@@ -1,0 +1,7 @@
+@mixin link($color: $color-text-link, $hover-color: $color-text-link-hover) {
+  color: $color;
+
+  &:hover {
+    color: $hover-color;
+  }
+}

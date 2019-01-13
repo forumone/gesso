@@ -1,0 +1,25 @@
+{# Address #}
+{% spaceless %}
+  <address class="address" 
+    itemprop="address" 
+    itemscope="location" 
+    itemtype="http://schema.org/PostalAddress">
+    {% if location_url %}
+    <a class="address__link" href="{{ location_url }}">
+    {% endif %}
+    {% if street %}
+      {{mdata.div(street, 'streetAddress' )}}
+    {% endif %}
+    {% if city %}
+      {{mdata.div( city, 'addressLocality')}},
+    {% endif %}
+    {% if state %}
+      {{mdata.span( state, 'addressRegion' )}}
+    {% endif %}
+    {% if postal_code %}
+      {{mdata.span( postal_code, 'postalCode' )}}
+    {% endif %}
+    </address>
+    {% if location_url %}</a>{% endif %}
+{% endspaceless %}
+

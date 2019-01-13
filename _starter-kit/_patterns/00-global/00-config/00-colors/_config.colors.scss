@@ -1,0 +1,99 @@
+// @file
+// color variables
+// http://sass-lang.com/docs/yardoc/file.sass_reference.html#variables_
+
+//** Palette
+$blue: #005bbb;
+$blue-light: #197ce4;
+$blue-light-1: #3095ff;
+$blue-dark: #003b7a;
+$blue-dark-1: #012244;
+
+//** Grayscale
+$color-white: #fff;
+$color-grayscale-1: #b2bfc7;
+$color-grayscale-2: #96a4ac;
+$color-grayscale-3: #5e6a71;
+$color-grayscale-4: #3f494e;
+$color-black: #202427;
+
+//** Core Section
+$color-text-primary: $color-black;
+$color-text-secondary: $color-grayscale-4;
+$color-text-accent: $blue-light;
+$color-text-on-light: $color-black;
+$color-text-on-dark: $color-grayscale-1;
+$color-text-link: $blue;
+$color-text-link-hover: $blue-light;
+$color-text-link-active: $blue-light;
+$color-text-link-visited: $blue-light;
+
+$color-text-selection: $color-white;
+
+//** Background Section
+$color-background-primary: $color-white;
+$color-background-secondary: $color-grayscale-1;
+$color-background-light: $color-white;
+$color-background-dark: $color-grayscale-4;
+
+$color-background-button-primary: $blue-dark;
+$color-background-button-primary-hover: $blue-dark;
+$color-background-button-primary-active: $blue-dark;
+$color-background-button-primary-disabled: $blue-dark;
+$color-background-button-secondary: $color-grayscale-4;
+$color-background-button-secondary-hover: $color-grayscale-4;
+$color-background-button-secondary-disabled: $color-grayscale-4;
+$color-background-button-secondary-active: $color-grayscale-4;
+
+$color-background-selection: $blue;
+
+//** Background Inputs Section
+$color-background-input: $color-white;
+$color-background-input-focus: $color-white;
+$color-background-input-disabled: $color-white;
+$color-background-input-error: $color-white;
+$color-background-input-hover: $color-white;
+
+//** Button Text Section
+$color-text-button-primary: $color-white;
+$color-text-button-primary-hover: $color-white;
+$color-text-button-primary-active: $color-white;
+$color-text-button-primary-disabled: $color-white;
+$color-text-button-secondary: $color-grayscale-4;
+$color-text-button-secondary-hover: $color-grayscale-4;
+$color-text-button-secondary-disabled: $color-grayscale-4;
+$color-text-button-secondary-active: $color-white;
+
+//** Input Text Section
+$color-text-input: $color-text-primary;
+$color-text-input-focus: $color-text-primary;
+$color-text-input-disabled: $color-text-primary;
+$color-text-input-error: $color-text-primary;
+$color-text-input-label: $color-text-primary;
+
+//** Border Section
+$color-border-ui: $color-grayscale-3;
+$color-border-primary: $color-grayscale-4;
+$color-border-secondary: $color-grayscale-2;
+
+//** Border Button Section
+$color-border-button-primary: $blue;
+$color-border-button-primary-hover: $blue-light;
+$color-border-button-primary-focus: $blue-light;
+$color-border-button-primary-active: $blue-light;
+$color-border-button-primary-disabled: $blue-light;
+$color-border-button-secondary: $blue-light;
+$color-border-button-secondary-hover: $blue-light;
+$color-border-button-secondary-active: $blue-light;
+$color-border-button-secondary-focus: $blue-light;
+$color-border-button-secondary-disabled: $blue-light;
+
+//** Border Input Section
+$color-border-input: $color-grayscale-4;
+$color-border-input-hover: $color-grayscale-4;
+$color-border-input-focus: $color-grayscale-4;
+$color-border-input-disabled: $color-grayscale-4;
+$color-border-input-error: $color-grayscale-4;
+
+//** Box-shadow Section
+$color-box-shadow: $color-black;

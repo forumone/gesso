@@ -1,0 +1,16 @@
+<div class="pattern-lab-timing-group">
+    {% for time in timing %}
+        <div class="pattern-lab-timing-item">
+            {% set style = '"transition-duration:' ~ time  ~ ';"' %}
+            <div class="pattern-lab-timing-item__indicator" style={{style|raw}}></div>
+            <div class="pattern-lab-timing-item__label">
+                <div class="pattern-lab-timing-item__name">
+                    $animation-timing-L{{ loop.index0 }}
+                </div>
+                <div class="pattern-lab-timing-item__value">
+                    {{ time }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

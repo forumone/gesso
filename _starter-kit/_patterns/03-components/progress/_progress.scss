@@ -3,7 +3,7 @@
 
 $progress-border-radius: rem(3px) !default;
 $progress-color: #aeb0b5 !default;
-$progress-color-bar: $color-link !default;
+$progress-color-bar: $color-background-secondary !default;
 $progress-color-border: #5b616b !default;
 
 .progress {
@@ -34,8 +34,8 @@ $progress-color-border: #5b616b !default;
 
 .progress__description,
 .progress__percentage {
+  @include display-body-text-small;
   color: $color-text-secondary;
-  font-size: rem($font-size-xs);
   overflow: hidden;
 }
 

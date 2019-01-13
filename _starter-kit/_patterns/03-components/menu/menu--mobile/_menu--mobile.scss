@@ -9,7 +9,7 @@ $menu-mobile-submenu-text-color: #555559 !default;
 $menu-mobile-submenu-hover-color: #000 !default;
 
 .menu--mobile {
-  margin: 0.75em 0 0 0;
+  margin: 0.75em 0 0;
 
   .menu__item {
     margin: 0;
@@ -17,14 +17,12 @@ $menu-mobile-submenu-hover-color: #000 !default;
   }
 
   .menu__link {
-    @extend %system-font-family;
+    @include display-button-text-small;
+    @include display-font-family-system;
     background-color: transparent;
     border: 0;
     color: $menu-mobile-menu-text-color;
     display: block;
-    font-size: em(18px);
-    font-weight: bold;
-    line-height: 1.25;
     margin: 0;
     padding: em(10.75px, 18px) 1.25em;
     position: relative;
@@ -32,7 +30,6 @@ $menu-mobile-submenu-hover-color: #000 !default;
     text-decoration: none;
     white-space: normal;
     width: auto;
-    z-index: 3;
 
     &:focus,
     &:hover,
@@ -56,9 +53,10 @@ $menu-mobile-submenu-hover-color: #000 !default;
   }
 
   .menu__subnav-arrow {
-    background: none;
     @include image-replace(100%, 44px);
-    @include svg-background-inline(mobile-arrow-down);
+    // @include svg-background-inline(mobile-arrow-down);
+    @include z-index(level-2);
+    background: none;
     background-position: 95% 50%;
     background-repeat: no-repeat;
     background-size: 19px 12px;
@@ -71,14 +69,13 @@ $menu-mobile-submenu-hover-color: #000 !default;
     right: 0;
     top: 0;
     vertical-align: top;
-    z-index: 2;
 
     &:focus {
       outline: thin dotted;
     }
 
     &.is-active {
-      @include svg-background-inline(mobile-arrow-up);
+      // @include svg-background-inline(mobile-arrow-up);
     }
 
     @if $support-for-rtl {
@@ -95,7 +92,8 @@ $menu-mobile-submenu-hover-color: #000 !default;
     margin: 0;
     padding: 0;
 
-    .menu__item {}
+    // .menu__item {
+    // }
 
     .menu__link {
       color: $menu-mobile-submenu-text-color;

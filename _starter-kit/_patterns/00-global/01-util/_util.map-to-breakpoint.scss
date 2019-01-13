@@ -1,0 +1,17 @@
+//** Map to Breakpoint
+// Generates media query from a name mapped value
+//@param {map} $breakpoint-map Map of key/value pairs
+//@param {string} $breakpoint
+@mixin map-to-breakpoint($breakpoint-map, $breakpoint) {
+  @include breakpoint(#{map-get($layout-breakpoint-typography, $breakpoint)}) {
+    @content;
+  }
+}
+
+//** Typography Breakpoint
+//@param {string} $breakpoint
+@mixin type-map-to-breakpoint($breakpoint) {
+  @include map-to-breakpoint($layout-breakpoint-typography, $breakpoint) {
+    @content;
+  }
+}

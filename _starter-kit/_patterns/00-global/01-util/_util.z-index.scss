@@ -1,0 +1,11 @@
+// Returns z index value
+// @param {String} $level z-index level name
+@function z-index($level) {
+  @return map-get($layout-z-index, $level);
+}
+
+// Add Z-index rule
+// @param {String} $level z-index level name
+@mixin z-index($level) {
+  z-index: z-index($level);
+}

@@ -5,14 +5,18 @@ $details-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
 $details-color: #f1f1f1 !default;
 $details-color-content: #fff !default;
 $details-color-hover: #d6d7d9 !default;
-$details-padding: rem(30px) !default;
+$details-padding: rem($spacing-scale-level-5) !default;
 
 // 'details' can appear as a modernizr class on the html tag, so this
 // class is limited to only the details element
+// Fix of modernizr class issue
+// stylelint-disable-next-line selector-no-qualifying-type
 details.details {
-  margin: 0 0 rem($vertical-spacing-forms);
+  margin: 0 0 rem($spacing-scale-level-4);
 
   // Fallback for browsers that don’t support details.
+  // Fix of modernizr class issue
+  // stylelint-disable-next-line selector-no-qualifying-type
   .js &:not([open]) > .details__content {
     display: none;
   }
@@ -29,7 +33,8 @@ details.details {
   font-weight: bold;
   line-height: 1;
   outline: 0;
-  padding: rem(15px) rem(55px) rem(15px) $details-padding; // LTR
+  padding: rem($spacing-scale-level-3) rem($spacing-scale-level-7)
+    rem($spacing-scale-level-3) $details-padding; // LTR
 
   @if $support-for-rtl {
     [dir='rtl'] & {
@@ -75,9 +80,9 @@ details.details {
 }
 
 .details__description {
+  @include display-body-text-small;
   color: $color-text-secondary;
-  font-size: rem($font-size-sm);
-  margin-bottom:rem($vertical-spacing);
+  margin-bottom: rem($spacing-scale-level-4);
 
   > :last-child {
     margin-bottom: 0;

@@ -1,0 +1,10 @@
+// @file
+// Body styles.
+
+body {
+  @include display-body-text;
+  background-color: $color-background-primary;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}

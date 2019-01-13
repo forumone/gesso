@@ -1,17 +1,11 @@
 {% if not classes %}
   {% set classes = [] %}
 {% endif %}
-{% set classes =
-  classes|merge(['article'])|join(' ')|trim
-%}
-
-<article{{- attributes.addClass(classes)|raw -}}>
+{% set classes = classes | merge(['article']) | join(' ') | trim %}
+<article{{-attributes.addClass(classes)|raw-}}>
   {% block title %}
-    {% include '@components/page-title/page-title.twig' with {
-      'page_title': article_page_title
-    } %}
+    {{ title|raw }}
   {% endblock %}
-
   {% if has_footer %}
     <footer>
       {% block footer %}
@@ -19,7 +13,6 @@
       {% endblock %}
     </footer>
   {% endif %}
-
   {% block main %}
     {{ content|raw }}
   {% endblock %}
