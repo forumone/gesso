@@ -1,0 +1,4 @@
+name: Gesso Helper
+description: Provides additional functionality for Gesso theme
+type: module
+core: '8.x'
