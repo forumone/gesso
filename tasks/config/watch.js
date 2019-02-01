@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
   grunt.config.merge({
-    watch: {
+    chokidar: {
       gesso: {
         files: ['<%= pkg.themePath %>/pattern-lab/source/**/*.scss','<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss'],
         tasks: ['gessoBuildStyles'],
@@ -19,5 +19,5 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-simple-watch');
+  grunt.loadNpmTasks('grunt-chokidar');
 }
