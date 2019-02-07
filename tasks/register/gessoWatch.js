@@ -1,3 +1,5 @@
 module.exports = function(grunt) {
-  grunt.registerTask('gessoWatch', ['chokidar']);
+  grunt.registerTask('gessoWatch', [
+    'chokidar'
+  ]);
 };
