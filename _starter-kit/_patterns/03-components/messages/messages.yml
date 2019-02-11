@@ -1,9 +1,4 @@
 ---
-attributes:
-  Attribute():
-    class:
-      - messages
-      - messages--status
 type: "status"
 heading: "Status message"
 messages:

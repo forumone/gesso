@@ -1,9 +1,4 @@
 ---
-attributes:
-  Attribute():
-    class:
-      - messages
-      - messages--error
 type: "error"
 heading: "Error message"
 messages:
