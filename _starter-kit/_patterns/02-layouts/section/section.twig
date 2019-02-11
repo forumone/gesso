@@ -1,5 +1,15 @@
+{% set additional_attributes = {
+  "class": ["l-section"],
+} %}
+{% set additional_title_attributes = {
+  "class": ["l-section__title"],
+} %}
+{% set additional_content_attributes = {
+  "class": ["l-section__content"],
+} %}
+
 {% if has_wrapper %}
-  <{{ element ?: "section" }}{{- attributes.addClass(classes,'l-section')|raw -}}>
+  <{{ element ?: "section" }} {{ add_attributes(additional_attributes) }}>
 {% endif %}
 
   {% if has_constrain %}
@@ -8,12 +18,12 @@
 
   {% if label %}
     {{ title_prefix }}
-    <{{ label_element ?: "h2" }}{{- title_attributes.addClass(title_classes,'l-section__title')|raw -}}>{{ label|raw }}</{{ label_element ?: "h2" }}>
+    <{{ label_element ?: "h2" }} {{ add_attributes(additional_title_attributes, 'title_attributes') }}>{{ label|raw }}</{{ label_element ?: "h2" }}>
     {{ title_suffix }}
   {% endif %}
 
   {% if has_content_wrapper %}
-    <{{ content_element ?: "div" }}{{- content_attributes.addClass(content_classes,'l-section__content')|raw -}}>
+    <{{ content_element ?: "div" }} {{ add_attributes(additional_content_attributes, 'content_attributes') }}>
   {% endif %}
 
   {% block content %}

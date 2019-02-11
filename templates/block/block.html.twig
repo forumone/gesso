@@ -44,6 +44,10 @@
   ]
 %}
 
+{% set attributes = attributes.addClass(classes) %}
+{% set title_attributes = title_attributes.addClass(title_classes) %}
+{% set content_attributes = content_attributes.addClass(content_classes) %}
+
 {% embed '@layouts/section/section.twig'
   with {
     'has_wrapper': true,

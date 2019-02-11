@@ -36,15 +36,18 @@ for more information.
 Since many of the Drupal templates reference twig files inside Pattern Lab using
 Twig namespaces, this module is required for the theme to function.
 
-3.  Optional: Install the
+3.  Enable the Gesso Helpers module.  This module comes packaged with the theme, but
+must be manually enabled for the theme to function.
+
+4.  Optional: Install the
 [Twig Field Value](https://www.drupal.org/project/twig_field_value) module.
 This is not required, but will make working with Twig templates easier.
 
-4.  Optional: Install the
+5.  Optional: Install the
 [Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
 This is not required, but will make working with Twig templates easier.
 
-5.  Optional: Because Gesso is a starter theme, you may want to rename the
+6.  Optional: Because Gesso is a starter theme, you may want to rename the
 Gesso directory or copy its contents to a new custom theme directory based on
 the name of your project.
 
@@ -129,7 +132,9 @@ browser CSS property prefixes during Sass compilation.
 The Gesso theme is maintained by [Dan Mouyard](https://drupal.org/u/dcmouyard)
 ([@dcmouyard](http://twitter.com/dcmouyard)),
 [Chaz Chumley](https://drupal.org/u/chazchumley)
-([@chazchumley](http://twitter.com/chazchumley)) and
+([@chazchumley](http://twitter.com/chazchumley)),
+[Shawn Brackat](https://drupal.org/u/bkny_139)
+([@shawnbrackat](http://twitter.com/shawnbrackat)) and
 [Corey Lafferty](https://drupal.org/u/clafferty)
 ([@coreylafferty](http://twitter.com/coreylafferty)).
 

@@ -1,10 +1,14 @@
+{% set additional_row_attributes = {
+  "class": ["view__row"],
+} %}
+
 {% if title %}
   <{{ title_element ?: 'h3' }}>{{ title|raw }}</{{ title_element ?: 'h3' }}>
 {% endif %}
 
 {% for row in rows %}
   {% if has_wrapper %}
-    <{{ element ?: 'div' }}{{- row.attributes.addClass('view__row')|raw -}}>
+    <{{ element ?: 'div' }} {{ add_attributes(additional_row_attributes) }}>
       {{ row.content|raw }}
     </{{ element ?: 'div' }}>
   {% else %}

@@ -8,39 +8,19 @@ rows:
     join():
       - include():
           pattern: components-teaser
-  attributes:
-    Attribute():
-      class:
-      - view__row
 - content:
     join():
       - include():
           pattern: components-teaser
-  attributes:
-    Attribute():
-      class:
-      - view__row
 - content:
     join():
       - include():
           pattern: components-teaser
-  attributes:
-    Attribute():
-      class:
-      - view__row
 - content:
     join():
       - include():
           pattern: components-teaser
-  attributes:
-    Attribute():
-      class:
-      - view__row
 - content:
     join():
       - include():
           pattern: components-teaser
-  attributes:
-    Attribute():
-      class:
-      - view__row

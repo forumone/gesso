@@ -6,6 +6,8 @@
   ]
 %}
 
+{% set attributes = attributes.addClass(classes) %}
+
 {% embed '@layouts/section/section.twig'
   with {
     'has_wrapper': false,

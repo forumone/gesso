@@ -1,9 +1,4 @@
 ---
-attributes:
-  Attribute():
-    role: "article"
-    class:
-      -
 article_page_title: 'Article Title'
 has_footer: true
 footer:
