@@ -25,13 +25,11 @@
   */
 #}
 
-{%
-  set classes = [
-    'paragraph',
-    'paragraph--type-' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--display-mode-' ~ view_mode|clean_class,
-  ]
-%}
+{% set classes = [
+  'paragraph',
+  'paragraph--type-' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--display-mode-' ~ view_mode|clean_class,
+] %}
 
 {% set attributes = attributes.addClass(classes) %}
 

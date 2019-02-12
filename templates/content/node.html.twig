@@ -41,23 +41,21 @@
   */
 #}
 
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
-  ]
-%}
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
+] %}
 
 {% set attributes = attributes.addClass(classes) %}
 
 {% embed '@components/article/article.twig' with {
   'has_footer': display_submitted ? true : false,
   'article_page_title': label
- } %}
+} %}
 
   {% block footer %}
     {% if display_submitted %}

@@ -22,18 +22,15 @@
   */
 #}
 
-{%
-  set classes = [
-    'block',
-    'block--provider-' ~ configuration.provider|clean_class,
-    'block--id-' ~ plugin_id|clean_class,
-  ]
-%}
+{% set classes = [
+  'block',
+  'block--provider-' ~ configuration.provider|clean_class,
+  'block--id-' ~ plugin_id|clean_class,
+] %}
 
 {% set attributes = attributes.addClass(classes) %}
 
 {% embed '@components/block/block.twig' with {
-  'element': "div",
   'has_constrain': false,
   'title_prefix': title_prefix,
   'title_suffix': title_suffix,

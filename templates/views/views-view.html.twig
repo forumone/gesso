@@ -26,14 +26,12 @@
   */
 #}
 
-{%
-  set classes = [
-    'view',
-    'view--' ~ id|clean_class,
-    'view--display-' ~ display_id,
-    dom_id ? 'js-view-dom-id-' ~ dom_id,
-  ]
-%}
+{% set classes = [
+  'view',
+  'view--' ~ id|clean_class,
+  'view--display-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+] %}
 
 {% set attributes = attributes.addClass(classes) %}
 

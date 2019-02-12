@@ -1,16 +1,12 @@
-{%
-  set removeClasses = [
-    'form-' ~ type|clean_class,
-    'required',
-  ]
-%}
+{% set removeClasses = [
+  'form-' ~ type|clean_class,
+  'required',
+] %}
 
-{%
-  set addClasses = [
-    dropbutton ? 'dropbutton__button',
-    type != 'submit' ? 'form-item__' ~ type|clean_class,
-    required ? 'is-required',
-  ]
-%}
+{% set addClasses = [
+  dropbutton ? 'dropbutton__button',
+  type != 'submit' ? 'form-item__' ~ type|clean_class,
+  required ? 'is-required',
+] %}
 
 <input{{ attributes.removeClass(removeClasses).addClass(addClasses) }}>{{ children }}
