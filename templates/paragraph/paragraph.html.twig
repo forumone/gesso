@@ -36,11 +36,8 @@
 {% set attributes = attributes.addClass(classes) %}
 
 {% embed '@layouts/section/section.twig' with {
-  'has_wrapper': true,
-  'has_constrain': false,
-  'has_content_wrapper': true,
-  'label': false
- } %}
+  'section_title': false
+} %}
 
   {% block content %}
     {{ content }}
