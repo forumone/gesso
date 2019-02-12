@@ -4,7 +4,7 @@
  * Creates an "add_attributes" function for Pattern Lab & Drupal
  * that adds attributes, title_attributes, or content_attributes with optional
  * additions while preventing attributes from trickling down through includes.
- * based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension
+ * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension
  */
 
 use Drupal\Core\Template\Attribute;
