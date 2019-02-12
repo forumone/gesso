@@ -1,16 +1,8 @@
 ---
 menu_name: "main"
-attributes:
-  Attribute():
-    class:
-      - menu
 items:
 - title: Home
   url: "#"
-  attributes:
-    Attribute():
-      class:
-        -
   original_link:
     options:
       attributes:
@@ -19,10 +11,6 @@ items:
             -
 - title: About
   url: "#"
-  attributes:
-    Attribute():
-      class:
-        -
   original_link:
     options:
       attributes:
@@ -31,10 +19,6 @@ items:
             -
 - title: Contact
   url: "#"
-  attributes:
-    Attribute():
-      class:
-        -
   original_link:
     options:
       attributes:
@@ -43,10 +27,6 @@ items:
             -
 - title: Search
   url: "#"
-  attributes:
-    Attribute():
-      class:
-        -
   original_link:
     options:
       attributes:

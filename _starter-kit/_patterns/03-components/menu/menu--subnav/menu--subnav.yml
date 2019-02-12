@@ -1,16 +1,8 @@
 ---
 menu_name: "submenu"
-attributes:
-  Attribute():
-    class:
-      - menu
 items:
 - title: Menu item one
   url: "#"
-  attributes:
-    Attribute():
-      class:
-        -
   original_link:
     options:
       attributes:
@@ -19,10 +11,6 @@ items:
             -
 - title: Menu item two
   url: "#"
-  attributes:
-    Attribute():
-      class:
-        -
   original_link:
     options:
       attributes:
@@ -32,10 +20,6 @@ items:
   below:
   - title: Submenu item one
     url: "#"
-    attributes:
-      Attribute():
-        class:
-          -
     original_link:
       options:
         attributes:
@@ -44,10 +28,6 @@ items:
               -
   - title: Submenu item two
     url: "#"
-    attributes:
-      Attribute():
-        class:
-          -
     original_link:
       options:
         attributes:
@@ -56,10 +36,6 @@ items:
               -
   - title: Submenu item three
     url: "#"
-    attributes:
-      Attribute():
-        class:
-          -
     original_link:
       options:
         attributes:
