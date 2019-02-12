@@ -1,9 +1,6 @@
 {% include '@layouts/section/section.twig' with {
-  'has_wrapper': true,
-  'has_constrain': false,
-  'label': false,
-  'has_content_wrapper': true,
-  'content': include('@components/hero-bg-image/hero-bg-image.twig', {
+  'section_title': false,
+  'section_content': include('@components/hero-bg-image/hero-bg-image.twig', {
     'image': homepage_hero_image,
     'title': homepage_hero_title,
     'has_overlay': true,
@@ -17,11 +14,8 @@
 } %}
 
 {% include '@layouts/section/section.twig' with {
-  'has_wrapper': true,
-  'has_constrain': false,
-  'has_content_wrapper': true,
-  'label': homepage_grid_title,
-  'content': include('@layouts/grid/grid.twig', {
+  'section_title': homepage_grid_title,
+  'section_content': include('@layouts/grid/grid.twig', {
     'modifier_classes': 'l-grid--2col',
     'content': homepage_grid_content
   })
