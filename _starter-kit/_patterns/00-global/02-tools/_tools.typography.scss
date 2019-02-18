@@ -24,7 +24,7 @@
 
   // Unit-less line-height
   @if (unit($lh-computed) == 'px' and unit($fs) == 'px') {
-    $lh-computed: decimal(strip-unit($lh-computed/$fs), 2);
+    $lh-computed: decimal-floor(strip-unit($lh-computed/$fs), 2);
   }
   // @else if (!is-number($lh-computed)) {
   //   @error 'Enter line-height as a unitless or pixel value';
