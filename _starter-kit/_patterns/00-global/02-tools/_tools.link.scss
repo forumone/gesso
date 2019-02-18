@@ -1,7 +1,13 @@
-@mixin link($color: $color-text-link, $hover-color: $color-text-link-hover) {
+@mixin link(
+  $color: $color-text-link,
+  $hover-color: $color-text-link-hover,
+  $visited-color: $hover-color,
+  ) {
   color: $color;
-
-  &:hover {
+  &:visited {
+    color: $visited-color
+  }
+  &:hover, &:active {
     color: $hover-color;
   }
 }
