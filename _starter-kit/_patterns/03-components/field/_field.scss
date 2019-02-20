@@ -8,14 +8,18 @@
 .field__label {
   display: block;
   font-weight: 700;
+
   &.is-inline {
     display: inline-block;
     margin-right: 0.1em;
+
     + .field__item {
       display: inline;
     }
+
     + .field__items {
       display: inline;
+
       .field__item {
         display: inline;
       }
