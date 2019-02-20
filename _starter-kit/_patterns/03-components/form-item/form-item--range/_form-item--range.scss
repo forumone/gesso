@@ -129,11 +129,9 @@
     &::-webkit-slider-runnable-track {
       @include form-item__range-track;
     }
-
   }
 
   &.is-full-width > .form-item__range {
     width: 100%;
   }
-
 }
