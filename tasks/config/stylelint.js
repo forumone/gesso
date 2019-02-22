@@ -10,7 +10,10 @@ module.exports = function(grunt) {
         reportNeedlessDisables: false,
         syntax: '',
       },
-      src: ['<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss'],
+      src: [
+        '<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss',
+        '<%= pkg.themePath %>/_starter-kit/_patterns/**/*.scss',
+      ],
     },
   });
 
