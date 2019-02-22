@@ -6,7 +6,6 @@ rules:
   block-no-empty: null
   property-no-vendor-prefix: null
   max-nesting-depth: 3
-  no-missing-end-of-source-newline: false
   selector-class-pattern:
     # "piece" regex:
     # [a-zA-Z][a-zA-Z0-9]*
