@@ -1,16 +1,12 @@
-{%
-  set removeClasses = [
-    'form-select',
-    'required',
-  ]
-%}
+{% set removeClasses = [
+  'form-select',
+  'required',
+] %}
 
-{%
-  set addClasses = [
-    'form-item__select',
-    required ? 'is-required',
-  ]
-%}
+{% set addClasses = [
+  'form-item__select',
+  required ? 'is-required',
+] %}
 
 {% spaceless %}
   <select{{ attributes.removeClass(removeClasses).addClass(addClasses) }}>

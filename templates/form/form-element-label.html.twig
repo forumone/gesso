@@ -1,12 +1,10 @@
-{%
-  set classes = [
-    'form-item__label',
-    title_display == 'after' ? 'is-after',
-    title_display == 'invisible' ? 'visually-hidden',
-    required ? 'is-required',
-    required ? 'js-form-required',
-  ]
-%}
+{% set classes = [
+  'form-item__label',
+  title_display == 'after' ? 'is-after',
+  title_display == 'invisible' ? 'visually-hidden',
+  required ? 'is-required',
+  required ? 'js-form-required',
+] %}
 
 {% if title is not empty or required -%}
   <label{{ attributes.addClass(classes) }}>

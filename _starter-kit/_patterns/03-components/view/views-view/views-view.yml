@@ -1,9 +1,5 @@
 ---
 element: div
-attributes:
-  Attribute():
-    class:
-      - view
 title:
 header: ''
 exposed: ''

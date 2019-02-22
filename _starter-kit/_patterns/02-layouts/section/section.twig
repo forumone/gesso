@@ -1,33 +1,19 @@
-{% if has_wrapper %}
-  <{{ element ?: "section" }}{{- attributes.addClass(classes,'l-section')|raw -}}>
-{% endif %}
-
+<section class="l-section">
   {% if has_constrain %}
     <div class="{{ constrain_classes ?: "l-constrain" }}">
   {% endif %}
 
-  {% if label %}
-    {{ title_prefix }}
-    <{{ label_element ?: "h2" }}{{- title_attributes.addClass(title_classes,'l-section__title')|raw -}}>{{ label|raw }}</{{ label_element ?: "h2" }}>
-    {{ title_suffix }}
+  {% if section_title %}
+    <{{ section_title_element ?: "h2" }} class="l-section__title">{{ section_title|raw }}</{{ label_element ?: "h2" }}>
   {% endif %}
 
-  {% if has_content_wrapper %}
-    <{{ content_element ?: "div" }}{{- content_attributes.addClass(content_classes,'l-section__content')|raw -}}>
-  {% endif %}
-
-  {% block content %}
-    {{ content|raw }}
-  {% endblock %}
-
-  {% if has_content_wrapper %}
-    </{{ content_element ?: "div" }}>
-  {% endif %}
+  <div class="l-section__content">
+    {% block content %}
+      {{ section_content|raw }}
+    {% endblock %}
+  </div>
 
   {% if has_constrain %}
     </div>
   {% endif %}
-
-{% if has_wrapper %}
-  </{{ element ?: 'section' }}>
-{% endif %}
+</section>
