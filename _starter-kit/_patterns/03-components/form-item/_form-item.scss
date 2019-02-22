@@ -75,9 +75,9 @@ $form-text-size: $font-size-md !default;
   font-size: rem($form-text-size);
   height: rem(44px);
   line-height: (22px / $form-text-size);
-  padding: em(10px, $form-text-size) em(7px, $form-text-size);
   margin: 0.2em 0;
   max-width: 100%;
+  padding: em(10px, $form-text-size) em(7px, $form-text-size);
 
   &:focus {
     box-shadow: $form-box-shadow-focus;
