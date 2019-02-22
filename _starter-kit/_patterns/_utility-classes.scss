@@ -56,6 +56,6 @@
 }
 
 // Remove :focus styles for skiplink targets.
-#main:focus {
+#main:focus { /* stylelint-disable-line */
   outline: 0;
 }
