@@ -4,9 +4,18 @@ extends:
 
 rules:
   block-no-empty: null
-  property-no-vendor-prefix: null
   max-nesting-depth: 3
+  property-no-vendor-prefix: null
   selector-class-pattern:
+    # "piece" regex:
+    # [a-zA-Z][a-zA-Z0-9]*
+    # dash-separated pieces:
+    # [a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*
+    #
+    #   Block                                              Element (optional)                                   Modifier (also optional)
+    #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
+    - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*(?:__[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*)?(?:--[a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*)?$'
+  scss/percent-placeholder-pattern:
     # "piece" regex:
     # [a-zA-Z][a-zA-Z0-9]*
     # dash-separated pieces:
