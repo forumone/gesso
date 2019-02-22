@@ -3,6 +3,7 @@ extends:
   - stylelint-config-prettier
 
 rules:
+  block-no-empty: null
   property-no-vendor-prefix: null
   max-nesting-depth: 3
   no-missing-end-of-source-newline: false
