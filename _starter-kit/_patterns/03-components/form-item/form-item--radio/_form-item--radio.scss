@@ -18,21 +18,24 @@
     transition-property: border-color, border-width;
     transition-timing-function: ease-in-out;
     width: 16px;
+
     &:checked {
       border: 6px solid #0071bc;
     }
+
     &:disabled {
       border: 2px solid #bbb;
       cursor: default;
     }
+
     & + .form-item__label {
       cursor: pointer;
       display: inline;
     }
+
     &:disabled + .form-item__label {
       color: #bbb;
       cursor: default;
     }
   }
-
 }

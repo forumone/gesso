@@ -1,11 +1,8 @@
-{% if not classes %}
-  {% set classes = [] %}
-{% endif %}
-{% set classes =
-  classes|merge(['article'])|join(' ')|trim
-%}
+{% set additional_attributes = {
+  "class": ["article"]
+} %}
 
-<article{{- attributes.addClass(classes)|raw -}}>
+<article {{ add_attributes(additional_attributes) }}>
   {% block title %}
     {% include '@components/page-title/page-title.twig' with {
       'page_title': article_page_title

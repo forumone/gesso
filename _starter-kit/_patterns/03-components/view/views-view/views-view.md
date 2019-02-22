@@ -6,8 +6,6 @@ _Views View Component_
 
 ### Variables:
 * element: [string] HTML element to use for view wrapper.
-* attributes: [array] HTML attributes for view wrapper.
-  * class: [string] any classes added by user or system.
 * title: [string] title content.
 * header: [object] header object.
 * exposed: [object] exposed object.

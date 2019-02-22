@@ -1,0 +1,6 @@
+services:
+  gesso_helper.gesso_twig_extension:
+    arguments: ['@renderer']
+    class: Drupal\gesso_helper\TwigExtension\GessoExtensionAdapter
+    tags:
+      - { name: twig.extension }

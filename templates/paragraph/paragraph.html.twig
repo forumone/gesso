@@ -25,20 +25,17 @@
   */
 #}
 
-{%
-  set classes = [
-    'paragraph',
-    'paragraph--type-' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--display-mode-' ~ view_mode|clean_class,
-  ]
-%}
+{% set classes = [
+  'paragraph',
+  'paragraph--type-' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--display-mode-' ~ view_mode|clean_class,
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
 
 {% embed '@layouts/section/section.twig' with {
-  'has_wrapper': true,
-  'has_constrain': false,
-  'has_content_wrapper': true,
-  'label': false
- } %}
+  'section_title': false
+} %}
 
   {% block content %}
     {{ content }}

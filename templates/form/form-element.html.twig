@@ -1,23 +1,19 @@
-{%
-  set add_classes = [
-    'form-item',
-    'form-item--' ~ type|clean_class,
-    'form-item--id-' ~ name|clean_class,
-    'js-form-item',
-    'js-form-type-' ~ type|clean_class,
-    'js-form-item-' ~ name|clean_class,
-    title_display not in ['after', 'before'] ? 'has-no-label',
-    disabled == 'disabled' ? 'is-disabled',
-    errors ? 'has-error',
-  ]
-%}
+{% set add_classes = [
+  'form-item',
+  'form-item--' ~ type|clean_class,
+  'form-item--id-' ~ name|clean_class,
+  'js-form-item',
+  'js-form-type-' ~ type|clean_class,
+  'js-form-item-' ~ name|clean_class,
+  title_display not in ['after', 'before'] ? 'has-no-label',
+  disabled == 'disabled' ? 'is-disabled',
+  errors ? 'has-error',
+] %}
 
-{%
-  set add_description_classes = [
-    'form-item__description',
-    description_display == 'invisible' ? 'visually-hidden',
-  ]
-%}
+{% set add_description_classes = [
+  'form-item__description',
+  description_display == 'invisible' ? 'visually-hidden',
+] %}
 
 <div{{ attributes.addClass(add_classes) }}>
   {% if label_display in ['before', 'invisible'] %}

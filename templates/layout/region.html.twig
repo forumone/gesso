@@ -5,11 +5,9 @@
   */
 #}
 
-{%
-  set classes = [
-    'l-' ~ region|clean_class,
-  ]
-%}
+{% set classes = [
+  'l-' ~ region|clean_class,
+] %}
 
 {% if content %}
   <div{{ attributes.addClass(classes) }}>

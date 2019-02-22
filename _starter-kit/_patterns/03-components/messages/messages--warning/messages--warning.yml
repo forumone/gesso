@@ -1,9 +1,4 @@
 ---
-attributes:
-  Attribute():
-    class:
-      - messages
-      - messages--warning
 type: "warning"
 heading: "Warning message"
 messages:

@@ -22,39 +22,20 @@
   */
 #}
 
-{%
-  set classes = [
-    'block',
-    'block-' ~ configuration.provider|clean_class,
-    'block-' ~ plugin_id|clean_class,
-  ]
-%}
+{% set classes = [
+  'block',
+  'block--provider-' ~ configuration.provider|clean_class,
+  'block--id-' ~ plugin_id|clean_class,
+] %}
 
-{%
-  set title_classes = [
-    'block__title',
-    'block-' ~ configuration.provider|clean_class ~ '__title',
-    'block-' ~ plugin_id|clean_class ~ '__title',
-  ]
-%}
+{% set attributes = attributes.addClass(classes) %}
 
-{%
-  set content_classes = [
-    'block__content',
-  ]
-%}
-
-{% embed '@layouts/section/section.twig'
-  with {
-    'has_wrapper': true,
-    'element': "div",
-    'has_constrain': false,
-    'title_prefix': title_prefix,
-    'title_suffix': title_suffix,
-    'label': label is not empty ? label : false,
-    'has_content_wrapper': true
-  }
-%}
+{% embed '@components/block/block.twig' with {
+  'has_constrain': false,
+  'title_prefix': title_prefix,
+  'title_suffix': title_suffix,
+  'label': label is not empty ? label : false
+} %}
 
   {% block content %}
     {{ content }}

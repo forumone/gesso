@@ -1,10 +1,8 @@
-{%
-  set classes = [
-    'hero-inline-image',
-    custom_classes ? custom_classes,
-    has_overlay ? 'has-overlay',
-  ]|join(' ')|trim
-%}
+{% set classes = [
+  'hero-inline-image',
+  custom_classes ? custom_classes,
+  has_overlay ? 'has-overlay',
+]|join(' ')|trim %}
 
 <div class="{{ classes }}">
   <div class="hero-inline-image__media">

@@ -26,25 +26,28 @@ Gesso.
 
 ## Installation
 
-1.  Place the Gesso theme in your site’s theme directory. (e.g.,
+1. Place the Gesso theme in your site’s theme directory. (e.g.,
 themes/gesso) Read documentation on
 [installing themes](https://drupal.org/getting-started/install-contrib/themes)
 for more information.
 
-2.  Install the
+2. Install the
 [Component Libraries](https://www.drupal.org/project/components) module.
 Since many of the Drupal templates reference twig files inside Pattern Lab using
 Twig namespaces, this module is required for the theme to function.
 
-3.  Optional: Install the
+3. Enable the Gesso Helpers module. This module comes packaged with the theme,
+but must be manually enabled for the theme to function.
+
+4. Optional: Install the
 [Twig Field Value](https://www.drupal.org/project/twig_field_value) module.
 This is not required, but will make working with Twig templates easier.
 
-4.  Optional: Install the
+5. Optional: Install the
 [Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
 This is not required, but will make working with Twig templates easier.
 
-5.  Optional: Because Gesso is a starter theme, you may want to rename the
+6. Optional: Because Gesso is a starter theme, you may want to rename the
 Gesso directory or copy its contents to a new custom theme directory based on
 the name of your project.
 
@@ -54,9 +57,9 @@ Type `drush gesso --help` for more information.
 
 If you can’t use Drush, then manually replace all instances of 'gesso'
 within this directory with a machine-readable name of your choice, including
-folder names, filenames, and all occurrences within files. This custom name
-must start with a letter and may only contain lowercase letters, numbers,
-and underscores.
+folder names, filenames, and all occurrences within files. This custom name must
+start with a letter and may only contain lowercase letters, numbers, and
+underscores.
 
 Edit the .info.yml file and update the theme name and description. You can also
 change the screenshot image (images/screenshot.png) shown on the Appearance
@@ -74,8 +77,8 @@ Drupal, which you can change at admin/appearance/settings/gesso.
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
 CSS. Gesso includes Grunt tasks to compile the CSS and generate the compiled
 Pattern Lab files and to watch both for changes. To use these tasks, first run
-the following NPM command in the theme folder (Windows users may need to
-include the `--no-bin-links` flag at the end of the command).
+the following NPM command in the theme folder (Windows users may need to include
+the `--no-bin-links` flag at the end of the command).
 
 ```
 npm install
@@ -95,8 +98,8 @@ grunt
 
 ### Creating New Components
 
-Gesso includes a script to generate new component files. To use, run
-the following command in the theme folder.
+Gesso includes a script to generate new component files. To use, run the
+following command in the theme folder.
 
 ```
 node component
@@ -129,7 +132,9 @@ browser CSS property prefixes during Sass compilation.
 The Gesso theme is maintained by [Dan Mouyard](https://drupal.org/u/dcmouyard)
 ([@dcmouyard](http://twitter.com/dcmouyard)),
 [Chaz Chumley](https://drupal.org/u/chazchumley)
-([@chazchumley](http://twitter.com/chazchumley)) and
+([@chazchumley](http://twitter.com/chazchumley)),
+[Shawn Brackat](https://drupal.org/u/bkny_139)
+([@shawnbrackat](http://twitter.com/shawnbrackat)) and
 [Corey Lafferty](https://drupal.org/u/clafferty)
 ([@coreylafferty](http://twitter.com/coreylafferty)).
 

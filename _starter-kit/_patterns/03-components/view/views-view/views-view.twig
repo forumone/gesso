@@ -1,4 +1,8 @@
-<{{ element ?: 'div' }}{{- attributes.addClass(classes)|raw -}}>
+{% set additional_attributes = {
+  "class": ["view"],
+} %}
+
+<{{ element ?: 'div' }} {{ add_attributes(additional_attributes) }}>
 
   {{ title_prefix }}
   {% if title %}

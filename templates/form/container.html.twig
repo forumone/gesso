@@ -1,8 +1,6 @@
-{%
-  set addClasses = [
-    has_parent ? 'form-wrapper',
-    has_parent ? 'js-form-wrapper',
-  ]
-%}
+{% set addClasses = [
+  has_parent ? 'form-wrapper',
+  has_parent ? 'js-form-wrapper',
+] %}
 
 <div{{ attributes.addClass(addClasses) }}>{{ children }}</div>
