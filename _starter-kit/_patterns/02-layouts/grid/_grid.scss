@@ -6,7 +6,7 @@ $grid-gutter: 2em;
 .l-grid {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports(display:grid) {
+  @supports (display:grid) {
     @include css-fixed-grid(1);
   }
 }
@@ -14,7 +14,7 @@ $grid-gutter: 2em;
 .l-grid--2col {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports(display:grid) {
+  @supports (display:grid) {
     @include css-fixed-grid(1);
   }
 
@@ -23,7 +23,7 @@ $grid-gutter: 2em;
       @include set-flex-column(2, $grid-gutter, 275px);
     }
 
-    @supports(display: grid) {
+    @supports (display: grid) {
       @include set-css-fixed-columns(2, $grid-gutter, true);
     }
   }
@@ -32,7 +32,7 @@ $grid-gutter: 2em;
 .l-grid--3col {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports(display:grid) {
+  @supports (display:grid) {
     @include css-fixed-grid(1);
   }
 
@@ -41,7 +41,7 @@ $grid-gutter: 2em;
      @include set-flex-column(3, $grid-gutter, 275px);
    }
 
-    @supports(display: grid) {
+    @supports (display: grid) {
       @include set-css-fixed-columns(3, $grid-gutter, true);
     }
   }
@@ -50,7 +50,7 @@ $grid-gutter: 2em;
 .l-grid--4col {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports(display:grid) {
+  @supports (display:grid) {
     @include css-fixed-grid(1);
   }
 
@@ -59,7 +59,7 @@ $grid-gutter: 2em;
       @include set-flex-column(2, $grid-gutter, 275px);
     }
 
-    @supports(display: grid) {
+    @supports (display: grid) {
       @include set-css-fixed-columns(2, $grid-gutter, true);
     }
   }
@@ -69,7 +69,7 @@ $grid-gutter: 2em;
       @include set-flex-column(4, $grid-gutter, 0);
     }
 
-    @supports(display: grid) {
+    @supports (display: grid) {
       @include set-css-fixed-columns(4, $grid-gutter, true);
     }
   }
@@ -78,7 +78,7 @@ $grid-gutter: 2em;
 .l-grid--6col {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports(display:grid) {
+  @supports (display:grid) {
     @include css-fixed-grid(1);
   }
 
@@ -87,7 +87,7 @@ $grid-gutter: 2em;
       @include set-flex-column(3, $grid-gutter, 0);
     }
 
-    @supports(display: grid) {
+    @supports (display: grid) {
       @include set-css-fixed-columns(3, $grid-gutter, true);
     }
   }
@@ -97,7 +97,7 @@ $grid-gutter: 2em;
       @include set-flex-column(6, $grid-gutter, 0);
     }
 
-    @supports(display: grid) {
+    @supports (display: grid) {
       @include set-css-fixed-columns(6, $grid-gutter, true);
     }
   }
