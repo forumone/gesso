@@ -66,7 +66,7 @@
   }
 }
 
-@mixin list-border($list-border-padding: .25rem) {
+@mixin list-border($list-border-padding: 0.25rem) {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
