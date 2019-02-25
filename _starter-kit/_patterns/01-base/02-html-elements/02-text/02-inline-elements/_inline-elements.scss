@@ -24,9 +24,9 @@ a {
       text-decoration: none;
     }
 
-    &[href]::after {
-      font-family: $base-font-family;
+    [href]::after {
       content: ' <' attr(href) '>';
+      font-family: $base-font-family;
       font-size: 10pt;
       font-weight: normal;
       text-transform: lowercase;
@@ -37,19 +37,19 @@ a {
     //  content: ' <http://example.com' attr(href) '>';
     //}
 
-    &[href^='javascript:']::after,
-    &[href^='mailto:']::after,
-    &[href^='tel:']::after,
-    &[href^='#']::after,
-    &[href*='?']::after {
+    [href^='javascript:']::after,
+    [href^='mailto:']::after,
+    [href^='tel:']::after,
+    [href^='#']::after,
+    [href*='?']::after {
       content: '';
     }
   }
 }
 
 abbr {
-  &[title] {
-    border-bottom: none;
+  [title] {
+    border-bottom: 0;
     text-decoration: underline;
     text-decoration: underline dotted;
   }
@@ -59,7 +59,7 @@ abbr {
   }
 
   @media print {
-    &[title]::after {
+    [title]::after {
       content: ' (' attr(title) ')';
     }
   }

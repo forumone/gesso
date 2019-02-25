@@ -9,9 +9,7 @@ img {
   vertical-align: middle;
 
   @media print {
-    & {
-      max-width: 100% !important;
-      page-break-inside: avoid;
-    }
+    max-width: 100% !important;
+    page-break-inside: avoid;
   }
 }
