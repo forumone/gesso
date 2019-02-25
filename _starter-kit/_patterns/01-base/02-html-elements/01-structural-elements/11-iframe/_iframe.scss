@@ -3,9 +3,8 @@
 
 iframe {
   border: 0;
+
   @media print {
-    & {
-      display: none;
-    }
+    display: none;
   }
 }

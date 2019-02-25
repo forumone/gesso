@@ -138,7 +138,7 @@ var {
   outline: none !important;
 }
 
-::-moz-selection {
+::-moz-selection { /* stylelint-disable-line */
   background: $color-selection-background;
   color: $color-selection-foreground;
   text-shadow: none;

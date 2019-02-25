@@ -24,6 +24,7 @@ input {
   line-height: normal;
 }
 
+/* stylelint-disable selector-no-qualifying-type */
 input[type='button'] {}
 input[type='checkbox'] {}
 input[type='color'] {}
@@ -46,6 +47,7 @@ input[type='text'] {}
 input[type='time'] {}
 input[type='url'] {}
 input[type='week'] {}
+/* stylelint-enable */
 
 label {}
 
