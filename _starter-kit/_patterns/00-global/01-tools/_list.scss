@@ -16,7 +16,7 @@
   margin-left: 0;
   padding-left: 0;
 
-  > li  {
+  > li {
     display: inline;
   }
 }
@@ -27,7 +27,7 @@
   margin-left: 0;
   padding-left: 0;
 
-  > li  {
+  > li {
     border-right: 1px solid $pipeline-border-color; // LTR
     display: block;
     float: left; // LTR
@@ -46,7 +46,8 @@
       }
     }
 
-    &.is-active { /* stylelint-disable-line */
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &.is-active {
       font-weight: bold;
     }
 
@@ -77,7 +78,11 @@
   }
 }
 
-@mixin list-column ($list-column-count: 2, $list-column-gap: 2em, $list-item-padding: 0.25em) {
+@mixin list-column(
+  $list-column-count: 2,
+  $list-column-gap: 2em,
+  $list-item-padding: 0.25em
+) {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
@@ -87,7 +92,7 @@
     column-gap: $list-column-gap;
   }
 
-  > li  {
+  > li {
     break-inside: avoid-column;
     display: table; // break-inside alternative for Firefox
     margin-bottom: 0;
