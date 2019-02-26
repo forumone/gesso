@@ -138,7 +138,8 @@ var {
   outline: none !important;
 }
 
-::-moz-selection { /* stylelint-disable-line */
+/* stylelint-disable-next-line selector-no-vendor-prefix */
+::-moz-selection {
   background: $color-selection-background;
   color: $color-selection-foreground;
   text-shadow: none;

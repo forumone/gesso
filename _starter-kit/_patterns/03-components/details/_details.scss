@@ -9,11 +9,13 @@ $details-padding: rem(30px) !default;
 
 // 'details' can appear as a modernizr class on the html tag, so this
 // class is limited to only the details element
-details.details { /* stylelint-disable-line */
+/* stylelint-disable-next-line selector-no-qualifying-type */
+details.details {
   margin: 0 0 rem($vertical-spacing-forms);
 
   // Fallback for browsers that don’t support details.
-  .js &:not([open]) > .details__content { /* stylelint-disable-line */
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  .js &:not([open]) > .details__content {
     display: none;
   }
 }
@@ -77,7 +79,7 @@ details.details { /* stylelint-disable-line */
 .details__description {
   color: $color-text-secondary;
   font-size: rem($font-size-sm);
-  margin-bottom:rem($vertical-spacing);
+  margin-bottom: rem($vertical-spacing);
 
   > :last-child {
     margin-bottom: 0;
