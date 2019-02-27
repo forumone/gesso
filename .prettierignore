@@ -18,6 +18,7 @@ pattern-lab/vendor
 *.ico
 *.inc
 *.lock
+*.min.js
 *.php
 *.png
 *.svg
