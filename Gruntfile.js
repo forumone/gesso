@@ -13,14 +13,13 @@
  */
 'use strict';
 
-module.exports = function (grunt) {
-
+module.exports = function(grunt) {
   // Load grunt contrib tasks automatically
   require('load-grunt-tasks')(grunt);
 
   // Initialize configuration with package.json data
   grunt.initConfig({
-    'pkg': grunt.file.readJSON('package.json')
+    pkg: grunt.file.readJSON('package.json'),
   });
 
   // Load the include-all library in order to require all of our grunt
@@ -28,8 +27,7 @@ module.exports = function (grunt) {
   var includeAll;
   try {
     includeAll = require('include-all');
-  }
-  catch (e0) {
+  } catch (e0) {
     console.error('Could not find `include-all` module.');
     console.error('Skipping grunt tasks...');
     console.error('To fix this, please run:');
@@ -47,10 +45,12 @@ module.exports = function (grunt) {
    * a Grunt task.
    */
   function loadTasks(relPath) {
-    return includeAll({
-      dirname: require('path').resolve(__dirname, relPath),
-      filter: /(.+)\.js$/
-    }) || {};
+    return (
+      includeAll({
+        dirname: require('path').resolve(__dirname, relPath),
+        filter: /(.+)\.js$/,
+      }) || {}
+    );
   }
 
   /**
@@ -67,11 +67,13 @@ module.exports = function (grunt) {
 
   // Load task functions
   var taskConfigurations = loadTasks('./tasks/config'),
-      registerDefinitions = loadTasks('./tasks/register');
+    registerDefinitions = loadTasks('./tasks/register');
 
   // Ensure that a default task exists
   if (!registerDefinitions.default) {
-    registerDefinitions.default = function (grunt) { grunt.registerTask('default', []); };
+    registerDefinitions.default = function(grunt) {
+      grunt.registerTask('default', []);
+    };
   }
 
   // Run task functions to configure Grunt.

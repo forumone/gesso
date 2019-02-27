@@ -17,6 +17,7 @@ To submit bug reports or feature requests, visit the
 [Gesso issue queue](https://github.com/forumone/gesso/issues).
 
 ### Global Prerequisites
+
 The following packages need to be installed on your system in order to use
 Gesso.
 
@@ -27,29 +28,29 @@ Gesso.
 ## Installation
 
 1. Place the Gesso theme in your site’s theme directory. (e.g.,
-themes/gesso) Read documentation on
-[installing themes](https://drupal.org/getting-started/install-contrib/themes)
-for more information.
+   themes/gesso) Read documentation on
+   [installing themes](https://drupal.org/getting-started/install-contrib/themes)
+   for more information.
 
 2. Install the
-[Component Libraries](https://www.drupal.org/project/components) module.
-Since many of the Drupal templates reference twig files inside Pattern Lab using
-Twig namespaces, this module is required for the theme to function.
+   [Component Libraries](https://www.drupal.org/project/components) module.
+   Since many of the Drupal templates reference twig files inside Pattern Lab using
+   Twig namespaces, this module is required for the theme to function.
 
 3. Enable the Gesso Helpers module. This module comes packaged with the theme,
-but must be manually enabled for the theme to function.
+   but must be manually enabled for the theme to function.
 
 4. Optional: Install the
-[Twig Field Value](https://www.drupal.org/project/twig_field_value) module.
-This is not required, but will make working with Twig templates easier.
+   [Twig Field Value](https://www.drupal.org/project/twig_field_value) module.
+   This is not required, but will make working with Twig templates easier.
 
 5. Optional: Install the
-[Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
-This is not required, but will make working with Twig templates easier.
+   [Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
+   This is not required, but will make working with Twig templates easier.
 
 6. Optional: Because Gesso is a starter theme, you may want to rename the
-Gesso directory or copy its contents to a new custom theme directory based on
-the name of your project.
+   Gesso directory or copy its contents to a new custom theme directory based on
+   the name of your project.
 
 The easiest way to accomplish this is to use
 [Drush](https://github.com/drush-ops/drush).
@@ -65,12 +66,10 @@ Edit the .info.yml file and update the theme name and description. You can also
 change the screenshot image (images/screenshot.png) shown on the Appearance
 admin page.
 
-
 ## Configuration
 
 Gesso includes several theme-specific settings for managing classes output by
 Drupal, which you can change at admin/appearance/settings/gesso.
-
 
 ### Compiling Pattern Lab and Sass
 
@@ -84,7 +83,7 @@ the `--no-bin-links` flag at the end of the command).
 npm install
 ```
 
-Once the above command is run, the _starter-kit folder that comes with Gesso
+Once the above command is run, the \_starter-kit folder that comes with Gesso
 will be renamed to pattern-lab/source. This directory contains all of the
 Pattern Lab Twig templates and Sass files.
 
@@ -95,7 +94,6 @@ run the following command in the theme directory:
 grunt
 ```
 
-
 ### Creating New Components
 
 Gesso includes a script to generate new component files. To use, run the
@@ -105,27 +103,24 @@ following command in the theme folder.
 node component
 ```
 
-
 ### Build Artifacts
 
 By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/public/
 and /css/) are ignored by Git as these files are built during deployment.
 To change this, edit the included .gitignore file.
 
-
 ### Sass/Grunt dependencies
 
-* [Breakpoint](http://breakpoint-sass.com): Easy to write media queries.
+- [Breakpoint](http://breakpoint-sass.com): Easy to write media queries.
 
-* [Sass](http://sass-lang.com): CSS on steroids. Adds nested rules, variables,
-mixins, selector inheritance, and more.
+- [Sass](http://sass-lang.com): CSS on steroids. Adds nested rules, variables,
+  mixins, selector inheritance, and more.
 
-* [Sass Globbing](https://github.com/DennisBecker/grunt-sass-globbing): Adds
-glob-based imports to Sass.
+- [Sass Globbing](https://github.com/DennisBecker/grunt-sass-globbing): Adds
+  glob-based imports to Sass.
 
-* [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
-browser CSS property prefixes during Sass compilation.
-
+- [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
+  browser CSS property prefixes during Sass compilation.
 
 ## Maintainers
 

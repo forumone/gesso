@@ -1,32 +1,33 @@
-var fs= require('fs');
-var inquirer= require('inquirer');
+var fs = require('fs');
+var inquirer = require('inquirer');
 var path = require('path');
 var mkdirp = require('mkdirp');
 
 const isDirectory = source => fs.lstatSync(source).isDirectory();
 
 const getDirectories = source => {
-  return fs.readdirSync(source)
-  .map(name => path.join(source, name))
-  .filter(isDirectory);
-}
+  return fs
+    .readdirSync(source)
+    .map(name => path.join(source, name))
+    .filter(isDirectory);
+};
 
 init();
 
 function init() {
-  const patternSrc = process.cwd() +  "/pattern-lab/source/_patterns/";
+  const patternSrc = process.cwd() + '/pattern-lab/source/_patterns/';
   const patternDir = getDirectories(patternSrc);
 
   var questions = [
     {
       type: 'input',
       name: 'component_name',
-      message: 'What is the name your component?'
+      message: 'What is the name your component?',
     },
     {
       type: 'confirm',
       name: 'document',
-      message: 'Do you want documentation (markdown)?'
+      message: 'Do you want documentation (markdown)?',
     },
     {
       type: 'list',
@@ -48,25 +49,36 @@ function init() {
       patternSrc,
       answers.component_folder,
       machineName(answers.component_folder_sub),
-      machineName(componentName)
+      machineName(componentName),
     );
-    var output = '---\n' +
-      'Component Name: ' + componentName + '\n' +
-      'Include Documentation: '+ ((componentDocumentation) ? 'Yes': 'No') + '\n' +
-      'Component Location: ' + componentLocation + '\n';
+    var output =
+      '---\n' +
+      'Component Name: ' +
+      componentName +
+      '\n' +
+      'Include Documentation: ' +
+      (componentDocumentation ? 'Yes' : 'No') +
+      '\n' +
+      'Component Location: ' +
+      componentLocation +
+      '\n';
     console.log(output);
 
     var confirm = [
       {
         type: 'confirm',
         name: 'confirm',
-        message: "Is this what you want?",
-      }
-    ]
+        message: 'Is this what you want?',
+      },
+    ];
 
     inquirer.prompt(confirm).then(answers => {
       if (answers.confirm) {
-        createComponent(componentName, componentLocation, componentDocumentation);
+        createComponent(
+          componentName,
+          componentLocation,
+          componentDocumentation,
+        );
       } else {
         console.log('Component cancelled');
       }
@@ -75,59 +87,66 @@ function init() {
 }
 
 function machineName(name) {
-  return name.split(' ').join('-').toLowerCase();
+  return name
+    .split(' ')
+    .join('-')
+    .toLowerCase();
 }
 
 function createComponent(component, location, documentation) {
-
   if (fs.existsSync(location)) {
     console.log('Component directory already exists');
   } else {
-
-    mkdirp(location, function (err) {
+    mkdirp(location, function(err) {
       if (err) {
-        console.error(err)
-
+        console.error(err);
       } else {
         var filesArray = ['scss', 'twig', 'yml'];
-        filesArray.forEach(function (file) {
+        filesArray.forEach(function(file) {
           makeComponentFile(component, location, file);
         });
 
-        if(documentation == true ) {
+        if (documentation == true) {
           makeComponentFile(component, location, 'md');
         }
 
         console.log(component + ' created');
-
       }
     });
   }
 }
 
 function makeComponentFile(componentName, location, ext) {
-  var componentFile = machineName((ext=='scss')? '_'+ componentName : componentName);
-  var output='';
+  var componentFile = machineName(
+    ext == 'scss' ? '_' + componentName : componentName,
+  );
+  var output = '';
 
-  switch(ext) {
+  switch (ext) {
     case 'scss':
-      output= '// @file\n' +
-        '// Component: '+ componentName + '\n' ;
+      output = '// @file\n' + '// Component: ' + componentName + '\n';
       break;
     case 'twig':
-      output= '{# '+ componentName +' #}';
+      output = '{# ' + componentName + ' #}';
       break;
     case 'md':
-      output= '---\n' +
-        'el: .' + machineName(componentName) + '\n' +
-        'title: ' + componentName + '\n' +
+      output =
+        '---\n' +
+        'el: .' +
+        machineName(componentName) +
+        '\n' +
+        'title: ' +
+        componentName +
+        '\n' +
         '---';
       break;
     default:
-      output='';
+      output = '';
   }
 
-  fs.writeFile(location + '/' + componentFile +'.' + ext, output, function(err) {
+  fs.writeFile(location + '/' + componentFile + '.' + ext, output, function(
+    err,
+  ) {
     if (err) {
       return console.error(err);
     }
