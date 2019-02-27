@@ -29,12 +29,14 @@
   margin-bottom: 0.25em;
 }
 
-.hero-inline-image__subtitle {}
+.hero-inline-image__subtitle {
+}
 
 .hero-inline-image__media {
   display: block;
   line-height: 0;
-  img, picture {
+  img,
+  picture {
     width: 100%;
   }
 }

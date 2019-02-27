@@ -6,7 +6,8 @@ $bp-pager: 600px;
 $pager-bg-color: #f1f1f1;
 $pager-bg-color-active: #d6d7d9;
 
-.pager {}
+.pager {
+}
 
 .pager__items {
   @include list-clean();

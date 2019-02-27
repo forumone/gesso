@@ -1,15 +1,11 @@
 ---
-modifier_classes: ""
-heading: ""
+modifier_classes: ''
+heading: ''
 breadcrumb:
-  -
-    url: "#"
-    text: "Home"
-  -
-    url: "#"
-    text: "Level 1"
-  -
-    url: "#"
-    text: "Level 2"
-  -
-    text: "Current item"
+  - url: '#'
+    text: 'Home'
+  - url: '#'
+    text: 'Level 1'
+  - url: '#'
+    text: 'Level 2'
+  - text: 'Current item'

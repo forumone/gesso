@@ -23,7 +23,8 @@
       margin-right: 0.6em;
       text-indent: 0.15em;
       transition-duration: 0.2s;
-      transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+      transition-property: background-color, border-color, box-shadow, color,
+        opacity, text-shadow, transform;
       transition-timing-function: ease-in-out;
       vertical-align: middle;
       width: rem(18px);
@@ -40,7 +41,8 @@
   }
 
   &:focus + .form-item__label::before {
-    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf, 0 0 7px 4px #3e94cf;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf,
+      0 0 7px 4px #3e94cf;
   }
 
   &:checked:disabled + .form-item__label::before {

@@ -58,7 +58,8 @@ $tab-font-size: $font-size-md !default;
     $tab-color-text-active,
     $tab-color-bg-disabled,
     $tab-color-text-disabled,
-  0);
+    0
+  );
   border-left: 1px solid $tab-color-border;
   display: block;
   font-size: rem($font-size-sm);

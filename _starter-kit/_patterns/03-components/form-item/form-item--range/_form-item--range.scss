@@ -39,7 +39,6 @@
 }
 
 .form-item--range {
-
   .form-item__range {
     appearance: none;
     background: transparent;
@@ -117,13 +116,16 @@
     &::-ms-fill-lower,
     &::-ms-fill-upper {
       background: $form-range-track-color;
-      border: $form-range-track-border-width solid $form-range-track-border-color;
+      border: $form-range-track-border-width solid
+        $form-range-track-border-color;
     }
 
     &::-webkit-slider-thumb {
       @include form-item__range-thumb;
       -webkit-appearance: none;
-      margin-top: rem(((-$form-range-track-border-width * 2) + $form-range-track-height) / 2) - rem($form-range-thumb-height / 2);
+      margin-top: rem(
+          ((-$form-range-track-border-width * 2) + $form-range-track-height) / 2
+        ) - rem($form-range-thumb-height / 2);
     }
 
     &::-webkit-slider-runnable-track {

@@ -1,13 +1,13 @@
 ---
-body_class: "front"
+body_class: 'front'
 content:
   join():
     - include():
         pattern: templates-homepage
         with:
-          homepage_hero_image: "https://picsum.photos/1600/800/?image=96&gravity=north"
+          homepage_hero_image: 'https://picsum.photos/1600/800/?image=96&gravity=north'
           homepage_hero_title: "Where'd You Get The Coconuts?"
-          homepage_hero_summary: "<p>The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land. Are you suggesting that coconuts migrate? Not at all. They could be carried. What? A swallow carrying a coconut? It could grip it by the husk!</p>"
+          homepage_hero_summary: '<p>The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land. Are you suggesting that coconuts migrate? Not at all. They could be carried. What? A swallow carrying a coconut? It could grip it by the husk!</p>'
           homepage_hero_call_to_action_text: 'Ni! Ni! Ni! Ni!'
           homepage_hero_call_to_action_url: '#'
           homepage_grid_titlelabel: "You Don't Vote For Kings"
@@ -17,7 +17,7 @@ content:
                   pattern: components-card
                   with:
                     title: "It's Only a Model"
-                    url: "#"
+                    url: '#'
                     media: |-
                       <img src="https://picsum.photos/800/600?image=1069">
                     content: |-
@@ -25,8 +25,8 @@ content:
               - include():
                   pattern: components-card
                   with:
-                    title: "Let Us Ride To Camelot"
-                    url: "#"
+                    title: 'Let Us Ride To Camelot'
+                    url: '#'
                     media: |-
                       <img src="https://picsum.photos/800/600?image=1025">
                     content: |-
@@ -34,8 +34,8 @@ content:
               - include():
                   pattern: components-card
                   with:
-                    title: "What a Strange Person"
-                    url: "#"
+                    title: 'What a Strange Person'
+                    url: '#'
                     media: |-
                       <img src="https://picsum.photos/800/600?image=1040">
                     content: |-
@@ -43,8 +43,8 @@ content:
               - include():
                   pattern: components-card
                   with:
-                    title: "The Knights Who Say Ni"
-                    url: "#"
+                    title: 'The Knights Who Say Ni'
+                    url: '#'
                     media: |-
                       <img src="https://picsum.photos/800/600?image=870">
                     content: |-

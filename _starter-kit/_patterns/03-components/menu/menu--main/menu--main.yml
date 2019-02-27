@@ -1,36 +1,36 @@
 ---
-menu_name: "main"
+menu_name: 'main'
 items:
-- title: Home
-  url: "#"
-  original_link:
-    options:
-      attributes:
-        Attribute():
-          class:
-            -
-- title: About
-  url: "#"
-  original_link:
-    options:
-      attributes:
-        Attribute():
-          class:
-            -
-- title: Contact
-  url: "#"
-  original_link:
-    options:
-      attributes:
-        Attribute():
-          class:
-            -
-- title: Search
-  url: "#"
-  original_link:
-    options:
-      attributes:
-        Attribute():
-          class:
-            -
-  in_active_trail: true
+  - title: Home
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+  - title: About
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+  - title: Contact
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+  - title: Search
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+    in_active_trail: true

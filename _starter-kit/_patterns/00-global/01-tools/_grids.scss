@@ -6,7 +6,7 @@
 // @param {String} $gutter Width value for column gutters
 // @param {String} $item-minwidth Width value to set a minimum column width
 @mixin set-flex-column($columns: 1, $gutter: 2em, $item-minwidth: false) {
-  $column-percentage: if($columns > 0, percentage(1/$columns), 100% );
+  $column-percentage: if($columns > 0, percentage(1 / $columns), 100%);
 
   flex-basis: auto;
   flex-grow: 0;
@@ -53,8 +53,8 @@
 // @param {String} $item-minwidth Width value to set a column minimum width
 // @param {String} $gutter Width value for column gutters
 // @param {Boolean} $flex-override Set override for grid cells
-@mixin set-css-autofit-columns($item-minwidth, $gutter, $flex-override: false ) {
-  grid-template-columns: repeat(auto-fit, minmax(#{$item-minwidth}, 1fr ));
+@mixin set-css-autofit-columns($item-minwidth, $gutter, $flex-override: false) {
+  grid-template-columns: repeat(auto-fit, minmax(#{$item-minwidth}, 1fr));
 
   @if $gutter {
     grid-gap: $gutter;
@@ -74,7 +74,7 @@
 // @param {String} $gutter Width value for column gutters
 // @param {Boolean} $flex-override Set overrides for grid cells
 @mixin set-css-fixed-columns($columns, $gutter, $flex-override: false) {
-  $column-adjust: if($columns < 1 , 1, $columns  );
+  $column-adjust: if($columns < 1, 1, $columns);
   grid-template-columns: repeat($column-adjust, 1fr);
 
   @if $gutter {

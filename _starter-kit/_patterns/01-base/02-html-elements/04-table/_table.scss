@@ -5,9 +5,11 @@ caption {
   margin-bottom: rem($vertical-spacing / 2);
 }
 
-col {}
+col {
+}
 
-colgroup {}
+colgroup {
+}
 
 table {
   border-collapse: collapse;
@@ -16,14 +18,14 @@ table {
   min-width: 100%;
 }
 
-tbody {}
+tbody {
+}
 
 td {
   background-color: #fff;
   border: 1px solid #5b616b;
   padding: rem(15px);
 }
-
 
 tfoot {
   td,

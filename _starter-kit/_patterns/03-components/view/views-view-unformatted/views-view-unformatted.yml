@@ -4,23 +4,23 @@ title_element: h3
 has_wrapper: true
 element: div
 rows:
-- content:
-    join():
-      - include():
-          pattern: components-teaser
-- content:
-    join():
-      - include():
-          pattern: components-teaser
-- content:
-    join():
-      - include():
-          pattern: components-teaser
-- content:
-    join():
-      - include():
-          pattern: components-teaser
-- content:
-    join():
-      - include():
-          pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser

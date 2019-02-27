@@ -2,17 +2,17 @@
 items:
   pages:
     1:
-      url: "#"
+      url: '#'
     2:
-      url: "#"
+      url: '#'
     3:
-      url: "#"
+      url: '#'
     4:
-      url: "#"
+      url: '#'
     5:
-      url: "#"
+      url: '#'
     6:
-      url: "#"
+      url: '#'
   first: false
   previous: true
   next: true

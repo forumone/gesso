@@ -4,5 +4,5 @@ label_hidden: false
 label_element: h3
 multiple: false
 items:
-- content: Field Item
+  - content: Field Item
 element: div

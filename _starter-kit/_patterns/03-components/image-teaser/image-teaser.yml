@@ -1,10 +1,10 @@
 ---
-url: "#"
+url: '#'
 image:
   join():
     - include():
         pattern: base-thumbnail-image
-title: "Title"
+title: 'Title'
 date:
   join():
     - include():

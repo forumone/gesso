@@ -8,10 +8,13 @@ $vertical-spacing: $base-font-size; // Used as the default spacing below most it
 $vertical-spacing-forms: 30px; // Used as the default spacing below form elements.
 
 // Fonts
-$system-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Open Sans', 'Helvetica Neue', sans-serif;
+$system-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Open Sans',
+  'Helvetica Neue', sans-serif;
 $base-font-family: 'Lora', serif;
 $header-font-family: 'Open Sans', sans-serif;
-$monospace-font-family: Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif;
+$monospace-font-family: Consolas, 'Lucida Console', 'Liberation Mono',
+  'Courier New', monospace, sans-serif;
 
 // Typographic Scale
 $font-size-xxl: 40px;

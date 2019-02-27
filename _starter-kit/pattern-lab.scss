@@ -7,8 +7,8 @@
 /* stylelint-disable-next-line selector-max-id */
 #sg-patterns {
   box-sizing: border-box !important;
-	max-width: em($max-page-width);
-	padding: 0 ($gutter-width / 2);
+  max-width: em($max-page-width);
+  padding: 0 ($gutter-width / 2);
 }
 
 // Hide headers for some Gesso folders
@@ -31,11 +31,13 @@
     margin: 3em 0 0.25em;
     text-transform: capitalize;
   }
+
   a {
     color: #666;
     text-decoration: none;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: #333;
     }
   }
@@ -93,7 +95,7 @@
   left: 0;
   position: absolute;
   right: 0;
-  top: .55em;
+  top: 0.55em;
   transition: 0.2s all;
 }
 
@@ -184,7 +186,7 @@
 
 .pattern-lab-font__name {
   color: #565454;
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   margin: 5px 0;
 }

@@ -22,7 +22,8 @@ $button-font-size: $font-size-md !default;
   $color-bg-disabled: $button-color-bg-disabled,
   $color-text-disabled: $button-color-text-disabled,
   $border-radius: $button-border-radius,
-  $font-size: $button-font-size) {
+  $font-size: $button-font-size
+) {
   @extend %base-font-family;
   background-color: $color-bg;
   border: 0;

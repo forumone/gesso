@@ -1,6 +1,6 @@
 ---
-url: "#"
-title: "Title"
+url: '#'
+title: 'Title'
 date:
   join():
     - include():
