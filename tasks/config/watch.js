@@ -4,35 +4,35 @@ module.exports = function(grunt) {
       gesso: {
         files: [
           '<%= pkg.themePath %>/pattern-lab/source/**/*.scss',
-          '<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss'
+          '<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss',
         ],
         tasks: ['gessoBuildStyles'],
         options: {
-          usePolling: true
-        }
+          usePolling: true,
+        },
       },
       patternlab: {
         files: [
           '<%= pkg.themePath %>/pattern-lab/source/**/*.twig',
           '<%= pkg.themePath %>/pattern-lab/source/**/*.json',
           '<%= pkg.themePath %>/pattern-lab/source/**/*.yaml',
-          '<%= pkg.themePath %>/pattern-lab/source/**/*.yml'
+          '<%= pkg.themePath %>/pattern-lab/source/**/*.yml',
         ],
         tasks: ['shell:patternlab'],
         options: {
           livereload: true,
-          usePolling: true
-        }
+          usePolling: true,
+        },
       },
       svgs: {
         files: ['<%= pkg.themePath %>/images/*.svg'],
         tasks: ['gessoBuildStyles'],
         options: {
           livereload: true,
-          usePolling: true
-        }
-      }
-    }
+          usePolling: true,
+        },
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-chokidar');

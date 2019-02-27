@@ -1,4 +1,4 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   grunt.config.merge({
     copy: {
       patternlabSetupCopy: {
@@ -9,10 +9,10 @@ module.exports = function (grunt) {
             src: '**',
             dest: '<%= pkg.themePath %>/pattern-lab/source/',
           },
-        ]
-      }
-    }
+        ],
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
-}
+};

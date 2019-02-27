@@ -1,7 +1,7 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   grunt.registerTask('gessoBuild', [
     'gessoSetup',
     'gessoBuildStyles',
-    'gessoBuildPatternlab'
+    'gessoBuildPatternlab',
   ]);
 };
