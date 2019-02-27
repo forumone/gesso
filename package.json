@@ -23,8 +23,10 @@
     "grunt-sass-globbing": "^1.5.1",
     "grunt-shell": "^2.1.0",
     "grunt-stylelint": "^0.10.1",
+    "husky": "^1.3.1",
     "include-all": "^4.0.3",
     "inquirer": "^5.1.0",
+    "lint-staged": "^8.1.4",
     "load-grunt-tasks": "^3.5.2",
     "mkdirp": "^0.5.1",
     "postcss-assets": "~5.0.0",
@@ -40,5 +42,16 @@
     "pretty-js": "node ./node_modules/.bin/prettier --write '{!(*.min).js,+(js|tasks)/**/!(*.min).js}'",
     "pretty-md": "node ./node_modules/.bin/prettier --write '{*.md,_starter-kit/**/*.md,pattern-lab/source/**/*.md}'",
     "pretty-sass": "node ./node_modules/.bin/prettier --write '{_starter-kit/**/*.scss,pattern-lab/source/**/*.scss}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,md,prettierrc,scss,yml}": [
+      "node ./node_modules/.bin/prettier --write",
+      "git add"
+    ]
   }
 }
