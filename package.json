@@ -34,7 +34,11 @@
     "stylelint-config-sass-guidelines": "^5.2.0"
   },
   "scripts": {
+    "component": "node component.js",
     "postinstall": "grunt gessoSetup",
-    "component": "node component.js"
+    "pretty-all": "node ./node_modules/.bin/prettier --write '{*.+(js|json|md|prettierrc|yml),_starter-kit/**/*.+(js|json|md|scss|yml),pattern-lab/source/**/*.+(js|json|md|scss|yml)}'",
+    "pretty-js": "node ./node_modules/.bin/prettier --write '{!(*.min).js,+(js|tasks)/**/!(*.min).js}'",
+    "pretty-md": "node ./node_modules/.bin/prettier --write '{*.md,_starter-kit/**/*.md,pattern-lab/source/**/*.md}'",
+    "pretty-sass": "node ./node_modules/.bin/prettier --write '{_starter-kit/**/*.scss,pattern-lab/source/**/*.scss}'"
   }
 }
