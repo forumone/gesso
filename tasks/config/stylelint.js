@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.config.merge({
     stylelint: {
       options: {
-        configFile: '<%= pkg.themePath %>/.stylelintrc.yaml',
+        configFile: '<%= pkg.themePath %>/.stylelintrc.yml',
         formatter: 'string',
         ignoreDisables: false,
         failOnError: true,
