@@ -24,7 +24,8 @@ a {
       text-decoration: none;
     }
 
-    [href]::after {
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &[href]::after {
       content: ' <' attr(href) '>';
       font-family: $base-font-family;
       font-size: 10pt;
@@ -37,18 +38,21 @@ a {
     //  content: ' <http://example.com' attr(href) '>';
     //}
 
-    [href^='javascript:']::after,
-    [href^='mailto:']::after,
-    [href^='tel:']::after,
-    [href^='#']::after,
-    [href*='?']::after {
+    /* stylelint-disable selector-no-qualifying-type */
+    &[href^='javascript:']::after,
+    &[href^='mailto:']::after,
+    &[href^='tel:']::after,
+    &[href^='#']::after,
+    &[href*='?']::after {
+      /* stylelint-enable */
       content: '';
     }
   }
 }
 
 abbr {
-  [title] {
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  &[title] {
     border-bottom: 0;
     text-decoration: underline;
     text-decoration: underline dotted;
@@ -59,7 +63,8 @@ abbr {
   }
 
   @media print {
-    [title]::after {
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &[title]::after {
       content: ' (' attr(title) ')';
     }
   }

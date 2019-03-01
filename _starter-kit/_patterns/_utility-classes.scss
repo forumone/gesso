@@ -8,6 +8,7 @@
 // Accessibility utility classes
 .visually-hidden {
   @include visually-hidden-important;
+
   &.focusable {
     &:active,
     &:focus {
