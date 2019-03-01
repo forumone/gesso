@@ -39,7 +39,7 @@
        * @type {Array.<Drupal.CollapsibleDetails>}
        */
       instances: [],
-    },
+    }
   );
 
   $.extend(
@@ -107,7 +107,7 @@
       toggle: function() {
         var isOpen = !!this.$node.attr('open');
         var $summaryPrefix = this.$node.find(
-          '> summary .js-details-fallback-text',
+          '> summary .js-details-fallback-text'
         );
         if (isOpen) {
           $summaryPrefix.html(Drupal.t('Show'));
@@ -120,10 +120,10 @@
           function() {
             this.$node.attr('open', !isOpen);
           }.bind(this),
-          0,
+          0
         );
       },
-    },
+    }
   );
 
   /**
@@ -146,7 +146,7 @@
       if ($collapsibleDetails.length) {
         for (var i = 0; i < $collapsibleDetails.length; i++) {
           CollapsibleDetails.instances.push(
-            new CollapsibleDetails($collapsibleDetails[i]),
+            new CollapsibleDetails($collapsibleDetails[i])
           );
         }
       }

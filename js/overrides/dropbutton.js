@@ -29,7 +29,7 @@
         var il = $dropbuttons.length;
         for (var i = 0; i < il; i++) {
           DropButton.dropbuttons.push(
-            new DropButton($dropbuttons[i], settings.dropbutton),
+            new DropButton($dropbuttons[i], settings.dropbutton)
           );
         }
       }
@@ -71,7 +71,7 @@
     // Merge defaults with settings.
     var options = $.extend(
       { title: Drupal.t('List additional actions') },
-      settings,
+      settings
     );
     var $dropbutton = $(dropbutton);
 
@@ -147,7 +147,7 @@
        * @type {Array.<Drupal.DropButton>}
        */
       dropbuttons: [],
-    },
+    }
   );
 
   /**
@@ -216,7 +216,7 @@
       focusIn: function(e) {
         this.hoverIn.call(this, e);
       },
-    },
+    }
   );
 
   $.extend(
@@ -240,7 +240,7 @@
           '</span></button></li>'
         );
       },
-    },
+    }
   );
 
   // Expose constructor in the public space.

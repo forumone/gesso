@@ -49,7 +49,7 @@ function init() {
       patternSrc,
       answers.component_folder,
       machineName(answers.component_folder_sub),
-      machineName(componentName),
+      machineName(componentName)
     );
     var output =
       '---\n' +
@@ -77,7 +77,7 @@ function init() {
         createComponent(
           componentName,
           componentLocation,
-          componentDocumentation,
+          componentDocumentation
         );
       } else {
         console.log('Component cancelled');
@@ -118,7 +118,7 @@ function createComponent(component, location, documentation) {
 
 function makeComponentFile(componentName, location, ext) {
   var componentFile = machineName(
-    ext == 'scss' ? '_' + componentName : componentName,
+    ext == 'scss' ? '_' + componentName : componentName
   );
   var output = '';
 
@@ -145,7 +145,7 @@ function makeComponentFile(componentName, location, ext) {
   }
 
   fs.writeFile(location + '/' + componentFile + '.' + ext, output, function(
-    err,
+    err
   ) {
     if (err) {
       return console.error(err);

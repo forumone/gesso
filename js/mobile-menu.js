@@ -9,7 +9,7 @@
       // menu in the navigation region.
       var $mobileNav = $('<nav class="mobile-menu" role="navigation"></nav>'),
         $mobileBar = $(
-          '<div class="mobile-menu__bar"><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>',
+          '<div class="mobile-menu__bar"><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>'
         ),
         $mobileLinks = $('<div class="mobile-menu__links hidden"></div>'),
         $mainMenu = $('.l-navigation', context)
@@ -32,7 +32,7 @@
               .addClass('menu__item--parent');
             if ($parentLink.siblings('.menu__subnav-arrow').length < 1) {
               $parentLink.after(
-                '<button class="menu__subnav-arrow">Show</button>',
+                '<button class="menu__subnav-arrow">Show</button>'
               );
             }
           });
@@ -51,7 +51,7 @@
               .addClass('mobile-menu__search')
               .appendTo($mobileNav);
             $mobileBar.append(
-              '<button class="mobile-menu__button js-mobile-search-button mobile-menu__button--search"><span class="mobile-menu__icon mobile-menu__icon--search">Search</span></button>',
+              '<button class="mobile-menu__button js-mobile-search-button mobile-menu__button--search"><span class="mobile-menu__icon mobile-menu__icon--search">Search</span></button>'
             );
           }
         }

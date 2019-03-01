@@ -5,11 +5,11 @@ module.exports = function(grunt) {
         files: (function(grunt) {
           var opts = grunt.file.exists(
             grunt.config.get('pkg').themePath +
-              '/pattern-lab/source/sass-globbing.json',
+              '/pattern-lab/source/sass-globbing.json'
           )
             ? grunt.file.readJSON(
                 grunt.config.get('pkg').themePath +
-                  '/pattern-lab/source/sass-globbing.json',
+                  '/pattern-lab/source/sass-globbing.json'
               )
             : {};
 
