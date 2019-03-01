@@ -4,13 +4,15 @@
 @import '_patterns/00-global';
 
 // The container for the 'view all' screen, which contains the list of patterns.
+/* stylelint-disable-next-line selector-max-id */
 #sg-patterns {
   box-sizing: border-box !important;
 	max-width: em($max-page-width);
 	padding: 0 ($gutter-width / 2);
 }
 
-// hide headers for some Gesso folders
+// Hide headers for some Gesso folders
+/* stylelint-disable selector-max-id */
 #viewall-global-config,
 #viewall-global-tools,
 #viewall-base-fonts,
@@ -19,6 +21,7 @@
 #viewall-base-extendables,
 #viewall-layouts-constrain,
 #viewall-components-cms-styles {
+  /* stylelint-enable */
     display: none;
 }
 
@@ -31,6 +34,7 @@
   a {
     color: #666;
     text-decoration: none;
+
     &:hover, &:focus {
       color: #333;
     }
@@ -53,6 +57,7 @@
   li {
     display: block;
     width: 100%;
+
     @include breakpoint(800px) {
       margin: 1% 1% 1% 0;
     }
@@ -80,7 +85,6 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-
 }
 
 .pattern-lab-swatch__meta-data {
@@ -117,6 +121,7 @@
   font-weight: 700;
   margin-bottom: 5px;
   text-align: center;
+
   @include breakpoint(800px) {
     text-align: left;
   }
@@ -126,6 +131,7 @@
   display: flex;
   flex-direction: column;
   margin: 30px 0;
+
   @include breakpoint(800px) {
     flex-direction: row;
   }
@@ -136,14 +142,15 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  padding: 20px 0 20px 0;
+  padding: 20px 0;
   text-align: center;
   width: 100%;
+
   @include breakpoint(800px) {
-    border-bottom: none;
+    border-bottom: 0;
     border-right: 2px solid #eee;
     margin: 5px 30px 0 0;
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
     text-align: left;
     width: 65%;
   }
@@ -155,6 +162,7 @@
   line-height: 1;
   text-align: center;
   width: 100%;
+
   @include breakpoint(800px) {
     text-align: left;
     width: 25%;
@@ -164,6 +172,7 @@
 .pattern-lab-font__preview-meta {
   text-align: center;
   width: 100%;
+
   @include breakpoint(800px) {
     text-align: left;
   }
