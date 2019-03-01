@@ -11,8 +11,8 @@ module.exports = function(grunt) {
         syntax: '',
       },
       src: [
-        '<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss',
-        '<%= pkg.themePath %>/_starter-kit/_patterns/**/*.scss',
+        '<%= pkg.themePath %>/pattern-lab/source/**/*.scss',
+        '<%= pkg.themePath %>/_starter-kit/**/*.scss',
       ],
     },
   });
