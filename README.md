@@ -126,6 +126,17 @@ glob-based imports to Sass.
 * [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
 browser CSS property prefixes during Sass compilation.
 
+### Stylelint
+
+[Stylelint](https://stylelint.io/) is used to lint Sass files. Warnings will
+break the build, so if you have a valid reason to break Stylelint rules you can
+have it ignore code in two ways:
+
+1. Add `/* stylelint-disable-next-line */` to the line just before where the
+Stylelint warning is triggered.
+
+2. To ignore several lines, add `/* stylelint-disable */` before the code in
+question and add `/* stylelint-enable */` afterwards.
 
 ## Maintainers
 
