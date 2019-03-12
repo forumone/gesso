@@ -17,6 +17,7 @@ pattern-lab/vendor
 *.html
 *.ico
 *.inc
+*.libraries.yml
 *.lock
 *.min.js
 *.php
