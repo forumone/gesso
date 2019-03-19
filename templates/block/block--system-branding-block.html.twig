@@ -40,27 +40,21 @@
 
   {% block content %}
     {% if site_logo %}
-      {% include '@components/site-logo/site-logo.twig'
-        with {
-          'url': path('<front>'),
-          'site_logo': site_logo
-        }
-      %}
+      {% include '@components/site-logo/site-logo.twig' with {
+        'url': path('<front>'),
+        'site_logo': site_logo
+      } %}
     {% endif %}
     {% if site_name %}
-      {% include '@components/site-name/site-name.twig'
-        with {
-          'url': path('<front>'),
-          'site_name': site_name
-        }
-      %}
+      {% include '@components/site-name/site-name.twig' with {
+        'url': path('<front>'),
+        'site_name': site_name
+      } %}
     {% endif %}
     {% if site_slogan %}
-      {% include '@components/site-slogan/site-slogan.twig'
-        with {
-          'site_slogan': site_slogan
-        }
-      %}
+      {% include '@components/site-slogan/site-slogan.twig' with {
+        'site_slogan': site_slogan
+      } %}
     {% endif %}
   {% endblock %}
 
