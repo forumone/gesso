@@ -3,6 +3,6 @@ label: 'Field Label'
 label_hidden: false
 label_element: 'h3'
 multiple: false
+element: 'div'
 items:
   - content: 'Field Item'
-    element: 'div'
