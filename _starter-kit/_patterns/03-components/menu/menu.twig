@@ -6,10 +6,11 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
+      {# double quotes around class using menu_name needed for interpolation #}
       {% set additional_attributes = {
         'class': [
           'menu',
-          'menu--#{menu_name}',
+          "menu--#{menu_name}",
         ]
       } %}
       <ul {{ add_attributes(additional_attributes) }}>

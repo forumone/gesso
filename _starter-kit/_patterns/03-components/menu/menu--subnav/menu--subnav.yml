@@ -1,7 +1,7 @@
 ---
 menu_name: 'submenu'
 items:
-  - title: Menu item one
+  - title: 'Menu item one'
     url: '#'
     original_link:
       options:
@@ -9,7 +9,7 @@ items:
           Attribute():
             class:
               -
-  - title: Menu item two
+  - title: 'Menu item two'
     url: '#'
     original_link:
       options:
@@ -18,7 +18,7 @@ items:
             class:
               -
     below:
-      - title: Submenu item one
+      - title: 'Submenu item one'
         url: '#'
         original_link:
           options:
@@ -26,7 +26,7 @@ items:
               Attribute():
                 class:
                   -
-      - title: Submenu item two
+      - title: 'Submenu item two'
         url: '#'
         original_link:
           options:
@@ -34,7 +34,7 @@ items:
               Attribute():
                 class:
                   -
-      - title: Submenu item three
+      - title: 'Submenu item three'
         url: '#'
         original_link:
           options:

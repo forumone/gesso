@@ -1,7 +1,7 @@
 ---
 menu_name: 'main'
 items:
-  - title: Home
+  - title: 'Home'
     url: '#'
     original_link:
       options:
@@ -9,7 +9,7 @@ items:
           Attribute():
             class:
               -
-  - title: About
+  - title: 'About'
     url: '#'
     original_link:
       options:
@@ -17,7 +17,7 @@ items:
           Attribute():
             class:
               -
-  - title: Contact
+  - title: 'Contact'
     url: '#'
     original_link:
       options:
@@ -25,7 +25,7 @@ items:
           Attribute():
             class:
               -
-  - title: Search
+  - title: 'Search'
     url: '#'
     original_link:
       options:
