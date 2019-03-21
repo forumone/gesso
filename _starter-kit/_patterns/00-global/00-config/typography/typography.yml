@@ -2,7 +2,7 @@
 webfonts:
 -
   family_name: 'Open Sans'
-  style: 'font-family: 'Open Sans', sans-serif;'
+  style: 'font-family: "Open Sans", sans-serif;'
   font:
     -
       font_preview_character: 'Aa'
@@ -34,7 +34,7 @@ webfonts:
       font_style: 'normal'
 -
   family_name: 'Lora'
-  style: 'font-family: 'Lora', serif;'
+  style: 'font-family: "Lora", serif;'
   font:
     -
       font_preview_character: 'Aa'
