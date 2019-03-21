@@ -24,27 +24,27 @@ img:
     src: 'http://fpoimg.com/1600x800?text=Hero 2:1'
     alt: 'Hero 2:1'
     height: '800'
-    width: "1600"
+    width: '1600'
 year:
-  long: "2016"
-  short: "16"
+  long: '2016'
+  short: '16'
 month:
-  long: "September"
-  short: "Sep"
-  digit: "09"
+  long: 'September'
+  short: 'Sep'
+  digit: '09'
 weekday:
-  long: "Wednesday"
-  short: "Wed"
+  long: 'Wednesday'
+  short: 'Wed'
 day:
-  long: "28"
-  short: "28"
-  ordinal: "th"
+  long: '28'
+  short: '28'
+  ordinal: 'th'
 hour:
-  long: "01"
-  short: "1"
-  military: "13"
-  ampm: "pm"
+  long: '01'
+  short: '1'
+  military: '13'
+  ampm: 'pm'
 minute:
-  long: "20"
-  short: "20"
-seconds: "31"
+  long: '20'
+  short: '20'
+seconds: '31'

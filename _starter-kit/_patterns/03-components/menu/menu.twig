@@ -8,8 +8,8 @@
     {% if menu_level == 0 %}
       {% set additional_attributes = {
         'class': [
-          "menu",
-          "menu--#{menu_name}",
+          'menu',
+          'menu--#{menu_name}',
         ]
       } %}
       <ul {{ add_attributes(additional_attributes) }}>
@@ -22,20 +22,20 @@
       {% set link_classes = ['menu__link'] %}
 
       {% if item.below %}
-        {% set item_classes = item_classes|merge(["has-subnav"]) %}
-        {% set link_classes = link_classes|merge(["has-subnav"]) %}
+        {% set item_classes = item_classes|merge(['has-subnav']) %}
+        {% set link_classes = link_classes|merge(['has-subnav']) %}
       {% endif %}
       {% if item.in_active_trail %}
-        {% set item_classes = item_classes|merge(["is-active-trail"]) %}
-        {% set link_classes = link_classes|merge(["is-active-trail"]) %}
+        {% set item_classes = item_classes|merge(['is-active-trail']) %}
+        {% set link_classes = link_classes|merge(['is-active-trail']) %}
       {% endif %}
       {% if item.is_collapsed %}
-        {% set item_classes = item_classes|merge(["is-collapsed"]) %}
-        {% set link_classes = link_classes|merge(["is-collapsed"]) %}
+        {% set item_classes = item_classes|merge(['is-collapsed']) %}
+        {% set link_classes = link_classes|merge(['is-collapsed']) %}
       {% endif %}
       {% if item.is_expanded %}
-        {% set item_classes = item_classes|merge(["is-expanded"]) %}
-        {% set link_classes = link_classes|merge(["is-expanded"]) %}
+        {% set item_classes = item_classes|merge(['is-expanded']) %}
+        {% set link_classes = link_classes|merge(['is-expanded']) %}
       {% endif %}
       {% if item['original_link'].options.attributes.class %}
         {% set link_classes = link_classes|merge([item['original_link'].options.attributes.class]) %}
