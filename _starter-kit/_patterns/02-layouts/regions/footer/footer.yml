@@ -2,6 +2,17 @@
 content:
   join():
     - include():
-        pattern: components-menu--footer
+        pattern: components-menu
+        with:
+          menu_name: 'footer'
+          items:
+            - title: 'Careers'
+              url: '#'
+            - title: 'Contact'
+              url: '#'
+            - title: 'Credits'
+              url: '#'
+            - title: 'Terms of Use'
+              url: '#'
     - include():
         pattern: components-copyright

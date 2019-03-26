@@ -5,7 +5,7 @@ content:
     - include():
         pattern: templates-landing-page
         with:
-          landing_page_title: "Great Scott!"
+          landing_page_title: 'Great Scott!'
           landing_page_content:
             join():
               - include():

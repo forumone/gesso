@@ -1,0 +1,4 @@
+---
+url: '#'
+text: 'Secondary Button'
+modifier_classes: 'button--secondary'
