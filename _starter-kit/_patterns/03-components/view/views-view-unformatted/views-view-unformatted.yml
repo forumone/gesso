@@ -1,26 +1,26 @@
 ---
-title:
-title_element: h3
+title: false
+title_element: 'h3'
 has_wrapper: true
-element: div
+element: 'div'
 rows:
-- content:
-    join():
-      - include():
-          pattern: components-teaser
-- content:
-    join():
-      - include():
-          pattern: components-teaser
-- content:
-    join():
-      - include():
-          pattern: components-teaser
-- content:
-    join():
-      - include():
-          pattern: components-teaser
-- content:
-    join():
-      - include():
-          pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser
+  - content:
+      join():
+        - include():
+            pattern: components-teaser

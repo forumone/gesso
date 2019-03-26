@@ -1,4 +1,4 @@
 ---
-label: "Progress bar label"
-percent: "68%"
-message: "This is the description for this progress bar."
+label: 'Progress bar label'
+percent: '68%'
+message: 'This is the description for this progress bar.'

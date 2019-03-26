@@ -13,9 +13,9 @@
 
 {% if items %}
   {% include '@components/pager/pager--mini/pager--mini.twig' with {
-    modifier_classes: "",
-    heading: 'Pagination'|t,
-    items: items,
-    current: current
+    'modifier_classes': '',
+    'heading': 'Pagination'|t,
+    'items': items,
+    'current': current
   } only %}
 {% endif %}

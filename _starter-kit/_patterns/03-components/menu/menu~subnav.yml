@@ -1,0 +1,49 @@
+---
+menu_name: 'submenu'
+items:
+  - title: 'Menu item one'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+    in_active_trail: false
+  - title: 'Menu item two'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+    in_active_trail: false
+    below:
+      - title: 'Submenu item one'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              Attribute():
+                class:
+                  -
+        in_active_trail: false
+      - title: 'Submenu item two'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              Attribute():
+                class:
+                  -
+        in_active_trail: false
+      - title: 'Submenu item three'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              Attribute():
+                class:
+                  -
+        in_active_trail: false
