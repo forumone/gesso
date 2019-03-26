@@ -1,0 +1,21 @@
+---
+menu_name: 'account'
+items:
+  - title: 'Account Link 1'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+    in_active_trail: false
+  - title: 'Account Link 2'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+    in_active_trail: false
