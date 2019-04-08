@@ -8,7 +8,8 @@ module.exports = function(grunt) {
         ],
         tasks: ['gessoBuildStyles'],
         options: {
-          usePolling: true
+          usePolling: true,
+          spawn: false
         }
       },
       patternlab: {
@@ -21,7 +22,8 @@ module.exports = function(grunt) {
         tasks: ['shell:patternlab'],
         options: {
           livereload: true,
-          usePolling: true
+          usePolling: true,
+          spawn: false
         }
       },
       svgs: {
@@ -29,7 +31,8 @@ module.exports = function(grunt) {
         tasks: ['gessoBuildStyles'],
         options: {
           livereload: true,
-          usePolling: true
+          usePolling: true,
+          spawn: false
         }
       }
     }
