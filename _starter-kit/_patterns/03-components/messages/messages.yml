@@ -1,5 +1,5 @@
 ---
-type: "status"
-heading: "Status message"
+type: 'status'
+heading: 'Status message'
 messages:
   - 'This is a status message about <em class="placeholder">something</em> that has been updated. <a href="#">This is a link</a>.'

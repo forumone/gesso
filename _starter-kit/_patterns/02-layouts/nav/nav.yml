@@ -1,5 +1,5 @@
 ---
-label: "Main Menu"
+label: 'Main Menu'
 content:
   join():
     - include():

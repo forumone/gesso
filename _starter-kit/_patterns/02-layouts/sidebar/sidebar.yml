@@ -1,7 +1,7 @@
 ---
 has_header: true
 has_multiple_sidebar: false
-modifier_classes: ""
+modifier_classes: ''
 sidebar_header_content: |-
   <p style="background:#333;color:#fff;padding:1em; margin:0;">Header</p>
 sidebar_minor_content: |-
