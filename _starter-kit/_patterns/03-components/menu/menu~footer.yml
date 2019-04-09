@@ -1,0 +1,39 @@
+---
+menu_name: 'footer'
+items:
+  - title: 'Footer Link 1'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+    in_active_trail: false
+  - title: 'Footer Link 2'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+    in_active_trail: false
+  - title: 'Footer Link 3'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+    in_active_trail: false
+  - title: 'Footer Link 4'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          Attribute():
+            class:
+              -
+    in_active_trail: false

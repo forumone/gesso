@@ -1,16 +1,16 @@
 <div class="date">
-  {% if format == "long-date" %}
-    {% include "base-long-date" %}
-  {% elseif format == "long-datetime" %}
-    {% include "base-long-datetime" %}
-  {% elseif format == "medium-date" %}
-    {% include "base-medium-date" %}
-  {% elseif format == "medium-datetime" %}
-    {% include "base-medium-datetime" %}
-  {% elseif format == "short-date" %}
-    {% include "base-short-date" %}
-  {% elseif format == "short-datetime" %}
-    {% include "base-short-datetime" %}
+  {% if format == 'long-date' %}
+    {% include '@base/date-formats/long-date.twig' %}
+  {% elseif format == 'long-datetime' %}
+    {% include '@base/date-formats/long-datetime.twig' %}
+  {% elseif format == 'medium-date' %}
+    {% include '@base/date-formats/medium-date.twig' %}
+  {% elseif format == 'medium-datetime' %}
+    {% include '@base/date-formats/medium-datetime.twig' %}
+  {% elseif format == 'short-date' %}
+    {% include '@base/date-formats/short-date.twig' %}
+  {% elseif format == 'short-datetime' %}
+    {% include '@base/date-formats/short-datetime.twig' %}
   {% else %}
     {{ content|raw }}
   {% endif %}

@@ -1,14 +1,14 @@
 {% if type == 'error' %}
   {% set additional_attributes = {
-    "class": ["messages","messages--error"]
+    'class': ['messages','messages--error']
   } %}
 {% elseif type == 'warning' %}
   {% set additional_attributes = {
-    "class": ["messages","messages--warning"]
+    'class': ['messages','messages--warning']
   } %}
 {% else %}
   {% set additional_attributes = {
-    "class": ["messages","messages--status"]
+    'class': ['messages','messages--status']
   } %}
 {% endif %}
 
