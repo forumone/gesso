@@ -1,0 +1,10 @@
+{% set style = '"background-color:' ~ hex  ~ ';"' %}
+{% set light_text = light_text ? ' color-swatch__label--light' : '' %}
+
+<div class="pattern-lab-color-swatch" style={{ style|raw }}>
+    <div class="pattern-lab-color-swatch__label{{ light_text }}">
+        <div class="pattern-lab-color-swatch__name">
+            {{variable_name }}</div>
+        <div class="pattern-lab-color-swatch__hex">{{ hex }}</div>
+    </div>
+</div>

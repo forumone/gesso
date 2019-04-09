@@ -2,6 +2,7 @@
 // List item styles.
 
 li {
+  color: inherit;
   margin-bottom: rem($vertical-spacing / 2);
 
   &:last-child {

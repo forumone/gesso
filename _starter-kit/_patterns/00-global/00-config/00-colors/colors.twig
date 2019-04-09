@@ -1,0 +1,38 @@
+<div class="pattern-lab-color-groups">
+    {% for colorset in colors %}
+        <div class="pattern-lab-color-group">
+            <div class="pattern-lab-color-group__base">
+                {% for color in colorset.base_color %}
+                    {% include 'global-color-item' with  {
+						hex: color.hex,
+						light_text: color.light_text,
+						variable_name: color.variable_name
+					} %}
+
+                {% endfor %}
+            </div>
+            {% if colorset.light_variant %}
+                <div class="pattern-lab-color-group__variant pattern-lab-color-group__variant--light">
+                    {% for color in colorset.light_variant %}
+                        {% include 'global-color-item' with  {
+								hex: color.hex,
+								light_text: color.light_text,
+								variable_name: color.variable_name
+							} %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if colorset.dark_variant %}
+                <div class="pattern-lab-color-group__variant pattern-lab-color-group__variant--dark">
+                    {% for color in colorset.dark_variant %}
+                        {% include 'global-color-item' with  {
+								hex: color.hex,
+								light_text: color.light_text,
+								variable_name: color.variable_name
+							} %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

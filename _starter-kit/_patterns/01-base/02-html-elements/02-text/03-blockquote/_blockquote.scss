@@ -1,8 +1,14 @@
 // @file
 // Blockquote styles.
 
+
+// COMPONENT VARIABLES
+$blockquote-text-color: $color-text-accent !default;
+
 blockquote {
+  color: $blockquote-text-color;
   margin: 0 1.5em rem($vertical-spacing);
+
 
   cite {
     display: block;

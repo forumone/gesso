@@ -1,6 +1,14 @@
 // @file
 // Table styles.
 
+// COMPONENT VARIABLES
+$table-background-color: $color-background-primary !default;
+$table-border-color: $color-grayscale-4 !default;
+$table-cell-background: $color-background-primary !default ;
+$table-cell-padding: rem(15px) !default;
+$table-header-cell-background: $color-grayscale-3 !default;
+$table-text-color: $color-text-primary !default;
+
 caption {
   margin-bottom: rem($vertical-spacing / 2);
 }
@@ -19,23 +27,22 @@ table {
 tbody {}
 
 td {
-  background-color: #ffffff;
-  border: 1px solid #5b616b;
-  padding: rem(15px);
+  background-color: $table-cell-background;
+  border: 1px solid $table-border-color;
+  padding: $table-cell-padding;
 }
-
 
 tfoot {
   td,
   th {
-    background-color: #f1f1f1;
+    background-color: $table-background-color;
   }
 }
 
 th {
-  background-color: #ffffff;
-  border: 1px solid #5b616b;
-  padding: rem(15px);
+  background-color: $color-background-table-cell;
+  border: 1px solid $color-border-table-cell;
+  padding: $table-cell-padding;
   text-align: left;
 }
 
@@ -48,7 +55,7 @@ thead {
 
   td,
   th {
-    background-color: #f1f1f1;
+    background-color: $table-header-cell-background;
   }
 }
 

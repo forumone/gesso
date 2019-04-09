@@ -191,3 +191,67 @@
   font-size: 13px;
   margin-bottom: 5px;
 }
+
+
+// COLOR SWATCHES
+.pattern-lab-color-group {
+  color: $color-text-primary;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family-pattern-lab;
+  font-size: $font-size-pattern-lab-ui;
+  margin-bottom: $spacing-scale-level-5;
+
+  @include breakpoint(700px) {
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      grid-template-rows: 150px 150px;
+    }
+  }
+}
+
+.pattern-lab-color-group__base {
+  grid-column: 1;
+  grid-row: 1/-1;
+}
+
+.pattern-lab-color-group__variant {
+  @include breakpoint(700px) {
+    display: flex;
+    > * {
+      width: 125px;
+      flex: none;
+    }
+  }
+}
+
+.pattern-lab-color-group__variant--light {
+  order: -1;
+}
+
+.pattern-lab-color-group__variant--dark {
+  color: $color-text-on-dark;
+}
+
+.pattern-lab-color-swatch {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  padding: $spacing-scale-level-2;
+}
+
+.pattern-lab-color-swatch__label {
+  @include display-pl-label;
+  margin-top: 0;
+}
+
+.pattern-lab-color-swatch__label--light {
+  color: $color-text-on-dark;
+}
+
+.pattern-lab-color-swatch__name {
+  @include display-font-weight-bold;
+}

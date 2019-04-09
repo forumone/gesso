@@ -1,10 +1,12 @@
 // @file
 // Horizontal rule styles.
 
+
+// COMPONENT VARIABLES
+$hr-border-color: $color-border-ui !:default;
+
 hr {
-  border: 1px solid $color-text-secondary;
-  box-sizing: content-box;
+  border: 1px solid $hr-border-color;
   height: 0;
   margin: rem($vertical-spacing) 0;
-  padding-bottom: -1px;
 }

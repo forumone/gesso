@@ -2,6 +2,7 @@
 // Paragraph styles.
 
 p {
+  color: inherit;
   margin: 0 0 rem($vertical-spacing);
 
   @media print {
