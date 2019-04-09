@@ -1,6 +1,57 @@
 // @file
 // Styles for Button.
 
+// COMPONENT VARIABLES
+$secondary-button-base: (
+  'text-color': $color-text-button-secondary,
+  'background-color': $color-background-button-secondary,
+  'border-color': $color-border-button-secondary, 
+) !default;
+$secondary-button-hover: (
+  'text-color': $color-text-button-secondary-hover,
+  'background-color': $color-background-button-secondary-hover,
+  'border-color': $color-border-button-secondary-hover, 
+) !default;
+$secondary-button-active: (
+  'text-color': $color-text-button-secondary-active,
+  'background-color': $color-background-button-secondary-active,
+  'border-color': $color-border-button-secondary-active, 
+) !default;
+
+$tertiary-button-base: (
+  'text-color': $color-text-button-tertiary,
+  'background-color': $color-background-button-tertiary,
+  'border-color': $color-border-button-tertiary, 
+) !default;
+$tertiary-button-hover: (
+  'text-color': $color-text-button-tertiary-hover,
+  'background-color': $color-background-button-tertiary-hover,
+  'border-color': $color-border-button-tertiary-hover, 
+) !default;
+$tertiary-button-active: (
+  'text-color': $color-text-button-tertiary-active,
+  'background-color': $color-background-button-tertiary-active,
+  'border-color': $color-border-button-tertiary-active, 
+) !default;
+
+
+$danger-button-base: (
+  'text-color': $color-text-button-danger,
+  'background-color': $color-background-button-danger,
+  'border-color': $color-border-button-danger, 
+) !default;
+$danger-button-hover: (
+  'text-color': $color-text-button-danger-hover,
+  'background-color': $color-background-button-danger-hover,
+  'border-color': $color-border-button-danger-hover, 
+) !default;
+$danger-button-active: (
+  'text-color': $color-text-button-danger-active,
+  'background-color': $color-background-button-danger-active,
+  'border-color': $color-border-button-danger-active, 
+) !default;
+
+
 .button {
   @include button();
   margin: 0 0 0.5em;
@@ -19,19 +70,11 @@
 
 // Drupal outputs this class on buttons that can delete content.
 .button--danger {
-  background-color: #e31c3d;
-  color: #fff;
-
-  &:focus,
-  &:hover {
-    background-color: #cd2026;
-    color: #fff;
-  }
-
-  &:active {
-    background-color: #981b1e;
-    color: #fff;
-  }
+  @include button (
+    $danger-button-base,
+    $danger-button-hover,
+    $danger-button-active,
+  );
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
@@ -43,19 +86,20 @@
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--secondary {
-  background-color: #5b616b;
-  color: #fff;
+  @include button (
+    $secondary-button-base,
+    $secondary-button-hover,
+    $secondary-button-active,
+  );
+}
 
-  &:focus,
-  &:hover {
-    background-color: #323a45;
-    color: #fff;
-  }
-
-  &:active {
-    background-color: #212121;
-    color: #fff;
-  }
+// This custom button class, included as an example, is not output by Drupal by default.
+.button--tertiary {
+  @include button (
+    $tertiary-button-base,
+    $tertiary-button-hover,
+    $tertiary-button-active,
+  );
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.

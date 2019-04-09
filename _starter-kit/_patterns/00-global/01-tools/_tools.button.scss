@@ -1,0 +1,96 @@
+// @file
+
+//Base Button
+%button-base {
+  border-radius: 0;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: rem($font-size-md);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: (20px / $font-size-md);
+  padding: 1em 1.25em;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color $animation-timing-medium
+    $animation-easing-quint-out;
+  vertical-align: top;
+  white-space: normal;
+}
+
+//** Button Mixin
+//@param {Map} $base Map of default button styles (text-color, background-color, border-color
+//@param {Map} $hover Map of hover button styles
+//@param {Map} $active Map of active button styles
+//@param {Map} $disabled Map of active button styles
+//@param {string} $border-radius
+@mixin button(
+  $base: (),
+  $hover: (),
+  $active: (),
+  $disabled: (),
+) {
+  $base-default: (
+    'text-color': $color-text-button-primary,
+    'background-color': $color-background-button-primary,
+    'border-color': $color-border-button-primary,
+  ) !default;
+
+  $hover-default: (
+    'text-color': $color-text-button-primary-hover,
+    'background-color': $color-background-button-primary-hover,
+    'border-color': $color-border-button-primary-hover,
+  ) !default;
+
+  $active-default: (
+    'text-color': $color-text-button-primary-active,
+    'background-color': $color-background-button-primary-active,
+    'border-color': $color-border-button-primary-active,
+  ) !default;
+
+  $disabled-default: (
+    'text-color': $color-text-button-primary-disabled,
+    'background-color': $color-background-button-primary-disabled,
+    'border-color': $color-border-button-primary-disabled,
+  ) !default;
+
+  //Merge defaults
+  $opts-base: map-merge($base-default, $base);
+  $opts-hover: map-merge($hover-default, $hover);
+  $opts-active: map-merge($active-default, $active);
+  $opts-disabled: map-merge($disabled-default, $disabled);
+  @extend %button-base;
+  background-color: map-get($opts-base, 'background-color');
+  border-color: map-get($opts-base, 'border-color');
+  color: map-get($opts-base, 'text-color');
+  
+
+  &:focus,
+  &:hover {
+    background-color: map-get($opts-hover, 'background-color');
+    border-color: map-get($opts-hover, 'border-color');
+    color: map-get($opts-hover, 'text-color');
+    outline: 0;
+  }
+
+  &:visited {
+    background-color: map-get($opts-base, 'background-color');
+    color: map-get($opts-base, 'text-color');
+  }
+
+  &:active {
+    background-color: map-get($opts-active, 'background-color');
+    border-color: map-get($opts-active, 'border-color');
+    color: map-get($opts-active, 'text-color');
+  }
+
+  &[disabled] {
+    background-color: map-get($opts-disabled, 'background-color');
+    border-color: map-get($opts-disabled, 'border-color');
+    color: map-get($opts-disabled, 'text-color');
+    cursor: default;
+    pointer-events: none;
+  }
+}

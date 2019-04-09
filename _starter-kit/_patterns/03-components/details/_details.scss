@@ -1,11 +1,13 @@
 // @file
 // Styles for collapsible details.
 
+// COMPONENT VARIABLES
 $details-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
-$details-color: #f1f1f1 !default;
-$details-color-content: #fff !default;
-$details-color-hover: #d6d7d9 !default;
+$details-content-background-color: $color-background-primary !default;
+$details-summary-background-color: $color-grayscale-1 !default;
+$details-summary-background-color-hover: $color-grayscale-2 !default;
 $details-padding: rem(30px) !default;
+$details-description-text-color: $color-text-secondary !default;
 
 // 'details' can appear as a modernizr class on the html tag, so this
 // class is limited to only the details element
@@ -20,7 +22,7 @@ details.details {
 
 .details__summary {
   @include svg-background(plus);
-  background-color: $details-color;
+  background-color: $details-summary-background-color;
   background-position: right $details-padding center; // LTR
   background-repeat: no-repeat;
   background-size: rem(13px);
@@ -44,7 +46,7 @@ details.details {
   }
 
   &:hover {
-    background-color: $details-color-hover;
+    background-color: $details-summary-backgrount-color-hover;
   }
 
   &:focus {
@@ -65,7 +67,7 @@ details.details {
 
 .details__content {
   background: $details-color-content;
-  border: 3px solid $details-color;
+  border: 3px solid $details-summary-background-color;
   border-top: 0;
   padding: $details-padding;
 
@@ -75,7 +77,7 @@ details.details {
 }
 
 .details__description {
-  color: $color-text-secondary;
+  color: $details-description-text-color;
   font-size: rem($font-size-sm);
   margin-bottom:rem($vertical-spacing);
 

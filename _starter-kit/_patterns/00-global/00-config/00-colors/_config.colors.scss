@@ -97,6 +97,13 @@ $color-text-button-tertiary-focus: $ocean-blue-light;
 $color-text-button-tertiary-active: $ocean-blue;
 $color-text-button-tertiary-disabled: $color-grayscale-3;
 
+//** Danger Button Text
+$color-text-button-danger: $color-white;
+$color-text-button-danger-hover: $color-text-button-danger;
+$color-text-button-danger-focus: $color-text-button-danger;
+$color-text-button-danger-active: $color-text-button-danger;
+$color-text-button-danger-disabled: $color-grayscale-3;
+
 //** Input Text 
 $color-text-input-label: $color-grayscale-4;
 $color-text-input: $color-text-primary;
@@ -129,15 +136,21 @@ $color-background-button-primary-disabled: $color-grayscale-1;
 
 //** Secondary Button Background Section
 $color-background-button-secondary: $color-white;
-$color-background-button-secondary-hover: $color-white;
-$color-background-button-secondary-active: $color-grayscale-4;
+$color-background-button-secondary-hover: $color-background-button-secondary;
+$color-background-button-secondary-active: $color-background-button-secondary;
 $color-background-button-secondary-disabled: $color-grayscale-1;
 
 //** Tertiary Button Background Section
-$color-background-button-secondary: $blue-dark-1;
-$color-background-button-secondary-hover: $blue-dark-1
-$color-background-button-secondary-active: $blue-dark-1;
-$color-background-button-secondary-disabled: $color-grayscale-1;
+$color-background-button-tertiary: transparent;
+$color-background-button-tertiary-hover: $color-background-button-tertiary;
+$color-background-button-tertiary-active: $color-background-button-tertiary;
+$color-background-button-tertiary-disabled: $color-grayscale-1;
+
+//** Danger Button Background Section
+$color-background-button-danger: $red;
+$color-background-button-danger-hover: $red-dark-1
+$color-background-button-danger-active: $red-dark;
+$color-background-button-danger-disabled: $color-grayscale-1;
 
 //** Selection Background 
 $color-background-selection: $blue-dark;
