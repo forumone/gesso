@@ -1,8 +1,12 @@
 // @file
 // Styles for hero using an inline image element.
 
+
+// COMPONENT VARIABLES
+$hero-inline-text-color: $color-text-on-dark;
+
 .hero-inline-image {
-  color: #fff;
+  color: $hero-inline-text-color;
   padding: 0;
   position: relative;
   text-align: center;

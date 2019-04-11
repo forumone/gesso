@@ -1,6 +1,10 @@
 // @file
 // Styles for checkbox form items.
 
+$form-item-checkbox-background-color: $form-item-background-color !default;
+$form-item-checkbox-background-color-active: $blue !default;
+$form-item-checkbox-size: 20px;
+
 .form-item--checkbox {
   margin-bottom: 0.5em;
 }
@@ -13,26 +17,26 @@
     display: block;
 
     &::before {
-      background: #fff;
+      background: $form-item-checkbox-background-color;
       border-radius: rem(3px);
       box-shadow: 0 0 0 1px #757575;
       content: '\a0';
       display: inline-block;
-      height: rem(18px);
-      line-height: rem(18px);
+      height: rem($form-item-checkbox-size);
+      line-height: rem($form-item-checkbox-size);
       margin-right: 0.6em;
       text-indent: 0.15em;
       transition-duration: 0.2s;
       transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
       transition-timing-function: ease-in-out;
       vertical-align: middle;
-      width: rem(18px);
+      width: rem($form-item-checkbox-size);
     }
   }
 
   &:checked + .form-item__label::before {
     @include svg-background(correct);
-    background-color: #0071bc;
+    background-color: $form-item-checkbox-background-color-active;
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: rem(20px);
@@ -44,11 +48,11 @@
   }
 
   &:checked:disabled + .form-item__label::before {
-    background-color: #aeb0b5;
+    opacity: .75;
   }
 
   &:disabled + .form-item__label {
-    color: $color-text-secondary;
+    color: $form-item-text-color;
     cursor: default;
 
     &::before {

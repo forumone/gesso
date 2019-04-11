@@ -1,12 +1,12 @@
 // @file
 // Styles for the mobile menu.
 
-$menu-mobile-menu-text-color: #555559 !default;
-$menu-mobile-menu-hover-color: #000 !default;
+$menu-mobile-menu-text-color: $color-text-primary !default;
+$menu-mobile-menu-hover-color: $color-text-primary !default;
 $menu-mobile-submenu-fallback-bg-color: #fff !default;
-$menu-mobile-submenu-bg-color: rgba(255, 255, 255, 0.98) !default;
-$menu-mobile-submenu-text-color: #555559 !default;
-$menu-mobile-submenu-hover-color: #000 !default;
+$menu-mobile-submenu-bg-color: rgba($color-grayscale-2, 0.98) !default;
+$menu-mobile-submenu-text-color: $color-text-secondary !default;
+$menu-mobile-submenu-hover-color: $color-text-primary !default;
 
 .menu--mobile {
   margin: 0.75em 0 0 0;

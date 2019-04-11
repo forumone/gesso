@@ -1,8 +1,8 @@
 // @file
 // Styles for form fieldsets.
 
-$fieldset-color-border: #aeb0b5 !default;
-$fieldset-color-legend: #d6d7d9 !default;
+$fieldset-border-color: $color-grayscale-2 !default;
+$fieldset-legend-background: $color-grayscale-1 !default;
 $fieldset-legend-offset:  rem($base-line-height * $base-font-size) !default;
 
 .fieldset {
@@ -50,13 +50,13 @@ $fieldset-legend-offset:  rem($base-line-height * $base-font-size) !default;
 
 .fieldset--default {
   background: #fff;
-  border: 1px solid $fieldset-color-border;
+  border: 1px solid $fieldset-border-color;
   margin: rem($vertical-spacing) 0 (rem($vertical-spacing) + rem(12px));
   padding: 0 1em;
 
   .fieldset__legend {
-    background: $fieldset-color-legend;
-    border: 1px solid $fieldset-color-border;
+    background: $fieldset-legend-background;
+    border: 1px solid $fieldset-border-color;
     border-bottom: none;
     color: #212121;
     height: 2em;

@@ -1,23 +1,27 @@
 // @file
 // Styles for form items.
 
-$form-border-color: #5b616b !default;
-$form-border-color-disabled: #aeb0b5 !default;
-$form-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
-$form-color: #fff;
-$form-color-disabled: #d6d7d9;
-$form-range-thumb-border-color: #f1f1f1 !default;
-$form-range-thumb-border-radius: rem(3px) !default;
-$form-range-thumb-border-width: 1px !default;
-$form-range-thumb-color: #757575 !default;
-$form-range-thumb-height: 44px !default;
-$form-range-thumb-width: 22px !default;
-$form-range-track-border-color: #757575 !default;
-$form-range-track-border-width: 1px !default;
-$form-range-track-color: #aeb0b5 !default;
-$form-range-track-height: 10px !default;
-$form-select-arrow-size: 13px !default;
-$form-text-size: $font-size-md !default;
+// COMPONENT VARIABLES
+$form-item-background-color-active: $color-background-primary !default;
+$form-item-background-color-disabled: $color-grayscale-1 !default;
+$form-item-background-color: $color-grayscale-1 !default;
+$form-item-border-color-active: $color-grayscale-4 !default;
+$form-item-border-color-disabled: $color-grayscale-2 !default;
+$form-item-border-color: $color-grayscale-2 !default;
+$form-item-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
+$form-item-range-thumb-border-color: $color-grayscale-1 !default;
+$form-item-range-thumb-border-radius: rem(3px) !default;
+$form-item-range-thumb-border-width: 1px !default;
+$form-item-range-thumb-color: $color-grayscale-3 !default;
+$form-item-range-thumb-height: 44px !default;
+$form-item-range-thumb-width: 22px !default;
+$form-item-range-track-border-color: $color-grayscale-3 !default;
+$form-item-range-track-border-width: 1px !default;
+$form-item-range-track-color: $color-grayscale-4 !default;
+$form-item-range-track-height: 10px !default;
+$form-item-select-arrow-size: 13px !default;
+$form-item-text-color: $color-text-secondary !default;
+$form-item-text-size: $font-size-md !default;
 
 .form-item {
   margin: 0 0 rem($vertical-spacing-forms);
@@ -27,7 +31,7 @@ $form-text-size: $font-size-md !default;
   display: block;
 
   .is-disabled > & {
-    color: $color-text-secondary;
+    color: $form-item-text-color;
   }
 }
 
@@ -40,7 +44,7 @@ $form-text-size: $font-size-md !default;
 .form-item__legend {}
 
 .form-item__description {
-  color: $color-text-secondary;
+  color: $form-item-text-color;
   font-size: rem($font-size-sm);
 
   > :last-child {
@@ -68,25 +72,25 @@ $form-text-size: $font-size-md !default;
 .form-item__url,
 .form-item__week {
   appearance: none;
-  background-color: $form-color;
-  border: 1px solid $form-border-color;
+  background-color: $form-item-background-color;
+  border: 1px solid $form-item-border-color;
   border-radius: 0;
   display: inline-block;
-  font-size: rem($form-text-size);
+  font-size: rem($form-item-text-size);
   height: rem(44px);
-  line-height: (22px / $form-text-size);
-  padding: em(10px, $form-text-size) em(7px, $form-text-size);
+  line-height: (22px / $form-item-text-size);
+  padding: em(10px, $form-item-text-size) em(7px, $form-item-text-size);
   margin: 0.2em 0;
   max-width: 100%;
 
   &:focus {
-    box-shadow: $form-box-shadow-focus;
+    box-shadow: $form-item-box-shadow-focus;
     outline: 0;
   }
 
   &:disabled {
-    background: $form-color-disabled;
-    border-color: $form-border-color-disabled;
+    background: $form-item-color-background-disabled;
+    border-color: $form-item-border-color-disabled;
     cursor: default;
   }
 

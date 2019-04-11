@@ -1,15 +1,19 @@
 // @file
 // Styles for radio form items.
 
+$form-item-radio-size: 20px;
+$form-item-radio-border-color: $color-grayscale-4;
+$form-item-radio-border-color-active: $blue;
+
 .form-item--radio {
   margin-bottom: 0.5em;
 
   .form-item__radio {
     appearance: none;
-    border: 2px solid #999;
+    border: 2px solid $form-item-radio-border-color;
     border-radius: 50%;
     cursor: pointer;
-    height: 16px;
+    height: $form-item-radio-size;
     margin-right: 3px;
     outline: none;
     position: relative;
@@ -17,15 +21,15 @@
     transition-duration: 0.2s;
     transition-property: border-color, border-width;
     transition-timing-function: ease-in-out;
-    width: 16px;
+    width: $form-item-radio-size;
 
     &:checked {
-      border: 6px solid #0071bc;
+      border: 6px solid $form-item-radio-border-color-active;
     }
 
     &:disabled {
-      border: 2px solid #bbb;
-      cursor: default;
+      opacity: .75;
+      border: 2px solid $form-item-radio-border-color;
     }
 
     & + .form-item__label {
@@ -34,7 +38,6 @@
     }
 
     &:disabled + .form-item__label {
-      color: #bbb;
       cursor: default;
     }
   }
