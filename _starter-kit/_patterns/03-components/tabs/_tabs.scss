@@ -13,6 +13,24 @@ $tab-color-text-disabled: #323a45 !default;
 $tab-color-text-hover: #212121 !default;
 $tab-font-size: $font-size-md !default;
 
+
+$tab-button-base: (
+  'text-color': $color-text-button-danger,
+  'background-color': $color-background-button-danger,
+  'border-color': $color-border-button-danger,
+) !default;
+$tab-button-hover: (
+  'text-color': $color-text-button-danger-hover,
+  'background-color': $color-background-button-danger-hover,
+  'border-color': $color-border-button-danger-hover,
+) !default;
+$tab-button-active: (
+  'text-color': $color-text-button-danger-active,
+  'background-color': $color-background-button-danger-active,
+  'border-color': $color-border-button-danger-active,
+) !default;
+
+
 .tabs {
   @include clearfix;
 }
@@ -50,15 +68,11 @@ $tab-font-size: $font-size-md !default;
 .tabs__link {
   @extend %system-font-family;
   @include button(
-    $tab-color-bg,
-    $tab-color-text,
-    $tab-color-bg-hover,
-    $tab-color-text-hover,
-    $tab-color-bg-active,
-    $tab-color-text-active,
-    $tab-color-bg-disabled,
-    $tab-color-text-disabled,
-  0);
+    $tab-button-base,
+    $tab-button-hover,
+    $tab-button-active,
+   );
+
   border-left: 1px solid $tab-color-border;
   display: block;
   font-size: rem($font-size-sm);

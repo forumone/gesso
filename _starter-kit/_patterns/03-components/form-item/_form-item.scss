@@ -89,7 +89,7 @@ $form-item-text-size: $font-size-md !default;
   }
 
   &:disabled {
-    background: $form-item-color-background-disabled;
+    background: $form-item-background-color-disabled;
     border-color: $form-item-border-color-disabled;
     cursor: default;
   }

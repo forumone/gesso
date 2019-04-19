@@ -3,7 +3,7 @@
 // http://sass-lang.com/docs/yardoc/file.sass_reference.html#variables_
 
 
-//******************************************* 
+//*******************************************
 // COLOR PALETTES
 //*******************************************
 //** Primary Palette
@@ -51,12 +51,12 @@ $color-grayscale-4: #5b616b;
 $color-grayscale-5: #323a45;
 $color-black: #212121;
 
-//******************************************* 
+//*******************************************
 // GRADIENTS
 //*******************************************
 
 
-//******************************************* 
+//*******************************************
 // TEXT
 //*******************************************
 
@@ -67,7 +67,7 @@ $color-text-accent: $blue;
 $color-text-on-light: $color-black;
 $color-text-on-dark: $color-white;
 
-//** Link Text  
+//** Link Text
 $color-text-link: $blue;
 $color-text-link-hover: $blue-dark;
 $color-text-link-active: $blue-dark-1;
@@ -104,7 +104,7 @@ $color-text-button-danger-focus: $color-text-button-danger;
 $color-text-button-danger-active: $color-text-button-danger;
 $color-text-button-danger-disabled: $color-grayscale-3;
 
-//** Input Text 
+//** Input Text
 $color-text-input-label: $color-grayscale-4;
 $color-text-input: $color-text-primary;
 $color-text-input-focus: $color-text-primary;
@@ -112,10 +112,10 @@ $color-text-input-disabled: $color-text-primary;
 $color-text-input-error: $color-text-primary;
 $color-text-input-label: $color-text-primary;
 
-//** Table Text 
+//** Table Text
 $color-text-input-label: $color-text-primary;
 
-//******************************************* 
+//*******************************************
 // BACKGROUNDS
 //*******************************************
 
@@ -152,25 +152,25 @@ $color-background-button-danger-hover: $red-dark-1;
 $color-background-button-danger-active: $red-dark;
 $color-background-button-danger-disabled: $color-grayscale-1;
 
-//** Selection Background 
+//** Selection Background
 $color-background-selection: $blue-dark;
 
-//** Inputs Background 
+//** Inputs Background
 $color-background-input: $color-grayscale-1;
 $color-background-input-focus: $color-white;
 $color-background-input-disabled: $color-grayscale-1;
 $color-background-input-error: $color-grayscale-1;
 $color-background-input-hover: $color-white;
 
-//** Table Header Background 
+//** Table Header Background
 $color-background-table-header: $color-grayscale-1;
 $color-background-table-cell: $color-white;
 
-//******************************************* 
+//*******************************************
 // BORDERS
 //*******************************************
 
-//** General UI Border 
+//** General UI Border
 $color-border-ui: $color-grayscale-3;
 $color-border-primary: $color-grayscale-4;
 $color-border-secondary: $color-grayscale-2;
@@ -196,6 +196,13 @@ $color-border-button-tertiary-focus: $ocean-blue-light;
 $color-border-button-tertiary-active: $ocean-blue;
 $color-border-button-tertiary-disabled: $color-grayscale-1;
 
+//** Danger Button Border
+$color-border-button-danger: $red;
+$color-border-button-danger-hover: $red;
+$color-border-button-danger-focus: $red;
+$color-border-button-danger-active: $red;
+$color-border-button-danger-disabled: $red;
+
 //** Border Input Section
 $color-border-input: $color-grayscale-4;
 $color-border-input-hover: $color-grayscale-4;
@@ -203,7 +210,7 @@ $color-border-input-focus: $color-grayscale-4;
 $color-border-input-disabled: $color-grayscale-4;
 $color-border-input-error: $color-grayscale-4;
 
-//******************************************* 
+//*******************************************
 // SHADOWS
 //*******************************************
 $color-box-shadow: $color-black;

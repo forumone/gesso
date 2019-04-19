@@ -14,8 +14,7 @@
   padding: 1em 1.25em;
   text-align: center;
   text-decoration: none;
-  transition: background-color $animation-timing-medium
-    $animation-easing-quint-out;
+  transition: background-color 300ms ease-in-out;
   vertical-align: top;
   white-space: normal;
 }
@@ -65,7 +64,7 @@
   background-color: map-get($opts-base, 'background-color');
   border-color: map-get($opts-base, 'border-color');
   color: map-get($opts-base, 'text-color');
-  
+
 
   &:focus,
   &:hover {

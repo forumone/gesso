@@ -4,9 +4,9 @@
 // COMPONENT VARIABLES
 $table-background-color: $color-background-primary !default;
 $table-border-color: $color-grayscale-4 !default;
-$table-cell-background: $color-background-primary !default ;
+$table-cell-background-color: $color-background-primary !default ;
 $table-cell-padding: rem(15px) !default;
-$table-header-cell-background: $color-grayscale-3 !default;
+$table-header-cell-background: $color-grayscale-1 !default;
 $table-text-color: $color-text-primary !default;
 
 caption {
@@ -27,7 +27,7 @@ table {
 tbody {}
 
 td {
-  background-color: $table-cell-background;
+  background-color: $table-cell-background-color;
   border: 1px solid $table-border-color;
   padding: $table-cell-padding;
 }
@@ -41,7 +41,8 @@ tfoot {
 
 th {
   background-color: $color-background-table-cell;
-  border: 1px solid $color-border-table-cell;
+  border: 1px solid $table-border-color;
+  font-weight: 600;
   padding: $table-cell-padding;
   text-align: left;
 }
