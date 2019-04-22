@@ -2,6 +2,9 @@ module.exports = function(grunt) {
   grunt.config.merge({
     chokidar: {
       gesso: {
+        options: {
+          atBegin: true,
+        },
         files: [
           '<%= pkg.themePath %>/pattern-lab/source/**/*.scss',
           '<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss'
