@@ -4,7 +4,7 @@
     {% for font in webfont.font %}
       <div class="pattern-lab-font__item">
         <div class="pattern-lab-font__preview-character" style="{{ font.font_preview_style }}">{{ font.font_preview_character }}</div>
-        <div class="pattern-lab-font__preview" style="{{ font.font_preview_style }}">{{ font.font_preview|raw }}</div>
+        <div class="pattern-lab-font__preview" style="{{ font.font_preview_style }}">{{ font.font_preview }}</div>
         <div class="pattern-lab-font__preview-meta">
           <div class="pattern-lab-font__name">{{ font.font_name }}</div>
           <div class="pattern-lab-font__weight"><span class="pattern-lab-font__label">Weight:</span> {{ font.font_weight }}</div>

@@ -6,61 +6,61 @@
 
   {{ title_prefix }}
   {% if title %}
-    {{ title|raw }}
+    {{ title }}
   {% endif %}
   {{ title_suffix }}
 
   {% if header %}
     <div class="view__header">
-      {{ header|raw }}
+      {{ header }}
     </div>
   {% endif %}
 
   {% if exposed %}
     <div class="view__filters">
-      {{ exposed|raw }}
+      {{ exposed }}
     </div>
   {% endif %}
 
   {% if attachment_before %}
     <div class="attachment attachment--before">
-      {{ attachment_before|raw }}
+      {{ attachment_before }}
     </div>
   {% endif %}
 
   {% if rows %}
     <div class="view__content">
-      {{ rows|raw }}
+      {{ rows }}
     </div>
   {% elseif empty %}
     <div class="view__empty">
-      {{ empty|raw }}
+      {{ empty }}
     </div>
   {% endif %}
 
   {% if pager %}
-    {{ pager|raw }}
+    {{ pager }}
   {% endif %}
 
   {% if attachment_after %}
     <div class="attachment attachment--after">
-      {{ attachment_after|raw }}
+      {{ attachment_after }}
     </div>
   {% endif %}
 
   {% if more %}
-    {{ more|raw }}
+    {{ more }}
   {% endif %}
 
   {% if footer %}
     <div class="view__footer">
-      {{ footer|raw }}
+      {{ footer }}
     </div>
   {% endif %}
 
   {% if feed_icons %}
     <div class="feed-icons">
-      {{ feed_icons|raw }}
+      {{ feed_icons }}
     </div>
   {% endif %}
 
