@@ -3,7 +3,7 @@
   {% if has_header %}
     <div class="l-sidebar__full">
       {% block sidebar_header %}
-        {{ sidebar_header_content|raw }}
+        {{ sidebar_header_content }}
       {% endblock %}
     </div>
   {% endif %}
@@ -11,20 +11,20 @@
    {% if has_multiple_sidebar %}
     <aside class="l-sidebar__sidebar">
       {% block sidebar_minor %}
-        {{ sidebar_minor_content|raw }}
+        {{ sidebar_minor_content }}
       {% endblock %}
     </aside>
   {% endif %}
 
     <div class="l-sidebar__main">
       {% block sidebar_main %}
-        {{ sidebar_main_content|raw }}
+        {{ sidebar_main_content }}
       {% endblock %}
     </div>
 
     <aside class="l-sidebar__sidebar">
       {% block sidebar_aside %}
-        {{ sidebar_aside_content|raw }}
+        {{ sidebar_aside_content }}
       {% endblock %}
     </aside>
 </div>

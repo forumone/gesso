@@ -10,6 +10,15 @@ module.exports = function (grunt) {
             dest: '<%= pkg.themePath %>/pattern-lab/source/',
           },
         ]
+      },
+      patternlabConfigChange: {
+        src: '<%= pkg.themePath %>/pattern-lab/config/config.yml',
+        dest: '<%= pkg.themePath %>/pattern-lab/config/config.yml',
+        options : {
+          process : function(content, srcpath) {
+            return content.replace('twigAutoescape: html', 'twigAutoescape: false');
+          },
+        },
       }
     }
   });

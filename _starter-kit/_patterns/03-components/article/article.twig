@@ -12,12 +12,12 @@
   {% if has_footer %}
     <footer>
       {% block footer %}
-        {{ footer|raw }}
+        {{ footer }}
       {% endblock %}
     </footer>
   {% endif %}
 
   {% block main %}
-    {{ content|raw }}
+    {{ content }}
   {% endblock %}
 </article>
