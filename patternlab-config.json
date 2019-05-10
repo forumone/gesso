@@ -54,11 +54,11 @@
   },
   "paths": {
     "source": {
-      "root": "pattern-lab/source/",
-      "patterns": "pattern-lab/source/_patterns/",
-      "data": "pattern-lab/source/_data/",
-      "meta": "pattern-lab/source/_meta/",
-      "annotations": "pattern-lab/source/_annotations/",
+      "root": "source/",
+      "patterns": "source/_patterns/",
+      "data": "source/_data/",
+      "meta": "source/_meta/",
+      "annotations": "source/_annotations/",
       "styleguide": "dist/",
       "patternlabFiles": {
         "general-header": "views/partials/general-header.mustache",
@@ -67,10 +67,10 @@
         "patternSectionSubtype": "views/partials/patternSectionSubtype.mustache",
         "viewall": "views/viewall.mustache"
       },
-      "js": "pattern-lab/source/js",
-      "images": "pattern-lab/source/images",
-      "fonts": "pattern-lab/source/fonts",
-      "css": "pattern-lab/source/css"
+      "js": "source/js",
+      "images": "source/images",
+      "fonts": "source/fonts",
+      "css": "source/css"
     },
     "public": {
       "root": "pattern-lab/public/",
@@ -145,49 +145,49 @@
           "id": "global",
           "recursive": true,
           "paths": [
-            "pattern-lab/source/_patterns/00-global"
+            "source/_patterns/00-global"
           ]
         },
         {
           "id": "base",
           "recursive": true,
           "paths": [
-            "pattern-lab/source/_patterns/01-base"
+            "source/_patterns/01-base"
           ]
         },
         {
           "id": "layouts",
           "recursive": true,
           "paths": [
-            "pattern-lab/source/_patterns/02-layouts"
+            "source/_patterns/02-layouts"
           ]
         },
         {
           "id": "components",
           "recursive": true,
           "paths": [
-            "pattern-lab/source/_patterns/03-components"
+            "source/_patterns/03-components"
           ]
         },
         {
           "id": "templates",
           "recursive": true,
           "paths": [
-            "pattern-lab/source/_patterns/04-templates"
+            "source/_patterns/04-templates"
           ]
         },
         {
           "id": "pages",
           "recursive": true,
           "paths": [
-            "pattern-lab/source/_patterns/05-pages"
+            "source/_patterns/05-pages"
           ]
         },
         {
           "id": "macros",
           "recursive": true,
           "paths": [
-            "pattern-lab/source/_macros"
+            "source/_macros"
           ]
         }
       ],

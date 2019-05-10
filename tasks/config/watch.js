@@ -3,8 +3,8 @@ module.exports = function(grunt) {
     chokidar: {
       gesso: {
         files: [
-          '<%= pkg.themePath %>/pattern-lab/source/**/*.scss',
-          '<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss'
+          '<%= pkg.themePath %>/source/**/*.scss',
+          '<%= pkg.themePath %>/source/_patterns/**/*.scss'
         ],
         tasks: ['gessoBuildStyles'],
         options: {
@@ -13,10 +13,10 @@ module.exports = function(grunt) {
       },
       patternlab: {
         files: [
-          '<%= pkg.themePath %>/pattern-lab/source/**/*.twig',
-          '<%= pkg.themePath %>/pattern-lab/source/**/*.json',
-          '<%= pkg.themePath %>/pattern-lab/source/**/*.yaml',
-          '<%= pkg.themePath %>/pattern-lab/source/**/*.yml'
+          '<%= pkg.themePath %>/source/**/*.twig',
+          '<%= pkg.themePath %>/source/**/*.json',
+          '<%= pkg.themePath %>/source/**/*.yaml',
+          '<%= pkg.themePath %>/source/**/*.yml'
         ],
         tasks: ['shell:patternlab'],
         options: {
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         }
       },
       svgs: {
-        files: ['<%= pkg.themePath %>/images/*.svg'],
+        files: ['<%= pkg.themePath %>/source/images/*.svg'],
         tasks: ['gessoBuildStyles'],
         options: {
           livereload: true,

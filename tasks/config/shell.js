@@ -2,10 +2,10 @@ module.exports = function (grunt) {
   grunt.config.merge({
     shell: {
       patternlab: {
-        command: 'patternlab build --config ./patternlab-config.json',
+        command: 'patternlab serve --config ./patternlab-config.json',
         options: {
           execOptions: {
-            cwd: '<%= pkg.themePath %>/pattern-lab'
+            cwd: '<%= pkg.themePath %>'
           }
         }
       }

@@ -1,0 +1,176 @@
+/* generated with grunt-sass-globbing */
+#sg-patterns {
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  max-width: 70.5882352941em;
+  padding: 0 1em; }
+
+#viewall-global-config,
+#viewall-global-tools,
+#viewall-base-fonts,
+#viewall-base-normalize,
+#viewall-base-html-elements,
+#viewall-base-extendables,
+#viewall-layouts-constrain,
+#viewall-components-cms-styles {
+  display: none; }
+
+.sg-subtype h2 {
+  font-size: 24px;
+  margin: 3em 0 0.25em;
+  text-transform: capitalize; }
+
+.sg-subtype a {
+  color: #666;
+  text-decoration: none; }
+  .sg-subtype a:hover, .sg-subtype a:focus {
+    color: #333; }
+
+.pattern-lab-color-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center; }
+  @media (min-width: 50em) {
+    .pattern-lab-color-list {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; } }
+  .pattern-lab-color-list li {
+    display: block;
+    width: 100%; }
+    @media (min-width: 50em) {
+      .pattern-lab-color-list li {
+        margin: 1% 1% 1% 0; } }
+
+.pattern-lab-color-list__set {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+  .pattern-lab-color-list__set li {
+    margin-top: 1.2em;
+    width: 100%; }
+
+.pattern-lab-swatch {
+  color: #546673;
+  display: block;
+  font-size: 32px;
+  height: 2.5em;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%; }
+
+.pattern-lab-swatch__meta-data {
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: .55em;
+  -webkit-transition: 0.2s all;
+  -o-transition: 0.2s all;
+  transition: 0.2s all; }
+
+.pattern-lab-swatch__variable {
+  display: block;
+  font-size: 11px; }
+
+.pattern-lab-swatch__hex {
+  display: block;
+  font-size: 14px; }
+
+.pattern-lab-swatch--light-text {
+  color: #fff; }
+
+.pattern-lab-font {
+  margin-bottom: 30px; }
+
+.pattern-lab-font__family {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-align: center; }
+  @media (min-width: 50em) {
+    .pattern-lab-font__family {
+      text-align: left; } }
+
+.pattern-lab-font__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 30px 0; }
+  @media (min-width: 50em) {
+    .pattern-lab-font__item {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; } }
+
+.pattern-lab-font__preview {
+  border-bottom: 2px solid #eee;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 20px 0 20px 0;
+  text-align: center;
+  width: 100%; }
+  @media (min-width: 50em) {
+    .pattern-lab-font__preview {
+      border-bottom: none;
+      border-right: 2px solid #eee;
+      margin: 5px 30px 0 0;
+      padding: 0 20px 0 20px;
+      text-align: left;
+      width: 65%; } }
+
+.pattern-lab-font__preview-character {
+  font-size: 90px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  width: 100%; }
+  @media (min-width: 50em) {
+    .pattern-lab-font__preview-character {
+      text-align: left;
+      width: 25%; } }
+
+.pattern-lab-font__preview-meta {
+  text-align: center;
+  width: 100%; }
+  @media (min-width: 50em) {
+    .pattern-lab-font__preview-meta {
+      text-align: left; } }
+
+.pattern-lab-font__label {
+  color: #999; }
+
+.pattern-lab-font__name {
+  color: #565454;
+  font-size: .9rem;
+  line-height: 1.5;
+  margin: 5px 0; }
+
+.pattern-lab-font__weight {
+  color: #000;
+  font-size: 13px;
+  margin-bottom: 5px; }
+
+.pattern-lab-font__style {
+  color: #000;
+  font-size: 13px;
+  margin-bottom: 5px; }
+/*# sourceMappingURL=pattern-lab.css.map */
