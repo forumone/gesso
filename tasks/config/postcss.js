@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         ]
       },
       gesso: {
-        src: '<%= pkg.themePath %>/source/css/*.css'
+        src: '<%= pkg.themePath %>/css/*.css'
       }
     }
   });

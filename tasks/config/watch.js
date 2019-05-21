@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         }
       },
       svgs: {
-        files: ['<%= pkg.themePath %>/source/images/*.svg'],
+        files: ['<%= pkg.themePath %>/images/*.svg'],
         tasks: ['gessoBuildStyles'],
         options: {
           livereload: true,

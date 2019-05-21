@@ -6,13 +6,4 @@ homepage_hero_summary: |-
 homepage_hero_call_to_action_text: 'Call To Action Text'
 homepage_hero_call_to_action_url: '#'
 homepage_grid_title: 'Grid Area Title'
-homepage_grid_content:
-  join():
-    - include():
-        pattern: components-card
-    - include():
-        pattern: components-card
-    - include():
-        pattern: components-card
-    - include():
-        pattern: components-card
+homepage_grid_content: 'Homepage Grid Content'

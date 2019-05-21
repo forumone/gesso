@@ -6,7 +6,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= pkg.themePath %>/source',
           src: ['**/*.scss'],
-          dest: '<%= pkg.themePath %>/source/css',
+          dest: '<%= pkg.themePath %>/css',
           ext: '.css'
         }],
         options: {
