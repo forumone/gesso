@@ -6,60 +6,62 @@
 
 <main id="main" class="main" role="main" tabindex="-1">
   {% include '@layouts/regions/preface/preface.twig' %}
-  {% include '@layouts/regions/content/content.twig' with {
-    'content': include('@templates/landing-page.twig', {
-      'landing_page_title': 'Great Scott!',
-      'landing_page_content': include('@components/view/views-view/views-view.twig', {
-        'title': false,
-        'pager': include('@components/pager/pager.twig'),
-        'rows': include('@layouts/grid/grid.twig', {
-          'modifier_classes': 'l-grid--3col',
-          'content': include('@components/view/views-view-unformatted/views-view-unformatted.twig', {
-            'title': false,
-            'has_wrapper': false,
-            'rows': [
-              { 'content': include('@components/card/card.twig', {
-                'title': 'Delorean',
-                'url': '#',
-                'media': '<img src="https://picsum.photos/800/600?image=429">',
-                'content': 'It\'s a board with wheels. What\'s with the life preserver?'
-              }) },
-              { 'content': include('@components/card/card.twig', {
-                'title': 'Eighty Eight MPH',
-                'url': '#',
-                'media': '<img src="https://picsum.photos/800/600?image=823">',
-                'content': 'No no no this sucker\'s electrical, but I need a nuclear reaction to generate the one point twenty-one gigawatts of electricity that I need.'
-              }) },
-              { 'content': include('@components/card/card.twig', {
-                'title': '1.21 Gigawatts',
-                'url': '#',
-                'media': '<img src="https://picsum.photos/800/600?image=967">',
-                'content': 'If you guys ever have kids and one of them when he\'s eight years old, accidentally sets fire to the living room rug, be easy on him.'
-              }) },
-              { 'content': include('@components/card/card.twig', {
-                'title': 'Doctor Brown',
-                'url': '#',
-                'media': '<img src="https://picsum.photos/800/600?image=1024">',
-                'content': 'Hey, Doc, we better back up, we don\'t have enough road to get up to 88.'
-              }) },
-              { 'content': include('@components/card/card.twig', {
-                'title': 'Enchantment Under The Sea',
-                'url': '#',
-                'media': '<img src="https://picsum.photos/800/600?image=659">',
-                'content': 'Not a word, not a word, not a word now. Quiet... you want me to make a donation to the coast guard youth auxiliary?'
-              }) },
-              { 'content': include('@components/card/card.twig', {
-                'title': 'Twin Pines Mall',
-                'url': '#',
-                'media': '<img src="https://picsum.photos/800/600?image=660">',
-                'content': 'You fell and you hit your head on the sink, and that\'s when you came up with the idea for the flux capacitor, which makes time travel possible.'
-              }) }
-            ]
+  {% embed '@layouts/regions/content/content.twig' %}
+    {% block content %}
+      {% include '@templates/landing-page.twig' with {
+        'landing_page_title': 'Great Scott!',
+        'landing_page_content': include('@components/view/views-view/views-view.twig', {
+          'title': false,
+          'pager': include('@components/pager/pager.twig'),
+          'rows': include('@layouts/grid/grid.twig', {
+            'modifier_classes': 'l-grid--3col',
+            'content': include('@components/view/views-view-unformatted/views-view-unformatted.twig', {
+              'title': false,
+              'has_wrapper': false,
+              'rows': [
+                { 'content': include('@components/card/card.twig', {
+                  'title': 'Delorean',
+                  'url': '#',
+                  'media': '<img src="https://picsum.photos/800/600?image=429">',
+                  'content': 'It\'s a board with wheels. What\'s with the life preserver?'
+                }) },
+                { 'content': include('@components/card/card.twig', {
+                  'title': 'Eighty Eight MPH',
+                  'url': '#',
+                  'media': '<img src="https://picsum.photos/800/600?image=823">',
+                  'content': 'No no no this sucker\'s electrical, but I need a nuclear reaction to generate the one point twenty-one gigawatts of electricity that I need.'
+                }) },
+                { 'content': include('@components/card/card.twig', {
+                  'title': '1.21 Gigawatts',
+                  'url': '#',
+                  'media': '<img src="https://picsum.photos/800/600?image=967">',
+                  'content': 'If you guys ever have kids and one of them when he\'s eight years old, accidentally sets fire to the living room rug, be easy on him.'
+                }) },
+                { 'content': include('@components/card/card.twig', {
+                  'title': 'Doctor Brown',
+                  'url': '#',
+                  'media': '<img src="https://picsum.photos/800/600?image=1024">',
+                  'content': 'Hey, Doc, we better back up, we don\'t have enough road to get up to 88.'
+                }) },
+                { 'content': include('@components/card/card.twig', {
+                  'title': 'Enchantment Under The Sea',
+                  'url': '#',
+                  'media': '<img src="https://picsum.photos/800/600?image=659">',
+                  'content': 'Not a word, not a word, not a word now. Quiet... you want me to make a donation to the coast guard youth auxiliary?'
+                }) },
+                { 'content': include('@components/card/card.twig', {
+                  'title': 'Twin Pines Mall',
+                  'url': '#',
+                  'media': '<img src="https://picsum.photos/800/600?image=660">',
+                  'content': 'You fell and you hit your head on the sink, and that\'s when you came up with the idea for the flux capacitor, which makes time travel possible.'
+                }) }
+              ]
+            })
           })
         })
-      })
-    })
-  } %}
+      } %}
+    {% endblock %}
+  {% endembed %}
   {% include '@layouts/regions/postscript/postscript.twig' %}
 </main>
 

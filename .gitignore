@@ -5,3 +5,5 @@ pattern-lab/
 source/sass-globbing/
 css/*.css
 css/*.map
+dependencyGraph.json
+package-lock.json
