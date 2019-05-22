@@ -3,15 +3,15 @@
 } %}
 
 {% if title %}
-  <{{ title_element ?: 'h3' }}>{{ title|raw }}</{{ title_element ?: 'h3' }}>
+  <{{ title_element ?: 'h3' }}>{{ title }}</{{ title_element ?: 'h3' }}>
 {% endif %}
 
 {% for row in rows %}
   {% if has_wrapper %}
     <{{ element ?: 'div' }} {{ add_attributes(additional_row_attributes) }}>
-      {{ row.content|raw }}
+      {{ row.content }}
     </{{ element ?: 'div' }}>
   {% else %}
-    {{ row.content|raw }}
+    {{ row.content }}
   {% endif %}
 {% endfor %}
