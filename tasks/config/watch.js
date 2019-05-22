@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           '<%= pkg.themePath %>/source/**/*.yaml',
           '<%= pkg.themePath %>/source/**/*.yml'
         ],
-        tasks: ['shell:patternlab'],
+        tasks: ['gessoBuildPatternlab'],
         options: {
           livereload: true,
           usePolling: true
