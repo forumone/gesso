@@ -189,10 +189,56 @@
       ],
       "alterTwigEnv": [
         {
-          "file": "alter-twig.php",
-          "functions": [
-            "addCustomExtension"
-          ]
+          "file": "source/_twig-components/filters/clean_class.filter.php",
+          "functions": ["addCleanClassFilter"]
+        },
+        {
+          "file": "source/_twig-components/filters/clean_id.filter.php",
+          "functions": ["addCleanIdFilter"]
+        },
+        {
+          "file": "source/_twig-components/filters/format_date.filter.php",
+          "functions": ["addFormatDateFilter"]
+        },
+        {
+          "file": "source/_twig-components/filters/placeholder.filter.php",
+          "functions": ["addPlaceholderFilter"]
+        },
+        {
+          "file": "source/_twig-components/filters/render.filter.php",
+          "functions": ["addRenderFilter"]
+        },
+        {
+          "file": "source/_twig-components/filters/safe_join.filter.php",
+          "functions": ["addSafeJoinFilter"]
+        },
+        {
+          "file": "source/_twig-components/filters/t.filter.php",
+          "functions": ["addTFilter"]
+        },
+        {
+          "file": "source/_twig-components/filters/without.filter.php",
+          "functions": ["addWithoutFilter"]
+        },
+        {
+          "file": "source/_twig-components/functions/add_attributes.function.php",
+          "functions": ["addAddAttributesFunction"]
+        },
+        {
+          "file": "source/_twig-components/functions/attach_library.function.php",
+          "functions": ["addAttachLibraryFunction"]
+        },
+        {
+          "file": "source/_twig-components/functions/link.function.php",
+          "functions": ["addLinkFunction"]
+        },
+        {
+          "file": "source/_twig-components/functions/path.function.php",
+          "functions": ["addPathFunction"]
+        },
+        {
+          "file": "source/_twig-components/functions/url.function.php",
+          "functions": ["addUrlFunction"]
         }
       ]
     }
