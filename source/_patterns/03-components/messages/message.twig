@@ -1,0 +1,29 @@
+{% if type == 'error' %}
+  {% set additional_attributes = {
+    'class': ['message','message--error']
+  } %}
+{% elseif type == 'warning' %}
+  {% set additional_attributes = {
+    'class': ['message','message--warning']
+  } %}
+{% else %}
+  {% set additional_attributes = {
+    'class': ['message','message--status']
+  } %}
+{% endif %}
+
+<div {% if type == 'error' %} role="alert" {% else %} role="contentinfo" {% endif %} {% if heading %}aria-label="{{ heading }}"{% endif %} {{ add_attributes(additional_attributes) }}>
+  {% if messages|length > 1 %}
+    <h2 class="visually-hidden">{{ heading }}</h2>
+    <ul class="message__list">
+      {% for message in messages %}
+        <li class="message__item">{{- message -}}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="message__content">
+      <h2 class="visually-hidden">{{ heading }}</h2>
+      {{- messages|first -}}
+    </div>
+  {% endif %}
+</div>

@@ -12,7 +12,12 @@
   {% if has_footer %}
     <footer>
       {% block footer %}
-        {{ footer }}
+        {% include '@components/date/date.twig' with {
+          'format': 'medium-date'
+        } %}
+        {% include '@components/author/author.twig' with {
+          'author': 'Author Name'
+        } %}
       {% endblock %}
     </footer>
   {% endif %}

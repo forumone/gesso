@@ -54,10 +54,10 @@
   },
   "paths": {
     "source": {
-      "root": "source/",
-      "patterns": "source/_patterns/",
-      "data": "source/_data/",
-      "meta": "source/_meta/",
+      "root": "./source/",
+      "patterns": "./source/_patterns/",
+      "data": "./source/_data/",
+      "meta": "./source/_meta/",
       "annotations": "source/_annotations/",
       "styleguide": "dist/",
       "patternlabFiles": {
@@ -92,7 +92,7 @@
     "inreview",
     "complete"
   ],
-  "patternExportDirectory": "pattern-lab/pattern_exports/",
+  "patternExportDirectory": "./pattern-lab/pattern_exports/",
   "patternExportPatternPartials": [],
   "serverOptions": {
     "wait": 1000

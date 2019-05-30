@@ -10,12 +10,12 @@
     {% block content %}
       {% include '@templates/landing-page.twig' with {
         'landing_page_title': 'Great Scott!',
-        'landing_page_content': include('@components/view/views-view/views-view.twig', {
+        'landing_page_content': include('@components/views/views-view/views-view.twig', {
           'title': false,
-          'pager': include('@components/pager/pager.twig'),
+          'pager': include('@components/pagers/pager.twig'),
           'rows': include('@layouts/grids/grid.twig', {
             'modifier_classes': 'l-grid--3col',
-            'content': include('@components/view/views-view-unformatted/views-view-unformatted.twig', {
+            'content': include('@components/views/views-view-unformatted/views-view-unformatted.twig', {
               'title': false,
               'has_wrapper': false,
               'rows': [

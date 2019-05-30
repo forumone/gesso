@@ -1,5 +1,5 @@
 {% set homepage_hero_button %}
-  {% include '@components/button/button.twig' with {
+  {% include '@components/buttons/button.twig' with {
     'text': homepage_hero_call_to_action_text,
     'url': homepage_hero_call_to_action_url
   } %}
@@ -7,12 +7,13 @@
 
 {% set homepage_hero %}
   {% include '@components/hero-bg-image/hero-bg-image.twig' with {
-    'image': homepage_hero_image,
-    'title': homepage_hero_title,
+    'hero_image': homepage_hero_image,
+    'hero_title': homepage_hero_title,
     'has_overlay': true,
-    'subtitle': false,
+    'hero_subtitle': false,
     'summary': homepage_hero_summary,
-    'call_to_action_content': homepage_hero_button
+    'hero_button_text': homepage_hero_button_text,
+    'hero_button_url': homepage_hero_button_url
   } %}
 {% endset %}
 

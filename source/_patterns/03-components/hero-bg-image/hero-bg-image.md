@@ -12,4 +12,3 @@ _Component for Hero Bg Image_
 * title: [string] Title of hero.
 * subtitle: [string] Subtitle of hero.
 * summary: [string] Summary of hero.
-* call_to_action_content: Content for the call to action section.

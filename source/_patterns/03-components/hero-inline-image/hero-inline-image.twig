@@ -6,23 +6,24 @@
 
 <div class="{{ classes }}">
   <div class="hero-inline-image__media">
-    {{ media }}
+    {{ hero_media }}
   </div>
   <div class="hero-inline-image__content">
-    {% if title %}
-      <h1 class="hero-inline-image__title">{{ title }}</h1>
+    {% if hero_title %}
+      <h1 class="hero-inline-image__title">{{ hero_title }}</h1>
     {% endif %}
-    {% if subtitle %}
-      <h3 class="hero-inline-image__subtitle">{{ subtitle }}</h3>
+    {% if hero_subtitle %}
+      <h3 class="hero-inline-image__subtitle">{{ hero_subtitle }}</h3>
     {% endif %}
-    {% if summary %}
-      <div class="hero-inline-image__text">{{ summary }}</div>
+    {% if hero_summary %}
+      <div class="hero-inline-image__text">{{ hero_summary }}</div>
     {% endif %}
-    {% if call_to_action_content %}
-      <div class="hero-inline-image__call-to-action">
-        {% block call_to_action %}
-          {{ call_to_action_content }}
-        {% endblock %}
+    {% if hero_button_text and hero_button_url %}
+      <div class="hero-bg-image__button">
+        {% include '@components/buttons/button.twig' with {
+          'url': hero_button_url,
+          'text': hero_button_text
+        } %}
       </div>
     {% endif %}
   </div>
