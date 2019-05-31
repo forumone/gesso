@@ -1,0 +1,9 @@
+---
+homepage_hero_image: 'https://picsum.photos/1600/800?image=62'
+homepage_hero_title: 'Hero Title'
+homepage_hero_summary: |-
+  <p>Nam auctor laoreet ipsum, nec finibus tellus interdum vel. Nunc dui nisi, cursus ut tortor vel, porta porttitor quam.</p>
+homepage_hero_button_text: 'Call To Action Text'
+homepage_hero_button_url: '#'
+homepage_grid_title: 'Grid Area Title'
+homepage_grid_content: 'Homepage Grid Content'

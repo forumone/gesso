@@ -1,0 +1,10 @@
+---
+custom_classes: false
+has_overlay: true
+hero_image: 'https://picsum.photos/1600/800?image=11'
+hero_image_alt: 'alt text'
+hero_title: 'Hero Title'
+hero_subtitle: 'Hero Subtitle'
+hero_summary: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>'
+hero_button_text: 'Hero Button'
+hero_button_url: '#'

@@ -1,0 +1,28 @@
+{% set additional_attributes = {
+  'class': ['article']
+} %}
+
+<article {{ add_attributes(additional_attributes) }}>
+  {% block title %}
+    {% include '@components/page-title/page-title.twig' with {
+      'page_title': article_page_title
+    } %}
+  {% endblock %}
+
+  {% if has_footer %}
+    <footer>
+      {% block footer %}
+        {% include '@components/date/date.twig' with {
+          'format': 'medium-date'
+        } %}
+        {% include '@components/author/author.twig' with {
+          'author': 'Author Name'
+        } %}
+      {% endblock %}
+    </footer>
+  {% endif %}
+
+  {% block main %}
+    {{ content }}
+  {% endblock %}
+</article>

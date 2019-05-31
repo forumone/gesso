@@ -58,16 +58,16 @@ regions:
 component-libraries:
   base:
     paths:
-      - pattern-lab/source/_patterns/01-base
+      - source/_patterns/01-base
   layouts:
     paths:
-      - pattern-lab/source/_patterns/02-layouts
+      - source/_patterns/02-layouts
   components:
     paths:
-      - pattern-lab/source/_patterns/03-components
+      - source/_patterns/03-components
   templates:
     paths:
-      - pattern-lab/source/_patterns/04-templates
+      - source/_patterns/04-templates
   pages:
     paths:
-      - pattern-lab/source/_patterns/05-pages
+      - source/_patterns/05-pages

@@ -1,0 +1,13 @@
+---
+element: 'div'
+title: false
+header: false
+exposed: false
+attachment_before: false
+rows: 'Rows'
+empty: false
+pager: 'Pager'
+attachment_after: false
+more: false
+footer: false
+feed_icons: false

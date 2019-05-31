@@ -20,7 +20,6 @@ To submit bug reports or feature requests, visit the
 The following packages need to be installed on your system in order to use
 Gesso.
 
-- [composer](https://getcomposer.org)
 - [npm](https://www.npmjs.com/get-npm)
 - [grunt](https://gruntjs.com/getting-started)
 
@@ -77,22 +76,22 @@ Drupal, which you can change at admin/appearance/settings/gesso.
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
 CSS. Gesso includes Grunt tasks to compile the CSS and generate the compiled
 Pattern Lab files and to watch both for changes. To use these tasks, first run
-the following NPM command in the theme folder (Windows users may need to include
-the `--no-bin-links` flag at the end of the command).
+the following NPM command in the theme folder.
 
 ```
 npm install
 ```
 
-Once the above command is run, the _starter-kit folder that comes with Gesso
-will be renamed to pattern-lab/source. This directory contains all of the
-Pattern Lab Twig templates and Sass files.
-
-To initiate the Grunt build tasks that compile the Sass and Pattern Lab files,
-run the following command in the theme directory:
+To initiate the Grunt build tasks that compile the Sass and Pattern Lab files and watches for changes, run the following command in the theme directory:
 
 ```
 grunt
+```
+
+To initiate the Grunt build tasks only (without watching for changes), run the following command in the theme directory:
+
+```
+grunt gessoBuild
 ```
 
 
@@ -108,7 +107,7 @@ node component
 
 ### Build Artifacts
 
-By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/public/
+By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/
 and /css/) are ignored by Git as these files are built during deployment.
 To change this, edit the included .gitignore file.
 
@@ -131,8 +130,6 @@ browser CSS property prefixes during Sass compilation.
 
 The Gesso theme is maintained by [Dan Mouyard](https://drupal.org/u/dcmouyard)
 ([@dcmouyard](http://twitter.com/dcmouyard)),
-[Chaz Chumley](https://drupal.org/u/chazchumley)
-([@chazchumley](http://twitter.com/chazchumley)),
 [Shawn Brackat](https://drupal.org/u/bkny_139)
 ([@shawnbrackat](http://twitter.com/shawnbrackat)) and
 [Corey Lafferty](https://drupal.org/u/clafferty)

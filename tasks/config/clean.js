@@ -1,16 +1,9 @@
 module.exports = function (grunt) {
   grunt.config.merge({
     clean: {
-      patternlabSetupClear: {
+      patternlab : {
         src: [
-          '!<%= pkg.themePath %>/pattern-lab/source/**',
-          '<%= pkg.themePath %>/pattern-lab/source/*',
-          '!<%= pkg.themePath %>/pattern-lab/source/_twig-components'
-        ]
-      },
-      patternlabSetupCleanup: {
-        src: [
-          '<%= pkg.themePath %>/_starter-kit'
+          '<%= pkg.themePath %>/pattern-lab'
         ]
       }
     }

@@ -1,0 +1,33 @@
+<fieldset class="fieldset fieldset--radios" aria-describedby="edit-radios-description">
+  <legend class="fieldset__legend">
+    <span class="fieldset__legend-text">Radios</span>
+  </legend>
+  <div class="fieldset__content">
+    <div class="form-item form-item--radios">
+      {% include '@components/form-items/form-item--radio/form-item--radio.twig' with {
+        'radio_option_id': 'edit-radios-one',
+        'radio_option_label': 'Option One'
+      } %}
+      {% include '@components/form-items/form-item--radio/form-item--radio.twig' with {
+        'radio_option_id': 'edit-radios-two',
+        'radio_option_label': 'Option Two'
+      } %}
+      {% include '@components/form-items/form-item--radio/form-item--radio.twig' with {
+        'radio_option_id': 'edit-radios-three',
+        'radio_option_label': 'Option Three'
+      } %}
+      {% include '@components/form-items/form-item--radio/form-item--radio.twig' with {
+        'radio_option_id': 'edit-radios-four',
+        'radio_option_label': 'Option Four'
+      } %}
+      {% include '@components/form-items/form-item--radio/form-item--radio.twig' with {
+        'radio_option_id': 'edit-radios-five',
+        'radio_option_label': 'Disabled Option',
+        'radio_option_disabled': true
+      } %}
+    </div>
+    <div class="fieldset__description" id="edit-radios-description">
+      <p>The description for this form field.</p>
+    </div>
+  </div>
+</fieldset>
