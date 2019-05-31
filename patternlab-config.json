@@ -221,7 +221,7 @@
           "functions": ["addWithoutFilter"]
         },
         {
-          "file": "source/_twig-components/functions/add_attributes.function.php",
+          "file": "source/_twig-components/functions/add_attributes.function.patternlab.php",
           "functions": ["addAddAttributesFunction"]
         },
         {
