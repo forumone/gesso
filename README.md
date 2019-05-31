@@ -84,7 +84,7 @@ the following NPM command in the theme folder.
 npm install
 ```
 
-To initiate the Grunt build tasks that compile the Sass and Pattern Lab files and watches for changes, run the following command in the theme directory:
+To initiate the Grunt build tasks that compile the Sass and Pattern Lab files and watch for changes, run the following command in the theme directory:
 
 ```
 grunt
