@@ -23,6 +23,8 @@ Gesso.
 - [npm](https://www.npmjs.com/get-npm)
 - [grunt](https://gruntjs.com/getting-started)
 
+In addition, in order to compile Twig files, Pattern Lab requires that PHP be available on the command line.
+
 ## Installation
 
 1. Place the Gesso theme in your site’s theme directory. (e.g.,
