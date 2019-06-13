@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     clean: {
       patternlab : {
         src: [
-          '<%= pkg.themePath %>/pattern-lab'
+          '<%= pkg.themePath %>/pattern-lab/public'
         ]
       }
     }
