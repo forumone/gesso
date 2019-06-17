@@ -12,6 +12,10 @@
   "themePath": ".",
   "main": "Gruntfile.js",
   "devDependencies": {
+    "@pattern-lab/cli": "0.0.3",
+    "@pattern-lab/core": "^3.0.1-alpha.0",
+    "@pattern-lab/engine-twig-php": "^3.0.0",
+    "@pattern-lab/uikit-workshop": "^1.0.1-alpha.0",
     "autoprefixer": "~7.2",
     "breakpoint-sass": "^2.7.1",
     "grunt": "^0.4.5",
@@ -25,13 +29,10 @@
     "inquirer": "^5.1.0",
     "load-grunt-tasks": "^3.5.2",
     "mkdirp": "^0.5.1",
-    "postcss-assets": "~5.0.0",
-    "@pattern-lab/cli": "^0.0.3-alpha.0",
-    "@pattern-lab/core": "^3.0.1-alpha.0",
-    "@pattern-lab/engine-twig-php": "^3.0.0",
-    "@pattern-lab/uikit-workshop": "^1.0.1-alpha.0"
+    "postcss-assets": "~5.0.0"
   },
   "scripts": {
-    "component": "node component.js"
+    "component": "node component.js",
+    "patternlab": "patternlab"
   }
 }

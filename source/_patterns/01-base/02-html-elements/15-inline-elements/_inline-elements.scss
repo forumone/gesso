@@ -3,7 +3,7 @@
 
 a {
   background-color: transparent;
-  color: $color-link;
+  color: gesso-color(text, link);
   // Improves readability when focused.
   outline-offset: em(2px);
   -webkit-text-decoration-skip: objects;
@@ -15,7 +15,7 @@ a {
 
   &:hover,
   &:focus {
-    color: $color-link-hover;
+    color: gesso-color(text, link-hover);
   }
 
   @media print {

@@ -1,0 +1,18 @@
+/// Convert unitless number to unit value
+// @param {Number} $value - unitless number
+// @return {String} - unit type
+
+@function convert($value, $unit: px) {
+  @if unitless($value) {
+    
+    @if $unit == px {
+      @return $value + 0px;
+    }
+     @if $unit == em {
+      @return $value + 0em;
+    }
+  } @else {
+    @return $value;
+  }
+}
+  

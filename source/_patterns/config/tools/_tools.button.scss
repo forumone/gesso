@@ -10,7 +10,7 @@ $button-color-text: #fff !default;
 $button-color-text-active: #fff !default;
 $button-color-text-disabled: #323a45 !default;
 $button-color-text-hover: #fff !default;
-$button-font-size: $font-size-md !default;
+$button-font-size: 16px !default;
 
 @mixin button(
   $color-bg: $button-color-bg,
@@ -59,4 +59,14 @@ $button-font-size: $font-size-md !default;
     cursor: default;
     pointer-events: none;
   }
+}
+
+
+%core-button {
+  // @include display-text-style(button);
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: normal;
 }

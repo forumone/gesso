@@ -1,0 +1,81 @@
+
+
+/// Fetch nested keys
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Keys to fetch
+/// @return {*}
+
+@function map-deep-get($map, $keys...) {
+  $argType: type-of($map);
+
+  @if ($argType != map) {
+    @error "A valid sass map is required as the first argument. Argument #{$map} is type #{$argType}";
+  }
+
+  @each $key in $keys {
+    @if (map-has-key($map, $key)) {
+      $map: map-get($map, $key);
+    } @else {
+      @warn "Key `#{$key}` not found in map";
+    }
+  }
+
+  @return $map;
+}
+
+
+// Retrieve Main Theme Key
+@function gesso-get-map($map-key, $keys...) {
+  @return map-deep-get($gesso-theme-config, $map-key, $keys...);
+}
+
+
+// Get Breakpoint
+@function gesso-breakpoint($keys...) {
+  @return gesso-get-map( breakpoints, $keys...);
+}
+
+@debug 'Gesso Breakpoint' gesso-breakpoint(sm);
+
+
+// Get Palette
+@function gesso-palette($keys...) {
+  @return gesso-get-map( palette, brand, $keys...);
+}
+
+
+@function gesso-grayscale($keys...) {
+  @return gesso-get-map( palette, grayscale, $keys...);
+}
+
+@debug 'Gesso Grayscale'  gesso-grayscale(grayscale-1);
+
+
+// Get Color
+@function gesso-color($keys...) {
+  @return gesso-get-map( color, $keys...);
+}
+
+// Get Font Family
+@function gesso-font-family($keys...) {
+  @return gesso-get-map( font-family, $keys...);
+}
+
+// Get Font Size
+@function gesso-font-size($keys...) {
+  @return gesso-get-map( font-size, $keys...);
+}
+
+// Get Line Height
+@function gesso-line-height($keys...) {
+  @return gesso-get-map( line-height, $keys...);
+}
+// Get Z Index
+@function gesso-zindex($keys...) {
+  @return gesso-get-map( z-index, $keys...);
+}
+
+// Get spacing
+@function gesso-spacing($keys...) {
+  @return gesso-get-map( spacing, $keys...);
+}

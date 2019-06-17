@@ -1,0 +1,12 @@
+{% for name, style in gesso.typography.display %}
+
+  {% set rendered_style = '' %}
+  {% for prop, value in style %}
+    {% set rendered_style = prop ~ ': ' ~ value|replace({'\\' : ""}) ~ '; '~ rendered_style %}
+  {% endfor %}
+
+  <div class="pattern-lab__text-style-item">
+    <h2>{{name}}</h2>
+    <div class="pattern-lab__text-style-preview" style="{{rendered_style}}">Hello world</div>
+  </div>
+{% endfor %}

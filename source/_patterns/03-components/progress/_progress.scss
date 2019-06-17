@@ -3,7 +3,7 @@
 
 $progress-border-radius: rem(3px) !default;
 $progress-color: #aeb0b5 !default;
-$progress-color-bar: $color-link !default;
+$progress-color-bar: gesso-color(text, link) !default;
 $progress-color-border: #5b616b !default;
 
 .progress {
