@@ -47,7 +47,7 @@ function fileWatch() {
     buildStyles
   );
   watch(
-    'source/**/*.{twig,json,yaml,yml}',
+    'source/**/*.{twig,json,yaml,yml,md}',
     { usePolling: true, interval: 1500 },
     series(
       cleanPatternlab,
