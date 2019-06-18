@@ -26,5 +26,8 @@
     "gulp-sass-glob": "^1.0.9",
     "gulp-sourcemaps": "^2.6.5",
     "postcss-assets": "^5.0.0"
+  },
+  "scripts": {
+    "component": "node component.js"
   }
 }
