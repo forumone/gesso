@@ -1,0 +1,16 @@
+<div class="pattern-lab__duration-wrapper">
+  <div class="pattern-lab__help-text">
+    (Hover to demo duration)
+  </div>
+  <div class="pattern-lab__duration-group">
+    <div class="pattern-lab__duration-item">
+      {% for label, duration in gesso.transitions.duration %}
+        {% set duration_style = 'transiton-duration: '~ duration ~';' %}
+        <div class="pattern-lab__duration-label">
+          {{label}}
+        </div>
+        <div class="pattern-lab__duration-indicator" style="{{duration_style}}"></div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
