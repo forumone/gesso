@@ -1,7 +1,8 @@
 // CSS styles and overrides for Pattern Lab only.
 // This stylesheet is not loaded by the theme.
+@import 'breakpoint';
 
-@import '_patterns/00-global';
+@import '_patterns/00-global/**/*';
 
 // The container for the 'view all' screen, which contains the list of patterns.
 #sg-patterns {
