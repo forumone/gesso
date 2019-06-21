@@ -22,6 +22,11 @@ rules:
     - ignore:
       - attribute
   string-no-newline: true
+  scss/at-import-partial-extension-blacklist:
+    - 'less'
+    - 'sass'
+  scss/at-import-partial-extension-whitelist:
+    - 'scss'
   scss/at-mixin-pattern:
     # "piece" regex:
     # [a-zA-Z0-9]+
