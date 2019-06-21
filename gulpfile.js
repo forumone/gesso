@@ -4,10 +4,19 @@ const { watch, dest, src, series, parallel } = require('gulp');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const sassGlob = require('gulp-sass-glob');
+const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
 const del = require('del');
 const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
+
+function lintStyles() {
+  return src('**/*.scss', { cwd: './source' })
+    .pipe(stylelint({
+      failAfterError: true,
+      reporters: [{ formatter: 'string', console: true }]
+    }));
+}
 
 function buildStyles() {
   return src('*.scss', { cwd: './source' })
@@ -44,6 +53,7 @@ function fileWatch() {
   watch(
     ['source/**/*.scss', 'images/*.svg'],
     { usePolling: true, interval: 1500 },
+    lintStyles,
     buildStyles
   );
   watch(
@@ -57,7 +67,7 @@ function fileWatch() {
 }
 
 const gessoBuildPatternlab = exports.gessoBuildPatternlab = series(cleanPatternlab, buildPatternlab);
-const gessoBuildStyles = exports.gessoBuildStyles = buildStyles;
+const gessoBuildStyles = exports.gessoBuildStyles = series(lintStyles, buildStyles);
 const gessoBuild = exports.gessoBuild = parallel(gessoBuildStyles, gessoBuildPatternlab);
 const gessoWatch = exports.gessoWatch = fileWatch;
 
@@ -65,10 +75,3 @@ exports.default = series(
   gessoBuild,
   gessoWatch
 );
-
-
-
-
-
-
-
