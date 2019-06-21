@@ -59,10 +59,8 @@ gesso:
   typography:
     font-family:
       base: \"Source Sans Pro\", serif
-      system: |-
-        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', Droid Sans, sans-serif,
-      monospace: |-
-        Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif
+      system: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Fira Sans\", Droid Sans, sans-serif
+      monospace: Consolas, \"Lucida Console\", \"Liberation Mono\", \"Courier New\", monospace, sans-serif
     base-font-size: 16px
     font-size:
       0: 12
