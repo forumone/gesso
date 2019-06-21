@@ -9,7 +9,7 @@ $menu-mobile-submenu-text-color: #555559 !default;
 $menu-mobile-submenu-hover-color: #000 !default;
 
 .menu--mobile {
-  margin: 0.75em 0 0 0;
+  margin: 0.75em 0 0;
 
   .menu__item {
     margin: 0;
@@ -34,9 +34,9 @@ $menu-mobile-submenu-hover-color: #000 !default;
     width: auto;
     z-index: 3;
 
+    &:active,
     &:focus,
     &:hover,
-    &:active,
     &.is-active {
       color: $menu-mobile-menu-hover-color;
     }
@@ -56,9 +56,10 @@ $menu-mobile-submenu-hover-color: #000 !default;
   }
 
   .menu__subnav-arrow {
-    background: none;
     @include image-replace(100%, 44px);
     @include svg-background-inline(mobile-arrow-down);
+    background-attachment: initial;
+    background-color: initial;
     background-position: 95% 50%;
     background-repeat: no-repeat;
     background-size: 19px 12px;
@@ -101,9 +102,9 @@ $menu-mobile-submenu-hover-color: #000 !default;
       color: $menu-mobile-submenu-text-color;
       padding-left: 2em;
 
+      &:active,
       &:focus,
-      &:hover,
-      &:active {
+      &:hover {
         color: $menu-mobile-submenu-hover-color;
       }
     }

@@ -13,16 +13,16 @@ $media-gutter: 1rem;
 }
 
 .l-media__object {
+  flex-basis: auto;
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: auto;
   margin: 0 $media-gutter 0 0;
 }
 
 .l-media__content {
+  flex-basis: auto;
   flex-grow: 1;
   flex-shrink: 1;
-  flex-basis: auto;
 }
 
 .l-media--column {

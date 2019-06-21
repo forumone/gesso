@@ -4,8 +4,7 @@
 a {
   background-color: transparent;
   color: $color-link;
-  // Improves readability when focused.
-  outline-offset: em(2px);
+  outline-offset: em(2px); // Improves readability when focused.
   -webkit-text-decoration-skip: objects;
 
   &:active,
@@ -13,8 +12,8 @@ a {
     outline: 0;
   }
 
-  &:hover,
-  &:focus {
+  &:focus,
+  &:hover {
     color: $color-link-hover;
   }
 
@@ -25,8 +24,8 @@ a {
     }
 
     &[href]::after {
-      font-family: $base-font-family;
       content: ' <' attr(href) '>';
+      font-family: $base-font-family;
       font-size: 10pt;
       font-weight: normal;
       text-transform: lowercase;
@@ -49,7 +48,7 @@ a {
 
 abbr {
   &[title] {
-    border-bottom: none;
+    border-bottom: 0;
     text-decoration: underline;
     text-decoration: underline dotted;
   }
