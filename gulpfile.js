@@ -1,6 +1,6 @@
 'use strict';
 
-const { watch, dest, src, series, parallel } = require('gulp');
+const { dest, lastRun, parallel, series, src, watch } = require('gulp');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const sassGlob = require('gulp-sass-glob');
@@ -11,7 +11,7 @@ const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
 
 function lintStyles() {
-  return src('**/*.scss', { cwd: './source' })
+  return src('**/*.scss', { cwd: './source', since: lastRun(lintStyles) })
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{ formatter: 'string', console: true }]
