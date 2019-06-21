@@ -1,0 +1,145 @@
+gesso:
+  palette:
+    brand:
+      blue:
+        base: '#0071bc'
+        light: '#4773aa'
+        light-1: '#8ba6ca'
+        light-2: '#dce4ef'
+        dark: '#205493'
+        dark-1: '#112E51'
+      red:
+        base: '#e31c3d'
+        light: '#e59393'
+        light-1: '#f9dede'
+        dark: '#cd2026'
+        dark-1: '#981b1e'
+      ocean-blue:
+        base: '#02bfe7'
+        light: '#9bdaf1'
+        light-1: '#e1f3f8'
+        dark: '#00a6d2'
+        dark-1: '#046b99'
+      gold:
+        base: '#fdb81e'
+        light: '#f9c642'
+        light-1: '#fad980'
+        light-2: '#fff1d2'
+      green:
+        base: '#2e8540'
+        light: '#4aa564'
+        light-1: '#94bfa2'
+        light-2: '#e7f4e4'
+    grayscale:
+      white: '#fff'
+      gray-1: '#f1f1f1'
+      gray-2: '#d6d7d9'
+      gray-3: '#aeb0b5'
+      gray-4: '#5b616b'
+      gray-5: '#323a45'
+      black: '#212121'
+  breakpoints:
+    xs: 0px
+    sm: 700px
+    md: 960px
+    lg: 1280px
+  colors:
+    text:
+      primary: grayscale.black
+      secondary: grayscale.gray-5
+      accent: brand.ocean-blue.base
+      on-light: grayscale.black
+      on-dark: grayscale.white
+      link: brand.blue.base
+      link-hover: brand.blue.dark
+      link-visited: brand.blue.dark
+    background:
+      primary: grayscale.white
+      secondary: brand.blue.base
+  typography:
+    font-family:
+      base: \"Source Sans Pro\", serif
+      system: |-
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', Droid Sans, sans-serif,
+      monospace: |-
+        Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif
+    base-font-size: 16px
+    font-size:
+      0: 12
+      1: 16
+      2: 24
+      3: 32
+      4: 40
+      5: 48
+      6: 56
+      7: 72
+    font-weight:
+      light: 300
+      regular: 400
+      semibold: 600
+      bold: 700
+    line-height:
+      tight: 1.1
+      base: 1.25
+      wide: 1.7
+    display:
+      h1:
+        font-family: base
+        font-weight: bold
+        font-size: 5
+        line-height: tight
+        letter-spacing: -0.4em
+        color: text.primary
+      h2:
+        font-family: base
+        font-weight: bold
+        font-size: 4
+        line-height: tight
+        letter-spacing: -0.04em
+        color: text.primary
+      h3:
+        font-family: base
+        font-weight: bold
+        font-size: 3
+        line-height: tight
+        letter-spacing: null
+        color: text.primary
+      body:
+        font-family: base
+        font-weight: light
+        font-size: 1
+        line-height: tight
+        letter-spacing: null
+        color: text.primary
+      body-large:
+        font-family: base
+        font-weight: light
+        font-size: 2
+        line-height: tight
+        letter-spacing: -0.4em
+        color: text.primary
+  transitions:
+    ease:
+      easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)'
+      easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)'
+      easeIn: 'cubic-bezier(0.4, 0, 1, 1)'
+      sharp: 'cubic-bezier(0.4, 0, 0.6, 1)'
+    duration:
+      shortest: 150
+      short: 200
+      standard: 375
+      long: 400
+      intro: 270
+      outro: 195
+  z-index:
+    nav: 1000
+    drawer: 1200
+    modal: 1300
+  spacing:
+    xxsm: 4px
+    xsm: 8px
+    sm: 16px
+    md: 24px
+    lg: 40px
+    xl: 56px
+    xxl: 96px

@@ -19,12 +19,18 @@
     "@pattern-lab/uikit-workshop": "^1.0.1-alpha.0",
     "autoprefixer": "^9.6.0",
     "breakpoint-sass": "^2.7.1",
-    "del": "^4.1.1",
+    "concat": "^1.0.3",
+    "del": "4.1.1",
+    "globby": "9.2.0",
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.0.9",
     "gulp-sourcemaps": "^2.6.5",
-    "postcss-assets": "^5.0.0"
+    "lodash": "4.17.11",
+    "make-dir": "3.0.0",
+    "nani": "2.3.1",
+    "postcss-assets": "^5.0.0",
+    "yaml": "1.6.0"
   }
 }

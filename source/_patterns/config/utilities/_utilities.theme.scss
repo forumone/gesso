@@ -26,7 +26,7 @@
 
 // Retrieve Main Theme Key
 @function gesso-get-map($map-key, $keys...) {
-  @return map-deep-get($gesso-theme-config, $map-key, $keys...);
+  @return map-deep-get($gesso, $map-key, $keys...);
 }
 
 
@@ -35,7 +35,7 @@
   @return gesso-get-map( breakpoints, $keys...);
 }
 
-@debug 'Gesso Breakpoint' gesso-breakpoint(sm);
+// @debug 'Gesso Breakpoint' gesso-breakpoint(sm);
 
 
 // Get Palette
@@ -48,32 +48,57 @@
   @return gesso-get-map( palette, grayscale, $keys...);
 }
 
-@debug 'Gesso Grayscale'  gesso-grayscale(grayscale-1);
+// @debug 'Gesso Grayscale'  gesso-grayscale(grayscale-1);
 
 
 // Get Color
 @function gesso-color($keys...) {
-  @return gesso-get-map( color, $keys...);
+  @return gesso-get-map( colors, $keys...);
 }
 
 // Get Font Family
 @function gesso-font-family($keys...) {
-  @return gesso-get-map( font-family, $keys...);
+  @return gesso-get-map(typography, font-family, $keys...);
 }
+
+@debug gesso-font-family('base');
+
+// Get Base Font Size
+@function gesso-base-font-size() {
+  @return gesso-get-map(typography, base-font-size);
+}
+
+@debug gesso-base-font-size();
 
 // Get Font Size
 @function gesso-font-size($keys...) {
-  @return gesso-get-map( font-size, $keys...);
+  @return gesso-get-map( typography, font-size, $keys...);
 }
+
+@debug gesso-font-size(2);
+
+// Get Font Size
+@function gesso-font-weight($keys...) {
+  @return gesso-get-map( typography, font-weight, $keys...);
+}
+
+@debug gesso-font-weight(light);
+
+
 
 // Get Line Height
 @function gesso-line-height($keys...) {
-  @return gesso-get-map( line-height, $keys...);
+  @return gesso-get-map( typography, line-height, $keys...);
 }
+
+@debug gesso-line-height(base);
+
 // Get Z Index
-@function gesso-zindex($keys...) {
+@function gesso-z-index($keys...) {
   @return gesso-get-map( z-index, $keys...);
 }
+
+@debug gesso-z-index(nav);
 
 // Get spacing
 @function gesso-spacing($keys...) {

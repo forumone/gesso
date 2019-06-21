@@ -8,6 +8,42 @@ const postcss = require('gulp-postcss');
 const del = require('del');
 const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
+const yaml = require('yaml');
+const concat = require('concat');
+
+const fs = require('fs');
+const makeDir = require('make-dir');
+const { iterate } = require('nani');
+const path = require('path');
+const util = require('util');
+
+const readSource = require('./lib/readSource');
+const transform = require('./lib/transform');
+const renderSass = require('./lib/renderSass');
+
+const writeFile = util.promisify(fs.writeFile);
+
+async function themeCompile() {
+  const scssDir = path.join(__dirname, '/source/_patterns/config');
+  const ymlDir = path.join(__dirname, './source/_data');
+
+  const parsed = await readSource(path.join(__dirname, './source/gesso-theme-config.yml'));
+  const plData = await readSource(path.join(__dirname, './source/_data/data_pl.yml'));
+
+  const transformed = transform(parsed);
+
+
+  const sass = renderSass(transformed.data);
+
+  // varawait var readfile 
+
+  await Promise.all([
+    writeFile(path.join(ymlDir, 'data.yml'), plData.source + yaml.stringify(transformed.data)),
+    writeFile(path.join(scssDir, '_gesso-theme.scss'), sass),
+  ]);
+}
+
+
 
 function buildStyles() {
   return src('*.scss', { cwd: './source' })
@@ -47,6 +83,11 @@ function fileWatch() {
     buildStyles
   );
   watch(
+    ['source/gesso-theme-config.yml'],
+    { usePolling: true, interval: 1500 },
+    themeCompile
+  );
+  watch(
     'source/**/*.{twig,json,yaml,yml}',
     { usePolling: true, interval: 1500 },
     series(
@@ -57,7 +98,7 @@ function fileWatch() {
 }
 
 const gessoBuildPatternlab = exports.gessoBuildPatternlab = series(cleanPatternlab, buildPatternlab);
-const gessoBuildStyles = exports.gessoBuildStyles = buildStyles;
+const gessoBuildStyles = exports.gessoBuildStyles = series( themeCompile, buildStyles);
 const gessoBuild = exports.gessoBuild = parallel(gessoBuildStyles, gessoBuildPatternlab);
 const gessoWatch = exports.gessoWatch = fileWatch;
 
