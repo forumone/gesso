@@ -1,0 +1,47 @@
+extends:
+  - stylelint-config-sass-guidelines
+  - stylelint-config-prettier
+
+rules:
+  block-no-empty: null
+  max-nesting-depth: 3
+  no-empty-first-line: true
+  property-no-vendor-prefix: null
+  selector-attribute-brackets-space-inside: never
+  selector-class-pattern:
+    # "piece" regex:
+    # [a-zA-Z0-9]+
+    # dash-separated pieces:
+    # [a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*
+    #
+    #   Block                                              Element (optional)                                   Modifier (also optional)
+    #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
+    - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'
+  selector-no-qualifying-type:
+    - true
+    - ignore:
+      - attribute
+  string-no-newline: true
+  scss/at-import-partial-extension-blacklist:
+    - 'less'
+    - 'sass'
+  scss/at-import-partial-extension-whitelist:
+    - 'scss'
+  scss/at-mixin-pattern:
+    # "piece" regex:
+    # [a-zA-Z0-9]+
+    # dash-separated pieces:
+    # [a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*
+    #
+    #   Block                                              Element (optional)                                   Modifier (also optional)
+    #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
+    - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'
+  scss/percent-placeholder-pattern:
+    # "piece" regex:
+    # [a-zA-Z0-9]+
+    # dash-separated pieces:
+    # [a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*
+    #
+    #   Block                                              Element (optional)                                   Modifier (also optional)
+    #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
+    - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'

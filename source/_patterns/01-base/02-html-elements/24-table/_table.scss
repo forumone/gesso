@@ -19,7 +19,7 @@ table {
 tbody {}
 
 td {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #5b616b;
   padding: rem(15px);
 }
@@ -33,7 +33,7 @@ tfoot {
 }
 
 th {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #5b616b;
   padding: rem(15px);
   text-align: left;
@@ -41,9 +41,7 @@ th {
 
 thead {
   @media print {
-    & {
-      display: table-header-group;
-    }
+    display: table-header-group;
   }
 
   td,
@@ -54,8 +52,6 @@ thead {
 
 tr {
   @media print {
-    & {
-      page-break-inside: avoid;
-    }
+    page-break-inside: avoid;
   }
 }

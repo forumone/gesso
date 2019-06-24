@@ -1,4 +1,5 @@
 // @file
+// Utility classes
 
 // Clearfix
 .clearfix {
@@ -56,6 +57,7 @@
 }
 
 // Remove :focus styles for skiplink targets.
+/* stylelint-disable-next-line selector-max-id */
 #main:focus {
   outline: 0;
 }

@@ -28,7 +28,7 @@
       cursor: default;
     }
 
-    & + .form-item__label {
+    + .form-item__label {
       cursor: pointer;
       display: inline;
     }

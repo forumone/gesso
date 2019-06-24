@@ -1,4 +1,6 @@
-// Includes resets and helper classes.
+// @file
+// Normalize resets.
+//
 // Inspiration: http://necolas.github.com/normalize.css
 // version 3.0.2
 
@@ -138,6 +140,7 @@ var {
   outline: none !important;
 }
 
+/* stylelint-disable-next-line selector-no-vendor-prefix */
 ::-moz-selection {
   background: $color-selection-background;
   color: $color-selection-foreground;

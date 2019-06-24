@@ -7,15 +7,14 @@ blockquote {
   cite {
     display: block;
     margin-top: 0.5em;
-    &:before {
-      content: "\2013";
+
+    &::before {
+      content: '\2013';
       margin-right: 0.5em;
     }
   }
 
   @media print {
-    & {
-      page-break-inside: avoid;
-    }
+    page-break-inside: avoid;
   }
 }

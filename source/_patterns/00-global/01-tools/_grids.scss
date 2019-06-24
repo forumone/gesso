@@ -8,13 +8,13 @@
 @mixin set-flex-column($columns: 1, $gutter: 2em, $item-minwidth: false) {
   $column-percentage: if($columns > 0, percentage(1/$columns), 100% );
 
+  flex-basis: auto;
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: auto;
-  width: calc((#{$column-percentage}) - #{$gutter});
+  margin-bottom: $gutter;
   margin-left: $gutter/2;
   margin-right: $gutter/2;
-  margin-bottom: $gutter;
+  width: calc((#{$column-percentage}) - #{$gutter});
 
   @if $item-minwidth {
     min-width: $item-minwidth;
@@ -108,4 +108,3 @@
   @include set-css-fixed-columns($columns, $gutter);
   display: grid;
 }
-
