@@ -1,0 +1,79 @@
+// @file
+// Form element styles.
+
+// Don’t style button elements, since they’re often styled as links for
+// accessible widgets. Use the .button class in components/buttons.
+button {
+  overflow: visible;
+}
+
+datalist {}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+form {}
+
+// Don't style button, submit, or reset elements, since they're often styled as
+// links for accessible widgets. Use the .button class in
+// partials/components/buttons.
+input {
+  line-height: normal;
+}
+
+input[type='button'] {}
+input[type='checkbox'] {}
+input[type='color'] {}
+input[type='date'] {}
+input[type='datetime'] {}
+input[type='datetime-local'] {}
+input[type='email'] {}
+input[type='file'] {}
+input[type='image'] {}
+input[type='month'] {}
+input[type='number'] {}
+input[type='password'] {}
+input[type='radio'] {}
+input[type='range'] {}
+input[type='reset'] {}
+input[type='search'] {}
+input[type='submit'] {}
+input[type='tel'] {}
+input[type='text'] {}
+input[type='time'] {}
+input[type='url'] {}
+input[type='week'] {}
+
+label {}
+
+legend {
+  border: 0;
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+meter {}
+
+optgroup {
+  font-weight: bold;
+}
+
+option {}
+
+output {}
+
+progress {}
+
+select {}
+
+textarea {
+  overflow: auto;
+}

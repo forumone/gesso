@@ -1,0 +1,22 @@
+<div class="l-navigation">
+  <div class="l-constrain">
+    {% block content %}
+      {% include '@components/menus/menu.twig' with {
+        'menu_name': 'main',
+        'items': [
+          { 'title': 'Home', 'url': '#' },
+          { 'title': 'About', 'url': '#' },
+          { 'title': 'Contact', 'url': '#' },
+          { 'title': 'Search', 'url': '#' },
+        ]
+      } %}
+      {% include '@components/menus/menu.twig' with {
+        'menu_name': 'account',
+        'items': [
+          { 'title': 'My Account', 'url': '#' },
+          { 'title': 'Logout', 'url': '#' }
+        ]
+      } %}
+    {% endblock %}
+  </div>
+</div>

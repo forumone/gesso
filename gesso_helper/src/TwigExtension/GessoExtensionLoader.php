@@ -23,8 +23,8 @@ class GessoExtensionLoader {
     $theme = \Drupal::config('system.theme')->get('default');
     $themeLocation = drupal_get_path('theme', $theme);
     $themePath = DRUPAL_ROOT . '/' . $themeLocation . '/';
-    $fullPath = $themePath . 'pattern-lab/source/_twig-components/';
-    static::load($fullPath . 'functions/add_attributes.function.php');
+    $fullPath = $themePath . 'source/_twig-components/functions/';
+    static::load($fullPath . 'add_attributes.function.drupal.php');
   }
 
   static protected function load($file) {

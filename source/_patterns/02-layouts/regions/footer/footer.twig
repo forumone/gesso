@@ -1,0 +1,16 @@
+<footer class="l-footer" role="contentinfo">
+  <div class="l-constrain">
+    {% block content %}
+      {% include '@components/menus/menu.twig' with {
+        'menu_name': 'footer',
+        'items': [
+          { 'title': 'Careers', 'url': '#' },
+          { 'title': 'Contact', 'url': '#' },
+          { 'title': 'Credits', 'url': '#' },
+          { 'title': 'Terms of Use', 'url': '#' }
+        ]
+      } %}
+      {% include '@components/copyright/copyright.twig' %}
+    {% endblock %}
+  </div>
+</footer>

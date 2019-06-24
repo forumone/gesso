@@ -1,0 +1,117 @@
+{% include '@layouts/regions/header/header.twig' %}
+{% include '@layouts/regions/navigation/navigation.twig' %}
+{% include '@layouts/regions/breadcrumb/breadcrumb.twig' %}
+{% include '@layouts/regions/highlighted/highlighted.twig' %}
+{% include '@layouts/regions/help/help.twig' %}
+
+{# defining cards with dummy content #}
+{% set card1 %}
+  {% include '@components/card/card.twig' with {
+    'title': 'Delorean',
+    'url': '#',
+    'media': '<img src="https://picsum.photos/800/600?image=429">',
+    'content': 'It\'s a board with wheels. What\'s with the life preserver?'
+  } %}
+{% endset %}
+
+{% set card2 %}
+  {% include '@components/card/card.twig' with {
+    'title': 'Eighty Eight MPH',
+    'url': '#',
+    'media': '<img src="https://picsum.photos/800/600?image=823">',
+    'content': 'No no no this sucker\'s electrical, but I need a nuclear reaction to
+      generate the one point twenty-one gigawatts of electricity that I need.'
+  } %}
+{% endset %}
+
+{% set card3 %}
+  {% include '@components/card/card.twig' with {
+    'title': '1.21 Gigawatts',
+    'url': '#',
+    'media': '<img src="https://picsum.photos/800/600?image=967">',
+    'content': 'If you guys ever have kids and one of them when he\'s eight years old,
+      accidentally sets fire to the living room rug, be easy on him.'
+  } %}
+{% endset %}
+
+{% set card4 %}
+  {% include '@components/card/card.twig' with {
+    'title': 'Doctor Brown',
+    'url': '#',
+    'media': '<img src="https://picsum.photos/800/600?image=1024">',
+    'content': 'Hey, Doc, we better back up, we don\'t have enough road to get up to 88.'
+  } %}
+{% endset %}
+
+{% set card5 %}
+  {% include '@components/card/card.twig' with {
+    'title': 'Enchantment Under The Sea',
+    'url': '#',
+    'media': '<img src="https://picsum.photos/800/600?image=659">',
+    'content': 'Not a word, not a word, not a word now. Quiet... you want me to make a
+      donation to the coast guard youth auxiliary?'
+  } %}
+{% endset %}
+
+{% set card6 %}
+  {% include '@components/card/card.twig' with {
+    'title': 'Twin Pines Mall',
+    'url': '#',
+    'media': '<img src="https://picsum.photos/800/600?image=660">',
+    'content': 'You fell and you hit your head on the sink, and that\'s when you came
+      up with the idea for the flux capacitor, which makes time travel possible.'
+  } %}
+{% endset %}
+
+{# defining an unformatted content display of a view with the cards as content #}
+{% set grid_content %}
+  {% include '@components/views/views-view-unformatted/views-view-unformatted.twig' with {
+    'title': false,
+    'has_wrapper': false,
+    'rows': [
+      { 'content': card1 },
+      { 'content': card2 },
+      { 'content': card3 },
+      { 'content': card4 },
+      { 'content': card5 },
+      { 'content': card6 }
+    ]
+  } %}
+{% endset %}
+
+{# defining rows as a grid with the unformatted view content inside #}
+{% set rows %}
+  {% include '@layouts/grids/grid.twig' with {
+    'modifier_classes': 'l-grid--3col',
+    'content': grid_content
+  } %}
+{% endset %}
+
+{# defining the pager for the view #}
+{% set pager %}
+  {% include '@components/pagers/pager.twig' %}
+{% endset %}
+
+{# defining the content of the landing page template as a view, using view content from above #}
+{% set landing_page_content %}
+  {% include '@components/views/views-view/views-view.twig' with {
+    'title': false,
+    'pager': pager,
+    'rows': rows
+  } %}
+{% endset %}
+
+<main id="main" class="main" role="main" tabindex="-1">
+  {% include '@layouts/regions/preface/preface.twig' %}
+  {% embed '@layouts/regions/content/content.twig' %}
+    {% block content %}
+      {% include '@templates/landing-page.twig' with {
+        'landing_page_title': 'Great Scott!',
+        'landing_page_content': landing_page_content
+      } %}
+    {% endblock %}
+  {% endembed %}
+  {% include '@layouts/regions/postscript/postscript.twig' %}
+</main>
+
+{% include '@layouts/regions/footer/footer.twig' %}

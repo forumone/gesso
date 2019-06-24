@@ -14,7 +14,7 @@ const getDirectories = source => {
 init();
 
 function init() {
-  const patternSrc = process.cwd() +  "/pattern-lab/source/_patterns/";
+  const patternSrc = process.cwd() +  "/source/_patterns/";
   const patternDir = getDirectories(patternSrc);
 
   var questions = [

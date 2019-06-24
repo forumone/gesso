@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 .sass-cache
-pattern-lab/source/sass-globbing/
+pattern-lab/
+source/sass-globbing/
 css/*.css
 css/*.map
+dependencyGraph.json
