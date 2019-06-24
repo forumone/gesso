@@ -58,19 +58,25 @@ gesso:
       secondary: brand.blue.base
   typography:
     font-family:
-      base: \"Source Sans Pro\", serif
-      system: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Fira Sans\", Droid Sans, sans-serif
-      monospace: Consolas, \"Lucida Console\", \"Liberation Mono\", \"Courier New\", monospace, sans-serif
+      base: 
+        name: Source Sans
+        stack: '"Source Sans Pro", serif' 
+      system: 
+        name: Apple System
+        stack: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", Droid Sans, sans-serif'
+      monospace: 
+        name: Consolas
+        stack: 'Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif'
     base-font-size: 16px
     font-size:
-      0: 12
-      1: 16
-      2: 24
-      3: 32
-      4: 40
-      5: 48
-      6: 56
-      7: 72
+      0: 12px
+      1: 16px
+      2: 24px
+      3: 32px
+      4: 40px
+      5: 48px
+      6: 56px
+      7: 72px
     font-weight:
       light: 300
       regular: 400
@@ -82,35 +88,35 @@ gesso:
       wide: 1.7
     display:
       h1:
-        font-family: base
+        font-family: base.stack
         font-weight: bold
         font-size: 5
         line-height: tight
         letter-spacing: -0.4em
         color: text.primary
       h2:
-        font-family: base
+        font-family: base.stack
         font-weight: bold
         font-size: 4
         line-height: tight
         letter-spacing: -0.04em
         color: text.primary
       h3:
-        font-family: base
+        font-family: base.stack
         font-weight: bold
         font-size: 3
         line-height: tight
         letter-spacing: null
         color: text.primary
       body:
-        font-family: base
+        font-family: base.stack
         font-weight: light
         font-size: 1
         line-height: tight
         letter-spacing: null
         color: text.primary
       body-large:
-        font-family: base
+        font-family: base.stack
         font-weight: light
         font-size: 2
         line-height: tight
