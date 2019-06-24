@@ -53,8 +53,10 @@ function fileWatch() {
   watch(
     ['source/**/*.scss', 'images/*.svg'],
     { usePolling: true, interval: 1500 },
-    lintStyles,
-    buildStyles
+    series(
+      lintStyles,
+      buildStyles
+    ),
   );
   watch(
     'source/**/*.{twig,json,yaml,yml,md}',
