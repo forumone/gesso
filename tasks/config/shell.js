@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         }
       },
       patternlabComposer: {
-        command: 'composer install',
+        command: 'composer install --no-interaction || true',
         options: {
           execOptions : {
             cwd: '<%= pkg.themePath %>/pattern-lab'

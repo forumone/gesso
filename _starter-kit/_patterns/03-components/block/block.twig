@@ -18,7 +18,7 @@
 
   {% if label %}
     {{ title_prefix }}
-    <{{ label_element ?: 'h2' }} {{ add_attributes(additional_title_attributes, 'title_attributes') }}>{{ label|raw }}</{{ label_element ?: 'h2' }}>
+    <{{ label_element ?: 'h2' }} {{ add_attributes(additional_title_attributes, 'title_attributes') }}>{{ label }}</{{ label_element ?: 'h2' }}>
     {{ title_suffix }}
   {% endif %}
 
@@ -27,7 +27,7 @@
   {% endif %}
 
   {% block content %}
-    {{ content|raw }}
+    {{ content }}
   {% endblock %}
 
   {% if not hide_content_wrapper %}

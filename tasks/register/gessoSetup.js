@@ -7,6 +7,7 @@ module.exports = function (grunt) {
       'shell:patternlabSetupInstall',
       'clean:patternlabSetupClear',
       'copy:patternlabSetupCopy',
+      'copy:patternlabConfigChange',
       'clean:patternlabSetupCleanup'
     ]);
   }

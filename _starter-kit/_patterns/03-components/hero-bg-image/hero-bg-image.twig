@@ -4,21 +4,21 @@
   has_overlay ? 'has-overlay',
 ]|join(' ')|trim %}
 
-<div class="{{ classes }}" style="background-image: url({{ image|raw }});" role="img" aria-label="{{ image_alt|raw }}">
+<div class="{{ classes }}" style="background-image: url({{ image }});" role="img" aria-label="{{ image_alt }}">
   <div class="hero-bg-image__content">
     {% if title %}
-      <h1 class="hero-bg-image__title">{{ title|raw }}</h1>
+      <h1 class="hero-bg-image__title">{{ title }}</h1>
     {% endif %}
     {% if subtitle %}
-      <h3 class="hero-bg-image__subtitle">{{ subtitle|raw }}</h3>
+      <h3 class="hero-bg-image__subtitle">{{ subtitle }}</h3>
     {% endif %}
     {% if summary %}
-      <div class="hero-bg-image__text">{{ summary|raw }}</div>
+      <div class="hero-bg-image__text">{{ summary }}</div>
     {% endif %}
     {% if call_to_action_content %}
       <div class="hero-bg-image__call-to-action">
         {% block call_to_action %}
-          {{ call_to_action_content|raw }}
+          {{ call_to_action_content }}
         {% endblock %}
       </div>
     {% endif %}
