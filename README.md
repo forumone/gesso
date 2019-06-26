@@ -68,12 +68,6 @@ change the screenshot image (images/screenshot.png) shown on the Appearance
 admin page.
 
 
-## Configuration
-
-Gesso includes several theme-specific settings for managing classes output by
-Drupal, which you can change at admin/appearance/settings/gesso.
-
-
 ### Compiling Pattern Lab and Sass
 
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
@@ -96,6 +90,11 @@ To initiate the Gulp build tasks only (without watching for changes), run the fo
 ```
 gulp gessoBuild
 ```
+
+
+### Accessing Pattern Lab
+
+To access the Pattern Lab instance, append `/pattern-lab/public/index.html` to your site URL and theme directory (e.g. http://localhost:8080/themes/gesso/pattern-lab/public/index.html) or, if developing locally,  just open that index.html file directly in the browser from your file system.
 
 
 ### Creating New Components
