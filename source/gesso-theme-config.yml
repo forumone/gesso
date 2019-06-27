@@ -63,7 +63,7 @@ gesso:
         stack: '"Source Sans Pro", serif' 
       system: 
         name: Apple System
-        stack: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", Droid Sans, sans-serif'
+        stack: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Oxygen-Sans", Ubuntu, Cantarell, "Fira Sans", Droid Sans, sans-serif'
       monospace: 
         name: Consolas
         stack: 'Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif'
@@ -88,11 +88,11 @@ gesso:
       wide: 1.7
     display:
       h1:
-        font-family: base.stack
+        font-family: system.stack
         font-weight: bold
         font-size: 5
         line-height: tight
-        letter-spacing: -0.4em
+        letter-spacing: -0.04em
         color: text.primary
       h2:
         font-family: base.stack
@@ -106,21 +106,19 @@ gesso:
         font-weight: bold
         font-size: 3
         line-height: tight
-        letter-spacing: null
         color: text.primary
       body:
         font-family: base.stack
         font-weight: light
         font-size: 1
         line-height: tight
-        letter-spacing: null
         color: text.primary
       body-large:
         font-family: base.stack
         font-weight: light
         font-size: 2
         line-height: tight
-        letter-spacing: -0.4em
+        letter-spacing: -0.04em
         color: text.primary
   transitions:
     ease:
