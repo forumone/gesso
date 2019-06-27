@@ -39,7 +39,6 @@
 }
 
 .form-item--range {
-
   .form-item__range {
     appearance: none;
     background: transparent;
@@ -89,7 +88,7 @@
         @include form-item__range-thumb-disabled;
       }
 
-      &::webkit-slider-runnable-track {
+      &::-webkit-slider-runnable-track {
         @include form-item__range-track-disabled;
       }
     }

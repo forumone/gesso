@@ -1,25 +1,26 @@
 // @file
 // Styles for Cards.
-$card_padding: 1rem;
+$card-padding: 1rem;
 
 .card {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .card__body {
   display: flex;
   flex-direction: column;
-  padding: $card_padding*1.5 $card_padding;
+  padding: ($card-padding * 1.5) $card-padding;
 }
 
 .card__content {
-  margin-bottom: $card_padding*.5;
+  margin-bottom: $card-padding * 0.5;
 }
 
 .card__media {
   order: -1;
+
   img {
     width: 100%;
   }

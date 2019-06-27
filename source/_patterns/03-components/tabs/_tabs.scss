@@ -39,6 +39,7 @@ $tab-font-size: $font-size-md !default;
       border-top-left-radius: $tab-border-radius;
     }
   }
+
   &:last-child {
     .tabs__link {
       border-bottom-right-radius: $tab-border-radius;
@@ -66,11 +67,6 @@ $tab-font-size: $font-size-md !default;
   margin: 0;
   padding: rem(8px) rem(16px);
 
-  &:active {
-    background-color: $tab-color-bg-active;
-    color: $tab-color-text-active;
-  }
-
   &:focus {
     background-color: $tab-color-bg-hover;
   }
@@ -80,9 +76,15 @@ $tab-font-size: $font-size-md !default;
     color: $tab-color-text;
   }
 
+  &:active {
+    background-color: $tab-color-bg-active;
+    color: $tab-color-text-active;
+  }
+
   &.is-active {
     background-color: $tab-color-bg-active;
     color: $tab-color-text-active;
+
     &:hover {
       color: $tab-color-text-active;
     }

@@ -27,10 +27,19 @@
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.0.9",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylelint": "^9.0.0",
     "lodash": "4.17.11",
     "make-dir": "3.0.0",
     "nani": "2.3.1",
     "postcss-assets": "^5.0.0",
+    "prettier": "^1.18.2",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-sass-guidelines": "^6.0.0",
     "yaml": "1.6.0"
+  },
+  "scripts": {
+    "component": "node component.js"
   }
 }

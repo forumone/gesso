@@ -1,6 +1,6 @@
 # Gesso
 
-Gesso is a [Sass](http://sass-lang.com/)-based starter theme that outputs
+Gesso is a [Sass](http://sass-lang.com/)-based and [Pattern Lab](https://patternlab.io) integrated starter theme that outputs
 accessible HTML5 markup. It uses a mobile-first responsive approach and
 leverages [SMACSS](https://smacss.com/) to organize styles as outlined in the
 [Drupal 8 CSS architecture guidelines](https://www.drupal.org/node/1887918).
@@ -15,6 +15,7 @@ For more information, view the
 [Gesso GitHub repo](https://github.com/forumone/gesso).
 To submit bug reports or feature requests, visit the
 [Gesso issue queue](https://github.com/forumone/gesso/issues).
+Also available for [WordPress](https://github/forumone/gesso-wp).
 
 ### Global Prerequisites
 The following packages need to be installed on your system in order to use
@@ -67,12 +68,6 @@ change the screenshot image (images/screenshot.png) shown on the Appearance
 admin page.
 
 
-## Configuration
-
-Gesso includes several theme-specific settings for managing classes output by
-Drupal, which you can change at admin/appearance/settings/gesso.
-
-
 ### Compiling Pattern Lab and Sass
 
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
@@ -95,6 +90,11 @@ To initiate the Gulp build tasks only (without watching for changes), run the fo
 ```
 gulp gessoBuild
 ```
+
+
+### Accessing Pattern Lab
+
+To access the Pattern Lab instance, append `/pattern-lab/public/index.html` to your site URL and theme directory (e.g. http://localhost:8080/themes/gesso/pattern-lab/public/index.html) or, if developing locally,  just open that index.html file directly in the browser from your file system.
 
 
 ### Creating New Components
@@ -126,6 +126,19 @@ glob-based imports to Sass.
 
 * [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
 browser CSS property prefixes during Sass compilation.
+
+
+### Stylelint
+
+[Stylelint](https://stylelint.io/) is used to lint Sass files. Warnings will
+break the build, so if you have a valid reason to break Stylelint rules you can
+have it ignore code in two ways:
+
+1. Add `/* stylelint-disable-next-line */` to the line just before where the
+Stylelint warning is triggered.
+
+2. To ignore several lines, add `/* stylelint-disable */` before the code in
+question and add `/* stylelint-enable */` afterwards.
 
 
 ## Maintainers

@@ -11,14 +11,12 @@
   text-rendering: optimizeLegibility;
 
   @media print {
-    & {
-      orphans: 3;
-      page-break-after: avoid;
-      widows: 3;
+    orphans: 3;
+    page-break-after: avoid;
+    widows: 3;
 
-      &::after {
-        display: inline-block;
-      }
+    &::after {
+      display: inline-block;
     }
   }
 

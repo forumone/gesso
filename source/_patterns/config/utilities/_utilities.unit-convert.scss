@@ -4,15 +4,16 @@
 
 @function convert($value, $unit: px) {
   @if unitless($value) {
-    
     @if $unit == px {
+      // stylelint-disable-next-line length-zero-no-unit
       @return $value + 0px;
     }
-     @if $unit == em {
+    @if $unit == em {
+      // stylelint-disable-next-line length-zero-no-unit
       @return $value + 0em;
     }
   } @else {
     @return $value;
   }
 }
-  
+/* prettier-ignore-end */

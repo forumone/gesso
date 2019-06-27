@@ -8,7 +8,7 @@
 .form-item__checkbox {
   @extend %visually-hidden;
 
-  & + .form-item__label {
+  + .form-item__label {
     cursor: pointer;
     display: block;
 
@@ -40,7 +40,7 @@
   }
 
   &:focus + .form-item__label::before {
-    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf, 0 0 7px 4px #3e94cf;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf, 0 0 7px 4px #3e94cf;
   }
 
   &:checked:disabled + .form-item__label::before {

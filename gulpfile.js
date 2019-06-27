@@ -1,19 +1,17 @@
 'use strict';
 
-const { watch, dest, src, series, parallel } = require('gulp');
+const { watch, lastRun, dest, src, series, parallel } = require('gulp');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const sassGlob = require('gulp-sass-glob');
+const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
 const del = require('del');
 const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
 const yaml = require('yaml');
-const concat = require('concat');
 
 const fs = require('fs');
-const makeDir = require('make-dir');
-const { iterate } = require('nani');
 const path = require('path');
 const util = require('util');
 
@@ -35,7 +33,6 @@ async function themeCompile() {
 
   const sass = renderSass(transformed.data);
 
-  // varawait var readfile 
 
   await Promise.all([
     writeFile(path.join(ymlDir, 'data.yml'), plData.source + yaml.stringify(transformed.data)),
@@ -43,7 +40,13 @@ async function themeCompile() {
   ]);
 }
 
-
+function lintStyles() {
+  return src('**/*.scss', { cwd: './source', since: lastRun(lintStyles) })
+    .pipe(stylelint({
+      failAfterError: true,
+      reporters: [{ formatter: 'string', console: true }]
+    }));
+}
 
 function buildStyles() {
   return src('*.scss', { cwd: './source' })
@@ -72,6 +75,7 @@ function cleanPatternlab() {
   ]);
 }
 
+
 function buildPatternlab() {
   return patternlab.build({cleanPublic: true, watch: false});
 }
@@ -80,7 +84,10 @@ function fileWatch() {
   watch(
     ['source/**/*.scss', 'images/*.svg'],
     { usePolling: true, interval: 1500 },
-    buildStyles
+    series(
+      lintStyles,
+      buildStyles
+    ),
   );
   watch(
     ['source/gesso-theme-config.yml'],
@@ -92,13 +99,16 @@ function fileWatch() {
     { usePolling: true, interval: 1500 },
     series(
       cleanPatternlab,
+      themeCompile,
       buildPatternlab
     ),
   );
 }
 
-const gessoBuildPatternlab = exports.gessoBuildPatternlab = series(cleanPatternlab, buildPatternlab);
-const gessoBuildStyles = exports.gessoBuildStyles = series( themeCompile, buildStyles);
+
+
+const gessoBuildPatternlab = exports.gessoBuildPatternlab = buildPatternlab;
+const gessoBuildStyles = exports.gessoBuildStyles = series(themeCompile, lintStyles, buildStyles);
 const gessoBuild = exports.gessoBuild = parallel(gessoBuildStyles, gessoBuildPatternlab);
 const gessoWatch = exports.gessoWatch = fileWatch;
 
@@ -106,10 +116,3 @@ exports.default = series(
   gessoBuild,
   gessoWatch
 );
-
-
-
-
-
-
-

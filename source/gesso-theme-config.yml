@@ -39,7 +39,7 @@ gesso:
       gray-5: '#323a45'
       black: '#212121'
   breakpoints:
-    xs: 0px
+    xs: 0
     sm: 700px
     md: 960px
     lg: 1280px
@@ -58,13 +58,13 @@ gesso:
       secondary: brand.blue.base
   typography:
     font-family:
-      base: 
+      base:
         name: Source Sans
-        stack: '"Source Sans Pro", serif' 
-      system: 
+        stack: '"Source Sans Pro", serif'
+      system:
         name: Apple System
         stack: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Oxygen-Sans", Ubuntu, Cantarell, "Fira Sans", Droid Sans, sans-serif'
-      monospace: 
+      monospace:
         name: Consolas
         stack: 'Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif'
     base-font-size: 16px
