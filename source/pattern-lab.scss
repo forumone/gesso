@@ -2,6 +2,7 @@
 // This stylesheet is not loaded by the theme.
 @import 'breakpoint';
 
+@import '_patterns/config';
 @import '_patterns/00-global/**/*';
 
 // The container for the 'view all' screen, which contains the list of patterns.
@@ -224,59 +225,105 @@
 }
 
 // Easing
-.pattern-lab__easing-wrapper {
-  background-color: #999;
+.pattern-lab-easing__wrapper {
+  background-color: #eee;
   padding: 1rem;
 }
 
-.pattern-lab__easing-indicator {
+.pattern-lab-easing__help-text {
+  margin-bottom: 1rem;
+}
+.pattern-lab-easing__indicator {
   background-color: #666;
   border-radius: 10%;
-  height: 100px;
+  height: 75px;
   left: 0;
+  margin-bottom: 0.5rem;
   position: relative;
-  transition: left 1ms ease-out;
-  width: 100px;
+  transition-duration: 1s;
+  transition-property: left;
+  width: 75px;
 }
 
-.pattern-lab__easing-group {
+.pattern-lab-easing__item {
+  margin-bottom: 1rem;
+}
+
+.pattern-lab-easing__group {
   padding: 0 150px 0 1rem;
 
   &:hover {
-    .pattern-lab__easing-indicator {
+    .pattern-lab-easing__indicator {
       left: 100%;
     }
   }
 }
 // Duration
-.pattern-lab__duration-wrapper {
-  background-color: #999;
-  padding: 1rem;
+.pattern-lab-duration__wrapper {
+  margin-bottom: 1rem;
 }
 
-.pattern-lab__duration-indicator {
+.pattern-lab-duration__help-text {
+  margin-bottom: 1rem;
+}
+.pattern-lab-duration__indicator {
   background-color: #666;
   border-radius: 50%;
   display: inline-block;
-  height: 50px;
+  height: 40px;
+  margin-bottom: 2rem;
   position: relative;
   transition: all 2s ease-out;
-  width: 50px;
+  width: 40px;
 }
 
-.pattern-lab__duration-item {
+.pattern-lab-duration__item {
   flex: 0 0 150px;
   padding: 1rem;
   text-align: center;
 }
 
-.pattern-lab__duration-group {
+.pattern-lab-duration__group {
+  background-color: #eee;
   display: flex;
   flex-wrap: wrap;
+  padding: 1rem;
 
   &:hover {
-    .pattern-lab__duration-indicator {
-      transform: scale(2);
+    .pattern-lab-duration__indicator {
+      transform: scale(1.5);
     }
   }
+}
+
+$swatch-size: rem(150px);
+$swatch-padding: 1rem;
+
+.pattern-lab-color-swatch {
+  border: 1px solid #c1c1c1;
+  flex: 0 0 ($swatch-size + 2 * $swatch-padding);
+  margin: 0 $swatch-padding/2 $swatch-padding;
+  max-width: ($swatch-size + 2 * $swatch-padding);
+  padding: $swatch-padding;
+}
+
+.pattern-lab__color-group {
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $swatch-padding;
+}
+
+.pattern-lab-color-swatch__indicator {
+  height: $swatch-size;
+  margin-bottom: $swatch-padding;
+  width: $swatch-size;
+}
+
+.pattern-lab__text-style {
+  margin-bottom: 3rem;
+}
+
+.pattern-lab-text-style__label {
+  text-transform: uppercase;
 }
