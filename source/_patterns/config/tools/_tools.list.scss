@@ -6,8 +6,11 @@
   margin: 0;
   padding: 0;
 
-  li::before {
-    display: none;
+  li {
+    padding-left: 0;
+    &::before {
+      display: none;
+    }
   }
 }
 
@@ -16,7 +19,11 @@
   margin-left: 0;
   padding-left: 0;
 
-  > li  {
+  li {
+    padding-left: 0;
+  }
+
+  > li {
     display: inline;
   }
 }
@@ -27,11 +34,12 @@
   margin-left: 0;
   padding-left: 0;
 
-  > li  {
+  > li {
     border-right: 1px solid $pipeline-border-color; // LTR
     display: block;
     float: left; // LTR
     margin-right: 0.75em; // LTR
+    padding-left: 0;
     padding-right: 0.75em; // LTR
 
     @if $support-for-rtl {
@@ -67,10 +75,14 @@
   }
 }
 
-@mixin list-border($list-border-padding: .25rem) {
+@mixin list-border($list-border-padding: 0.25rem) {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
+
+  li {
+    padding-left: 0;
+  }
 
   > li {
     border-bottom: 1px solid #ccc;
@@ -78,7 +90,11 @@
   }
 }
 
-@mixin list-column ($list-column-count: 2, $list-column-gap: 2em, $list-item-padding: 0.25em) {
+@mixin list-column(
+  $list-column-count: 2,
+  $list-column-gap: 2em,
+  $list-item-padding: 0.25em
+) {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
@@ -88,7 +104,11 @@
     column-gap: $list-column-gap;
   }
 
-  > li  {
+  li {
+    padding-left: 0;
+  }
+
+  > li {
     break-inside: avoid-column;
     display: table; // break-inside alternative for Firefox
     margin-bottom: 0;
