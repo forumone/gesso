@@ -3,7 +3,7 @@
 
 body {
   background-color: gesso-color(background, primary);
-  color: $color-text-primary;
+  color: gesso-color(text, primary);
   margin: 0;
   padding: 0;
   word-wrap: break-word;

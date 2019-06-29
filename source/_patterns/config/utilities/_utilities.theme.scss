@@ -51,7 +51,7 @@
 
 // Get Font Family
 @function gesso-font-family($keys...) {
-  @return gesso-get-map(typography, font-family, $keys...);
+  @return unquote(gesso-get-map(typography, font-family, $keys...));
 }
 
 // Get Base Font Size
@@ -82,4 +82,12 @@
 // Get spacing
 @function gesso-spacing($keys...) {
   @return gesso-get-map(spacing, $keys...);
+}
+
+@function gesso-duration($keys...) {
+  @return gesso-get-map(transitions, duration, $keys...);
+}
+
+@function gesso-easing($keys...) {
+  @return unquote(gesso-get-map(transitions, ease, $keys...));
 }

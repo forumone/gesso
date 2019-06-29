@@ -7,6 +7,7 @@ a {
   // Improves readability when focused.
   outline-offset: em(2px);
   -webkit-text-decoration-skip: objects;
+  transition: color gesso-duration(short) gesso-easing(easeIn);
 
   &:active,
   &:hover {
@@ -16,6 +17,14 @@ a {
   &:hover,
   &:focus {
     color: gesso-color(text, link-hover);
+  }
+
+  &:active {
+    color: gesso-color(text, link-hover);
+  }
+
+  &:visited {
+    color: gesso-color(text, link-visited);
   }
 
   @media print {
@@ -65,42 +74,54 @@ abbr {
   }
 }
 
-b {}
+b {
+}
 
-cite {}
+cite {
+}
 
-code {}
+code {
+}
 
-del {}
+del {
+}
 
 dfn {
   font-style: italic;
 }
 
-em {}
+em {
+}
 
-i {}
+i {
+}
 
-ins {}
+ins {
+}
 
-kbd {}
+kbd {
+}
 
 mark {
   background: #ff0;
   color: #000;
 }
 
-q {}
+q {
+}
 
-s {}
+s {
+}
 
-samp {}
+samp {
+}
 
 small {
   font-size: em($font-size-sm);
 }
 
-strong {}
+strong {
+}
 
 sub {
   bottom: -0.25em;
@@ -110,8 +131,11 @@ sup {
   top: -0.5em;
 }
 
-time {}
+time {
+}
 
-u {}
+u {
+}
 
-var {}
+var {
+}

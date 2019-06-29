@@ -2,15 +2,37 @@
 // Blockquote styles.
 
 blockquote {
-  margin: 0 1.5em rem($vertical-spacing);
+  @include display-text-style(blockquote);
+  margin: 0 0 rem(gesso-spacing(lg));
 
-  cite {
-    display: block;
-    margin-top: 0.5em;
+  p {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
 
     &::before {
-      content: '\2013';
-      margin-right: 0.5em;
+      content: '\201C';
+    }
+
+    &::after {
+      content: '\201D';
+    }
+  }
+
+  cite {
+    @include display-text-style(cite);
+    display: block;
+    margin-top: rem(gesso-spacing(sm));
+    text-align: right;
+
+    em {
+      border-left: 1px solid gesso-grayscale(gray-2);
+      font-weight: gesso-font-weight(regular);
+      margin-left: gesso-spacing(xxsm);
+      padding-left: gesso-spacing(xsm);
     }
   }
 

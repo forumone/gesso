@@ -4,9 +4,8 @@
 // Inspiration: http://necolas.github.com/normalize.css
 // version 3.0.2
 
-
 $color-selection-background: gesso-palette(blue, base);
-$color-selection-foreground: gesso-palette(blue, base);
+$color-selection-foreground: gesso-grayscale(white);
 
 article,
 aside,
@@ -36,7 +35,7 @@ code,
 kbd,
 pre,
 samp {
-  $font-family: $monospace-font-family;
+  font-family: gesso-font-family(monospace, stack);
   font-size: 1em;
 }
 

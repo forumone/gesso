@@ -2,7 +2,7 @@ gesso:
   palette:
     brand:
       blue:
-        base: '#0071bc'
+        base: '#0071BC'
         light: '#4773aa'
         light-1: '#8ba6ca'
         light-2: '#dce4ef'
@@ -38,15 +38,22 @@ gesso:
       gray-4: '#5b616b'
       gray-5: '#323a45'
       black: '#212121'
+  box-shadow:
+    0: none
+    1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+    2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+    3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)
+    4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+    5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22)
   breakpoints:
     xs: 0
-    sm: 700px
+    sm: 704px
     md: 960px
     lg: 1280px
   colors:
     text:
       primary: grayscale.black
-      secondary: grayscale.gray-5
+      secondary: grayscale.gray-4
       accent: brand.ocean-blue.base
       on-light: grayscale.black
       on-dark: grayscale.white
@@ -59,7 +66,7 @@ gesso:
   typography:
     font-family:
       base:
-        name: Source Sans
+        name: Source Sans Pro
         stack: '"Source Sans Pro", serif'
       system:
         name: Apple System
@@ -71,12 +78,14 @@ gesso:
     font-size:
       0: 12px
       1: 16px
-      2: 24px
-      3: 32px
-      4: 40px
-      5: 48px
-      6: 56px
-      7: 72px
+      2: 20px
+      3: 24px
+      4: 32px
+      5: 40px
+      6: 48px
+      7: 56px
+      8: 64px
+      9: 72px
     font-weight:
       light: 300
       regular: 400
@@ -87,39 +96,79 @@ gesso:
       base: 1.25
       wide: 1.7
     display:
-      h1:
-        font-family: system.stack
+      display:
+        font-family: base.stack
         font-weight: bold
-        font-size: 5
+        font-size: 8
+        line-height: tight
+        letter-spacing: -0.04em
+        color: text.primary
+      h1:
+        font-family: base.stack
+        font-weight: bold
+        font-size: 6
         line-height: tight
         letter-spacing: -0.04em
         color: text.primary
       h2:
         font-family: base.stack
         font-weight: bold
-        font-size: 4
+        font-size: 5
         line-height: tight
         letter-spacing: -0.04em
         color: text.primary
       h3:
         font-family: base.stack
         font-weight: bold
-        font-size: 3
+        font-size: 4
         line-height: tight
         color: text.primary
+      h4:
+        font-family: base.stack
+        font-weight: bold
+        font-size: 3
+        line-height: base
+        color: text.primary
+      h5:
+        font-family: base.stack
+        font-weight: bold
+        font-size: 1
+        line-height: base
+        color: text.primary
+      h6:
+        font-family: base.stack
+        font-weight: semibold
+        font-size: 0
+        line-height: wide
+        text-transform: uppercase
+        letter-spacing: -0.04em
+        color: text.primary
+      blockquote:
+        font-family: base.stack
+        font-weight: regular
+        font-size: 3
+        line-height: base
+        color: text.link
       body:
         font-family: base.stack
-        font-weight: light
+        font-weight: regular
         font-size: 1
-        line-height: tight
+        line-height: base
         color: text.primary
       body-large:
         font-family: base.stack
-        font-weight: light
+        font-weight: regular
         font-size: 2
-        line-height: tight
-        letter-spacing: -0.04em
+        line-height: base
         color: text.primary
+      cite:
+        color: text.secondary
+        font-family: base.stack
+        font-weight: semibold
+        font-size: 0
+        font-style: normal
+        letter-spacing: .02em
+        line-height: tight
   transitions:
     ease:
       easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)'
@@ -127,12 +176,12 @@ gesso:
       easeIn: 'cubic-bezier(0.4, 0, 1, 1)'
       sharp: 'cubic-bezier(0.4, 0, 0.6, 1)'
     duration:
-      shortest: 150
-      short: 200
-      standard: 375
-      long: 400
-      intro: 270
-      outro: 195
+      shortest: 150ms
+      short: 200ms
+      standard: 375ms
+      long: 400ms
+      intro: 270ms
+      outro: 195ms
   z-index:
     nav: 1000
     drawer: 1200

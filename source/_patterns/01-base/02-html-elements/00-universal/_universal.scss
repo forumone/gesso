@@ -1,12 +1,6 @@
 // @file
 // Universal styles.
 
-* {
-  transition-duration: 0.2s;
-  transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
-  transition-timing-function: linear;
-}
-
 *,
 *::before,
 *::after {
@@ -17,7 +11,7 @@
   * {
     background-color: transparent !important;
     box-shadow: none !important;
-    color: #000 !important;
+    color: gesso-grayscale(black) !important;
     text-shadow: none !important;
   }
 

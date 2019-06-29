@@ -2,7 +2,6 @@
 // Heading styles.
 
 %hN {
-  @extend %header-font-family;
   color: inherit;
   font-weight: 700;
   hyphens: none;
@@ -29,46 +28,66 @@
 h1,
 %h1 {
   @extend %hN;
-  // font-size: em($font-size-h1);
-  // margin-bottom: 0.5em;
   @include display-text-style(h1);
+
+  @include breakpoint(max-width gesso-breakpoint(sm)) {
+    font-size: rem(gesso-font-size(4));
+  }
 }
 
 h2,
 %h2 {
   @extend %hN;
   @include display-text-style(h2);
-  // font-size: em($font-size-h2);
+
+  @include breakpoint(max-width gesso-breakpoint(sm)) {
+    font-size: rem(gesso-font-size(3));
+  }
 }
 
 h3,
 %h3 {
   @extend %hN;
-  font-size: em($font-size-h3);
+  @include display-text-style(h3);
+
+  @include breakpoint(max-width gesso-breakpoint(sm)) {
+    font-size: rem(gesso-font-size(2));
+  }
 }
 
 h4,
 %h4 {
   @extend %hN;
-  font-size: em($font-size-h4);
+  @include display-text-style(h4);
+
+  @include breakpoint(max-width gesso-breakpoint(sm)) {
+    font-size: rem(gesso-font-size(1));
+  }
 }
 
 h5,
 %h5 {
   @extend %hN;
-  font-size: em($font-size-h5);
+  @include display-text-style(h5);
 }
 
 h6,
 %h6 {
   @extend %hN;
-  font-size: em($font-size-h6);
-  font-weight: 400;
-  text-transform: uppercase;
+  @include display-text-style(h6);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   // Remove top margin for adjacent subheadings.
+  a {
+    text-decoration: none;
+  }
+
   & + & {
     margin-top: 0;
   }
