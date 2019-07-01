@@ -6,34 +6,26 @@ items:
     original_link:
       options:
         attributes:
-          Attribute():
-            class:
-              -
+          class: ''
     in_active_trail: false
   - title: 'Main Link 2'
     url: '#'
     original_link:
       options:
         attributes:
-          Attribute():
-            class:
-              -
+          class: ''
     in_active_trail: false
   - title: 'Main Link 3'
     url: '#'
     original_link:
       options:
         attributes:
-          Attribute():
-            class:
-              -
+          class: ''
     in_active_trail: false
   - title: 'Main Link 4'
     url: '#'
     original_link:
       options:
         attributes:
-          Attribute():
-            class:
-              -
+          class: ''
     in_active_trail: false

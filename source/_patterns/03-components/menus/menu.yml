@@ -6,16 +6,12 @@ items:
     original_link:
       options:
         attributes:
-          Attribute():
-            class:
-              -
+          class: ''
     in_active_trail: false
   - title: 'Link 2'
     url: '#'
     original_link:
       options:
         attributes:
-          Attribute():
-            class:
-              -
+          class: ''
     in_active_trail: false
