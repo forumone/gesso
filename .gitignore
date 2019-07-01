@@ -4,7 +4,6 @@ node_modules
 pattern-lab/
 source/_data/data.yml
 source/_patterns/config/_gesso-theme.scss
-source/sass-globbing/
 css/*.css
 css/*.map
 dependencyGraph.json
