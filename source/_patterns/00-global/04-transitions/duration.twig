@@ -5,11 +5,11 @@
   <div class="pattern-lab-duration__group">
     {% for label, duration in gesso.transitions.duration %}
       <div class="pattern-lab-duration__item">
-        {% set duration_style = 'transition-duration: '~ duration ~'ms;' %}
+        {% set duration_style = 'transition-duration: '~ duration ~';' %}
         <div class="pattern-lab-duration__indicator" style="{{duration_style}}"></div>
         <div class="pattern-lab-duration__label">
           <div class="pattern-lab-duration__name">{{label}}</div>
-          <div class="pattern-lab-duration__duration">{{duration}}ms</div>
+          <div class="pattern-lab-duration__duration">{{duration}}</div>
         </div>
       </div>
     {% endfor %}

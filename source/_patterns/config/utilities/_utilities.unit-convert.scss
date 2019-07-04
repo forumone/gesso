@@ -5,15 +5,12 @@
 @function convert($value, $unit: px) {
   @if unitless($value) {
     @if $unit == px {
-      // stylelint-disable-next-line length-zero-no-unit
-      @return $value + 0px;
+      @return $value * 1px;
     }
     @if $unit == em {
-      // stylelint-disable-next-line length-zero-no-unit
-      @return $value + 0em;
+      @return $value * 1em;
     }
   } @else {
     @return $value;
   }
 }
-/* prettier-ignore-end */
