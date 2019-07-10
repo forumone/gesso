@@ -2,12 +2,12 @@
 // Styles for Drupal messages.
 
 .message {
-  background-color: #ecf6fa;
-  background-position: em(10px) em(10px); // LTR
+  background-color: gesso-grayscale(gray-1);
+  background-position: rem(gesso-spacing(xsm)); // LTR
   background-repeat: no-repeat;
   background-size: em(40px);
-  border: 1px solid #bcdeee;
-  color: #424242;
+  border: 1px solid gs;
+  color: gesso-color(text, primary);
   margin-bottom: rem($vertical-spacing);
   overflow: hidden;
   padding: 1em;
@@ -17,18 +17,18 @@
   &::before {
     background-repeat: no-repeat;
     background-size: em(52px);
-    bottom: -.5em;
+    bottom: -0.5em;
     content: '';
     display: block;
     height: em(52px);
     position: absolute;
-    right: -.5em;
+    right: -0.5em;
     transform: rotate(-20deg);
     width: em(52px);
   }
 
   a {
-    color: #bcdeee;
+    color: gesso-color(text, secondary);
     font-weight: 600;
     text-decoration: underline;
   }
@@ -45,28 +45,20 @@
 }
 
 .message--status {
-  background-color: #eff8e6;
-  border-color: #c9e8a9;
+  background-color: gesso-palette(green, light-2);
+  border-color: gesso-palette(green, light-1);
 
   &::before {
     @include svg-background(messages-status);
   }
-
-  a {
-    color: #71b02f;
-  }
 }
 
 .message--error {
-  background-color: #ffe6e5;
-  border-color: #ffc5c2;
+  background-color: gesso-palette(red, light-1);
+  border-color: gesso-palette(red, light);
 
   &::before {
     @include svg-background(messages-error);
-  }
-
-  a {
-    color: #ff645c;
   }
 
   .message__item {
@@ -78,14 +70,10 @@
 }
 
 .message--warning {
-  background-color: #fcf8e3;
-  border-color: #faf2cc;
+  background-color: gesso-palette(gold, light-2);
+  border-color: gesso-palette(gold, light-1);
 
   &::before {
     @include svg-background(messages-warning);
-  }
-
-  a {
-    color: #8a6d3b;
   }
 }

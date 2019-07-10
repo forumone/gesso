@@ -3,22 +3,20 @@
 
 $bp-ellipsis: 800px;
 $bp-pager: 600px;
-$pager-bg-color: #f1f1f1;
-$pager-bg-color-active: #d6d7d9;
-
-.pager {}
+$pager-bg-color: gesso-palette(blue, base);
+$pager-bg-color-hover: gesso-palette(blue, light);
+$pager-bg-color-active: gesso-palette(blue, dark);
 
 .pager__items {
   @include list-clean();
   clear: both;
-  margin: em($vertical-spacing * 2) 0;
+  margin: em(gesso-spacing(md)) 0;
   padding: 0;
   text-align: center;
 }
 
 .pager__item {
   display: inline-block;
-  font-weight: bold;
   line-height: 1;
   margin: 0;
   padding: 0;
@@ -35,10 +33,16 @@ $pager-bg-color-active: #d6d7d9;
 }
 
 %pager__link {
-  background-color: $pager-bg-color;
-  color: #212121;
-  min-width: rem(44px);
-  padding: em(13px);
+  background-color: transparent;
+  color: gesso-color(text, primary);
+  min-width: rem(gesso-spacing(lg));
+  padding: em(gesso-spacing(xsm));
+  transition: color gesso-duration(short) gesso-easing(easeOut),
+    background-color gesso-duration(standard) gesso-easing(easeOut);
+
+  &:focus {
+    outline: gesso-color(text, secondary) dotted 1px;
+  }
 }
 
 .pager__item--ellipsis {
@@ -50,9 +54,10 @@ $pager-bg-color-active: #d6d7d9;
   }
 }
 
-.pager__item--current {
+.pager__item--current.pager__item {
   @extend %pager__link;
-  background-color: $pager-bg-color-active;
+  background-color: $pager-bg-color;
+  color: gesso-grayscale(white);
 }
 
 .pager__link {
@@ -60,9 +65,71 @@ $pager-bg-color-active: #d6d7d9;
   display: inline-block;
   text-decoration: none;
 
+  &:visited {
+    color: gesso-color(text, primary);
+  }
+
   &:focus,
   &:hover {
+    background-color: $pager-bg-color-hover;
+    color: gesso-grayscale(white);
+  }
+
+  &:active {
     background-color: $pager-bg-color-active;
-    color: inherit;
+  }
+}
+
+.pager__link--previous,
+.pager__link--next {
+  background-color: transparent;
+  color: gesso-color(text, primary);
+  position: relative;
+
+  &:focus,
+  &:hover {
+    background-color: transparent;
+
+    .pager__link-icon g {
+      fill: gesso-palette(blue, base);
+    }
+  }
+
+  &:visited {
+    color: gesso-color(text, primary);
+  }
+}
+
+.pager__item--previous {
+  margin-right: gesso-spacing(lg);
+
+  .pager__link {
+    padding-left: rem(32px);
+  }
+}
+
+.pager__item--next {
+  margin-left: gesso-spacing(lg);
+
+  .pager__link {
+    padding-right: rem(32px);
+  }
+}
+
+.pager__link-icon {
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-48%);
+  width: 24px;
+
+  g {
+    fill: gesso-grayscale(gray-4);
+  }
+
+  .pager__item--next & {
+    left: auto;
+    right: 0;
+    transform: translateY(-48%) rotate(180deg);
   }
 }
