@@ -91,3 +91,7 @@
 @function gesso-easing($keys...) {
   @return unquote(gesso-get-map(transitions, ease, $keys...));
 }
+
+@function gesso-box-shadow($keys...) {
+  @return unquote(gesso-get-map(box-shadow, $keys...));
+}

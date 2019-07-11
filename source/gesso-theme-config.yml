@@ -63,6 +63,8 @@ gesso:
     background:
       primary: grayscale.white
       secondary: brand.blue.base
+    border:
+      ui: grayscale.gray-4
   typography:
     font-family:
       base:
@@ -93,7 +95,7 @@ gesso:
       bold: 700
     line-height:
       tight: 1.1
-      base: 1.25
+      base: 1.45
       wide: 1.7
     display:
       display:
@@ -108,14 +110,13 @@ gesso:
         font-weight: bold
         font-size: 6
         line-height: tight
-        letter-spacing: -0.04em
+        letter-spacing: -0.02em
         color: text.primary
       h2:
         font-family: base.stack
         font-weight: bold
         font-size: 5
         line-height: tight
-        letter-spacing: -0.04em
         color: text.primary
       h3:
         font-family: base.stack

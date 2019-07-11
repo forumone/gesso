@@ -3,7 +3,12 @@
 
 .breadcrumb {
   @include clearfix();
+  background-color: rgba(gesso-palette(blue, dark-1), 0.85);
+  color: gesso-grayscale(white);
+  font-size: gesso-font-size(0);
   margin: rem($vertical-spacing) 0;
+  min-height: rem(gesso-spacing(lg));
+  padding-top: rem(gesso-spacing(sm));
 }
 
 .breadcrumb__title {
@@ -15,12 +20,12 @@
 }
 
 .breadcrumb__item {
-  font-size: $font-size-sm;
-  margin-right: 0.25em;
+  margin-right: 0.75em;
 
   &::after {
+    color: gesso-palette(blue, light);
     content: '/';
-    margin-left: 0.25em;
+    margin-left: 0.75em;
   }
 
   &:last-child::after {
@@ -30,5 +35,6 @@
 }
 
 .breadcrumb__link {
+  color: gesso-grayscale(gray-3);
   text-decoration: none;
 }

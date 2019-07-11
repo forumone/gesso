@@ -10,11 +10,14 @@
   {% endblock %}
 
   {% if has_footer %}
-    <footer>
+    <footer class="article__footer">
       {% block footer %}
         {% include '@components/date/date.twig' with {
           'format': 'medium-date'
         } %}
+        <span class="article__footer-separator">
+          /
+        </span>
         {% include '@components/author/author.twig' with {
           'author': 'Author Name'
         } %}
