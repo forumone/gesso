@@ -54,7 +54,7 @@ gesso:
     text:
       primary: grayscale.black
       secondary: grayscale.gray-4
-      accent: brand.ocean-blue.base
+      accent: brand.ocean-blue.dark
       on-light: grayscale.black
       on-dark: grayscale.white
       link: brand.blue.base
@@ -65,6 +65,7 @@ gesso:
       secondary: brand.blue.base
     border:
       ui: grayscale.gray-4
+      tag: brand.ocean-blue.base
   typography:
     font-family:
       base:

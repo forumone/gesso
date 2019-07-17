@@ -1,0 +1,21 @@
+{% macro readmore(url, title, label = "Read more", description_prefix = "about" ) %}
+  <a href="{{url}}" class="readmore-link">
+    {{label}}
+    <span class="visually-hidden">
+      {{description_prefix}}
+      {{title}}
+    </span>
+  </a>
+{% endmacro %}
+
+
+{% macro tag(url, title, type = "full", size = "normal" ) %}
+  {% set classes = [
+    'tag-link',
+    'tag-link--' ~ type,
+    'tag-link--' ~ size
+  ] %}
+  <a href="{{url}}" class="{{ classes|join(' ')}}" rel="tag">
+    {{title}}
+  </a>
+{% endmacro %}

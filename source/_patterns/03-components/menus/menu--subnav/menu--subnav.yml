@@ -6,14 +6,18 @@ items:
     original_link:
       options:
         attributes:
-          class: ''
+          Attribute():
+            class:
+              -
     in_active_trail: false
   - title: 'Menu item two'
     url: '#'
     original_link:
       options:
         attributes:
-          class: ''
+          Attribute():
+            class:
+              -
     in_active_trail: false
     below:
       - title: 'Submenu item one'
@@ -21,19 +25,25 @@ items:
         original_link:
           options:
             attributes:
-              class: ''
+              Attribute():
+                class:
+                  -
         in_active_trail: false
       - title: 'Submenu item two'
         url: '#'
         original_link:
           options:
             attributes:
-              class: ''
+              Attribute():
+                class:
+                  -
         in_active_trail: false
       - title: 'Submenu item three'
         url: '#'
         original_link:
           options:
             attributes:
-              class: ''
+              Attribute():
+                class:
+                  -
         in_active_trail: false

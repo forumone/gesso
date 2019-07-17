@@ -2,9 +2,9 @@
 // Horizontal rule styles.
 
 hr {
-  border: 1px solid $color-text-secondary;
+  border: 1px solid gesso-grayscale(gray-2);
   box-sizing: content-box;
   height: 0;
-  margin: rem($vertical-spacing) 0;
+  margin: rem(gesso-spacing(md)) 0;
   padding-bottom: -1px;
 }

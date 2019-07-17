@@ -99,11 +99,6 @@
   margin-left: 0;
   padding-left: 0;
 
-  @include breakpoint(500px) {
-    column-count: $list-column-count;
-    column-gap: $list-column-gap;
-  }
-
   li {
     padding-left: 0;
   }
@@ -113,5 +108,10 @@
     display: table; // break-inside alternative for Firefox
     margin-bottom: 0;
     padding-bottom: $list-item-padding; // use padding instead of margin for Safari bug with CSS columns
+  }
+
+  @include breakpoint(500px) {
+    column-count: $list-column-count;
+    column-gap: $list-column-gap;
   }
 }

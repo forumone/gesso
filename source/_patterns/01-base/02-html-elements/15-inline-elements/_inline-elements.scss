@@ -9,24 +9,6 @@ a {
   -webkit-text-decoration-skip: objects;
   transition: color gesso-duration(short) gesso-easing(easeIn);
 
-  &:active,
-  &:hover {
-    outline: 0;
-  }
-
-  &:hover,
-  &:focus {
-    color: gesso-color(text, link-hover);
-  }
-
-  &:active {
-    color: gesso-color(text, link-hover);
-  }
-
-  &:visited {
-    color: gesso-color(text, link-visited);
-  }
-
   @media print {
     &,
     &:visited {
@@ -54,9 +36,33 @@ a {
       content: '';
     }
   }
+
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: gesso-color(text, link-hover);
+  }
+
+  &:active {
+    color: gesso-color(text, link-hover);
+  }
+
+  &:visited {
+    color: gesso-color(text, link-visited);
+  }
 }
 
 abbr {
+
+  @media print {
+    &[title]::after {
+      content: ' (' attr(title) ')';
+    }
+  }
   &[title] {
     border-bottom: 0;
     text-decoration: underline;
@@ -65,12 +71,6 @@ abbr {
 
   &:hover {
     cursor: help;
-  }
-
-  @media print {
-    &[title]::after {
-      content: ' (' attr(title) ')';
-    }
   }
 }
 
@@ -103,8 +103,8 @@ kbd {
 }
 
 mark {
-  background: #ff0;
-  color: #000;
+  background: gesso-palette(gold, base);
+  color: gesso-grayscale(black);
 }
 
 q {
@@ -117,7 +117,7 @@ samp {
 }
 
 small {
-  font-size: em($font-size-sm);
+  font-size: 75%;
 }
 
 strong {

@@ -74,19 +74,19 @@ $menu-mobile-submenu-hover-color: #000 !default;
     vertical-align: top;
     z-index: 2;
 
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        left: 0;
+        right: auto;
+      }
+    }
+
     &:focus {
       outline: thin dotted;
     }
 
     &.is-active {
       @include svg-background-inline(mobile-arrow-up);
-    }
-
-    @if $support-for-rtl {
-      [dir='rtl'] & {
-        left: 0;
-        right: auto;
-      }
     }
   }
 
@@ -96,7 +96,8 @@ $menu-mobile-submenu-hover-color: #000 !default;
     margin: 0;
     padding: 0;
 
-    .menu__item {}
+    .menu__item {
+    }
 
     .menu__link {
       color: $menu-mobile-submenu-text-color;
