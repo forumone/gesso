@@ -10,7 +10,7 @@ git config user.name "$GIT_USER"
 git config user.email "$GIT_EMAIL"
 
 # Add the remote for the drupal.org repository mirror.
-git remote add drupal 'git@git.drupal.org:project/gesso.git'
+git config remote.drupal.url 'git@git.drupal.org:project/gesso.git'
 
 # Push the latest updates to a branch of the same name.
 # Temporary: Add the dry-run flag to prevent actually pushing changes.
