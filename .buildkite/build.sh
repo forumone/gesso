@@ -5,10 +5,6 @@ set -exuo pipefail
 # Ensure a host verification prompt doesn't prevent the connection.
 ssh-keyscan git.drupal.org >> ~/.ssh/known_hosts
 
-# Assign the expected committer details.
-git config user.name "$GIT_USER"
-git config user.email "$GIT_EMAIL"
-
 # Add the remote for the drupal.org repository mirror.
 git config remote.drupal.url 'git@git.drupal.org:project/gesso.git'
 
