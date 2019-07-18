@@ -1,9 +1,4 @@
-.tags-list {
-  @include list-clean();
-  @include list-inline();
-}
-
-.tag-link {
+.tag {
   @include link(
     gesso-palette(ocean-blue, dark),
     gesso-palette(ocean-blue, dark),

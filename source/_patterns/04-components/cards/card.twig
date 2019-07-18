@@ -11,9 +11,9 @@
       <h3 class="card__title">
         {% if url %}
           <a href="{{ url }}">
-          {% endif %}
-          {{ title }}
-          {% if url %}
+        {% endif %}
+        {{ title }}
+        {% if url %}
           </a>
         {% endif %}
       </h3>
@@ -26,7 +26,7 @@
         <div class="card__footer">
           {{ footer }}
           <div class="card__tags">
-            {% include "@components/tags/tags.twig" with {
+            {% include "@components/tag-list/tag-list.twig" with {
               items: tags
             } %}
           </div>
@@ -43,9 +43,9 @@
     <div class="card__media">
       {% if url %}
         <a href="{{ url }}">
-        {% endif %}
-        {{ media }}
-        {% if url %}
+      {% endif %}
+      {{ media }}
+      {% if url %}
         </a>
       {% endif %}
     </div>

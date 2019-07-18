@@ -58,16 +58,16 @@ regions:
 component-libraries:
   base:
     paths:
-      - source/_patterns/01-base
+      - source/_patterns/02-base
   layouts:
     paths:
-      - source/_patterns/02-layouts
+      - source/_patterns/03-layouts
   components:
     paths:
-      - source/_patterns/03-components
+      - source/_patterns/04-components
   templates:
     paths:
-      - source/_patterns/04-templates
-  pages:
+      - source/_patterns/05-templates
+  macros:
     paths:
-      - source/_patterns/05-pages
+      - source/_macros

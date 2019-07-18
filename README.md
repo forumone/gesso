@@ -97,7 +97,7 @@ To access the Pattern Lab instance, append `/pattern-lab/public/index.html` to y
 
 
 ### Design Tokens
-Gesso uses a configuration file 'gesso/source/gesso-theme-config.yml' to manage a theme's design tokens and automatically generate the global sass map for styling and the pattern-lab patterns to represent a themes design tokens. The default gulp on watch commands with monitor changes in the config and rebuild the neccessary assets. To rebuild the theme manually run `gulp gessoReTheme`
+Gesso uses a configuration file 'gesso/source/_patterns/00-config/gesso-theme-config.yml' to manage a theme's design tokens and automatically generate the global sass map for styling and the pattern-lab patterns to represent a themes design tokens. The default gulp on watch commands with monitor changes in the config and rebuild the neccessary assets. To rebuild the theme manually run `gulp gessoReTheme`
 
 
 ### Creating New Components
