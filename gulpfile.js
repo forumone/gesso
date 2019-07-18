@@ -6,7 +6,6 @@ const sourcemaps = require('gulp-sourcemaps');
 const sassGlob = require('gulp-sass-glob');
 const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
-const del = require('del');
 const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
 const yaml = require('yaml');
@@ -77,10 +76,6 @@ function buildStyles() {
     .pipe(dest('css'));
 }
 
-function cleanPatternlab() {
-  return del(['pattern-lab/public']);
-}
-
 function buildPatternlab() {
   return patternlab.build({ cleanPublic: true, watch: false });
 }
@@ -102,14 +97,14 @@ function fileWatch() {
       themeCompile,
       parallel(
         series(lintStyles, buildStyles),
-        series(cleanPatternlab, buildPatternlab),
+        buildPatternlab,
       ),
     ),
   );
   watch(
     ['source/**/*.{twig,json,yaml,yml}', '!source/gesso-theme-config.yml'],
     { usePolling: true, interval: 1500 },
-    series(cleanPatternlab, buildPatternlab),
+    buildPatternlab,
   );
 }
 
