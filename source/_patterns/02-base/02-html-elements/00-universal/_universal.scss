@@ -1,6 +1,13 @@
 // @file
 // Universal styles.
 
+// Uncomment to add a set of default transitions to all elements
+// * {
+//   transition-duration: 0.2s;
+//   transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+//   transition-timing-function: linear;
+// }
+
 *,
 *::before,
 *::after {

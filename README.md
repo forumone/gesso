@@ -97,7 +97,7 @@ To access the Pattern Lab instance, append `/pattern-lab/public/index.html` to y
 
 
 ### Design Tokens
-Gesso uses a configuration file 'gesso/source/_patterns/00-config/gesso-theme-config.yml' to manage a theme's design tokens and automatically generate the global sass map for styling and the pattern-lab patterns to represent a themes design tokens. The default gulp on watch commands with monitor changes in the config and rebuild the neccessary assets. To rebuild the theme manually run `gulp gessoReTheme`
+Gesso uses a configuration file 'source/_patterns/00-config/gesso-theme-config.yml' to manage the theme's design tokens and automatically generate the global sass map for styling and patterns to represent the theme's design tokens. The default gulp command will monitor changes in the config and rebuild all neccessary assets. To rebuild the theme assets a single time run `gulp gessoBuild`
 
 
 ### Creating New Components
@@ -106,14 +106,15 @@ Gesso includes a script to generate new component files. To use, run the
 following command in the theme folder.
 
 ```
-node component
+npm run component
 ```
 
 ### Build Artifacts
 
 By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/
-and /css/) are ignored by Git as these files are built during deployment.
-To change this, edit the included .gitignore file.
+and /css/*.css) as well as some configuration artifacts (e.g., data.yml and
+_gesso-theme-config.scss) are ignored by Git as these files are generated when
+the Gulp tasks run. To change this, edit the included .gitignore file.
 
 ### Sass/Gulp dependencies
 

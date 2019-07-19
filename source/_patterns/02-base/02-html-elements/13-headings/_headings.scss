@@ -80,11 +80,11 @@ h3,
 h4,
 h5,
 h6 {
-  // Remove top margin for adjacent subheadings.
   a {
     text-decoration: none;
   }
 
+  // Remove top margin for adjacent subheadings.
   & + & {
     margin-top: 0;
   }

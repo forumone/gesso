@@ -35,6 +35,6 @@
     "yaml": "1.6.0"
   },
   "scripts": {
-    "component": "node component.js"
+    "component": "node lib/component.js"
   }
 }
