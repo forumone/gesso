@@ -4,6 +4,10 @@ extends:
 
 rules:
   block-no-empty: null
+  color-named:
+    - never
+    - ignore:
+        - 'inside-function'
   max-nesting-depth: 3
   no-empty-first-line: true
   property-no-vendor-prefix: null
@@ -25,8 +29,6 @@ rules:
   scss/at-import-partial-extension-blacklist:
     - 'less'
     - 'sass'
-  scss/at-import-partial-extension-whitelist:
-    - 'scss'
   scss/at-mixin-pattern:
     # "piece" regex:
     # [a-zA-Z0-9]+

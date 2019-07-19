@@ -10,11 +10,13 @@ const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
 
 function lintStyles() {
-  return src('**/*.scss', { cwd: './source', since: lastRun(lintStyles) })
-    .pipe(stylelint({
+  return src('**/*.scss', { cwd: './source', since: lastRun(lintStyles) }).pipe(
+    stylelint({
+      configFile: '.stylelintrc.yml',
       failAfterError: true,
-      reporters: [{ formatter: 'string', console: true }]
-    }));
+      reporters: [{ formatter: 'string', console: true }],
+    }),
+  );
 }
 
 function buildStyles() {
