@@ -12,5 +12,4 @@ git config remote.drupal.url 'git@git.drupal.org:project/gesso.git'
 git fetch --depth=5 drupal
 
 # Push the latest updates to a branch of the same name.
-# Temporary: Add the dry-run flag to prevent actually pushing changes.
-git push --dry-run drupal origin/"$BUILDKITE_BRANCH":refs/remotes/drupal/"$BUILDKITE_BRANCH"
+git push drupal origin/"$BUILDKITE_BRANCH":refs/remotes/drupal/"$BUILDKITE_BRANCH"
