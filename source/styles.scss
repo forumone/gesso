@@ -3,7 +3,7 @@
 
 @import 'breakpoint';
 
-@import '_patterns/00-config';
+@import '_patterns/00-config/**/*.scss';
 @import '_patterns/01-global/**/*.scss';
 @import '_patterns/02-base/**/*.scss';
 @import '_patterns/03-layouts/**/*.scss';

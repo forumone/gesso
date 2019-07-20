@@ -2,8 +2,8 @@
 node_modules
 .sass-cache
 pattern-lab/
-source/_data/data.yml
-source/_patterns/00-config/_gesso-theme-config.scss
+source/_data/data.tempfile.yml
+source/_patterns/00-config/_config.tempfile.scss
 css/*.css
 css/*.map
 dependencyGraph.json
