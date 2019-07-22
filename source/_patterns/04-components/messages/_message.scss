@@ -14,10 +14,6 @@
   position: relative;
   word-wrap: break-word;
 
-  @media print {
-    background-image: none !important;
-  }
-
   &::before {
     background-repeat: no-repeat;
     background-size: em(52px);
@@ -35,6 +31,10 @@
     color: gesso-color(text, secondary);
     font-weight: 600;
     text-decoration: underline;
+  }
+
+  @media print {
+    background-image: none !important;
   }
 }
 

@@ -22,12 +22,12 @@ $tab-font-size: $font-size-md !default;
   display: flex;
   flex-direction: column;
 
-  @media print {
-    display: none;
-  }
-
   @include breakpoint($bp-small) {
     flex-direction: row;
+  }
+
+  @media print {
+    display: none;
   }
 }
 

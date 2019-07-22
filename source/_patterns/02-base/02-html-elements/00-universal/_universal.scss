@@ -15,13 +15,13 @@
 }
 
 @media print {
-  @page {
-    margin: 2cm;
-  }
   * {
     background-color: transparent !important;
     box-shadow: none !important;
     color: gesso-grayscale(black) !important;
     text-shadow: none !important;
+  }
+  @page {
+    margin: 2cm;
   }
 }

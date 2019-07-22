@@ -5,15 +5,15 @@ li {
   margin-bottom: rem(gesso-spacing(xsm));
   padding-left: rem(gesso-spacing(xsm));
 
-  @media print {
-    page-break-inside: avoid;
-  }
-
   &:last-child {
     margin-bottom: 0;
   }
 
   p:last-child {
     margin-bottom: 0;
+  }
+
+  @media print {
+    page-break-inside: avoid;
   }
 }

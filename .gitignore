@@ -2,8 +2,8 @@
 node_modules
 .sass-cache
 pattern-lab/
-source/_data/data.tempfile.yml
-source/_patterns/00-config/_config.tempfile.scss
+source/_data/data.design-tokens.yml
+source/_patterns/00-config/_config.design-tokens.scss
 css/*.css
 css/*.map
 dependencyGraph.json

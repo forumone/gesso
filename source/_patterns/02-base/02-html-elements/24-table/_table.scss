@@ -5,11 +5,9 @@ caption {
   margin-bottom: rem(gesso-spacing(xxsm));
 }
 
-col {
-}
+// col {}
 
-colgroup {
-}
+// colgroup {}
 
 table {
   border-collapse: collapse;
@@ -18,8 +16,7 @@ table {
   min-width: 100%;
 }
 
-tbody {
-}
+// tbody {}
 
 td {
   background-color: gesso-color(background, primary);
@@ -42,13 +39,13 @@ th {
 }
 
 thead {
-  @media print {
-    display: table-header-group;
-  }
-
   td,
   th {
     background-color: #f1f1f1;
+  }
+
+  @media print {
+    display: table-header-group;
   }
 }
 

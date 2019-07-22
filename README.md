@@ -112,8 +112,8 @@ npm run component
 ### Build Artifacts
 
 By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/
-and /css/*.css) as well as some configuration artifacts (e.g., data.tempfile.yml,
-_config.tempfile.scss) are ignored by Git as these files are generated when
+and /css/*.css) as well as some configuration artifacts (e.g., data.design-tokens.yml,
+_config.design-tokens.scss) are ignored by Git as these files are generated when
 the Gulp tasks run. To change this, edit the included .gitignore file.
 
 ### Sass/Gulp dependencies

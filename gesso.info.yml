@@ -20,7 +20,7 @@ libraries-override:
       misc/collapse.js: js/overrides/collapse.js
   core/modernizr:
     js:
-      assets/vendor/modernizr/modernizr.min.js: js/lib/modernizr.min.js
+      assets/vendor/modernizr/modernizr.min.js: js/libraries/modernizr.min.js
   system/base:
     css:
       component:
