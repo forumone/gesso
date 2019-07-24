@@ -37,11 +37,11 @@ async function buildConfig() {
 
   await Promise.all([
     writeFile(
-      path.join(ymlDir, 'data.design-tokens.yml'),
+      path.join(ymlDir, 'design-tokens.artifact.yml'),
       dataComment + os.EOL + yaml.stringify(transformed.data),
     ),
     writeFile(
-      path.join(scssDir, '_config.design-tokens.scss'),
+      path.join(scssDir, '_design-tokens.artifact.scss'),
       sassComment + os.EOL + renderSass(transformed.data)),
   ]);
 }
