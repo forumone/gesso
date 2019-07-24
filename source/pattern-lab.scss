@@ -26,6 +26,11 @@
   display: none;
 }
 
+// <html> tag class around content (e.g., _00-head.twig)
+.pattern-lab-content {
+  min-height: 0;
+}
+
 .sg-subtype {
   h2 {
     font-size: 24px;
