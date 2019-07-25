@@ -10,12 +10,10 @@
 
 
 {% macro tag(url, title, type = "full", size = "normal" ) %}
-  {% set classes = [
-    'tag-link',
-    'tag-link--' ~ type,
-    'tag-link--' ~ size
-  ] %}
-  <a href="{{url}}" class="{{ classes|join(' ')}}" rel="tag">
-    {{title}}
-  </a>
+  {% include '@components/tag/tag.twig' with {
+    'url': url,
+    'title': title,
+    'type': type,
+    'size': size
+  } %}
 {% endmacro %}

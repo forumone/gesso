@@ -141,42 +141,42 @@
           "id": "global",
           "recursive": true,
           "paths": [
-            "source/_patterns/00-global"
+            "source/_patterns/01-global"
           ]
         },
         {
           "id": "base",
           "recursive": true,
           "paths": [
-            "source/_patterns/01-base"
+            "source/_patterns/02-base"
           ]
         },
         {
           "id": "layouts",
           "recursive": true,
           "paths": [
-            "source/_patterns/02-layouts"
+            "source/_patterns/03-layouts"
           ]
         },
         {
           "id": "components",
           "recursive": true,
           "paths": [
-            "source/_patterns/03-components"
+            "source/_patterns/04-components"
           ]
         },
         {
           "id": "templates",
           "recursive": true,
           "paths": [
-            "source/_patterns/04-templates"
+            "source/_patterns/05-templates"
           ]
         },
         {
           "id": "pages",
           "recursive": true,
           "paths": [
-            "source/_patterns/05-pages"
+            "source/_patterns/06-pages"
           ]
         },
         {

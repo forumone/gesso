@@ -1,0 +1,56 @@
+// @file
+// Table styles.
+
+caption {
+  margin-bottom: rem(gesso-spacing(xxsm));
+}
+
+// col {}
+
+// colgroup {}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: rem(gesso-spacing(xsm));
+  min-width: 100%;
+}
+
+// tbody {}
+
+td {
+  background-color: gesso-color(background, primary);
+  border: 1px solid #5b616b;
+  padding: rem(15px);
+}
+
+tfoot {
+  td,
+  th {
+    background-color: #f1f1f1;
+  }
+}
+
+th {
+  background-color: #fff;
+  border: 1px solid #5b616b;
+  padding: rem(15px);
+  text-align: left;
+}
+
+thead {
+  td,
+  th {
+    background-color: #f1f1f1;
+  }
+
+  @media print {
+    display: table-header-group;
+  }
+}
+
+tr {
+  @media print {
+    page-break-inside: avoid;
+  }
+}

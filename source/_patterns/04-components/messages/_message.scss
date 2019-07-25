@@ -1,0 +1,79 @@
+// @file
+// Styles for Drupal messages.
+
+.message {
+  background-color: gesso-grayscale(gray-1);
+  background-position: rem(gesso-spacing(xsm)); // LTR
+  background-repeat: no-repeat;
+  background-size: em(40px);
+  border: 1px solid gs;
+  color: gesso-color(text, primary);
+  margin-bottom: rem($vertical-spacing);
+  overflow: hidden;
+  padding: 1em;
+  position: relative;
+  word-wrap: break-word;
+
+  &::before {
+    background-repeat: no-repeat;
+    background-size: em(52px);
+    bottom: -0.5em;
+    content: '';
+    display: block;
+    height: em(52px);
+    position: absolute;
+    right: -0.5em;
+    transform: rotate(-20deg);
+    width: em(52px);
+  }
+
+  a {
+    color: gesso-color(text, secondary);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  @media print {
+    background-image: none !important;
+  }
+}
+
+.message__content {
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.message--status {
+  background-color: gesso-palette(green, light-2);
+  border-color: gesso-palette(green, light-1);
+
+  &::before {
+    @include svg-background(messages-status);
+  }
+}
+
+.message--error {
+  background-color: gesso-palette(red, light-1);
+  border-color: gesso-palette(red, light);
+
+  &::before {
+    @include svg-background(messages-error);
+  }
+
+  .message__item {
+    em:first-child {
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+}
+
+.message--warning {
+  background-color: gesso-palette(gold, light-2);
+  border-color: gesso-palette(gold, light-1);
+
+  &::before {
+    @include svg-background(messages-warning);
+  }
+}

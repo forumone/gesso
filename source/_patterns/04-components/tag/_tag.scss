@@ -1,0 +1,26 @@
+.tag {
+  @include link(
+    gesso-palette(ocean-blue, dark),
+    gesso-palette(ocean-blue, dark),
+    gesso-palette(ocean-blue, dark-1)
+  );
+  border: 2px solid gesso-color(border, tag);
+  border-radius: 70px;
+  display: inline-block;
+  font-size: gesso-font-size(0);
+  margin: 0 rem(gesso-spacing(xxsm)) rem(gesso-spacing(xsm)) 0;
+  padding: 0.25em 1.65em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 2px gesso-color(border, tag);
+    outline: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

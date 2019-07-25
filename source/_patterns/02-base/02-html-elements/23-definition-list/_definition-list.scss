@@ -1,0 +1,12 @@
+// @file
+// Definition list styles.
+
+dd {
+  margin-bottom: rem(gesso-spacing(xsm));
+}
+
+dl {
+  margin: 0 0 rem(gesso-spacing(xsm));
+}
+
+// dt {}

@@ -9,32 +9,15 @@ rules:
     - ignore:
         - 'inside-function'
   order/order:
-    - - 'custom-properties'
-      - 'dollar-variables'
-      - type: 'at-rule'
-        name": 'extend'
-      - type: 'at-rule'
-        name: 'include'
+    -
+      -
+        type: at-rule
         hasBlock: false
-      - 'declarations'
-      - type: 'at-rule'
-        hasBlock: true
-      - type: 'at-rule'
-        name: 'include'
-        hasBlock: true
-      - type: 'rule'
-        selector: "/^&:\\w/"
-      - type: 'rule'
-        selector: "/^&::\\w/"
-      - 'rules'
-      - type: 'at-rule'
-        name: 'supports'
-      - type: 'at-rule'
-        name: 'include'
-        parameter: 'breakpoint'
-      - type: 'at-rule'
-        name: 'return'
-        hasblock: false
+      - custom-properties
+      - declarations
+    -
+      unspecified: ignore
+      disableFix: true
 
   max-nesting-depth: 3
   no-empty-first-line: true

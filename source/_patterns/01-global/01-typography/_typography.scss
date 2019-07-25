@@ -1,0 +1,31 @@
+// @file
+// Typography variables
+// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+
+$base-font-size: 17px;
+$base-line-height: 1.5;
+$vertical-spacing: $base-font-size; // Used as the default spacing below most items such as paragraphs, lists, etc.
+$vertical-spacing-forms: 30px; // Used as the default spacing below form elements.
+
+// Fonts
+$system-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Open Sans', 'Helvetica Neue', sans-serif;
+$base-font-family: 'Lora', serif;
+$header-font-family: 'Open Sans', sans-serif;
+$monospace-font-family: Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif;
+
+// Typographic Scale
+$font-size-xxl: 40px;
+$font-size-xl: 30px;
+$font-size-lg: 20px;
+$font-size-md: $base-font-size;
+$font-size-sm: 15px;
+$font-size-xs: 13px;
+$font-size-xxs: 11px;
+
+// Heading Sizes
+$font-size-h1: $font-size-xxl;
+$font-size-h2: $font-size-xl;
+$font-size-h3: $font-size-lg;
+$font-size-h4: $font-size-md;
+$font-size-h5: $font-size-sm;
+$font-size-h6: $font-size-xs;

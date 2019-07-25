@@ -1,0 +1,4 @@
+.tag-list {
+  @include list-clean();
+  @include list-inline();
+}
