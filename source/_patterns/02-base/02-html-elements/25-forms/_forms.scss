@@ -7,7 +7,7 @@ button {
   overflow: visible;
 }
 
-datalist {}
+// datalist {}
 
 fieldset {
   border: 0;
@@ -15,7 +15,7 @@ fieldset {
   padding: 0;
 }
 
-form {}
+// form {}
 
 // Don't style button, submit, or reset elements, since they're often styled as
 // links for accessible widgets. Use the .button class in
@@ -24,30 +24,30 @@ input {
   line-height: normal;
 }
 
-input[type='button'] {}
-input[type='checkbox'] {}
-input[type='color'] {}
-input[type='date'] {}
-input[type='datetime'] {}
-input[type='datetime-local'] {}
-input[type='email'] {}
-input[type='file'] {}
-input[type='image'] {}
-input[type='month'] {}
-input[type='number'] {}
-input[type='password'] {}
-input[type='radio'] {}
-input[type='range'] {}
-input[type='reset'] {}
-input[type='search'] {}
-input[type='submit'] {}
-input[type='tel'] {}
-input[type='text'] {}
-input[type='time'] {}
-input[type='url'] {}
-input[type='week'] {}
+// input[type='button'] {}
+// input[type='checkbox'] {}
+// input[type='color'] {}
+// input[type='date'] {}
+// input[type='datetime'] {}
+// input[type='datetime-local'] {}
+// input[type='email'] {}
+// input[type='file'] {}
+// input[type='image'] {}
+// input[type='month'] {}
+// input[type='number'] {}
+// input[type='password'] {}
+// input[type='radio'] {}
+// input[type='range'] {}
+// input[type='reset'] {}
+// input[type='search'] {}
+// input[type='submit'] {}
+// input[type='tel'] {}
+// input[type='text'] {}
+// input[type='time'] {}
+// input[type='url'] {}
+// input[type='week'] {}
 
-label {}
+// label {}
 
 legend {
   border: 0;
@@ -60,19 +60,19 @@ legend {
   white-space: normal;
 }
 
-meter {}
+// meter {}
 
 optgroup {
   font-weight: bold;
 }
 
-option {}
+// option {}
 
-output {}
+// output {}
 
-progress {}
+// progress {}
 
-select {}
+// select {}
 
 textarea {
   overflow: auto;

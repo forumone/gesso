@@ -2,7 +2,7 @@
 // Ordered list styles.
 
 ol {
-  margin: 0 0 rem(gesso-spacing(xsm));
+  margin: 0 0 rem(gesso-spacing(sm));
   padding: 0 0 0 rem(gesso-spacing(md)); // LTR
 
   @if $support-for-rtl {
@@ -13,6 +13,6 @@ ol {
 
   ol,
   ul {
-    margin: rem(gesso-spacing(xsm) / 2) 0 0;
+    margin: rem(gesso-spacing(sm) / 2) 0 0;
   }
 }

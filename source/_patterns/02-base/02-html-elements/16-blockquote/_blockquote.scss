@@ -5,6 +5,11 @@ blockquote {
   @include display-text-style(blockquote);
   margin: 0 0 rem(gesso-spacing(lg));
 
+  // Add top margin when blockquote is preceded by other elements
+  * + & {
+    margin-top: rem(gesso-spacing(lg));
+  }
+
   p {
     color: inherit;
     font-family: inherit;

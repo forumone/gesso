@@ -19,7 +19,7 @@
 // This image replacement approach works with <input> and <button> elements.
 // The font-size declaration may cause problems for SEO and browsers with a
 // minimum font-size setting. Other inherited styles might also cause problems.
-@mixin image-replace-alt($width, $height:height) {
+@mixin image-replace-alt($width, $height:$width) {
   color: transparent;
   font: 0/0 a;
   height: $height;

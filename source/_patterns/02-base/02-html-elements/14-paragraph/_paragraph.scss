@@ -2,7 +2,6 @@
 // Paragraph styles.
 
 p {
-  @include display-text-style(body);
   margin: 0 0 rem(gesso-spacing(sm));
 
   @media print {
