@@ -77,7 +77,7 @@ details.details {
 }
 
 .details__description {
-  color: $color-text-secondary;
+  color: gesso-color(text,secondary);
   font-size: rem($font-size-sm);
   margin-bottom:rem($vertical-spacing);
 

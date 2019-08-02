@@ -48,7 +48,7 @@
   }
 
   &:disabled + .form-item__label {
-    color: $color-text-secondary;
+    color: gesso-color(text,secondary);
     cursor: default;
 
     &::before {

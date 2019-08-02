@@ -34,7 +34,7 @@ $progress-color-border: #5b616b !default;
 
 .progress__description,
 .progress__percentage {
-  color: $color-text-secondary;
+  color: gesso-color(text,secondary);
   font-size: rem($font-size-xs);
   overflow: hidden;
 }

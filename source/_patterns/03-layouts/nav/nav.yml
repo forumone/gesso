@@ -1,6 +1,3 @@
 ---
 label: 'Main Menu'
-content:
-  join():
-    - include():
-        pattern: components-menu
+content: 'Menu Goes Here'
