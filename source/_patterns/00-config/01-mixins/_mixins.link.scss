@@ -1,4 +1,4 @@
-@mixin link($link, $hover, $active, $visit: $link) {
+@mixin link($link, $hover: $link, $active: $hover, $visit: $link) {
   color: $link;
   &:visited {
     color: $visit;

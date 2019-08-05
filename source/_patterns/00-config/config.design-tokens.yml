@@ -99,7 +99,7 @@ gesso:
     line-height:
       tight: 1.1
       base: 1.45
-      wide: 1.7
+      loose: 1.7
     display:
       display:
         font-family: base.stack
@@ -143,7 +143,7 @@ gesso:
         font-family: base.stack
         font-weight: semibold
         font-size: 0
-        line-height: wide
+        line-height: loose
         text-transform: uppercase
         letter-spacing: -0.04em
         color: text.primary

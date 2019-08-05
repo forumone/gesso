@@ -21,7 +21,6 @@ $card-padding: rem(gesso-spacing(md));
   a {
     @include link(
       gesso-grayscale(black),
-      gesso-grayscale(gray-4),
       gesso-grayscale(gray-4)
     );
   }

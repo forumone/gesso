@@ -27,7 +27,7 @@ $form-text-size: $font-size-md !default;
   display: block;
 
   .is-disabled > & {
-    color: $color-text-secondary;
+    color: gesso-color(text,secondary);
   }
 }
 
@@ -40,7 +40,7 @@ $form-text-size: $font-size-md !default;
 // .form-item__legend {}
 
 .form-item__description {
-  color: $color-text-secondary;
+  color: gesso-color(text,secondary);
   font-size: rem($font-size-sm);
 
   > :last-child {

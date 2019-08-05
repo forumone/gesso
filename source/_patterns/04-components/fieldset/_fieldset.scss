@@ -40,7 +40,7 @@ $fieldset-legend-offset: rem($base-line-height * $base-font-size) !default;
 // .fieldset__content {}
 
 .fieldset__description {
-  color: $color-text-secondary;
+  color: gesso-color(text,secondary);
   font-size: rem($font-size-sm);
 
   > :last-child {
