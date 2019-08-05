@@ -3,10 +3,10 @@
 
 .breadcrumb {
   @include clearfix();
-  background-color: rgba(gesso-palette(blue, dark-1), 0.85);
+  background-color: rgba(gesso-palette(blue, dark-1), 0.9);
   color: gesso-grayscale(white);
   font-size: gesso-font-size(0);
-  margin: rem($vertical-spacing) 0;
+  margin: rem(gesso-spacing(sm)) 0;
   min-height: rem(gesso-spacing(lg));
   padding-top: rem(gesso-spacing(sm));
 }
@@ -23,7 +23,7 @@
   margin-right: 0.75em;
 
   &::after {
-    color: gesso-palette(blue, light);
+    color: gesso-palette(blue, light-1);
     content: '/';
     margin-left: 0.75em;
   }
@@ -34,7 +34,26 @@
   }
 }
 
+.breadcrumb__list .breadcrumb__item {
+  @include breakpoint(max-width gesso-breakpoint(sm)) {
+    display: none;
+    &:nth-last-child(2) {
+      display: block;
+
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        color: gesso-palette(blue, light-1);
+        content: '<';
+        margin-right: 0.75em;
+      }
+    }
+  }
+}
+
 .breadcrumb__link {
-  color: gesso-grayscale(gray-3);
+  @include link(gesso-grayscale(gray-2));
   text-decoration: none;
 }
