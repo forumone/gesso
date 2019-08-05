@@ -26,6 +26,11 @@
   @return map-deep-get($gesso, $map-key, $keys...);
 }
 
+// Get Constrain
+@function gesso-constrain($keys...) {
+  @return gesso-get-map(constrains, $keys...);
+}
+
 // Get Breakpoint
 @function gesso-breakpoint($keys...) {
   @return gesso-get-map(breakpoints, $keys...);
@@ -50,8 +55,8 @@
 }
 
 // Get Font Family
-@function gesso-font-family($keys...) {
-  @return unquote(gesso-get-map(typography, font-family, $keys...));
+@function gesso-font-family($ff-type) {
+  @return unquote(gesso-get-map(typography, font-family, $ff-type, stack));
 }
 
 // Get Base Font Size

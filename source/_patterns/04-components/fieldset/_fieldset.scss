@@ -3,10 +3,10 @@
 
 $fieldset-color-border: #aeb0b5 !default;
 $fieldset-color-legend: #d6d7d9 !default;
-$fieldset-legend-offset: rem($base-line-height * $base-font-size) !default;
+$fieldset-legend-offset: rem(gesso-line-height(base) * gesso-base-font-size()) !default;
 
 .fieldset {
-  margin-bottom: rem($vertical-spacing-forms + ($base-line-height * $base-font-size));
+  margin-bottom: rem(gesso-spacing(md) + (gesso-line-height(base) * gesso-base-font-size()));
   padding: 0;
   position: relative;
   top: $fieldset-legend-offset; // Offsets the negative margin of legends.
@@ -41,7 +41,7 @@ $fieldset-legend-offset: rem($base-line-height * $base-font-size) !default;
 
 .fieldset__description {
   color: gesso-color(text,secondary);
-  font-size: rem($font-size-sm);
+  font-size: rem(gesso-font-size(1));
 
   > :last-child {
     margin-bottom: 0;
@@ -51,7 +51,7 @@ $fieldset-legend-offset: rem($base-line-height * $base-font-size) !default;
 .fieldset--default {
   background: #fff;
   border: 1px solid $fieldset-color-border;
-  margin: rem($vertical-spacing) 0 (rem($vertical-spacing) + rem(12px));
+  margin: rem(gesso-spacing(sm)) 0 (rem(gesso-spacing(sm)) + rem(12px));
   padding: 0 1em;
 
   .fieldset__legend {
@@ -82,6 +82,6 @@ $fieldset-legend-offset: rem($base-line-height * $base-font-size) !default;
 
   .fieldset__description {
     font-style: italic;
-    margin: rem($vertical-spacing) 0;
+    margin: rem(gesso-spacing(sm)) 0;
   }
 }

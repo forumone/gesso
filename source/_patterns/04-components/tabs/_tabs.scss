@@ -11,7 +11,7 @@ $tab-color-text: #212121 !default;
 $tab-color-text-active: #fff !default;
 $tab-color-text-disabled: #323a45 !default;
 $tab-color-text-hover: #212121 !default;
-$tab-font-size: $font-size-md !default;
+$tab-font-size: gesso-font-size(1) !default;
 
 .tabs {
   @include clearfix;
@@ -22,7 +22,7 @@ $tab-font-size: $font-size-md !default;
   display: flex;
   flex-direction: column;
 
-  @include breakpoint($bp-small) {
+  @include breakpoint(gesso-breakpoint(sm)) {
     flex-direction: row;
   }
 
@@ -63,8 +63,8 @@ $tab-font-size: $font-size-md !default;
   );
   border-left: 1px solid $tab-color-border;
   display: block;
-  font-size: rem($font-size-sm);
-  line-height: (17px / $font-size-sm);
+  font-size: rem(gesso-font-size(1));
+  line-height: (17px / gesso-font-size(1));
   margin: 0;
   padding: rem(8px) rem(16px);
 

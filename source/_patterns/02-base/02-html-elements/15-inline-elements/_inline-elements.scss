@@ -34,7 +34,7 @@ a {
 
     &[href]::after {
       content: ' <' attr(href) '>';
-      font-family: $base-font-family;
+      font-family: gesso-font-family(base);
       font-size: 10pt;
       font-weight: normal;
       text-transform: lowercase;

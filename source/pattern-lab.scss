@@ -9,8 +9,8 @@
 /* stylelint-disable-next-line selector-max-id */
 #sg-patterns {
   box-sizing: border-box !important;
-  max-width: em($max-page-width);
-  padding: 0 ($gutter-width / 2);
+  max-width: em(gesso-constrain(lg));
+  padding: 0 1em;
 }
 
 // Hide headers for some Gesso folders

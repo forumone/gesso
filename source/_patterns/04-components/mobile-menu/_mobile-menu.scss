@@ -7,7 +7,7 @@ $mobile-menu-border-color: #dadada !default;
 $mobile-menu-text-color: #555559 !default;
 
 .mobile-menu {
-  @include breakpoint($bp-hide-mobile-menu) {
+  @include breakpoint(gesso-breakpoint(sm)) {
     display: none;
   }
 }
@@ -29,7 +29,7 @@ $mobile-menu-text-color: #555559 !default;
   box-shadow: none;
   color: $mobile-menu-text-color;
   display: inline-block;
-  font-size: rem($font-size-md);
+  font-size: rem(gesso-font-size(1));
   font-weight: bold;
   height: em(55px);
   line-height: em(55px);

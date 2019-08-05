@@ -17,10 +17,10 @@ $form-range-track-border-width: 1px !default;
 $form-range-track-color: #aeb0b5 !default;
 $form-range-track-height: 10px !default;
 $form-select-arrow-size: 13px !default;
-$form-text-size: $font-size-md !default;
+$form-text-size: gesso-font-size(1) !default;
 
 .form-item {
-  margin: 0 0 rem($vertical-spacing-forms);
+  margin: 0 0 rem(gesso-spacing(md));
 }
 
 .form-item__label {
@@ -41,7 +41,7 @@ $form-text-size: $font-size-md !default;
 
 .form-item__description {
   color: gesso-color(text,secondary);
-  font-size: rem($font-size-sm);
+  font-size: rem(gesso-font-size(1));
 
   > :last-child {
     margin-bottom: 0;

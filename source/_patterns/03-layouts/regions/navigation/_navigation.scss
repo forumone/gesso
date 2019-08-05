@@ -5,7 +5,7 @@
 .l-navigation {
   display: none;
 
-  @include breakpoint($bp-hide-mobile-menu) {
+  @include breakpoint(gesso-breakpoint(sm)) {
     display: block;
   }
 }

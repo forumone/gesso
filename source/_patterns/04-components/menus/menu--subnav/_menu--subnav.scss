@@ -5,6 +5,6 @@
   @include list-pipeline;
 
   .menu__link {
-    font-size: em($font-size-sm);
+    font-size: em(gesso-font-size(1));
   }
 }

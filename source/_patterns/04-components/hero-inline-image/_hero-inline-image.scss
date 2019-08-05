@@ -2,7 +2,7 @@
 // Styles for hero using an inline image element.
 
 .hero-inline-image {
-  color: #fff;
+  color: gesso-grayscale(white);
   padding: 0;
   position: relative;
   text-align: center;
@@ -26,12 +26,13 @@
 }
 
 .hero-inline-image__title {
-  color: #fff;
+  color: gesso-grayscale(white);
   margin-bottom: 0.25em;
 }
 
 .hero-inline-image__subtitle {
-  color: #fff;
+  @include display-text-style(h4);
+  color: gesso-grayscale(white);
 }
 
 .hero-inline-image__media {
