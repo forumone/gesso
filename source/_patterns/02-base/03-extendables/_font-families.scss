@@ -5,12 +5,8 @@
   font-family: gesso-font-family(system);
 }
 
-%base-font-family {
-  font-family: gesso-font-family(base);
-}
-
-%header-font-family {
-  font-family: gesso-font-family(alternate);
+%primary-font-family {
+  font-family: gesso-font-family(primary);
 }
 
 %monospace-font-family {

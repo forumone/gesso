@@ -3,7 +3,7 @@
 
 html {
   box-sizing: border-box;
-  font-family: gesso-font-family(base);
+  font-family: gesso-font-family(primary);
   font-size: 100% * (gesso-base-font-size() / 16px);
   line-height: gesso-line-height(base);
   min-height: 100%;

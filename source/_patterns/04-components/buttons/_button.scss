@@ -3,15 +3,15 @@
 
 .button {
   @include button();
-  margin: 0 0 0.5em;
+  margin: 0 0 gesso-spacing(xsm);
 
   & + & {
-    margin-left: 0.5em; // LTR
+    margin-left: gesso-spacing(xsm); // LTR
 
     @if $support-for-rtl {
       [dir='rtl'] & {
         margin-left: 0;
-        margin-right: 0.5em;
+        margin-right: gesso-spacing(xsm);
       }
     }
   }
@@ -19,48 +19,41 @@
 
 // Drupal outputs this class on buttons that can delete content.
 .button--danger {
-  background-color: #e31c3d;
-  color: #fff;
+  background-color: gesso-color(button,danger,bg);
+  color: gesso-color(button,danger,text);
 
-  &:focus,
-  &:hover {
-    background-color: #cd2026;
-    color: #fff;
+  &:hover,
+  &:focus {
+    background-color: gesso-color(button,danger,bg-hover);
+    color: gesso-color(button,danger,text-hover);
   }
 
   &:active {
-    background-color: #981b1e;
-    color: #fff;
+    background-color: gesso-color(button,danger,bg-active);
+    color: gesso-color(button,danger,text-active);
   }
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--large {
   font-size: rem(gesso-font-size(2));
-  line-height: (25px / gesso-font-size(2));
-  padding: rem(15px) rem(30px);
+  padding: rem(gesso-spacing(sm)) rem(gesso-spacing(lg));
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--secondary {
-  background-color: #5b616b;
-  color: #fff;
-
-  &:focus,
-  &:hover {
-    background-color: #323a45;
-    color: #fff;
-  }
-
-  &:active {
-    background-color: #212121;
-    color: #fff;
-  }
+  @include button(
+    gesso-color(button,secondary,bg),
+    gesso-color(button,secondary,text),
+    gesso-color(button,secondary,bg-hover),
+    gesso-color(button,secondary,text-hover),
+    gesso-color(button,secondary,bg-active),
+    gesso-color(button,secondary,text-active)
+  );
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--small {
   font-size: rem(gesso-font-size(0));
-  line-height: (17px / gesso-font-size(0));
-  padding: rem(8px) rem(16px);
+  padding: rem(gesso-spacing(xxsm)) rem(gesso-spacing(xsm));
 }

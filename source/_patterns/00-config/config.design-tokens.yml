@@ -72,14 +72,36 @@ gesso:
     border:
       ui: grayscale.gray-4
       tag: brand.ocean-blue.base
+    button:
+      primary:
+        bg: brand.blue.base
+        bg-hover: brand.blue.dark
+        bg-active: brand.blue.dark-1
+        text: grayscale.white
+        text-hover: grayscale.white
+        text-active: grayscale.white
+      secondary:
+        bg: brand.ocean-blue.base
+        bg-hover: brand.ocean-blue.dark
+        bg-active: brand.ocean-blue.dark-1
+        text: grayscale.white
+        text-hover: grayscale.white
+        text-active: grayscale.white
+      disabled:
+        bg: grayscale.gray-1
+        text: grayscale.gray-3
+      danger:
+        bg: brand.red.base
+        bg-hover: brand.red.dark
+        bg-active: brand.red.dark-1
+        text: grayscale.white
+        text-hover: grayscale.white
+        text-active: grayscale.white
   typography:
     font-family:
-      base:
-        name: Lora
-        stack: 'Lora, serif'
-      alternate:
-        name: Open Sans
-        stack: '"Open Sans", sans-serif'
+      primary:
+        name: Source Sans Pro
+        stack: '"Source Sans Pro", Arial, sans-serif'
       system:
         name: Apple System
         stack: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Oxygen-Sans", Ubuntu, Cantarell, "Fira Sans", Droid Sans, sans-serif'
@@ -109,45 +131,45 @@ gesso:
       loose: 1.7
     display:
       display:
-        font-family: alternate.stack
+        font-family: primary.stack
         font-weight: bold
         font-size: 8
         line-height: tight
         letter-spacing: -0.04em
         color: text.primary
       h1:
-        font-family: alternate.stack
+        font-family: primary.stack
         font-weight: bold
         font-size: 6
         line-height: tight
         letter-spacing: -0.02em
         color: text.primary
       h2:
-        font-family: alternate.stack
+        font-family: primary.stack
         font-weight: bold
         font-size: 5
         line-height: tight
         color: text.primary
       h3:
-        font-family: alternate.stack
+        font-family: primary.stack
         font-weight: bold
         font-size: 4
         line-height: tight
         color: text.primary
       h4:
-        font-family: alternate.stack
+        font-family: primary.stack
         font-weight: bold
         font-size: 3
         line-height: base
         color: text.primary
       h5:
-        font-family: alternate.stack
+        font-family: primary.stack
         font-weight: bold
         font-size: 1
         line-height: base
         color: text.primary
       h6:
-        font-family: alternate.stack
+        font-family: primary.stack
         font-weight: semibold
         font-size: 0
         line-height: loose
@@ -155,26 +177,26 @@ gesso:
         letter-spacing: -0.04em
         color: text.primary
       blockquote:
-        font-family: base.stack
+        font-family: primary.stack
         font-weight: regular
         font-size: 3
         line-height: base
         color: text.link
       body:
-        font-family: base.stack
+        font-family: primary.stack
         font-weight: regular
         font-size: 1
         line-height: base
         color: text.primary
       body-large:
-        font-family: base.stack
+        font-family: primary.stack
         font-weight: regular
         font-size: 2
         line-height: base
         color: text.primary
       cite:
         color: text.secondary
-        font-family: base.stack
+        font-family: primary.stack
         font-weight: semibold
         font-size: 0
         font-style: normal

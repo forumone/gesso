@@ -15,6 +15,10 @@ $card-padding: rem(gesso-spacing(md));
   }
 }
 
+.card__date {
+  font-size: gesso-font-size(0);
+}
+
 .card__title {
   font-size: gesso-font-size(3);
 
@@ -37,16 +41,23 @@ $card-padding: rem(gesso-spacing(md));
 }
 
 .card__date {
+  color: gesso-grayscale(gray-4);
   margin-bottom: rem(gesso-spacing(sm));
 }
 
 .card__content {
-  margin-bottom: rem(gesso-spacing(sm));
+  margin-bottom: rem(gesso-spacing(md));
 }
 
 .card__media {
   margin-bottom: rem(gesso-spacing(md));
   order: -1;
+
+  a {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
 
   img {
     width: 100%;
@@ -66,40 +77,32 @@ $card-padding: rem(gesso-spacing(md));
   }
 }
 
-// .card__readmore {}
-
-.card__readmore-icon {
-  width: 18px;
-  g {
-    fill: gesso-palette(blue, base);
-  }
+.card__readmore {
+  text-align: right;
 }
 
 .card--feature {
-  .card__title {
-    font-size: rem(gesso-font-size(3));
-  }
-
   .card__body {
     padding-top: $card-padding;
   }
+
   .card__media {
+    flex-grow: 1;
     margin-bottom: 0;
   }
-  .card__media a {
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
-  @include breakpoint(gesso-breakpoint(sm)) {
+
+  @include breakpoint(gesso-breakpoint(md)) {
     flex-direction: row;
-    .card__body {
-      max-width: rem(530px);
-      padding: $card-padding 2vw 0;
-    }
+
     .card__title {
       font-size: rem(gesso-font-size(4));
     }
+
+    .card__body {
+      max-width: rem(600px);
+      padding: $card-padding 2vw 0;
+    }
+
     .card__media {
       order: initial;
     }
