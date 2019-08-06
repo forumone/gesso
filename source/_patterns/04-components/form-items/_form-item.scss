@@ -1,13 +1,14 @@
 // @file
 // Styles for form items.
 
-$form-border-color: #5b616b !default;
+$form-border-color: gesso-color(form,border) !default;
 $form-border-color-disabled: #aeb0b5 !default;
+$form-background-color: gesso-color(form,bg) !default;
 $form-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
 $form-color: #fff;
 $form-color-disabled: #d6d7d9;
 $form-range-thumb-border-color: #f1f1f1 !default;
-$form-range-thumb-border-radius: rem(3px) !default;
+$form-range-thumb-border-radius: 0 !default;
 $form-range-thumb-border-width: 1px !default;
 $form-range-thumb-color: #757575 !default;
 $form-range-thumb-height: 44px !default;

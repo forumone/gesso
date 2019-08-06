@@ -69,9 +69,9 @@ gesso:
     background:
       primary: grayscale.white
       secondary: brand.blue.base
-    border:
-      ui: grayscale.gray-4
-      tag: brand.ocean-blue.base
+    form:
+      bg: grayscale.gray-1
+      border: grayscale.gray-3
     button:
       primary:
         bg: brand.blue.base

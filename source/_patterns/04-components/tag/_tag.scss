@@ -4,7 +4,7 @@
     gesso-palette(ocean-blue, dark),
     gesso-palette(ocean-blue, dark-1)
   );
-  border: 2px solid gesso-color(border, tag);
+  border: 2px solid gesso-palette(ocean-blue, base);
   border-radius: 70px;
   display: inline-block;
   font-size: gesso-font-size(0);
@@ -17,7 +17,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 2px gesso-color(border, tag);
+    box-shadow: 0 0 0 2px gesso-palette(ocean-blue, base);
     outline: 0;
   }
 }
