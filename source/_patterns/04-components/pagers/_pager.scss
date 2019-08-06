@@ -89,7 +89,7 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   &:hover,
   &:focus {
     background-color: transparent;
-
+    color: gesso-color(text, primary);
     .pager__link-icon g {
       fill: gesso-palette(blue, base);
     }
