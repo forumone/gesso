@@ -34,9 +34,9 @@ $menu-mobile-submenu-hover-color: #000 !default;
     width: auto;
     z-index: 3;
 
-    &:active,
-    &:focus,
     &:hover,
+    &:focus,
+    &:active,
     &.is-active {
       color: $menu-mobile-menu-hover-color;
     }
@@ -102,9 +102,9 @@ $menu-mobile-submenu-hover-color: #000 !default;
       color: $menu-mobile-submenu-text-color;
       padding-left: 2em;
 
-      &:active,
+      &:hover,
       &:focus,
-      &:hover {
+      &:active {
         color: $menu-mobile-submenu-hover-color;
       }
     }

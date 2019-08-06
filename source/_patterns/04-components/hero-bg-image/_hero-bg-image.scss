@@ -4,7 +4,7 @@
 .hero-bg-image {
   background-position: 50% 50%;
   background-size: cover;
-  color: #fff;
+  color: gesso-grayscale(white);
   padding: 4em 1em;
   text-align: center;
 
@@ -30,10 +30,11 @@
 }
 
 .hero-bg-image__title {
-  color: #fff;
+  color: gesso-grayscale(white);
   margin-bottom: 0.25em;
 }
 
 .hero-bg-image__subtitle {
-  color: #fff;
+  @include display-text-style(h4);
+  color: gesso-grayscale(white);
 }

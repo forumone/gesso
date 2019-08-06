@@ -69,8 +69,8 @@ $pager-bg-color-active: gesso-palette(blue, dark);
     color: gesso-color(text, primary);
   }
 
-  &:focus,
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $pager-bg-color-hover;
     color: gesso-grayscale(white);
   }
@@ -86,10 +86,10 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   color: gesso-color(text, primary);
   position: relative;
 
-  &:focus,
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: transparent;
-
+    color: gesso-color(text, primary);
     .pager__link-icon g {
       fill: gesso-palette(blue, base);
     }

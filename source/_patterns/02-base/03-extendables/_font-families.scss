@@ -2,17 +2,13 @@
 // Extendable font families
 
 %system-font-family {
-  font-family: $system-font-family;
+  font-family: gesso-font-family(system);
 }
 
-%base-font-family {
-  font-family: $base-font-family;
-}
-
-%header-font-family {
-  font-family: $header-font-family;
+%primary-font-family {
+  font-family: gesso-font-family(primary);
 }
 
 %monospace-font-family {
-  font-family: $monospace-font-family;
+  font-family: gesso-font-family(monospace);
 }

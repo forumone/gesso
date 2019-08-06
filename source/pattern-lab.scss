@@ -6,28 +6,13 @@
 @import '_patterns/01-global/**/*.scss';
 
 // The container for the 'view all' screen, which contains the list of patterns.
-/* stylelint-disable-next-line selector-max-id */
-#sg-patterns {
+.pl-c-pattern-index {
   box-sizing: border-box !important;
-  max-width: em($max-page-width);
-  padding: 0 ($gutter-width / 2);
+  max-width: em(gesso-constrain(lg));
+  padding: 0 1em;
 }
 
-// Hide headers for some Gesso folders
-/* stylelint-disable selector-max-id */
-#viewall-global-config,
-#viewall-global-tools,
-#viewall-base-fonts,
-#viewall-base-normalize,
-#viewall-base-html-elements,
-#viewall-base-extendables,
-#viewall-layouts-constrain,
-#viewall-components-cms-styles {
-  /* stylelint-enable */
-  display: none;
-}
-
-// <html> tag class around content (e.g., _00-head.twig)
+// <html> tag class around content in Pattern Lab (see _00-head.twig)
 .pattern-lab-content {
   min-height: 0;
 }
@@ -166,7 +151,7 @@
 }
 
 .pattern-lab-font__preview-character {
-  font-size: 90px;
+  font-size: 75px;
   font-weight: 400;
   line-height: 1;
   text-align: center;

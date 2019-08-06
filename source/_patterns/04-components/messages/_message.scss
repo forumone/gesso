@@ -8,7 +8,7 @@
   background-size: em(40px);
   border: 1px solid gs;
   color: gesso-color(text, primary);
-  margin-bottom: rem($vertical-spacing);
+  margin-bottom: rem(gesso-spacing(sm));
   overflow: hidden;
   padding: 1em;
   position: relative;

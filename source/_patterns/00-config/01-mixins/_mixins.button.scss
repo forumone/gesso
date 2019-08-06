@@ -1,16 +1,16 @@
 // @file
 // Button styles
 
-$button-border-radius: 3px !default;
-$button-color-bg: #0071bc !default;
-$button-color-bg-active: #112e51 !default;
-$button-color-bg-disabled: #d6d7d9 !default;
-$button-color-bg-hover: #205493 !default;
-$button-color-text: #fff !default;
-$button-color-text-active: #fff !default;
-$button-color-text-disabled: #323a45 !default;
-$button-color-text-hover: #fff !default;
-$button-font-size: 16px !default;
+$button-border-radius: 0 !default;
+$button-color-bg: gesso-color(button,primary,bg) !default;
+$button-color-bg-active: gesso-color(button,primary,bg-active) !default;
+$button-color-bg-disabled: gesso-color(button,disabled,bg) !default;
+$button-color-bg-hover: gesso-color(button,primary,bg-hover) !default;
+$button-color-text: gesso-color(button,primary,text) !default;
+$button-color-text-active: gesso-color(button,primary,text-active) !default;
+$button-color-text-disabled: gesso-color(button,disabled,text) !default;
+$button-color-text-hover: gesso-color(button,primary,text-hover) !default;
+$button-font-size: gesso-base-font-size() !default;
 
 @mixin button(
   $color-bg: $button-color-bg,
@@ -23,7 +23,7 @@ $button-font-size: 16px !default;
   $color-text-disabled: $button-color-text-disabled,
   $border-radius: $button-border-radius,
   $font-size: $button-font-size) {
-  @extend %base-font-family;
+  @extend %primary-font-family;
   background-color: $color-bg;
   border: 0;
   border-radius: $border-radius;
@@ -33,16 +33,17 @@ $button-font-size: 16px !default;
   font-size: rem($font-size);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-weight: 700;
-  line-height: (20px / $font-size);
-  padding: rem(12px) rem(20px);
+  font-weight: gesso-font-weight(bold);
+  line-height: gesso-line-height(base);
+  padding: rem(gesso-spacing(xsm)) rem(gesso-spacing(sm));
   text-align: center;
   text-decoration: none;
+  transition: background gesso-duration(short) gesso-easing(easeIn);
   vertical-align: top;
   white-space: normal;
 
-  &:focus,
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $color-bg-hover;
     color: $color-text-hover;
     outline: 0;
@@ -59,14 +60,4 @@ $button-font-size: 16px !default;
     cursor: default;
     pointer-events: none;
   }
-}
-
-
-%core-button {
-  // @include display-text-style(button);
-  cursor: pointer;
-  display: inline-block;
-  text-decoration: none;
-  vertical-align: top;
-  white-space: normal;
 }

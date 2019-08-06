@@ -2,3 +2,7 @@
   @include list-clean();
   @include list-inline();
 }
+
+.tag-list__item {
+  margin-right: gesso-spacing(xsm);
+}

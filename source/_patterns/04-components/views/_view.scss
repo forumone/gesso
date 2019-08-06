@@ -4,5 +4,5 @@
 // .view {}
 
 .view__filters {
-  margin-bottom: rem($vertical-spacing);
+  margin-bottom: rem(gesso-spacing(sm));
 }
