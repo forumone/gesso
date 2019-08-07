@@ -8,17 +8,12 @@
   cursor: pointer;
   height: rem($form-range-thumb-height);
   outline: 0;
+  transition: box-shadow gesso-duration(short) gesso-easing(ease-in-out);
   width: rem($form-range-thumb-width);
 }
 
 @mixin form-item__range-thumb-focus {
   box-shadow: $form-box-shadow-focus;
-}
-
-@mixin form-item__range-thumb-disabled {
-  background: $form-color-disabled;
-  border-color: $form-border-color-disabled;
-  cursor: default;
 }
 
 @mixin form-item__range-track {
@@ -30,12 +25,6 @@
   margin: 0;
   outline: 0;
   width: 100%;
-}
-
-@mixin form-item__range-track-disabled {
-  background: $form-color-disabled;
-  border-color: $form-border-color-disabled;
-  cursor: default;
 }
 
 .form-item--range {
@@ -66,31 +55,7 @@
 
     &:disabled {
       cursor: default;
-
-      &::-moz-range-thumb {
-        @include form-item__range-thumb-disabled;
-      }
-
-      &::-moz-range-track {
-        @include form-item__range-track-disabled;
-      }
-
-      &::-ms-thumb {
-        @include form-item__range-thumb-disabled;
-      }
-
-      &::-ms-fill-lower,
-      &::-ms-fill-upper {
-        @include form-item__range-track-disabled;
-      }
-
-      &::-webkit-slider-thumb {
-        @include form-item__range-thumb-disabled;
-      }
-
-      &::-webkit-slider-runnable-track {
-        @include form-item__range-track-disabled;
-      }
+      opacity:  0.35;
     }
 
     &::-moz-range-thumb {

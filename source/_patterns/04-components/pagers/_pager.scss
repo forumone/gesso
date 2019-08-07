@@ -37,8 +37,8 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   color: gesso-color(text, primary);
   min-width: rem(gesso-spacing(lg));
   padding: em(gesso-spacing(xsm));
-  transition: color gesso-duration(short) gesso-easing(easeOut),
-    background-color gesso-duration(standard) gesso-easing(easeOut);
+  transition: color gesso-duration(short) gesso-easing(ease-out),
+    background-color gesso-duration(standard) gesso-easing(ease-out);
 
   &:focus {
     outline: gesso-color(text, secondary) dotted 1px;
@@ -124,7 +124,7 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   width: 24px;
 
   g {
-    fill: gesso-grayscale(gray-3);
+    fill: gesso-grayscale(gray-4);
   }
 
   .pager__item--next & {

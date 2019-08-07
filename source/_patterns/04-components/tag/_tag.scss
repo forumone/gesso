@@ -13,7 +13,7 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  transition: box-shadow gesso-duration(short) gesso-easing(easeIn);
+  transition: box-shadow gesso-duration(short) gesso-easing(ease-in);
 
   &:hover,
   &:focus {

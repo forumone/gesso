@@ -6,7 +6,7 @@ a {
   color: gesso-color(text, link);
   outline-offset: em(2px); // Improves readability when focused.
   -webkit-text-decoration-skip: objects;
-  transition: color gesso-duration(short) gesso-easing(easeIn);
+  transition: color gesso-duration(short) gesso-easing(ease-in);
 
   &:active,
   &:hover {

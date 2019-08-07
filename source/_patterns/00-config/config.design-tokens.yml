@@ -34,11 +34,12 @@ gesso:
         light-2: '#e7f4e4'
     grayscale:
       white: '#fff'
-      gray-1: '#f1f1f1'
-      gray-2: '#d6d7d9'
-      gray-3: '#aeb0b5'
-      gray-4: '#5b616b'
-      gray-5: '#323a45'
+      gray-1: '#f7f7f7'
+      gray-2: '#f1f1f1'
+      gray-3: '#d6d7d9'
+      gray-4: '#aeb0b5'
+      gray-5: '#5b616b'
+      gray-6: '#323a45'
       black: '#212121'
   box-shadow:
     0: none
@@ -59,7 +60,7 @@ gesso:
   colors:
     text:
       primary: grayscale.black
-      secondary: grayscale.gray-4
+      secondary: grayscale.gray-5
       accent: brand.ocean-blue.dark
       on-light: grayscale.black
       on-dark: grayscale.white
@@ -71,7 +72,14 @@ gesso:
       secondary: brand.blue.base
     form:
       bg: grayscale.gray-1
+      bg-active: grayscale.white
+      bg-highlight: brand.blue.base
       border: grayscale.gray-3
+      border-active: grayscale.gray-5
+      range-thumb: grayscale.gray-5
+      range-thumb-border: grayscale.gray-1
+      range-track: grayscale.gray-4
+      range-track-border: grayscale.gray-5
     button:
       primary:
         bg: brand.blue.base
@@ -88,8 +96,8 @@ gesso:
         text-hover: grayscale.white
         text-active: grayscale.white
       disabled:
-        bg: grayscale.gray-1
-        text: grayscale.gray-3
+        bg: grayscale.gray-2
+        text: grayscale.gray-4
       danger:
         bg: brand.red.base
         bg-hover: brand.red.dark
@@ -204,9 +212,9 @@ gesso:
         line-height: tight
   transitions:
     ease:
-      easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)'
-      easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)'
-      easeIn: 'cubic-bezier(0.4, 0, 1, 1)'
+      ease-in-out: 'cubic-bezier(0.4, 0, 0.2, 1)'
+      ease-out: 'cubic-bezier(0.0, 0, 0.2, 1)'
+      ease-in: 'cubic-bezier(0.4, 0, 1, 1)'
       sharp: 'cubic-bezier(0.4, 0, 0.6, 1)'
     duration:
       shortest: 150ms

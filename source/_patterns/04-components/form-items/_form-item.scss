@@ -2,23 +2,23 @@
 // Styles for form items.
 
 $form-border-color: gesso-color(form,border) !default;
-$form-border-color-disabled: #aeb0b5 !default;
-$form-background-color: gesso-color(form,bg) !default;
-$form-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
-$form-color: #fff;
-$form-color-disabled: #d6d7d9;
-$form-range-thumb-border-color: #f1f1f1 !default;
+$form-border-focus-color: gesso-color(form,border-active) !default;
+$form-box-shadow-focus: gesso-box-shadow(2) !default;
+$form-bg-color: gesso-color(form,bg) !default;
+$form-bg-focus-color: gesso-color(form,bg-active) !default;
+$form-disabled-opacity: 0.35;
+$form-range-thumb-border-color: gesso-color(form,range-thumb-border) !default;
 $form-range-thumb-border-radius: 0 !default;
 $form-range-thumb-border-width: 1px !default;
-$form-range-thumb-color: #757575 !default;
+$form-range-thumb-color: gesso-color(form,range-thumb) !default;
 $form-range-thumb-height: 44px !default;
 $form-range-thumb-width: 22px !default;
-$form-range-track-border-color: #757575 !default;
+$form-range-track-border-color: gesso-color(form,range-track-border) !default;
 $form-range-track-border-width: 1px !default;
-$form-range-track-color: #aeb0b5 !default;
+$form-range-track-color: gesso-color(form,range-track) !default;
 $form-range-track-height: 10px !default;
-$form-select-arrow-size: 13px !default;
-$form-text-size: gesso-font-size(1) !default;
+$form-select-arrow-size: 20px !default;
+$form-text-size: gesso-base-font-size() !default;
 
 .form-item {
   margin: 0 0 rem(gesso-spacing(md));
@@ -28,7 +28,7 @@ $form-text-size: gesso-font-size(1) !default;
   display: block;
 
   .is-disabled > & {
-    color: gesso-color(text,secondary);
+    opacity: $form-disabled-opacity;
   }
 }
 
@@ -69,7 +69,7 @@ $form-text-size: gesso-font-size(1) !default;
 .form-item__url,
 .form-item__week {
   appearance: none;
-  background-color: $form-color;
+  background-color: $form-bg-color;
   border: 1px solid $form-border-color;
   border-radius: 0;
   display: inline-block;
@@ -79,16 +79,25 @@ $form-text-size: gesso-font-size(1) !default;
   margin: 0.2em 0;
   max-width: 100%;
   padding: em(10px, $form-text-size) em(7px, $form-text-size);
+  transition-duration: gesso-duration(short);
+  transition-property: background-color, border;
+  transition-timing-function: gesso-easing(ease-in-out);
 
+  &:hover,
   &:focus {
-    box-shadow: $form-box-shadow-focus;
+    background-color: $form-bg-focus-color;
+    border: 1px solid $form-border-focus-color;
     outline: 0;
   }
 
   &:disabled {
-    background: $form-color-disabled;
-    border-color: $form-border-color-disabled;
     cursor: default;
+    opacity: $form-disabled-opacity;
+    &:hover,
+    &:focus {
+      background-color: $form-bg-color;
+      border: 1px solid $form-border-color;
+    }
   }
 
   .is-full-width > & {

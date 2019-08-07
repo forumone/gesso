@@ -38,7 +38,7 @@ $button-font-size: gesso-base-font-size() !default;
   padding: rem(gesso-spacing(xsm)) rem(gesso-spacing(sm));
   text-align: center;
   text-decoration: none;
-  transition: background gesso-duration(short) gesso-easing(easeIn);
+  transition: background gesso-duration(short) gesso-easing(ease-in);
   vertical-align: top;
   white-space: normal;
 
