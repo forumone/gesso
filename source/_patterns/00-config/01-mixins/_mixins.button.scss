@@ -23,13 +23,13 @@ $button-font-size: gesso-base-font-size() !default;
   $color-text-disabled: $button-color-text-disabled,
   $border-radius: $button-border-radius,
   $font-size: $button-font-size) {
-  @extend %primary-font-family;
   background-color: $color-bg;
   border: 0;
   border-radius: $border-radius;
   color: $color-text;
   cursor: pointer;
   display: inline-block;
+  font-family: gesso-font-family(primary);
   font-size: rem($font-size);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

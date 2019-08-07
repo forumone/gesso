@@ -3,15 +3,15 @@
 
 .button {
   @include button();
-  margin: 0 0 gesso-spacing(xsm);
+  margin: 0 0 rem(gesso-spacing(xsm));
 
   & + & {
-    margin-left: gesso-spacing(xsm); // LTR
+    margin-left: rem(gesso-spacing(xsm)); // LTR
 
     @if $support-for-rtl {
       [dir='rtl'] & {
         margin-left: 0;
-        margin-right: gesso-spacing(xsm);
+        margin-right: rem(gesso-spacing(xsm));
       }
     }
   }

@@ -36,8 +36,8 @@ blockquote {
     em {
       border-left: 1px solid gesso-grayscale(gray-3);
       font-weight: gesso-font-weight(regular);
-      margin-left: gesso-spacing(xxsm);
-      padding-left: gesso-spacing(xsm);
+      margin-left: rem(gesso-spacing(xxsm));
+      padding-left: rem(gesso-spacing(xsm));
     }
   }
 

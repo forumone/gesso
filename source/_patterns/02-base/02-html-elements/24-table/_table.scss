@@ -19,29 +19,29 @@ table {
 // tbody {}
 
 td {
-  background-color: gesso-color(background, primary);
-  border: 1px solid #5b616b;
-  padding: rem(15px);
+  background-color: gesso-color(table,bg);
+  border: 1px solid gesso-color(table,border);
+  padding: rem(gesso-spacing(sm));
 }
 
 tfoot {
   td,
   th {
-    background-color: #f1f1f1;
+    background-color: gesso-color(table,foot-bg);
   }
 }
 
 th {
-  background-color: #fff;
-  border: 1px solid #5b616b;
-  padding: rem(15px);
+  background-color: gesso-color(table,bg);
+  border: 1px solid gesso-color(table,border);
+  padding: rem(gesso-spacing(sm));
   text-align: left;
 }
 
 thead {
   td,
   th {
-    background-color: #f1f1f1;
+    background-color: gesso-color(table,head-bg);
   }
 
   @media print {

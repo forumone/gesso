@@ -17,11 +17,11 @@ $menu-mobile-submenu-hover-color: #000 !default;
   }
 
   .menu__link {
-    @extend %system-font-family;
     background-color: transparent;
     border: 0;
     color: $menu-mobile-menu-text-color;
     display: block;
+    font-family: gesso-font-family(system);
     font-size: em(18px);
     font-weight: bold;
     line-height: 1.25;

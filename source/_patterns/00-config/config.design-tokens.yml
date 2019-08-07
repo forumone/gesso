@@ -80,6 +80,11 @@ gesso:
       range-thumb-border: grayscale.gray-1
       range-track: grayscale.gray-4
       range-track-border: grayscale.gray-5
+    table:
+      border: grayscale.gray-5
+      bg: grayscale.white
+      head-bg: grayscale.gray-2
+      foot-bg: grayscale.gray-2
     button:
       primary:
         bg: brand.blue.base

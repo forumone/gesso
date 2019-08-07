@@ -49,7 +49,6 @@ $tab-font-size: gesso-font-size(1) !default;
 }
 
 .tabs__link {
-  @extend %system-font-family;
   @include button(
     $tab-color-bg,
     $tab-color-text,
@@ -63,6 +62,7 @@ $tab-font-size: gesso-font-size(1) !default;
   );
   border-left: 1px solid $tab-color-border;
   display: block;
+  font-family: gesso-font-family(system);
   font-size: rem(gesso-font-size(1));
   line-height: (17px / gesso-font-size(1));
   margin: 0;
