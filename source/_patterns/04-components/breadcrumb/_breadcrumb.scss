@@ -3,7 +3,7 @@
 
 .breadcrumb {
   @include clearfix();
-  background-color: gesso-color(background,secondary);
+  background-color: gesso-color(background, secondary);
   color: gesso-grayscale(white);
   font-size: rem(gesso-font-size(0));
   margin: rem(gesso-spacing(sm)) 0;
@@ -54,6 +54,6 @@
 }
 
 .breadcrumb__link {
-  @include link(gesso-grayscale(gray-3),gesso-grayscale(white));
+  @include link(gesso-grayscale(gray-3), gesso-grayscale(white));
   text-decoration: none;
 }

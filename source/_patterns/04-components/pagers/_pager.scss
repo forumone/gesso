@@ -3,9 +3,9 @@
 
 $bp-ellipsis: 800px;
 $bp-pager: 600px;
-$pager-bg-color: gesso-palette(blue,base);
-$pager-bg-color-hover: gesso-palette(blue,light);
-$pager-bg-color-active: gesso-palette(blue,dark);
+$pager-bg-color: gesso-palette(blue, base);
+$pager-bg-color-hover: gesso-palette(blue, light);
+$pager-bg-color-active: gesso-palette(blue, dark);
 
 .pager__items {
   @include list-clean();
@@ -66,7 +66,7 @@ $pager-bg-color-active: gesso-palette(blue,dark);
   text-decoration: none;
 
   &:visited {
-    color: gesso-color(text,primary);
+    color: gesso-color(text, primary);
   }
 
   &:hover,
@@ -83,20 +83,20 @@ $pager-bg-color-active: gesso-palette(blue,dark);
 .pager__link--previous,
 .pager__link--next {
   background-color: transparent;
-  color: gesso-color(text,primary);
+  color: gesso-color(text, primary);
   position: relative;
 
   &:hover,
   &:focus {
     background-color: transparent;
-    color: gesso-color(text,primary);
+    color: gesso-color(text, primary);
     .pager__link-icon g {
-      fill: gesso-palette(blue,base);
+      fill: gesso-palette(blue, base);
     }
   }
 
   &:visited {
-    color: gesso-color(text,primary);
+    color: gesso-color(text, primary);
   }
 }
 

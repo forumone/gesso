@@ -2,7 +2,7 @@
   text-decoration: none;
   &:hover, &:focus {
     path {
-      fill: gesso-color(text,link-hover)
+      fill: gesso-color(text, link-hover)
     }
   }
 }
@@ -12,7 +12,7 @@
   position: relative;
   top: 8px;
   path {
-    fill: gesso-color(text,link);
+    fill: gesso-color(text, link);
   }
 }
 

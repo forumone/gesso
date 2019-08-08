@@ -3,7 +3,7 @@
 
 $progress-border-radius: rem(3px) !default;
 $progress-color: gesso-grayscale(gray-4) !default;
-$progress-color-bar: gesso-palette(blue,base) !default;
+$progress-color-bar: gesso-palette(blue, base) !default;
 $progress-color-border: gesso-grayscale(gray-5) !default;
 
 .progress {
@@ -34,7 +34,7 @@ $progress-color-border: gesso-grayscale(gray-5) !default;
 
 .progress__description,
 .progress__percentage {
-  color: gesso-color(text,secondary);
+  color: gesso-color(text, secondary);
   font-size: rem(gesso-font-size(0));
   overflow: hidden;
 }

@@ -83,8 +83,8 @@ gesso:
     table:
       border: grayscale.gray-5
       bg: grayscale.white
-      head-bg: grayscale.gray-2
-      foot-bg: grayscale.gray-2
+      bg-head: grayscale.gray-2
+      bg-foot: grayscale.gray-2
     button:
       primary:
         bg: brand.blue.base

@@ -40,7 +40,7 @@ $fieldset-legend-offset: rem(gesso-line-height(base) * gesso-base-font-size()) !
 // .fieldset__content {}
 
 .fieldset__description {
-  color: gesso-color(text,secondary);
+  color: gesso-color(text, secondary);
   font-size: rem(gesso-font-size(1));
 
   > :last-child {
@@ -50,13 +50,13 @@ $fieldset-legend-offset: rem(gesso-line-height(base) * gesso-base-font-size()) !
 
 .fieldset--default {
   background: #fff;
-  border: 1px solid gesso-color(form,border);
+  border: 1px solid gesso-color(form, border);
   margin: rem(gesso-spacing(sm)) 0 (rem(gesso-spacing(sm)) + rem(12px));
   padding: 0 1em;
 
   .fieldset__legend {
     background: gesso-grayscale(gray-3);
-    border: 1px solid gesso-color(form,border);
+    border: 1px solid gesso-color(form, border);
     border-bottom: 0;
     color: #212121;
     height: 2em;

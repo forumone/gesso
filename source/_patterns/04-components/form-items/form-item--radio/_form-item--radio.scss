@@ -7,7 +7,7 @@
   .form-item__radio {
     appearance: none;
     background-color: gesso-grayscale(white);
-    border: 1px solid gesso-color(form,border-active);
+    border: 1px solid gesso-color(form, border-active);
     border-radius: 50%;
     box-shadow: 0 0 0 2px transparent;
     cursor: pointer;
@@ -22,9 +22,9 @@
     width: 18px;
 
     &:checked {
-      background-color: gesso-color(form,bg-highlight);
+      background-color: gesso-color(form, bg-highlight);
       border: 2px solid gesso-grayscale(white);
-      box-shadow: 0 0 0 2px gesso-color(form,bg-highlight);
+      box-shadow: 0 0 0 2px gesso-color(form, bg-highlight);
     }
 
     &:disabled {

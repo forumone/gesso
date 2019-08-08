@@ -19,17 +19,17 @@
 
 // Drupal outputs this class on buttons that can delete content.
 .button--danger {
-  background-color: gesso-color(button,danger,bg);
+  background-color: gesso-color(button, danger, bg);
   color: gesso-color(button,danger,text);
 
   &:hover,
   &:focus {
-    background-color: gesso-color(button,danger,bg-hover);
+    background-color: gesso-color(button, danger, bg-hover);
     color: gesso-color(button,danger,text-hover);
   }
 
   &:active {
-    background-color: gesso-color(button,danger,bg-active);
+    background-color: gesso-color(button, danger, bg-active);
     color: gesso-color(button,danger,text-active);
   }
 }
@@ -43,12 +43,12 @@
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--secondary {
   @include button(
-    gesso-color(button,secondary,bg),
-    gesso-color(button,secondary,text),
-    gesso-color(button,secondary,bg-hover),
-    gesso-color(button,secondary,text-hover),
-    gesso-color(button,secondary,bg-active),
-    gesso-color(button,secondary,text-active)
+    gesso-color(button, secondary, bg),
+    gesso-color(button, secondary, text),
+    gesso-color(button, secondary, bg-hover),
+    gesso-color(button, secondary, text-hover),
+    gesso-color(button, secondary, bg-active),
+    gesso-color(button, secondary, text-active)
   );
 }
 

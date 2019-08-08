@@ -2,14 +2,14 @@
 // Button styles
 
 $button-border-radius: 0 !default;
-$button-color-bg: gesso-color(button,primary,bg) !default;
-$button-color-bg-active: gesso-color(button,primary,bg-active) !default;
-$button-color-bg-disabled: gesso-color(button,disabled,bg) !default;
-$button-color-bg-hover: gesso-color(button,primary,bg-hover) !default;
-$button-color-text: gesso-color(button,primary,text) !default;
-$button-color-text-active: gesso-color(button,primary,text-active) !default;
-$button-color-text-disabled: gesso-color(button,disabled,text) !default;
-$button-color-text-hover: gesso-color(button,primary,text-hover) !default;
+$button-color-bg: gesso-color(button, primary, bg) !default;
+$button-color-bg-active: gesso-color(button, primary, bg-active) !default;
+$button-color-bg-disabled: gesso-color(button, disabled, bg) !default;
+$button-color-bg-hover: gesso-color(button, primary, bg-hover) !default;
+$button-color-text: gesso-color(button, primary, text) !default;
+$button-color-text-active: gesso-color(button, primary, text-active) !default;
+$button-color-text-disabled: gesso-color(button, disabled, text) !default;
+$button-color-text-hover: gesso-color(button, primary, text-hover) !default;
 $button-font-size: gesso-base-font-size() !default;
 
 @mixin button(
