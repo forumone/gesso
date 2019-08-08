@@ -2,9 +2,9 @@
 // Styles for progress bars.
 
 $progress-border-radius: rem(3px) !default;
-$progress-color: #aeb0b5 !default;
-$progress-color-bar: gesso-color(text, link) !default;
-$progress-color-border: #5b616b !default;
+$progress-color: gesso-grayscale(gray-4) !default;
+$progress-color-bar: gesso-palette(blue,base) !default;
+$progress-color-border: gesso-grayscale(gray-5) !default;
 
 .progress {
   position: relative;

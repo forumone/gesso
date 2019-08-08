@@ -3,14 +3,11 @@
 
 .message {
   background-color: gesso-grayscale(gray-2);
-  background-position: rem(gesso-spacing(xsm)); // LTR
-  background-repeat: no-repeat;
-  background-size: em(40px);
-  border: 1px solid gs;
+  border: 1px solid gesso-grayscale(gray-4);
   color: gesso-color(text, primary);
   margin-bottom: rem(gesso-spacing(sm));
   overflow: hidden;
-  padding: 1em;
+  padding: rem(gesso-spacing(sm));
   position: relative;
   word-wrap: break-word;
 
@@ -25,17 +22,17 @@
     right: -0.5em;
     transform: rotate(-20deg);
     width: em(52px);
+    @media print {
+      display: none !important;
+    }
   }
 
   a {
     color: gesso-color(text, secondary);
-    font-weight: 600;
+    font-weight: gesso-font-weight(semibold);
     text-decoration: underline;
   }
 
-  @media print {
-    background-image: none !important;
-  }
 }
 
 .message__content {
@@ -64,7 +61,7 @@
   .message__item {
     em:first-child {
       font-style: normal;
-      font-weight: bold;
+      font-weight: gesso-font-weight(bold);
     }
   }
 }

@@ -3,9 +3,9 @@
 
 $bp-ellipsis: 800px;
 $bp-pager: 600px;
-$pager-bg-color: gesso-palette(blue, base);
-$pager-bg-color-hover: gesso-palette(blue, light);
-$pager-bg-color-active: gesso-palette(blue, dark);
+$pager-bg-color: gesso-palette(blue,base);
+$pager-bg-color-hover: gesso-palette(blue,light);
+$pager-bg-color-active: gesso-palette(blue,dark);
 
 .pager__items {
   @include list-clean();
@@ -34,14 +34,14 @@ $pager-bg-color-active: gesso-palette(blue, dark);
 
 %pager__link {
   background-color: transparent;
-  color: gesso-color(text, primary);
+  color: gesso-color(text,primary);
   min-width: rem(gesso-spacing(lg));
   padding: em(gesso-spacing(xsm));
   transition: color gesso-duration(short) gesso-easing(ease-out),
     background-color gesso-duration(standard) gesso-easing(ease-out);
 
   &:focus {
-    outline: gesso-color(text, secondary) dotted 1px;
+    outline: 1px dotted gesso-grayscale(gray-5);
   }
 }
 
@@ -66,7 +66,7 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   text-decoration: none;
 
   &:visited {
-    color: gesso-color(text, primary);
+    color: gesso-color(text,primary);
   }
 
   &:hover,
@@ -83,36 +83,36 @@ $pager-bg-color-active: gesso-palette(blue, dark);
 .pager__link--previous,
 .pager__link--next {
   background-color: transparent;
-  color: gesso-color(text, primary);
+  color: gesso-color(text,primary);
   position: relative;
 
   &:hover,
   &:focus {
     background-color: transparent;
-    color: gesso-color(text, primary);
+    color: gesso-color(text,primary);
     .pager__link-icon g {
-      fill: gesso-palette(blue, base);
+      fill: gesso-palette(blue,base);
     }
   }
 
   &:visited {
-    color: gesso-color(text, primary);
+    color: gesso-color(text,primary);
   }
 }
 
 .pager__item--previous {
-  margin-right: gesso-spacing(lg);
+  margin-right: rem(gesso-spacing(lg));
 
   .pager__link {
-    padding-left: rem(32px);
+    padding-left: 32px;
   }
 }
 
 .pager__item--next {
-  margin-left: gesso-spacing(lg);
+  margin-left: rem(gesso-spacing(lg));
 
   .pager__link {
-    padding-right: rem(32px);
+    padding-right: 32px;
   }
 }
 

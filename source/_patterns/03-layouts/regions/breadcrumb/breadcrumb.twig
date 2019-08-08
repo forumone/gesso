@@ -1,5 +1,7 @@
 <div class="l-breadcrumb">
-  <div class="l-constrain">
+  {# l-constrain commented out to accomodate full-bleed default breadcrumb
+    component. Add back if necessary, but avoid nesting l-constrains if possible. #}
+  {# <div class="l-constrain"> #}
     {% block content %}
       {% include '@components/breadcrumb/breadcrumb.twig' with {
         'breadcrumb': [
@@ -9,5 +11,5 @@
         ]
       } %}
     {% endblock %}
-  </div>
+  {# </div> #}
 </div>

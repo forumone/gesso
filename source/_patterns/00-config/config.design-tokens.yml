@@ -69,7 +69,7 @@ gesso:
       link-visited: brand.blue.dark
     background:
       primary: grayscale.white
-      secondary: brand.blue.base
+      secondary: brand.blue.dark-1
     form:
       bg: grayscale.gray-1
       bg-active: grayscale.white

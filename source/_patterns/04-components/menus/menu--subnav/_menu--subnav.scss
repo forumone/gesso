@@ -3,8 +3,4 @@
 
 .menu--submenu {
   @include list-pipeline;
-
-  .menu__link {
-    font-size: em(gesso-font-size(1));
-  }
 }

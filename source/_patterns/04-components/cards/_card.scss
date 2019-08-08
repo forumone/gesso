@@ -16,11 +16,11 @@ $card-padding: rem(gesso-spacing(md));
 }
 
 .card__date {
-  font-size: gesso-font-size(0);
+  font-size: rem(gesso-font-size(0));
 }
 
 .card__title {
-  font-size: gesso-font-size(3);
+  font-size: rem(gesso-font-size(3));
 
   a {
     @include link(
@@ -99,7 +99,7 @@ $card-padding: rem(gesso-spacing(md));
     }
 
     .card__body {
-      max-width: rem(600px);
+      max-width: 600px;
       padding: $card-padding 2vw 0;
     }
 

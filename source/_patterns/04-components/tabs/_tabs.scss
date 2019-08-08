@@ -1,17 +1,16 @@
 // @file
 // Styles for Tabs.
 
-$tab-border-radius: rem(3px) !default;
-$tab-color-bg: #d6d7d9 !default;
-$tab-color-bg-active: #212121 !default;
-$tab-color-bg-disabled: #d6d7d9 !default;
-$tab-color-bg-hover: #aeb0b5 !default;
-$tab-color-border: #aeb0b5 !default;
-$tab-color-text: #212121 !default;
-$tab-color-text-active: #fff !default;
-$tab-color-text-disabled: #323a45 !default;
-$tab-color-text-hover: #212121 !default;
-$tab-font-size: gesso-font-size(1) !default;
+$tab-border-radius: 0 !default;
+$tab-color-bg: gesso-grayscale(gray-3) !default;
+$tab-color-bg-active: gesso-grayscale(black) !default;
+$tab-color-bg-disabled: gesso-grayscale(gray-3) !default;
+$tab-color-bg-hover: gesso-grayscale(gray-4) !default;
+$tab-color-border: gesso-grayscale(gray-4) !default;
+$tab-color-text: gesso-grayscale(black) !default;
+$tab-color-text-active: gesso-grayscale(white) !default;
+$tab-color-text-disabled: gesso-grayscale(gray-6) !default;
+$tab-color-text-hover: gesso-grayscale(black) !default;
 
 .tabs {
   @include clearfix;
@@ -66,7 +65,7 @@ $tab-font-size: gesso-font-size(1) !default;
   font-size: rem(gesso-font-size(1));
   line-height: (17px / gesso-font-size(1));
   margin: 0;
-  padding: rem(8px) rem(16px);
+  padding: rem(gesso-spacing(xsm)) rem(gesso-spacing(sm));
 
   &:focus {
     background-color: $tab-color-bg-hover;
