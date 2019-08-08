@@ -148,14 +148,12 @@ gesso:
         font-weight: bold
         font-size: 8
         line-height: tight
-        letter-spacing: -0.04em
         color: text.primary
       h1:
         font-family: primary.stack
         font-weight: bold
         font-size: 6
         line-height: tight
-        letter-spacing: -0.02em
         color: text.primary
       h2:
         font-family: primary.stack

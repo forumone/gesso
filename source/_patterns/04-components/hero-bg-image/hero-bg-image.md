@@ -10,5 +10,4 @@ _Component for Hero Bg Image_
 * image_alt: [string] Alt text for image.
 * has_overlay: [boolean] True/False identifying component has overlay class.
 * title: [string] Title of hero.
-* subtitle: [string] Subtitle of hero.
 * summary: [string] Summary of hero.
