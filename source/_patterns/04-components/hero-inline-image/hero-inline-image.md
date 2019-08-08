@@ -5,7 +5,7 @@ title: Hero Inline Image
 _Component for Hero Inline Image_
 
 ## Variables
-* custom_classes: [string] Classes to modify the default component styling.
+* modifier_classes: [string] Classes to modify the default component styling.
 * media: [string] Background image for component.
 * has_overlay: [boolean] True/False identifying component has overlay class.
 * title: [string] Title of hero.
