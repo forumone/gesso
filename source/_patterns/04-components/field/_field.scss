@@ -7,6 +7,7 @@
 
 .field__label {
   display: block;
+  font-size: rem(gesso-font-size(1));
   font-weight: gesso-font-weight(bold);
 
   &.is-inline {
