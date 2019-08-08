@@ -2,14 +2,14 @@
 // Button styles
 
 $button-border-radius: 0 !default;
-$button-color-bg: gesso-color(button,primary,bg) !default;
-$button-color-bg-active: gesso-color(button,primary,bg-active) !default;
-$button-color-bg-disabled: gesso-color(button,disabled,bg) !default;
-$button-color-bg-hover: gesso-color(button,primary,bg-hover) !default;
-$button-color-text: gesso-color(button,primary,text) !default;
-$button-color-text-active: gesso-color(button,primary,text-active) !default;
-$button-color-text-disabled: gesso-color(button,disabled,text) !default;
-$button-color-text-hover: gesso-color(button,primary,text-hover) !default;
+$button-color-bg: gesso-color(button, primary, bg) !default;
+$button-color-bg-active: gesso-color(button, primary, bg-active) !default;
+$button-color-bg-disabled: gesso-color(button, disabled, bg) !default;
+$button-color-bg-hover: gesso-color(button, primary, bg-hover) !default;
+$button-color-text: gesso-color(button, primary, text) !default;
+$button-color-text-active: gesso-color(button, primary, text-active) !default;
+$button-color-text-disabled: gesso-color(button, disabled, text) !default;
+$button-color-text-hover: gesso-color(button, primary, text-hover) !default;
 $button-font-size: gesso-base-font-size() !default;
 
 @mixin button(
@@ -23,13 +23,13 @@ $button-font-size: gesso-base-font-size() !default;
   $color-text-disabled: $button-color-text-disabled,
   $border-radius: $button-border-radius,
   $font-size: $button-font-size) {
-  @extend %primary-font-family;
   background-color: $color-bg;
   border: 0;
   border-radius: $border-radius;
   color: $color-text;
   cursor: pointer;
   display: inline-block;
+  font-family: gesso-font-family(primary);
   font-size: rem($font-size);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -38,7 +38,7 @@ $button-font-size: gesso-base-font-size() !default;
   padding: rem(gesso-spacing(xsm)) rem(gesso-spacing(sm));
   text-align: center;
   text-decoration: none;
-  transition: background gesso-duration(short) gesso-easing(easeIn);
+  transition: background gesso-duration(short) gesso-easing(ease-in);
   vertical-align: top;
   white-space: normal;
 

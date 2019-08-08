@@ -3,9 +3,9 @@
 
 %hN {
   color: inherit;
-  font-weight: 700;
+  font-weight: gesso-font-weight(bold);
   hyphens: none;
-  line-height: 1.3;
+  line-height: gesso-line-height(base);
   margin: 0 0 rem(gesso-spacing(sm));
   text-rendering: optimizeLegibility;
 

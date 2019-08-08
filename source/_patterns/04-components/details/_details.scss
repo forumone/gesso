@@ -1,11 +1,11 @@
 // @file
 // Styles for collapsible details.
 
-$details-box-shadow-focus: 0 0 3px #3e94cf, 0 0 7px #3e94cf !default;
-$details-color: #f1f1f1 !default;
-$details-color-content: #fff !default;
-$details-color-hover: #d6d7d9 !default;
-$details-padding: rem(gesso-spacing(md)) !default;
+$details-box-shadow-focus: gesso-box-shadow(2) !default;
+$details-color: gesso-grayscale(gray-2) !default;
+$details-color-content: gesso-grayscale(white) !default;
+$details-color-hover: gesso-grayscale(gray-3) !default;
+$details-padding: rem(24px) !default;
 
 // 'details' can appear as a modernizr class on the html tag, so this
 // class is limited to only the details element
@@ -28,7 +28,7 @@ details.details {
   background-size: rem(13px);
   cursor: pointer;
   display: block;
-  font-weight: bold;
+  font-weight: gesso-font-weight(bold);
   line-height: 1;
   outline: 0;
   padding: rem(15px) rem(55px) rem(15px) $details-padding; // LTR
@@ -77,9 +77,9 @@ details.details {
 }
 
 .details__description {
-  color: gesso-color(text,secondary);
+  color: gesso-color(text, secondary);
   font-size: rem(gesso-font-size(1));
-  margin-bottom:rem(gesso-spacing(sm));
+  margin-bottom: rem(gesso-spacing(sm));
 
   > :last-child {
     margin-bottom: 0;

@@ -7,7 +7,7 @@ $card-padding: rem(gesso-spacing(md));
   box-shadow: gesso-box-shadow(1);
   display: flex;
   flex-direction: column;
-  transition: box-shadow gesso-duration(short) gesso-easing(easeInOut);
+  transition: box-shadow gesso-duration(short) gesso-easing(ease-in-out);
 
   &:hover,
   &:focus-within {
@@ -16,16 +16,16 @@ $card-padding: rem(gesso-spacing(md));
 }
 
 .card__date {
-  font-size: gesso-font-size(0);
+  font-size: rem(gesso-font-size(0));
 }
 
 .card__title {
-  font-size: gesso-font-size(3);
+  font-size: rem(gesso-font-size(3));
 
   a {
     @include link(
       gesso-grayscale(black),
-      gesso-grayscale(gray-4)
+      gesso-grayscale(gray-5)
     );
   }
 }
@@ -41,7 +41,7 @@ $card-padding: rem(gesso-spacing(md));
 }
 
 .card__date {
-  color: gesso-grayscale(gray-4);
+  color: gesso-grayscale(gray-5);
   margin-bottom: rem(gesso-spacing(sm));
 }
 
@@ -99,7 +99,7 @@ $card-padding: rem(gesso-spacing(md));
     }
 
     .card__body {
-      max-width: rem(600px);
+      max-width: 600px;
       padding: $card-padding 2vw 0;
     }
 

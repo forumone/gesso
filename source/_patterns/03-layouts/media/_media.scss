@@ -1,7 +1,7 @@
 // @file
 // Styles for Media Object.
 
-$media-gutter: 1rem;
+$media-gutter: rem(gesso-spacing(sm));
 
 .l-media {
   display: flex;

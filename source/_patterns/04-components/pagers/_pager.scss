@@ -34,14 +34,14 @@ $pager-bg-color-active: gesso-palette(blue, dark);
 
 %pager__link {
   background-color: transparent;
-  color: gesso-color(text, primary);
+  color: gesso-color(text,primary);
   min-width: rem(gesso-spacing(lg));
   padding: em(gesso-spacing(xsm));
-  transition: color gesso-duration(short) gesso-easing(easeOut),
-    background-color gesso-duration(standard) gesso-easing(easeOut);
+  transition: color gesso-duration(short) gesso-easing(ease-out),
+    background-color gesso-duration(standard) gesso-easing(ease-out);
 
   &:focus {
-    outline: gesso-color(text, secondary) dotted 1px;
+    outline: 1px dotted gesso-grayscale(gray-5);
   }
 }
 
@@ -101,18 +101,18 @@ $pager-bg-color-active: gesso-palette(blue, dark);
 }
 
 .pager__item--previous {
-  margin-right: gesso-spacing(lg);
+  margin-right: rem(gesso-spacing(lg));
 
   .pager__link {
-    padding-left: rem(32px);
+    padding-left: 32px;
   }
 }
 
 .pager__item--next {
-  margin-left: gesso-spacing(lg);
+  margin-left: rem(gesso-spacing(lg));
 
   .pager__link {
-    padding-right: rem(32px);
+    padding-right: 32px;
   }
 }
 
@@ -124,7 +124,7 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   width: 24px;
 
   g {
-    fill: gesso-grayscale(gray-3);
+    fill: gesso-grayscale(gray-4);
   }
 
   .pager__item--next & {

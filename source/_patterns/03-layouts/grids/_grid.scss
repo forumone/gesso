@@ -1,7 +1,7 @@
 // @file
 // Styles for Grid Layout.
 
-$grid-gutter: 2em;
+$grid-gutter: rem(gesso-spacing(lg));
 
 .l-grid {
   @include flex-grid(1, $grid-gutter, 0);
