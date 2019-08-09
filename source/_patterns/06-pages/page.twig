@@ -1,6 +1,8 @@
 {% include '@layouts/regions/header/header.twig' %}
 {% include '@layouts/regions/navigation/navigation.twig' %}
-{% include '@layouts/regions/breadcrumb/breadcrumb.twig' %}
+{% include '@layouts/regions/breadcrumb/breadcrumb.twig' with {
+  'unconstrained': true
+} %}
 {% include '@layouts/regions/highlighted/highlighted.twig' %}
 {% include '@layouts/regions/help/help.twig' %}
 

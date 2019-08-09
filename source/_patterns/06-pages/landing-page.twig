@@ -1,10 +1,12 @@
 {% include '@layouts/regions/header/header.twig' %}
 {% include '@layouts/regions/navigation/navigation.twig' %}
-{% include '@layouts/regions/breadcrumb/breadcrumb.twig' %}
+{% include '@layouts/regions/breadcrumb/breadcrumb.twig' with {
+  'unconstrained': true
+} %}
 {% include '@layouts/regions/highlighted/highlighted.twig' %}
 {% include '@layouts/regions/help/help.twig' %}
 
-{# defining cards with dummy content #}
+{# define some cards as dummy content for grid #}
 {% set card1 %}
   {% include '@components/cards/card.twig' with {
     'title': 'Delorean',
@@ -63,7 +65,7 @@
   } %}
 {% endset %}
 
-{# defining an unformatted content display of a view with the cards as content #}
+{# define an unformatted content display of a view with the cards as dummy content #}
 {% set grid_content %}
   {% include '@components/views/views-view-unformatted/views-view-unformatted.twig' with {
     'title': false,
@@ -79,7 +81,7 @@
   } %}
 {% endset %}
 
-{# defining rows as a grid with the unformatted view content inside #}
+{# define rows as a grid with the unformatted view dummy content inside #}
 {% set rows %}
   {% include '@layouts/grids/grid.twig' with {
     'modifier_classes': 'l-grid--3col',
@@ -87,12 +89,12 @@
   } %}
 {% endset %}
 
-{# defining the pager for the view #}
+{# define a dummy pager for the view #}
 {% set pager %}
   {% include '@components/pagers/pager.twig' %}
 {% endset %}
 
-{# defining the content of the landing page template as a view, using view content from above #}
+{# define the content of the landing page template as a view, using dummy view content from above #}
 {% set landing_page_content %}
   {% include '@components/views/views-view/views-view.twig' with {
     'title': false,
