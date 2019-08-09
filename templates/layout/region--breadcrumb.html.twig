@@ -1,5 +1,9 @@
-{% extends '@layouts/regions/breadcrumb/breadcrumb.twig' %}
+{% embed '@layouts/regions/breadcrumb/breadcrumb.twig' with {
+  'unconstrained': true
+} %}
 
   {% block content %}
     {{ content }}
   {% endblock %}
+
+{% endembed %}

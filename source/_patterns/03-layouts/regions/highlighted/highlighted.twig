@@ -1,7 +1,11 @@
 <div class="l-highlighted">
-  <div class="l-constrain">
-    {% block content %}
+  {% if not unconstrained %}
+    <div class="l-constrain">
+  {% endif %}
+  {% block content %}
 
-    {% endblock %}
-  </div>
+  {% endblock %}
+  {% if not unconstrained %}
+    </div>
+  {% endif %}
 </div>
