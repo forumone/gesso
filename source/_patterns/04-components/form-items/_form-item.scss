@@ -2,9 +2,9 @@
 // Styles for form items.
 
 $form-background-color: gesso-color(form, background) !default;
-$form-background-focus-color: gesso-color(form, background-active) !default;
+$form-background-color-focus: gesso-color(form, background-active) !default;
 $form-border-color: gesso-color(form, border) !default;
-$form-border-focus-color: gesso-color(form, border-dark) !default;
+$form-border-color-focus: gesso-color(form, border-dark) !default;
 $form-box-shadow-focus: gesso-box-shadow(2) !default;
 $form-disabled-opacity: 0.35 !default;
 $form-text-size: gesso-base-font-size() !default;
@@ -74,8 +74,8 @@ $form-text-size: gesso-base-font-size() !default;
 
   &:hover,
   &:focus {
-    background-color: $form-background-focus-color;
-    border: 1px solid $form-border-focus-color;
+    background-color: $form-background-color-focus;
+    border: 1px solid $form-border-color-focus;
     outline: 0;
   }
 

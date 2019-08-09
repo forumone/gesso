@@ -2,8 +2,8 @@
 // Styles for collapsible details.
 
 $details-background-color: gesso-color(ui, primary, background-light) !default;
-$details-background-color-content: gesso-color(background, site) !default;
 $details-background-color-hover: gesso-color(ui, primary, background) !default;
+$details-content-background-color: gesso-color(background, site) !default;
 $details-padding: rem(24px) !default;
 $details-text-color: gesso-color(ui, primary, text-dark) !default;
 
@@ -67,7 +67,7 @@ details.details {
 }
 
 .details__content {
-  background: $details-background-color-content;
+  background: $details-content-background-color;
   border: 3px solid $details-background-color;
   border-top: 0;
   padding: $details-padding;

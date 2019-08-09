@@ -2,25 +2,25 @@
 // Button styles
 
 $button-border-radius: 0 !default;
-$button-color-background: gesso-color(button, primary, background) !default;
-$button-color-background-active: gesso-color(button, primary, background-active) !default;
-$button-color-background-disabled: gesso-color(button, disabled, background) !default;
-$button-color-background-hover: gesso-color(button, primary, background-hover) !default;
-$button-color-text: gesso-color(button, primary, text) !default;
-$button-color-text-active: gesso-color(button, primary, text-active) !default;
-$button-color-text-disabled: gesso-color(button, disabled, text) !default;
-$button-color-text-hover: gesso-color(button, primary, text-hover) !default;
+$button-background-color: gesso-color(button, primary, background) !default;
+$button-background-color-active: gesso-color(button, primary, background-active) !default;
+$button-background-color-disabled: gesso-color(button, disabled, background) !default;
+$button-background-color-hover: gesso-color(button, primary, background-hover) !default;
+$button-text-color: gesso-color(button, primary, text) !default;
+$button-text-color-active: gesso-color(button, primary, text-active) !default;
+$button-text-color-disabled: gesso-color(button, disabled, text) !default;
+$button-text-color-hover: gesso-color(button, primary, text-hover) !default;
 $button-font-size: gesso-base-font-size() !default;
 
 @mixin button(
-  $color-background: $button-color-background,
-  $color-text: $button-color-text,
-  $color-background-hover: $button-color-background-hover,
-  $color-text-hover: $button-color-text-hover,
-  $color-background-active: $button-color-background-active,
-  $color-text-active: $button-color-text-active,
-  $color-background-disabled: $button-color-background-disabled,
-  $color-text-disabled: $button-color-text-disabled,
+  $color-background: $button-background-color,
+  $color-text: $button-text-color,
+  $color-background-hover: $button-background-color-hover,
+  $color-text-hover: $button-text-color-hover,
+  $color-background-active: $button-background-color-active,
+  $color-text-active: $button-text-color-active,
+  $color-background-disabled: $button-background-color-disabled,
+  $color-text-disabled: $button-text-color-disabled,
   $border-radius: $button-border-radius,
   $font-size: $button-font-size) {
   background-color: $color-background;

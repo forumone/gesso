@@ -3,7 +3,7 @@
 
 $card-accent-border-color: gesso-color(ui, primary, accent) !default;
 $card-link-color: gesso-color(ui, primary, text-dark) !default;
-$card-link-hover-color: gesso-color(ui, primary, text) !default;
+$card-link-color-hover: gesso-color(ui, primary, text) !default;
 $card-meta-color: gesso-color(ui, primary, text) !default;
 $card-padding: rem(gesso-spacing(md)) !default;
 
@@ -30,7 +30,7 @@ $card-padding: rem(gesso-spacing(md)) !default;
   a {
     @include link(
       $card-link-color,
-      $card-link-hover-color
+      $card-link-color-hover
     );
   }
 }
