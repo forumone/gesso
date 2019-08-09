@@ -1,7 +1,7 @@
 // @file
 // Horizontal rule styles.
 
-$horizontal-rule-color: gesso-grayscale(gray-3) !default;
+$horizontal-rule-color: gesso-color(ui, primary, border);
 
 hr {
   border: 1px solid $horizontal-rule-color;

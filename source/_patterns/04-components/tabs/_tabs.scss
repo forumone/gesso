@@ -1,16 +1,16 @@
 // @file
 // Styles for Tabs.
 
+$tab-background-color: gesso-color(ui, primary, background-light) !default;
+$tab-background-active-color: gesso-color(ui, primary, background-dark) !default;
+$tab-background-disabled-color: gesso-color(ui, primary, background-light) !default;
+$tab-background-hover-color: gesso-color(ui, primary, background) !default;
+$tab-border-color: gesso-color(ui, primary, border) !default;
 $tab-border-radius: 0 !default;
-$tab-background-color: gesso-grayscale(gray-3) !default;
-$tab-background-active-color: gesso-grayscale(black) !default;
-$tab-background-disabled-color: gesso-grayscale(gray-3) !default;
-$tab-background-hover-color: gesso-grayscale(gray-4) !default;
-$tab-border-color: gesso-grayscale(gray-4) !default;
-$tab-text-color: gesso-grayscale(black) !default;
-$tab-text-active-color: gesso-grayscale(white) !default;
-$tab-text-disabled-color: gesso-grayscale(gray-6) !default;
-$tab-text-hover-color: gesso-grayscale(black) !default;
+$tab-text-color: gesso-color(ui, primary, text-dark) !default;
+$tab-text-active-color: gesso-color(ui, primary, text-light) !default;
+$tab-text-disabled-color: gesso-color(ui, primary, text) !default;
+$tab-text-hover-color: gesso-color(ui, primary, text-dark) !default;
 
 .tabs {
   @include clearfix;

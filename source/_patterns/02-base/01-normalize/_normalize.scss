@@ -4,9 +4,6 @@
 // Inspiration: http://necolas.github.com/normalize.css
 // version 3.0.2
 
-$color-selection-background: gesso-palette(blue, base) !default;
-$color-selection-foreground: gesso-grayscale(white) !default;
-
 article,
 aside,
 details,
@@ -145,13 +142,13 @@ var {
 
 /* stylelint-disable-next-line selector-no-vendor-prefix */
 ::-moz-selection {
-  background: $color-selection-background;
-  color: $color-selection-foreground;
+  background: gesso-color(selection, background);
+  color: gesso-color(selection, text);
   text-shadow: none;
 }
 
 ::selection {
-  background: $color-selection-background;
-  color: $color-selection-foreground;
+  background: gesso-color(selection, background);
+  color: gesso-color(selection, text);
   text-shadow: none;
 }

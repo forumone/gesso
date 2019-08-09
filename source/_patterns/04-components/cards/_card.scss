@@ -1,9 +1,10 @@
 // @file
 // Styles for Cards.
-$card-accent-border-color: gesso-palette(blue, base) !default;
-$card-link-color: gesso-grayscale(black) !default;
-$card-link-hover-color: gesso-grayscale(gray-5) !default;
-$card-meta-color: gesso-grayscale(gray-5) !default;
+
+$card-accent-border-color: gesso-color(ui, primary, accent) !default;
+$card-link-color: gesso-color(ui, primary, text-dark) !default;
+$card-link-hover-color: gesso-color(ui, primary, text) !default;
+$card-meta-color: gesso-color(ui, primary, text) !default;
 $card-padding: rem(gesso-spacing(md)) !default;
 
 .card {

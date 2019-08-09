@@ -1,15 +1,15 @@
 // @file
 // Styles for Pager.
 
+$pager-background-color: gesso-color(ui, primary, accent) !default;
+$pager-background-color-hover: gesso-color(ui, primary, accent) !default;
+$pager-background-color-active: gesso-color(ui, primary, accent-dark) !default;
+$pager-link-color: gesso-color(ui, primary, text-dark) !default;
+$pager-link-active-color: gesso-color(ui, primary, text-light) !default;
+$pager-link-focus-outline-color: gesso-color(ui, primary, border-dark) !default;
 $pager-ellipsis-bp: 800px !default;
 $pager-bp: 600px !default;
-$pager-background-color: gesso-palette(blue, base) !default;
-$pager-background-color-hover: gesso-palette(blue, light) !default;
-$pager-background-color-active: gesso-palette(blue, dark) !default;
-$pager-link-color: gesso-color(text, primary) !default;
-$pager-link-active-color: gesso-grayscale(white) !default;
-$pager-link-focus-outline-color: gesso-grayscale(gray-5) !default;
-$pager-link-icon-color: gesso-grayscale(gray-4) !default;
+
 
 .pager__items {
   @include list-clean();
@@ -129,7 +129,7 @@ $pager-link-icon-color: gesso-grayscale(gray-4) !default;
   width: 24px;
 
   g {
-    fill: $pager-link-icon-color;
+    fill: $pager-link-color;
   }
 
   .pager__item--next & {

@@ -1,15 +1,13 @@
 // @file
 // Styles for radio form items.
 
-$form-radio-background-color: gesso-grayscale(white) !default;
-
 .form-item--radio {
   margin-bottom: gesso-spacing(xsm);
 
   .form-item__radio {
     appearance: none;
-    background-color: $form-radio-background-color;
-    border: 1px solid gesso-color(form, border-active);
+    background-color: gesso-color(form, background-unchecked);
+    border: 1px solid gesso-color(form, border-dark);
     border-radius: 50%;
     box-shadow: 0 0 0 2px transparent;
     cursor: pointer;
@@ -24,9 +22,9 @@ $form-radio-background-color: gesso-grayscale(white) !default;
     width: 18px;
 
     &:checked {
-      background-color: gesso-color(form, background-highlight);
-      border: 2px solid $form-radio-background-color;
-      box-shadow: 0 0 0 2px gesso-color(form, background-highlight);
+      background-color: gesso-color(form, background-checked);
+      border: 2px solid gesso-color(form, background-unchecked);
+      box-shadow: 0 0 0 2px gesso-color(form, background-checked);
     }
 
     &:disabled {

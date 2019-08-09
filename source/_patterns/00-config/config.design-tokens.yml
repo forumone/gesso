@@ -10,28 +10,12 @@ gesso:
         light-2: '#dce4ef'
         dark: '#205493'
         dark-1: '#112E51'
-      red:
-        base: '#e31c3d'
-        light: '#e59393'
-        light-1: '#f9dede'
-        dark: '#cd2026'
-        dark-1: '#981b1e'
       ocean-blue:
         base: '#02bfe7'
         light: '#9bdaf1'
         light-1: '#e1f3f8'
         dark: '#00a6d2'
         dark-1: '#046b99'
-      gold:
-        base: '#fdb81e'
-        light: '#f9c642'
-        light-1: '#fad980'
-        light-2: '#fff1d2'
-      green:
-        base: '#2e8540'
-        light: '#4aa564'
-        light-1: '#94bfa2'
-        light-2: '#e7f4e4'
     grayscale:
       white: '#fff'
       gray-1: '#f7f7f7'
@@ -41,6 +25,20 @@ gesso:
       gray-5: '#5b616b'
       gray-6: '#323a45'
       black: '#212121'
+    other:
+      yellow:
+        base: '#fad980'
+        light: '#fff1d2'
+        neon: '#ff0'
+      green:
+        base: '#94bfa2'
+        light: '#e7f4e4'
+      red:
+        base: '#e31c3d'
+        light: '#e59393'
+        light-1: '#f9dede'
+        dark: '#cd2026'
+        dark-1: '#981b1e'
   box-shadow:
     0: none
     1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
@@ -61,26 +59,13 @@ gesso:
     text:
       primary: grayscale.black
       secondary: grayscale.gray-5
-      accent: brand.ocean-blue.dark
       on-light: grayscale.black
       on-dark: grayscale.white
       link: brand.blue.base
       link-hover: brand.blue.dark
       link-visited: brand.blue.dark
     background:
-      primary: grayscale.white
-      secondary: brand.blue.dark-1
-    form:
-      background: grayscale.gray-1
-      background-active: grayscale.white
-      background-highlight: brand.blue.base
-      border: grayscale.gray-3
-      border-active: grayscale.gray-5
-    table:
-      border: grayscale.gray-5
-      background: grayscale.white
-      background-head: grayscale.gray-2
-      background-foot: grayscale.gray-2
+      site: grayscale.white
     button:
       primary:
         background: brand.blue.base
@@ -100,12 +85,72 @@ gesso:
         background: grayscale.gray-2
         text: grayscale.gray-4
       danger:
-        background: brand.red.base
-        background-hover: brand.red.dark
-        background-active: brand.red.dark-1
+        background: other.red.base
+        background-hover: other.red.dark
+        background-active: other.red.dark-1
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
+    form:
+      background: grayscale.gray-1
+      background-active: grayscale.white
+      background-checked: brand.blue.base
+      background-unchecked: grayscale.white
+      border: grayscale.gray-3
+      border-dark: grayscale.gray-5
+      border-light: grayscale.gray-1
+      thumb: grayscale.gray-5
+      track: grayscale.gray-4
+    mark:
+      background: other.yellow.neon
+      text: grayscale.black
+    selection:
+      background: brand.blue.base
+      text: grayscale.white
+    table:
+      border: grayscale.gray-5
+      background: grayscale.white
+      background-head: grayscale.gray-2
+      background-foot: grayscale.gray-2
+    tag:
+      border: brand.ocean-blue.base
+      link: brand.ocean-blue.dark
+    ui:
+      primary:
+        background: grayscale.gray-4
+        background-dark: grayscale.gray-6
+        background-light: grayscale.gray-2
+        border: grayscale.gray-4
+        border-dark: grayscale.gray-6
+        border-light: grayscale.gray-2
+        text: grayscale.gray-5
+        text-dark: grayscale.black
+        text-light: grayscale.white
+        accent: brand.blue.base
+        accent-dark: brand.blue.dark
+        accent-light: brand.blue.light
+      secondary:
+        background: brand.blue.base
+        background-dark: brand.blue.dark-1
+        background-light: brand.blue.light-1
+        border: brand.blue.base
+        border-dark: brand.blue.dark-1
+        border-light: brand.blue.light-1
+        text: grayscale.gray-5
+        text-dark: grayscale.black
+        text-light: grayscale.white
+        accent: grayscale.gray-5
+        accent-dark: grayscale.gray-6
+        accent-light: grayscale.gray-4
+      error:
+        background: other.red.light-1
+        border: other.red.light
+      success:
+        background: other.green.light
+        border: other.green.base
+      warning:
+        background: other.yellow.light
+        border: other.yellow.base
   typography:
     font-family:
       primary:

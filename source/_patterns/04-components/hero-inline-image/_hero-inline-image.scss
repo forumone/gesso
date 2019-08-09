@@ -2,11 +2,10 @@
 // Styles for hero using an inline image element.
 
 $hero-inline-image-bp: gesso-breakpoint(md) !default;
-$hero-inline-image-text-color: gesso-grayscale(white) !default;
 
 .hero-inline-image {
   @include breakpoint($hero-inline-image-bp) {
-    color: $hero-inline-image-text-color;
+    color: gesso-color(text, on-dark);
     position: relative;
     text-align: center;
 
@@ -62,7 +61,7 @@ $hero-inline-image-text-color: gesso-grayscale(white) !default;
   margin-bottom: rem(gesso-spacing(md));
 
   @include breakpoint($hero-inline-image-bp) {
-    color: $hero-inline-image-text-color;
+    color: gesso-color(text, on-dark);
     margin-bottom: rem(gesso-spacing(lg));
   }
 
@@ -76,7 +75,7 @@ $hero-inline-image-text-color: gesso-grayscale(white) !default;
   margin-bottom: rem(gesso-spacing(md));
 
   @include breakpoint($hero-inline-image-bp) {
-    color: $hero-inline-image-text-color;
+    color: gesso-color(text, on-dark);
     margin-bottom: rem(gesso-spacing(lg));
   }
 }
