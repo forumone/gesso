@@ -3,4 +3,89 @@
 
 .menu--main {
   @include list-inline;
+
+  .menu__link.has-subnav {
+    position: relative;
+
+    &::after {
+      color: gesso-grayscale(white);
+      content: '\02192';
+      display: block;
+      height: 10px;
+      opacity: 1;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+    }
+  }
+
+  > .menu__item {
+    display: inline-block;
+    margin-right: rem(gesso-spacing(lg));
+    position: relative;
+
+    > .menu__link {
+      @include link(gesso-grayscale(gray-4), gesso-palette(blue, base));
+      border-bottom: 10px solid transparent;
+      display: inline-block;
+      font-weight: gesso-font-weight(semibold);
+      padding: 0 2px rem(10px);
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &.has-subnav::after {
+        content: '\02193';
+        left: 50%;
+        opacity: 0;
+        top: 50%;
+        transform: translateY(-50%, -50%);
+      }
+
+      &:hover,
+      &:focus,
+      &[aria-expanded='true'] {
+        border-color: gesso-palette(blue, base);
+      }
+
+      &:focus {
+        // stylelint-disable-next-line
+        &.has-subnav::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  [role='menubar'],
+  [role='menu'] {
+    display: none;
+    left: 0;
+    margin: 0;
+  }
+}
+
+.menu__subnav {
+  background-color: gesso-palette(blue, base);
+  padding: rem(gesso-spacing(md)) 0;
+
+  .menu__subnav {
+    top: 0;
+  }
+
+  .menu__link {
+    @include link(gesso-grayscale(white));
+    display: block;
+    line-height: gesso-line-height(tight);
+    padding: rem(gesso-spacing(xsm)) rem(gesso-spacing(md));
+    text-decoration: none;
+    width: rem(170px);
+
+    &:hover,
+    &:focus {
+      background-color: gesso-palette(blue, dark);
+    }
+  }
 }

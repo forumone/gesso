@@ -1,126 +1,255 @@
-(function ($, Drupal) {
-
+(function(Drupal) {
   'use strict';
 
   // The styling for this mobile menu is located in pattern-lab/source/_patterns/03-components/mobile-menu/_mobile-menu.scss.
 
   Drupal.behaviors.mobileMenu = {
-    attach: function (context) {
+    attach: function(context) {
+      const MobileMenu = (function() {
+        const KEYCODE = {
+          esc: 27,
+          tab: 9,
+        };
+        const optionDefault = {
+          toggleSubNav: true,
+          navMenu: '#primary-menu .menu--main',
+          searchBlock: false,
+          utilityMenu: false,
+          container: '.mobile-menu-container',
+          mobileMenuClass: 'mobile-menu',
+          mobileSearchClass: 'mobile-search-block',
+          mobileUtilityMenuClass: 'mobile-account-menu',
+          closeButtonClass: 'mobile-menu__close',
+          overlayClass: 'mobile-menu__overlay',
+          toggleButton: '.mobile-menu__toggle',
+        };
 
-      // Create mobile menu container, create mobile bar, and clone the main
-      // menu in the navigation region.
-      var $mobileNav = $('<nav class="mobile-menu" role="navigation"></nav>'),
-          $mobileBar = $('<div class="mobile-menu__bar"><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>'),
-          $mobileLinks = $('<div class="mobile-menu__links hidden"></div>'),
-          $mainMenu = $('.l-navigation', context).find('.menu--main').first().clone();
+        let currOptions = {};
 
-      // Only create mobile menu if there is a main menu.
-      if ($mainMenu.length > 0) {
+        let blockTypes = {};
 
-        // Remove menu id, add class, and format subnav menus.
-        $mainMenu.removeAttr('id').attr('class', 'menu menu--mobile').find('ul').each(function () {
-          var $parentLink = $(this).siblings('a');
-          $parentLink.addClass('menu__link--parent').parent('li').addClass('menu__item--parent');
-          if ($parentLink.siblings('.menu__subnav-arrow').length < 1) {
-            $parentLink.after('<button class="menu__subnav-arrow">Show</button>');
-          }
+        let container = false;
+        let overlay = false;
 
-      });
+        let prevFocused = false;
 
-        // Remove third level menu items.
-        $mainMenu.find('ul ul').remove();
+        let publicAPI = {};
 
-        // Insert the cloned menus into the mobile menu container.
-        $mainMenu.appendTo($mobileLinks);
+        return (publicAPI = {
+          init: initUI,
+          close: closeMenu,
+          open: openMenu,
+        });
 
-        // insert search button and clone/append search bar, if it exists.
-        if (!($('.mobile-menu .mobile-menu__search').length > 0)) {
-          if ($('.block--search').length > 0) {
-            $('.block--search').clone().addClass('mobile-menu__search').appendTo($mobileNav);
-            $mobileBar.append('<button class="mobile-menu__button js-mobile-search-button mobile-menu__button--search"><span class="mobile-menu__icon mobile-menu__icon--search">Search</span></button>');
+        function initUI(options = {}) {
+          if (!document.body.classList.contains('mobile-menu-processed')) {
+            currOptions = Object.assign({}, optionDefault, options);
+
+            blockTypes = {
+              search: currOptions.mobileSearchClass,
+              menu: currOptions.mobileMenuClass,
+              account: currOptions.mobileUtilityMenuClass,
+            };
+
+            const navMenu = document.querySelector(currOptions.navMenu);
+            const searchBlock = document.querySelector(currOptions.searchBlock);
+            const utilityMenu = document.querySelector(currOptions.utilityMenu);
+            const closeButton = document.createElement('button');
+            const toggleButton = document.querySelector('.mobile-menu__toggle');
+            overlay = document.createElement('div');
+            container = document.querySelector(currOptions.container);
+
+            closeButton.classList.add(currOptions.closeButtonClass);
+            closeButton.innerHTML = 'X';
+            closeButton.addEventListener('click', closeMenu);
+
+            toggleButton.addEventListener('click', function() {
+              openMenu();
+            });
+
+            overlay.classList.add(currOptions.overlayClass);
+
+            container.appendChild(closeButton);
+
+            if (searchBlock) {
+              container.appendChild(cloneMenu(searchBlock, 'search'));
+            }
+            container.appendChild(cloneMenu(navMenu));
+            if (utilityMenu) {
+              container.appendChild(cloneMenu(utilityMenu, 'account'));
+            }
+            container.appendChild(overlay);
+
+            document.body.classList.add('mobile-menu-processed');
           }
         }
 
-        // Insert the top bar into mobile menu container.
-        $mobileBar.prependTo($mobileNav);
+        function cloneMenu(menu, type = 'menu') {
+          let menuClone = false;
 
-        // Insert the mobile links into mobile menu container.
-        $mobileLinks.appendTo($mobileNav);
+          if (menu) {
+            menuClone = menu.cloneNode(true);
 
-        // Add mobile menu to the page.
-        $('.skiplinks', context).after($mobileNav);
+            menuClone.className = '';
+            menuClone.classList.add(
+              blockTypes[type],
+              'menu',
+              currOptions.toggleSubNav
+                ? 'menu--toggle-subnav'
+                : 'menu--show-subnav',
+            );
 
-        var $mobileMenuWrapper = $('.mobile-menu__links', context),
-            $mobileMenuLinks = $mobileMenuWrapper.find('a');
+            let links = menuClone.querySelectorAll('.menu__link');
 
-        // Initially take mobile menu links out of tab flow.
-        $mobileMenuLinks.attr('tabindex', -1);
+            if (links.length) {
+              links.forEach(function(item, index) {
+                let nextElement = item.nextElementSibling;
 
-        // Open/close mobile menu when menu button is clicked.
-        $('.js-mobile-menu-button', context).click(function (e) {
-          $(this).toggleClass('is-active');
-          $mobileMenuWrapper.toggleClass('hidden');
+                item.tabIndex = -1;
 
-          // Close search bar if open.
-          if ($('.js-mobile-search-button').hasClass('is-active')) {
-            $('.js-mobile-search-button').removeClass('is-active');
-            $('.mobile-menu .mobile-menu__search').hide();
+                if (
+                  currOptions.toggleSubNav &&
+                  item.classList.contains('has-subnav') &&
+                  nextElement &&
+                  nextElement.tagName == 'UL'
+                ) {
+                  processLinks(item, nextElement, index);
+                }
+              });
+            }
+
+            if (menuClone) {
+              return menuClone;
+            }
           }
+        }
 
-          // Remove focus for mouse clicks after closing the menu.
-          $(this).not('.is-active').mouseleave(function () {
-            $(this).blur();
+        function closeMenu() {
+          let menu = container.querySelector('ul');
+          let links = [...menu.querySelectorAll('.menu__link')];
+
+          setTabIndex(links, -1);
+
+          //Remove Event Listeners
+          overlay.removeEventListener('click', closeMenu);
+          document.removeEventListener('keydown', handleKeyDown);
+
+          var btns = [
+            ...container.getElementsByClassName(currOptions.closeButtonClass),
+          ];
+
+          btns.forEach(btn => {
+            setTabIndex(btn, -1);
+            btn.removeEventListener('click', closeMenu);
           });
 
-          // Take mobile menu links out of tab flow if hidden.
-          if ($mobileMenuWrapper.hasClass('hidden')) {
-            $mobileMenuLinks.attr('tabindex', -1);
+          container.classList.remove('is-open');
+          container.querySelector('ul').setAttribute('style', 'display: none;');
+
+          prevFocused.focus();
+        }
+
+        function openMenu() {
+          let menu = container.querySelector('ul');
+          let links = [...menu.querySelectorAll('.menu__link')];
+
+          setTabIndex(links, 0);
+          // ....
+          prevFocused = document.activeElement;
+
+          container.classList.add('is-open');
+          overlay.addEventListener('click', closeMenu);
+
+          let btns = [
+            ...container.getElementsByClassName(currOptions.closeButtonClass),
+          ];
+          btns.forEach(btn => {
+            setTabIndex(btn, 0);
+            btn.addEventListener('click', closeMenu);
+          });
+          container
+            .querySelector('ul')
+            .setAttribute('style', 'display: block;');
+
+          document.addEventListener('keydown', handleKeyDown);
+        }
+
+        function handleKeyDown(e) {
+          // Select all focusable items
+          const focusable = container.querySelectorAll(
+            'button, [href], input, select, textarea,[tabindex]:not([tabindex="-1"]',
+          );
+
+          let numberFocusElements = focusable.length;
+          let firstFocusableElement = focusable[0];
+          let lastFocusableElement = focusable[numberFocusElements - 1];
+
+          // Close modal
+          if (e.keyCode === KEYCODE.esc) {
+            closeMenu();
           }
-          else {
-            $mobileMenuLinks.removeAttr('tabindex');
+
+          // Trap Tab
+          if (e.keyCode === KEYCODE.tab && event.shiftKey) {
+            if (document.activeElement === firstFocusableElement) {
+              event.preventDefault();
+              lastFocusableElement.focus();
+            }
+          } else if (e.keyCode === KEYCODE.tab) {
+            if (document.activeElement === lastFocusableElement) {
+              event.preventDefault();
+              firstFocusableElement.focus();
+            }
           }
+        }
 
-          e.preventDefault();
-        });
+        function setTabIndex(elem, tabIndex) {
+          if (Array.isArray(elem)) {
+            elem.forEach(function(item) {
+              item.tabIndex = tabIndex;
+            });
+          } else {
+            elem.tabIndex = tabIndex;
+          }
+        }
 
-        // Open/close submenus.
-        $('.menu__subnav-arrow', context).click(function (e) {
-          $(this).toggleClass('is-active').parent().toggleClass('is-open');
-          $(this).siblings('.menu__subnav').slideToggle();
+        function cleanString(string) {
+          return string.toLowerCase().replace(' ', '-');
+        }
 
-          // Remove focus for mouse clicks after closing the menu.
-          $(this).not('.is-active').mouseleave(function () {
-            $(this).blur();
+        function processLinks(elem, controlled, index) {
+          const thisNode = elem;
+          const toggleButton = document.createElement('button');
+          const firstLink = [...controlled.querySelectorAll('.menu__link')];
+
+          const elemID = cleanString(
+            'menu-' + elem.innerText + (index ? index : ''),
+          );
+
+          controlled.setAttribute('id', elemID);
+
+          toggleButton.setAttribute('aria-controls', elemID);
+          toggleButton.setAttribute('aria-expanded', 'false');
+          toggleButton.innerHTML =
+            '<span class="visually-hidden">Toggle SubNav</span>';
+          toggleButton.addEventListener('click', function(e) {
+            if (toggleButton.getAttribute('aria-expanded') === 'false') {
+              e.currentTarget.setAttribute('aria-expanded', 'true');
+              controlled.setAttribute('style', 'display: block;');
+              firstLink[0].focus();
+            } else {
+              e.currentTarget.setAttribute('aria-expanded', 'false');
+              controlled.setAttribute('style', 'display: none;');
+            }
           });
 
-          e.preventDefault();
-        });
+          thisNode.parentNode.insertBefore(toggleButton, controlled);
+        }
+      })();
 
-        // Open/close search bar.
-        $('.js-mobile-search-button', context).click(function (e) {
-          $(this).toggleClass('is-active');
-
-          // Close menu if open.
-          if ($('.js-mobile-menu-button').hasClass('is-active')) {
-            $('.js-mobile-menu-button').removeClass('is-active');
-            $mobileMenuWrapper.addClass('hidden');
-            $mobileMenuLinks.attr('tabindex', -1);
-          }
-
-          // Remove focus for mouse clicks after closing the menu.
-          $(this).not('.is-active').mouseleave(function () {
-            $(this).blur();
-          });
-
-          // Slide search bar.
-          $('.mobile-menu .mobile-menu__search').slideToggle(200);
-
-          e.preventDefault();
-        });
-
-        // Set the height of the menu.
-        $mobileMenuWrapper.height($(document).height());
-      }
-    }
+      MobileMenu.init({
+        utilityMenu: '.menu--account',
+      });
+    },
   };
-})(jQuery, Drupal);
+})(Drupal);

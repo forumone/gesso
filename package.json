@@ -32,6 +32,7 @@
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-sass-guidelines": "^6.0.0",
+    "stylelint-selector-pseudo-class-lvhfa": "^2.0.0",
     "yaml": "1.6.0"
   },
   "scripts": {

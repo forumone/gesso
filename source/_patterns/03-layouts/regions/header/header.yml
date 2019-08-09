@@ -1,0 +1,107 @@
+---
+account_menu_name: 'account'
+account_items:
+  - title: 'Account Link 1'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'Account Link 2'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+
+menu_name: 'main'
+items:
+  - title: 'Apples 1'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'Oranges 2'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'Bananas 3'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    below:
+      - title: 'Cashews'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Almonds'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+        below:
+          - title: 'Icecream'
+            url: '#'
+            original_link:
+              options:
+                attributes:
+                  class: ''
+            in_active_trail: false
+          - title: 'Brownies'
+            url: '#'
+            original_link:
+              options:
+                attributes:
+                  class: ''
+            in_active_trail: false
+      - title: 'Peanuts'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+    in_active_trail: false
+  - title: 'Pasta'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+    below:
+      - title: 'Tomatoes'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Onions'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Cheese'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
