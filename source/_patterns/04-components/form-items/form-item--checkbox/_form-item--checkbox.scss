@@ -1,7 +1,7 @@
 // @file
 // Styles for checkbox form items.
 
-$form-checkbox-bg-color: gesso-grayscale(white) !default;
+$form-checkbox-background-color: gesso-grayscale(white) !default;
 $form-checkbox-border-color: gesso-grayscale(gray-5) !default;
 
 .form-item--checkbox {
@@ -16,7 +16,7 @@ $form-checkbox-border-color: gesso-grayscale(gray-5) !default;
     display: block;
 
     &::before {
-      background: $form-checkbox-bg-color;
+      background: $form-checkbox-background-color;
       border: 1px solid $form-checkbox-border-color;
       content: '\a0';
       display: inline-block;
@@ -34,7 +34,7 @@ $form-checkbox-border-color: gesso-grayscale(gray-5) !default;
 
   &:checked + .form-item__label::before {
     @include svg-background(correct);
-    background-color: gesso-color(form, bg-highlight);
+    background-color: gesso-color(form, background-highlight);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: rem(20px);

@@ -2,10 +2,10 @@
 // Button styles
 
 $button-border-radius: 0 !default;
-$button-color-bg: gesso-color(button, primary, bg) !default;
-$button-color-bg-active: gesso-color(button, primary, bg-active) !default;
-$button-color-bg-disabled: gesso-color(button, disabled, bg) !default;
-$button-color-bg-hover: gesso-color(button, primary, bg-hover) !default;
+$button-color-background: gesso-color(button, primary, background) !default;
+$button-color-background-active: gesso-color(button, primary, background-active) !default;
+$button-color-background-disabled: gesso-color(button, disabled, background) !default;
+$button-color-background-hover: gesso-color(button, primary, background-hover) !default;
 $button-color-text: gesso-color(button, primary, text) !default;
 $button-color-text-active: gesso-color(button, primary, text-active) !default;
 $button-color-text-disabled: gesso-color(button, disabled, text) !default;
@@ -13,17 +13,17 @@ $button-color-text-hover: gesso-color(button, primary, text-hover) !default;
 $button-font-size: gesso-base-font-size() !default;
 
 @mixin button(
-  $color-bg: $button-color-bg,
+  $color-background: $button-color-background,
   $color-text: $button-color-text,
-  $color-bg-hover: $button-color-bg-hover,
+  $color-background-hover: $button-color-background-hover,
   $color-text-hover: $button-color-text-hover,
-  $color-bg-active: $button-color-bg-active,
+  $color-background-active: $button-color-background-active,
   $color-text-active: $button-color-text-active,
-  $color-bg-disabled: $button-color-bg-disabled,
+  $color-background-disabled: $button-color-background-disabled,
   $color-text-disabled: $button-color-text-disabled,
   $border-radius: $button-border-radius,
   $font-size: $button-font-size) {
-  background-color: $color-bg;
+  background-color: $color-background;
   border: 0;
   border-radius: $border-radius;
   color: $color-text;
@@ -44,18 +44,18 @@ $button-font-size: gesso-base-font-size() !default;
 
   &:hover,
   &:focus {
-    background-color: $color-bg-hover;
+    background-color: $color-background-hover;
     color: $color-text-hover;
     outline: 0;
   }
 
   &:active {
-    background-color: $color-bg-active;
+    background-color: $color-background-active;
     color: $color-text-active;
   }
 
   &[disabled] {
-    background-color: $color-bg-disabled;
+    background-color: $color-background-disabled;
     color: $color-text-disabled;
     cursor: default;
     pointer-events: none;

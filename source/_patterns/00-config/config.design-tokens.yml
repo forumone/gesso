@@ -71,38 +71,38 @@ gesso:
       primary: grayscale.white
       secondary: brand.blue.dark-1
     form:
-      bg: grayscale.gray-1
-      bg-active: grayscale.white
-      bg-highlight: brand.blue.base
+      background: grayscale.gray-1
+      background-active: grayscale.white
+      background-highlight: brand.blue.base
       border: grayscale.gray-3
       border-active: grayscale.gray-5
     table:
       border: grayscale.gray-5
-      bg: grayscale.white
-      bg-head: grayscale.gray-2
-      bg-foot: grayscale.gray-2
+      background: grayscale.white
+      background-head: grayscale.gray-2
+      background-foot: grayscale.gray-2
     button:
       primary:
-        bg: brand.blue.base
-        bg-hover: brand.blue.dark
-        bg-active: brand.blue.dark-1
+        background: brand.blue.base
+        background-hover: brand.blue.dark
+        background-active: brand.blue.dark-1
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
       secondary:
-        bg: brand.ocean-blue.base
-        bg-hover: brand.ocean-blue.dark
-        bg-active: brand.ocean-blue.dark-1
+        background: brand.ocean-blue.base
+        background-hover: brand.ocean-blue.dark
+        background-active: brand.ocean-blue.dark-1
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
       disabled:
-        bg: grayscale.gray-2
+        background: grayscale.gray-2
         text: grayscale.gray-4
       danger:
-        bg: brand.red.base
-        bg-hover: brand.red.dark
-        bg-active: brand.red.dark-1
+        background: brand.red.base
+        background-hover: brand.red.dark
+        background-active: brand.red.dark-1
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white

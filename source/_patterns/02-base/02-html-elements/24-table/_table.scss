@@ -19,7 +19,7 @@ table {
 // tbody {}
 
 td {
-  background-color: gesso-color(table, bg);
+  background-color: gesso-color(table, background);
   border: 1px solid gesso-color(table, border);
   padding: rem(gesso-spacing(sm));
 }
@@ -27,12 +27,12 @@ td {
 tfoot {
   td,
   th {
-    background-color: gesso-color(table, bg-foot);
+    background-color: gesso-color(table, background-foot);
   }
 }
 
 th {
-  background-color: gesso-color(table, bg);
+  background-color: gesso-color(table, background);
   border: 1px solid gesso-color(table, border);
   padding: rem(gesso-spacing(sm));
   text-align: left;
@@ -41,7 +41,7 @@ th {
 thead {
   td,
   th {
-    background-color: gesso-color(table, bg-head);
+    background-color: gesso-color(table, background-head);
   }
 
   @media print {
