@@ -1,9 +1,13 @@
 // @file
 // Styles for Cards.
-$card-padding: rem(gesso-spacing(md));
+$card-accent-border-color: gesso-palette(blue, base) !default;
+$card-link-color: gesso-grayscale(black) !default;
+$card-link-hover-color: gesso-grayscale(gray-5) !default;
+$card-meta-color: gesso-grayscale(gray-5) !default;
+$card-padding: rem(gesso-spacing(md)) !default;
 
 .card {
-  border-bottom: 4px solid gesso-palette(blue, base);
+  border-bottom: 4px solid $card-accent-border-color;
   box-shadow: gesso-box-shadow(1);
   display: flex;
   flex-direction: column;
@@ -24,8 +28,8 @@ $card-padding: rem(gesso-spacing(md));
 
   a {
     @include link(
-      gesso-grayscale(black),
-      gesso-grayscale(gray-5)
+      $card-link-color,
+      $card-link-hover-color
     );
   }
 }
@@ -41,7 +45,7 @@ $card-padding: rem(gesso-spacing(md));
 }
 
 .card__date {
-  color: gesso-grayscale(gray-5);
+  color: $card-meta-color;
   margin-bottom: rem(gesso-spacing(sm));
 }
 

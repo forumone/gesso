@@ -76,10 +76,6 @@ gesso:
       bg-highlight: brand.blue.base
       border: grayscale.gray-3
       border-active: grayscale.gray-5
-      range-thumb: grayscale.gray-5
-      range-thumb-border: grayscale.gray-1
-      range-track: grayscale.gray-4
-      range-track-border: grayscale.gray-5
     table:
       border: grayscale.gray-5
       bg: grayscale.white

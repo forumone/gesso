@@ -1,6 +1,8 @@
 // @file
 // Styles for select form items.
 
+$form-select-arrow-size: 20px !default;
+
 .form-item--select {
   .form-item__select {
     @include svg-background(select-arrows);

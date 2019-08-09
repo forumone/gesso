@@ -1,11 +1,15 @@
 // @file
 // Styles for Pager.
 
-$bp-ellipsis: 800px;
-$bp-pager: 600px;
-$pager-bg-color: gesso-palette(blue, base);
-$pager-bg-color-hover: gesso-palette(blue, light);
-$pager-bg-color-active: gesso-palette(blue, dark);
+$pager-ellipsis-bp: 800px !default;
+$pager-bp: 600px !default;
+$pager-bg-color: gesso-palette(blue, base) !default;
+$pager-bg-color-hover: gesso-palette(blue, light) !default;
+$pager-bg-color-active: gesso-palette(blue, dark) !default;
+$pager-link-color: gesso-color(text, primary) !default;
+$pager-link-active-color: gesso-grayscale(white) !default;
+$pager-link-focus-outline-color: gesso-grayscale(gray-5) !default;
+$pager-link-icon-color: gesso-grayscale(gray-4) !default;
 
 .pager__items {
   @include list-clean();
@@ -26,7 +30,7 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   &:not([class*='pager__item--']) {
     display: none;
 
-    @include breakpoint($bp-pager) {
+    @include breakpoint($pager-bp) {
       display: inline-block;
     }
   }
@@ -34,14 +38,14 @@ $pager-bg-color-active: gesso-palette(blue, dark);
 
 %pager__link {
   background-color: transparent;
-  color: gesso-color(text,primary);
+  color: $pager-link-color;
   min-width: rem(gesso-spacing(lg));
   padding: em(gesso-spacing(xsm));
   transition: color gesso-duration(short) gesso-easing(ease-out),
     background-color gesso-duration(standard) gesso-easing(ease-out);
 
   &:focus {
-    outline: 1px dotted gesso-grayscale(gray-5);
+    outline: 1px dotted $pager-link-focus-outline-color;
   }
 }
 
@@ -49,7 +53,7 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   @extend %pager__link;
   display: none;
 
-  @include breakpoint($bp-ellipsis) {
+  @include breakpoint($pager-ellipsis-bp) {
     display: inline-block;
   }
 }
@@ -57,7 +61,7 @@ $pager-bg-color-active: gesso-palette(blue, dark);
 .pager__item--current.pager__item {
   @extend %pager__link;
   background-color: $pager-bg-color;
-  color: gesso-grayscale(white);
+  color: $pager-link-active-color;
 }
 
 .pager__link {
@@ -66,37 +70,38 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   text-decoration: none;
 
   &:visited {
-    color: gesso-color(text, primary);
+    color: $pager-link-color;
   }
 
   &:hover,
   &:focus {
     background-color: $pager-bg-color-hover;
-    color: gesso-grayscale(white);
+    color: $pager-link-active-color;
   }
 
   &:active {
     background-color: $pager-bg-color-active;
+    color: $pager-link-active-color;
   }
 }
 
 .pager__link--previous,
 .pager__link--next {
   background-color: transparent;
-  color: gesso-color(text, primary);
+  color: $pager-link-color;
   position: relative;
 
   &:hover,
   &:focus {
     background-color: transparent;
-    color: gesso-color(text, primary);
+    color: $pager-link-color;
     .pager__link-icon g {
-      fill: gesso-palette(blue, base);
+      fill: $pager-bg-color;
     }
   }
 
   &:visited {
-    color: gesso-color(text, primary);
+    color: $pager-link-color;
   }
 }
 
@@ -124,7 +129,7 @@ $pager-bg-color-active: gesso-palette(blue, dark);
   width: 24px;
 
   g {
-    fill: gesso-grayscale(gray-4);
+    fill: $pager-link-icon-color;
   }
 
   .pager__item--next & {

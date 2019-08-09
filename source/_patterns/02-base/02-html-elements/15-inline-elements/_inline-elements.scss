@@ -1,6 +1,9 @@
 // @file
 // Inline element styles.
 
+$color-mark-background: gesso-palette(gold, base) !default;
+$color-mark-foreground: gesso-grayscale(black) !default;
+
 a {
   background-color: transparent;
   color: gesso-color(text, link);
@@ -95,8 +98,8 @@ dfn {
 // kbd {}
 
 mark {
-  background: gesso-palette(gold, base);
-  color: gesso-grayscale(black);
+  background: $color-mark-background;
+  color: $color-mark-foreground;
 }
 
 // q {}

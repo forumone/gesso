@@ -1,6 +1,8 @@
 // @file
 // Blockquote styles.
 
+$blockquote-cite-divider-color: gesso-grayscale(gray-3) !default;
+
 blockquote {
   @include display-text-style(blockquote);
   margin: 0 0 rem(gesso-spacing(lg));
@@ -34,7 +36,7 @@ blockquote {
     text-align: right;
 
     em {
-      border-left: 1px solid gesso-grayscale(gray-3);
+      border-left: 1px solid $blockquote-cite-divider-color;
       font-weight: gesso-font-weight(regular);
       margin-left: rem(gesso-spacing(xxsm));
       padding-left: rem(gesso-spacing(xsm));

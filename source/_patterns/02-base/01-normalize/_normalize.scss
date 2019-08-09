@@ -4,8 +4,8 @@
 // Inspiration: http://necolas.github.com/normalize.css
 // version 3.0.2
 
-$color-selection-background: gesso-palette(blue, base);
-$color-selection-foreground: gesso-grayscale(white);
+$color-selection-background: gesso-palette(blue, base) !default;
+$color-selection-foreground: gesso-grayscale(white) !default;
 
 article,
 aside,

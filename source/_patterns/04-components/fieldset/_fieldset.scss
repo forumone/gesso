@@ -2,7 +2,7 @@
 // Styles for form fieldsets.
 
 
-
+$fieldset-legend-background-color: gesso-grayscale(gray-3) !default;
 $fieldset-legend-offset: rem(gesso-line-height(base) * gesso-base-font-size()) !default;
 
 .fieldset {
@@ -55,7 +55,7 @@ $fieldset-legend-offset: rem(gesso-line-height(base) * gesso-base-font-size()) !
   padding: 0 1em;
 
   .fieldset__legend {
-    background: gesso-grayscale(gray-3);
+    background: $fieldset-legend-background-color;
     border: 1px solid gesso-color(form, border);
     border-bottom: 0;
     color: #212121;

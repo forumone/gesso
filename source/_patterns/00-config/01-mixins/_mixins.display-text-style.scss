@@ -1,9 +1,9 @@
 @mixin display-text-style($keys...) {
-  $display: gesso-get-map( typography, display, $keys...);
+  $display: gesso-get-map(typography, display, $keys...);
 
   @each $property, $value in $display {
     // @debug #{$property} $value;
-    
+
     @if ($property == "font-size") {
       //check for px if not output value
       // @debug type-of($value);
@@ -12,5 +12,5 @@
       #{$property}: #{$value};
     }
   }
-  
+
 }

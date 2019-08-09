@@ -1,10 +1,14 @@
+$tag-border-color: gesso-palette(ocean-blue, base) !default;
+$tag-link-color: gesso-palette(ocean-blue, dark) !default;
+$tag-link-active-color: gesso-palette(ocean-blue, dark-1) !default;
+
 .tag {
   @include link(
-    gesso-palette(ocean-blue, dark),
-    gesso-palette(ocean-blue, dark),
-    gesso-palette(ocean-blue, dark-1)
+    $tag-link-color,
+    $tag-link-color,
+    $tag-link-active-color
   );
-  border: 2px solid gesso-palette(ocean-blue, base);
+  border: 2px solid $tag-border-color;
   border-radius: 70px;
   display: inline-block;
   font-size: rem(gesso-font-size(0));
@@ -17,7 +21,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 2px gesso-palette(ocean-blue, base);
+    box-shadow: 0 0 0 2px $tag-border-color;
     outline: 0;
   }
 }

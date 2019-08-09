@@ -1,6 +1,17 @@
 // @file
 // Styles for range form items.
 
+$form-range-thumb-border-color: gesso-grayscale(gray-1) !default;
+$form-range-thumb-border-radius: 0 !default;
+$form-range-thumb-border-width: 1px !default;
+$form-range-thumb-color: gesso-grayscale(gray-5) !default;
+$form-range-thumb-height: 44px !default;
+$form-range-thumb-width: 22px !default;
+$form-range-track-border-color: gesso-grayscale(gray-5) !default;
+$form-range-track-border-width: 1px !default;
+$form-range-track-color: gesso-grayscale(gray-4) !default;
+$form-range-track-height: 10px !default;
+
 @mixin form-item__range-thumb {
   background: $form-range-thumb-color;
   border: $form-range-thumb-border-width solid $form-range-thumb-border-color;

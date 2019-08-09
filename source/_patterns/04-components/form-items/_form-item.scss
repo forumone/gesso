@@ -6,18 +6,7 @@ $form-border-focus-color: gesso-color(form, border-active) !default;
 $form-box-shadow-focus: gesso-box-shadow(2) !default;
 $form-bg-color: gesso-color(form, bg) !default;
 $form-bg-focus-color: gesso-color(form, bg-active) !default;
-$form-disabled-opacity: 0.35;
-$form-range-thumb-border-color: gesso-color(form, range-thumb-border) !default;
-$form-range-thumb-border-radius: 0 !default;
-$form-range-thumb-border-width: 1px !default;
-$form-range-thumb-color: gesso-color(form, range-thumb) !default;
-$form-range-thumb-height: 44px !default;
-$form-range-thumb-width: 22px !default;
-$form-range-track-border-color: gesso-color(form, range-track-border) !default;
-$form-range-track-border-width: 1px !default;
-$form-range-track-color: gesso-color(form, range-track) !default;
-$form-range-track-height: 10px !default;
-$form-select-arrow-size: 20px !default;
+$form-disabled-opacity: 0.35 !default;
 $form-text-size: gesso-base-font-size() !default;
 
 .form-item {
