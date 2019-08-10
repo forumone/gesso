@@ -116,32 +116,18 @@ gesso:
       border: brand.ocean-blue.base
       link: brand.ocean-blue.dark
     ui:
-      primary:
+      generic:
         background: grayscale.gray-4
         background-dark: grayscale.gray-6
         background-light: grayscale.gray-2
         border: grayscale.gray-4
         border-dark: grayscale.gray-6
         border-light: grayscale.gray-2
-        text: grayscale.gray-5
-        text-dark: grayscale.black
-        text-light: grayscale.white
+        text-light: grayscale.gray-4
+        text-dark: grayscale.gray-5
         accent: brand.blue.base
-        accent-dark: brand.blue.dark
+        accent-dark: brand.blue.dark-1
         accent-light: brand.blue.light
-      secondary:
-        background: brand.blue.base
-        background-dark: brand.blue.dark-1
-        background-light: brand.blue.light-1
-        border: brand.blue.base
-        border-dark: brand.blue.dark-1
-        border-light: brand.blue.light-1
-        text: grayscale.gray-5
-        text-dark: grayscale.black
-        text-light: grayscale.white
-        accent: grayscale.gray-5
-        accent-dark: grayscale.gray-6
-        accent-light: grayscale.gray-4
       error:
         background: other.red.light-1
         border: other.red.light

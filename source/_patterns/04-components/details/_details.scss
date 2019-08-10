@@ -1,11 +1,11 @@
 // @file
 // Styles for collapsible details.
 
-$details-background-color: gesso-color(ui, primary, background-light) !default;
-$details-background-color-hover: gesso-color(ui, primary, background) !default;
+$details-background-color: gesso-color(ui, generic, background-light) !default;
+$details-background-color-hover: gesso-color(ui, generic, background) !default;
 $details-content-background-color: gesso-color(background, site) !default;
 $details-padding: rem(24px) !default;
-$details-text-color: gesso-color(ui, primary, text-dark) !default;
+$details-text-color: gesso-color(text, on-light) !default;
 
 // 'details' can appear as a modernizr class on the html tag, so this
 // class is limited to only the details element

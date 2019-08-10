@@ -1,10 +1,10 @@
 // @file
 // Styles for Breadcrumb trail.
 
-$breadcrumb-background-color: gesso-color(ui, secondary, background-dark) !default;
-$breadcrumb-divider-color: gesso-color(ui, secondary, border-light) !default;
-$breadcrumb-link-color: gesso-color(ui, secondary, text) !default;
-$breadcrumb-text-color: gesso-color(ui, secondary, text-light) !default;
+$breadcrumb-background-color: gesso-color(ui, generic, accent-dark) !default;
+$breadcrumb-divider-color: gesso-color(ui, generic, border-light) !default;
+$breadcrumb-link-color: gesso-color(ui, generic, text-light) !default;
+$breadcrumb-text-color: gesso-color(text, on-dark) !default;
 
 .breadcrumb {
   @include clearfix();

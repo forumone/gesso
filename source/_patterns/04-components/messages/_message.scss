@@ -1,8 +1,8 @@
 // @file
 // Styles for Drupal messages.
 
-$message-background-color: gesso-color(ui, primary, background-light) !default;
-$message-border-color: gesso-color(ui, primary, border) !default;
+$message-background-color: gesso-color(ui, generic, background-light) !default;
+$message-border-color: gesso-color(ui, generic, border) !default;
 $message-error-background-color: gesso-color(ui, error, background) !default;
 $message-error-border-color: gesso-color(ui, error, border) !default;
 $message-status-background-color: gesso-color(ui, success, background) !default;

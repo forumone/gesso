@@ -1,11 +1,11 @@
 // @file
 // Styles for progress bars.
 
-$progress-background-color: gesso-color(ui, primary, background) !default;
-$progress-bar-color: gesso-color(ui, primary, accent) !default;
-$progress-border-color: gesso-color(ui, primary, border-dark) !default;
+$progress-background-color: gesso-color(ui, generic, background) !default;
+$progress-bar-color: gesso-color(ui, generic, accent) !default;
+$progress-border-color: gesso-color(ui, generic, border-dark) !default;
 $progress-border-radius: rem(3px) !default;
-$progress-text-color: gesso-color(ui, primary, text-dark) !default;
+$progress-text-color: gesso-color(text, on-light) !default;
 
 .progress {
   position: relative;

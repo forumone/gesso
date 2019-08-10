@@ -1,12 +1,12 @@
 // @file
 // Styles for Pager.
 
-$pager-background-color: gesso-color(ui, primary, accent) !default;
-$pager-background-color-hover: gesso-color(ui, primary, accent) !default;
-$pager-background-color-active: gesso-color(ui, primary, accent-dark) !default;
-$pager-link-color: gesso-color(ui, primary, text-dark) !default;
-$pager-link-color-active: gesso-color(ui, primary, text-light) !default;
-$pager-link-focus-outline-color: gesso-color(ui, primary, border-dark) !default;
+$pager-background-color: gesso-color(ui, generic, accent) !default;
+$pager-background-color-hover: gesso-color(ui, generic, accent) !default;
+$pager-background-color-active: gesso-color(ui, generic, accent-dark) !default;
+$pager-link-color: gesso-color(text, on-light) !default;
+$pager-link-color-active: gesso-color(text, on-dark) !default;
+$pager-link-focus-outline-color: gesso-color(ui, generic, border-dark) !default;
 $pager-ellipsis-bp: 800px !default;
 $pager-bp: 600px !default;
 

@@ -28,7 +28,7 @@
   }
 }
 
-@mixin list-pipeline($pipeline-border-color: gesso-color(ui, primary, border)) {
+@mixin list-pipeline($pipeline-border-color: gesso-color(ui, generic, border)) {
   @include clearfix;
   list-style-type: none;
   margin-left: 0;
@@ -75,7 +75,7 @@
   }
 }
 
-@mixin list-border($list-border-padding: 0.25rem, $list-border-color: gesso-color(ui, primary, border)) {
+@mixin list-border($list-border-padding: 0.25rem, $list-border-color: gesso-color(ui, generic, border)) {
   list-style: none;
   margin-left: 0;
   padding-left: 0;

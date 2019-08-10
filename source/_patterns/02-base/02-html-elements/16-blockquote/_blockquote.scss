@@ -1,7 +1,7 @@
 // @file
 // Blockquote styles.
 
-$blockquote-cite-divider-color: gesso-color(ui, primary, border);
+$blockquote-cite-divider-color: gesso-color(ui, generic, border);
 
 blockquote {
   @include display-text-style(blockquote);
