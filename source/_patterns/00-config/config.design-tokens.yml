@@ -30,6 +30,8 @@ gesso:
         base: '#fad980'
         light: '#fff1d2'
         neon: '#ff0'
+      yellow-neon:
+        base: '#ff0'
       green:
         base: '#94bfa2'
         light: '#e7f4e4'
@@ -102,7 +104,7 @@ gesso:
       thumb: grayscale.gray-5
       track: grayscale.gray-4
     mark:
-      background: other.yellow.neon
+      background: other.yellow-neon.base
       text: grayscale.black
     selection:
       background: brand.blue.base
