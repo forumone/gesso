@@ -1,4 +1,6 @@
-{% embed '@layouts/regions/content/content.twig' %}
+{% embed '@layouts/regions/content/content.twig' with {
+  'has_constrain': true
+} %}
 
   {% block content %}
     {{ content }}

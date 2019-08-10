@@ -1,4 +1,6 @@
-{% embed '@layouts/regions/postscript/postscript.twig' %}
+{% embed '@layouts/regions/postscript/postscript.twig' with {
+  'has_constrain': true
+} %}
 
   {% block content %}
     {{ content }}

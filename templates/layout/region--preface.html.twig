@@ -1,4 +1,6 @@
-{% embed '@layouts/regions/preface/preface.twig' %}
+{% embed '@layouts/regions/preface/preface.twig' with {
+  'has_constrain': true
+} %}
 
   {% block content %}
     {{ content }}

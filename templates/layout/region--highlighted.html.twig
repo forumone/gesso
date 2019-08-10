@@ -1,4 +1,6 @@
-{% embed '@layouts/regions/highlighted/highlighted.twig' %}
+{% embed '@layouts/regions/highlighted/highlighted.twig' with {
+  'has_constrain': true
+} %}
 
   {% block content %}
     {{ content }}

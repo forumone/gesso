@@ -1,4 +1,6 @@
-{% embed '@layouts/regions/navigation/navigation.twig' %}
+{% embed '@layouts/regions/navigation/navigation.twig' with {
+  'has_constrain': true
+} %}
 
   {% block content %}
     {{ content }}

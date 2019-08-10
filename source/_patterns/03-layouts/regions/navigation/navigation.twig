@@ -1,6 +1,6 @@
 <div class="l-navigation">
-  {% if not unconstrained %}
-    <div class="l-constrain">
+  {% if has_constrain %}
+    <div class="{{ constrain_classes ?: 'l-constrain' }}">
   {% endif %}
   {% block content %}
     {% include '@components/menus/menu.twig' with {
@@ -13,7 +13,7 @@
       ]
     } %}
   {% endblock %}
-  {% if not unconstrained %}
+  {% if has_constrain %}
     </div>
   {% endif %}
 </div>

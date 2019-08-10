@@ -38,6 +38,7 @@ $card-padding: rem(gesso-spacing(md)) !default;
 .card__body {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   padding: 0 $card-padding 0;
 
   p:last-child {

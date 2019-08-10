@@ -29,7 +29,6 @@ gesso:
       yellow:
         base: '#fad980'
         light: '#fff1d2'
-        neon: '#ff0'
       yellow-neon:
         base: '#ff0'
       green:

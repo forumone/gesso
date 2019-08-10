@@ -1,0 +1,41 @@
+{% include '@layouts/regions/header/header.twig' with {
+  'has_constrain': true
+} %}
+
+{% include '@layouts/regions/navigation/navigation.twig' with {
+  'has_constrain': true
+} %}
+
+{% include '@layouts/regions/breadcrumb/breadcrumb.twig' with {
+  'has_constrain': false
+} %}
+
+{% include '@layouts/regions/highlighted/highlighted.twig' with {
+  'has_constrain': true
+} %}
+
+{% include '@layouts/regions/help/help.twig' with {
+  'has_constrain': true
+} %}
+
+<main id="main" class="main" role="main" tabindex="-1">
+  {% include '@layouts/regions/preface/preface.twig' with {
+    'has_constrain': true
+  } %}
+
+  {% embed '@layouts/regions/content/content.twig' with {
+    'has_constrain': true
+  } %}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  {% endembed %}
+
+  {% include '@layouts/regions/postscript/postscript.twig' with {
+    'has_constrain': true
+  } %}
+</main>
+
+{% include '@layouts/regions/footer/footer.twig' with {
+  'has_constrain': true
+} %}
