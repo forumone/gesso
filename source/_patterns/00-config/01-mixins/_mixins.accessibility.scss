@@ -36,8 +36,8 @@
 
 // Makes an element visible when focused if it also has the visually-hidden styles.
 @mixin focusable {
-  &:active,
-  &:focus {
+  &:focus,
+  &:active {
     @include visually-hidden-off;
   }
 }
@@ -45,8 +45,8 @@
 // Makes an element visible when focused if it also has the visually-hidden styles
 // with important.
 @mixin focusable-important {
-  &:active,
-  &:focus {
+  &:focus,
+  &:active {
     @include visually-hidden-off-important;
   }
 }

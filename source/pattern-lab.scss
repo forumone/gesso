@@ -43,8 +43,8 @@
     color: #666;
     text-decoration: none;
 
-    &:focus,
-    &:hover {
+    &:hover,
+    &:focus {
       color: #333;
     }
   }

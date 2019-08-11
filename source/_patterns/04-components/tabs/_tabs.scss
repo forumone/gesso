@@ -72,8 +72,8 @@ $tab-font-size: $font-size-md !default;
     background-color: $tab-color-bg-hover;
   }
 
-  &:hover,
-  &:visited {
+  &:visited,
+  &:hover {
     color: $tab-color-text;
   }
 
