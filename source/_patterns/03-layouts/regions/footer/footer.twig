@@ -3,16 +3,7 @@
     <div class="{{ constrain_classes ?: 'l-constrain' }}">
   {% endif %}
   {% block content %}
-    {% include '@components/menus/menu.twig' with {
-      'menu_name': 'footer',
-      'items': [
-        { 'title': 'Careers', 'url': '#' },
-        { 'title': 'Contact', 'url': '#' },
-        { 'title': 'Credits', 'url': '#' },
-        { 'title': 'Terms of Use', 'url': '#' }
-      ]
-    } %}
-    {% include '@components/copyright/copyright.twig' %}
+    Footer Content
   {% endblock %}
   {% if has_constrain %}
     </div>

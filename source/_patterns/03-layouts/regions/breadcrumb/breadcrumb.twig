@@ -3,13 +3,7 @@
     <div class="{{ constrain_classes ?: 'l-constrain' }}">
   {% endif %}
   {% block content %}
-    {% include '@components/breadcrumb/breadcrumb.twig' with {
-      'breadcrumb': [
-        { 'url': '#', 'text': 'Home' },
-        { 'url': '#', 'text': 'About' },
-        { 'text': 'Current Page' }
-      ]
-    } %}
+    Breadcrumb Content
   {% endblock %}
   {% if has_constrain %}
     </div>

@@ -3,15 +3,7 @@
     <div class="{{ constrain_classes ?: 'l-constrain' }}">
   {% endif %}
   {% block content %}
-    {% include '@components/menus/menu.twig' with {
-      'menu_name': 'main',
-      'items': [
-        { 'title': 'Home', 'url': '#' },
-        { 'title': 'About', 'url': '#' },
-        { 'title': 'Contact', 'url': '#' },
-        { 'title': 'Search', 'url': '#' },
-      ]
-    } %}
+    Navigation Region Content
   {% endblock %}
   {% if has_constrain %}
     </div>
