@@ -1,8 +1,8 @@
 ---
-el: .l-footer
-title: Footer Region
+el: .l-region or l-[region name]
+title: Region
 ---
-_Layout for Footer Region_
+_Layout for generic Region_
 
 ### Variables:
 * has_constrain: [boolean] True/False whether to add a constraint to block.

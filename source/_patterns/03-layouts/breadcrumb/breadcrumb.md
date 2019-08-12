@@ -1,8 +1,8 @@
 ---
-el: .l-postscript
-title: Postscript Region
+el: .l-breadcrumb
+title: Breadcrumb Layout
 ---
-_Layout for Postscript Region_
+_Layout for Breadcrumb Region_
 
 ### Variables:
 * has_constrain: [boolean] True/False whether to add a constraint to block.

@@ -1,8 +1,8 @@
 ---
-el: .l-navigation
-title: Navigation Region
+el: .l-header
+title: Header Layout
 ---
-_Layout for Navigation Region_
+_Layout for Header Region_
 
 ### Variables:
 * has_constrain: [boolean] True/False whether to add a constraint to block.

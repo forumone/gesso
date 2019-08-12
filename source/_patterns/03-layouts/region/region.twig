@@ -1,9 +1,9 @@
-<div class="l-highlighted">
+<div class="l-{{ region_name ?: 'region' }}">
   {% if has_constrain %}
     <div class="{{ constrain_classes ?: 'l-constrain' }}">
   {% endif %}
   {% block content %}
-    Highlighted Region Content
+    Region Content
   {% endblock %}
   {% if has_constrain %}
     </div>

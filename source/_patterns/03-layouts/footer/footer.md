@@ -1,8 +1,8 @@
 ---
-el: .l-preface
-title: Preface Region
+el: .l-footer
+title: Footer Layout
 ---
-_Layout for Preface Region_
+_Layout for Footer Region_
 
 ### Variables:
 * has_constrain: [boolean] True/False whether to add a constraint to block.

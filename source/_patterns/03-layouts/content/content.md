@@ -1,8 +1,8 @@
 ---
-el: .l-breadcrumb
-title: Breadcrumb Region
+el: .l-content
+title: Content Layout
 ---
-_Layout for Breadcrumb Region_
+_Layout for Content Region_
 
 ### Variables:
 * has_constrain: [boolean] True/False whether to add a constraint to block.

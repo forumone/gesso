@@ -1,4 +1,4 @@
-{% embed '@layouts/regions/header/header.twig' with {
+{% embed '@layouts/header/header.twig' with {
   'has_constrain': true
 } %}
   {% block content %}
@@ -13,7 +13,8 @@
   {% endblock %}
 {% endembed %}
 
-{% embed '@layouts/regions/navigation/navigation.twig' with {
+{% embed '@layouts/region/region.twig' with {
+  'region_name': 'navigation',
   'has_constrain': true
 } %}
   {% block content %}
@@ -29,7 +30,7 @@
   {% endblock %}
 {% endembed %}
 
-{% embed '@layouts/regions/breadcrumb/breadcrumb.twig' with {
+{% embed '@layouts/breadcrumb/breadcrumb.twig' with {
   'has_constrain': false
 } %}
   {% block content %}
@@ -43,7 +44,8 @@
   {% endblock %}
 {% endembed %}
 
-{% embed '@layouts/regions/highlighted/highlighted.twig' with {
+{% embed '@layouts/region/region.twig' with {
+  'region_name': 'highlighted',
   'has_constrain': true
 } %}
   {% block content %}
@@ -51,7 +53,8 @@
   {% endblock %}
 {% endembed %}
 
-{% embed '@layouts/regions/help/help.twig' with {
+{% embed '@layouts/region/region.twig' with {
+  'region_name': 'help',
   'has_constrain': true
 } %}
   {% block content %}
@@ -60,7 +63,8 @@
 {% endembed %}
 
 <main id="main" class="main" role="main" tabindex="-1">
-  {% embed '@layouts/regions/preface/preface.twig' with {
+  {% embed '@layouts/region/region.twig' with {
+    'region_name': 'preface',
     'has_constrain': true
   } %}
     {% block content %}
@@ -68,7 +72,7 @@
     {% endblock %}
   {% endembed %}
 
-  {% embed '@layouts/regions/content/content.twig' with {
+  {% embed '@layouts/content/content.twig' with {
     'has_constrain': true
   } %}
     {% block content %}
@@ -76,7 +80,8 @@
     {% endblock %}
   {% endembed %}
 
-  {% embed '@layouts/regions/postscript/postscript.twig' with {
+  {% embed '@layouts/region/region.twig' with {
+    'region_name': 'postscript',
     'has_constrain': true
   } %}
     {% block content %}
@@ -85,7 +90,7 @@
   {% endembed %}
 </main>
 
-{% embed '@layouts/regions/footer/footer.twig' with {
+{% embed '@layouts/footer/footer.twig' with {
   'has_constrain': true
 } %}
   {% block content %}
