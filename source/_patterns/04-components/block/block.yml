@@ -1,7 +1,7 @@
 ---
 hide_wrapper: false
 has_constrain: false
-constrain_classes: 'l-constrain'
+constrain_modifier_classes: ''
 label_element: 'h2'
 label: 'Section title'
 hide_content_wrapper: false
