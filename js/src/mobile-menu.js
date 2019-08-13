@@ -11,28 +11,24 @@
           tab: 9,
         };
         const optionDefault = {
-          toggleSubNav: true,
-          navMenu: '#primary-menu .menu--main',
-          searchBlock: false,
-          utilityMenu: false,
-          container: '.mobile-menu-container',
-          mobileMenuClass: 'mobile-menu',
-          mobileSearchClass: 'mobile-search-block',
-          mobileUtilityMenuClass: 'mobile-account-menu',
-          closeButtonClass: 'mobile-menu__close',
-          overlayClass: 'mobile-menu__overlay',
-          toggleButton: '.mobile-menu__toggle',
+          toggleSubNav: true, // Enable subnav toggle
+          navMenu: '#primary-menu .menu--main', // Selector for primary nave
+          searchBlock: false, // Selector for search block
+          utilityMenu: false, // Selector for utitlity nav
+          toggleButton: '.mobile-menu__toggle', //Selector for Menu toggle
+          container: '.mobile-menu-container', // Selector Destination container for mobile nav
+          mobileMenuClass: 'mobile-menu', // Classname for navigation section
+          mobileSearchClass: 'mobile-search-block', //Classname for search section
+          mobileUtilityMenuClass: 'mobile-account-menu', //Classname for utitlity section
+          closeButtonClass: 'mobile-menu__close', //Classname for generated close button
+          overlayClass: 'mobile-menu__overlay', //Overlay Classname
         };
 
         let currOptions = {};
-
         let blockTypes = {};
-
         let container = false;
         let overlay = false;
-
         let prevFocused = false;
-
         let publicAPI = {};
 
         return (publicAPI = {
@@ -247,9 +243,7 @@
         }
       })();
 
-      MobileMenu.init({
-        utilityMenu: '.menu--account',
-      });
+      MobileMenu.init();
     },
   };
 })(Drupal);

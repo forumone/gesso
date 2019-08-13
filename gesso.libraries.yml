@@ -5,7 +5,8 @@ global:
       //fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:300,400,600,700: { type: external }
       css/styles.css: {}
   js:
-    js/mobile-menu.js: {}
+    js/dist/mobile-menu.js: {}
+    js/dist/primary-menu.js: {}
     js/scripts.js: {}
   dependencies:
     - core/jquery

@@ -21,10 +21,6 @@
       };
 
       const MenuItem = function(domNode, menuObj) {
-        // if (typeof popupObj !== 'object') {
-        //   popupObj = false;
-        // }
-
         this.domNode = domNode;
         this.menu = menuObj;
         this.popupMenu = false;
