@@ -1,9 +1,18 @@
 // @file
 // Styles for Drupal messages.
 
+$message-background-color: gesso-color(ui, generic, background-light) !default;
+$message-border-color: gesso-color(ui, generic, border) !default;
+$message-error-background-color: gesso-color(ui, error, background) !default;
+$message-error-border-color: gesso-color(ui, error, border) !default;
+$message-status-background-color: gesso-color(ui, success, background) !default;
+$message-status-border-color: gesso-color(ui, success, border) !default;
+$message-warning-background-color: gesso-color(ui, warning, background) !default;
+$message-warning-border-color: gesso-color(ui, warning, border) !default;
+
 .message {
-  background-color: gesso-grayscale(gray-2);
-  border: 1px solid gesso-grayscale(gray-4);
+  background-color: $message-background-color;
+  border: 1px solid $message-border-color;
   color: gesso-color(text, primary);
   margin-bottom: rem(gesso-spacing(sm));
   overflow: hidden;
@@ -42,8 +51,8 @@
 }
 
 .message--status {
-  background-color: gesso-palette(green, light-2);
-  border-color: gesso-palette(green, light-1);
+  background-color: $message-status-background-color;
+  border-color: $message-status-border-color;
 
   &::before {
     @include svg-background(messages-status);
@@ -51,8 +60,8 @@
 }
 
 .message--error {
-  background-color: gesso-palette(red, light-1);
-  border-color: gesso-palette(red, light);
+  background-color: $message-error-background-color;
+  border-color: $message-error-border-color;
 
   &::before {
     @include svg-background(messages-error);
@@ -67,8 +76,8 @@
 }
 
 .message--warning {
-  background-color: gesso-palette(gold, light-2);
-  border-color: gesso-palette(gold, light-1);
+  background-color: $message-warning-background-color;
+  border-color: $message-warning-border-color;
 
   &::before {
     @include svg-background(messages-warning);

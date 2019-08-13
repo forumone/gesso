@@ -1,10 +1,15 @@
 // @file
 // Styles for Breadcrumb trail.
 
+$breadcrumb-background-color: gesso-color(ui, generic, accent-dark) !default;
+$breadcrumb-divider-color: gesso-color(ui, generic, border-light) !default;
+$breadcrumb-link-color: gesso-color(ui, generic, text-light) !default;
+$breadcrumb-text-color: gesso-color(text, on-dark) !default;
+
 .breadcrumb {
   @include clearfix();
-  background-color: gesso-color(background, secondary);
-  color: gesso-grayscale(white);
+  background-color: $breadcrumb-background-color;
+  color: $breadcrumb-text-color;
   font-size: rem(gesso-font-size(0));
   margin: rem(gesso-spacing(sm)) 0;
   min-height: rem(gesso-spacing(lg));
@@ -23,7 +28,7 @@
   margin-right: 0.75em;
 
   &::after {
-    color: gesso-palette(blue, light-1);
+    color: $breadcrumb-divider-color;
     content: '/';
     margin-left: 0.75em;
   }
@@ -45,7 +50,7 @@
       }
 
       &::before {
-        color: gesso-palette(blue, light-1);
+        color: $breadcrumb-divider-color;
         content: '<';
         margin-right: 0.75em;
       }
@@ -54,6 +59,6 @@
 }
 
 .breadcrumb__link {
-  @include link(gesso-grayscale(gray-3), gesso-grayscale(white));
+  @include link($breadcrumb-link-color, $breadcrumb-text-color);
   text-decoration: none;
 }

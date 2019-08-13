@@ -5,8 +5,11 @@ title: Card
 _Component for Card_
 
 ### Variables:
-* title: [object] content for _title_ twig block.
+* modifier_classes: [string] Classes to modify the default component styling.
+* title: [string] card title
 * url: [string] url string for card link.
-* footer: [object] content for _footer_ twig block.
+* date: [string] card date
+* read_more: [boolean] whether to show read more link
+* footer: [string] content card footer
 * media: [string] url string for backround-image.
-* content: [object] content for _main_ twig block.
+* content: [string] card summary/description area

@@ -1,10 +1,8 @@
 .tag {
   @include link(
-    gesso-palette(ocean-blue, dark),
-    gesso-palette(ocean-blue, dark),
-    gesso-palette(ocean-blue, dark-1)
+    gesso-color(tag, link)
   );
-  border: 2px solid gesso-palette(ocean-blue, base);
+  border: 2px solid gesso-color(tag, border);
   border-radius: 70px;
   display: inline-block;
   font-size: rem(gesso-font-size(0));
@@ -17,7 +15,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 2px gesso-palette(ocean-blue, base);
+    box-shadow: 0 0 0 2px gesso-color(tag, border);
     outline: 0;
   }
 }

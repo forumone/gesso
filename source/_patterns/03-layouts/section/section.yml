@@ -1,6 +1,6 @@
 ---
 has_constrain: false
-constrain_classes: 'l-constrain'
+constrain_modifier_classes: ''
 section_title_element: 'h2'
 section_title: 'Section title'
 section_content: |-

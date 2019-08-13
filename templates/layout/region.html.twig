@@ -5,12 +5,15 @@
   */
 #}
 
-{% set classes = [
-  'l-' ~ region|clean_class,
-] %}
-
 {% if content %}
-  <div{{ attributes.addClass(classes) }}>
-    {{ content }}
-  </div>
+  {% embed '@layouts/region/region.twig' with {
+    'region_name': region|clean_class,
+    'has_constrain': true
+  } %}
+
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+
+  {% endembed %}
 {% endif %}

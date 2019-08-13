@@ -1,16 +1,16 @@
 // @file
 // Styles for Tabs.
 
+$tab-background-color: gesso-color(ui, generic, background-light) !default;
+$tab-background-color-active: gesso-color(ui, generic, background-dark) !default;
+$tab-background-color-disabled: gesso-color(ui, generic, background-light) !default;
+$tab-background-color-hover: gesso-color(ui, generic, background) !default;
+$tab-border-color: gesso-color(ui, generic, border) !default;
 $tab-border-radius: 0 !default;
-$tab-color-bg: gesso-grayscale(gray-3) !default;
-$tab-color-bg-active: gesso-grayscale(black) !default;
-$tab-color-bg-disabled: gesso-grayscale(gray-3) !default;
-$tab-color-bg-hover: gesso-grayscale(gray-4) !default;
-$tab-color-border: gesso-grayscale(gray-4) !default;
-$tab-color-text: gesso-grayscale(black) !default;
-$tab-color-text-active: gesso-grayscale(white) !default;
-$tab-color-text-disabled: gesso-grayscale(gray-6) !default;
-$tab-color-text-hover: gesso-grayscale(black) !default;
+$tab-text-color: gesso-color(text, on-light) !default;
+$tab-text-color-active: gesso-color(text, on-dark) !default;
+$tab-text-color-disabled: gesso-color(ui, generic, text-light) !default;
+$tab-text-color-hover: gesso-color(text, on-light) !default;
 
 .tabs {
   @include clearfix;
@@ -49,17 +49,17 @@ $tab-color-text-hover: gesso-grayscale(black) !default;
 
 .tabs__link {
   @include button(
-    $tab-color-bg,
-    $tab-color-text,
-    $tab-color-bg-hover,
-    $tab-color-text-hover,
-    $tab-color-bg-active,
-    $tab-color-text-active,
-    $tab-color-bg-disabled,
-    $tab-color-text-disabled,
+    $tab-background-color,
+    $tab-text-color,
+    $tab-background-color-hover,
+    $tab-text-color-hover,
+    $tab-background-color-active,
+    $tab-text-color-active,
+    $tab-background-color-disabled,
+    $tab-text-color-disabled,
     0
   );
-  border-left: 1px solid $tab-color-border;
+  border-left: 1px solid $tab-border-color;
   display: block;
   font-family: gesso-font-family(system);
   font-size: rem(gesso-font-size(1));
@@ -68,25 +68,25 @@ $tab-color-text-hover: gesso-grayscale(black) !default;
   padding: rem(gesso-spacing(xsm)) rem(gesso-spacing(sm));
 
   &:focus {
-    background-color: $tab-color-bg-hover;
+    background-color: $tab-background-color-hover;
   }
 
   &:hover,
   &:visited {
-    color: $tab-color-text;
+    color: $tab-text-color;
   }
 
   &:active {
-    background-color: $tab-color-bg-active;
-    color: $tab-color-text-active;
+    background-color: $tab-background-color-active;
+    color: $tab-text-color-active;
   }
 
   &.is-active {
-    background-color: $tab-color-bg-active;
-    color: $tab-color-text-active;
+    background-color: $tab-background-color-active;
+    color: $tab-text-color-active;
 
     &:hover {
-      color: $tab-color-text-active;
+      color: $tab-text-color-active;
     }
   }
 }

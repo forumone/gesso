@@ -95,8 +95,8 @@ dfn {
 // kbd {}
 
 mark {
-  background: gesso-palette(gold, base);
-  color: gesso-grayscale(black);
+  background: gesso-color(mark, background);
+  color: gesso-color(mark, text);
 }
 
 // q {}

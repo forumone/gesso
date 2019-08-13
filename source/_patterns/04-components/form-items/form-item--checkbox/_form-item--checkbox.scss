@@ -13,8 +13,8 @@
     display: block;
 
     &::before {
-      background: gesso-grayscale(white);
-      border: 1px solid gesso-grayscale(gray-5);
+      background: gesso-color(form, background-unchecked);
+      border: 1px solid gesso-color(form, border-dark);
       content: '\a0';
       display: inline-block;
       height: rem(20px);
@@ -31,7 +31,7 @@
 
   &:checked + .form-item__label::before {
     @include svg-background(correct);
-    background-color: gesso-color(form, bg-highlight);
+    background-color: gesso-color(form, background-checked);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: rem(20px);
