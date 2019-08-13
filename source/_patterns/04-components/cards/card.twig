@@ -1,6 +1,6 @@
 {% import '@macros/gesso.macro.twig' as macros %}
 
-<div class="card {{ modifier }}">
+<div class="card {{ modifier_classes }}">
   <div class="card__body">
     <div class="card__header">
       {% if date %}
@@ -21,15 +21,17 @@
     <div class="card__content">
       {{ content }}
     </div>
-    {% if footer or read_more %}
+    {% if footer or read_more or tags %}
       <div class="card__footer">
         {{ footer }}
-        <div class="card__tags">
-          {% include "@components/tag-list/tag-list.twig" with {
-            items: tags
-          } %}
-        </div>
-        {% if url %}
+        {% if tags %}
+          <div class="card__tags">
+            {% include "@components/tag-list/tag-list.twig" with {
+              items: tags
+            } %}
+          </div>
+        {% endif %}
+        {% if read_more and url %}
           <div class="card__readmore">
             {{ macros.readmore(url, title) }}
           </div>
