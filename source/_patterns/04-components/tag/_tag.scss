@@ -1,8 +1,8 @@
 .tag {
   @include link(
-    gesso-color(tag, link)
+    gesso-color(ui, generic, accent-dark)
   );
-  border: 2px solid gesso-color(tag, border);
+  border: 2px solid gesso-color(ui, generic, accent-light);
   border-radius: 70px;
   display: inline-block;
   font-size: rem(gesso-font-size(0));
@@ -15,7 +15,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 2px gesso-color(tag, border);
+    box-shadow: 0 0 0 2px gesso-color(ui, generic, accent-light);
     outline: 0;
   }
 }
