@@ -3,15 +3,15 @@
 
 .button {
   @include button();
-  margin: 0 0 0.5em;
+  margin: 0 0 rem(gesso-spacing(xsm));
 
   & + & {
-    margin-left: 0.5em; // LTR
+    margin-left: rem(gesso-spacing(xsm)); // LTR
 
     @if $support-for-rtl {
       [dir='rtl'] & {
         margin-left: 0;
-        margin-right: 0.5em;
+        margin-right: rem(gesso-spacing(xsm));
       }
     }
   }
@@ -19,48 +19,41 @@
 
 // Drupal outputs this class on buttons that can delete content.
 .button--danger {
-  background-color: #e31c3d;
-  color: #fff;
+  background-color: gesso-color(button, danger, background);
+  color: gesso-color(button,danger,text);
 
   &:hover,
   &:focus {
-    background-color: #cd2026;
-    color: #fff;
+    background-color: gesso-color(button, danger, background-hover);
+    color: gesso-color(button,danger,text-hover);
   }
 
   &:active {
-    background-color: #981b1e;
-    color: #fff;
+    background-color: gesso-color(button, danger, background-active);
+    color: gesso-color(button,danger,text-active);
   }
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--large {
-  font-size: rem($font-size-lg);
-  line-height: (25px / $font-size-lg);
-  padding: rem(15px) rem(30px);
+  font-size: rem(gesso-font-size(2));
+  padding: rem(gesso-spacing(sm)) rem(gesso-spacing(lg));
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--secondary {
-  background-color: #5b616b;
-  color: #fff;
-
-  &:hover,
-  &:focus {
-    background-color: #323a45;
-    color: #fff;
-  }
-
-  &:active {
-    background-color: #212121;
-    color: #fff;
-  }
+  @include button(
+    gesso-color(button, secondary, background),
+    gesso-color(button, secondary, text),
+    gesso-color(button, secondary, background-hover),
+    gesso-color(button, secondary, text-hover),
+    gesso-color(button, secondary, background-active),
+    gesso-color(button, secondary, text-active)
+  );
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--small {
-  font-size: rem($font-size-sm);
-  line-height: (17px / $font-size-sm);
-  padding: rem(8px) rem(16px);
+  font-size: rem(gesso-font-size(0));
+  padding: rem(gesso-spacing(xxsm)) rem(gesso-spacing(xsm));
 }

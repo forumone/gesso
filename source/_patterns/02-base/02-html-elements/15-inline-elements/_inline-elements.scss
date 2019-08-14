@@ -6,7 +6,7 @@ a {
   color: gesso-color(text, link);
   outline-offset: em(2px); // Improves readability when focused.
   -webkit-text-decoration-skip: objects;
-  transition: color gesso-duration(short) gesso-easing(easeIn);
+  transition: color gesso-duration(short) gesso-easing(ease-in);
 
   &:hover,
   &:active {
@@ -34,7 +34,7 @@ a {
 
     &[href]::after {
       content: ' <' attr(href) '>';
-      font-family: $base-font-family;
+      font-family: gesso-font-family(primary);
       font-size: 10pt;
       font-weight: normal;
       text-transform: lowercase;
@@ -94,8 +94,8 @@ dfn {
 // kbd {}
 
 mark {
-  background: gesso-palette(gold, base);
-  color: gesso-grayscale(black);
+  background: gesso-color(mark, background);
+  color: gesso-color(mark, text);
 }
 
 // q {}

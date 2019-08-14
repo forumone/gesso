@@ -2,7 +2,7 @@
 // Styles for checkbox form items.
 
 .form-item--checkbox {
-  margin-bottom: 0.5em;
+  margin-bottom: gesso-spacing(xsm);
 }
 
 .form-item__checkbox {
@@ -13,47 +13,39 @@
     display: block;
 
     &::before {
-      background: #fff;
-      border-radius: rem(3px);
-      box-shadow: 0 0 0 1px #757575;
+      background: gesso-color(form, background-unchecked);
+      border: 1px solid gesso-color(form, border-dark);
       content: '\a0';
       display: inline-block;
-      height: rem(18px);
-      line-height: rem(18px);
+      height: rem(20px);
+      line-height: rem(20px);
       margin-right: 0.6em;
       text-indent: 0.15em;
-      transition-duration: 0.2s;
+      transition-duration: gesso-duration(short);
       transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
-      transition-timing-function: ease-in-out;
+      transition-timing-function: gesso-easing(ease-in-out);
       vertical-align: middle;
-      width: rem(18px);
+      width: rem(20px);
     }
   }
 
   &:checked + .form-item__label::before {
     @include svg-background(correct);
-    background-color: #0071bc;
+    background-color: gesso-color(form, background-checked);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: rem(20px);
-    box-shadow: 0 0 0 1px #0071bc;
   }
 
   &:focus + .form-item__label::before {
-    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0071bc, 0 0 3px 4px #3e94cf, 0 0 7px 4px #3e94cf;
-  }
-
-  &:checked:disabled + .form-item__label::before {
-    background-color: #aeb0b5;
+    box-shadow: $form-box-shadow-focus;
   }
 
   &:disabled + .form-item__label {
-    color: gesso-color(text,secondary);
     cursor: default;
+    opacity: $form-disabled-opacity;
 
     &::before {
-      background-color: #aeb0b5;
-      box-shadow: 0 0 0 1px #aeb0b5;
       cursor: not-allowed;
     }
   }

@@ -2,7 +2,7 @@
 // Figure element styles.
 
 figure {
-  margin: 0 0 rem($vertical-spacing);
+  margin: 0 0 rem(gesso-spacing(sm));
 }
 
 // figcaption {}

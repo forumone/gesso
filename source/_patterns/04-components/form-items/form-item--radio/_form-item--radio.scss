@@ -2,30 +2,34 @@
 // Styles for radio form items.
 
 .form-item--radio {
-  margin-bottom: 0.5em;
+  margin-bottom: gesso-spacing(xsm);
 
   .form-item__radio {
     appearance: none;
-    border: 2px solid #999;
+    background-color: gesso-color(form, background-unchecked);
+    border: 1px solid gesso-color(form, border-dark);
     border-radius: 50%;
+    box-shadow: 0 0 0 2px transparent;
     cursor: pointer;
-    height: 16px;
+    height: 18px;
     margin-right: 3px;
     outline: none;
     position: relative;
     top: 2px;
-    transition-duration: 0.2s;
-    transition-property: border-color, border-width;
-    transition-timing-function: ease-in-out;
-    width: 16px;
+    transition-duration: gesso-duration(short);
+    transition-property: background-color, border-color, border-radius;
+    transition-timing-function: gesso-easing(ease-in-out);
+    width: 18px;
 
     &:checked {
-      border: 6px solid #0071bc;
+      background-color: gesso-color(form, background-checked);
+      border: 2px solid gesso-color(form, background-unchecked);
+      box-shadow: 0 0 0 2px gesso-color(form, background-checked);
     }
 
     &:disabled {
-      border: 2px solid #bbb;
       cursor: default;
+      opacity: $form-disabled-opacity;
     }
 
     + .form-item__label {
@@ -34,8 +38,8 @@
     }
 
     &:disabled + .form-item__label {
-      color: #bbb;
       cursor: default;
+      opacity: $form-disabled-opacity;
     }
   }
 }

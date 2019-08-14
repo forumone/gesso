@@ -1,13 +1,21 @@
 // @file
 // Styles for range form items.
 
+$form-range-thumb-border-radius: 0 !default;
+$form-range-thumb-border-width: 1px !default;
+$form-range-thumb-height: 44px !default;
+$form-range-thumb-width: 22px !default;
+$form-range-track-border-width: 1px !default;
+$form-range-track-height: 10px !default;
+
 @mixin form-item__range-thumb {
-  background: $form-range-thumb-color;
-  border: $form-range-thumb-border-width solid $form-range-thumb-border-color;
+  background: gesso-color(form, thumb);
+  border: $form-range-thumb-border-width solid gesso-color(form, border-light);
   border-radius: $form-range-thumb-border-radius;
   cursor: pointer;
   height: rem($form-range-thumb-height);
   outline: 0;
+  transition: box-shadow gesso-duration(short) gesso-easing(ease-in-out);
   width: rem($form-range-thumb-width);
 }
 
@@ -15,27 +23,15 @@
   box-shadow: $form-box-shadow-focus;
 }
 
-@mixin form-item__range-thumb-disabled {
-  background: $form-color-disabled;
-  border-color: $form-border-color-disabled;
-  cursor: default;
-}
-
 @mixin form-item__range-track {
-  background: $form-range-track-color;
-  border: $form-range-track-border-width solid $form-range-track-border-color;
+  background: gesso-color(form, track);
+  border: $form-range-track-border-width solid gesso-color(form, border-dark);
   cursor: pointer;
   display: block;
   height: rem($form-range-track-height);
   margin: 0;
   outline: 0;
   width: 100%;
-}
-
-@mixin form-item__range-track-disabled {
-  background: $form-color-disabled;
-  border-color: $form-border-color-disabled;
-  cursor: default;
 }
 
 .form-item--range {
@@ -66,31 +62,7 @@
 
     &:disabled {
       cursor: default;
-
-      &::-moz-range-thumb {
-        @include form-item__range-thumb-disabled;
-      }
-
-      &::-moz-range-track {
-        @include form-item__range-track-disabled;
-      }
-
-      &::-ms-thumb {
-        @include form-item__range-thumb-disabled;
-      }
-
-      &::-ms-fill-lower,
-      &::-ms-fill-upper {
-        @include form-item__range-track-disabled;
-      }
-
-      &::-webkit-slider-thumb {
-        @include form-item__range-thumb-disabled;
-      }
-
-      &::-webkit-slider-runnable-track {
-        @include form-item__range-track-disabled;
-      }
+      opacity: $form-disabled-opacity;
     }
 
     &::-moz-range-thumb {
@@ -115,8 +87,8 @@
 
     &::-ms-fill-lower,
     &::-ms-fill-upper {
-      background: $form-range-track-color;
-      border: $form-range-track-border-width solid $form-range-track-border-color;
+      background: gesso-color(form, track);
+      border: $form-range-track-border-width solid gesso-color(form, border-dark);
     }
 
     &::-webkit-slider-thumb {

@@ -7,7 +7,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
 
 .dropbutton {
   display: inline-block;
-  margin: 0 0 0.5em;
+  margin: 0 0 rem(gesso-spacing(xsm));
   position: relative;
   vertical-align: top;
 

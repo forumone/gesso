@@ -28,7 +28,7 @@
   }
 }
 
-@mixin list-pipeline($pipeline-border-color: #d6d7d9) {
+@mixin list-pipeline($pipeline-border-color: gesso-color(ui, generic, border)) {
   @include clearfix;
   list-style-type: none;
   margin-left: 0;
@@ -56,7 +56,7 @@
 
     /* stylelint-disable-next-line selector-no-qualifying-type */
     &.is-active {
-      font-weight: bold;
+      font-weight: gesso-font-weight(bold);
     }
 
     &:last-child {
@@ -75,7 +75,7 @@
   }
 }
 
-@mixin list-border($list-border-padding: 0.25rem) {
+@mixin list-border($list-border-padding: 0.25rem, $list-border-color: gesso-color(ui, generic, border)) {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
@@ -85,7 +85,7 @@
   }
 
   > li {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $list-border-color;
     padding: $list-border-padding;
   }
 }

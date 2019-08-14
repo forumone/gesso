@@ -3,9 +3,9 @@
 
 // Uncomment to add a set of default transitions to all elements
 // * {
-//   transition-duration: 0.2s;
+//   transition-duration: gesso-duration(short) ;
 //   transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
-//   transition-timing-function: linear;
+//   transition-timing-function: gesso-easing(ease-in);
 // }
 
 *,
@@ -18,7 +18,7 @@
   * {
     background-color: transparent !important;
     box-shadow: none !important;
-    color: gesso-grayscale(black) !important;
+    color: #000 !important;
     text-shadow: none !important;
   }
   @page {
