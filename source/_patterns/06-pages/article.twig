@@ -1,20 +1,10 @@
 {% set page_content %}
 
-  {# define dummy article template footer content #}
-  {% set footer %}
-    {% include '@components/date/date.twig' with {
-      'format': 'long-datetime'
-    } %}
-    {% include '@components/author/author.twig' with {
-      'author': 'Inigo Montoya'
-    } %}
-  {% endset %}
-
   {# include article template #}
   {% include '@templates/article.twig' with {
     'article_title': title,
     'article_content': content,
-    'article_footer': footer
+    'article_has_footer': true
   } %}
 
 {% endset %}
