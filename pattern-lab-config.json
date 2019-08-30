@@ -69,15 +69,15 @@
       }
     },
     "public": {
-      "root": "pattern-lab/public/",
-      "patterns": "pattern-lab/public/patterns/",
-      "data": "pattern-lab/public/styleguide/data/",
-      "annotations": "pattern-lab/public/annotations/",
-      "styleguide": "pattern-lab/public/styleguide/",
-      "js": "pattern-lab/public/js",
-      "images": "pattern-lab/public/images",
-      "fonts": "pattern-lab/public/fonts",
-      "css": "pattern-lab/public/css"
+      "root": "pattern-lab/",
+      "patterns": "pattern-lab/patterns/",
+      "data": "pattern-lab/styleguide/data/",
+      "annotations": "pattern-lab/annotations/",
+      "styleguide": "pattern-lab/styleguide/",
+      "js": "pattern-lab/js",
+      "images": "pattern-lab/images",
+      "fonts": "pattern-lab/fonts",
+      "css": "pattern-lab/css"
     }
   },
   "patternExtension": "twig",

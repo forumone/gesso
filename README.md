@@ -93,7 +93,7 @@ gulp build
 
 ### Accessing Pattern Lab
 
-To access the Pattern Lab instance, append `/pattern-lab/public/index.html` to your site URL and theme directory (e.g. http://localhost:8080/themes/gesso/pattern-lab/public/index.html) or, if developing locally, just open that index.html file directly in the browser from your file system.
+To access the Pattern Lab instance, append `/pattern-lab/index.html` to your site URL and theme directory (e.g. http://localhost:8080/themes/gesso/pattern-lab/index.html) or, if developing locally, just open that index.html file directly in the browser from your file system.
 
 
 ### Design Tokens
