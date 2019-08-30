@@ -88,7 +88,7 @@ gulp
 To initiate the Gulp build tasks only (without watching for changes), run the following command in the theme directory:
 
 ```
-gulp gessoBuild
+gulp build
 ```
 
 ### Accessing Pattern Lab

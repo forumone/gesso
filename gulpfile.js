@@ -1,13 +1,13 @@
 'use strict';
 
 const { dest, lastRun, parallel, series, src, watch } = require('gulp');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const sassGlob = require('gulp-sass-glob');
-const stylelint = require('gulp-stylelint');
+const patternLabConfig = require('./pattern-lab-config.json');
+const patternLab = require('@pattern-lab/core')(patternLabConfig);
 const postcss = require('gulp-postcss');
-const config = require('./pattern-lab-config.json');
-const patternLab = require('@pattern-lab/core')(config);
+const sass = require('gulp-sass');
+const sassGlob = require('gulp-sass-glob');
+const sourcemaps = require('gulp-sourcemaps');
+const stylelint = require('gulp-stylelint');
 const yaml = require('yaml');
 
 const fs = require('fs');
@@ -21,7 +21,7 @@ const renderSass = require('./lib/renderSass');
 const writeFile = util.promisify(fs.writeFile);
 const os = require("os");
 
-async function buildConfig() {
+const buildConfig = async () => {
   const scssDir = path.join(__dirname, '/source/_patterns/00-config');
   const ymlDir = path.join(__dirname, './source/_data');
 
@@ -44,9 +44,9 @@ async function buildConfig() {
       path.join(scssDir, '_design-tokens.artifact.scss'),
       sassComment + os.EOL + renderSass(transformed.data)),
   ]);
-}
+};
 
-function lintStyles() {
+const lintStyles = () => {
   return src('**/*.scss', { cwd: './source', since: lastRun(lintStyles) }).pipe(
     stylelint({
       configFile: '.stylelintrc.yml',
@@ -54,9 +54,9 @@ function lintStyles() {
       reporters: [{ formatter: 'string', console: true }],
     }),
   );
-}
+};
 
-function buildStyles() {
+const compileStyles = () => {
   return src('*.scss', { cwd: './source' })
     .pipe(sassGlob())
     .pipe(sourcemaps.init())
@@ -76,13 +76,13 @@ function buildStyles() {
     )
     .pipe(sourcemaps.write('.'))
     .pipe(dest('css'));
-}
+};
 
-function buildPatternLab() {
+const buildPatternLab = () => {
   return patternLab.build({ cleanPublic: true, watch: false });
-}
+};
 
-function fileWatch() {
+const watchFiles = () => {
   watch(
     [
       'source/**/*.scss',
@@ -111,23 +111,19 @@ function fileWatch() {
     { usePolling: true, interval: 1500 },
     buildPatternLab,
   );
-}
+};
 
-const gessoBuildConfig = (exports.gessoBuildConfig = buildConfig);
-const gessoBuildPatternLab = (exports.gessoBuildPatternLab = buildPatternLab);
-const gessoBuildStyles = (exports.gessoBuildStyles = series(
+const buildStyles = (exports.buildStyles = series(
   lintStyles,
-  buildStyles
+  compileStyles
 ));
 
-const gessoBuild = (exports.gessoBuild = series(
-  gessoBuildConfig,
+const build = (exports.build = series(
+  buildConfig,
   parallel(
-    gessoBuildStyles,
-    gessoBuildPatternLab
+    buildStyles,
+    buildPatternLab
   )
 ));
 
-const gessoWatch = (exports.gessoWatch = fileWatch);
-
-exports.default = series(gessoBuild, gessoWatch);
+exports.default = series(build, watchFiles);
