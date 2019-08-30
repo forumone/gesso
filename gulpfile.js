@@ -6,8 +6,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const sassGlob = require('gulp-sass-glob');
 const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
-const config = require('./patternlab-config.json');
-const patternlab = require('@pattern-lab/core')(config);
+const config = require('./pattern-lab-config.json');
+const patternLab = require('@pattern-lab/core')(config);
 const yaml = require('yaml');
 
 const fs = require('fs');
@@ -78,8 +78,8 @@ function buildStyles() {
     .pipe(dest('css'));
 }
 
-function buildPatternlab() {
-  return patternlab.build({ cleanPublic: true, watch: false });
+function buildPatternLab() {
+  return patternLab.build({ cleanPublic: true, watch: false });
 }
 
 function fileWatch() {
@@ -99,7 +99,7 @@ function fileWatch() {
       buildConfig,
       parallel(
         series(lintStyles, buildStyles),
-        buildPatternlab,
+        buildPatternLab,
       ),
     ),
   );
@@ -109,12 +109,12 @@ function fileWatch() {
       '!source/_patterns/00-config/config.design-tokens.yml'
     ],
     { usePolling: true, interval: 1500 },
-    buildPatternlab,
+    buildPatternLab,
   );
 }
 
 const gessoBuildConfig = (exports.gessoBuildConfig = buildConfig);
-const gessoBuildPatternlab = (exports.gessoBuildPatternlab = buildPatternlab);
+const gessoBuildPatternLab = (exports.gessoBuildPatternLab = buildPatternLab);
 const gessoBuildStyles = (exports.gessoBuildStyles = series(
   lintStyles,
   buildStyles
@@ -124,7 +124,7 @@ const gessoBuild = (exports.gessoBuild = series(
   gessoBuildConfig,
   parallel(
     gessoBuildStyles,
-    gessoBuildPatternlab
+    gessoBuildPatternLab
   )
 ));
 
