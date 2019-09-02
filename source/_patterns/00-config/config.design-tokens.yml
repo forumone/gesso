@@ -113,9 +113,6 @@ gesso:
       background: grayscale.white
       background-head: grayscale.gray-2
       background-foot: grayscale.gray-2
-    tag:
-      border: brand.ocean-blue.base
-      link: brand.ocean-blue.dark
     ui:
       generic:
         background: grayscale.gray-4
