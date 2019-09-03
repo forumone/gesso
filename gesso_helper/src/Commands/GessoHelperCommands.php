@@ -68,8 +68,8 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     // Copy the Gesso theme directory recursively to the new theme’s location.
     drush_op('drush_copy_dir', $gesso_path, $new_path);
 
-    // Remove Gesso’s drush file from the new theme.
-    drush_op('unlink', "$new_path/includes/gesso.drush.inc");
+    // Remove Gesso’s helper module from the new theme.
+    $this->gesso_recursive_rm(Path::join($new_path, 'gesso_helper'));
 
     // Rename the .info.yml file.
     $gesso_info_file = Path::join($new_path, 'gesso.info.yml');
@@ -121,13 +121,17 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     }
 
     // Notify user of the newly created theme.
-    $this->io()->note(dt(
+    $this->io()->block(dt(
       "\nThe \"!name\" theme has been created in: !path\n",
       [
         '!name' => $name,
         '!path' => $new_path,
       ]
-    ));
+    ), 'SUCCESS', 'fg=black;bg=green', ' ! ');
+
+    // Warn the user that they might have some additional steps.
+    $this->io()->caution(dt('If you want to remove the gesso theme entirely, be sure to copy and rename the '
+     . 'gesso_helper module first.'));
   }
 
   /**
@@ -165,7 +169,30 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $file_path = Path::normalize($file_path);
     $file_contents = file_get_contents($file_path);
     $file_contents = str_replace($find, $replace, $file_contents);
-    file_put_contents($file_path, $file_contents);
+    drush_op('file_put_contents', $file_path, $file_contents);
   }
 
+  /**
+   * Recursively removes all files and subfolders in a directory,
+   * before finally deleting the directory itself.
+   *
+   * @param string $path
+   *   Path to the top-level directory
+   */
+  private function gesso_recursive_rm($path) {
+    if (is_dir($path)) {
+      $dir_contents = scandir($path);
+      foreach ($dir_contents as $item) {
+        if ($item !== '.' && $item !== '..') {
+          $subpath = Path::join($path, $item);
+          if (is_dir($subpath)) {
+            $this->gesso_recursive_rm($subpath);
+          } else {
+            drush_op('unlink', $subpath);
+          }
+        }
+      }
+      drush_op('rmdir', $path);
+    }
+  }
 }
