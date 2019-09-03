@@ -30,7 +30,6 @@ blockquote {
   }
 
   cite {
-    @include display-text-style(cite);
     display: block;
     margin-top: rem(gesso-spacing(sm));
     text-align: right;
