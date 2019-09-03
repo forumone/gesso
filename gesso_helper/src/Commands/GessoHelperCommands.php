@@ -59,6 +59,11 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       throw new \Exception(dt('A theme with that name already exists. The machine-readable name must be unique.'));
     }
 
+    if (!$machine_name || !preg_match('/^[a-z][a-z0-9_]*$/', $machine_name)) {
+      throw new \Exception(dt('The machine name was invalid or could not be generated properly. It must start '
+        . 'with a letter and may only contain lowercase letters, numbers, and underscores.'));
+    }
+
     // Get theme paths.
     $drupalRoot = Drush::bootstrapManager()->getRoot();
     $gesso_path = Path::join($drupalRoot, drupal_get_path('theme', 'gesso'));
