@@ -5,3 +5,4 @@ pattern-lab/
 css/*.css
 css/*.map
 dependencyGraph.json
+.idea/
