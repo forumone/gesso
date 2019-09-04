@@ -79,8 +79,8 @@ $tab-text-color-hover: gesso-color(text, on-light) !default;
     background-color: $tab-background-color-hover;
   }
 
-  &:hover,
-  &:visited {
+  &:visited,
+  &:hover {
     color: $tab-text-color;
   }
 
