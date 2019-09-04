@@ -12,6 +12,7 @@ const yaml = require('yaml');
 const babel = require('rollup-plugin-babel');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const { uglify } = require('rollup-plugin-uglify');
 const rollupEach = require('gulp-rollup-each');
 const rename = require('gulp-rename');
 
@@ -100,7 +101,7 @@ function bundleScripts() {
     .pipe(
       rollupEach(
         {
-          plugins: [babel(), resolve(), commonjs()],
+          plugins: [babel(), resolve(), commonjs(), uglify()],
         },
         {
           format: 'iife',
@@ -109,7 +110,7 @@ function bundleScripts() {
     )
     .pipe(
       rename(function(path) {
-        path.basename = path.basename.replace('.es6', '.bundle');
+        path.basename = path.basename.replace('.es6', '.min');
       }),
     )
     .pipe(dest('js/dist'));
