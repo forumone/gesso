@@ -9,7 +9,10 @@ const postcss = require('gulp-postcss');
 const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
 const yaml = require('yaml');
-const babel = require('gulp-babel');
+const babel = require('rollup-plugin-babel');
+const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
+const rollupEach = require('gulp-rollup-each');
 const rename = require('gulp-rename');
 
 const fs = require('fs');
@@ -92,21 +95,24 @@ function buildPatternlab() {
   return patternlab.build({ cleanPublic: true, watch: false });
 }
 
-function buildScripts() {
-  return src('*.js', { cwd: './js/src' })
-    .pipe(sourcemaps.init())
+function bundleScripts() {
+  return src(['js/src/**/*.es6.js', '!js/src/**/_*.es6.js'])
     .pipe(
-      babel({
-        presets: ['@babel/env'],
+      rollupEach(
+        {
+          plugins: [babel(), resolve(), commonjs()],
+        },
+        {
+          format: 'iife',
+        },
+      ),
+    )
+    .pipe(
+      rename(function(path) {
+        path.basename = path.basename.replace('.es6', '.bundle');
       }),
     )
-    .pipe(sourcemaps.write('.'))
-    .pipe(
-      rename({
-        suffix: '.dist',
-      }),
-    )
-    .pipe(dest('./js/dist'));
+    .pipe(dest('js/dist'));
 }
 
 function fileWatch() {
@@ -135,12 +141,18 @@ function fileWatch() {
     { usePolling: true, interval: 1500 },
     buildPatternlab,
   );
-  watch(['js/src/**/*.js'], { usePolling: true, interval: 1500 }, buildScripts);
+  watch(
+    ['js/src/**/*.es6.js'],
+    { usePolling: true, interval: 1500 },
+    bundleScripts,
+  );
 }
 
 const gessoBuildConfig = (exports.gessoBuildConfig = buildConfig);
 const gessoBuildPatternlab = (exports.gessoBuildPatternlab = buildPatternlab);
-const gessoBuildScripts = (exports.gessoBuildScripts = buildScripts);
+
+const gessoBundleScripts = (exports.gessoBundleScripts = bundleScripts);
+
 const gessoBuildStyles = (exports.gessoBuildStyles = series(
   lintStyles,
   buildStyles,
@@ -148,7 +160,7 @@ const gessoBuildStyles = (exports.gessoBuildStyles = series(
 
 const gessoBuild = (exports.gessoBuild = series(
   gessoBuildConfig,
-  parallel(gessoBuildScripts, gessoBuildStyles, gessoBuildPatternlab),
+  parallel(gessoBundleScripts, gessoBuildStyles, gessoBuildPatternlab),
 ));
 
 const gessoWatch = (exports.gessoWatch = fileWatch);
