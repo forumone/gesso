@@ -7,9 +7,8 @@ global:
   js:
     js/dist/mobile-menu.min.js: {}
     js/dist/primary-menu.min.js: {}
-    js/scripts.js: {}
+    js/dists/scripts.min.js: {}
   dependencies:
-    - core/jquery
     - core/drupal
     - core/drupalSettings
     - core/modernizr
