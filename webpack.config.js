@@ -22,10 +22,14 @@ module.exports = (mode) => {
       },
       minimizer: [
         new TerserJsPlugin({
-          terserOptions: { comments: false },
+          sourceMap: true,
+          terserOptions: {
+            comments: false
+          },
         })
       ]
     },
+    devtool: isDevelopment ? 'eval-source-map' : 'source-map',
     output: {
       path: `${__dirname}/js/dist`,
       filename: '[name].min.js'
