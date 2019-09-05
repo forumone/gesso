@@ -9,16 +9,14 @@ const postcss = require('gulp-postcss');
 const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
 const yaml = require('yaml');
-const babel = require('rollup-plugin-babel');
-const resolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
-const { terser } = require('rollup-plugin-terser');
-const rollupEach = require('gulp-rollup-each');
 const rename = require('gulp-rename');
 
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
+
+const webpack = require('webpack');
+const asyncWebpack = util.promisify(webpack);
 
 const readSource = require('./lib/readSource');
 const transform = require('./lib/transform');
@@ -96,9 +94,18 @@ function buildPatternlab() {
   return patternlab.build({ cleanPublic: true, watch: false });
 }
 
-function bundleScripts() {
-  return src(['js/src/**/*.es6.js', '!js/src/**/_*.es6.js'])
-    .pipe(
+async function bundleScripts(mode) {
+  console.log('mode', mode);
+  const webpackConfig = require('./webpack.config')(mode);
+  const stats = await asyncWebpack(webpackConfig);
+  if (stats.hasErrors()) {
+    throw new Error(stats.compilation.errors.join('\n'));
+  }
+}
+
+//function bundleScripts() {
+  //return src(['js/src/**/*.es6.js', '!js/src/**/_*.es6.js'])
+    /*.pipe(
       rollupEach(
         {
           plugins: [babel(), resolve(), commonjs(), terser()],
@@ -114,7 +121,7 @@ function bundleScripts() {
       }),
     )
     .pipe(dest('js/dist'));
-}
+}*/
 
 function fileWatch() {
   watch(
@@ -152,7 +159,7 @@ function fileWatch() {
 const gessoBuildConfig = (exports.gessoBuildConfig = buildConfig);
 const gessoBuildPatternlab = (exports.gessoBuildPatternlab = buildPatternlab);
 
-const gessoBundleScripts = (exports.gessoBundleScripts = bundleScripts);
+const gessoBundleScripts = (exports.gessoBundleScripts = () => bundleScripts('production'));
 
 const gessoBuildStyles = (exports.gessoBuildStyles = series(
   lintStyles,

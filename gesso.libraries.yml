@@ -1,3 +1,7 @@
+common:
+  version: VERSION
+  js:
+    js/dist/common.min.js: {}
 global:
   version: VERSION
   css:
@@ -9,6 +13,7 @@ global:
     js/dist/primary-menu.min.js: {}
     js/dists/scripts.min.js: {}
   dependencies:
+    - gesso/common
     - core/drupal
     - core/drupalSettings
     - core/modernizr
