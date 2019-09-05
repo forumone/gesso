@@ -95,7 +95,6 @@ function buildPatternlab() {
 }
 
 async function bundleScripts(mode) {
-  console.log('mode', mode);
   const webpackConfig = require('./webpack.config')(mode);
   const stats = await asyncWebpack(webpackConfig);
   if (stats.hasErrors()) {
@@ -103,25 +102,8 @@ async function bundleScripts(mode) {
   }
 }
 
-//function bundleScripts() {
-  //return src(['js/src/**/*.es6.js', '!js/src/**/_*.es6.js'])
-    /*.pipe(
-      rollupEach(
-        {
-          plugins: [babel(), resolve(), commonjs(), terser()],
-        },
-        {
-          format: 'iife',
-        },
-      ),
-    )
-    .pipe(
-      rename(function(path) {
-        path.basename = path.basename.replace('.es6', '.min');
-      }),
-    )
-    .pipe(dest('js/dist'));
-}*/
+const gessoBundleScripts = (exports.gessoBundleScripts = () => bundleScripts('production'));
+const gessoBundleScriptsDev = () => bundleScripts('development');
 
 function fileWatch() {
   watch(
@@ -152,25 +134,27 @@ function fileWatch() {
   watch(
     ['js/src/**/*.es6.js'],
     { usePolling: true, interval: 1500 },
-    bundleScripts,
+    gessoBundleScriptsDev,
   );
 }
 
 const gessoBuildConfig = (exports.gessoBuildConfig = buildConfig);
 const gessoBuildPatternlab = (exports.gessoBuildPatternlab = buildPatternlab);
 
-const gessoBundleScripts = (exports.gessoBundleScripts = () => bundleScripts('production'));
-
 const gessoBuildStyles = (exports.gessoBuildStyles = series(
   lintStyles,
   buildStyles,
 ));
 
-const gessoBuild = (exports.gessoBuild = series(
-  gessoBuildConfig,
-  parallel(gessoBundleScripts, gessoBuildStyles, gessoBuildPatternlab),
-));
+const buildTasks = (isProduction = true) => {
+  const scriptTask = isProduction ? gessoBundleScripts : gessoBundleScriptsDev;
+  return series(
+    gessoBuildConfig,
+    parallel(scriptTask, gessoBuildStyles, gessoBuildPatternlab));
+};
+
+exports.gessoBuild = buildTasks(true);
 
 const gessoWatch = (exports.gessoWatch = fileWatch);
 
-exports.default = series(gessoBuild, gessoWatch);
+exports.default = series(buildTasks(false), gessoWatch);
