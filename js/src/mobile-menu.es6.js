@@ -1,3 +1,4 @@
+import Drupal from 'drupal';
 (function(Drupal) {
   'use strict';
 

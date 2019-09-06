@@ -45,6 +45,12 @@ module.exports = (mode) => {
           ],
         },
       ]
+    },
+    externals: {
+      jquery: 'jQuery',
+      drupal: 'Drupal',
+      drupalSettings: 'drupalSettings',
+      modernizr: 'Modernizr'
     }
   };
 };
