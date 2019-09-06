@@ -11,7 +11,7 @@ global:
   js:
     js/dist/mobile-menu.min.js: {}
     js/dist/primary-menu.min.js: {}
-    js/dists/scripts.min.js: {}
+    js/dist/scripts.min.js: {}
   dependencies:
     - gesso/common
     - core/drupal
