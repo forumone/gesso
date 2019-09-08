@@ -10,3 +10,4 @@ js/dist/*.js
 js/dist/*.map
 dependencyGraph.json
 .vscode
+.idea

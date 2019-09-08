@@ -1,4 +1,5 @@
 import MenuBar from './modules/_MenuBar.es6';
+import Drupal from 'drupal';
 
 (function(Drupal) {
   'use strict';

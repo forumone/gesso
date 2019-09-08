@@ -1,23 +1,21 @@
 // Custom scripts file
-
-(function ($) {
+(function () {
 
   'use strict';
 
   // Generic function that runs on window resize.
   function resizeStuff() {
-    
+
   }
 
   // Runs function once on window resize.
-  var TO = false;
-  $(window).resize(function () {
-    if (TO !== false) {
-      clearTimeout(TO);
+  let timeOut = false;
+  window.addEventListener('resize', () => {
+    if (timeOut !== false) {
+      clearTimeout(timeOut);
     }
 
     // 200 is time in miliseconds.
-    TO = setTimeout(resizeStuff, 200);
-  }).resize();
-
-})(jQuery);
+    timeOut = setTimeout(resizeStuff, 200);
+  });
+})();
