@@ -8,3 +8,4 @@ css/*.css
 css/*.map
 dependencyGraph.json
 .vscode
+.idea
