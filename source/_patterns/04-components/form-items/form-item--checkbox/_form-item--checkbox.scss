@@ -6,7 +6,7 @@
 }
 
 .form-item__checkbox {
-  @extend %visually-hidden;
+  @include visually-hidden(true);
 
   + .form-item__label {
     cursor: pointer;

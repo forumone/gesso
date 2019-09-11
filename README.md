@@ -15,7 +15,7 @@ For more information, view the
 [Gesso GitHub repo](https://github.com/forumone/gesso).
 To submit bug reports or feature requests, visit the
 [Gesso issue queue](https://github.com/forumone/gesso/issues).
-Also available for [WordPress](https://github/forumone/gesso-wp).
+Also available for [WordPress](https://github.com/forumone/gesso-wp).
 
 ### Global Prerequisites
 
