@@ -42,6 +42,9 @@ module.exports = (mode) => {
             {
               loader: 'babel-loader',
             },
+            {
+              loader: 'eslint-loader',
+            },
           ],
         },
       ]
