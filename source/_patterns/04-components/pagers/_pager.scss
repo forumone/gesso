@@ -40,7 +40,7 @@ $pager-bp: 600px !default;
   background-color: transparent;
   color: $pager-link-color;
   min-width: rem(gesso-spacing(lg));
-  padding: em(gesso-spacing(xsm));
+  padding: em(gesso-spacing(xs));
   transition: color gesso-duration(short) gesso-easing(ease-out),
     background-color gesso-duration(standard) gesso-easing(ease-out);
 

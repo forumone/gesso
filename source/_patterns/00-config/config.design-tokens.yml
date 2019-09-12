@@ -256,8 +256,8 @@ gesso:
     drawer: 1200
     modal: 1300
   spacing:
-    xxsm: 4px
-    xsm: 8px
+    xxs: 4px
+    xs: 8px
     sm: 16px
     md: 24px
     lg: 40px
