@@ -12,6 +12,7 @@ module.exports = {
     "implicit-dependencies"
   ],
   "extends": [
+    "eslint:recommended",
     "plugin:prettier/recommended"
   ],
   "rules": {
@@ -22,21 +23,16 @@ module.exports = {
     "camelcase": ["error", {
       "properties": "never",
     }],
-    "constructor-super": "error",
     "curly": "error",
     "dot-notation": "error",
     "eqeqeq": "error",
     "guard-for-in": "error",
     "implicit-dependencies/no-implicit": ["error", { optional: true }],
     "no-console": "error",
-    "no-empty": "error",
     "no-empty-function": "error",
-    "no-fallthrough": "error",
     "no-irregular-whitespace": "off",
     "no-param-reassign": "error",
-    "no-sparse-arrays": "error",
     "no-template-curly-in-string": "error",
-    "no-unsafe-finally": "error",
     "no-unused-expressions": "error",
     "no-var": "error",
     "object-shorthand": "error",
