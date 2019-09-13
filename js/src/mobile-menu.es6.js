@@ -30,13 +30,6 @@ import Drupal from 'drupal';
         let container = false;
         let overlay = false;
         let prevFocused = false;
-        let publicAPI = {};
-
-        return (publicAPI = {
-          init: initUI,
-          close: closeMenu,
-          open: openMenu,
-        });
 
         function initUI(options = {}) {
           if (!document.body.classList.contains('mobile-menu-processed')) {
@@ -239,6 +232,12 @@ import Drupal from 'drupal';
 
           thisNode.parentNode.insertBefore(toggleButton, controlled);
         }
+
+        return {
+          init: initUI,
+          close: closeMenu,
+          open: openMenu,
+        };
       })();
 
       MobileMenu.init();

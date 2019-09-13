@@ -34,6 +34,7 @@ module.exports = {
     "no-param-reassign": "error",
     "no-template-curly-in-string": "error",
     "no-unused-expressions": "error",
+    "no-unused-vars": ["error", {"args": "none"}],
     "no-var": "error",
     "object-shorthand": "error",
     "one-var": ["error", "never"],

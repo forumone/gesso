@@ -4,9 +4,8 @@ import MenubarItem from './_MenuBarItem.es6';
 
 class MenuBar {
   constructor(domNode) {
-    let elementChildren;
     const msgPrefix = 'Menubar constructor argument menuBarNode';
-    if (!domNode instanceof Element) {
+    if (!(domNode instanceof Element)) {
       throw new TypeError(`${msgPrefix} is not a Dom Element`);
     }
     if (domNode.childElementCount === 0) {
