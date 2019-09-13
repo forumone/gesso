@@ -30,6 +30,7 @@ module.exports = {
     "implicit-dependencies/no-implicit": ["error", { optional: true }],
     "no-console": "error",
     "no-empty-function": "error",
+    "no-floating-decimal": "error",
     "no-irregular-whitespace": "off",
     "no-param-reassign": "error",
     "no-template-curly-in-string": "error",
