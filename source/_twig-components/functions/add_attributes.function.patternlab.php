@@ -1,15 +1,23 @@
 <?php
+
 /**
  * @file
- * Creates an "add_attributes" function for Pattern Lab
- * that adds attributes, title_attributes, or content_attributes with optional
- * additions while preventing attributes from trickling down through includes.
- * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension
+ * Creates an "add_attributes" function for Pattern Lab.
+ *
+ * This function adds attributes, title_attributes, or content_attributes
+ * with optional additions while preventing attributes from trickling
+ * down through includes. Based on
+ * https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
  */
-function addAddAttributesFunction(\Twig_Environment &$env, $config) {
-  //use Drupal\Core\Template\Attribute;
+
+/**
+ * Function to add add_attributes function for Pattern Lab.
+ */
+function add_add_attributes_function(\Twig_Environment &$env, $config) {
+  // Use Drupal\Core\Template\Attribute;.
   $env->addFunction(new Twig_SimpleFunction('add_attributes', function ($context, $additional_attributes = [], $attribute_type = 'attributes') {
-    if (!in_array($attribute_type, ['attributes','title_attributes','content_attributes'])) {
+    $valid_types = ['attributes', 'title_attributes', 'content_attributes'];
+    if (!in_array($attribute_type, $valid_types)) {
       throw new Exception('Invalid attribute type.');
     }
 
@@ -51,7 +59,7 @@ function addAddAttributesFunction(\Twig_Environment &$env, $config) {
       }
 
       // Set all attributes.
-      foreach($context[$attribute_type] as $key => $value) {
+      foreach ($context[$attribute_type] as $key => $value) {
         $attributes->setAttribute($key, $value);
         // Remove this attribute from context so it doesn't filter down to child
         // elements.
@@ -93,6 +101,6 @@ function addAddAttributesFunction(\Twig_Environment &$env, $config) {
       return implode(' ', $attributes);
     }
 
-  }, array('needs_context' => true, 'is_safe' => array('html'))));
+  }, ['needs_context' => TRUE, 'is_safe' => ['html']]));
 
 }

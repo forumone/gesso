@@ -5,7 +5,8 @@ title: Sidebar
 _Layout for Sidebar_
 
 ### Variables:
-* has_multiple_sidebar: [boolean] True/False whether component has multiple sidebars.
+* has_multiple_sidebar: [boolean] True/False 
+whether component has multiple sidebars.
 * modifier_classes: [string] modifier class for creating variant.
 * has_header: [boolean] True/False whether component has header.
 * sidebar_header: [object] twig block.

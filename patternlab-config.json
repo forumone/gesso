@@ -190,55 +190,55 @@
       "alterTwigEnv": [
         {
           "file": "source/_twig-components/filters/clean_class.filter.php",
-          "functions": ["addCleanClassFilter"]
+          "functions": ["add_clean_class_filter"]
         },
         {
           "file": "source/_twig-components/filters/clean_id.filter.php",
-          "functions": ["addCleanIdFilter"]
+          "functions": ["add_clean_id_filter"]
         },
         {
           "file": "source/_twig-components/filters/format_date.filter.php",
-          "functions": ["addFormatDateFilter"]
+          "functions": ["add_format_date_filter"]
         },
         {
           "file": "source/_twig-components/filters/placeholder.filter.php",
-          "functions": ["addPlaceholderFilter"]
+          "functions": ["add_placeholder_filter"]
         },
         {
           "file": "source/_twig-components/filters/render.filter.php",
-          "functions": ["addRenderFilter"]
+          "functions": ["add_render_filter"]
         },
         {
           "file": "source/_twig-components/filters/safe_join.filter.php",
-          "functions": ["addSafeJoinFilter"]
+          "functions": ["add_safe_join_filter"]
         },
         {
           "file": "source/_twig-components/filters/t.filter.php",
-          "functions": ["addTFilter"]
+          "functions": ["add_tfilter"]
         },
         {
           "file": "source/_twig-components/filters/without.filter.php",
-          "functions": ["addWithoutFilter"]
+          "functions": ["add_without_filter"]
         },
         {
           "file": "source/_twig-components/functions/add_attributes.function.patternlab.php",
-          "functions": ["addAddAttributesFunction"]
+          "functions": ["add_add_attributes_function"]
         },
         {
           "file": "source/_twig-components/functions/attach_library.function.php",
-          "functions": ["addAttachLibraryFunction"]
+          "functions": ["add_attach_library_function"]
         },
         {
           "file": "source/_twig-components/functions/link.function.php",
-          "functions": ["addLinkFunction"]
+          "functions": ["add_link_function"]
         },
         {
           "file": "source/_twig-components/functions/path.function.php",
-          "functions": ["addPathFunction"]
+          "functions": ["add_path_function"]
         },
         {
           "file": "source/_twig-components/functions/url.function.php",
-          "functions": ["addUrlFunction"]
+          "functions": ["add_url_function"]
         }
       ]
     }

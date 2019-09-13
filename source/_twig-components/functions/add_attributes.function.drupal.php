@@ -1,16 +1,19 @@
 <?php
+
 /**
  * @file
- * Creates an "add_attributes" function for Drupal
- * that adds attributes, title_attributes, or content_attributes with optional
+ * Creates an "add_attributes" function for Drupal.
+ *
+ * It adds attributes, title_attributes, or content_attributes with optional
  * additions while preventing attributes from trickling down through includes.
- * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension
+ * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
  */
 
 use Drupal\Core\Template\Attribute;
 
 $function = new Twig_SimpleFunction('add_attributes', function ($context, $additional_attributes = [], $attribute_type = 'attributes') {
-  if (!in_array($attribute_type, ['attributes','title_attributes','content_attributes'])) {
+  $valid_attributes = ['attributes', 'title_attributes', 'content_attributes'];
+  if (!in_array($attribute_type, $valid_attributes)) {
     throw new Exception('Invalid attribute type.');
   }
 
@@ -52,7 +55,7 @@ $function = new Twig_SimpleFunction('add_attributes', function ($context, $addit
     }
 
     // Set all attributes.
-    foreach($context[$attribute_type] as $key => $value) {
+    foreach ($context[$attribute_type] as $key => $value) {
       $attributes->setAttribute($key, $value);
       // Remove this attribute from context so it doesn't filter down to child
       // elements.
@@ -94,4 +97,4 @@ $function = new Twig_SimpleFunction('add_attributes', function ($context, $addit
     return implode(' ', $attributes);
   }
 
-}, array('needs_context' => true, 'is_safe' => array('html')));
+}, ['needs_context' => TRUE, 'is_safe' => ['html']]);
