@@ -5,7 +5,7 @@ import Drupal from 'drupal';
   // The styling for this mobile menu is located in pattern-lab/source/_patterns/03-components/mobile-menu/_mobile-menu.scss.
 
   Drupal.behaviors.mobileMenu = {
-    attach: function(context) {
+    attach(context) {
       const MobileMenu = (function() {
         const KEYCODE = {
           esc: 27,
@@ -88,19 +88,16 @@ import Drupal from 'drupal';
             menuClone = menu.cloneNode(true);
 
             menuClone.className = '';
-            menuClone.classList.add(
-              blockTypes[type],
-              'menu',
-              currOptions.toggleSubNav
-                ? 'menu--toggle-subnav'
-                : 'menu--show-subnav',
-            );
+            const subNavClass = currOptions.toggleSubNav
+              ? 'menu--toggle-subnav'
+              : 'menu--show-subnav';
+            menuClone.classList.add(blockTypes[type], 'menu', subNavClass);
 
-            let links = menuClone.querySelectorAll('.menu__link');
+            const links = menuClone.querySelectorAll('.menu__link');
 
             if (links.length) {
               links.forEach(function(item, index) {
-                let nextElement = item.nextElementSibling;
+                const nextElement = item.nextElementSibling;
 
                 item.tabIndex = -1;
 
@@ -108,7 +105,7 @@ import Drupal from 'drupal';
                   currOptions.toggleSubNav &&
                   item.classList.contains('has-subnav') &&
                   nextElement &&
-                  nextElement.tagName == 'UL'
+                  nextElement.tagName === 'UL'
                 ) {
                   processLinks(item, nextElement, index);
                 }
@@ -122,8 +119,8 @@ import Drupal from 'drupal';
         }
 
         function closeMenu() {
-          let menu = container.querySelector('ul');
-          let links = [...menu.querySelectorAll('.menu__link')];
+          const menu = container.querySelector('ul');
+          const links = [...menu.querySelectorAll('.menu__link')];
 
           setTabIndex(links, -1);
 
@@ -131,7 +128,7 @@ import Drupal from 'drupal';
           overlay.removeEventListener('click', closeMenu);
           document.removeEventListener('keydown', handleKeyDown);
 
-          var btns = [
+          const btns = [
             ...container.getElementsByClassName(currOptions.closeButtonClass),
           ];
 
@@ -147,8 +144,8 @@ import Drupal from 'drupal';
         }
 
         function openMenu() {
-          let menu = container.querySelector('ul');
-          let links = [...menu.querySelectorAll('.menu__link')];
+          const menu = container.querySelector('ul');
+          const links = [...menu.querySelectorAll('.menu__link')];
 
           setTabIndex(links, 0);
           // ....
@@ -157,7 +154,7 @@ import Drupal from 'drupal';
           container.classList.add('is-open');
           overlay.addEventListener('click', closeMenu);
 
-          let btns = [
+          const btns = [
             ...container.getElementsByClassName(currOptions.closeButtonClass),
           ];
           btns.forEach(btn => {
@@ -174,12 +171,12 @@ import Drupal from 'drupal';
         function handleKeyDown(e) {
           // Select all focusable items
           const focusable = container.querySelectorAll(
-            'button, [href], input, select, textarea,[tabindex]:not([tabindex="-1"]',
+            'button, [href], input, select, textarea,[tabindex]:not([tabindex="-1"]'
           );
 
-          let numberFocusElements = focusable.length;
-          let firstFocusableElement = focusable[0];
-          let lastFocusableElement = focusable[numberFocusElements - 1];
+          const numberFocusElements = focusable.length;
+          const firstFocusableElement = focusable[0];
+          const lastFocusableElement = focusable[numberFocusElements - 1];
 
           // Close modal
           if (e.keyCode === KEYCODE.esc) {
@@ -220,7 +217,7 @@ import Drupal from 'drupal';
           const firstLink = [...controlled.querySelectorAll('.menu__link')];
 
           const elemID = cleanString(
-            'menu-' + elem.innerText + (index ? index : ''),
+            `menu-${elem.innerText}${index ? index : ''}`
           );
 
           controlled.setAttribute('id', elemID);

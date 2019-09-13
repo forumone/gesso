@@ -20,18 +20,16 @@ class MenubarItem {
   init() {
     this.domNode.tabIndex = -1;
 
-    let nextElement = this.domNode.nextElementSibling;
-    if (nextElement && nextElement.tagName == 'UL') {
+    const nextElement = this.domNode.nextElementSibling;
+    if (nextElement && nextElement.tagName === 'UL') {
       this.domNode.setAttribute('aria-haspopup', 'true');
       this.popupMenu = new PopupMenu(nextElement, this);
       this.popupMenu.init();
     }
   }
   handleKeydown(event) {
-    var tgt = event.currentTarget,
-      char = event.key,
-      flag = false,
-      clickEvent;
+    const { key } = event;
+    let flag = false;
     function isPrintableCharacter(str) {
       return str.length === 1 && str.match(/\S/);
     }
@@ -81,8 +79,8 @@ class MenubarItem {
         }
         break;
       default:
-        if (isPrintableCharacter(char)) {
-          this.menu.setFocusByFirstCharacter(this, char);
+        if (isPrintableCharacter(key)) {
+          this.menu.setFocusByFirstCharacter(this, key);
           flag = true;
         }
         break;
