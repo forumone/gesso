@@ -21,7 +21,7 @@
        ];
 
        // Check if the tab should be shown by rendering the original.
-       $link = drupal_render($variables[$type][$key]);
+       $link = \Drupal::service('renderer')->render($variables[$type][$key]);
        if (!$link) {
          unset($tabs[$key]);
        }
