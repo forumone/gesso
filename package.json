@@ -22,7 +22,6 @@
     "@pattern-lab/uikit-workshop": "1.0.3",
     "autoprefixer": "^9.6.0",
     "babel-loader": "^8.0.6",
-    "babel-preset-env": "^1.7.0",
     "breakpoint-sass": "^2.7.1",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.3.0",
