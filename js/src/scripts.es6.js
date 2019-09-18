@@ -1,12 +1,12 @@
 // Custom scripts file
-(function () {
-
+(function() {
   'use strict';
 
   // Generic function that runs on window resize.
-  function resizeStuff() {
-
-  }
+  // An empty function is allowed here because it's meant as a placeholder,
+  // but you should remove this functionality if you aren't using it!
+  // eslint-disable-next-line no-empty-function
+  function resizeStuff() {}
 
   // Runs function once on window resize.
   let timeOut = false;

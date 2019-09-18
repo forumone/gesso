@@ -21,17 +21,17 @@ export class PopupMenu {
 
     let childElement = this.domNode.firstElementChild;
     while (childElement) {
-      let menuElement = childElement.firstElementChild;
+      const menuElement = childElement.firstElementChild;
       if (menuElement && menuElement.tagName === 'A') {
-        let menuItem = new MenuItem(menuElement, this);
+        const menuItem = new MenuItem(menuElement, this);
         menuItem.init();
         this.menuitems.push(menuItem);
-        let textContent = menuElement.textContent.trim();
+        const textContent = menuElement.textContent.trim();
         this.firstChars.push(textContent.substring(0, 1).toLowerCase());
       }
       childElement = childElement.nextElementSibling;
     }
-    let numItems = this.menuitems.length;
+    const numItems = this.menuitems.length;
     if (numItems > 0) {
       this.firstItem = this.menuitems[0];
       this.lastItem = this.menuitems[numItems - 1];
@@ -44,22 +44,26 @@ export class PopupMenu {
     this.hasHover = false;
     setTimeout(this.close(this, false), 1);
   }
-  setFocusToController(command, flag) {
+  setFocusToController(commandParam, flag) {
+    let command = commandParam;
     if (typeof command !== 'string') {
       command = '';
     }
     function setFocusToMenubarItem(controller, close) {
-      while (controller) {
-        if (controller.isMenubarItem) {
-          controller.domNode.focus();
-          return controller;
-        } else {
-          if (close) {
-            controller.menu.close(true);
-          }
-          controller.hasFocus = false;
-        }
-        controller = controller.menu.controller;
+      // If the controller has a menubar item, focus on it.
+      if (controller.isMenubarItem) {
+        controller.domNode.focus();
+        return controller;
+      }
+      // Are we closing? If so, close the menu.
+      if (close) {
+        controller.menu.close(true);
+      }
+      // If we're not on a menubar item yet, release focus,
+      // and check the next level.
+      controller.hasFocus = false;
+      if (controller.menu.controller) {
+        return setFocusToMenubarItem(controller.menu.controller, close);
       }
       return false;
     }
@@ -73,7 +77,7 @@ export class PopupMenu {
       this.controller.domNode.focus();
       this.close();
       if (command === 'next') {
-        var menubarItem = setFocusToMenubarItem(this.controller, false);
+        const menubarItem = setFocusToMenubarItem(this.controller, false);
         if (menubarItem) {
           menubarItem.menu.setFocusToNextItem(menubarItem, flag);
         }
@@ -93,7 +97,7 @@ export class PopupMenu {
     this.lastItem.domNode.focus();
   }
   setFocusToPreviousItem(currentItem) {
-    var index;
+    let index;
     if (currentItem === this.firstItem) {
       this.lastItem.domNode.focus();
     } else {
@@ -102,7 +106,7 @@ export class PopupMenu {
     }
   }
   setFocusToNextItem(currentItem) {
-    var index;
+    let index;
     if (currentItem === this.lastItem) {
       this.firstItem.domNode.focus();
     } else {
@@ -111,19 +115,19 @@ export class PopupMenu {
     }
   }
   setFocusByFirstCharacter(currentItem, char) {
-    var start,
-      index,
-      char = char.toLowerCase();
+    let start;
+    let index;
+    const lowerChar = char.toLowerCase();
     // Get start index for search based on position of currentItem
     start = this.menuitems.indexOf(currentItem) + 1;
     if (start === this.menuitems.length) {
       start = 0;
     }
     // Check remaining slots in the menu
-    index = this.getIndexFirstChars(start, char);
+    index = this.getIndexFirstChars(start, lowerChar);
     // If not found in remaining slots, check from beginning
     if (index === -1) {
-      index = this.getIndexFirstChars(0, char);
+      index = this.getIndexFirstChars(0, lowerChar);
     }
     // If match was found...
     if (index > -1) {
@@ -131,7 +135,7 @@ export class PopupMenu {
     }
   }
   getIndexFirstChars(startIndex, char) {
-    for (var i = startIndex; i < this.firstChars.length; i++) {
+    for (let i = startIndex; i < this.firstChars.length; i++) {
       if (char === this.firstChars[i]) {
         return i;
       }
@@ -141,30 +145,30 @@ export class PopupMenu {
 
   open() {
     // Get position and bounding rectangle of controller object's DOM node
-    var rect = this.controller.domNode.getBoundingClientRect();
+    const rect = this.controller.domNode.getBoundingClientRect();
     // Set CSS properties
     if (!this.controller.isMenubarItem) {
       this.domNode.parentNode.style.position = 'relative';
       this.domNode.style.display = 'block';
       this.domNode.style.position = 'absolute';
-      this.domNode.style.left = rect.width + 'px';
-      this.domNode.style.zIndex = 100;
+      this.domNode.style.left = `${rect.width}px`;
+      this.domNode.style.zIndex = '100';
     } else {
       this.domNode.style.display = 'block';
       this.domNode.style.position = 'absolute';
-      this.domNode.style.top = rect.height - 1 + 'px';
-      this.domNode.style.zIndex = 100;
+      this.domNode.style.top = `${rect.height - 1}px`;
+      this.domNode.style.zIndex = '100';
     }
     this.controller.setExpanded(true);
   }
 
   close(force) {
-    var controllerHasHover = this.controller.hasHover;
+    let controllerHasHover = this.controller.hasHover;
 
-    var hasFocus = this.hasFocus;
+    let hasFocus = this.hasFocus;
 
-    for (var i = 0; i < this.menuitems.length; i++) {
-      var mi = this.menuitems[i];
+    for (let i = 0; i < this.menuitems.length; i++) {
+      const mi = this.menuitems[i];
       if (mi.popupMenu) {
         hasFocus = hasFocus | mi.popupMenu.hasFocus;
       }
@@ -197,7 +201,7 @@ export class MenuItem {
   }
 
   init() {
-    var nextElement = this.domNode.nextElementSibling;
+    const nextElement = this.domNode.nextElementSibling;
 
     if (nextElement && nextElement.tagName === 'UL') {
       this.popupMenu = new PopupMenu(nextElement, this);
@@ -206,10 +210,9 @@ export class MenuItem {
   }
 
   handleKeydown(event) {
-    var tgt = event.currentTarget,
-      char = event.key,
-      flag = false,
-      clickEvent;
+    const { currentTarget, key } = event;
+    let flag = false;
+    let clickEvent;
 
     function isPrintableCharacter(str) {
       return str.length === 1 && str.match(/\S/);
@@ -237,7 +240,7 @@ export class MenuItem {
               clickEvent.initEvent('click', true, true);
             }
           }
-          tgt.dispatchEvent(clickEvent);
+          currentTarget.dispatchEvent(clickEvent);
         }
 
         flag = true;
@@ -293,8 +296,8 @@ export class MenuItem {
         break;
 
       default:
-        if (isPrintableCharacter(char)) {
-          this.menu.setFocusByFirstCharacter(this, char);
+        if (isPrintableCharacter(key)) {
+          this.menu.setFocusByFirstCharacter(this, key);
           flag = true;
         }
         break;

@@ -7,7 +7,7 @@ import Drupal from 'drupal';
   // The styling for this mobile menu is located in pattern-lab/source/_patterns/03-components/mobile-menu/_mobile-menu.scss.
 
   Drupal.behaviors.primaryNav = {
-    attach: function(context) {
+    attach(context) {
       const myMenu = new MenuBar(context.querySelector('.menu--submenu'));
       myMenu.init();
     },

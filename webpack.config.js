@@ -38,11 +38,15 @@ module.exports = (mode) => {
       rules: [
         {
           test: /\.js?$/,
-          use: [
-            {
-              loader: 'babel-loader',
-            },
-          ],
+          exclude: /node_modules/,
+          use: [{
+            loader: 'babel-loader',
+          }, {
+            loader: 'eslint-loader',
+            options: {
+              configFile: path.resolve(__dirname, '.eslintrc.js')
+            }
+          }],
         },
       ]
     },
