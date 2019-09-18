@@ -75,7 +75,9 @@ abbr {
 
 // b {}
 
-// cite {}
+cite {
+  @include display-text-style(cite);
+}
 
 // code {}
 

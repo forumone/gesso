@@ -39,7 +39,7 @@
 // @debug 'Gesso Breakpoint' gesso-breakpoint(sm);
 
 // Get Palette
-@function gesso-palette($keys...) {
+@function gesso-brand($keys...) {
   @return gesso-get-map(palette, brand, $keys...);
 }
 

@@ -2,7 +2,7 @@
 // Table styles.
 
 caption {
-  margin-bottom: rem(gesso-spacing(xxsm));
+  margin-bottom: rem(gesso-spacing(xxs));
 }
 
 // col {}
@@ -12,7 +12,7 @@ caption {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin-bottom: rem(gesso-spacing(xsm));
+  margin-bottom: rem(gesso-spacing(xs));
   min-width: 100%;
 }
 

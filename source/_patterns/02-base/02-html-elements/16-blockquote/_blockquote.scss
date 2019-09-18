@@ -30,7 +30,6 @@ blockquote {
   }
 
   cite {
-    @include display-text-style(cite);
     display: block;
     margin-top: rem(gesso-spacing(sm));
     text-align: right;
@@ -38,8 +37,8 @@ blockquote {
     em {
       border-left: 1px solid $blockquote-cite-divider-color;
       font-weight: gesso-font-weight(regular);
-      margin-left: rem(gesso-spacing(xxsm));
-      padding-left: rem(gesso-spacing(xsm));
+      margin-left: rem(gesso-spacing(xxs));
+      padding-left: rem(gesso-spacing(xs));
     }
   }
 
