@@ -79,7 +79,7 @@
     @include link(gesso-grayscale(white));
     display: block;
     line-height: gesso-line-height(tight);
-    padding: rem(gesso-spacing(xsm)) rem(gesso-spacing(md));
+    padding: rem(gesso-spacing(sm)) rem(gesso-spacing(md));
     text-decoration: none;
     width: rem(170px);
 
