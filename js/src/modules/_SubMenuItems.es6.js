@@ -1,6 +1,6 @@
 'use strict';
 
-import KEYCODE from '../constants/_KEYCODE.es6';
+import { SubMenuItem } from './_MenuItem.es6';
 
 export class PopupMenu {
   constructor(domNode, controllerObj) {
@@ -20,7 +20,7 @@ export class PopupMenu {
     this.domNode.children.forEach(childElement => {
       const menuElement = childElement.firstElementChild;
       if (menuElement && menuElement.tagName === 'A') {
-        const menuItem = new MenuItem(menuElement, this);
+        const menuItem = new SubMenuItem(menuElement, this);
         menuItem.init();
         this.menuitems.push(menuItem);
         const textContent = menuElement.textContent.trim();
@@ -175,173 +175,10 @@ export class PopupMenu {
     }
     return false;
   }
-}
-
-export class MenuItem {
-  constructor(domNode, menuObj) {
-    this.domNode = domNode;
-    this.menu = menuObj;
-    this.popupMenu = false;
-    this.isMenubarItem = false;
-    this.domNode.addEventListener('keydown', this.handleKeydown.bind(this));
-    this.domNode.addEventListener('click', this.handleClick.bind(this));
-    this.domNode.addEventListener('focus', this.handleFocus.bind(this));
-    this.domNode.addEventListener('blur', this.handleBlur.bind(this));
-    this.domNode.addEventListener('mouseover', this.handleMouseover.bind(this));
-    this.domNode.addEventListener('mouseout', this.handleMouseout.bind(this));
+  setFocus(state) {
+    this.hasFocus = state;
   }
-
-  init() {
-    const nextElement = this.domNode.nextElementSibling;
-
-    if (nextElement && nextElement.tagName === 'UL') {
-      this.popupMenu = new PopupMenu(nextElement, this);
-      this.popupMenu.init();
-    }
-  }
-
-  handleKeydown(event) {
-    const { currentTarget, key } = event;
-    let flag = false;
-    let clickEvent;
-
-    function isPrintableCharacter(str) {
-      return str.length === 1 && str.match(/\S/);
-    }
-
-    switch (event.keyCode) {
-      case KEYCODE.SPACE:
-      case KEYCODE.RETURN:
-        if (this.popupMenu) {
-          this.popupMenu.open();
-          this.popupMenu.setFocusToFirstItem();
-        } else {
-          // Create simulated mouse event to mimic the behavior of ATs
-          // and let the event handler handleClick do the housekeeping.
-          try {
-            clickEvent = new MouseEvent('click', {
-              view: window,
-              bubbles: true,
-              cancelable: true,
-            });
-          } catch (err) {
-            if (document.createEvent) {
-              // DOM Level 3 for IE 9+
-              clickEvent = document.createEvent('MouseEvents');
-              clickEvent.initEvent('click', true, true);
-            }
-          }
-          currentTarget.dispatchEvent(clickEvent);
-        }
-
-        flag = true;
-        break;
-
-      case KEYCODE.UP:
-        this.menu.setFocusToPreviousItem(this);
-        flag = true;
-        break;
-
-      case KEYCODE.DOWN:
-        this.menu.setFocusToNextItem(this);
-        flag = true;
-        break;
-
-      case KEYCODE.LEFT:
-        this.menu.setFocusToController('previous', true);
-        this.menu.close(true);
-        flag = true;
-        break;
-
-      case KEYCODE.RIGHT:
-        if (this.popupMenu) {
-          this.popupMenu.open();
-          this.popupMenu.setFocusToFirstItem();
-        } else {
-          this.menu.setFocusToController('next', true);
-          this.menu.close(true);
-        }
-        flag = true;
-        break;
-
-      case KEYCODE.HOME:
-      case KEYCODE.PAGEUP:
-        this.menu.setFocusToFirstItem();
-        flag = true;
-        break;
-
-      case KEYCODE.END:
-      case KEYCODE.PAGEDOWN:
-        this.menu.setFocusToLastItem();
-        flag = true;
-        break;
-
-      case KEYCODE.ESC:
-        this.menu.setFocusToController();
-        this.menu.close(true);
-        flag = true;
-        break;
-
-      case KEYCODE.TAB:
-        this.menu.setFocusToController();
-        break;
-
-      default:
-        if (isPrintableCharacter(key)) {
-          this.menu.setFocusByFirstCharacter(this, key);
-          flag = true;
-        }
-        break;
-    }
-
-    if (flag) {
-      event.stopPropagation();
-      event.preventDefault();
-    }
-  }
-
-  setExpanded(value) {
-    if (value) {
-      this.domNode.setAttribute('aria-expanded', 'true');
-    } else {
-      this.domNode.setAttribute('aria-expanded', 'false');
-    }
-  }
-
-  handleClick(event) {
-    this.menu.setFocusToController();
-    this.menu.close(true);
-  }
-
-  focus() {
-    this.domNode.focus();
-  }
-
-  handleFocus(event) {
-    this.menu.hasFocus = true;
-  }
-
-  handleBlur(event) {
-    this.menu.hasFocus = false;
-
-    setTimeout(this.menu.close.bind(this.menu, false), 300);
-  }
-
-  handleMouseover(event) {
-    this.menu.hasHover = true;
-    this.menu.open();
-    if (this.popupMenu) {
-      this.popupMenu.hasHover = true;
-      this.popupMenu.open();
-    }
-  }
-
-  handleMouseout(event) {
-    if (this.popupMenu) {
-      this.popupMenu.hasHover = false;
-      this.popupMenu.close(true);
-    }
-    this.menu.hasHover = false;
-    setTimeout(this.menu.close.bind(this.menu, false), 300);
+  setHover(state) {
+    this.hasHover = state;
   }
 }

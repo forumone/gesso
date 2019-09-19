@@ -1,6 +1,6 @@
 'use strict';
 
-import MenubarItem from './_MenuBarItem.es6';
+import { MenubarItem } from './_MenuItem.es6';
 
 /**
  * The MenuBar class initializes the MenuBarItems and manages focus between items.
@@ -29,9 +29,13 @@ class MenuBar {
     this.firstItem = null; // First menu item.
     this.lastItem = null; // Last menu item.
     this.hasFocus = false;
+    this.hasHover = false;
   }
   setFocus(state) {
     this.hasFocus = state;
+  }
+  setHover(state) {
+    this.hasHover = state;
   }
   init() {
     this.domNode.setAttribute('role', 'menubar');
