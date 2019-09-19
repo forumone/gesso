@@ -68,8 +68,13 @@
 }
 
 .menu__subnav {
-  background-color: gesso-palette(blue, base);
+  background-color: gesso-brand(blue, base);
+  display: none;
+  left: 0;
+  margin: 0;
   padding: rem(gesso-spacing(md)) 0;
+  position: absolute;
+  top: -2px;
 
   .menu__subnav {
     top: 0;
@@ -85,7 +90,7 @@
 
     &:hover,
     &:focus {
-      background-color: gesso-palette(blue, dark);
+      background-color: gesso-brand(blue, dark);
     }
   }
 }

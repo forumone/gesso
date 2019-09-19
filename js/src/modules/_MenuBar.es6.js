@@ -2,8 +2,12 @@
 
 import MenubarItem from './_MenuBarItem.es6';
 
+/**
+ * The MenuBar class initializes the MenuBarItems and manages focus between items.
+ */
 class MenuBar {
   constructor(domNode) {
+    // Validate that the domNode is a menu that can be made into a MenuBar.
     const msgPrefix = 'Menubar constructor argument menuBarNode';
     if (!(domNode instanceof Element)) {
       throw new TypeError(`${msgPrefix} is not a Dom Element`);
@@ -11,68 +15,67 @@ class MenuBar {
     if (domNode.childElementCount === 0) {
       throw new Error(`${msgPrefix} does not have element children`);
     }
-    let e = domNode.firstElementChild;
-    while (e) {
-      const menuBarItem = e.firstElementChild;
-      if (e && menuBarItem && menuBarItem.tagName !== 'A') {
+    let elem = domNode.firstElementChild;
+    while (elem) {
+      const menuBarItem = elem.firstElementChild;
+      if (elem && menuBarItem && menuBarItem.tagName !== 'A') {
         throw new Error(`${msgPrefix} has child elements are not A elements`);
       }
-      e = e.nextElementSibling;
+      elem = elem.nextElementSibling;
     }
-    this.isMenuBar = true;
-    this.domNode = domNode;
-    this.menubarItems = [];
+    this.domNode = domNode; // DOM node containing the menu.
+    this.menubarItems = []; // Set of items in the menu.
     this.firstChars = [];
-    this.firstItem = null;
-    this.lastItem = null;
+    this.firstItem = null; // First menu item.
+    this.lastItem = null; // Last menu item.
     this.hasFocus = false;
-    this.hasHover = false;
+  }
+  setFocus(state) {
+    this.hasFocus = state;
   }
   init() {
     this.domNode.setAttribute('role', 'menubar');
-    let elem = this.domNode.firstElementChild;
-    while (elem) {
+    // Create MenubarItems for each link in the menu.
+    this.domNode.children.forEach(elem => {
       elem.setAttribute('role', 'none');
       const menuElement = elem.firstElementChild;
-      if (elem && menuElement && menuElement.tagName === 'A') {
+      if (menuElement && menuElement.tagName === 'A') {
         const menubarItem = new MenubarItem(menuElement, this);
         menubarItem.init();
         this.menubarItems.push(menubarItem);
         const textContent = menuElement.textContent.trim();
         this.firstChars.push(textContent.substring(0, 1).toLowerCase());
       }
-      elem = elem.nextElementSibling;
-    }
+    });
+
+    // Store the first and last items in the menu.
     const numItems = this.menubarItems.length;
     if (numItems > 0) {
       this.firstItem = this.menubarItems[0];
       this.lastItem = this.menubarItems[numItems - 1];
     }
-    this.firstItem.domNode.tabIndex = 0;
+    this.firstItem.setTabIndex(0);
   }
   // Focus Management
+  // Set focus to a specific MenubarItem in the menu.
   setFocusToItem(newItem) {
-    let flag = false;
-    for (let i = 0; i < this.menubarItems.length; i++) {
-      const mbi = this.menubarItems[i];
-      if (mbi.domNode.tabIndex === 0) {
-        flag = mbi.domNode.getAttribute('aria-expanded') === 'true';
+    let openMenu = false;
+
+    // Close any existing menus.
+    this.menubarItems.forEach(mbi => {
+      const menuWasOpen = mbi.close();
+      if (menuWasOpen) {
+        openMenu = true;
       }
-      mbi.domNode.tabIndex = -1;
-      if (mbi.popupMenu) {
-        mbi.popupMenu.close();
-      }
-    }
-    newItem.domNode.focus();
-    newItem.domNode.tabIndex = 0;
-    if (flag && newItem.popupMenu) {
-      newItem.popupMenu.open();
-    }
+    });
+
+    // Focus on the new menu, and open it if the previous menu was open.
+    newItem.open(openMenu);
   }
-  setFocusToFirstItem(flag) {
+  setFocusToFirstItem() {
     this.setFocusToItem(this.firstItem);
   }
-  setFocusToLastItem(flag) {
+  setFocusToLastItem() {
     this.setFocusToItem(this.lastItem);
   }
   setFocusToPreviousItem(currentItem) {
@@ -105,15 +108,15 @@ class MenuBar {
     if (start === this.menubarItems.length) {
       start = 0;
     }
-    let index = this.getIndexFirstChars(start, currChar);
+    let index = this._getIndexFirstChars(start, currChar);
     if (index === -1) {
-      index = this.getIndexFirstChars(0, currChar);
+      index = this._getIndexFirstChars(0, currChar);
     }
     if (index > -1) {
       this.setFocusToItem(this.menubarItems[index]);
     }
   }
-  getIndexFirstChars(startIndex, char) {
+  _getIndexFirstChars(startIndex, char) {
     for (let i = startIndex; 1 < this.firstChars.length; i++) {
       if (char === this.firstChars[i]) {
         return i;

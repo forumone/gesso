@@ -11,28 +11,25 @@ class MenubarItem {
     this.hasFocus = false;
     this.hasHover = false;
     this.isMenubarItem = true;
+  }
+  init() {
+    const popupMenu = this.domNode.parentElement.querySelector('ul');
+    if (popupMenu) {
+      this.domNode.setAttribute('aria-haspopup', 'true');
+      this.popupMenu = new PopupMenu(popupMenu, this);
+      this.popupMenu.init();
+    }
+
     this.domNode.addEventListener('keydown', this.handleKeydown.bind(this));
     this.domNode.addEventListener('focus', this.handleFocus.bind(this));
     this.domNode.addEventListener('blur', this.handleBlur.bind(this));
     this.domNode.addEventListener('mouseover', this.handleMouseover.bind(this));
     this.domNode.addEventListener('mouseout', this.handleMouseout.bind(this));
-  }
-  init() {
     this.domNode.tabIndex = -1;
-
-    const nextElement = this.domNode.nextElementSibling;
-    if (nextElement && nextElement.tagName === 'UL') {
-      this.domNode.setAttribute('aria-haspopup', 'true');
-      this.popupMenu = new PopupMenu(nextElement, this);
-      this.popupMenu.init();
-    }
   }
   handleKeydown(event) {
     const { key } = event;
     let flag = false;
-    function isPrintableCharacter(str) {
-      return str.length === 1 && str.match(/\S/);
-    }
     switch (event.keyCode) {
       case KEYCODE.SPACE:
       case KEYCODE.RETURN:
@@ -79,7 +76,7 @@ class MenubarItem {
         }
         break;
       default:
-        if (isPrintableCharacter(key)) {
+        if (this._isPrintableCharacter(key)) {
           this.menu.setFocusByFirstCharacter(this, key);
           flag = true;
         }
@@ -97,23 +94,52 @@ class MenubarItem {
       this.domNode.setAttribute('aria-expanded', 'false');
     }
   }
-  handleFocus(event) {
-    this.menu.hasFocus = true;
+  handleFocus() {
+    this.menu.setFocus(true);
   }
-  handleBlur(event) {
-    this.menu.hasFocus = false;
+  handleBlur() {
+    this.menu.setFocus(false);
   }
-  handleMouseover(event) {
+  handleMouseover() {
     this.hasHover = true;
     if (this.popupMenu) {
       this.popupMenu.open();
     }
   }
-  handleMouseout(event) {
+  handleMouseout() {
     this.hasHover = false;
     if (this.popupMenu) {
       setTimeout(this.popupMenu.close.bind(this.popupMenu, false), 300);
     }
+  }
+  setTabIndex(value) {
+    this.domNode.tabIndex = value;
+  }
+  open(openSubMenu = false) {
+    this.domNode.focus();
+    this.setTabIndex(0);
+    if (openSubMenu && this.popupMenu) {
+      this.popupMenu.open();
+    }
+  }
+  close() {
+    const menuWasOpen =
+      this.domNode.tabIndex === 0 &&
+      this.domNode.getAttribute('aria-expanded') === 'true';
+    this.setTabIndex(-1);
+    if (this.popupMenu) {
+      this.popupMenu.close();
+    }
+    return menuWasOpen;
+  }
+  focusOnNextSibling() {
+    this.menu.setFocusToNextItem(this);
+  }
+  focusOnPreviousSibling() {
+    this.menu.setFocusToPreviousItem(this);
+  }
+  _isPrintableCharacter(str) {
+    return str.length === 1 && str.match(/\S/);
   }
 }
 

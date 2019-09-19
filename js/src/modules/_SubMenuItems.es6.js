@@ -4,23 +4,20 @@ import KEYCODE from '../constants/_KEYCODE.es6';
 
 export class PopupMenu {
   constructor(domNode, controllerObj) {
-    this.isMenubar = false;
     this.domNode = domNode;
     this.controller = controllerObj;
     this.menuitems = [];
     this.firstChars = [];
     this.firstItem = null;
     this.lastItem = null;
-    this.hasFocus = false; // See MenuItem handleFocus, handleBlur
-    this.hasHover = false; // See PopupMenu handleMouseover, handleMouseout
-    this.domNode.addEventListener('mouseover', this.handleMouseover.bind(this));
-    this.domNode.addEventListener('mouseout', this.handleMouseout.bind(this));
+    this.hasFocus = false;
+    this.hasHover = false;
   }
   init() {
     this.domNode.setAttribute('role', 'menu');
 
-    let childElement = this.domNode.firstElementChild;
-    while (childElement) {
+    // Set up any and all submenu items.
+    this.domNode.children.forEach(childElement => {
       const menuElement = childElement.firstElementChild;
       if (menuElement && menuElement.tagName === 'A') {
         const menuItem = new MenuItem(menuElement, this);
@@ -29,18 +26,23 @@ export class PopupMenu {
         const textContent = menuElement.textContent.trim();
         this.firstChars.push(textContent.substring(0, 1).toLowerCase());
       }
-      childElement = childElement.nextElementSibling;
-    }
+    });
+
+    // Stash the first and last items.
     const numItems = this.menuitems.length;
     if (numItems > 0) {
       this.firstItem = this.menuitems[0];
       this.lastItem = this.menuitems[numItems - 1];
     }
+
+    // Add event handlers.
+    this.domNode.addEventListener('mouseover', this.handleMouseover.bind(this));
+    this.domNode.addEventListener('mouseout', this.handleMouseout.bind(this));
   }
-  handleMouseover(event) {
+  handleMouseover() {
     this.hasHover = true;
   }
-  handleMouseout(event) {
+  handleMouseout() {
     this.hasHover = false;
     setTimeout(this.close(this, false), 1);
   }
@@ -49,60 +51,31 @@ export class PopupMenu {
     if (typeof command !== 'string') {
       command = '';
     }
-    function setFocusToMenubarItem(controller, close) {
-      // If the controller has a menubar item, focus on it.
-      if (controller.isMenubarItem) {
-        controller.domNode.focus();
-        return controller;
-      }
-      // Are we closing? If so, close the menu.
-      if (close) {
-        controller.menu.close(true);
-      }
-      // If we're not on a menubar item yet, release focus,
-      // and check the next level.
-      controller.hasFocus = false;
-      if (controller.menu.controller) {
-        return setFocusToMenubarItem(controller.menu.controller, close);
-      }
-      return false;
-    }
     if (command === '') {
       if (this.controller && this.controller.domNode) {
         this.controller.domNode.focus();
       }
       return;
     }
-    if (!this.controller.isMenubarItem) {
-      this.controller.domNode.focus();
-      this.close();
-      if (command === 'next') {
-        const menubarItem = setFocusToMenubarItem(this.controller, false);
-        if (menubarItem) {
-          menubarItem.menu.setFocusToNextItem(menubarItem, flag);
-        }
-      }
-    } else {
-      if (command === 'previous') {
-        this.controller.menu.setFocusToPreviousItem(this.controller, flag);
-      } else if (command === 'next') {
-        this.controller.menu.setFocusToNextItem(this.controller, flag);
-      }
+    if (command === 'previous') {
+      this.controller.focusOnPreviousSibling();
+    } else if (command === 'next') {
+      this.controller.focusOnNextSibling();
     }
   }
   setFocusToFirstItem() {
-    this.firstItem.domNode.focus();
+    this.firstItem.focus();
   }
   setFocusToLastItem() {
-    this.lastItem.domNode.focus();
+    this.lastItem.focus();
   }
   setFocusToPreviousItem(currentItem) {
     let index;
     if (currentItem === this.firstItem) {
-      this.lastItem.domNode.focus();
+      this.lastItem.focus();
     } else {
       index = this.menuitems.indexOf(currentItem);
-      this.menuitems[index - 1].domNode.focus();
+      this.menuitems[index - 1].focus();
     }
   }
   setFocusToNextItem(currentItem) {
@@ -131,7 +104,7 @@ export class PopupMenu {
     }
     // If match was found...
     if (index > -1) {
-      this.menuitems[index].domNode.focus();
+      this.menuitems[index].focus();
     }
   }
   getIndexFirstChars(startIndex, char) {
@@ -183,6 +156,24 @@ export class PopupMenu {
       this.domNode.style.zIndex = 0;
       this.controller.setExpanded(false);
     }
+  }
+  _setFocusToMenubarItem(controller, close) {
+    // If the controller has a menubar item, focus on it.
+    if (controller.isMenubarItem) {
+      controller.domNode.focus();
+      return controller;
+    }
+    // Are we closing? If so, close the menu.
+    if (close) {
+      controller.menu.close(true);
+    }
+    // If we're not on a menubar item yet, release focus,
+    // and check the next level.
+    controller.hasFocus = false;
+    if (controller.menu.controller) {
+      return this._setFocusToMenubarItem(controller.menu.controller, close);
+    }
+    return false;
   }
 }
 
@@ -320,6 +311,10 @@ export class MenuItem {
   handleClick(event) {
     this.menu.setFocusToController();
     this.menu.close(true);
+  }
+
+  focus() {
+    this.domNode.focus();
   }
 
   handleFocus(event) {

@@ -10,6 +10,7 @@ global:
       css/styles.css: {}
   js:
     js/dist/mobile-menu.min.js: {}
+    js/dist/primary-menu.min.js: {}
     js/dist/scripts.min.js: {}
   dependencies:
     - gesso/common
