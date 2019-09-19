@@ -1,9 +1,9 @@
-import KEYCODE from '../constants/_KEYCODE.es6';
+import KEYCODE from '../constants/_KEYCODE.es6.js';
 
-class MobileMenu {
+class _MobileMenu {
   constructor({
     toggleSubNav = true, // Enable subnav toggle
-    navMenu = '.l-navigation .menu--main', // Selector for primary nav
+    navMenu = '.menu--main', // Selector for primary nav
     searchBlock = '', // Selector for search block
     utilityMenu = '', // Selector for utility nav
     header = '.l-header', // Selector for site header
@@ -152,67 +152,66 @@ class MobileMenu {
   }
 
   init() {
-    if (!document.body.classList.contains('mobile-menu-processed')) {
-      // Set up the overlay.
-      this.overlay = document.createElement('nav');
-      this.overlay.classList.add(this.options.overlayClass);
-      this.overlay.setAttribute('aria-role', 'menu');
-      this.overlay.setAttribute('aria-modal', 'true');
+    // Set up the overlay.
+    this.overlay = document.createElement('nav');
+    this.overlay.classList.add(this.options.overlayClass);
+    this.overlay.setAttribute('aria-role', 'menu');
+    this.overlay.setAttribute('aria-modal', 'true');
 
-      // Create and set up the close button.
-      // Multiple calls to classList.add() here because IE doesn't support multiple arguments. :(
-      this.closeButton = document.createElement('button');
-      this.closeButton.classList.add(this.options.buttonClass);
-      this.closeButton.classList.add(this.options.closeButtonClass);
-      this.closeButton.innerHTML =
-        '<span class="mobile-menu__icon mobile-menu__icon--close">Close</span>';
-      this.closeButton.addEventListener('click', () => this.close());
-      this.overlay.appendChild(this.closeButton);
+    // Create and set up the close button.
+    // Multiple calls to classList.add() here because IE doesn't support multiple arguments. :(
+    this.closeButton = document.createElement('button');
+    this.closeButton.classList.add(this.options.buttonClass);
+    this.closeButton.classList.add(this.options.closeButtonClass);
+    this.closeButton.innerHTML =
+      '<span class="mobile-menu__icon mobile-menu__icon--close">Close</span>';
+    this.closeButton.addEventListener('click', () => this.close());
+    this.overlay.appendChild(this.closeButton);
 
-      // Create a menu toggle button if we don't already have one.
-      if (this.toggleButton === null) {
-        this.toggleButton = document.createElement('button');
-        this.toggleButton.classList.add(this.options.buttonClass);
-        this.toggleButton.innerHTML =
-          '<span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span>';
-        this.toggleButton.setAttribute('aria-haspopup', 'menu');
-        if (this.header) {
-          this.header.insertAdjacentElement('beforeend', this.toggleButton);
-        } else {
-          document.body.insertAdjacentElement('afterstart', this.toggleButton);
-        }
+    // Create a menu toggle button if we don't already have one.
+    if (this.toggleButton === null) {
+      this.toggleButton = document.createElement('button');
+      this.toggleButton.classList.add(this.options.buttonClass);
+      this.toggleButton.innerHTML =
+        '<span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span>';
+      this.toggleButton.setAttribute('aria-haspopup', 'menu');
+      if (this.header) {
+        this.header.insertAdjacentElement('beforeend', this.toggleButton);
+      } else {
+        document.body.insertAdjacentElement('afterstart', this.toggleButton);
       }
-      this.toggleButton.addEventListener('click', () => this.open());
+    }
+    this.toggleButton.addEventListener('click', () => this.open());
 
-      // Set up the search block
-      if (this.searchBlock) {
-        this.overlay.appendChild(
-          this._cloneMenu(this.searchBlock, this.options.mobileSearchClass)
-        );
-      }
-      // Set up the main nav.
+    // Set up the search block
+    if (this.searchBlock) {
+      this.overlay.appendChild(
+        this._cloneMenu(this.searchBlock, this.options.mobileSearchClass)
+      );
+    }
+    // Set up the main nav.
+    if (this.navMenu) {
       this.overlay.appendChild(
         this._cloneMenu(this.navMenu, this.options.mobileMenuClass)
       );
-      // Set up the utility nav.
-      if (this.utilityMenu) {
-        this.overlay.appendChild(
-          this._cloneMenu(this.utilityMenu, this.options.mobileUtilityMenuClass)
-        );
-      }
-
-      // Add the overlay to the page.
-      if (this.container) {
-        this.container.appendChild(this.overlay);
-      } else if (this.header) {
-        this.header.insertAdjacentElement('afterend', this.overlay);
-      } else {
-        document.body.insertAdjacentElement('afterbegin', this.overlay);
-      }
-
-      this.close();
-      document.body.classList.add('mobile-menu-processed');
     }
+    // Set up the utility nav.
+    if (this.utilityMenu) {
+      this.overlay.appendChild(
+        this._cloneMenu(this.utilityMenu, this.options.mobileUtilityMenuClass)
+      );
+    }
+
+    // Add the overlay to the page.
+    if (this.container) {
+      this.container.appendChild(this.overlay);
+    } else if (this.header) {
+      this.header.insertAdjacentElement('afterend', this.overlay);
+    } else {
+      document.body.insertAdjacentElement('afterbegin', this.overlay);
+    }
+
+    this.close();
   }
 
   open() {
@@ -255,4 +254,4 @@ class MobileMenu {
   }
 }
 
-export default MobileMenu;
+export default _MobileMenu;
