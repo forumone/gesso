@@ -9,6 +9,7 @@ class Menu {
     this.lastItem = null; // Last menu item.
     this.hasFocus = false;
     this.hasHover = false;
+    this.isMenubar = false;
   }
 
   // Allow an empty function here because this is an abstract class.
@@ -125,6 +126,7 @@ export class MenuBar extends Menu {
       elem = elem.nextElementSibling;
     }
     super(domNode);
+    this.isMenubar = true;
   }
 
   _createMenuItem(menuElement) {
@@ -165,6 +167,7 @@ export class PopupMenu extends Menu {
   }
 
   init() {
+    super.init();
     this.domNode.setAttribute('role', 'menu');
     // Add event handlers.
     this.domNode.addEventListener('mouseover', this.handleMouseover.bind(this));

@@ -10,6 +10,8 @@ class MenuItem {
     this.domNode = domNode;
     this.popupMenu = false;
     this.isMenubarItem = false;
+    this.hasFocus = false;
+    this.hasHover = false;
   }
 
   _isPrintableCharacter(str) {
@@ -49,8 +51,8 @@ class MenuItem {
   handleMouseover() {
     this.hasHover = true;
     if (this.popupMenu) {
-      this.popupMenu.open();
       this.popupMenu.setHover(true);
+      this.popupMenu.open();
     }
   }
   handleMouseout() {
@@ -65,8 +67,6 @@ class MenuItem {
 export class MenubarItem extends MenuItem {
   constructor(domNode, menuObj) {
     super(domNode, menuObj);
-    this.hasFocus = false;
-    this.hasHover = false;
     this.isMenubarItem = true;
   }
 
@@ -278,9 +278,9 @@ export class SubMenuItem extends MenuItem {
   }
 
   handleMouseover() {
-    super.handleMouseover();
     this.menu.setHover(true);
     this.menu.open();
+    super.handleMouseover();
   }
 
   handleMouseout() {
