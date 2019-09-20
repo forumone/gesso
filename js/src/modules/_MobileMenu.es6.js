@@ -11,11 +11,12 @@ class _MobileMenu {
     container = '.mobile-menu-container', // Selector for destination container for mobile nav
     menuLink = '.menu__link', // Selector for individual menu links
     overlayClass = 'mobile-menu', // Overlay class name
-    mobileMenuClass = 'mobile-nav', // Class name for navigation section
+    mobileMenuClass = 'menu--mobile', // Class name for navigation section
     mobileSearchClass = 'mobile-search-block', // Class name for search section
     mobileUtilityMenuClass = 'mobile-account-menu', // Class name for utility section
     buttonClass = 'mobile-menu__button', // Class name for all menu buttons
     closeButtonClass = 'mobile-menu__close', // Class name for generated close button
+    arrowButtonClass = 'menu__subnav-arrow', // Class name for the subnav toggle
   } = {}) {
     this.options = {
       toggleSubNav,
@@ -26,6 +27,7 @@ class _MobileMenu {
       mobileUtilityMenuClass,
       buttonClass,
       closeButtonClass,
+      arrowButtonClass,
     };
     this.navMenu = navMenu ? document.querySelector(navMenu) : null;
     this.searchBlock = searchBlock ? document.querySelector(searchBlock) : null;
@@ -56,6 +58,7 @@ class _MobileMenu {
 
     controlled.setAttribute('id', elemID);
 
+    toggleButton.classList.add(this.options.arrowButtonClass);
     toggleButton.setAttribute('aria-controls', elemID);
     toggleButton.setAttribute('aria-expanded', 'false');
     toggleButton.innerHTML =
