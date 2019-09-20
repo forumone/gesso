@@ -17,6 +17,7 @@ class _MobileMenu {
     buttonClass = 'mobile-menu__button', // Class name for all menu buttons
     closeButtonClass = 'mobile-menu__close', // Class name for generated close button
     arrowButtonClass = 'menu__subnav-arrow', // Class name for the subnav toggle
+    mobileMenuBreakpoint = '(max-width: 703px)', // Breakpoint to switch between mobile + original menu
   } = {}) {
     this.options = {
       toggleSubNav,
@@ -28,6 +29,7 @@ class _MobileMenu {
       buttonClass,
       closeButtonClass,
       arrowButtonClass,
+      mobileMenuBreakpoint,
     };
     this.navMenu = navMenu ? document.querySelector(navMenu) : null;
     this.searchBlock = searchBlock ? document.querySelector(searchBlock) : null;
@@ -40,6 +42,7 @@ class _MobileMenu {
     this.prevFocused = null;
     // Necessary so removeEventListener will work properly.
     this._handleKeyDown = this._handleKeyDown.bind(this);
+    this._toggleMenuDisplay = this._toggleMenuDisplay.bind(this);
     this.close = this.close.bind(this);
   }
 
@@ -154,6 +157,36 @@ class _MobileMenu {
     }
   }
 
+  _toggleMenuDisplay() {
+    // Hide the original or cloned content, depending on screen size.
+    if (window.matchMedia(this.options.mobileMenuBreakpoint).matches) {
+      this.overlay.style.display = '';
+      this.toggleButton.style.display = '';
+      if (this.searchBlock) {
+        this.searchBlock.style.display = 'none';
+      }
+      if (this.navMenu) {
+        this.navMenu.style.display = 'none';
+      }
+      if (this.utilityMenu) {
+        this.utilityMenu.style.display = 'none';
+      }
+      this.close();
+    } else {
+      this.overlay.style.display = 'none';
+      this.toggleButton.style.display = 'none';
+      if (this.searchBlock) {
+        this.searchBlock.style.display = '';
+      }
+      if (this.navMenu) {
+        this.navMenu.style.display = '';
+      }
+      if (this.utilityMenu) {
+        this.utilityMenu.style.display = '';
+      }
+    }
+  }
+
   init() {
     // Set up the overlay.
     this.overlay = document.createElement('nav');
@@ -214,7 +247,17 @@ class _MobileMenu {
       document.body.insertAdjacentElement('afterbegin', this.overlay);
     }
 
+    this._toggleMenuDisplay();
     this.close();
+
+    let resizeTimeout = false;
+    window.addEventListener('resize', () => {
+      if (resizeTimeout !== false) {
+        clearTimeout(resizeTimeout);
+      }
+
+      resizeTimeout = setTimeout(this._toggleMenuDisplay, 200);
+    });
   }
 
   open() {

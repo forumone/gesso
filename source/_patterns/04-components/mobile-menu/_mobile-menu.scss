@@ -15,10 +15,6 @@ $mobile-menu-text-color: #555559 !default;
   top: 0;
   width: 100%;
   z-index: 999999;
-
-  @include breakpoint(gesso-breakpoint(sm)) {
-    display: none;
-  }
 }
 
 .mobile-menu__button {
@@ -36,10 +32,6 @@ $mobile-menu-text-color: #555559 !default;
   margin: 0;
   padding: 0 1em;
   text-decoration: none;
-
-  @include breakpoint(gesso-breakpoint(sm)) {
-    display: none;
-  }
 
   &:focus {
     outline: thin dotted;
