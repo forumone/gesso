@@ -56,7 +56,9 @@ In addition, in order to compile Twig files, Pattern Lab requires that PHP be av
 
 The easiest way to accomplish this is to use
 [Drush](https://github.com/drush-ops/drush).
-Type `drush gesso --help` for more information.
+Type `drush help gesso` for more information. If you get an error that the
+`gesso` command is not defined, make sure you have enabled the Gesso Helper
+module.
 
 If you can’t use Drush, then manually replace all instances of 'gesso'
 within this directory with a machine-readable name of your choice, including
