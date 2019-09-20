@@ -4,7 +4,7 @@ import Drupal from 'drupal';
 (function(Drupal) {
   'use strict';
 
-  // The styling for this mobile menu is located in pattern-lab/source/_patterns/03-components/mobile-menu/_mobile-menu.scss.
+  // The styling for this mobile menu is located in source/_patterns/04-components/menus/menu--main/.
 
   Drupal.behaviors.primaryNav = {
     attach(context) {
