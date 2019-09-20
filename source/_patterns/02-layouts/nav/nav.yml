@@ -1,6 +1,0 @@
----
-label: 'Main Menu'
-content:
-  join():
-    - include():
-        pattern: components-menu

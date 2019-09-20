@@ -1,0 +1,14 @@
+{% set page_content %}
+
+  {# include page template #}
+  {% include '@templates/page.twig' with {
+    'page_title': title,
+    'page_content': content
+  } %}
+
+{% endset %}
+
+{# pass page_content to default page wrapper #}
+{% include '@pages/_page-default.twig' with {
+  'content': page_content
+} %}

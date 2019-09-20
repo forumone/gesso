@@ -1,0 +1,102 @@
+/// Fetch nested keys
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Keys to fetch
+/// @return {*}
+
+@function map-deep-get($map, $keys...) {
+  $arg-type: type-of($map);
+
+  @if ($arg-type != map) {
+    @error "A valid sass map is required as the first argument. Argument #{$map} is type #{$arg-type}";
+  }
+
+  @each $key in $keys {
+    @if (map-has-key($map, $key)) {
+      $map: map-get($map, $key);
+    } @else {
+      @warn "Key `#{$key}` not found in map";
+    }
+  }
+
+  @return $map;
+}
+
+// Retrieve Main Theme Key
+@function gesso-get-map($map-key, $keys...) {
+  @return map-deep-get($gesso, $map-key, $keys...);
+}
+
+// Get Constrain
+@function gesso-constrain($keys...) {
+  @return gesso-get-map(constrains, $keys...);
+}
+
+// Get Breakpoint
+@function gesso-breakpoint($keys...) {
+  @return gesso-get-map(breakpoints, $keys...);
+}
+
+// @debug 'Gesso Breakpoint' gesso-breakpoint(sm);
+
+// Get Palette
+@function gesso-brand($keys...) {
+  @return gesso-get-map(palette, brand, $keys...);
+}
+
+@function gesso-grayscale($keys...) {
+  @return gesso-get-map(palette, grayscale, $keys...);
+}
+
+// @debug 'Gesso Grayscale'  gesso-grayscale(grayscale-1);
+
+// Get Color
+@function gesso-color($keys...) {
+  @return gesso-get-map(colors, $keys...);
+}
+
+// Get Font Family
+@function gesso-font-family($ff-type) {
+  @return unquote(gesso-get-map(typography, font-family, $ff-type, stack));
+}
+
+// Get Base Font Size
+@function gesso-base-font-size() {
+  @return gesso-get-map(typography, base-font-size);
+}
+
+// Get Font Size
+@function gesso-font-size($keys...) {
+  @return gesso-get-map(typography, font-size, $keys...);
+}
+
+// Get Font Size
+@function gesso-font-weight($keys...) {
+  @return gesso-get-map(typography, font-weight, $keys...);
+}
+
+// Get Line Height
+@function gesso-line-height($keys...) {
+  @return gesso-get-map(typography, line-height, $keys...);
+}
+
+// Get Z Index
+@function gesso-z-index($keys...) {
+  @return gesso-get-map(z-index, $keys...);
+}
+
+// Get spacing
+@function gesso-spacing($keys...) {
+  @return gesso-get-map(spacing, $keys...);
+}
+
+@function gesso-duration($keys...) {
+  @return gesso-get-map(transitions, duration, $keys...);
+}
+
+@function gesso-easing($keys...) {
+  @return unquote(gesso-get-map(transitions, ease, $keys...));
+}
+
+@function gesso-box-shadow($keys...) {
+  @return unquote(gesso-get-map(box-shadow, $keys...));
+}

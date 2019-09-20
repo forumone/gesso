@@ -1,0 +1,52 @@
+// @file
+// Styles for checkbox form items.
+
+.form-item--checkbox {
+  margin-bottom: gesso-spacing(xs);
+}
+
+.form-item__checkbox {
+  @include visually-hidden(true);
+
+  + .form-item__label {
+    cursor: pointer;
+    display: block;
+
+    &::before {
+      background: gesso-color(form, background-unchecked);
+      border: 1px solid gesso-color(form, border-dark);
+      content: '\a0';
+      display: inline-block;
+      height: rem(20px);
+      line-height: rem(20px);
+      margin-right: 0.6em;
+      text-indent: 0.15em;
+      transition-duration: gesso-duration(short);
+      transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+      transition-timing-function: gesso-easing(ease-in-out);
+      vertical-align: middle;
+      width: rem(20px);
+    }
+  }
+
+  &:checked + .form-item__label::before {
+    @include svg-background(correct);
+    background-color: gesso-color(form, background-checked);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: rem(20px);
+  }
+
+  &:focus + .form-item__label::before {
+    box-shadow: $form-box-shadow-focus;
+  }
+
+  &:disabled + .form-item__label {
+    cursor: default;
+    opacity: $form-disabled-opacity;
+
+    &::before {
+      cursor: not-allowed;
+    }
+  }
+}

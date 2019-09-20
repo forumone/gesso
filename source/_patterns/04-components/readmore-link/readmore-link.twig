@@ -1,0 +1,12 @@
+<a href="{{ url }}" class="readmore-link">
+  {{ label|default('Read more') }}
+  <span class="readmore-link__icon">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+      <path fill="#231f20" d="M14 4.648l9.352 9.352-9.352 9.352-1.641-1.641 6.508-6.563h-14.219v-2.297h14.219l-6.508-6.563z"></path>
+    </svg>
+  </span>
+  <span class="readmore-link__accessibility-description">
+    {{ description_prefix|default('about') }}
+    {{ title }}
+  </span>
+</a>

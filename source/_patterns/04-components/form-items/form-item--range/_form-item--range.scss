@@ -1,0 +1,108 @@
+// @file
+// Styles for range form items.
+
+$form-range-thumb-border-radius: 0 !default;
+$form-range-thumb-border-width: 1px !default;
+$form-range-thumb-height: 44px !default;
+$form-range-thumb-width: 22px !default;
+$form-range-track-border-width: 1px !default;
+$form-range-track-height: 10px !default;
+
+@mixin form-item__range-thumb {
+  background: gesso-color(form, thumb);
+  border: $form-range-thumb-border-width solid gesso-color(form, border-light);
+  border-radius: $form-range-thumb-border-radius;
+  cursor: pointer;
+  height: rem($form-range-thumb-height);
+  outline: 0;
+  transition: box-shadow gesso-duration(short) gesso-easing(ease-in-out);
+  width: rem($form-range-thumb-width);
+}
+
+@mixin form-item__range-thumb-focus {
+  box-shadow: $form-box-shadow-focus;
+}
+
+@mixin form-item__range-track {
+  background: gesso-color(form, track);
+  border: $form-range-track-border-width solid gesso-color(form, border-dark);
+  cursor: pointer;
+  display: block;
+  height: rem($form-range-track-height);
+  margin: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.form-item--range {
+  .form-item__range {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    height: rem($form-range-thumb-height);
+    margin: 0.2em 0;
+    padding: 0;
+
+    &:focus {
+      box-shadow: none;
+      outline: 0;
+
+      &::-moz-range-thumb {
+        @include form-item__range-thumb-focus;
+      }
+
+      &::-ms-thumb {
+        @include form-item__range-thumb-focus;
+      }
+
+      &::-webkit-slider-thumb {
+        @include form-item__range-thumb-focus;
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: $form-disabled-opacity;
+    }
+
+    &::-moz-range-thumb {
+      @include form-item__range-thumb;
+    }
+
+    &::-moz-range-track {
+      @include form-item__range-track;
+    }
+
+    &::-ms-thumb {
+      @include form-item__range-thumb;
+      margin-top: 0 !important; // Removes webkit-specific margin since IE uses webkit prefixes.
+    }
+
+    &::-ms-track {
+      @include form-item__range-track;
+      background: transparent;
+      border: 0;
+      color: transparent;
+    }
+
+    &::-ms-fill-lower,
+    &::-ms-fill-upper {
+      background: gesso-color(form, track);
+      border: $form-range-track-border-width solid gesso-color(form, border-dark);
+    }
+
+    &::-webkit-slider-thumb {
+      @include form-item__range-thumb;
+      -webkit-appearance: none;
+      margin-top: rem(((-$form-range-track-border-width * 2) + $form-range-track-height) / 2) - rem($form-range-thumb-height / 2);
+    }
+
+    &::-webkit-slider-runnable-track {
+      @include form-item__range-track;
+    }
+  }
+
+  &.is-full-width > .form-item__range {
+    width: 100%;
+  }
+}

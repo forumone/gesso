@@ -1,0 +1,14 @@
+{% for name, style in gesso.typography.display %}
+
+  {% set rendered_style = '' %}
+  {% for prop, value in style %}
+    {% set rendered_style = prop ~ ': ' ~ value ~ '; ' ~ rendered_style %}
+  {% endfor %}
+
+  <div class="pattern-lab__text-style">
+    <div class="pattern-lab-text-style__label">{{name}}</div>
+    <div class="pattern-lab__text-style-preview" style='{{rendered_style}}'>
+      Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, ‘and what is the use of a book,’ thought Alice ‘without pictures or conversations?’
+    </div>
+  </div>
+{% endfor %}

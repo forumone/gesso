@@ -11,7 +11,7 @@ summary: '<p>This is the summary, which can contain <abbr title="Hyper Text Mark
 title: 'Title'
 url: '#'
 file:
-  icon: '../../images/application-pdf.png'
+  icon: 'http://fpoimg.com/16x16?text=icon'
   mime: 'application/pdf'
   name: 'file name'
   size: '115.83 KB'

@@ -1,0 +1,99 @@
+// @file
+// Styles for form items.
+
+$form-background-color: gesso-color(form, background) !default;
+$form-background-color-focus: gesso-color(form, background-active) !default;
+$form-border-color: gesso-color(form, border) !default;
+$form-border-color-focus: gesso-color(form, border-dark) !default;
+$form-box-shadow-focus: gesso-box-shadow(2) !default;
+$form-disabled-opacity: 0.35 !default;
+$form-text-size: gesso-base-font-size() !default;
+
+.form-item {
+  margin: 0 0 rem(gesso-spacing(md));
+}
+
+.form-item__label {
+  display: block;
+
+  .is-disabled > & {
+    opacity: $form-disabled-opacity;
+  }
+}
+
+.form-item__fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+// .form-item__legend {}
+
+.form-item__description {
+  color: gesso-color(text, secondary);
+  font-size: rem(gesso-font-size(1));
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-item__required-marker::before {
+  content: '*';
+}
+
+%form-item__box,
+.form-item__color,
+.form-item__date,
+.form-item__email,
+.form-item__month,
+.form-item__number,
+.form-item__password,
+.form-item__search,
+.form-item__select,
+.form-item__tel,
+.form-item__text,
+.form-item__textarea,
+.form-item__time,
+.form-item__url,
+.form-item__week {
+  appearance: none;
+  background-color: $form-background-color;
+  border: 1px solid $form-border-color;
+  border-radius: 0;
+  display: inline-block;
+  font-size: rem($form-text-size);
+  height: rem(44px);
+  line-height: (22px / $form-text-size);
+  margin: 0.2em 0;
+  max-width: 100%;
+  padding: em(10px, $form-text-size) em(7px, $form-text-size);
+  transition-duration: gesso-duration(short);
+  transition-property: background-color, border;
+  transition-timing-function: gesso-easing(ease-in-out);
+
+  &:hover,
+  &:focus {
+    background-color: $form-background-color-focus;
+    border: 1px solid $form-border-color-focus;
+    outline: 0;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: $form-disabled-opacity;
+    &:hover,
+    &:focus {
+      background-color: $form-background-color;
+      border: 1px solid $form-border-color;
+    }
+  }
+
+  .is-full-width > & {
+    width: 100%;
+  }
+}
+
+.form-item__textarea {
+  height: auto;
+}

@@ -4,6 +4,21 @@ extends:
 
 rules:
   block-no-empty: null
+  color-named:
+    - never
+    - ignore:
+        - 'inside-function'
+  order/order:
+    -
+      -
+        type: at-rule
+        hasBlock: false
+      - custom-properties
+      - declarations
+    -
+      unspecified: ignore
+      disableFix: true
+
   max-nesting-depth: 3
   no-empty-first-line: true
   property-no-vendor-prefix: null
@@ -20,13 +35,11 @@ rules:
   selector-no-qualifying-type:
     - true
     - ignore:
-      - attribute
+        - attribute
   string-no-newline: true
   scss/at-import-partial-extension-blacklist:
     - 'less'
     - 'sass'
-  scss/at-import-partial-extension-whitelist:
-    - 'scss'
   scss/at-mixin-pattern:
     # "piece" regex:
     # [a-zA-Z0-9]+

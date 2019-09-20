@@ -1,0 +1,28 @@
+<table class="pattern-lab-spacing__table">
+  <thead>
+    <tr>
+      <th class="pattern-lab-spacing__header">Token</th>
+      <th class="pattern-lab-spacing__header">REM</th>
+      <th class="pattern-lab-spacing__header">PX</th>
+      <th class="pattern-lab-spacing__header">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    {# Base font value should be a pixel value or unitless value #}
+    {% for name, unit in gesso.spacing %}
+      {% set remValue = 
+        (unit|replace({'px':''})) / 
+        (gesso.typography['base-font-size']|replace({'px':''})) 
+      %}
+
+      <tr>
+        <td class="pattern-lab-spacing__cell">{{name}}</td>
+        <td class="pattern-lab-spacing__cell">{{remValue}}rem</td>
+        <td class="pattern-lab-spacing__cell">{{unit}}</td>
+        <td class="pattern-lab-spacing__cell">
+          <div style="height:{{unit}}; width:{{unit}}; background-color: #ccc;"></div>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

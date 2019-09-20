@@ -1,0 +1,9 @@
+{% set style = 'background-color:' ~ color  ~ ';' %}
+
+<div class="pattern-lab-color-swatch">
+  <div class="pattern-lab-color-swatch__indicator" style="{{ style }}"></div>
+  <div class="pattern-lab-color-swatch__meta">
+    <div class="pattern-lab-color-swatch__name">{{ name }}</div>
+    <div class="pattern-lab-color-swatch__hex">{{ color }}</div>
+  </div>
+</div>

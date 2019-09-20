@@ -1,0 +1,11 @@
+<footer class="l-footer" role="contentinfo">
+  {% if has_constrain %}
+    <div class="l-constrain {{ constrain_modifier_classes }}">
+  {% endif %}
+  {% block content %}
+    Footer Content
+  {% endblock %}
+  {% if has_constrain %}
+    </div>
+  {% endif %}
+</footer>

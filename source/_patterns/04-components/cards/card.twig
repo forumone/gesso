@@ -1,0 +1,53 @@
+{% import '@macros/gesso.macro.twig' as macros %}
+
+<div class="card {{ modifier_classes }}">
+  <div class="card__body">
+    <div class="card__header">
+      {% if date %}
+        <div class="card__date">
+          {{ date }}
+        </div>
+      {% endif %}
+      <h3 class="card__title">
+        {% if url %}
+          <a href="{{ url }}">
+        {% endif %}
+        {{ title }}
+        {% if url %}
+          </a>
+        {% endif %}
+      </h3>
+    </div>
+    <div class="card__content">
+      {{ content }}
+    </div>
+    {% if footer or read_more or tags %}
+      <div class="card__footer">
+        {{ footer }}
+        {% if tags %}
+          <div class="card__tags">
+            {% include "@components/tag-list/tag-list.twig" with {
+              items: tags
+            } %}
+          </div>
+        {% endif %}
+        {% if read_more and url %}
+          <div class="card__readmore">
+            {{ macros.readmore(url, title) }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+  {% if media %}
+    <div class="card__media">
+      {% if url %}
+        <a href="{{ url }}">
+      {% endif %}
+      {{ media }}
+      {% if url %}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

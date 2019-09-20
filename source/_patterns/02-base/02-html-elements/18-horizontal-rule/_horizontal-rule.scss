@@ -1,0 +1,12 @@
+// @file
+// Horizontal rule styles.
+
+$horizontal-rule-color: gesso-color(ui, generic, border);
+
+hr {
+  border: 1px solid $horizontal-rule-color;
+  box-sizing: content-box;
+  height: 0;
+  margin: rem(gesso-spacing(md)) 0;
+  padding-bottom: -1px;
+}

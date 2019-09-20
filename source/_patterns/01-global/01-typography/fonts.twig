@@ -1,0 +1,36 @@
+{% for name ,item in gesso.typography['font-family'] %}
+
+  {% set stack = item.stack|replace({'\\' : ""})  %}
+  {% set font_family = 'font-family: ' ~ stack ~ ';' %}
+
+  <div class="pattern-lab-font">
+    <h3 class="pattern-lab-font__family" style='{{font_family}}'>
+      {{item.name}}
+    </h3>
+
+    {% for key, weight in gesso.typography['font-weight'] %}
+      {% set font_weight = 'font-weight: ' ~ weight ~ ';' %}
+
+      {% set preview_style = 'font-style: normal;' ~ font_weight ~ font_family %}
+
+      <div class="pattern-lab-font__item">
+        <div class="pattern-lab-font__preview-character" style='{{preview_style}}'>AaBbCc</div>
+        <div class="pattern-lab-font__preview" style='{{preview_style}}'>
+          ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br/>1234567890(,.;:?!$&*)
+        </div>
+        <div class="pattern-lab-font__preview-meta">
+          <div class="pattern-lab-font__name">{{item.name }}</div>
+          <div class="pattern-lab-font__weight">
+            <span class="pattern-lab-font__label">Weight:</span>
+            {{ weight }}
+          </div>
+          <div class="pattern-lab-font__style">
+            <span class="pattern-lab-font__label">Style:</span>
+            {{ stack }}
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+  </div>
+{% endfor %}

@@ -1,0 +1,101 @@
+// @file
+// Styles for hero using an inline image element.
+
+$hero-inline-image-bp: gesso-breakpoint(md) !default;
+
+.hero-inline-image {
+  @include breakpoint($hero-inline-image-bp) {
+    color: gesso-color(text, on-dark);
+    position: relative;
+    text-align: center;
+
+    &.has-overlay {
+      &::after {
+        background: rgba(0, 0, 0, 0.5);
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+      }
+
+      .hero-inline-image__content {
+        z-index: 2;
+      }
+    }
+  }
+}
+
+.hero-inline-image__media {
+  display: block;
+  line-height: 0;
+  margin-bottom: rem(gesso-spacing(md));
+
+  @include breakpoint($hero-inline-image-bp) {
+    margin-bottom: 0;
+  }
+
+  img,
+  picture {
+    width: 100%;
+  }
+}
+
+.hero-inline-image__content {
+  @include breakpoint($hero-inline-image-bp) {
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 15%;
+    position: absolute;
+    right: 15%;
+    top: 5%;
+  }
+}
+
+.hero-inline-image__title {
+  @include display-text-style(display);
+  margin-bottom: rem(gesso-spacing(md));
+
+  @include breakpoint($hero-inline-image-bp) {
+    color: gesso-color(text, on-dark);
+    margin-bottom: rem(gesso-spacing(lg));
+  }
+
+  @include breakpoint(max-width $hero-inline-image-bp) {
+    font-size: rem(gesso-font-size(6));
+  }
+}
+
+.hero-inline-image__summary {
+  @include display-text-style(body-large);
+  margin-bottom: rem(gesso-spacing(md));
+
+  @include breakpoint($hero-inline-image-bp) {
+    color: gesso-color(text, on-dark);
+    margin-bottom: rem(gesso-spacing(lg));
+  }
+}
+
+.hero-inline-image--left {
+  .hero-inline-image__content {
+    @include breakpoint($hero-inline-image-bp) {
+      align-items: flex-start;
+      left: 10%;
+      right: 35%;
+    }
+  }
+}
+
+.hero-inline-image--right {
+  .hero-inline-image__content {
+    @include breakpoint($hero-inline-image-bp) {
+      align-items: flex-start;
+      left: 35%;
+      right: 10%;
+    }
+  }
+}

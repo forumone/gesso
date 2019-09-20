@@ -1,0 +1,26 @@
+// @file
+// Styles for select form items.
+
+$form-select-arrow-size: 20px !default;
+
+.form-item--select {
+  .form-item__select {
+    @include svg-background(select-arrows);
+    background-position: right rem($form-select-arrow-size / 2) center; // LTR
+    background-repeat: no-repeat;
+    background-size: rem($form-select-arrow-size);
+    padding-right: rem($form-select-arrow-size * 2); // LTR
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        background-position: left rem($form-select-arrow-size / 2) center;
+        padding-left: rem($form-select-arrow-size * 2);
+        padding-right: 0;
+      }
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+}

@@ -20,7 +20,7 @@ libraries-override:
       misc/collapse.js: js/overrides/collapse.js
   core/modernizr:
     js:
-      assets/vendor/modernizr/modernizr.min.js: js/lib/modernizr.min.js
+      assets/vendor/modernizr/modernizr.min.js: js/libraries/modernizr.min.js
   system/base:
     css:
       component:
@@ -38,7 +38,7 @@ libraries-override:
         /core/themes/stable/css/system/components/resize.module.css: false
 
 ckeditor_stylesheets:
-  - https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:300,400,600,700
+  - https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i&display=swap
   - css/styles.css
 
 regions:
@@ -58,16 +58,16 @@ regions:
 component-libraries:
   base:
     paths:
-      - source/_patterns/01-base
+      - source/_patterns/02-base
   layouts:
     paths:
-      - source/_patterns/02-layouts
+      - source/_patterns/03-layouts
   components:
     paths:
-      - source/_patterns/03-components
+      - source/_patterns/04-components
   templates:
     paths:
-      - source/_patterns/04-templates
-  pages:
+      - source/_patterns/05-templates
+  macros:
     paths:
-      - source/_patterns/05-pages
+      - source/_macros
