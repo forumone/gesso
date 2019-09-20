@@ -15,7 +15,7 @@ For more information, view the
 [Gesso GitHub repo](https://github.com/forumone/gesso).
 To submit bug reports or feature requests, visit the
 [Gesso issue queue](https://github.com/forumone/gesso/issues).
-Also available for [WordPress](https://github/forumone/gesso-wp).
+Also available for [WordPress](https://github.com/forumone/gesso-wp).
 
 ### Global Prerequisites
 The following packages need to be installed on your system in order to use
@@ -38,7 +38,7 @@ for more information.
 Since many of the Drupal templates reference twig files inside Pattern Lab using
 Twig namespaces, this module is required for the theme to function.
 
-3. Enable the Gesso Helpers module. This module comes packaged with the theme,
+3. Enable the Gesso Helper module. This module comes packaged with the theme,
 but must be manually enabled for the theme to function.
 
 4. Optional: Install the
@@ -55,7 +55,9 @@ the name of your project.
 
 The easiest way to accomplish this is to use
 [Drush](https://github.com/drush-ops/drush).
-Type `drush gesso --help` for more information.
+Type `drush help gesso` for more information. If you get an error that the
+`gesso` command is not defined, make sure you have enabled the Gesso Helper
+module.
 
 If you can’t use Drush, then manually replace all instances of 'gesso'
 within this directory with a machine-readable name of your choice, including
