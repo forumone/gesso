@@ -169,73 +169,73 @@ gesso:
       loose: 1.7
     display:
       display:
+        color: text.primary
         font-family: primary.stack
-        font-weight: bold
         font-size: 8
+        font-weight: bold
         line-height: tight
-        color: text.primary
       h1:
+        color: text.primary
         font-family: primary.stack
-        font-weight: bold
         font-size: 6
+        font-weight: bold
         line-height: tight
-        color: text.primary
       h2:
+        color: text.primary
         font-family: primary.stack
-        font-weight: bold
         font-size: 5
+        font-weight: bold
         line-height: tight
-        color: text.primary
       h3:
+        color: text.primary
         font-family: primary.stack
-        font-weight: bold
         font-size: 4
+        font-weight: bold
         line-height: tight
-        color: text.primary
       h4:
+        color: text.primary
         font-family: primary.stack
-        font-weight: bold
         font-size: 3
-        line-height: base
-        color: text.primary
-      h5:
-        font-family: primary.stack
         font-weight: bold
-        font-size: 1
         line-height: base
+      h5:
         color: text.primary
-      h6:
         font-family: primary.stack
-        font-weight: semibold
+        font-size: 1
+        font-weight: bold
+        line-height: base
+      h6:
+        color: text.primary
+        font-family: primary.stack
         font-size: 0
+        font-weight: semibold
+        letter-spacing: -0.04em
         line-height: loose
         text-transform: uppercase
-        letter-spacing: -0.04em
-        color: text.primary
       blockquote:
-        font-family: primary.stack
-        font-weight: regular
-        font-size: 3
-        line-height: base
         color: text.link
+        font-family: primary.stack
+        font-size: 3
+        font-weight: regular
+        line-height: base
       body:
+        color: text.primary
         font-family: primary.stack
-        font-weight: regular
         font-size: 1
-        line-height: base
-        color: text.primary
-      body-large:
-        font-family: primary.stack
         font-weight: regular
-        font-size: 2
         line-height: base
+      body-large:
         color: text.primary
+        font-family: primary.stack
+        font-size: 2
+        font-weight: regular
+        line-height: base
       cite:
         color: text.secondary
         font-family: primary.stack
-        font-weight: semibold
         font-size: 0
         font-style: normal
+        font-weight: semibold
         letter-spacing: .02em
         line-height: tight
   transitions:
