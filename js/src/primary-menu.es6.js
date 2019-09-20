@@ -1,4 +1,4 @@
-import MenuBar from './modules/_MenuBar.es6';
+import { MenuBar } from './modules/_Menu.es6';
 import Drupal from 'drupal';
 
 (function(Drupal) {

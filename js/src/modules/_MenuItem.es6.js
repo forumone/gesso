@@ -1,5 +1,5 @@
 import KEYCODE from '../constants/_KEYCODE.es6';
-import { PopupMenu } from './_SubMenuItems.es6';
+import { PopupMenu } from './_Menu.es6';
 
 /**
  * @abstract
@@ -73,6 +73,34 @@ export class MenubarItem extends MenuItem {
   init() {
     super.init();
     this.domNode.tabIndex = -1;
+  }
+
+  getBoundaries() {
+    return this.domNode.getBoundingClientRect();
+  }
+
+  getIsMenubarItem() {
+    return this.isMenubarItem;
+  }
+
+  getHover() {
+    return this.hasHover;
+  }
+
+  setTabIndex(value) {
+    this.domNode.tabIndex = value;
+  }
+
+  focusOnSelf() {
+    this.domNode.focus();
+  }
+
+  focusOnPreviousSibling() {
+    this.menu.setFocusToPreviousItem(this);
+  }
+
+  focusOnNextSibling() {
+    this.menu.setFocusToNextItem(this);
   }
 
   handleKeydown(event) {
