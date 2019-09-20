@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
 .sass-cache
-pattern-lab/
+pattern-lab
 css/*.css
 css/*.map
 dependencyGraph.json
-.idea/
+.idea
