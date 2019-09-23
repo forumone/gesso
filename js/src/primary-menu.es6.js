@@ -1,15 +1,18 @@
-import MenuBar from './modules/_MenuBar.es6';
+import { MenuBar } from './modules/_Menu.es6';
 import Drupal from 'drupal';
 
 (function(Drupal) {
   'use strict';
 
-  // The styling for this mobile menu is located in pattern-lab/source/_patterns/03-components/mobile-menu/_mobile-menu.scss.
+  // The styling for this mobile menu is located in source/_patterns/04-components/menus/menu--main/.
 
   Drupal.behaviors.primaryNav = {
     attach(context) {
-      const myMenu = new MenuBar(context.querySelector('.menu--submenu'));
-      myMenu.init();
+      const submenuNode = context.querySelector('.menu--main');
+      if (submenuNode) {
+        const myMenu = new MenuBar(submenuNode);
+        myMenu.init();
+      }
     },
   };
 })(Drupal);
