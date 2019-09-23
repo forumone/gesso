@@ -138,13 +138,13 @@ gesso:
   typography:
     font-family:
       primary:
-        name: Source Sans Pro
+        name: Primary
         stack: '"Source Sans Pro", Arial, sans-serif'
       system:
-        name: Apple System
+        name: System
         stack: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Oxygen-Sans", Ubuntu, Cantarell, "Fira Sans", Droid Sans, sans-serif'
       monospace:
-        name: Consolas
+        name: Monospace
         stack: 'Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif'
     base-font-size: 16px
     font-size:
