@@ -1,13 +1,14 @@
 extends:
   - stylelint-config-sass-guidelines
   - stylelint-config-prettier
-
 rules:
   block-no-empty: null
   color-named:
     - never
     - ignore:
-        - 'inside-function'
+      - 'inside-function'
+  max-nesting-depth: 3
+  no-empty-first-line: true
   order/order:
     -
       -
@@ -18,9 +19,6 @@ rules:
     -
       unspecified: ignore
       disableFix: true
-
-  max-nesting-depth: 3
-  no-empty-first-line: true
   property-no-vendor-prefix: null
   selector-attribute-brackets-space-inside: never
   selector-class-pattern:
@@ -35,7 +33,7 @@ rules:
   selector-no-qualifying-type:
     - true
     - ignore:
-        - attribute
+      - attribute
   string-no-newline: true
   scss/at-import-partial-extension-blacklist:
     - 'less'
