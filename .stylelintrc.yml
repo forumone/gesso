@@ -9,7 +9,9 @@ rules:
   color-named:
     - never
     - ignore:
-        - 'inside-function'
+      - 'inside-function'
+  max-nesting-depth: 3
+  no-empty-first-line: true
   order/order:
     - - type: at-rule
         hasBlock: false
@@ -18,8 +20,6 @@ rules:
     - unspecified: ignore
       disableFix: true
   plugin/selector-pseudo-class-lvhfa: true
-  max-nesting-depth: 3
-  no-empty-first-line: true
   property-no-vendor-prefix: null
   selector-attribute-brackets-space-inside: never
   selector-class-pattern:
@@ -34,7 +34,7 @@ rules:
   selector-no-qualifying-type:
     - true
     - ignore:
-        - attribute
+      - attribute
   string-no-newline: true
   scss/at-import-partial-extension-blacklist:
     - 'less'
