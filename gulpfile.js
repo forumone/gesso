@@ -1,6 +1,6 @@
 'use strict';
 
-const { dest, lastRun, parallel, series, src, watch } = require('gulp');
+const { dest, lastRun, parallel, series, src, watch, task } = require('gulp');
 const patternLabConfig = require('./pattern-lab-config.json');
 const patternLab = require('@pattern-lab/core')(patternLabConfig);
 const postcss = require('gulp-postcss');
@@ -104,6 +104,7 @@ async function webpackBundleScripts(mode) {
 
 const bundleScripts = (exports.gessoBundleScripts = () =>
   webpackBundleScripts('production'));
+  
 const bundleScriptsDev = () => webpackBundleScripts('development');
 
 const watchFiles = () => {
@@ -121,7 +122,7 @@ const watchFiles = () => {
     { usePolling: true, interval: 1500 },
     series(
       buildConfig,
-      parallel(series(lintStyles, buildStyles), buildPatternlab),
+      parallel(series(lintStyles, buildStyles), buildPatternLab),
       parallel(series(lintStyles, buildStyles), buildPatternLab)
     )
   );
@@ -142,12 +143,14 @@ const watchFiles = () => {
 
 const buildStyles = (exports.buildStyles = series(lintStyles, compileStyles));
 
-const build = (isProduction = true) => {
+const build = (isProduction = true ) =>  {
   const scriptTask = isProduction ? bundleScripts : bundleScriptsDev;
+  task('bundleScripts', scriptTask)
   return series(
-    gessoBuildConfig,
-    parallel(scriptTask, gessoBuildStyles, gessoBuildPatternlab)
-  );
-};
+    buildConfig,
+    parallel(task('bundleScripts'), buildStyles, buildPatternLab));
+}
 
-exports.default = series(build, watchFiles);
+exports.build = build(true);
+
+exports.default = series(build(false), watchFiles);
