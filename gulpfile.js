@@ -104,7 +104,7 @@ async function webpackBundleScripts(mode) {
 
 const bundleScripts = (exports.gessoBundleScripts = () =>
   webpackBundleScripts('production'));
-  
+
 const bundleScriptsDev = () => webpackBundleScripts('development');
 
 const watchFiles = () => {
