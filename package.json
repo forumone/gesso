@@ -19,7 +19,7 @@
     "@pattern-lab/cli": "1.0.1",
     "@pattern-lab/core": "3.0.3",
     "@pattern-lab/engine-twig-php": "3.0.3",
-    "@pattern-lab/uikit-workshop": "1.0.3",
+    "@pattern-lab/uikit-workshop": "1.0.4",
     "autoprefixer": "^9.6.0",
     "babel-loader": "^8.0.6",
     "breakpoint-sass": "^2.7.1",
