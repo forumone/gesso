@@ -97,13 +97,11 @@ gulp build
 
 To access the Pattern Lab instance, append `/pattern-lab/index.html` to your site URL and theme directory (e.g. http://localhost:8080/themes/gesso/pattern-lab/index.html) or, if developing locally, just open that index.html file directly in the browser from your file system.
 
-
 ### Design Tokens
 Gesso uses a configuration file 'source/_patterns/00-config/config.design-tokens.yml' to manage the theme's design tokens and automatically generate the global sass map for styling and patterns to represent the theme's design tokens. The default gulp command will monitor changes in the config and rebuild all neccessary assets. To rebuild the theme assets a single time run `gulp gessoBuild`
 
 #### Design Token Functions
 The following Sass functions can be used to access the tokens defined in `config.design-tokens.yml`.
-
 
 **`gesso-box-shadow($shadow)` Output a shadow value from the box-shadow token list**
 
@@ -111,7 +109,6 @@ example:
 ```
 box-shadow: gesso-box-shadow(1);
 ```
-
 
 **`gesso-breakpoint($breakpoint)` Output a size value from the breakpoints token list**
 
@@ -122,14 +119,12 @@ example:
 }
 ```
 
-
 **`gesso-brand($color, $variant)` Output a color value from the palette brand token list**
 
 example:
 ```
 color: gesso-brand(blue, light);
 ```
-
 
 **`gesso-color($type, $subtype)` Output a color value from the colors token list**
 
@@ -138,14 +133,12 @@ example:
 color: gesso-color(text, primary);
 ```
 
-
 **`gesso-constrain($constrain)` Output a size value from the constrains token list**
 
 example:
 ```
 max-width: gesso-constrain(sm);
 ```
-
 
 **`gesso-duration($duration)` Output a timing value from the transitions duration token list**
 
@@ -154,14 +147,12 @@ example:
 transition-duration: gesso-duration(short);
 ```
 
-
 **`gesso-easing($easing)` Output an easing value from the transitions ease token list**
 
 example:
 ```
 transition-timing-function: gesso-easing(ease-in-out);
 ```
-
 
 **`gesso-font-family($family)` Output a stack value from the font-family token list**
 
@@ -170,14 +161,12 @@ example:
 font-family: gesso-font-family(primary);
 ```
 
-
 **`gesso-font-size($size)` Output a size value from the font-size token list**
 
 example (combined with the rem() function to convert to rems):
 ```
 font-size: rem(gesso-font-size(2));
 ```
-
 
 **`gesso-font-weight($weight)` Output a weight value from the font-weight token list**
 
@@ -186,14 +175,12 @@ example:
 font-weight: gesso-font-weight(semibold);
 ```
 
-
 **`gesso-grayscale($color)` Output a color value from the palette grayscale token list**
 
 example:
 ```
 color: gesso-grayscale(gray-2);
 ```
-
 
 **`gesso-line-height($height)` Output a height value from the line-height token list**
 
@@ -202,7 +189,6 @@ example:
 line-height: gesso-line-height(tight);
 ```
 
-
 **`gesso-spacing($spacing)` Output a size value from the spacing token list**
 
 example (combined with the rem() function to convert to rems):
@@ -210,20 +196,12 @@ example (combined with the rem() function to convert to rems):
 margin-bottom: rem(gesso-spacing(md));
 ```
 
-
 **`gesso-z-index($index)` Output an index value from the z-index token list**
 
 example:
 ```
 z-index: gesso-z-index(modal);
 ```
-
-
-
-
-
-
-
 
 ### Creating New Components
 
