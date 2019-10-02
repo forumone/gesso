@@ -7,6 +7,10 @@ $menu-mobile-submenu-fallback-bg-color: #fff !default;
 $menu-mobile-submenu-bg-color: rgba(255, 255, 255, 0.98) !default;
 $menu-mobile-submenu-text-color: #555559 !default;
 $menu-mobile-submenu-hover-color: #000 !default;
+$menu-mobile-button-height: 44px;
+$menu-mobile-button-width: 44px;
+$menu-mobile-font-size: 18px;
+$menu-mobile-line-height: 1.25;
 
 .menu--mobile {
   margin: 0.75em 0 0;
@@ -23,11 +27,11 @@ $menu-mobile-submenu-hover-color: #000 !default;
     color: $menu-mobile-menu-text-color;
     display: block;
     font-family: gesso-font-family(system);
-    font-size: em(18px);
+    font-size: em($menu-mobile-font-size);
     font-weight: bold;
-    line-height: 1.25;
+    line-height: $menu-mobile-line-height;
     margin: 0;
-    padding: em(10.75px, 18px) 1.25em;
+    padding: em(($menu-mobile-button-height - ($menu-mobile-font-size * $menu-mobile-line-height)) / 2, $menu-mobile-font-size) 1.25em;
     text-align: left;
     text-decoration: none;
     white-space: normal;
@@ -39,6 +43,10 @@ $menu-mobile-submenu-hover-color: #000 !default;
     &:active,
     &.is-active {
       color: $menu-mobile-menu-hover-color;
+    }
+
+    &.has-subnav {
+      margin-right: rem($menu-mobile-button-width);
     }
   }
 
@@ -56,18 +64,17 @@ $menu-mobile-submenu-hover-color: #000 !default;
   }
 
   .menu__subnav-arrow {
-    @include image-replace(100%, 44px);
+    @include image-replace(rem($menu-mobile-button-width), rem($menu-mobile-button-height));
     @include svg-background-inline(mobile-arrow-down);
     background-attachment: initial;
     background-color: initial;
-    background-position: 95% 50%;
+    background-position: 50%;
     background-repeat: no-repeat;
     background-size: 19px 12px;
     border: 0;
     box-shadow: none;
     cursor: pointer;
     display: inline-block;
-    height: em(44px);
     position: absolute;
     right: 0;
     top: 0;
