@@ -15,13 +15,15 @@ menus when the mobile menu is in use.
 ## Primary Menu
 The styles for this menu are in `source/_patterns/04-components/menus/menu--main`.
 By default, the script is applied to a menu with the class `menu--main`. To use
-a different class, change the query selector in `primary-menu.es6.js`.
+a different class, change the query selector in `primary-menu.es6.js`. This
+script is not included by default in Pattern Lab or Drupal.
 
 ## Mobile Menu
 The styles for the overall mobile menu component are in
-`source/_patterns/04-components/mobile-menu`.  Styles for the main navigation
+`source/_patterns/04-components/mobile-menu`. Styles for the main navigation
 links within the menu are in `source/_patterns/04-components/menus/menu--mobile`.
-The MobileMenu constructor takes several options that can be used in
+
+The `MobileMenu` constructor takes several options that can be used in
 `mobile-menu.es6.js` to customize the mobile menu or anywhere else you need menu
 content opened in an overlay.
 
