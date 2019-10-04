@@ -7,21 +7,27 @@ class _MobileMenu {
     searchBlock = '', // Selector for search block
     utilityMenu = '', // Selector for utility nav
     header = '.l-header', // Selector for site header
-    toggleButton = '.mobile-menu__button', // Selector for Menu toggle
+    toggleButton = '.mobile-menu-button', // Selector for Menu toggle
     container = '.mobile-menu-container', // Selector for destination container for mobile nav
+    menuItem = '.menu__item', // Selector for individual menu items
+    menuItemClass = 'mobile-menu__item', // Selector for individual menu items
     menuLink = '.menu__link', // Selector for individual menu links
+    menuLinkClass = 'mobile-menu__link', // Selector for individual menu links
     overlayClass = 'mobile-menu', // Overlay class name
-    mobileMenuClass = 'menu--mobile', // Class name for navigation section
+    mobileMenuClass = 'mobile-menu__menu', // Class name for navigation section
     mobileSearchClass = 'mobile-search-block', // Class name for search section
     mobileUtilityMenuClass = 'mobile-account-menu', // Class name for utility section
-    buttonClass = 'mobile-menu__button', // Class name for all menu buttons
-    closeButtonClass = 'mobile-menu__close', // Class name for generated close button
-    arrowButtonClass = 'menu__subnav-arrow', // Class name for the subnav toggle
-    mobileMenuBreakpoint = '(max-width: 703px)', // Breakpoint to switch between mobile + original menu
+    buttonClass = 'mobile-menu-button', // Class name for all menu buttons
+    closeButtonClass = 'mobile-menu-button--close', // Class name for generated close button
+    arrowButtonClass = 'mobile-menu__subnav-arrow', // Class name for the subnav toggle
+    mobileMenuBreakpoint = '(max-width: 699px)', // Breakpoint to switch between mobile + original menu
   } = {}) {
     this.options = {
       toggleSubNav,
+      menuItem,
+      menuItemClass,
       menuLink,
+      menuLinkClass,
       overlayClass,
       mobileMenuClass,
       mobileSearchClass,
@@ -88,14 +94,22 @@ class _MobileMenu {
 
       menuClone.className = '';
       const subNavClass = this.options.toggleSubNav
-        ? 'menu--toggle-subnav'
-        : 'menu--show-subnav';
+        ? 'mobile-menu__menu--toggle-subnav'
+        : 'mobile-menu__menu--show-subnav';
 
       if (menuClass) {
         menuClone.classList.add(menuClass);
       }
-      menuClone.classList.add('menu');
+      //menuClone.classList.add('menu');
       menuClone.classList.add(subNavClass);
+
+      const items = menuClone.querySelectorAll(this.options.menuItem);
+      if (items.length) {
+        items.forEach(item => {
+          item.classList.add(this.options.menuItemClass);
+          item.classList.remove('menu__item');
+        });
+      }
 
       // Prep subnav menus, if there are any.
       const links = menuClone.querySelectorAll(this.options.menuLink);
@@ -112,6 +126,8 @@ class _MobileMenu {
           ) {
             this._processLinks(item, nextElement, index);
           }
+          item.classList.add(this.options.menuLinkClass);
+          item.classList.remove('menu__link');
         });
       }
     }
@@ -200,7 +216,7 @@ class _MobileMenu {
     this.closeButton.classList.add(this.options.buttonClass);
     this.closeButton.classList.add(this.options.closeButtonClass);
     this.closeButton.innerHTML =
-      '<span class="mobile-menu__icon mobile-menu__icon--close">Close</span>';
+      '<span class="mobile-menu-button__icon mobile-menu-button__icon--close">Close</span>';
     this.closeButton.addEventListener('click', () => this.close());
     this.overlay.appendChild(this.closeButton);
 
@@ -209,7 +225,7 @@ class _MobileMenu {
       this.toggleButton = document.createElement('button');
       this.toggleButton.classList.add(this.options.buttonClass);
       this.toggleButton.innerHTML =
-        '<span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span>';
+        '<span class="mobile-menu-button__icon mobile-menu-button__icon--menu">Menu</span>';
       this.toggleButton.setAttribute('aria-haspopup', 'menu');
       if (this.header) {
         this.header.insertAdjacentElement('beforeend', this.toggleButton);
@@ -267,7 +283,7 @@ class _MobileMenu {
     this._setTabIndex(this.closeButton, 0);
     this.closeButton.addEventListener('click', this.close);
 
-    const links = [...this.overlay.querySelectorAll('.menu__link')];
+    const links = [...this.overlay.querySelectorAll('.mobile-menu__link')];
     this._setTabIndex(links, 0);
 
     document.body.classList.add('has-open-mobile-menu');
@@ -281,7 +297,7 @@ class _MobileMenu {
   close() {
     // Remove menu items from the tab flow.
     this._setTabIndex(this.closeButton, -1);
-    const links = [...this.overlay.querySelectorAll('.menu__link')];
+    const links = [...this.overlay.querySelectorAll('.mobile-menu__link')];
     this._setTabIndex(links, -1);
 
     // Remove Event Listeners
