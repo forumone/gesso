@@ -142,17 +142,25 @@ export class MenuBar extends Menu {
   // Set focus to a specific MenubarItem in the menu.
   setFocusToItem(newItem) {
     let openMenu = false;
-
     // Close any existing menus.
     this.menuItems.forEach(mbi => {
-      const menuWasOpen = mbi.close();
-      if (menuWasOpen) {
-        openMenu = true;
+      if (mbi.domNode.tabIndex === 0) {
+        openMenu = mbi.domNode.getAttribute('aria-expanded') === 'true';
+      }
+
+      mbi.domNode.tabIndex = -1;
+      if (mbi.popupMenu) {
+        mbi.popupMenu.close();
       }
     });
 
+    newItem.domNode.focus();
+    newItem.domNode.tabIndex = 0;
+
+    if (openMenu && newItem.popupMenu) {
+      newItem.popupMenu.open();
+    }
     // Focus on the new menu, and open it if the previous menu was open.
-    newItem.open(openMenu);
   }
 }
 
@@ -175,7 +183,8 @@ export class PopupMenu extends Menu {
   }
 
   setFocusToItem(newItem) {
-    newItem.focus();
+    //eslint-disable-next-line
+    newItem.domNode.focus();
   }
 
   setFocusToController(commandParam) {
@@ -243,6 +252,5 @@ export class PopupMenu extends Menu {
 
   handleMouseout() {
     this.hasHover = false;
-    setTimeout(this.close(false), 1);
   }
 }
