@@ -11,7 +11,11 @@
   "private": true,
   "themePath": ".",
   "main": "gulpfile.js",
-  "browserslist": "> 1%, last 3 versions",
+  "browserslist": [
+    "explorer >= 11",
+    "last 3 versions",
+    ">1% and not dead"
+  ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-external-helpers": "^7.2.0",
