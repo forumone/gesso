@@ -183,7 +183,6 @@ export class PopupMenu extends Menu {
   }
 
   setFocusToItem(newItem) {
-    //eslint-disable-next-line
     newItem.domNode.focus();
   }
 
