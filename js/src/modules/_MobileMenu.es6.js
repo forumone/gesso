@@ -3,21 +3,24 @@ import KEYCODE from '../constants/_KEYCODE.es6.js';
 class _MobileMenu {
   constructor({
     toggleSubNav = true, // Enable subnav toggle
-    navMenu = '.menu--main', // Selector for primary nav
+    navMenu = '.menu--main', // Selector for primary menu to clone for mobile menu
     searchBlock = '', // Selector for search block
-    utilityMenu = '', // Selector for utility nav
+    utilityMenu = '', // Selector for utility menu to add to mobile menu
     header = '.l-header', // Selector for site header
-    toggleButton = '.mobile-menu-button', // Selector for Menu toggle
+    toggleButton = '.mobile-menu-button--menu', // Selector for Menu toggle
     container = '.mobile-menu-container', // Selector for destination container for mobile nav
     menuItem = '.menu__item', // Selector for individual menu items
-    menuItemClass = 'mobile-menu__item', // Selector for individual menu items
+    menuItemClass = 'mobile-menu__item', // Class name to add to individual menu items
     menuLink = '.menu__link', // Selector for individual menu links
-    menuLinkClass = 'mobile-menu__link', // Selector for individual menu links
+    menuLinkClass = 'mobile-menu__link', // Class name to add to individual menu links
+    menuSubMenu = '.menu__subnav', // Selector for submenus
+    menuSubMenuClass = 'mobile-menu__subnav', // Class name to add to submenus
     overlayClass = 'mobile-menu', // Overlay class name
-    mobileMenuClass = 'mobile-menu__menu', // Class name for navigation section
-    mobileSearchClass = 'mobile-search-block', // Class name for search section
-    mobileUtilityMenuClass = 'mobile-account-menu', // Class name for utility section
+    mobileMenuClass = 'mobile-menu__menu', // Class name for main navigation section
+    mobileSearchClass = 'mobile-menu__search', // Class name for search section
+    mobileUtilityMenuClass = 'mobile-menu__menu', // Class name for utility section
     buttonClass = 'mobile-menu-button', // Class name for all menu buttons
+    menuButtonClass = 'mobile-menu-button--menu', // Class name for generated menu button
     closeButtonClass = 'mobile-menu-button--close', // Class name for generated close button
     arrowButtonClass = 'mobile-menu__subnav-arrow', // Class name for the subnav toggle
     mobileMenuBreakpoint = '(max-width: 699px)', // Breakpoint to switch between mobile + original menu
@@ -28,11 +31,14 @@ class _MobileMenu {
       menuItemClass,
       menuLink,
       menuLinkClass,
+      menuSubMenu,
+      menuSubMenuClass,
       overlayClass,
       mobileMenuClass,
       mobileSearchClass,
       mobileUtilityMenuClass,
       buttonClass,
+      menuButtonClass,
       closeButtonClass,
       arrowButtonClass,
       mobileMenuBreakpoint,
@@ -62,7 +68,7 @@ class _MobileMenu {
     const firstLink = [...controlled.querySelectorAll(this.options.menuLink)];
 
     const elemID = this._cleanString(
-      `menu-${elem.innerText}${index ? index : ''}`
+      `mobile-menu-${elem.innerText}${index ? index : ''}`
     );
 
     controlled.setAttribute('id', elemID);
@@ -87,6 +93,17 @@ class _MobileMenu {
     thisNode.parentNode.insertBefore(toggleButton, controlled);
   }
 
+  _cloneBlock(block, blockClass = '') {
+    let blockClone = null;
+    if (block) {
+      blockClone = block.cloneNode(true);
+      if (blockClass) {
+        blockClone.classList.add(blockClass);
+      }
+    }
+    return blockClone;
+  }
+
   _cloneMenu(menu, menuClass = '') {
     let menuClone = null;
     if (menu) {
@@ -100,7 +117,7 @@ class _MobileMenu {
       if (menuClass) {
         menuClone.classList.add(menuClass);
       }
-      //menuClone.classList.add('menu');
+      //menuClone.classList.add('mobile-menu__subnav');
       menuClone.classList.add(subNavClass);
 
       const items = menuClone.querySelectorAll(this.options.menuItem);
@@ -108,6 +125,15 @@ class _MobileMenu {
         items.forEach(item => {
           item.classList.add(this.options.menuItemClass);
           item.classList.remove('menu__item');
+        });
+      }
+
+      const menus = menuClone.querySelectorAll(this.options.menuSubMenu);
+      if (menus.length) {
+        menus.forEach(item => {
+          item.classList.add(this.options.menuSubMenuClass);
+          item.classList.remove('menu');
+          item.classList.remove('menu__subnav');
         });
       }
 
@@ -216,7 +242,7 @@ class _MobileMenu {
     this.closeButton.classList.add(this.options.buttonClass);
     this.closeButton.classList.add(this.options.closeButtonClass);
     this.closeButton.innerHTML =
-      '<span class="mobile-menu-button__icon mobile-menu-button__icon--close">Close</span>';
+      '<span class="mobile-menu-button__icon">Close</span>';
     this.closeButton.addEventListener('click', () => this.close());
     this.overlay.appendChild(this.closeButton);
 
@@ -224,8 +250,9 @@ class _MobileMenu {
     if (this.toggleButton === null) {
       this.toggleButton = document.createElement('button');
       this.toggleButton.classList.add(this.options.buttonClass);
+      this.toggleButton.classList.add(this.options.menuButtonClass);
       this.toggleButton.innerHTML =
-        '<span class="mobile-menu-button__icon mobile-menu-button__icon--menu">Menu</span>';
+        '<span class="mobile-menu-button__icon">Menu</span>';
       this.toggleButton.setAttribute('aria-haspopup', 'menu');
       if (this.header) {
         this.header.insertAdjacentElement('beforeend', this.toggleButton);
@@ -235,12 +262,6 @@ class _MobileMenu {
     }
     this.toggleButton.addEventListener('click', () => this.open());
 
-    // Set up the search block
-    if (this.searchBlock) {
-      this.overlay.appendChild(
-        this._cloneMenu(this.searchBlock, this.options.mobileSearchClass)
-      );
-    }
     // Set up the main nav.
     if (this.navMenu) {
       this.overlay.appendChild(
@@ -251,6 +272,12 @@ class _MobileMenu {
     if (this.utilityMenu) {
       this.overlay.appendChild(
         this._cloneMenu(this.utilityMenu, this.options.mobileUtilityMenuClass)
+      );
+    }
+    // Set up the search block
+    if (this.searchBlock) {
+      this.overlay.appendChild(
+        this._cloneBlock(this.searchBlock, this.options.mobileSearchClass)
       );
     }
 

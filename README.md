@@ -98,9 +98,11 @@ gulp build
 To access the Pattern Lab instance, append `/pattern-lab/index.html` to your site URL and theme directory (e.g. http://localhost:8080/themes/gesso/pattern-lab/index.html) or, if developing locally, just open that index.html file directly in the browser from your file system.
 
 ### Design Tokens
+
 Gesso uses a configuration file 'source/_patterns/00-config/config.design-tokens.yml' to manage the theme's design tokens and automatically generate the global sass map for styling and patterns to represent the theme's design tokens. The default gulp command will monitor changes in the config and rebuild all neccessary assets. To rebuild the theme assets a single time run `gulp gessoBuild`
 
 #### Design Token Functions
+
 The following Sass functions can be used to access the tokens defined in `config.design-tokens.yml`.
 
 **`gesso-box-shadow($shadow)` Output a shadow value from the box-shadow token list**
@@ -243,6 +245,11 @@ have it ignore code in two ways:
 
 2. To ignore several lines, add `/* stylelint-disable */` before the code in
    question and add `/* stylelint-enable */` afterwards.
+
+### JavaScript
+
+See the README.md file in the /js directory for details on included scripts
+(e.g., mobile menu, primary menu, etc.).
 
 ## Maintainers
 
