@@ -18,16 +18,18 @@ class Menu {
 
   init() {
     // Set up any and all submenu items.
-    this.domNode.children.forEach(childElement => {
-      const menuElement = childElement.firstElementChild;
-      if (menuElement && menuElement.tagName === 'A') {
-        const menuItem = this._createMenuItem(menuElement);
-        menuItem.init();
-        this.menuItems.push(menuItem);
-        const textContent = menuElement.textContent.trim();
-        this.firstChars.push(textContent.substring(0, 1).toLowerCase());
-      }
-    });
+    if (this.domNode.children.length > 0) {
+      [...this.domNode.children].forEach(childElement => {
+        const menuElement = childElement.firstElementChild;
+        if (menuElement && menuElement.tagName === 'A') {
+          const menuItem = this._createMenuItem(menuElement);
+          menuItem.init();
+          this.menuItems.push(menuItem);
+          const textContent = menuElement.textContent.trim();
+          this.firstChars.push(textContent.substring(0, 1).toLowerCase());
+        }
+      });
+    }
 
     // Store the first and last items in the menu.
     const numItems = this.menuItems.length;
