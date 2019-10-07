@@ -1,0 +1,45 @@
+// @file
+// Styles for the mobile menu buttons.
+
+.mobile-menu-button {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  display: inline-block;
+  font-family: gesso-font-family(system);
+  font-size: rem(gesso-font-size(1));
+  font-weight: gesso-font-weight(bold);
+  height: 55px;
+  line-height: 55px;
+  margin: 0;
+  padding: 0 gesso-spacing(sm);
+  text-decoration: none;
+
+  &:focus {
+    outline: thin dotted;
+  }
+}
+
+.mobile-menu-button__icon {
+  @include image-replace(22px, 22px);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  display: inline-block;
+  margin-top: gesso-spacing(sm);
+}
+
+.mobile-menu-button--close {
+  .mobile-menu-button__icon {
+    @include svg-background-inline(mobile-close);
+  }
+}
+
+.mobile-menu-button--menu {
+  .mobile-menu-button__icon {
+    @include svg-background-inline(mobile-menu);
+    background-size: 33px 22px;
+    width: 33px;
+  }
+}

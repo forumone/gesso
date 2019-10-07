@@ -25,9 +25,12 @@
           'menu_name': 'main',
           'items': [
             { 'title': 'Home', 'url': '#' },
-            { 'title': 'About', 'url': '#' },
-            { 'title': 'Contact', 'url': '#' },
-            { 'title': 'Search', 'url': '#' },
+            { 'title': 'About', 'url': '#', 'below': [
+              { 'title': 'Submenu item one', 'url': '#' },
+              { 'title': 'Submenu item two', 'url': '#' }
+            ]},
+            { 'title': 'Resources', 'url': '#' },
+            { 'title': 'Contact', 'url': '#' }
           ]
         } %}
       {% endblock %}
