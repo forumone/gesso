@@ -59,6 +59,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
 .dropbutton__toggle {
   bottom: 0;
   margin: 0;
+  padding: 0;
   position: absolute;
   right: 0;
   top: 0;
@@ -81,6 +82,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
 
 .dropbutton__item {
   margin: 0;
+  padding: 0;
 
   &.is-secondary-action {
     display: none;
