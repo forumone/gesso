@@ -8,9 +8,9 @@ import Drupal from 'drupal';
 
   Drupal.behaviors.primaryNav = {
     attach(context) {
-      const submenuNode = context.querySelector('.menu--main');
-      if (submenuNode) {
-        const myMenu = new MenuBar(submenuNode);
+      const menuNode = context.querySelector('.menu--main');
+      if (menuNode) {
+        const myMenu = new MenuBar(menuNode);
         myMenu.init();
       }
     },
