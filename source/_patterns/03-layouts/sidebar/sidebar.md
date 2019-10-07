@@ -10,9 +10,9 @@ _Layout for Sidebar_
 * has_header: [boolean] True/False whether component has header.
 * sidebar_header: [object] twig block.
 * sidebar_header_content: The content of sidebar_header.
-* sidebar_minor: [object] twig block.
-* sidebar_minor_content: The content of sidebar_minor.
+* sidebar_first: [object] twig block.
+* sidebar_first_content: The content of sidebar_first.
 * sidebar_main: [object] twig block.
 * sidebar_main_content: The content of sidebar_main.
-* sidebar_aside: [object] twig block.
-* sidebar_aside_content: The content of sidebar_aside.
+* sidebar_second: [object] twig block.
+* sidebar_second_content: The content of sidebar_second.
