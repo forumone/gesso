@@ -1,0 +1,14 @@
+{% if content %}
+  {% if content.sidebar_first and content.sidebar_second %}
+    {% set has_multiple_sidebar = TRUE %}
+  {% endif %}
+  {% include '@layouts/sidebar/sidebar.twig' with {
+    'has_multiple_sidebar': has_multiple_sidebar,
+    'header_content': content.header ? content.header : false,
+    'sidebar_first_content': content.sidebar_first ? content.sidebar_first : false,
+    'main_content': content.main ? content.main : false,
+    'sidebar_second_content': content.sidebar_second ? content.sidebar_second : false
+  } %}
+{% endif %}
+
+
