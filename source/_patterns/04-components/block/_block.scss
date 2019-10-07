@@ -4,3 +4,8 @@
 .block {
   margin-bottom: rem(gesso-spacing(lg));
 }
+
+// disable margin for layout builder blocks
+.block--provider-layout-builder {
+  margin-bottom: 0;
+}
