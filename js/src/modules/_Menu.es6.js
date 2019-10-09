@@ -19,7 +19,8 @@ class Menu {
   init() {
     // Set up any and all submenu items.
     if (this.domNode.children.length > 0) {
-      [...this.domNode.children].forEach(childElement => {
+      const nodesArray = [].slice.call(this.domNode.children);
+      nodesArray.forEach(childElement => {
         const menuElement = childElement.firstElementChild;
         if (menuElement && menuElement.tagName === 'A') {
           const menuItem = this._createMenuItem(menuElement);
