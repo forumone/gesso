@@ -255,9 +255,9 @@ class _MobileMenu {
         '<span class="mobile-menu-button__icon">Menu</span>';
       this.toggleButton.setAttribute('aria-haspopup', 'menu');
       if (this.header) {
-        this.header.insertAdjacentElement('beforeend', this.toggleButton);
+        this.header.insertAdjacentElement('beforeEnd', this.toggleButton);
       } else {
-        document.body.insertAdjacentElement('afterstart', this.toggleButton);
+        document.body.insertAdjacentElement('afterBegin', this.toggleButton);
       }
     }
     this.toggleButton.addEventListener('click', () => this.open());
@@ -285,9 +285,9 @@ class _MobileMenu {
     if (this.container) {
       this.container.appendChild(this.overlay);
     } else if (this.header) {
-      this.header.insertAdjacentElement('afterend', this.overlay);
+      this.header.insertAdjacentElement('afterEnd', this.overlay);
     } else {
-      document.body.insertAdjacentElement('afterbegin', this.overlay);
+      document.body.insertAdjacentElement('afterBegin', this.overlay);
     }
 
     this._toggleMenuDisplay();

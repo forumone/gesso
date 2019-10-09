@@ -41,6 +41,18 @@ class MenuItem {
     }
   }
 
+  getBoundaries() {
+    return this.domNode.getBoundingClientRect();
+  }
+
+  getIsMenubarItem() {
+    return this.isMenubarItem;
+  }
+
+  getHover() {
+    return this.hasHover;
+  }
+
   handleFocus() {
     this.menu.setFocus(true);
   }
@@ -73,18 +85,6 @@ export class MenubarItem extends MenuItem {
   init() {
     super.init();
     this.domNode.tabIndex = -1;
-  }
-
-  getBoundaries() {
-    return this.domNode.getBoundingClientRect();
-  }
-
-  getIsMenubarItem() {
-    return this.isMenubarItem;
-  }
-
-  getHover() {
-    return this.hasHover;
   }
 
   setTabIndex(value) {
