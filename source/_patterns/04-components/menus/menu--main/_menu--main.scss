@@ -26,9 +26,9 @@
       }
 
       &.has-subnav::after {
-        @include image-replace(12px, 12px);
-        @include svg-background(arrow-down);
-        background-size: 12px 12px;
+        @include image-replace(16px, 16px);
+        @include svg-background(menu-arrow-down);
+        background-size: 16px 16px;
         content: '';
         display: block;
         position: absolute;
@@ -43,7 +43,7 @@
     background-color: gesso-color(ui, generic, background-dark);
     display: none;
     left: 0;
-    margin: 0;
+    margin: gesso-spacing(xs) 0 0 0;
     padding: 0;
     position: absolute;
     top: 0;
@@ -61,6 +61,22 @@
       &:focus {
         background-color: gesso-color(ui, generic, background-darker);
       }
+
+      &.has-subnav::after {
+        @include image-replace(16px, 16px);
+        @include svg-background(menu-arrow-right);
+        background-size: 16px 16px;
+        content: '';
+        display: block;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .menu__subnav {
+      margin: 0;
     }
   }
 }
