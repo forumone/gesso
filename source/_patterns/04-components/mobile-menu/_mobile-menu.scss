@@ -17,6 +17,7 @@ $mobile-menu-line-height: gesso-line-height(base);
 .mobile-menu {
   background-color: $mobile-menu-fallback-bg-color;
   background-color: $mobile-menu-bg-color;
+  left: 0;
   min-height: 100vh;
   overflow-y: auto;
   position: fixed;
@@ -118,4 +119,3 @@ $mobile-menu-line-height: gesso-line-height(base);
     }
   }
 }
-
