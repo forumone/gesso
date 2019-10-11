@@ -19,6 +19,11 @@ $function = new Twig_SimpleFunction('add_attributes', function ($context, $addit
       $context_attribute = &$context_attribute[$segment];
     }
 
+    // if attribute doesn't exist, create it
+    if (!$context_attribute) {
+      $context_attribute = new Attribute();
+    }
+
     if (!empty($additional_attributes)) {
       foreach ($additional_attributes as $key => $value) {
         if (is_array($value)) {
