@@ -31,7 +31,7 @@
 
 // Turns off the visually-hidden effect with important
 @mixin visually-hidden-off-important {
-  @include visually-hidden(true);
+  @include visually-hidden-off(true);
 }
 
 // Makes an element visible when focused if it also has the visually-hidden styles.
