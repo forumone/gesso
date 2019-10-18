@@ -1,0 +1,6 @@
+// Wrapper for Sass' built-in `if` function that does not require you to pass
+// a value for $if-false.
+//GOVUK framework https://github.com/alphagov/govuk-frontend
+@function iff($condition, $if-true) {
+  @return if($condition, $if-true, null);
+}
