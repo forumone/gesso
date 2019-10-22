@@ -2,7 +2,11 @@
   'class': ['field'],
 } %}
 {% set additional_title_attributes = {
-  'class': ['field__label'],
+  'class': [
+    'field__label',
+    label_display == 'inline' ? 'is-inline',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ],
 } %}
 {% set additional_item_attributes = {
   'class': ['field__item'],
