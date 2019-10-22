@@ -3,7 +3,7 @@
   {# define some cards as dummy content for homepage grid #}
   {% set grid_content %}
     {% for card in grid_cards %}
-      {% include '@components/cards/card.twig' with {
+      {% include '@components/card/card.twig' with {
         'title': card.title,
         'url': card.url,
         'media': card.media,

@@ -15,13 +15,13 @@
 
 {% for type, messages in message_list %}
   {% set classes = [
-    'messages',
-    'messages--' ~ type,
+    'message',
+    'message--' ~ type,
   ] %}
 
   {% set attributes = attributes.addClass(classes)|without('role', 'aria-label') %}
 
-  {% include '@components/messages/message.twig' with {
+  {% include '@components/message/message.twig' with {
     'type': type,
     'heading': status_headings[type],
     'messages': messages
