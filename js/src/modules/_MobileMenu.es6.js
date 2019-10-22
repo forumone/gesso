@@ -4,7 +4,7 @@ class _MobileMenu {
   constructor({
     toggleSubNav = true, // Enable subnav toggle
     navMenu = '.menu--main', // Selector for primary menu to clone for mobile menu
-    searchBlock = '', // Selector for search block
+    searchBlock = '.js-search-block', // Selector for search block
     utilityMenu = '', // Selector for utility menu to add to mobile menu
     header = '.l-header', // Selector for site header
     toggleButton = '.mobile-menu-button--menu', // Selector for Menu toggle

@@ -44,6 +44,13 @@
       {% endblock %}
     {% endembed %}
 
+    <div class="js-search-block">
+      <div class="form-item form-item--search">
+        <label class="form-item__label" for="edit-search">Search</label>
+        <input class="form-item__search" id="edit-search" type="search" size="60" maxlength="128">
+      </div>
+    </div>
+
     {% embed '@layouts/breadcrumb/breadcrumb.twig' with {
       'has_constrain': false
     } %}
