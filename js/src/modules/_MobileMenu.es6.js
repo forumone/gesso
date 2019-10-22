@@ -65,7 +65,9 @@ class _MobileMenu {
   _processLinks(elem, controlled, index) {
     const thisNode = elem;
     const toggleButton = document.createElement('button');
-    const firstLink = [...controlled.querySelectorAll(this.options.menuLink)];
+    const firstLink = Array.prototype.slice.apply(
+      controlled.querySelectorAll(this.options.menuLink)
+    );
 
     const elemID = this._cleanString(
       `mobile-menu-${elem.innerText}${index ? index : ''}`
