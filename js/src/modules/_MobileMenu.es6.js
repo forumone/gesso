@@ -262,6 +262,13 @@ class _MobileMenu {
     }
     this.toggleButton.addEventListener('click', () => this.open());
 
+    // Set up the search block
+    if (this.searchBlock) {
+      this.overlay.prepend(
+        this._cloneBlock(this.searchBlock, this.options.mobileSearchClass)
+      );
+    }
+
     // Set up the main nav.
     if (this.navMenu) {
       this.overlay.appendChild(
@@ -272,12 +279,6 @@ class _MobileMenu {
     if (this.utilityMenu) {
       this.overlay.appendChild(
         this._cloneMenu(this.utilityMenu, this.options.mobileUtilityMenuClass)
-      );
-    }
-    // Set up the search block
-    if (this.searchBlock) {
-      this.overlay.prepend(
-        this._cloneBlock(this.searchBlock, this.options.mobileSearchClass)
       );
     }
 
