@@ -264,7 +264,7 @@ class _MobileMenu {
 
     // Set up the search block
     if (this.searchBlock) {
-      this.overlay.prepend(
+      this.overlay.appendChild(
         this._cloneBlock(this.searchBlock, this.options.mobileSearchClass)
       );
     }
