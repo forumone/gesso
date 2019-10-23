@@ -276,7 +276,7 @@ class _MobileMenu {
     }
     // Set up the search block
     if (this.searchBlock) {
-      this.overlay.appendChild(
+      this.overlay.prepend(
         this._cloneBlock(this.searchBlock, this.options.mobileSearchClass)
       );
     }
@@ -294,12 +294,18 @@ class _MobileMenu {
     this.close();
 
     let resizeTimeout = false;
+    let lastWindowWidth = window.innerWidth;
     window.addEventListener('resize', () => {
-      if (resizeTimeout !== false) {
-        clearTimeout(resizeTimeout);
-      }
+      const currWindowWidth = window.innerWidth;
 
-      resizeTimeout = setTimeout(this._toggleMenuDisplay, 200);
+      if (lastWindowWidth !== currWindowWidth) {
+        if (resizeTimeout !== false) {
+          clearTimeout(resizeTimeout);
+        }
+
+        resizeTimeout = setTimeout(this._toggleMenuDisplay, 200);
+        lastWindowWidth = currWindowWidth;
+      }
     });
   }
 
