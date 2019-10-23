@@ -314,7 +314,10 @@ class _MobileMenu {
     this._setTabIndex(links, 0);
 
     document.body.classList.add('has-open-mobile-menu');
-    this.overlay.setAttribute('style', 'display: block;');
+    this.overlay.setAttribute(
+      'style',
+      `display: block; height: ${window.innerHeight}px`
+    );
 
     this.toggleButton.setAttribute('aria-expanded', 'true');
 
