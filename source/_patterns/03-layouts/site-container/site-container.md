@@ -5,4 +5,4 @@ title: Site Container
 _Layout for Site Container_
 
 ### Blocks:
-* content: Twig block for content.
+* site_content: Twig block for content.
