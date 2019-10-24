@@ -10,8 +10,8 @@
 .visually-hidden {
   @include visually-hidden-important;
   &.focusable {
-    &:active,
-    &:focus {
+    &:focus,
+    &:active {
       @include visually-hidden-off-important;
     }
   }

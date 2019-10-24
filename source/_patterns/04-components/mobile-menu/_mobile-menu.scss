@@ -1,109 +1,120 @@
 // @file
 // Styles for the mobile menu.
 
-$mobile-menu-fallback-bg-color: #f3f3f3 !default;
-$mobile-menu-bg-color: rgba(243, 243, 243, 0.98) !default;
-$mobile-menu-border-color: #dadada !default;
-$mobile-menu-text-color: #555559 !default;
+$mobile-menu-fallback-bg-color: gesso-color(ui, generic, background-light) !default;
+$mobile-menu-bg-color: rgba(gesso-color(ui, generic, background-light), 0.98) !default;
+$mobile-menu-link-color: gesso-color(ui, generic, text-dark) !default;
+$mobile-menu-link-hover-color: gesso-color(ui, generic, text-darker) !default;
+$mobile-menu-submenu-fallback-bg-color: gesso-color(ui, generic, background-lighter) !default;
+$mobile-menu-submenu-bg-color: rgba(gesso-color(ui, generic, background-lighter), 0.98) !default;
+$mobile-menu-submenu-link-color: gesso-color(ui, generic, text-dark) !default;
+$mobile-menu-submenu-link-hover-color: gesso-color(ui, generic, text-darker) !default;
+$mobile-menu-button-height: 54px;
+$mobile-menu-button-width: 44px;
+$mobile-menu-font-size: gesso-font-size(2);
+$mobile-menu-line-height: gesso-line-height(base);
 
 .mobile-menu {
-  @include breakpoint(gesso-breakpoint(sm)) {
-    display: none;
+  background-color: $mobile-menu-fallback-bg-color;
+  background-color: $mobile-menu-bg-color;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
+}
+
+.mobile-menu__menu {
+  @include list-clean;
+  margin: 0.75em 0 0;
+}
+
+.mobile-menu__item {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.mobile-menu__link {
+  background-color: transparent;
+  border: 0;
+  color: $mobile-menu-link-color;
+  display: block;
+  font-family: gesso-font-family(system);
+  font-size: rem($mobile-menu-font-size);
+  font-weight: gesso-font-weight(bold);
+  line-height: $mobile-menu-line-height;
+  margin: 0;
+  padding: rem(($mobile-menu-button-height - ($mobile-menu-font-size * $mobile-menu-line-height)) / 2) rem(gesso-spacing(sm));
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  width: auto;
+  z-index: 3;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.is-active {
+    color: $mobile-menu-link-hover-color;
+  }
+
+  &.has-subnav {
+    margin-right: $mobile-menu-button-width;
   }
 }
 
-.mobile-menu__bar {
-  background-color: $mobile-menu-bg-color;
-  border-bottom: 1px solid $mobile-menu-border-color;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
-  color: $mobile-menu-text-color;
-  height: em(55px);
-  text-align: center;
-}
-
-.mobile-menu__button {
-  background-color: transparent;
+.mobile-menu__subnav-arrow {
+  @include image-replace($mobile-menu-button-width, $mobile-menu-button-height);
+  @include svg-background-inline(mobile-arrow-down);
+  background-attachment: initial;
+  background-color: initial;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 19px 12px;
   border: 0;
-  border-radius: 0;
   box-shadow: none;
-  color: $mobile-menu-text-color;
+  cursor: pointer;
   display: inline-block;
-  font-family: gesso-font-family(system);
-  font-size: rem(gesso-font-size(1));
-  font-weight: bold;
-  height: em(55px);
-  line-height: em(55px);
-  margin: 0;
-  padding: 0 1em;
-  text-decoration: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  vertical-align: top;
+  z-index: 2;
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      left: 0;
+      right: auto;
+    }
+  }
 
   &:focus {
     outline: thin dotted;
   }
-}
 
-.mobile-menu__button--menu {
-  border-right: 1px solid $mobile-menu-border-color;
-  float: left;
-}
-
-.mobile-menu__button--search {
-  border-left: 1px solid $mobile-menu-border-color;
-  float: right;
-}
-
-.mobile-menu__icon {
-  @include image-replace(22px, 22px);
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: 22px 22px;
-  display: inline-block;
-  margin-top: 1em;
-}
-
-%mobile-menu__icon--close {
-  @include svg-background-inline(mobile-close);
-}
-
-.mobile-menu__icon--menu {
-  @include svg-background-inline(mobile-menu);
-  background-size: 33px 22px;
-  width: 33px;
-
-  .is-active & {
-    @extend %mobile-menu__icon--close;
-    background-size: 22px 22px;
+  &[aria-expanded="true"] {
+    @include svg-background-inline(mobile-arrow-up);
   }
 }
 
-.mobile-menu__icon--search {
-  @include svg-background-inline(mobile-search);
-
-  .is-active & {
-    @extend %mobile-menu__icon--close;
-  }
-}
-
-.mobile-menu__links {
-  background-color: $mobile-menu-fallback-bg-color;
-  background-color: $mobile-menu-bg-color;
-  color: $mobile-menu-text-color;
-  position: absolute;
-  width: 100%;
-  z-index: 100;
-}
-
-.mobile-menu__search {
+.mobile-menu__subnav {
+  background-color: $mobile-menu-submenu-fallback-bg-color;
+  background-color: $mobile-menu-submenu-bg-color;
   display: none;
-  padding: 0.5em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-  form,
-  .form-item,
-  .form-text {
-    width: 100%;
-  }
+  .mobile-menu__link {
+    color: $mobile-menu-submenu-link-color;
+    padding-left: gesso-spacing(md);
 
-  .form-text {
-    box-sizing: border-box;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $mobile-menu-submenu-link-hover-color;
+    }
   }
 }

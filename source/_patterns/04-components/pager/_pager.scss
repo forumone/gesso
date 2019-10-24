@@ -10,7 +10,6 @@ $pager-link-focus-outline-color: gesso-color(ui, generic, border-dark) !default;
 $pager-ellipsis-bp: 800px !default;
 $pager-bp: 600px !default;
 
-
 .pager__items {
   @include list-clean();
   clear: both;

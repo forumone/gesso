@@ -2,8 +2,16 @@
 // Styles for Tabs.
 
 $tab-background-color: gesso-color(ui, generic, background-light) !default;
-$tab-background-color-active: gesso-color(ui, generic, background-dark) !default;
-$tab-background-color-disabled: gesso-color(ui, generic, background-light) !default;
+$tab-background-color-active: gesso-color(
+  ui,
+  generic,
+  background-dark
+) !default;
+$tab-background-color-disabled: gesso-color(
+  ui,
+  generic,
+  background-light
+) !default;
 $tab-background-color-hover: gesso-color(ui, generic, background) !default;
 $tab-border-color: gesso-color(ui, generic, border) !default;
 $tab-border-radius: 0 !default;
@@ -71,8 +79,8 @@ $tab-text-color-hover: gesso-color(text, on-light) !default;
     background-color: $tab-background-color-hover;
   }
 
-  &:hover,
-  &:visited {
+  &:visited,
+  &:hover {
     color: $tab-text-color;
   }
 

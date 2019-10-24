@@ -8,8 +8,8 @@ a {
   -webkit-text-decoration-skip: objects;
   transition: color gesso-duration(short) gesso-easing(ease-in);
 
-  &:active,
-  &:hover {
+  &:hover,
+  &:active {
     outline: 0;
   }
 
@@ -56,7 +56,6 @@ a {
 }
 
 abbr {
-
   &[title] {
     border-bottom: 0;
     text-decoration: underline;

@@ -14,8 +14,8 @@
 %focusable {
   @extend %visually-hidden;
 
-  &:active,
-  &:focus {
+  &:focus,
+  &:active {
     @extend %visually-hidden-off;
   }
 }

@@ -3,9 +3,21 @@
 
 $button-border-radius: 0 !default;
 $button-background-color: gesso-color(button, primary, background) !default;
-$button-background-color-active: gesso-color(button, primary, background-active) !default;
-$button-background-color-disabled: gesso-color(button, disabled, background) !default;
-$button-background-color-hover: gesso-color(button, primary, background-hover) !default;
+$button-background-color-active: gesso-color(
+  button,
+  primary,
+  background-active
+) !default;
+$button-background-color-disabled: gesso-color(
+  button,
+  disabled,
+  background
+) !default;
+$button-background-color-hover: gesso-color(
+  button,
+  primary,
+  background-hover
+) !default;
 $button-text-color: gesso-color(button, primary, text) !default;
 $button-text-color-active: gesso-color(button, primary, text-active) !default;
 $button-text-color-disabled: gesso-color(button, disabled, text) !default;
@@ -22,7 +34,8 @@ $button-font-size: gesso-base-font-size() !default;
   $color-background-disabled: $button-background-color-disabled,
   $color-text-disabled: $button-text-color-disabled,
   $border-radius: $button-border-radius,
-  $font-size: $button-font-size) {
+  $font-size: $button-font-size
+) {
   background-color: $color-background;
   border: 0;
   border-radius: $border-radius;

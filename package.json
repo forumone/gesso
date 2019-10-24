@@ -1,6 +1,6 @@
 {
   "name": "gesso",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A Drupal theme.",
   "bugs": "https://github.com/forumone/gesso/issues",
   "repository": {
@@ -11,30 +11,53 @@
   "private": true,
   "themePath": ".",
   "main": "gulpfile.js",
-  "browserslist": "> 1%, last 3 versions",
+  "browserslist": [
+    "explorer >= 11",
+    "last 3 versions",
+    ">1% and not dead"
+  ],
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
     "@pattern-lab/cli": "1.0.4",
     "@pattern-lab/core": "3.0.5",
     "@pattern-lab/engine-twig-php": "3.0.6",
     "@pattern-lab/uikit-workshop": "1.0.8",
     "autoprefixer": "^9.6.0",
+    "babel-loader": "^8.0.6",
     "breakpoint-sass": "^2.7.1",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-implicit-dependencies": "^1.0.4",
+    "eslint-plugin-prettier": "^3.1.1",
+    "glob": "^7.1.4",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.0.9",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^9.0.0",
     "nani": "2.3.1",
+    "path": "^0.12.7",
     "postcss-assets": "^5.0.0",
     "prettier": "^1.18.2",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-sass-guidelines": "^6.0.0",
+    "stylelint-selector-pseudo-class-lvhfa": "^2.0.0",
+    "terser-webpack-plugin": "^1.4.1",
+    "webpack": "^4.40.2",
     "yaml": "1.6.0"
   },
   "scripts": {
     "component": "node lib/component.js"
+  },
+  "dependencies": {
+    "lightercollective": "^0.3.0"
   }
 }

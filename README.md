@@ -1,9 +1,9 @@
 # Gesso
 
-Gesso is a [Sass](http://sass-lang.com/)-based and [Pattern Lab](https://patternlab.io) integrated starter theme that outputs
-accessible HTML5 markup. It uses a mobile-first responsive approach and
-leverages [SMACSS](https://smacss.com/) to organize styles as outlined in the
-[Drupal 8 CSS architecture guidelines](https://www.drupal.org/node/1887918).
+Gesso is a [Sass](http://sass-lang.com/)-based and [Pattern Lab](https://patternlab.io)
+integrated starter theme that outputs accessible HTML5 markup. It uses a
+mobile-first responsive approach and leverages [SMACSS](https://smacss.com/) to
+organize styles as outlined in the [Drupal 8 CSS architecture guidelines](https://www.drupal.org/node/1887918).
 This encourages a component-based approach to theming through the creation of
 discrete, reusable UI elements. Gesso is heavily integrated with
 [Pattern Lab](http://patternlab.io/) and the
@@ -17,7 +17,7 @@ To submit bug reports or feature requests, visit the
 [Gesso issue queue](https://github.com/forumone/gesso/issues).
 Also available for [WordPress](https://github.com/forumone/gesso-wp).
 
-### Global Prerequisites
+## Global Prerequisites
 
 The following packages need to be installed on your system in order to use
 Gesso.
@@ -25,7 +25,8 @@ Gesso.
 - [npm](https://www.npmjs.com/get-npm)
 - [gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
 
-In addition, in order to compile Twig files, Pattern Lab requires that PHP be available on the command line.
+In addition, in order to compile Twig files, Pattern Lab requires that PHP be
+available on the command line.
 
 ## Installation
 
@@ -36,8 +37,8 @@ In addition, in order to compile Twig files, Pattern Lab requires that PHP be av
 
 2. Install the
    [Component Libraries](https://www.drupal.org/project/components) module.
-   Since many of the Drupal templates reference twig files inside Pattern Lab using
-   Twig namespaces, this module is required for the theme to function.
+   Since many of the Drupal templates reference twig files inside Pattern Lab
+   using Twig namespaces, this module is required for the theme to function.
 
 3. Enable the Gesso Helpers module. This module comes packaged with the theme,
    but must be manually enabled for the theme to function.
@@ -60,7 +61,7 @@ Type `drush help gesso` for more information. If you get an error that the
 `gesso` command is not defined, make sure you have enabled the Gesso Helper
 module.
 
-If you can’t use Drush, then manually replace all instances of 'gesso'
+If you can’t use Drush, then manually replace all instances of `gesso`
 within this directory with a machine-readable name of your choice, including
 folder names, filenames, and all occurrences within files. This custom name must
 start with a letter and may only contain lowercase letters, numbers, and
@@ -81,7 +82,8 @@ the following NPM command in the theme folder.
 npm install
 ```
 
-To initiate the Gulp build tasks that compile the Sass and Pattern Lab files and watch for changes, run the following command in the theme directory:
+To initiate the Gulp build tasks that compile the Sass and Pattern Lab files and
+watch for changes, run the following command in the theme directory:
 
 ```
 gulp
@@ -95,11 +97,18 @@ gulp build
 
 ### Accessing Pattern Lab
 
-To access the Pattern Lab instance, append `/pattern-lab/index.html` to your site URL and theme directory (e.g. http://localhost:8080/themes/gesso/pattern-lab/index.html) or, if developing locally, just open that index.html file directly in the browser from your file system.
+To access the Pattern Lab instance, append `/pattern-lab/index.html` to your
+site URL and theme directory (e.g. http://localhost:8080/themes/gesso/pattern-lab/index.html)
+or, if developing locally, just open that index.html file directly in the
+browser from your file system.
 
 ### Design Tokens
 
-Gesso uses a configuration file 'source/\_patterns/00-config/config.design-tokens.yml' to manage the theme's design tokens and automatically generate the global sass map for styling and patterns to represent the theme's design tokens. The default gulp command will monitor changes in the config and rebuild all neccessary assets. To rebuild the theme assets a single time run `gulp gessoBuild`
+Gesso uses a configuration file `source/\_patterns/00-config/config.design-tokens.yml`
+to manage the theme’s design tokens and automatically generate the global sass
+map for styling and patterns to represent the theme’s design tokens. The default
+gulp command will monitor changes in the config and rebuild all necessary
+assets. To rebuild the theme assets a single time run `gulp build`
 
 #### Design Token Colors
 
@@ -251,8 +260,8 @@ npm run component
 
 By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/
 and /css/\*.css) as well as some configuration artifacts (e.g., design-tokens.artifact.yml,
-\_design-tokens.artifact.scss) are ignored by Git as these files are generated when
-the Gulp tasks run. To change this, edit the included .gitignore file.
+\_design-tokens.artifact.scss) are ignored by Git as these files are generated
+when the Gulp tasks run. To change this, edit the included `.gitignore` file.
 
 ### Sass/Gulp dependencies
 
@@ -278,6 +287,11 @@ have it ignore code in two ways:
 
 2. To ignore several lines, add `/* stylelint-disable */` before the code in
    question and add `/* stylelint-enable */` afterwards.
+
+### JavaScript
+
+See the README.md file in the /js directory for details on included scripts
+(e.g., mobile menu, primary menu, etc.).
 
 ## Maintainers
 

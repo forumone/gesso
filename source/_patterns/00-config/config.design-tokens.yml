@@ -116,13 +116,17 @@ gesso:
     ui:
       generic:
         background: grayscale.gray-4
+        background-darker: grayscale.black
         background-dark: grayscale.gray-6
         background-light: grayscale.gray-2
+        background-lighter: grayscale.gray-1
         border: grayscale.gray-4
         border-dark: grayscale.gray-6
         border-light: grayscale.gray-2
+        text-lighter: grayscale.white
         text-light: grayscale.gray-4
         text-dark: grayscale.gray-5
+        text-darker: grayscale.black
         accent: brand.blue.base
         accent-dark: brand.blue.dark-1
         accent-light: brand.blue.light
