@@ -1,5 +1,9 @@
-{% extends '@layouts/regions/header/header.twig' %}
+{% embed '@layouts/header/header.twig' with {
+  'has_constrain': true
+} %}
 
   {% block content %}
     {{ content }}
   {% endblock %}
+
+{% endembed %}

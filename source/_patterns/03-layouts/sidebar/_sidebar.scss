@@ -1,0 +1,67 @@
+// @file
+// Styles for the Sidebar Layout.
+
+$l-sidebar-bp: 900px;
+$l-sidebar-width: 300px;
+$l-sidebar-gutter: rem(gesso-spacing(sm));
+
+.l-sidebar {
+  @include breakpoint($l-sidebar-bp) {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      flex-basis: calc(100% - #{$l-sidebar-width} - #{$l-sidebar-gutter * 2});
+      flex-grow: 1;
+      flex-shrink: 1;
+      margin-right: $l-sidebar-gutter;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .l-sidebar__full {
+      flex-basis: 100%;
+      flex-grow: 1;
+      flex-shrink: 1;
+      margin-right: 0;
+    }
+
+    .l-sidebar__sidebar {
+      flex-basis: #{$l-sidebar-width};
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+
+    // For Browsers that support CSS Grid
+    @supports (display:grid) {
+      display: grid;
+      grid-gap: $l-sidebar-gutter;
+      grid-template-columns: 1fr $l-sidebar-width;
+
+      .l-sidebar__full {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+
+.l-sidebar--multi-2 {
+  @include breakpoint($l-sidebar-bp) {
+    > * {
+      flex-basis: calc(100% - #{$l-sidebar-width + $l-sidebar-width} - #{$l-sidebar-gutter * 3});
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    @supports (display:grid) {
+      grid-template-columns: $l-sidebar-width 1fr $l-sidebar-width;
+
+      .l-sidebar__full {
+        grid-column: span 3;
+      }
+    }
+  }
+}

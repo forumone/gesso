@@ -1,0 +1,269 @@
+# Design Tokens
+# Define basic design variables here.
+gesso:
+  palette:
+    brand:
+      blue:
+        base: '#0071BC'
+        light: '#4773aa'
+        light-1: '#8ba6ca'
+        light-2: '#dce4ef'
+        dark: '#205493'
+        dark-1: '#112E51'
+      ocean-blue:
+        base: '#02bfe7'
+        light: '#9bdaf1'
+        light-1: '#e1f3f8'
+        dark: '#00a6d2'
+        dark-1: '#046b99'
+    grayscale:
+      white: '#fff'
+      gray-1: '#f7f7f7'
+      gray-2: '#f1f1f1'
+      gray-3: '#d6d7d9'
+      gray-4: '#aeb0b5'
+      gray-5: '#5b616b'
+      gray-6: '#323a45'
+      black: '#212121'
+    other:
+      yellow:
+        base: '#fad980'
+        light: '#fff1d2'
+      yellow-neon:
+        base: '#ff0'
+      green:
+        base: '#94bfa2'
+        light: '#e7f4e4'
+      red:
+        base: '#e31c3d'
+        light: '#e59393'
+        light-1: '#f9dede'
+        dark: '#cd2026'
+        dark-1: '#981b1e'
+  box-shadow:
+    0: none
+    1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+    2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+    3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)
+    4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+    5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22)
+  constrains:
+    sm: 800px
+    md: 1440px
+    lg: 2200px
+  breakpoints:
+    xs: 480px
+    sm: 700px
+    md: 960px
+    lg: 1280px
+  colors:
+    text:
+      primary: grayscale.black
+      secondary: grayscale.gray-5
+      on-light: grayscale.black
+      on-dark: grayscale.white
+      link: brand.blue.base
+      link-hover: brand.blue.dark
+      link-visited: brand.blue.dark
+    background:
+      site: grayscale.white
+    button:
+      primary:
+        background: brand.blue.base
+        background-hover: brand.blue.dark
+        background-active: brand.blue.dark-1
+        text: grayscale.white
+        text-hover: grayscale.white
+        text-active: grayscale.white
+      secondary:
+        background: brand.ocean-blue.base
+        background-hover: brand.ocean-blue.dark
+        background-active: brand.ocean-blue.dark-1
+        text: grayscale.white
+        text-hover: grayscale.white
+        text-active: grayscale.white
+      disabled:
+        background: grayscale.gray-2
+        text: grayscale.gray-4
+      danger:
+        background: other.red.base
+        background-hover: other.red.dark
+        background-active: other.red.dark-1
+        text: grayscale.white
+        text-hover: grayscale.white
+        text-active: grayscale.white
+    form:
+      background: grayscale.gray-1
+      background-active: grayscale.white
+      background-checked: brand.blue.base
+      background-unchecked: grayscale.white
+      border: grayscale.gray-3
+      border-dark: grayscale.gray-5
+      border-light: grayscale.gray-1
+      thumb: grayscale.gray-5
+      track: grayscale.gray-4
+    mark:
+      background: other.yellow-neon.base
+      text: grayscale.black
+    selection:
+      background: brand.blue.base
+      text: grayscale.white
+    table:
+      border: grayscale.gray-5
+      background: grayscale.white
+      background-head: grayscale.gray-2
+      background-foot: grayscale.gray-2
+    ui:
+      generic:
+        background: grayscale.gray-4
+        background-darker: grayscale.black
+        background-dark: grayscale.gray-6
+        background-light: grayscale.gray-2
+        background-lighter: grayscale.gray-1
+        border: grayscale.gray-4
+        border-dark: grayscale.gray-6
+        border-light: grayscale.gray-2
+        text-lighter: grayscale.white
+        text-light: grayscale.gray-4
+        text-dark: grayscale.gray-5
+        text-darker: grayscale.black
+        accent: brand.blue.base
+        accent-dark: brand.blue.dark-1
+        accent-light: brand.blue.light
+      error:
+        background: other.red.light-1
+        border: other.red.light
+      success:
+        background: other.green.light
+        border: other.green.base
+      warning:
+        background: other.yellow.light
+        border: other.yellow.base
+  typography:
+    font-family:
+      primary:
+        name: Primary
+        stack: '"Source Sans Pro", Arial, sans-serif'
+      system:
+        name: System
+        stack: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Oxygen-Sans", Ubuntu, Cantarell, "Fira Sans", Droid Sans, sans-serif'
+      monospace:
+        name: Monospace
+        stack: 'Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif'
+    base-font-size: 16px
+    font-size:
+      0: 12px
+      1: 16px
+      2: 20px
+      3: 24px
+      4: 32px
+      5: 40px
+      6: 48px
+      7: 56px
+      8: 64px
+      9: 72px
+    font-weight:
+      light: 300
+      regular: 400
+      semibold: 600
+      bold: 700
+    line-height:
+      tight: 1.1
+      base: 1.45
+      loose: 1.7
+    display:
+      display:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 8
+        font-weight: bold
+        line-height: tight
+      h1:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 6
+        font-weight: bold
+        line-height: tight
+      h2:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 5
+        font-weight: bold
+        line-height: tight
+      h3:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 4
+        font-weight: bold
+        line-height: tight
+      h4:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 3
+        font-weight: bold
+        line-height: base
+      h5:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 1
+        font-weight: bold
+        line-height: base
+      h6:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 0
+        font-weight: semibold
+        letter-spacing: -0.04em
+        line-height: loose
+        text-transform: uppercase
+      blockquote:
+        color: text.link
+        font-family: primary.stack
+        font-size: 3
+        font-weight: regular
+        line-height: base
+      body:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 1
+        font-weight: regular
+        line-height: base
+      body-large:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 2
+        font-weight: regular
+        line-height: base
+      cite:
+        color: text.secondary
+        font-family: primary.stack
+        font-size: 0
+        font-style: normal
+        font-weight: semibold
+        letter-spacing: .02em
+        line-height: tight
+  transitions:
+    ease:
+      ease-in-out: 'cubic-bezier(0.4, 0, 0.2, 1)'
+      ease-out: 'cubic-bezier(0.0, 0, 0.2, 1)'
+      ease-in: 'cubic-bezier(0.4, 0, 1, 1)'
+      sharp: 'cubic-bezier(0.4, 0, 0.6, 1)'
+    duration:
+      shortest: 150ms
+      short: 200ms
+      standard: 375ms
+      long: 400ms
+      intro: 270ms
+      outro: 195ms
+  z-index:
+    nav: 1000
+    drawer: 1200
+    modal: 1300
+  spacing:
+    xxs: 4px
+    xs: 8px
+    sm: 16px
+    md: 24px
+    lg: 40px
+    xl: 56px
+    xxl: 96px

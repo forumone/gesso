@@ -1,0 +1,76 @@
+{% set page_content %}
+
+  {# createa an empty array for row content #}
+  {% set rows_content = [] %}
+  {# define some cards as dummy content for view,
+    formatting the rows array as view-view-unformatted expects #}
+  {% for card in grid_cards %}
+    {% set card_item %}
+      {% include '@components/card/card.twig' with {
+        'title': card.title,
+        'url': card.url,
+        'media': card.media,
+        'date': card.date,
+        'tags': card.tags,
+        'read_more': card.read_more,
+        'content': card.content
+      } %}
+    {% endset %}
+    {% set rows_content = rows_content|merge([{
+      'content': card_item
+    }]) %}
+  {% endfor %}
+
+  {# define an unformatted content display of a view with the dummy content #}
+  {% set grid_content %}
+    {% include '@components/view/views-view-unformatted/views-view-unformatted.twig' with {
+      'title': false,
+      'has_wrapper': false,
+      'rows': rows_content
+    } %}
+  {% endset %}
+
+  {# define rows as a grid with the unformatted view dummy content inside #}
+  {% set rows %}
+    {% include '@layouts/grid/grid.twig' with {
+      'modifier_classes': 'l-grid--3col',
+      'content': grid_content
+    } %}
+  {% endset %}
+
+  {# define a dummy pager for the view #}
+  {% set pager %}
+    {% include '@components/pager/pager.twig' with {
+      'items': {
+        'pages': {
+          '1': { url: '#' },
+          '2': { url: '#' },
+          '3': { url: '#' },
+          '4': { url: '#' }
+        },
+        'next': true
+      }
+    } %}
+  {% endset %}
+
+  {# define the content for the landing page template as a view, using dummy content from above #}
+  {% set content %}
+    {% include '@components/view/views-view/views-view.twig' with {
+      'title': false,
+      'pager': pager,
+      'rows': rows
+    } %}
+  {% endset %}
+
+  {# include landing page template #}
+  {% include '@templates/landing-page.twig' with {
+    'landing_page_title': title,
+    'landing_page_content': content
+  } %}
+
+{% endset %}
+
+{# pass page_content to default page wrapper #}
+{% include '@pages/_page-default.twig' with {
+  'content': page_content
+} %}

@@ -10,8 +10,8 @@
 .visually-hidden {
   @include visually-hidden-important;
   &.focusable {
-    &:active,
-    &:focus {
+    &:focus,
+    &:active {
       @include visually-hidden-off-important;
     }
   }
@@ -27,7 +27,7 @@
 
 // Styles for accessible skiplinks.
 .skiplinks {
-  @extend %system-font-family;
+  font-family: gesso-font-family(system);
   left: 50%;
   margin-left: -7em;
   position: absolute;

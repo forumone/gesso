@@ -1,0 +1,39 @@
+{% set additional_attributes = {
+  'class': ['article']
+} %}
+
+<article {{ add_attributes(additional_attributes) }}>
+  {% block title %}
+    {% include '@components/page-title/page-title.twig' with {
+      'page_title': article_page_title
+    } %}
+  {% endblock %}
+
+  {% if has_footer %}
+    <footer class="article__footer">
+      {% block footer %}
+        {% set article_date %}
+          {% include '@components/date/date.twig' with {
+            'format': 'medium-date'
+          } %}
+        {% endset %}
+        {% set article_author %}
+          {% include '@components/author/author.twig' with {
+              'author': 'Author Name'
+            } %}
+        {% endset %}
+        {% include '@components/list/list.twig' with {
+          'modifier_classes': 'list--pipeline',
+          'list': [
+            { 'text': article_date },
+            { 'text': article_author }
+          ]
+        } %}
+      {% endblock %}
+    </footer>
+  {% endif %}
+
+  {% block main %}
+    {{ content }}
+  {% endblock %}
+</article>

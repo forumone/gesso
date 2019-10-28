@@ -1,0 +1,11 @@
+<div class="pattern-lab__box-shadow-group">
+  {% for  elevation, box_shadow in gesso['box-shadow'] %}
+    {% set box_style = 'box-shadow: '~ box_shadow ~';' %}
+    <div class="pattern-lab__box-shadow-item" style="{{box_style}}">
+      <div class="pattern-lab__box-shadow-label">
+        Elevation Level
+        {{elevation}}
+      </div>
+    </div>
+  {% endfor %}
+</div>

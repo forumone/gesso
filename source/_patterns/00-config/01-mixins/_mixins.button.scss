@@ -1,0 +1,76 @@
+// @file
+// Button styles
+
+$button-border-radius: 0 !default;
+$button-background-color: gesso-color(button, primary, background) !default;
+$button-background-color-active: gesso-color(
+  button,
+  primary,
+  background-active
+) !default;
+$button-background-color-disabled: gesso-color(
+  button,
+  disabled,
+  background
+) !default;
+$button-background-color-hover: gesso-color(
+  button,
+  primary,
+  background-hover
+) !default;
+$button-text-color: gesso-color(button, primary, text) !default;
+$button-text-color-active: gesso-color(button, primary, text-active) !default;
+$button-text-color-disabled: gesso-color(button, disabled, text) !default;
+$button-text-color-hover: gesso-color(button, primary, text-hover) !default;
+$button-font-size: gesso-base-font-size() !default;
+
+@mixin button(
+  $color-background: $button-background-color,
+  $color-text: $button-text-color,
+  $color-background-hover: $button-background-color-hover,
+  $color-text-hover: $button-text-color-hover,
+  $color-background-active: $button-background-color-active,
+  $color-text-active: $button-text-color-active,
+  $color-background-disabled: $button-background-color-disabled,
+  $color-text-disabled: $button-text-color-disabled,
+  $border-radius: $button-border-radius,
+  $font-size: $button-font-size
+) {
+  background-color: $color-background;
+  border: 0;
+  border-radius: $border-radius;
+  color: $color-text;
+  cursor: pointer;
+  display: inline-block;
+  font-family: gesso-font-family(primary);
+  font-size: rem($font-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: gesso-font-weight(bold);
+  line-height: gesso-line-height(base);
+  padding: rem(gesso-spacing(xs)) rem(gesso-spacing(sm));
+  text-align: center;
+  text-decoration: none;
+  transition: background gesso-duration(short) gesso-easing(ease-in);
+  vertical-align: top;
+  white-space: normal;
+
+  &:hover,
+  &:focus {
+    background-color: $color-background-hover;
+    color: $color-text-hover;
+    outline: 0;
+  }
+
+  &:active {
+    background-color: $color-background-active;
+    color: $color-text-active;
+  }
+
+  &[disabled] {
+    background-color: $color-background-disabled;
+    color: $color-text-disabled;
+    cursor: default;
+    pointer-events: none;
+  }
+}

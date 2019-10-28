@@ -1,0 +1,15 @@
+{% set page_content %}
+
+  {# include article template #}
+  {% include '@templates/article.twig' with {
+    'article_title': title,
+    'article_content': content,
+    'article_has_footer': true
+  } %}
+
+{% endset %}
+
+{# pass page_content to default page wrapper #}
+{% include '@pages/_page-default.twig' with {
+  'content': page_content
+} %}

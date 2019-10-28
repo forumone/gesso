@@ -1,0 +1,82 @@
+// @file
+// Styles for the main menu.
+
+.menu--main {
+  @include list-inline;
+
+  .menu__link.has-subnav {
+    position: relative;
+  }
+
+  > .menu__item {
+    display: inline-block;
+    position: relative;
+
+    > .menu__link {
+      display: inline-block;
+      font-weight: gesso-font-weight(semibold);
+      margin-right: gesso-spacing(lg);
+      padding: 0;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &.has-subnav {
+        padding-right: 25px;
+      }
+
+      &.has-subnav::after {
+        @include image-replace(16px, 16px);
+        @include svg-background(menu-arrow-down);
+        background-size: 16px 16px;
+        content: '';
+        display: block;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-40%);
+      }
+    }
+  }
+
+  .menu__subnav {
+    background-color: gesso-color(ui, generic, background-dark);
+    display: none;
+    left: 0;
+    margin: gesso-spacing(xs) 0 0 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+
+    .menu__link {
+      @include link(gesso-color(ui, generic, text-lighter));
+      display: block;
+      line-height: gesso-line-height(tight);
+      padding: rem(gesso-spacing(sm)) rem(gesso-spacing(md));
+      position: relative;
+      text-decoration: none;
+      width: rem(200px);
+
+      &:hover,
+      &:focus {
+        background-color: gesso-color(ui, generic, background-darker);
+      }
+
+      &.has-subnav::after {
+        @include image-replace(16px, 16px);
+        @include svg-background(menu-arrow-right);
+        background-size: 16px 16px;
+        content: '';
+        display: block;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .menu__subnav {
+      margin: 0;
+    }
+  }
+}

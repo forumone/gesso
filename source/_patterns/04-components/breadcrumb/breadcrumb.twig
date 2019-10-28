@@ -1,0 +1,18 @@
+<nav aria-labelled="breadcrumb-label" class="breadcrumb {{ modifier_classes }}" role="navigation">
+  <div class="l-constrain">
+    <h2 class="breadcrumb__title visually-hidden" id="breadcrumb-label">{{ heading|default('You are here') }}</h2>
+    <ol class="breadcrumb__list">
+      {% for item in breadcrumb %}
+        <li class="breadcrumb__item">
+          {% if item.url %}
+            <a class="breadcrumb__link" href="{{ item.url }}">{{ item.text }}</a>
+          {% else %}
+            <span aria-current="page">
+              {{ item.text }}
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</nav>
