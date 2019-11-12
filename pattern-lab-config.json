@@ -239,6 +239,10 @@
         {
           "file": "source/_twig-components/functions/url.function.php",
           "functions": ["addUrlFunction"]
+        },
+        {
+          "file": "source/_twig-components/functions/create_attribute.function.php",
+          "functions": ["addCreateAttributeFunction"]
         }
       ]
     }
