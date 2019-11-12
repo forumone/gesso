@@ -227,3 +227,10 @@ items:
             attributes:
               class: ''
         in_active_trail: false
+menu_class:
+  - 'primary-nav'
+item_class:
+  - 'primary-nav__item'
+link_class:
+  - 'primary-nav__link'
+  - 'special-link-class'
