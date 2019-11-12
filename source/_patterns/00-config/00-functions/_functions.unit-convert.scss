@@ -14,3 +14,59 @@
     @return $value;
   }
 }
+
+/// Convert values to px.
+// @param {Number} $value - Value to convert. Can be px, em, or rem.
+//   If unitless, pixels are assumed.
+// @param {Number} $base - Base font size in pixels.
+// @return {Number} - Value in pixels.
+
+@function px($value, $base: gesso-get-map(typography, base-font-size)) {
+  @if unitless($value) {
+    @return convert($value, px);
+  }
+  @if (type-of($base) != 'number' or unit($base) != 'px') {
+    @error "Base font size must be in pixels.";
+  }
+  @return strip-unit($value) * $base;
+}
+
+/// Convert values to em.
+// @param {Number} $value - Value to convert. Can be px, em, or rem.
+//   If unitless, pixels are assumed.
+// @param {Number} $base - Base font size in pixels.
+// @return {Number} - Value in ems.
+
+@function em($value, $base: gesso-get-map(typography, base-font-size)) {
+  @if (type-of($base) != 'number' or unit($base) != 'px') {
+    @error "Base font size must be in pixels.";
+  }
+  @if (type-of($value) == 'number' and unit($value) != 'em') {
+    @if (unit($value) != 'px') {
+      $value: px($value, $base);
+    }
+    @return ($value / $base) * 1em;
+  }
+  @return $value;
+}
+
+/// Convert values to rem.
+// @param {Number} $value - Value to convert. Can be px, em, or rem.
+//   If unitless, pixels are assumed. If ems, size will be converted using
+//   the same base (so 0.5em is equal to 0.5rem). If you want to convert using
+//   a different font size, do rem(px($emValue, $emBase), $remBase).
+// @param {Number} $base - Base font size in pixels.
+// @return {Number} - Value in rems.
+
+@function rem($value, $base: gesso-get-map(typography, base-font-size)) {
+  @if (type-of($base) != 'number' or unit($base) != 'px') {
+    @error "Base font size must be in pixels.";
+  }
+  @if (type-of($value) == 'number' and unit($value) != 'rem') {
+    @if (unit($value) != 'px') {
+      $value: px($value, $base);
+    }
+    @return ($value / $base) * 1rem;
+  }
+  @return $value;
+}
