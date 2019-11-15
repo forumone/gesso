@@ -1,0 +1,14 @@
+---
+modifier_classes: false
+has_overlay: true
+hero_media: |-
+  <picture>
+    <source srcset="https://picsum.photos/1600/800?image=11" media="(min-width: 1024px)" type="image/jpeg">
+    <source srcset="https://picsum.photos/1200/600?image=11" media="(min-width: 760px)" type="image/jpeg">
+    <source srcset="https://picsum.photos/800/400?image=11" type="image/jpeg">
+    <img srcset="https://picsum.photos/1600/800?image=11" alt="Hero Image Alt Text">
+  </picture>
+hero_title: 'Hero Title'
+hero_summary: '<p>Hero summary text.</p>'
+hero_button_text: 'Hero Button'
+hero_button_url: '#'

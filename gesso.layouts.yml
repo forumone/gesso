@@ -1,0 +1,17 @@
+sidebar:
+  label: 'Gesso Sidebar'
+  category: 'Gesso Layouts'
+  template: templates/layout/layout--sidebar
+  default_region: main
+  regions:
+    header:
+      label: Header
+    main:
+      label: Main content
+    sidebar_first:
+      label: Sidebar First
+    sidebar_second:
+      label: Sidebar Second
+  icon_map:
+    - [header]
+    - [sidebar_first, main, main, sidebar_second]

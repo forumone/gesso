@@ -35,24 +35,25 @@
   */
 #}
 
-<div class="layout-container">
+{% extends '@layouts/site-container/site-container.twig' %}
+  {% block site_content %}
 
-  {{ page.header }}
+    {{ page.header }}
 
-  {{ page.navigation }}
+    {{ page.navigation }}
 
-  {{ page.breadcrumb }}
+    {{ page.breadcrumb }}
 
-  {{ page.highlighted }}
+    {{ page.highlighted }}
 
-  {{ page.help }}
+    {{ page.help }}
 
-  <main id="main" class="main" role="main" tabindex="-1">
-    {{ page.preface }}
-    {{ page.content }}
-    {{ page.postscript }}
-  </main>
+    <main id="main" class="main" role="main" tabindex="-1">
+      {{ page.preface }}
+      {{ page.content }}
+      {{ page.postscript }}
+    </main>
 
-  {{ page.footer }}
+    {{ page.footer }}
 
-</div>
+  {% endblock %}

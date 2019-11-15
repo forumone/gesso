@@ -1,0 +1,27 @@
+// @file
+// Universal styles.
+
+// Uncomment to add a set of default transitions to all elements
+// * {
+//   transition-duration: gesso-duration(short) ;
+//   transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+//   transition-timing-function: gesso-easing(ease-in);
+// }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@media print {
+  * {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+  @page {
+    margin: 2cm;
+  }
+}

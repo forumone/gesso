@@ -1,0 +1,127 @@
+// @file
+// Inline element styles.
+
+a {
+  background-color: transparent;
+  color: gesso-color(text, link);
+  outline-offset: em(2px); // Improves readability when focused.
+  -webkit-text-decoration-skip: objects;
+  transition: color gesso-duration(short) gesso-easing(ease-in);
+
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: gesso-color(text, link-hover);
+  }
+
+  &:active {
+    color: gesso-color(text, link-hover);
+  }
+
+  &:visited {
+    color: gesso-color(text, link-visited);
+  }
+
+  @media print {
+    &,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &[href]::after {
+      content: ' <' attr(href) '>';
+      font-family: gesso-font-family(primary);
+      font-size: 10pt;
+      font-weight: normal;
+      text-transform: lowercase;
+    }
+
+    // Uncomment and replace example.com with your site’s domain.
+    //&[href^='/']::after {
+    //  content: ' <http://example.com' attr(href) '>';
+    //}
+
+    &[href^='javascript:']::after,
+    &[href^='mailto:']::after,
+    &[href^='tel:']::after,
+    &[href^='#']::after,
+    &[href*='?']::after {
+      content: '';
+    }
+  }
+}
+
+abbr {
+  &[title] {
+    border-bottom: 0;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+  }
+
+  &:hover {
+    cursor: help;
+  }
+
+  @media print {
+    &[title]::after {
+      content: ' (' attr(title) ')';
+    }
+  }
+}
+
+// b {}
+
+cite {
+  @include display-text-style(cite);
+}
+
+// code {}
+
+// del {}
+
+dfn {
+  font-style: italic;
+}
+
+// em {}
+
+// i {}
+
+// ins {}
+
+// kbd {}
+
+mark {
+  background: gesso-color(mark, background);
+  color: gesso-color(mark, text);
+}
+
+// q {}
+
+// s {}
+
+// samp {}
+
+small {
+  font-size: 75%;
+}
+
+// strong {}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+// time {}
+
+// u {}
+
+// var {}

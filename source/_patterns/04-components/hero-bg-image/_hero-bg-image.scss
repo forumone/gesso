@@ -1,0 +1,70 @@
+// @file
+// Styles for hero using a background image.
+
+$hero-bg-image-bp: gesso-breakpoint(md) !default;
+
+.hero-bg-image {
+  background-position: 50% 50%;
+  background-size: cover;
+  color: gesso-color(text, on-dark);
+  padding: rem(gesso-spacing(xxl)) 15%;
+  text-align: center;
+
+  &.has-overlay {
+    position: relative;
+
+    &::after {
+      background: rgba(0, 0, 0, 0.5);
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    .hero-bg-image__content {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+
+.hero-bg-image__title {
+  @include display-text-style(display);
+  color: gesso-color(text, on-dark);
+  margin-bottom: rem(gesso-spacing(lg));
+
+  @include breakpoint(max-width $hero-bg-image-bp) {
+    font-size: rem(gesso-font-size(6));
+    margin-bottom: rem(gesso-spacing(md));
+  }
+}
+
+.hero-bg-image__summary {
+  @include display-text-style(body-large);
+  color: gesso-color(text, on-dark);
+  margin-bottom: rem(gesso-spacing(lg));
+
+  @include breakpoint(max-width $hero-bg-image-bp) {
+    font-size: rem(gesso-font-size(1));
+    margin-bottom: rem(gesso-spacing(md));
+  }
+}
+
+.hero-bg-image--left {
+  text-align: left;
+  @include breakpoint($hero-bg-image-bp) {
+    padding-left: 10%;
+    padding-right: 35%;
+  }
+}
+
+.hero-bg-image--right {
+  text-align: left;
+  @include breakpoint($hero-bg-image-bp) {
+    padding-left: 35%;
+    padding-right: 10%;
+  }
+}

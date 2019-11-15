@@ -2,31 +2,17 @@
 // This stylesheet is not loaded by the theme.
 @import 'breakpoint';
 
-@import '_patterns/00-global/**/*';
+@import '_patterns/00-config/**/*.scss';
+@import '_patterns/01-global/**/*.scss';
 
 // The container for the 'view all' screen, which contains the list of patterns.
-/* stylelint-disable-next-line selector-max-id */
-#sg-patterns {
+.pl-c-pattern-index {
   box-sizing: border-box !important;
-  max-width: em($max-page-width);
-  padding: 0 ($gutter-width / 2);
+  max-width: em(gesso-constrain(lg));
+  padding: 0 1em;
 }
 
-// Hide headers for some Gesso folders
-/* stylelint-disable selector-max-id */
-#viewall-global-config,
-#viewall-global-tools,
-#viewall-base-fonts,
-#viewall-base-normalize,
-#viewall-base-html-elements,
-#viewall-base-extendables,
-#viewall-layouts-constrain,
-#viewall-components-cms-styles {
-  /* stylelint-enable */
-  display: none;
-}
-
-// <html> tag class around content (e.g., _00-head.twig)
+// <html> tag class around content in Pattern Lab (see _00-head.twig)
 .pattern-lab-content {
   min-height: 0;
 }
@@ -42,10 +28,26 @@
     color: #666;
     text-decoration: none;
 
-    &:focus,
-    &:hover {
+    &:hover,
+    &:focus {
       color: #333;
     }
+  }
+}
+
+// override styles leaking into PL's tag class
+.pl-c-pattern-info {
+  .token.tag {
+    border: 0;
+    border-radius: 0;
+    box-shadow: inherit;
+    display: inherit;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+    text-align: inherit;
+    text-transform: none;
+    transition: inherit;
   }
 }
 
@@ -58,10 +60,6 @@
   padding: 0;
   text-align: center;
 
-  @include breakpoint(800px) {
-    flex-direction: row;
-  }
-
   li {
     display: block;
     width: 100%;
@@ -69,6 +67,10 @@
     @include breakpoint(800px) {
       margin: 1% 1% 1% 0;
     }
+  }
+
+  @include breakpoint(800px) {
+    flex-direction: row;
   }
 }
 
@@ -101,7 +103,7 @@
   left: 0;
   position: absolute;
   right: 0;
-  top: .55em;
+  top: 0.55em;
   transition: 0.2s all;
 }
 
@@ -165,7 +167,7 @@
 }
 
 .pattern-lab-font__preview-character {
-  font-size: 90px;
+  font-size: 75px;
   font-weight: 400;
   line-height: 1;
   text-align: center;
@@ -192,7 +194,7 @@
 
 .pattern-lab-font__name {
   color: #565454;
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   margin: 5px 0;
 }
@@ -207,4 +209,127 @@
   color: #000;
   font-size: 13px;
   margin-bottom: 5px;
+}
+
+// Box Shadow Group
+.pattern-lab__box-shadow-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pattern-lab__box-shadow-label {
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+}
+.pattern-lab__box-shadow-item {
+  display: flex;
+  flex: 0 0 200px;
+  height: 200px;
+  margin: 0 1rem 1rem;
+  width: 200px;
+}
+
+// Easing
+.pattern-lab-easing__wrapper {
+  background-color: #eee;
+  padding: 1rem;
+}
+
+.pattern-lab-easing__help-text {
+  margin-bottom: 1rem;
+}
+.pattern-lab-easing__indicator {
+  background-color: #666;
+  border-radius: 10%;
+  height: 75px;
+  left: 0;
+  margin-bottom: 0.5rem;
+  position: relative;
+  transition-duration: 1s;
+  transition-property: left;
+  width: 75px;
+}
+
+.pattern-lab-easing__item {
+  margin-bottom: 1rem;
+}
+
+.pattern-lab-easing__group {
+  padding: 0 150px 0 1rem;
+
+  &:hover {
+    .pattern-lab-easing__indicator {
+      left: 100%;
+    }
+  }
+}
+// Duration
+.pattern-lab-duration__wrapper {
+  margin-bottom: 1rem;
+}
+
+.pattern-lab-duration__help-text {
+  margin-bottom: 1rem;
+}
+.pattern-lab-duration__indicator {
+  background-color: #666;
+  border-radius: 50%;
+  display: inline-block;
+  height: 40px;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: all 2s ease-out;
+  width: 40px;
+}
+
+.pattern-lab-duration__item {
+  flex: 0 0 150px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.pattern-lab-duration__group {
+  background-color: #eee;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+
+  &:hover {
+    .pattern-lab-duration__indicator {
+      transform: scale(1.5);
+    }
+  }
+}
+
+$swatch-size: rem(150px);
+$swatch-padding: 1rem;
+
+.pattern-lab-color-swatch {
+  border: 1px solid #c1c1c1;
+  flex: 0 0 ($swatch-size + 2 * $swatch-padding);
+  margin: 0 $swatch-padding/2 $swatch-padding;
+  max-width: ($swatch-size + 2 * $swatch-padding);
+  padding: $swatch-padding;
+}
+
+.pattern-lab__color-group {
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $swatch-padding;
+}
+
+.pattern-lab-color-swatch__indicator {
+  height: $swatch-size;
+  margin-bottom: $swatch-padding;
+  width: $swatch-size;
+}
+
+.pattern-lab__text-style {
+  margin-bottom: 3rem;
+}
+
+.pattern-lab-text-style__label {
+  text-transform: uppercase;
 }

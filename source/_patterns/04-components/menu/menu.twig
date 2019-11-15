@@ -1,0 +1,72 @@
+{% import _self as menus %}
+
+{{ menus.menu_links(items, attributes, 0, menu_name, menu_class, item_class, link_class) }}
+
+{% macro menu_links(items, attributes, menu_level, menu_name, menu_class, item_class, link_class) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      {# double quotes around class using menu_name needed for interpolation #}
+      {% set additional_classes = [
+        'menu',
+        "menu--#{menu_name}"
+      ] %}
+      {% if menu_class %}
+        {% set additional_classes = additional_classes|merge(menu_class) %}
+      {% endif %}
+      {% set additional_attributes = {
+        'class': additional_classes
+      } %}
+      <ul {{ add_attributes(additional_attributes) }}>
+    {% else %}
+      <ul class="menu menu__subnav">
+    {% endif %}
+    {% for item in items %}
+
+      {% set item_classes = ['menu__item'] %}
+      {% set link_classes = ['menu__link'] %}
+
+      {% if item.below %}
+        {% set item_classes = item_classes|merge(['has-subnav']) %}
+        {% set link_classes = link_classes|merge(['has-subnav']) %}
+      {% endif %}
+      {% if item.in_active_trail %}
+        {% set item_classes = item_classes|merge(['is-active-trail']) %}
+        {% set link_classes = link_classes|merge(['is-active-trail']) %}
+      {% endif %}
+      {% if item.is_collapsed %}
+        {% set item_classes = item_classes|merge(['is-collapsed']) %}
+        {% set link_classes = link_classes|merge(['is-collapsed']) %}
+      {% endif %}
+      {% if item.is_expanded %}
+        {% set item_classes = item_classes|merge(['is-expanded']) %}
+        {% set link_classes = link_classes|merge(['is-expanded']) %}
+      {% endif %}
+      {% if item['original_link'].options.attributes.class %}
+        {% set link_classes = link_classes|merge([item['original_link'].options.attributes.class]) %}
+      {% endif %}
+      {% if item_class %}
+        {% set item_classes = item_classes|merge(item_class) %}
+      {% endif %}
+      {% if link_class %}
+        {% set link_classes = link_classes|merge(link_class) %}
+      {% endif %}
+
+      {% set additional_item_attributes = {
+        'class': item_classes
+      } %}
+
+      {% set link_attributes = {
+        'class': link_classes
+      } %}
+
+      <li {{ add_attributes(additional_item_attributes) }}>
+        {{ link(item.title, item.url, link_attributes) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

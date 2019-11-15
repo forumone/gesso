@@ -1,0 +1,34 @@
+{% set page_content %}
+
+  {# define some cards as dummy content for homepage grid #}
+  {% set grid_content %}
+    {% for card in grid_cards %}
+      {% include '@components/card/card.twig' with {
+        'title': card.title,
+        'url': card.url,
+        'media': card.media,
+        'date': card.date,
+        'tags': card.tags,
+        'read_more': card.read_more,
+        'content': card.content
+      } %}
+    {% endfor %}
+  {% endset %}
+
+  {# include homepage template #}
+  {% include '@templates/homepage.twig' with {
+    'homepage_hero_image': hero_image,
+    'homepage_hero_title': hero_title,
+    'homepage_hero_summary': hero_summary,
+    'homepage_hero_button_text': hero_button_text,
+    'homepage_hero_button_url': hero_button_url,
+    'homepage_grid_title': grid_title,
+    'homepage_grid_content': grid_content
+  } %}
+
+{% endset %}
+
+{# pass page_content to default page wrapper #}
+{% include '@pages/_page-default.twig' with {
+  'content': page_content
+} %}

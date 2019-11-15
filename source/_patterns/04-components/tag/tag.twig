@@ -1,0 +1,8 @@
+{% set classes = [
+  'tag',
+  type ? 'tag--' ~ type,
+  size ? 'tag--' ~ size
+] %}
+<a href="{{url}}" class="{{ classes|join(' ')}}" rel="tag">
+  {{title}}
+</a>

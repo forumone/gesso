@@ -1,0 +1,16 @@
+<div class="pattern-lab-easing__wrapper">
+  <div class="pattern-lab-easing__help-text">
+    (Hover to demo easing)
+  </div>
+  <div class="pattern-lab-easing__group">
+    {% for label, ease in gesso.transitions.ease %}
+      <div class="pattern-lab-easing__item">
+        {% set ease_style = 'transition-timing-function: '~ ease ~';' %}
+        <div class="pattern-lab-easing__indicator" style="{{ease_style}}"></div>
+        <div class="pattern-lab-easing__label">
+          {{label}}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

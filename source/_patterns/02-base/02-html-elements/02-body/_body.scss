@@ -1,0 +1,17 @@
+// @file
+// Body styles.
+
+body {
+  background-color: gesso-color(background, site);
+  color: gesso-color(text, primary);
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+
+  // stylelint-disable selector-no-qualifying-type
+  &.has-open-mobile-menu  {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  // stylelint-enable
+}

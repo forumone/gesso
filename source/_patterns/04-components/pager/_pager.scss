@@ -1,0 +1,139 @@
+// @file
+// Styles for Pager.
+
+$pager-background-color: gesso-color(ui, generic, accent) !default;
+$pager-background-color-hover: gesso-color(ui, generic, accent) !default;
+$pager-background-color-active: gesso-color(ui, generic, accent-dark) !default;
+$pager-link-color: gesso-color(text, on-light) !default;
+$pager-link-color-active: gesso-color(text, on-dark) !default;
+$pager-link-focus-outline-color: gesso-color(ui, generic, border-dark) !default;
+$pager-ellipsis-bp: 800px !default;
+$pager-bp: 600px !default;
+
+.pager__items {
+  @include list-clean();
+  clear: both;
+  margin: em(gesso-spacing(md)) 0;
+  padding: 0;
+  text-align: center;
+}
+
+.pager__item {
+  display: inline-block;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: top;
+
+  &:not([class*='pager__item--']) {
+    display: none;
+
+    @include breakpoint($pager-bp) {
+      display: inline-block;
+    }
+  }
+}
+
+%pager__link {
+  background-color: transparent;
+  color: $pager-link-color;
+  min-width: rem(gesso-spacing(lg));
+  padding: em(gesso-spacing(xs));
+  transition: color gesso-duration(short) gesso-easing(ease-out),
+    background-color gesso-duration(standard) gesso-easing(ease-out);
+
+  &:focus {
+    outline: 1px dotted $pager-link-focus-outline-color;
+  }
+}
+
+.pager__item--ellipsis {
+  @extend %pager__link;
+  display: none;
+
+  @include breakpoint($pager-ellipsis-bp) {
+    display: inline-block;
+  }
+}
+
+.pager__item--current.pager__item {
+  @extend %pager__link;
+  background-color: $pager-background-color;
+  color: $pager-link-color-active;
+}
+
+.pager__link {
+  @extend %pager__link;
+  display: inline-block;
+  text-decoration: none;
+
+  &:visited {
+    color: $pager-link-color;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $pager-background-color-hover;
+    color: $pager-link-color-active;
+  }
+
+  &:active {
+    background-color: $pager-background-color-active;
+    color: $pager-link-color-active;
+  }
+}
+
+.pager__link--previous,
+.pager__link--next {
+  background-color: transparent;
+  color: $pager-link-color;
+  position: relative;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $pager-link-color;
+    .pager__link-icon g {
+      fill: $pager-background-color;
+    }
+  }
+
+  &:visited {
+    color: $pager-link-color;
+  }
+}
+
+.pager__item--previous {
+  margin-right: rem(gesso-spacing(lg));
+
+  .pager__link {
+    padding-left: 32px;
+  }
+}
+
+.pager__item--next {
+  margin-left: rem(gesso-spacing(lg));
+
+  .pager__link {
+    padding-right: 32px;
+  }
+}
+
+.pager__link-icon {
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-48%);
+  width: 24px;
+
+  g {
+    fill: $pager-link-color;
+  }
+
+  .pager__item--next & {
+    left: auto;
+    right: 0;
+    transform: translateY(-48%) rotate(180deg);
+  }
+}

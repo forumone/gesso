@@ -1,30 +1,33 @@
 <?php
-
 /**
  * @file
- * Creates an "add_attributes" function for Drupal.
- *
- * It adds attributes, title_attributes, or content_attributes with optional
- * additions while preventing attributes from trickling down through includes.
- * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
+ * Creates an "add_attributes" function for Drupal that adds attributes
+ * with optional additions while preventing attributes from trickling down
+ * through includes.
+ * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension
  */
 
 use Drupal\Core\Template\Attribute;
 
 $function = new Twig_SimpleFunction('add_attributes', function ($context, $additional_attributes = [], $attribute_type = 'attributes') {
-  $valid_attributes = ['attributes', 'title_attributes', 'content_attributes'];
-  if (!in_array($attribute_type, $valid_attributes)) {
-    throw new Exception('Invalid attribute type.');
-  }
 
   if (class_exists('Drupal')) {
     $attributes = new Attribute();
+
+    $context_attribute = &$context;
+    foreach(explode('.', $attribute_type) as $segment) {
+      $context_attribute = &$context_attribute[$segment];
+    }
+
+    // if attribute doesn't exist, create it
+    if (!$context_attribute) {
+      $context_attribute = new Attribute();
+    }
 
     if (!empty($additional_attributes)) {
       foreach ($additional_attributes as $key => $value) {
         if (is_array($value)) {
           foreach ($value as $index => $item) {
-            // Handle bem() output.
             if ($item instanceof Attribute) {
               // Remove the item.
               unset($value[$index]);
@@ -33,7 +36,6 @@ $function = new Twig_SimpleFunction('add_attributes', function ($context, $addit
           }
         }
         else {
-          // Handle bem() output.
           if ($value instanceof Attribute) {
             $value = $value->toArray()[$key];
           }
@@ -44,57 +46,26 @@ $function = new Twig_SimpleFunction('add_attributes', function ($context, $addit
             continue;
           }
         }
+
         // Merge additional attribute values with existing ones.
-        if ($context[$attribute_type]->offsetExists($key)) {
-          $existing_attribute = $context[$attribute_type]->offsetGet($key)->value();
+        if ($context_attribute->offsetExists($key)) {
+          $existing_attribute = $context_attribute->offsetGet($key)->value();
           $value = array_merge($existing_attribute, $value);
         }
 
-        $context[$attribute_type]->setAttribute($key, $value);
+        $context_attribute->setAttribute($key, $value);
       }
     }
 
     // Set all attributes.
-    foreach ($context[$attribute_type] as $key => $value) {
+    foreach($context_attribute as $key => $value) {
       $attributes->setAttribute($key, $value);
       // Remove this attribute from context so it doesn't filter down to child
       // elements.
-      $context[$attribute_type]->removeAttribute($key);
+      $context_attribute->removeAttribute($key);
     }
 
     return $attributes;
   }
-  // Pattern Lab.
-  else {
-    $attributes = [];
 
-    foreach ($additional_attributes as $key => $value) {
-      if (is_array($value)) {
-        foreach ($value as $index => $item) {
-          // Handle bem() output.
-          if (strpos($item, $key . '=') !== FALSE) {
-            parse_str($item, $result);
-            // Remove the item.
-            unset($value[$index]);
-            // Strip surrounding quotes.
-            $value[] = substr($result[$key], 1, -1);
-          }
-        }
-
-        $attributes[] = $key . '="' . implode(' ', $value) . '"';
-      }
-      else {
-        // Handle bem() output.
-        if (strpos($value, $key . '=') !== FALSE) {
-          $attributes[] = $value;
-        }
-        else {
-          $attributes[] = $key . '="' . $value . '"';
-        }
-      }
-    }
-
-    return implode(' ', $attributes);
-  }
-
-}, ['needs_context' => TRUE, 'is_safe' => ['html']]);
+}, array('needs_context' => true, 'is_safe' => array('html')));

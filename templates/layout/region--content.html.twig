@@ -1,5 +1,9 @@
-{% extends '@layouts/regions/content/content.twig' %}
+{% embed '@layouts/content/content.twig' with {
+  'has_constrain': true
+} %}
 
   {% block content %}
     {{ content }}
   {% endblock %}
+
+{% endembed %}

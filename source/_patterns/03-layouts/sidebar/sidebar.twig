@@ -1,0 +1,50 @@
+{% set additional_attributes = {
+  'class': [
+    'l-sidebar',
+    has_multiple_sidebar ? ' l-sidebar--multi-2',
+    modifier_classes
+  ],
+} %}
+
+{% set additional_header_region_attributes = {
+  'class': ['l-sidebar__full'],
+} %}
+
+{% set additional_sidebar_first_region_attributes = {
+  'class': ['l-sidebar__sidebar'],
+} %}
+
+{% set additional_main_region_attributes = {
+  'class': ['l-sidebar__main'],
+} %}
+
+{% set additional_sidebar_second_region_attributes = {
+  'class': ['l-sidebar__sidebar'],
+} %}
+
+<div {{ add_attributes(additional_attributes) }}>
+
+  {% if header_content %}
+    <div {{ add_attributes(additional_header_region_attributes, 'region_attributes.header') }}>
+      {{ header_content }}
+    </div>
+  {% endif %}
+
+   {% if sidebar_first_content %}
+    <aside {{ add_attributes(additional_sidebar_first_region_attributes, 'region_attributes.sidebar_first') }}>
+      {{ sidebar_first_content }}
+    </aside>
+  {% endif %}
+
+  {% if main_content %}
+    <div {{ add_attributes(additional_main_region_attributes, 'region_attributes.main') }}>
+      {{ main_content }}
+    </div>
+  {% endif %}
+
+  {% if sidebar_second_content %}
+    <aside {{ add_attributes(additional_sidebar_second_region_attributes, 'region_attributes.sidebar_second') }}>
+      {{ sidebar_second_content }}
+    </aside>
+  {% endif %}
+</div>

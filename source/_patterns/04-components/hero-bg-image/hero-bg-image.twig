@@ -1,0 +1,25 @@
+{% set classes = [
+  'hero-bg-image',
+  modifier_classes ? modifier_classes,
+  has_overlay ? 'has-overlay',
+]|join(' ')|trim %}
+
+<div class="{{ classes }}" style="background-image: url({{ hero_image }});" role="img" aria-label="{{ image_alt }}">
+  <div class="hero-bg-image__content">
+    {% if hero_title %}
+      <h1 class="hero-bg-image__title">{{ hero_title }}</h1>
+    {% endif %}
+    {% if hero_summary %}
+      <div class="hero-bg-image__summary">{{ hero_summary }}</div>
+    {% endif %}
+    {% if hero_button_text and hero_button_url %}
+      <div class="hero-bg-image__button">
+        {% include '@components/button/button.twig' with {
+          'modifier_classes': 'button--large',
+          'url': hero_button_url,
+          'text': hero_button_text
+        } %}
+      </div>
+    {% endif %}
+  </div>
+</div>

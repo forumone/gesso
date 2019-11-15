@@ -1,0 +1,94 @@
+// @file
+// Heading styles.
+
+%hN {
+  color: inherit;
+  font-weight: gesso-font-weight(bold);
+  hyphens: none;
+  line-height: gesso-line-height(base);
+  margin: 0 0 rem(gesso-spacing(sm));
+  text-rendering: optimizeLegibility;
+
+  @media print {
+    orphans: 3;
+    page-break-after: avoid;
+    widows: 3;
+
+    &::after {
+      display: inline-block;
+    }
+  }
+
+  // Add top margin when headers are preceded by other elements (p, ul, etc.)
+  * + & {
+    margin-top: 1em;
+  }
+}
+
+h1,
+%h1 {
+  @extend %hN;
+  @include display-text-style(h1);
+
+  @include breakpoint(max-width gesso-breakpoint(sm)) {
+    font-size: rem(gesso-font-size(4));
+  }
+}
+
+h2,
+%h2 {
+  @extend %hN;
+  @include display-text-style(h2);
+
+  @include breakpoint(max-width gesso-breakpoint(sm)) {
+    font-size: rem(gesso-font-size(3));
+  }
+}
+
+h3,
+%h3 {
+  @extend %hN;
+  @include display-text-style(h3);
+
+  @include breakpoint(max-width gesso-breakpoint(sm)) {
+    font-size: rem(gesso-font-size(2));
+  }
+}
+
+h4,
+%h4 {
+  @extend %hN;
+  @include display-text-style(h4);
+
+  @include breakpoint(max-width gesso-breakpoint(sm)) {
+    font-size: rem(gesso-font-size(1));
+  }
+}
+
+h5,
+%h5 {
+  @extend %hN;
+  @include display-text-style(h5);
+}
+
+h6,
+%h6 {
+  @extend %hN;
+  @include display-text-style(h6);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    text-decoration: none;
+  }
+
+  // Remove top margin for adjacent subheadings.
+  & + & {
+    margin-top: 0;
+  }
+}

@@ -45,17 +45,11 @@
   'field--label-' ~ label_display,
 ] %}
 
-{% set title_classes = [
-  'field__label',
-  label_display == 'inline' ? 'is-inline',
-  label_display == 'visually_hidden' ? 'visually-hidden',
-] %}
-
 {% set attributes = attributes.addClass(classes) %}
-{% set title_attributes = title_attributes.addClass(title_classes) %}
 
 {% include '@components/field/field.twig' with {
   'element': 'div',
+  'label_display': label_display,
   'label_hidden': label_hidden,
   'label_element': 'h3',
   'label': label,
