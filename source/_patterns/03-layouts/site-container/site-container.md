@@ -1,8 +1,7 @@
 ---
 el: .l-site-container
-title: Site Container
+title: Site Container Layout
 ---
-_Layout for Site Container_
 
-### Blocks:
+__Blocks:__
 * site_content: Twig block for content.
