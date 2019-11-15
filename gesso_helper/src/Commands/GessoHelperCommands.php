@@ -26,36 +26,42 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   /**
    * Create a new theme based on the Gesso theme.
    *
-   * @param $name
+   * @param string $name
    *   The name of your theme.
    * @param array $options
-   *   An associative array of options whose values come from cli, aliases, config, etc.
+   *   An associative array of options whose values come from cli, aliases,
+   *   config, etc.
+   *
    * @option description
    *   A short description of your new theme.
    * @option machine-name
-   *   The machine-readable name of your new theme. This will be auto-generated from the human-readable name if omitted.
+   *   The machine-readable name of your new theme. This will be auto-generated
+   *   from the human-readable name if omitted.
    * @usage drush gesso "New Theme Name"
-   *   Creates a new theme called "New Theme Name" with a machine name of "new_theme_name".
+   *   Creates a new theme called "New Theme Name" with a machine name
+   *   of "new_theme_name".
    * @usage drush gesso "New Theme Name" --machine-name=new_theme
-   *   Creates a new theme called "New Theme Name" with a machine name of "new_theme".
+   *   Creates a new theme called "New Theme Name" with a machine name
+   *   of "new_theme".
    *
    * @command gesso
+   *
    * @throws \Exception
    */
-  public function gesso($name, array $options = ['description' => null, 'machine-name' => null]) {
+  public function gesso($name, array $options = ['description' => NULL, 'machine-name' => NULL]) {
     // Get new theme options.
     if (!isset($name)) {
       $name = $options['name'];
     }
-    $machine_name = $options['machine-name'] ?: $this->gesso_machine_name($name);
+    $machine_name = $options['machine-name'] ?: $this->gessoMachineName($name);
     $description = $options['description'];
 
     // Validate the command.
-    if (!$this->gesso_theme_exists('gesso')) {
+    if (!$this->gessoThemeExists('gesso')) {
       throw new \Exception(dt('Where is the Gesso theme? I could not find it.'));
     }
 
-    if ($this->gesso_theme_exists($machine_name)) {
+    if ($this->gessoThemeExists($machine_name)) {
       throw new \Exception(dt('A theme with that name already exists. The machine-readable name must be unique.'));
     }
 
@@ -67,14 +73,14 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     // Get theme paths.
     $drupalRoot = Drush::bootstrapManager()->getRoot();
     $gesso_path = Path::join($drupalRoot, drupal_get_path('theme', 'gesso'));
-    $theme_path = substr($gesso_path, 0, strrpos( $gesso_path, '/'));
+    $theme_path = substr($gesso_path, 0, strrpos($gesso_path, '/'));
     $new_path = Path::join($theme_path, $machine_name);
 
     // Copy the Gesso theme directory recursively to the new theme’s location.
     drush_op('drush_copy_dir', $gesso_path, $new_path);
 
     // Remove Gesso’s helper module from the new theme.
-    $this->gesso_recursive_rm(Path::join($new_path, 'gesso_helper'));
+    $this->gessoRecursiveRm(Path::join($new_path, 'gesso_helper'));
 
     // Rename the .info.yml file.
     $gesso_info_file = Path::join($new_path, 'gesso.info.yml');
@@ -87,7 +93,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       'Sass-based starter theme.' => $description,
       'gesso' => $machine_name,
     ];
-    $this->gesso_file_str_replace($new_info_file, array_keys($changes), $changes);
+    $this->gessoFileStrReplace($new_info_file, array_keys($changes), $changes);
 
     // Rename the .breakpoints.yml file.
     $gesso_info_file = Path::join($new_path, 'gesso.breakpoints.yml');
@@ -104,7 +110,8 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $new_theme_file = Path::join($new_path, $machine_name . '.theme');
     drush_op('rename', $gesso_theme_file, $new_theme_file);
 
-    // Replace all occurrences of 'gesso' with the machine name of the new theme.
+    // Replace all occurrences of 'gesso' with the machine name
+    // of the new theme.
     $breakpoints_file = $machine_name . '.breakpoints.yml';
     $libraries_file = $machine_name . '.libraries.yml';
     $theme_file = $machine_name . '.theme';
@@ -122,7 +129,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       'includes/views.inc',
     ];
     foreach ($files as $file) {
-      $this->gesso_file_str_replace(Path::join($new_path, $file), 'gesso', $machine_name);
+      $this->gessoFileStrReplace(Path::join($new_path, $file), 'gesso', $machine_name);
     }
 
     // Notify user of the newly created theme.
@@ -140,13 +147,13 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $this->io()->note(dt('The gulp commands for !name are still gessoBuild and gessoWatch. If you want to change '
       . 'those, you will need to modify the gulpfile and any build processes and/or CI tools.', [
         '!name' => $name,
-    ]));
+      ]));
   }
 
   /**
    * Converts $name to a machine-readable format.
    */
-  private function gesso_machine_name($name) {
+  private function gessoMachineName($name) {
     $name = str_replace(' ', '_', strtolower($name));
     $search = [
       // Remove characters not valid in function names.
@@ -164,7 +171,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   /**
    * Checks if $theme_name already exists in Drupal.
    */
-  private function gesso_theme_exists($theme_name) {
+  private function gessoThemeExists($theme_name) {
     $theme_handler = \Drupal::service('theme_handler');
     $themes = $theme_handler->listInfo();
 
@@ -174,7 +181,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   /**
    * Replace strings in a file.
    */
-  private function gesso_file_str_replace($file_path, $find, $replace) {
+  private function gessoFileStrReplace($file_path, $find, $replace) {
     $file_path = Path::normalize($file_path);
     $file_contents = file_get_contents($file_path);
     $file_contents = str_replace($find, $replace, $file_contents);
@@ -182,21 +189,24 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   }
 
   /**
+   * Recursive file deletion.
+   *
    * Recursively removes all files and subfolders in a directory,
    * before finally deleting the directory itself.
    *
    * @param string $path
-   *   Path to the top-level directory
+   *   Path to the top-level directory.
    */
-  private function gesso_recursive_rm($path) {
+  private function gessoRecursiveRm($path) {
     if (is_dir($path)) {
       $dir_contents = scandir($path);
       foreach ($dir_contents as $item) {
         if ($item !== '.' && $item !== '..') {
           $subpath = Path::join($path, $item);
           if (is_dir($subpath)) {
-            $this->gesso_recursive_rm($subpath);
-          } else {
+            $this->gessoRecursiveRm($subpath);
+          }
+          else {
             drush_op('unlink', $subpath);
           }
         }
@@ -204,4 +214,5 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       drush_op('rmdir', $path);
     }
   }
+
 }

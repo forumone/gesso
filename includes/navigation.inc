@@ -27,12 +27,12 @@ function gesso_preprocess_menu_local_tasks(array &$variables) {
         'url' => $variables[$type][$key]['#link']['url']->toString(),
         'text' => Html::escape($variables[$type][$key]['#link']['title']),
       ];
-       // Check if the tab should be shown by rendering the original.
-       $link = \Drupal::service('renderer')->render($variables[$type][$key]);
-       if (!$link) {
-         unset($tabs[$key]);
-       }
-     }
+      // Check if the tab should be shown by rendering the original.
+      $link = \Drupal::service('renderer')->render($variables[$type][$key]);
+      if (!$link) {
+        unset($tabs[$key]);
+      }
+    }
 
     // Overwrite the original tabs data.
     $variables[$type] = $tabs;

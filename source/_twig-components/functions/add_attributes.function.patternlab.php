@@ -1,13 +1,23 @@
 <?php
+
 /**
  * @file
+ * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
+ *
  * Creates an "add_attributes" function for Pattern Lab that adds attributes
  * with optional additions while preventing attributes from trickling down
  * through includes.
- * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension
  */
 
-function addAddAttributesFunction(\Twig_Environment &$env, $config) {
+/**
+ * Control scope of attribute inclusion.
+ *
+ * @param \Twig_Environment $env
+ *   Access to twig environment.
+ * @param array $config
+ *   Unused in this context.
+ */
+function add_add_attributes_function(\Twig_Environment &$env, array $config) {
   $env->addFunction(new Twig_SimpleFunction('add_attributes', function ($context, $additional_attributes = [], $attribute_type = 'attributes') {
 
     $attributes = [];
@@ -38,7 +48,6 @@ function addAddAttributesFunction(\Twig_Environment &$env, $config) {
 
     return implode(' ', $attributes);
 
-
-  }, array('needs_context' => true, 'is_safe' => array('html'))));
+  }, ['needs_context' => TRUE, 'is_safe' => ['html']]));
 
 }
