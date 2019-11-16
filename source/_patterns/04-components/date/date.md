@@ -2,8 +2,7 @@
 el: .date
 title: Date
 ---
-_Component for Date_
 
-### Variables:
-* format: [string] Value identifying format of Pattern Lab date to display.
-* content: The content to display if not using a Pattern Lab date format
+__Variables:__
+* format: [string] Pre-defined date format to use (_from 02-base/date-formats_).
+* content: [object] Content to display if not using a pre-defined date format.

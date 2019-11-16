@@ -1,13 +1,13 @@
 ---
 el: .hero-inline-image
-title: Hero Inline Image
+title: Hero with Inline Image
 ---
-_Component for Hero Inline Image_
 
-## Variables
+__Variables:__
 * modifier_classes: [string] Classes to modify the default component styling.
-* media: [string] Background image for component.
-* has_overlay: [boolean] True/False identifying component has overlay class.
-* title: [string] Title of hero.
-* summary: [string] Summary of hero.
-* call_to_action_content: Content for the call to action section.
+* has_overlay: [boolean] Whether this hero has overlay class.
+* hero_media: [object] Inline image of the hero.
+* hero_title: [string] Title of the hero.
+* hero_summary: [string] Summary of the hero.
+* hero_button_text: [string] Text of the hero button.
+* hero_button_url: [string] URL of the hero button.

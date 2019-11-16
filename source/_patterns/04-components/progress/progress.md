@@ -2,9 +2,8 @@
 el: .progress
 title: Progress Bar
 ---
-_Component for Progress Bar_
 
-## Variables
-  * label: [string] Label for progress bar.
-  * percent: [string] Progress bar percentage complete
-  * message: [string] Progress bar description.
+__Variables:__
+* label: [string] Label for the progress bar.
+* percent: [string] Percentage complete of the progress bar.
+* message: [string] Description of the progress bar.

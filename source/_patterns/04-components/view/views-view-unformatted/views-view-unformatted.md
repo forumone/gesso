@@ -1,12 +1,11 @@
 ---
 el: .views-view-unformatted
-title: Views View Unformatted
+title: Unformatted Views View
 ---
-_Views View Unformatted Component_
 
-### Variables:
-* title: [string] title content.
-* title_element: [string] HTML element to use for title.
-* has_wrapper: [boolean] True/False value if row item should have wrapper element.
-* element: [string] HTML element to use for row item wrapper.
-* rows: [array] rows array containing multiple row items
+__Variables:__
+* title: [string] Title of the view.
+* title_element: [string] HTML element of the title.
+* has_wrapper: [boolean] Whether to output the row item wrapper.
+* element: [string] HTML element of the row item wrapper.
+* rows: [array] Content of the row items.

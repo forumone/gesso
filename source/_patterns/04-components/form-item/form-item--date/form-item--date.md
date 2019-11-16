@@ -1,5 +1,4 @@
 ---
 el: .form-item--date
-title: Form Item Date
+title: Date Form Item
 ---
-_Component for HTML5 Date field_

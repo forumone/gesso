@@ -2,9 +2,8 @@
 el: .message
 title: Message
 ---
-_Component for Message_
 
-## Variables
-* type: [string] Type of message.
+__Variables:__
+* type: [string] Type of the message (error, warning, or status).
 * heading [string] Accessible heading of message.
-* messages: [array] The message.
+* messages: [array] Message items.
