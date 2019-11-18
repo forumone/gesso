@@ -70,6 +70,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
         . 'with a letter and may only contain lowercase letters, numbers, and underscores.'));
     }
 
+    $this->io()->text(dt('Setting up the theme. This may take a while...'));
     // Get theme paths.
     $drupalRoot = Drush::bootstrapManager()->getRoot();
     $gesso_path = Path::join($drupalRoot, drupal_get_path('theme', 'gesso'));
@@ -124,6 +125,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       $breakpoints_file,
       $libraries_file,
       $theme_file,
+      $layouts_file,
       'includes/block.inc',
       'includes/field.inc',
       'includes/form.inc',
@@ -133,7 +135,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       'includes/views.inc',
     ];
     foreach ($files as $file) {
-      $this->gesso_file_str_replace(Path::join($new_path, $file), 'gesso', $machine_name);
+      $this->gesso_file_str_replace(Path::join($new_path, $file), ['gesso', 'Gesso'], [$machine_name, $name]);
     }
 
     // Notify user of the newly created theme.
