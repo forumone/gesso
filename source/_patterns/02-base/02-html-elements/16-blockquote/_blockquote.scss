@@ -18,7 +18,6 @@ blockquote {
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
-    margin-bottom: 0;
 
     &::before {
       content: '\201C';
@@ -40,6 +39,10 @@ blockquote {
       margin-left: rem(gesso-spacing(xxs));
       padding-left: rem(gesso-spacing(xs));
     }
+  }
+
+  :last-child {
+    margin-bottom: 0;
   }
 
   @media print {
