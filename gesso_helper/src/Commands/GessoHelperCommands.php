@@ -137,10 +137,6 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     // Warn the user that they might have some additional steps.
     $this->io()->caution(dt('If you want to remove the gesso theme entirely, be sure to copy and rename the '
      . 'gesso_helper module first.'));
-    $this->io()->note(dt('The gulp commands for !name are still gessoBuild and gessoWatch. If you want to change '
-      . 'those, you will need to modify the gulpfile and any build processes and/or CI tools.', [
-        '!name' => $name,
-    ]));
   }
 
   /**
