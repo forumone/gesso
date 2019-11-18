@@ -105,6 +105,11 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $new_libraries_file = Path::join($new_path, $machine_name . '.libraries.yml');
     drush_op('rename', $gesso_libraries_file, $new_libraries_file);
 
+    // Rename the .layouts.yml file.
+    $gesso_layouts_file = Path::join($new_path, 'gesso.layouts.yml');
+    $new_layouts_file = Path::join($new_path, $machine_name . '.layouts.yml');
+    drush_op('rename', $gesso_layouts_file, $new_layouts_file);
+
     // Rename the .theme file.
     $gesso_theme_file = Path::join($new_path, 'gesso.theme');
     $new_theme_file = Path::join($new_path, $machine_name . '.theme');
@@ -113,6 +118,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     // Replace all occurrences of 'gesso' with the machine name of the new theme.
     $breakpoints_file = $machine_name . '.breakpoints.yml';
     $libraries_file = $machine_name . '.libraries.yml';
+    $layouts_file = $machine_name . '.layouts.yml';
     $theme_file = $machine_name . '.theme';
     $files = [
       $breakpoints_file,
