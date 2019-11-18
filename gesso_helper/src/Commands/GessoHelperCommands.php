@@ -112,7 +112,6 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       $breakpoints_file,
       $libraries_file,
       $theme_file,
-      'js/scripts.js',
       'includes/block.inc',
       'includes/field.inc',
       'includes/form.inc',
