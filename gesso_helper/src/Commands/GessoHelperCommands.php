@@ -161,7 +161,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    */
   private function gesso_theme_exists($theme_name) {
     $theme_handler = \Drupal::service('theme_handler');
-    $themes = $theme_handler->listInfo();
+    $themes = $theme_handler->rebuildThemeData();
 
     return isset($themes[$theme_name]);
   }
