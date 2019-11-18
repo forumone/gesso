@@ -9,6 +9,7 @@ $form-range-track-border-width: 1px !default;
 $form-range-track-height: 10px !default;
 
 @mixin form-item__range-thumb {
+  @include focus();
   background: gesso-color(form, thumb);
   border: $form-range-thumb-border-width solid gesso-color(form, border-light);
   border-radius: $form-range-thumb-border-radius;
@@ -20,7 +21,7 @@ $form-range-track-height: 10px !default;
 }
 
 @mixin form-item__range-thumb-focus {
-  box-shadow: $form-box-shadow-focus;
+  outline-color: gesso-color(ui, generic, focus);
 }
 
 @mixin form-item__range-track {

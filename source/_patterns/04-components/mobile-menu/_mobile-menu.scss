@@ -66,6 +66,7 @@ $mobile-menu-line-height: gesso-line-height(base);
 }
 
 .mobile-menu__subnav-arrow {
+  @include focus();
   @include image-replace($mobile-menu-button-width, $mobile-menu-button-height);
   @include svg-background-inline(mobile-arrow-down);
   background-attachment: initial;
@@ -77,6 +78,7 @@ $mobile-menu-line-height: gesso-line-height(base);
   box-shadow: none;
   cursor: pointer;
   display: inline-block;
+  outline-offset: 0;
   position: absolute;
   right: 0;
   top: 0;
@@ -88,10 +90,6 @@ $mobile-menu-line-height: gesso-line-height(base);
       left: 0;
       right: auto;
     }
-  }
-
-  &:focus {
-    outline: thin dotted;
   }
 
   &[aria-expanded="true"] {

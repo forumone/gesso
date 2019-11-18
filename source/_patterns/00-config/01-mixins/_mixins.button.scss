@@ -59,7 +59,6 @@ $button-font-size: gesso-base-font-size() !default;
   &:focus {
     background-color: $color-background-hover;
     color: $color-text-hover;
-    outline: 0;
   }
 
   &:active {
