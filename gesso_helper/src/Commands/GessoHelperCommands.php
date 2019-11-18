@@ -24,6 +24,12 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   use SiteAliasManagerAwareTrait;
 
   /**
+   * Set of available themes.
+   * @var array
+   */
+  protected $themeList;
+
+  /**
    * Create a new theme based on the Gesso theme.
    *
    * @param $name
@@ -160,10 +166,12 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    * Checks if $theme_name already exists in Drupal.
    */
   private function gesso_theme_exists($theme_name) {
-    $theme_handler = \Drupal::service('theme_handler');
-    $themes = $theme_handler->rebuildThemeData();
+    if (empty($this->themeList)) {
+      $theme_handler = \Drupal::service('theme_handler');
+      $this->themeList = $theme_handler->rebuildThemeData();
+    }
 
-    return isset($themes[$theme_name]);
+    return isset($this->themeList[$theme_name]);
   }
 
   /**
