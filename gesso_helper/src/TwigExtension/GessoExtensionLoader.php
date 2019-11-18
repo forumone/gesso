@@ -24,12 +24,16 @@ class GessoExtensionLoader {
     $themeLocation = drupal_get_path('theme', $theme);
     $themePath = DRUPAL_ROOT . '/' . $themeLocation . '/';
     $fullPath = $themePath . 'source/_twig-components/functions/';
-    static::load($fullPath . 'add_attributes.function.drupal.php');
+    if (is_dir($fullPath)) {
+      static::load($fullPath . 'add_attributes.function.drupal.php');
+    }
   }
 
   static protected function load($file) {
-    include $file;
-    self::$objects[] = $function;
+    if (file_exists($file)) {
+      include $file;
+      self::$objects[] = $function;
+    }
   }
 
 }
