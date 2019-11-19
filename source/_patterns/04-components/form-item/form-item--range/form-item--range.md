@@ -1,5 +1,4 @@
 ---
 el: .form-item--range
-title: Form Item Range
+title: Range Form Item
 ---
-_Component for HTML5 Range field_

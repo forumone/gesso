@@ -2,8 +2,10 @@
 el: nav
 title: Nav
 ---
-_Layout for Nav_
 
-### Variables:
-* label: [string] navigation label used for accessiblity.
-* content: [object] contains menu passed thru to nav element.
+__Variables:__
+* label: [string] Label of the navm used for accessiblity.
+* content: [object] Content of the nav.
+
+__Blocks:__
+* content: Twig block for content.

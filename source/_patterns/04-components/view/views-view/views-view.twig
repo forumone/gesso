@@ -3,7 +3,6 @@
 } %}
 
 <{{ element ?: 'div' }} {{ add_attributes(additional_attributes) }}>
-
   {{ title_prefix }}
   {% if title %}
     {{ title }}
@@ -12,29 +11,29 @@
 
   {% if header %}
     <div class="view__header">
-      {{ header }}
+      {{- header -}}
     </div>
   {% endif %}
 
   {% if exposed %}
     <div class="view__filters">
-      {{ exposed }}
+      {{- exposed -}}
     </div>
   {% endif %}
 
   {% if attachment_before %}
     <div class="attachment attachment--before">
-      {{ attachment_before }}
+      {{- attachment_before -}}
     </div>
   {% endif %}
 
   {% if rows %}
     <div class="view__content">
-      {{ rows }}
+      {{- rows -}}
     </div>
   {% elseif empty %}
     <div class="view__empty">
-      {{ empty }}
+      {{- empty -}}
     </div>
   {% endif %}
 
@@ -44,7 +43,7 @@
 
   {% if attachment_after %}
     <div class="attachment attachment--after">
-      {{ attachment_after }}
+      {{- attachment_after -}}
     </div>
   {% endif %}
 
@@ -54,14 +53,13 @@
 
   {% if footer %}
     <div class="view__footer">
-      {{ footer }}
+      {{- footer -}}
     </div>
   {% endif %}
 
   {% if feed_icons %}
     <div class="feed-icons">
-      {{ feed_icons }}
+      {{- feed_icons -}}
     </div>
   {% endif %}
-
 </{{ element ?: 'div' }}>

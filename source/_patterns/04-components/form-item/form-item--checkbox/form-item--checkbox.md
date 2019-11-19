@@ -1,11 +1,10 @@
 ---
 el: .form-item--checkbox
-title: Form Item Checkbox
+title: Checkbox Form Item
 ---
-_Component for Checkbox_
 
-## Variables
-* checkbox_id:[string] ID for checkbox.
-* checkbox_disabled: [boolean] True/False to identify disabled checkbox.
-* checkbox_checked: [boolean] True/False value to identify checked checkbox.
-* checkbox_label: [string] Label of checkbox.
+__Variables:__
+* checkbox_id:[string] ID of the checkbox.
+* checkbox_disabled: [boolean] Whether this checkbox is disabled.
+* checkbox_checked: [boolean] Whether this checkbox is checked.
+* checkbox_label: [string] Label of the checkbox.

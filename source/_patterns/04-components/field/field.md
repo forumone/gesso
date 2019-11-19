@@ -2,13 +2,13 @@
 el: .field
 title: Field
 ---
-_Base Field_.
 
-### Variables:
-* element: [string] HTML element to use for field wrapper when label and field displayed.
-* label_hidden: [boolean] True/False whether to hide label.
-* label_element: [string] HTML element to use label wrapper.
-* label: [string] text used for field label.
-* multiple: [boolean] True/False to display multiple field items.
+__Variables:__
+* modifier_classes: [string] Classes to modify the default component styling.
+* element: [string] HTML element for the field wrapper.
+* label_hidden: [boolean] Whether to hide label.
+* label_element: [string] HTML element for the label wrapper.
+* label: [string] Label of the field.
+* multiple: [boolean] Whether to display multiple field items.
 * items: [array] Field items.
-  * content: [object] Field items content.
+  * content: [object] Content of the item.

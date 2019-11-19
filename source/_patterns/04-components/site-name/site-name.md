@@ -2,8 +2,7 @@
 el: .site-name
 title: Site Name
 ---
-_Component for Site Name_
 
-## Variables
-* url: [string] The site link url.
-* site_name: [string] the site name.
+__Variables:__
+* url: [string] URL of the site name.
+* site_name: [string] Text of the site name.

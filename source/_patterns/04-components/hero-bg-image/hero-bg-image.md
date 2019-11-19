@@ -1,13 +1,14 @@
 ---
 el: .hero-bg-image
-title: Hero Bg Image
+title: Hero with Background Image
 ---
-_Component for Hero Bg Image_
 
-## Variables
+__Variables:__
 * modifier_classes: [string] Classes to modify the default component styling.
-* image: [string] Background image for component.
-* image_alt: [string] Alt text for image.
-* has_overlay: [boolean] True/False identifying component has overlay class.
-* title: [string] Title of hero.
-* summary: [string] Summary of hero.
+* has_overlay: [boolean] Whether this hero has overlay class.
+* image: [string] URL of background image.
+* image_alt: [string] Alt text for background image.
+* hero_title: [string] Title of the hero.
+* hero_summary: [string] Summary of the hero.
+* hero_button_text: [string] Text of the hero button.
+* hero_button_url: [string] URL of the hero button.

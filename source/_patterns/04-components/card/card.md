@@ -2,14 +2,13 @@
 el: .card
 title: Card
 ---
-_Component for Card_
 
-### Variables:
+__Variables:__
 * modifier_classes: [string] Classes to modify the default component styling.
-* title: [string] card title
-* url: [string] url string for card link.
-* date: [string] card date
-* read_more: [boolean] whether to show read more link
-* footer: [string] content card footer
-* media: [string] url string for backround-image.
-* content: [string] card summary/description area
+* title: [string] Title of the card.
+* url: [string] URL of the card.
+* date: [string] Date of the card.
+* read_more: [boolean] Whether to show the read more link.
+* footer: [string] Footer content of the card.
+* media: [string] URL for the background-image.
+* content: [string] Content of the card.

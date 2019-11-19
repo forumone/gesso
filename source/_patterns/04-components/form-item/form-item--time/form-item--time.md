@@ -1,5 +1,4 @@
 ---
 el: .form-item--time
-title: Form Item Time field
+title: Time Form Item
 ---
-_Component for HTML5 Time field_

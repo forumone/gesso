@@ -2,11 +2,10 @@
 el: .image-teaser
 title: Image Teaser
 ---
-_Component for Image Teaser_
 
-## Variables
-* url: [string] URL for image teaser.
-* image: [string] Image for component.
-* title: [string] Teaser title of component.
-* date: [string] Teaser date of component.
-* summary: [string] Teaser summary of component.
+__Variables:__
+* url: [string] URL of the teaser.
+* image: [string] Image of the teaser.
+* title: [string] Title of the teaser.
+* date: [string] Date of the teaser.
+* summary: [string] Summary of the teaser.

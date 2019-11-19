@@ -1,10 +1,9 @@
 ---
 el: .l-media
-title: Media Object
+title: Media Layout
 ---
-_Layout for Media Object_
 
-### Variables:
-* modifier_classes: [string] modifier class for creating variant.
-* media: [object] media element.
-* content: [object] content element.
+__Variables:__
+* modifier_classes: [string] Classes to modify the default component styling.
+* media: [object] The media element.
+* content: [object] The content element.

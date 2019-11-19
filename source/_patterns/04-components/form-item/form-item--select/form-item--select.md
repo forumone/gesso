@@ -1,5 +1,4 @@
 ---
 el: .form-item--select
-title: Form Item Select
+title: Select Form Item
 ---
-_Component for Select field_

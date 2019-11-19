@@ -1,9 +1,9 @@
 {% import '@macros/gesso.macro.twig' as macros %}
 
-<ul class="tag-list">
+<ul class="tag-list {{ modifier_classes }}">
   {% for item in items %}
     <li class="tag-list__item">
-      {{macros.tag(item.url, item.title)}}
+      {{ macros.tag(item.url, item.title) }}
     </li>
   {% endfor %}
 </ul>

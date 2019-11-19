@@ -2,11 +2,13 @@
 el: .article
 title: Article
 ---
-_Component for Article_
 
-### Variables:
-* classes: [array] Allows for merging PL and Drupal classes.
-* title: [object] content for _title_ twig block.
-* has_footer: [boolean] True/False whether article has footer.
-* footer: [object] content for _footer_ twig block.
-* content: [object] content for _main_ twig block.
+__Variables:__
+* article_page_title: [string] Title of the article.
+* has_footer: [boolean] Whether to display article footer.
+* content: [object] Content of the article.
+
+__Blocks:__
+* title: Twig block for title.
+* footer: Twig block for footer.
+* main: Twig block for main content.
