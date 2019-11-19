@@ -43,6 +43,11 @@ $form-range-track-height: 10px !default;
     margin: 0.2em 0;
     padding: 0;
 
+    // Remove outer focus styling on Firefox.
+    &::-moz-focus-outer {
+      border: 0;
+    }
+
     &:focus {
       box-shadow: none;
       outline: 0;
