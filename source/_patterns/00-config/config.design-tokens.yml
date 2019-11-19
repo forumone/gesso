@@ -64,6 +64,7 @@ gesso:
       on-dark: grayscale.white
       link: brand.blue.base
       link-hover: brand.blue.dark
+      link-active: brand.blue.dark
       link-visited: brand.blue.dark
     background:
       site: grayscale.white
