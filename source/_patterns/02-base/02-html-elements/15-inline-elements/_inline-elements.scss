@@ -2,16 +2,13 @@
 // Inline element styles.
 
 a {
+  @include focus();
   background-color: transparent;
   color: gesso-color(text, link);
-  outline-offset: em(2px); // Improves readability when focused.
   -webkit-text-decoration-skip: objects;
-  transition: color gesso-duration(short) gesso-easing(ease-in);
-
-  &:hover,
-  &:active {
-    outline: 0;
-  }
+  transition-duration: gesso-duration(short);
+  transition-property: background-color, border-color, color, outline-color;
+  transition-timing-function: gesso-easing(ease-in);
 
   &:hover,
   &:focus {

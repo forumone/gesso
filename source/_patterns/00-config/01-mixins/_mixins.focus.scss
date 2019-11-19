@@ -1,0 +1,11 @@
+// @file
+// Focus mixin
+
+@mixin focus($color: gesso-color(ui, generic, focus), $width: 2px, $offset: 2px) {
+  outline: $width solid transparent;
+  outline-offset: $offset;
+
+  &:focus {
+    outline-color: $color;
+  }
+}

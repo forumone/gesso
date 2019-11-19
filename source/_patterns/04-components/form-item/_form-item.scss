@@ -72,16 +72,20 @@ $form-text-size: gesso-base-font-size() !default;
   transition-property: background-color, border;
   transition-timing-function: gesso-easing(ease-in-out);
 
+  &:focus {
+    @include focus();
+  }
+
   &:hover,
   &:focus {
     background-color: $form-background-color-focus;
     border: 1px solid $form-border-color-focus;
-    outline: 0;
   }
 
   &:disabled {
     cursor: default;
     opacity: $form-disabled-opacity;
+
     &:hover,
     &:focus {
       background-color: $form-background-color;
