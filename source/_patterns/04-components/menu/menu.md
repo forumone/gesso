@@ -14,10 +14,10 @@ __Variables:__
   * in_active_trail: [boolean] Whether menu item is in the active path.
 
 __Usage:__
-The menu components folder contains several variants including _Account menu_,
-_Footer menu_, _Main menu_ and _Menu with subnav_.  Each variant is derived from
-the menu component and uses specific data within their respective _YML_ files to
+The menu components folder contains several variants including _Account Menu_,
+_Footer Menu_, _Main Menu_, and _Subnav Menu_. Each variant is derived from the
+menu component and uses specific data within their respective _YML_ files to
 replicate the menu items.
 
-The Menu with Subnav uses the _item.below_ variable to create a submenu with a
-menu item.
+The Subnav Menu uses the _item.below_ variable to create a submenu with a menu
+item.
