@@ -36,8 +36,6 @@
   @return gesso-get-map(breakpoints, $keys...);
 }
 
-// @debug 'Gesso Breakpoint' gesso-breakpoint(sm);
-
 // Get Palette
 @function gesso-brand($keys...) {
   @return gesso-get-map(palette, brand, $keys...);
@@ -46,8 +44,6 @@
 @function gesso-grayscale($keys...) {
   @return gesso-get-map(palette, grayscale, $keys...);
 }
-
-// @debug 'Gesso Grayscale'  gesso-grayscale(grayscale-1);
 
 // Get Color
 @function gesso-color($keys...) {

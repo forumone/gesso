@@ -2,15 +2,11 @@
   $display: gesso-get-map(typography, display, $keys...);
 
   @each $property, $value in $display {
-    // @debug #{$property} $value;
-
     @if ($property == "font-size") {
-      //check for px if not output value
-      // @debug type-of($value);
+      // Check for px if not output value.
       #{$property}: #{rem(convert($value))};
     } @else {
       #{$property}: #{$value};
     }
   }
-
 }
