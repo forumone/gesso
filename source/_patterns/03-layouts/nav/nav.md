@@ -4,7 +4,7 @@ title: Nav
 ---
 
 __Variables:__
-* label: [string] Label of the navm used for accessiblity.
+* label: [string] Label of the nav used for accessiblity.
 * content: [object] Content of the nav.
 
 __Blocks:__
