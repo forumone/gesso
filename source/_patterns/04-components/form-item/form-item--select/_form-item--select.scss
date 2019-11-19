@@ -19,6 +19,12 @@ $form-select-arrow-size: 20px !default;
       }
     }
 
+    // Remove inner focus styling on Firefox.
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+
     &::-ms-expand {
       display: none;
     }
