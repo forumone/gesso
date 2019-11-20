@@ -1,4 +1,6 @@
 ---
+is_button_tag: true
+is_demo: true
 url: '#'
 text: 'Danger Button'
-modifier_classes: 'button--danger'
+text_demo: 'Danger Link Button'
