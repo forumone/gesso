@@ -2,33 +2,32 @@
 // Styles for accessible skiplinks.
 
 .skiplinks {
+  display: flex;
   font-family: gesso-font-family(system);
-  left: 50%;
-  margin-left: -7em;
+  justify-content: center;
   position: absolute;
-  width: 14em;
+  width: 100%;
   z-index: 9999;
 }
 
 .skiplinks__link,
 .skiplinks__link:visited,
 .skiplinks__link:focus {
-  background-color: #333;
-  border: 2px solid #eee;
+  background-color: gesso-color(ui, generic, background-dark);
+  border: 2px solid gesso-color(ui, generic, border-light);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-top: 0;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  color: #eee;
+  box-shadow: gesso-box-shadow(2);
+  color: gesso-color(text, on-dark);
   display: inline-block;
   font-weight: bold;
-  line-height: 1.5;
+  line-height: gesso-line-height(tight);
   margin: 0;
   outline: 0;
-  padding: 0.25em 0.5em;
+  padding: rem(gesso-spacing(xs));
   text-align: center;
   text-decoration: none;
-  width: 14em;
 }
 
 // Remove :focus styles for skiplink targets.
