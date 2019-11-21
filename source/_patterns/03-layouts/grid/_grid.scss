@@ -1,7 +1,7 @@
 // @file
 // Styles for Grid Layout.
 
-$grid-gutter: rem(gesso-spacing(lg));
+$grid-gutter: gesso-get-map(gutter-width);
 
 .l-grid {
   @include flex-grid(1, $grid-gutter, 0);
@@ -14,7 +14,7 @@ $grid-gutter: rem(gesso-spacing(lg));
 .l-grid--2col {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports (display:grid) {
+  @supports (display: grid) {
     @include css-fixed-grid(1);
   }
 
@@ -32,7 +32,7 @@ $grid-gutter: rem(gesso-spacing(lg));
 .l-grid--3col {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports (display:grid) {
+  @supports (display: grid) {
     @include css-fixed-grid(1);
   }
 
@@ -50,7 +50,7 @@ $grid-gutter: rem(gesso-spacing(lg));
 .l-grid--4col {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports (display:grid) {
+  @supports (display: grid) {
     @include css-fixed-grid(1);
   }
 
@@ -78,7 +78,7 @@ $grid-gutter: rem(gesso-spacing(lg));
 .l-grid--6col {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports (display:grid) {
+  @supports (display: grid) {
     @include css-fixed-grid(1);
   }
 
