@@ -1,0 +1,21 @@
+{% if is_demo %}
+  {% set icons = [
+    'facebook',
+    'linkedin',
+    'twitter',
+   ] %}
+  {% for icon in icons %}
+    <p>
+      <svg class="icon {{ modifier_classes }}"{% if is_hidden %} aria-hidden="true"{% endif %}>
+        <use xlink:href="../../../images/icons.svg#{{ icon }}"></use>
+      </svg>
+      {{ icon }}
+    </p>
+  {% endfor %}
+{%- else -%}
+  {% spaceless %}
+    <svg class="c-icon {{ modifier_classes }}"{% if is_hidden %} aria-hidden="true"{% endif %}>
+      <use xlink:href="../../../images/icons.svg#{{ icon_name }}"></use>
+    </svg>
+  {% endspaceless %}
+{%- endif -%}

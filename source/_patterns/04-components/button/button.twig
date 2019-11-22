@@ -3,3 +3,8 @@
 {% else %}
   <a href="{{ url }}" class="button {{ modifier_classes }}">{{ text }}</a>
 {% endif %}
+
+{% if is_demo %}
+  <a href="{{ url }}" class="button {{ modifier_classes }}">{{ text_demo }}</a>
+  <button class="button {{ modifier_classes }}" disabled>Disabled {{ text }}</button>
+{% endif %}
