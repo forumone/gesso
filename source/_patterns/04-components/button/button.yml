@@ -1,6 +1,8 @@
 ---
-is_button_tag: false
+is_button_tag: true
+is_demo: true
 is_disabled: false
 url: '#'
-text: 'Button Text'
+text: 'Button'
+text_demo: 'Link Button'
 modifier_classes: ''

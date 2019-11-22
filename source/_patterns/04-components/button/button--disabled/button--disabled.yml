@@ -1,6 +1,0 @@
----
-is_button_tag: true
-is_disabled: true
-url: '#'
-text: 'Disabled Button'
-modifier_classes: ''
