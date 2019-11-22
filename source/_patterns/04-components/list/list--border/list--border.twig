@@ -1,4 +1,8 @@
+{% set list_modifier_classes %}
+  list--border  {{ modifier_classes }}
+{% endset %}
+
 {% include '@components/list/list.twig' with {
-  'modifier_classes': modifier_classes,
+  'modifier_classes': list_modifier_classes,
   'list': list
 } %}
