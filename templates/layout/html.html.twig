@@ -38,9 +38,7 @@
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
   <body{{ attributes.addClass(body_classes) }}>
-    <div class="skiplinks">
-      <a href="#main" class="skiplinks__link visually-hidden focusable">{{ 'Skip to main content'|t }}</a>
-    </div>
+    {% include '@components/skiplinks/skiplinks.twig' %}
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
