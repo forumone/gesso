@@ -269,3 +269,4 @@ gesso:
     lg: 40px
     xl: 56px
     xxl: 96px
+  gutter-width: 40px
