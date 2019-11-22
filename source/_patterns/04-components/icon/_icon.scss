@@ -1,0 +1,26 @@
+// @file
+// Styles for an icon.
+
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 1em;
+  position: relative;
+  top: -2px;
+  transition: none;
+  vertical-align: middle;
+  width: 1em;
+
+  // Fixes delayed transitions in Chrome.
+  * {
+    transition: none;
+  }
+
+  &.is-spaced-before {
+    margin-left: 0.25em;
+  }
+
+  &.is-spaced-after {
+    margin-right: 0.25em;
+  }
+}

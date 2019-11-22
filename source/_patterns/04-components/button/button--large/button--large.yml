@@ -1,4 +1,6 @@
 ---
+is_button_tag: true
+is_demo: true
 url: '#'
 text: 'Large Button'
-modifier_classes: 'button--large'
+text_demo: 'Large Link Button'

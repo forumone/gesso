@@ -1,11 +1,10 @@
 ---
-modifier_classes: 'list--pipeline'
 list:
   -
-    text: 'List Item One'
+    content: 'List Item One'
   -
-    text: 'List Item Two'
+    content: 'List Item Two'
   -
-    text: 'List Item Three'
+    content: 'List Item Three'
   -
-    text: 'List Item Four'
+    content: 'List Item Four'

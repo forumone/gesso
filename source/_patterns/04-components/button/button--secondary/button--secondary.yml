@@ -1,4 +1,6 @@
 ---
+is_button_tag: true
+is_demo: true
 url: '#'
 text: 'Secondary Button'
-modifier_classes: 'button--secondary'
+text_demo: 'Secondary Link Button'

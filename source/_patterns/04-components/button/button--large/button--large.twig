@@ -1,5 +1,9 @@
+{% set button_modifier_classes -%}
+  button--large {{ modifier_classes }}
+{%- endset %}
+
 {% include '@components/button/button.twig' with {
   'url': url,
   'text': text,
-  'modifier_classes': modifier_classes,
+  'modifier_classes': button_modifier_classes,
 } %}
