@@ -333,3 +333,25 @@ $swatch-padding: 1rem;
 .pattern-lab-text-style__label {
   text-transform: uppercase;
 }
+
+// For components used on a dark background. (e.g., `--inverse` variants)
+$dark-bg-padding: 1em;
+
+/* stylelint-disable selector-max-id */
+[id*="--inverse"].pl-c-pattern {
+  background: #212121;
+  color: #fff;
+  margin-left: -$dark-bg-padding;
+  margin-right: -$dark-bg-padding;
+  padding: 0 $dark-bg-padding $dark-bg-padding;
+
+  .pl-c-pattern__title-link:hover,
+  .pl-c-pattern__title-link:focus {
+    color: #fff !important;
+  }
+
+  .pl-c-pattern__extra {
+    color: #212121;
+  }
+}
+/* stylelint-enable */
