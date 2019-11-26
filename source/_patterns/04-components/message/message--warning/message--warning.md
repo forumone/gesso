@@ -1,0 +1,3 @@
+---
+title: Warning message
+---
