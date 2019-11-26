@@ -91,11 +91,12 @@ const compileStyles = () => {
     .pipe(dest('css'));
 };
 
-const lintPatterns = () => {
-  return src('source/_patterns/*/*/**/*.twig')
-    .pipe(lintPatternLab())
-    .pipe(lintPatternLab.failAfterErrors());
-};
+async function lintPatterns() {
+  const errors = await lintPatternLab();
+  if (Array.isArray(errors) && errors.length > 0) {
+    throw new Error(errors.join('\n'));
+  }
+}
 
 const buildPatternLab = () => {
   return patternLab.build({ cleanPublic: true, watch: false });
