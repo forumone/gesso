@@ -52,73 +52,47 @@
 }
 
 // Color Swatches
-.pattern-lab-color-list {
+$swatch-size: rem(150px);
+$swatch-padding: 1rem;
+
+.pattern-lab-color__group {
+  border-bottom: 1px solid #eee;
   display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-
-  li {
-    display: block;
-    width: 100%;
-
-    @include breakpoint(800px) {
-      margin: 1% 1% 1% 0;
-    }
-  }
-
-  @include breakpoint(800px) {
-    flex-direction: row;
-  }
+  flex-wrap: wrap;
+  margin-bottom: $swatch-padding;
 }
 
-.pattern-lab-color-list__set {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-
-  li {
-    margin-top: 1.2em;
-    width: 100%;
-  }
+.pattern-lab-color-swatch {
+  border: 1px solid #c1c1c1;
+  flex: 0 0 ($swatch-size + 2 * $swatch-padding);
+  margin: 0 $swatch-padding / 2 $swatch-padding;
+  max-width: ($swatch-size + 2 * $swatch-padding);
+  padding: $swatch-padding;
 }
 
-.pattern-lab-swatch {
-  color: #546673;
+.pattern-lab-color-swatch__indicator {
+  height: $swatch-size;
+  margin-bottom: $swatch-padding;
+  width: $swatch-size;
+}
+
+.pattern-lab-color-swatch__meta {
+  line-height: 1.2;
+}
+
+.pattern-lab-color-swatch__name {
+  margin-bottom: rem(8px);
+}
+
+.pattern-lab-color-swatch__hex {
+  font-family: Menlo, Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif;
+  font-size: rem(14px);
+}
+
+.pattern-lab-color-swatch__sass-code {
   display: block;
-  font-size: 32px;
-  height: 2.5em;
-  margin: 0;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.pattern-lab-swatch__meta-data {
-  bottom: 0;
-  display: block;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0.55em;
-  transition: 0.2s all;
-}
-
-.pattern-lab-swatch__variable {
-  display: block;
-  font-size: 11px;
-}
-
-.pattern-lab-swatch__hex {
-  display: block;
-  font-size: 14px;
-}
-
-.pattern-lab-swatch--light-text {
-  color: #fff;
+  font-size: rem(12px);
+  margin-top: rem(4px);
 }
 
 // Typography
@@ -300,30 +274,6 @@
       transform: scale(1.5);
     }
   }
-}
-
-$swatch-size: rem(150px);
-$swatch-padding: 1rem;
-
-.pattern-lab-color-swatch {
-  border: 1px solid #c1c1c1;
-  flex: 0 0 ($swatch-size + 2 * $swatch-padding);
-  margin: 0 $swatch-padding/2 $swatch-padding;
-  max-width: ($swatch-size + 2 * $swatch-padding);
-  padding: $swatch-padding;
-}
-
-.pattern-lab__color-group {
-  border-bottom: 1px solid #eee;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: $swatch-padding;
-}
-
-.pattern-lab-color-swatch__indicator {
-  height: $swatch-size;
-  margin-bottom: $swatch-padding;
-  width: $swatch-size;
 }
 
 .pattern-lab__text-style {

@@ -15,7 +15,8 @@
       {% if color_value is sameas(color_label) %}
         {{ color_value }}
       {% else %}
-        {{ color_value }}<br />(<code>{{ color_label }}</code>)
+        {{ color_value }}
+        <code class="pattern-lab-color-swatch__sass-code">{{ color_label }}</code>
       {% endif %}
     </div>
   </div>
