@@ -9,7 +9,7 @@
 .pl-c-pattern-index {
   box-sizing: border-box !important;
   max-width: em(gesso-constrain(lg));
-  padding: 0 1em;
+  padding: 0 1em !important;
 }
 
 // <html> tag class around content in Pattern Lab (see _00-head.twig)
