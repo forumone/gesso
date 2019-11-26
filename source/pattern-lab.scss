@@ -168,23 +168,27 @@ $swatch-padding: 1rem;
   margin-bottom: rem(5px);
 }
 
-// Box Shadow Group
-.pattern-lab__box-shadow-group {
+// Box Shadows
+$shadow-swatch: rem(200px);
+$shadow-gutter: rem(50px);
+
+.pattern-lab-box-shadow {
   display: flex;
   flex-wrap: wrap;
 }
 
-.pattern-lab__box-shadow-label {
+.pattern-lab-box-shadow__item {
+  display: flex;
+  flex: 0 0 $shadow-swatch;
+  height: $shadow-swatch;
+  margin: 0 ($shadow-gutter / 2) $shadow-gutter;
+  width: $shadow-swatch;
+}
+
+.pattern-lab-box-shadow__label {
   margin: auto;
   padding: 1rem;
   text-align: center;
-}
-.pattern-lab__box-shadow-item {
-  display: flex;
-  flex: 0 0 200px;
-  height: 200px;
-  margin: 0 1rem 1rem;
-  width: 200px;
 }
 
 // Easing
