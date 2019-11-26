@@ -92,7 +92,9 @@ const compileStyles = () => {
 };
 
 const lintPatterns = () => {
-  return src('source/_patterns/*/*/**/*.twig').pipe(lintPatternLab());
+  return src('source/_patterns/*/*/**/*.twig')
+    .pipe(lintPatternLab())
+    .pipe(lintPatternLab.failAfterErrors());
 };
 
 const buildPatternLab = () => {
@@ -147,14 +149,14 @@ const watchFiles = () => {
 };
 
 const buildStyles = (exports.buildStyles = series(lintStyles, compileStyles));
-const builtPatterns = (exports.buildPatterns) = series(lintPatterns, buildPatternLab);
+const buildPatterns = (exports.buildPatterns) = series(lintPatterns, buildPatternLab);
 
 const build = (isProduction = true ) =>  {
   const scriptTask = isProduction ? bundleScripts : bundleScriptsDev;
   task('bundleScripts', scriptTask);
   return series(
     buildConfig,
-    parallel(task('bundleScripts'), buildStyles, builtPatterns));
+    parallel(task('bundleScripts'), buildStyles, buildPatterns));
 };
 
 exports.build = build(true);
