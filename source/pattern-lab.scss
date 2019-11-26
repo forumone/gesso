@@ -17,25 +17,7 @@
   min-height: 0;
 }
 
-.sg-subtype {
-  h2 {
-    font-size: 24px;
-    margin: 3em 0 0.25em;
-    text-transform: capitalize;
-  }
-
-  a {
-    color: #666;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      color: #333;
-    }
-  }
-}
-
-// override styles leaking into PL's tag class
+// Override styles leaking into PL’s tag class.
 .pl-c-pattern-info {
   .token.tag {
     border: 0;
