@@ -1,4 +1,9 @@
-<section class="l-section">
+{% set classes = [
+  'l-section',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<section class="{{ classes }}">
   {% if has_constrain %}
     <div class="l-constrain {{ constrain_modifier_classes }}">
   {% endif %}

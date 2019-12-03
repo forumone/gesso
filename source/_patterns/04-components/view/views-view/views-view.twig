@@ -1,5 +1,8 @@
 {% set additional_attributes = {
-  'class': ['view'],
+  'class': [
+    'view',
+    modifier_classes ? modifier_classes
+  ],
 } %}
 
 <{{ element ?: 'div' }} {{ add_attributes(additional_attributes) }}>

@@ -1,5 +1,10 @@
+{% set classes = [
+  'pager',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
 {% if items %}
-  <nav aria-labelledby="pagination-heading" class="pager {{ modifier_classes }}" role="navigation">
+  <nav aria-labelledby="pagination-heading" class="{{ classes }}" role="navigation">
     <h4 class="visually-hidden" id="pagination-heading">{{ heading|default('Pagination') }}</h4>
     <ul
       class="pager__items js-pager__items">
