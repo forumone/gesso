@@ -1,6 +1,5 @@
 ---
-el: .message
-title: Message
+title: Error message
 ---
 
 __Variables:__

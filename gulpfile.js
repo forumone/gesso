@@ -21,6 +21,7 @@ const asyncWebpack = util.promisify(webpack);
 const readSource = require('./lib/readSource');
 const transform = require('./lib/transform');
 const renderSass = require('./lib/renderSass');
+const lintPatternLab = require('./lib/lintPatternLab');
 
 const writeFile = util.promisify(fs.writeFile);
 const os = require('os');
@@ -90,6 +91,13 @@ const compileStyles = () => {
     .pipe(dest('css'));
 };
 
+async function lintPatterns() {
+  const errors = await lintPatternLab();
+  if (Array.isArray(errors) && errors.length > 0) {
+    throw new Error(errors.join('\n'));
+  }
+}
+
 const buildPatternLab = () => {
   return patternLab.build({ cleanPublic: true, watch: false });
 };
@@ -122,8 +130,8 @@ const watchFiles = () => {
     { usePolling: true, interval: 1500 },
     series(
       buildConfig,
-      parallel(series(lintStyles, buildStyles), buildPatternLab),
-      parallel(series(lintStyles, buildStyles), buildPatternLab)
+      parallel(series(lintStyles, buildStyles), series(lintPatterns, buildPatternLab)),
+      parallel(series(lintStyles, buildStyles), series(lintPatterns, buildPatternLab))
     )
   );
   watch(
@@ -132,7 +140,7 @@ const watchFiles = () => {
       '!source/_patterns/00-config/config.design-tokens.yml',
     ],
     { usePolling: true, interval: 1500 },
-    buildPatternLab
+    series(lintPatterns, buildPatternLab)
   );
   watch(
     ['js/src/**/*.es6.js'],
@@ -142,14 +150,15 @@ const watchFiles = () => {
 };
 
 const buildStyles = (exports.buildStyles = series(lintStyles, compileStyles));
+const buildPatterns = (exports.buildPatterns) = series(lintPatterns, buildPatternLab);
 
 const build = (isProduction = true ) =>  {
   const scriptTask = isProduction ? bundleScripts : bundleScriptsDev;
-  task('bundleScripts', scriptTask)
+  task('bundleScripts', scriptTask);
   return series(
     buildConfig,
-    parallel(task('bundleScripts'), buildStyles, buildPatternLab));
-}
+    parallel(task('bundleScripts'), buildStyles, buildPatterns));
+};
 
 exports.build = build(true);
 

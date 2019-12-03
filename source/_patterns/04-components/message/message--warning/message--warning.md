@@ -1,6 +1,5 @@
 ---
-el: .message
-title: Message
+title: Warning message
 ---
 
 __Variables:__
