@@ -9,7 +9,7 @@
 .pl-c-pattern-index {
   box-sizing: border-box !important;
   max-width: em(gesso-constrain(lg));
-  padding: 0 1em;
+  padding: 0 1em !important;
 }
 
 // <html> tag class around content in Pattern Lab (see _00-head.twig)
@@ -17,25 +17,7 @@
   min-height: 0;
 }
 
-.sg-subtype {
-  h2 {
-    font-size: 24px;
-    margin: 3em 0 0.25em;
-    text-transform: capitalize;
-  }
-
-  a {
-    color: #666;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      color: #333;
-    }
-  }
-}
-
-// override styles leaking into PL's tag class
+// Override styles leaking into PL’s tag class.
 .pl-c-pattern-info {
   .token.tag {
     border: 0;
@@ -95,15 +77,15 @@ $swatch-padding: 1rem;
   margin-top: rem(4px);
 }
 
-// Typography
+// Font Families
 .pattern-lab-font {
-  margin-bottom: 30px;
+  margin-bottom: rem(45px);
 }
 
 .pattern-lab-font__family {
-  font-size: 20px;
+  font-size: rem(20px);
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: rem(5px);
   text-align: center;
 
   @include breakpoint(800px) {
@@ -114,7 +96,7 @@ $swatch-padding: 1rem;
 .pattern-lab-font__item {
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
+  margin: rem(30px) 0;
 
   @include breakpoint(800px) {
     flex-direction: row;
@@ -123,33 +105,34 @@ $swatch-padding: 1rem;
 
 .pattern-lab-font__preview {
   border-bottom: 2px solid #eee;
-  font-size: 18px;
+  font-size: rem(18px);
   font-style: normal;
   font-weight: 400;
-  padding: 20px 0;
+  padding: rem(20px) 0;
   text-align: center;
   width: 100%;
 
   @include breakpoint(800px) {
     border-bottom: 0;
     border-right: 2px solid #eee;
-    margin: 5px 30px 0 0;
-    padding: 0 20px;
+    margin: rem(5px) rem(30px) 0 0;
+    padding: 0 rem(20px);
     text-align: left;
     width: 65%;
   }
 }
 
 .pattern-lab-font__preview-character {
-  font-size: 75px;
+  font-size: rem(75px);
   font-weight: 400;
   line-height: 1;
   text-align: center;
   width: 100%;
 
   @include breakpoint(800px) {
+    flex-shrink: 0;
     text-align: left;
-    width: 25%;
+    width: 35%;
   }
 }
 
@@ -170,76 +153,48 @@ $swatch-padding: 1rem;
   color: #565454;
   font-size: 0.9rem;
   line-height: 1.5;
-  margin: 5px 0;
+  margin: rem(5px) 0;
 }
 
 .pattern-lab-font__weight {
   color: #000;
-  font-size: 13px;
-  margin-bottom: 5px;
+  font-size: rem(13px);
+  margin-bottom: rem(5px);
 }
 
 .pattern-lab-font__style {
   color: #000;
-  font-size: 13px;
-  margin-bottom: 5px;
+  font-size: rem(13px);
+  margin-bottom: rem(5px);
 }
 
-// Box Shadow Group
-.pattern-lab__box-shadow-group {
+// Box Shadows
+$shadow-swatch: rem(200px);
+$shadow-gutter: rem(50px);
+
+.pattern-lab-box-shadow {
   display: flex;
   flex-wrap: wrap;
 }
 
-.pattern-lab__box-shadow-label {
+.pattern-lab-box-shadow__item {
+  display: flex;
+  flex: 0 0 $shadow-swatch;
+  height: $shadow-swatch;
+  margin: 0 ($shadow-gutter / 2) $shadow-gutter;
+  width: $shadow-swatch;
+}
+
+.pattern-lab-box-shadow__label {
   margin: auto;
   padding: 1rem;
   text-align: center;
 }
-.pattern-lab__box-shadow-item {
-  display: flex;
-  flex: 0 0 200px;
-  height: 200px;
-  margin: 0 1rem 1rem;
-  width: 200px;
-}
 
-// Easing
-.pattern-lab-easing__wrapper {
-  background-color: #eee;
-  padding: 1rem;
-}
-
-.pattern-lab-easing__help-text {
-  margin-bottom: 1rem;
-}
-.pattern-lab-easing__indicator {
-  background-color: #666;
-  border-radius: 10%;
-  height: 75px;
-  left: 0;
-  margin-bottom: 0.5rem;
-  position: relative;
-  transition-duration: 1s;
-  transition-property: left;
-  width: 75px;
-}
-
-.pattern-lab-easing__item {
-  margin-bottom: 1rem;
-}
-
-.pattern-lab-easing__group {
-  padding: 0 150px 0 1rem;
-
-  &:hover {
-    .pattern-lab-easing__indicator {
-      left: 100%;
-    }
-  }
-}
 // Duration
-.pattern-lab-duration__wrapper {
+$duration-swatch: rem(40px);
+
+.pattern-lab-duration {
   margin-bottom: 1rem;
 }
 
@@ -250,15 +205,15 @@ $swatch-padding: 1rem;
   background-color: #666;
   border-radius: 50%;
   display: inline-block;
-  height: 40px;
+  height: $duration-swatch;
   margin-bottom: 2rem;
   position: relative;
   transition: all 2s ease-out;
-  width: 40px;
+  width: $duration-swatch;
 }
 
 .pattern-lab-duration__item {
-  flex: 0 0 150px;
+  flex: 0 0 rem(150px);
   padding: 1rem;
   text-align: center;
 }
@@ -274,6 +229,68 @@ $swatch-padding: 1rem;
       transform: scale(1.5);
     }
   }
+}
+
+// Easing
+$easing-swatch: rem(75px);
+
+.pattern-lab-easing {
+  background-color: #eee;
+  padding: 1rem;
+}
+
+.pattern-lab-easing__help-text {
+  margin-bottom: 1rem;
+}
+
+.pattern-lab-easing__indicator {
+  background-color: #666;
+  border-radius: 10%;
+  height: $easing-swatch;
+  left: 0;
+  margin-bottom: 0.5rem;
+  position: relative;
+  transition-duration: 1s;
+  transition-property: left;
+  width: $easing-swatch;
+}
+
+.pattern-lab-easing__item {
+  margin-bottom: 1rem;
+}
+
+.pattern-lab-easing__group {
+  padding: 0 rem(150px) 0 1rem;
+
+  &:hover {
+    .pattern-lab-easing__indicator {
+      left: 100%;
+    }
+  }
+}
+
+$swatch-size: rem(150px);
+$swatch-padding: 1rem;
+
+.pattern-lab-color-swatch {
+  border: 1px solid #c1c1c1;
+  flex: 0 0 ($swatch-size + 2 * $swatch-padding);
+  margin: 0 $swatch-padding/2 $swatch-padding;
+  max-width: ($swatch-size + 2 * $swatch-padding);
+  padding: $swatch-padding;
+}
+
+.pattern-lab__color-group {
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $swatch-padding;
+}
+
+.pattern-lab-color-swatch__indicator {
+  height: $swatch-size;
+  margin-bottom: $swatch-padding;
+  width: $swatch-size;
 }
 
 .pattern-lab__text-style {
