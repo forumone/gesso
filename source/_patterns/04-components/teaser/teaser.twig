@@ -1,4 +1,9 @@
-<article class="teaser {{ modifier_classes }}" role="article">
+{% set classes = [
+  'teaser',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<article class="{{ classes }}" role="article">
   <h2><a href="{{ url }}">{{ title }}</a></h2>
   {{ date }}
   {{ summary }}

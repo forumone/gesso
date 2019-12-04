@@ -1,6 +1,11 @@
 {% import '@macros/gesso.macro.twig' as macros %}
 
-<ul class="tag-list {{ modifier_classes }}">
+{% set classes = [
+  'tag-list',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<ul class="{{ classes }}">
   {% for item in items %}
     <li class="tag-list__item">
       {{ macros.tag(item.url, item.title) }}

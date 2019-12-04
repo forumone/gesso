@@ -8,12 +8,17 @@
   'class': ['block__content'],
 } %}
 
+{% set constrain_classes = [
+  'l-constrain',
+  constrain_modifier_classes ? constrain_modifier_classes,
+]|join(' ')|trim %}
+
 {% if not hide_wrapper %}
   <div {{ add_attributes(additional_attributes) }}>
 {% endif %}
 
   {% if has_constrain %}
-    <div class="l-constrain {{ constrain_modifier_classes }}">
+    <div class="{{ constrain_classes }}">
   {% endif %}
 
   {% if label %}

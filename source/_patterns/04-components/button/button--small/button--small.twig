@@ -1,9 +1,10 @@
-{% set button_modifier_classes -%}
-  button--small {{ modifier_classes }}
-{%- endset %}
+{% set classes = [
+  'button--small',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
 
 {% include '@components/button/button.twig' with {
   'url': url,
   'text': text,
-  'modifier_classes': button_modifier_classes,
+  'modifier_classes': classes,
 } %}

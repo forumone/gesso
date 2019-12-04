@@ -1,8 +1,9 @@
-{% set list_modifier_classes %}
-  list--pipeline  {{ modifier_classes }}
-{% endset %}
+{% set classes = [
+  'list--pipeline',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
 
 {% include '@components/list/list.twig' with {
-  'modifier_classes': list_modifier_classes,
+  'modifier_classes': classes,
   'list': list
 } %}

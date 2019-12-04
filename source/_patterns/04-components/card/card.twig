@@ -1,6 +1,11 @@
 {% import '@macros/gesso.macro.twig' as macros %}
 
-<div class="card {{ modifier_classes }}">
+{% set classes = [
+  'card',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   <div class="card__body">
     <div class="card__header">
       {% if date %}

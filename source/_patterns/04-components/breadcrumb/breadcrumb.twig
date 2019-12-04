@@ -1,4 +1,9 @@
-<nav aria-labelled="breadcrumb-label" class="breadcrumb {{ modifier_classes }}" role="navigation">
+{% set classes = [
+  'breadcrumb',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<nav aria-labelled="breadcrumb-label" class="{{ classes }}" role="navigation">
   <div class="l-constrain">
     <h2 class="breadcrumb__title visually-hidden" id="breadcrumb-label">{{ heading|default('You are here') }}</h2>
     <ol class="breadcrumb__list">

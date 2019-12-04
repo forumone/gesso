@@ -1,4 +1,9 @@
-<div class="l-grid {{ modifier_classes }}">
+{% set classes = [
+  'l-grid',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   {% block content %}
     {{ content }}
   {% endblock %}
