@@ -1,6 +1,11 @@
+{% set constrain_classes = [
+  'l-constrain',
+  constrain_modifier_classes ? constrain_modifier_classes,
+]|join(' ')|trim %}
+
 <div class="l-{{ region_name ?: 'region' }}">
   {% if has_constrain %}
-    <div class="l-constrain {{ constrain_modifier_classes }}">
+    <div class="{{ constrain_classes }}">
   {% endif %}
   {% block content %}
     Region Content
