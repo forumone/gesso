@@ -1,6 +1,20 @@
 <?php
+
+/**
+ * @file
+ * Gesso Twig extension for translation of text.
+ */
+
+/**
+ * Translate passthrough.
+ *
+ * @param \Twig_Environment $env
+ *   Current Twig environment.
+ * @param string $config
+ *   Current configuration state.
+ */
 function addTFilter(\Twig_Environment &$env, $config) {
-  // Drupal translate filter
+  // Drupal translate filter.
   $env->addFilter(new \Twig_SimpleFilter('t', function ($string) {
     return $string;
   }));

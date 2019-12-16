@@ -1,10 +1,17 @@
 <?php
 
 /**
- * Implements theme_suggestions_taxonomy_term_alter()
+ * @file
+ * Taxonomy-specific alterations for theming.
+ */
+
+/**
+ * Implements theme_suggestions_taxonomy_term_alter().
  *
- * @param $suggestions
- * @param $variables
+ * @param array $suggestions
+ *   Theme suggestions.
+ * @param array $variables
+ *   Variables that get passed along to the template file.
  */
 function gesso_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
   $bundle = $variables['elements']['name']['#bundle'];

@@ -3,23 +3,37 @@
 namespace Drupal\gesso_helper\TwigExtension;
 
 /**
- * Load custom twig functions from Pattern Lab
+ * Load custom twig functions from Pattern Lab.
  */
 class GessoExtensionLoader {
 
-  static $objects = [];
+  /**
+   * Holds all objects provided by all loaded files.
+   *
+   * @var array
+   */
+  static public $objects = [];
 
-  static public function init() {
+  /**
+   * Calls loader for twig helpers.
+   */
+  public static function init() {
     if (!self::$objects) {
       static::loadAll();
     }
   }
 
-  static public function get() {
+  /**
+   * Basic get method.
+   */
+  public static function get() {
     return !empty(self::$objects) ? self::$objects : [];
   }
 
-  static protected function loadAll() {
+  /**
+   * Load all files and templates that extend twig within gesso.
+   */
+  protected static function loadAll() {
     $theme = \Drupal::config('system.theme')->get('default');
     $themeLocation = drupal_get_path('theme', $theme);
     $themePath = DRUPAL_ROOT . '/' . $themeLocation . '/';
@@ -29,7 +43,13 @@ class GessoExtensionLoader {
     }
   }
 
-  static protected function load($file) {
+  /**
+   * Load a single twig dependency.
+   *
+   * @param string $file
+   *   A path to a file include.
+   */
+  protected static function load($file) {
     if (file_exists($file)) {
       include $file;
       self::$objects[] = $function;
