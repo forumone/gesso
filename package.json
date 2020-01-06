@@ -11,6 +11,9 @@
   "private": true,
   "themePath": ".",
   "main": "gulpfile.js",
+  "engines": {
+    "node": ">=10"
+  },
   "browserslist": [
     "explorer >= 11",
     "last 3 versions",
