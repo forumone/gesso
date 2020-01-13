@@ -11,7 +11,6 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
   background-color: $breadcrumb-background-color;
   color: $breadcrumb-text-color;
   font-size: rem(gesso-font-size(0));
-  margin: rem(gesso-spacing(sm)) 0;
   min-height: rem(gesso-spacing(lg));
   padding-top: rem(gesso-spacing(sm));
 }
@@ -42,6 +41,7 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
 .breadcrumb__list .breadcrumb__item {
   @include breakpoint(max-width gesso-breakpoint(sm)) {
     display: none;
+
     &:nth-last-child(2) {
       display: block;
 

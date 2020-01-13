@@ -10,7 +10,7 @@ $form-disabled-opacity: 0.35 !default;
 $form-text-size: gesso-base-font-size() !default;
 
 .form-item {
-  margin: 0 0 rem(gesso-spacing(md));
+  @include vertical-spacing(rem(gesso-spacing(md)));
 }
 
 .form-item__label {
@@ -32,10 +32,6 @@ $form-text-size: gesso-base-font-size() !default;
 .form-item__description {
   color: gesso-color(text, secondary);
   font-size: rem(gesso-font-size(1));
-
-  > :last-child {
-    margin-bottom: 0;
-  }
 }
 
 .form-item__required-marker::before {

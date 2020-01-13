@@ -5,7 +5,7 @@
 $fieldset-legend-offset: rem(gesso-line-height(base) * gesso-base-font-size()) !default;
 
 .fieldset {
-  margin-bottom: rem(gesso-spacing(md) + (gesso-line-height(base) * gesso-base-font-size()));
+  @include vertical-spacing(rem(gesso-spacing(md)) + $fieldset-legend-offset);
   padding: 0;
   position: relative;
   top: $fieldset-legend-offset; // Offsets the negative margin of legends.
@@ -41,17 +41,13 @@ $fieldset-legend-offset: rem(gesso-line-height(base) * gesso-base-font-size()) !
 .fieldset__description {
   color: gesso-color(text, secondary);
   font-size: rem(gesso-font-size(1));
-
-  > :last-child {
-    margin-bottom: 0;
-  }
 }
 
 .fieldset--default {
+  @include vertical-spacing(rem(gesso-spacing(sm)), rem(gesso-spacing(sm)) + rem(12px));
   background: #fff;
   border: 1px solid gesso-color(form, border);
-  margin: rem(gesso-spacing(sm)) 0 (rem(gesso-spacing(sm)) + rem(12px));
-  padding: 0 1em;
+  padding: 0 rem(gesso-spacing(sm));
 
   .fieldset__legend {
     background: gesso-color(form, border);
@@ -76,11 +72,11 @@ $fieldset-legend-offset: rem(gesso-line-height(base) * gesso-base-font-size()) !
   }
 
   .fieldset__content {
-    margin-top: 2.5em;
+    padding: rem(gesso-spacing(md)) 0 rem(gesso-spacing(sm));
   }
 
   .fieldset__description {
+    @include vertical-spacing(rem(gesso-spacing(sm)));
     font-style: italic;
-    margin: rem(gesso-spacing(sm)) 0;
   }
 }

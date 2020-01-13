@@ -12,8 +12,8 @@ $pager-bp: 600px !default;
 
 .pager__items {
   @include list-clean();
+  @include vertical-spacing(rem(gesso-spacing(md)));
   clear: both;
-  margin: em(gesso-spacing(md)) 0;
   padding: 0;
   text-align: center;
 }
@@ -94,6 +94,7 @@ $pager-bp: 600px !default;
   &:focus {
     background-color: transparent;
     color: $pager-link-color;
+
     .pager__link-icon g {
       fill: $pager-background-color;
     }
