@@ -2,11 +2,12 @@
 // Heading styles.
 
 %hN {
+  @include vertical-spacing(1em, rem(gesso-spacing(sm)));
   color: inherit;
   font-weight: gesso-font-weight(bold);
   hyphens: none;
   line-height: gesso-line-height(base);
-  margin: 0 0 rem(gesso-spacing(sm));
+  margin: 0;
   text-rendering: optimizeLegibility;
 
   @media print {
@@ -17,11 +18,6 @@
     &::after {
       display: inline-block;
     }
-  }
-
-  // Add top margin when headers are preceded by other elements (p, ul, etc.)
-  * + & {
-    margin-top: 1em;
   }
 }
 

@@ -2,7 +2,8 @@
 // Preformatted text styles.
 
 pre {
-  margin: 0 0 rem(gesso-spacing(sm));
+  @include vertical-spacing(rem(gesso-spacing(sm)));
+  margin: 0;
   overflow: auto;
 
   @media print {
