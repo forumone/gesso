@@ -1,7 +1,7 @@
 // @file
 // Styles for hero using a background image.
 
-$hero-bg-image-bp: gesso-breakpoint(md) !default;
+$hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 
 .hero-bg-image {
   background-position: 50% 50%;

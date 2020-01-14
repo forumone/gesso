@@ -29,7 +29,7 @@ $tab-text-color-hover: gesso-color(text, on-light) !default;
   display: flex;
   flex-direction: column;
 
-  @include breakpoint(gesso-breakpoint(sm)) {
+  @include breakpoint(gesso-breakpoint(tablet)) {
     flex-direction: row;
   }
 
