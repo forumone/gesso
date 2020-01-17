@@ -98,7 +98,7 @@ const createSprite = () => {
       mode: {
         symbol: {
           dest: '',
-          sprite: 'sprite.svg'
+          sprite: 'sprite.artifact.svg'
         }
       }
     }))
