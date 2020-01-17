@@ -148,7 +148,6 @@ const watchFiles = () => {
     { usePolling: true, interval: 1500 },
     series(
       buildConfig,
-      parallel(series(lintStyles, buildStyles), series(lintPatterns, buildPatternLab)),
       parallel(series(lintStyles, buildStyles), series(lintPatterns, buildPatternLab))
     )
   );
