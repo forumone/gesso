@@ -1,7 +1,28 @@
-<details class="details js-details js-form-wrapper" data-drupal-selector="edit-details" id="edit-details"{% if is_open %} open{% endif %}>
-  <summary class="details__summary" role="button" aria-controls="edit-details" aria-expanded="true" aria-pressed="true">{{ details_summary }}</summary>
+{# The following line adds the details polyfill JS for older browsers for
+  Drupal. Within Pattern Lab the attach_library function doesn't do anything,
+  so we load the same JS globally in _meta/01-foot.twig for Pattern Lab. #}
+{{ attach_library('gesso/details') }}
+
+{% set additional_attributes = {
+  'class': ['details'],
+} %}
+
+{% set additional_summary_attributes = {
+  'class': [
+    'details__summary',
+    required ? 'is-required'
+  ],
+  'role': 'button'
+} %}
+
+<details {{ add_attributes(additional_attributes) }}>
+  {% if details_summary %}
+    <summary {{ add_attributes(additional_summary_attributes)}}>{{ details_summary }}</summary>
+  {% endif %}
   <div class="details__content">
-    <div class="details__description">{{ details_description }}</div>
+    {% if details_description %}
+      <div class="details__description">{{ details_description }}</div>
+    {% endif %}
     {{ details_content }}
   </div>
 </details>

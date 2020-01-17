@@ -15,26 +15,20 @@
   */
 #}
 
-<details{{ attributes.removeClass('form-wrapper').addClass('details js-details') }}>
-  {%- if title -%}
-    <summary{{ summary_attributes.addClass('details__summary') }}>{{ title }}</summary>
-  {%- else -%}
-    <summary{{ summary_attributes.addClass('details__summary') }}>{{ 'Details'|t }}</summary>
-  {%- endif -%}
-  <div class="details__content">
-    {% if errors %}
-      <div class="details__error-message">
-        <strong>{{ errors }}</strong>
-      </div>
-    {% endif %}
-    {%- if description -%}
-      <div class="details__description">{{ description }}</div>
-    {%- endif -%}
-    {%- if children -%}
-      {{ children }}
-    {%- endif -%}
-    {%- if value -%}
-      {{ value }}
-    {%- endif -%}
+{% set details_content %}
+  {% if errors %}
+  <div>
+    {{ errors }}
   </div>
-</details>
+  {% endif %}
+  {{ children }}
+  {{ value }}
+{% endset %}
+
+{% include '@components/details/details.twig' with {
+  'attributes': attributes,
+  'required': required,
+  'details_summary': title is not empty ? title : 'Details'|t,
+  'details_description': description,
+  'details_content': details_content
+} %}
