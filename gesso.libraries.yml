@@ -17,3 +17,7 @@ global:
     - core/drupal
     - core/drupalSettings
     - core/modernizr
+details:
+  version: VERSION
+  js:
+    js/libraries/details-element-polyfill.js: {}
