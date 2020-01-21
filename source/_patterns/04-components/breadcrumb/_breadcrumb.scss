@@ -12,6 +12,7 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
   color: $breadcrumb-text-color;
   font-size: rem(gesso-font-size(0));
   min-height: rem(gesso-spacing(lg));
+  padding-bottom: rem(gesso-spacing(sm));
   padding-top: rem(gesso-spacing(sm));
 }
 
