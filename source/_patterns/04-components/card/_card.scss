@@ -55,8 +55,6 @@ $card-padding: rem(gesso-spacing(md)) !default;
 }
 
 .card__content {
-  @include vertical-spacing(rem(gesso-spacing(md)));
-  margin: 0;
   margin-bottom: rem(gesso-spacing(md));
 }
 
@@ -72,6 +70,10 @@ $card-padding: rem(gesso-spacing(md)) !default;
   img {
     width: 100%;
   }
+}
+
+.card__footer {
+  margin-top: auto;
 }
 
 .card__tags {
