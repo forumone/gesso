@@ -52,10 +52,13 @@ gesso:
     md: 1440px
     lg: 2200px
   breakpoints:
-    xs: 480px
-    sm: 700px
-    md: 960px
-    lg: 1280px
+    mobile: 320px
+    mobile-lg: 480px
+    tablet: 640px
+    tablet-lg: 880px
+    desktop: 1024px
+    desktop-lg: 1200px
+    widescreen: 1400px
   colors:
     text:
       primary: grayscale.black

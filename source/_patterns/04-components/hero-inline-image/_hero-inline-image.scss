@@ -1,7 +1,7 @@
 // @file
 // Styles for hero using an inline image element.
 
-$hero-inline-image-bp: gesso-breakpoint(md) !default;
+$hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 
 .hero-inline-image {
   @include breakpoint($hero-inline-image-bp) {

@@ -40,7 +40,7 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
 }
 
 .breadcrumb__list .breadcrumb__item {
-  @include breakpoint(max-width gesso-breakpoint(sm)) {
+  @include breakpoint(max-width gesso-breakpoint(tablet)) {
     display: none;
     &:nth-last-child(2) {
       display: block;

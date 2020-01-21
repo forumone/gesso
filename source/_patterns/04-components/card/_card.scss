@@ -97,7 +97,7 @@ $card-padding: rem(gesso-spacing(md)) !default;
     margin-bottom: 0;
   }
 
-  @include breakpoint(gesso-breakpoint(md)) {
+  @include breakpoint(gesso-breakpoint(desktop)) {
     flex-direction: row;
 
     .card__title {
