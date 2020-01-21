@@ -12,7 +12,7 @@
   {% for icon in icons %}
     <p>
       <svg class="{{ classes }}"{% if is_hidden %} aria-hidden="true"{% endif %}>
-        <use xlink:href="../../../images/icons.svg#{{ icon }}"></use>
+        <use xlink:href="../../../images/sprite.artifact.svg#{{ icon }}"></use>
       </svg>
       {{ icon }}
     </p>
@@ -20,7 +20,7 @@
 {%- else -%}
   {% spaceless %}
     <svg class="{{ classes }}"{% if is_hidden %} aria-hidden="true"{% endif %}>
-      <use xlink:href="../../../images/icons.svg#{{ icon_name }}"></use>
+      <use xlink:href="../../../images/sprite.artifact.svg#{{ icon_name }}"></use>
     </svg>
   {% endspaceless %}
 {%- endif -%}
