@@ -3,8 +3,7 @@
 
 .button {
   @include button();
-  @include vertical-spacing(rem(gesso-spacing(xs)));
-  margin: 0;
+  margin-bottom: rem(gesso-spacing(xs));
 
   & + & {
     margin-left: rem(gesso-spacing(xs)); // LTR
