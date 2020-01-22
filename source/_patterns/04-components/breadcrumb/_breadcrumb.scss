@@ -10,10 +10,10 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
   @include clearfix();
   background-color: $breadcrumb-background-color;
   color: $breadcrumb-text-color;
-  font-size: rem(gesso-font-size(0));
-  min-height: rem(gesso-spacing(lg));
-  padding-bottom: rem(gesso-spacing(sm));
-  padding-top: rem(gesso-spacing(sm));
+  font-size: rem(gesso-font-size(1));
+  min-height: rem(gesso-spacing(5));
+  padding-bottom: rem(gesso-spacing(2));
+  padding-top: rem(gesso-spacing(2));
 }
 
 .breadcrumb__title {

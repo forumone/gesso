@@ -2,5 +2,5 @@
 // Styles for Section Layout.
 
 .l-section {
-  @include vertical-spacing(rem(gesso-spacing(lg)));
+  @include vertical-spacing(rem(gesso-spacing(5)));
 }

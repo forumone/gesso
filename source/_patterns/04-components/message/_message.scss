@@ -11,12 +11,12 @@ $message-warning-background-color: gesso-color(ui, warning, background) !default
 $message-warning-border-color: gesso-color(ui, warning, border) !default;
 
 .message {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
+  @include vertical-spacing(rem(gesso-spacing(2)));
   background-color: $message-background-color;
   border: 1px solid $message-border-color;
   color: gesso-color(text, primary);
   overflow: hidden;
-  padding: rem(gesso-spacing(sm));
+  padding: rem(gesso-spacing(2));
   position: relative;
   word-wrap: break-word;
 

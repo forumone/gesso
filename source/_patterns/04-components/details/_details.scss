@@ -11,7 +11,7 @@ $details-text-color: gesso-color(text, on-light) !default;
 // class is limited to only the details element
 /* stylelint-disable-next-line selector-no-qualifying-type */
 details.details {
-  @include vertical-spacing(rem(gesso-spacing(md)));
+  @include vertical-spacing(rem(gesso-spacing(3)));
 
   // Fallback for browsers that don’t support details.
   /* stylelint-disable-next-line selector-no-qualifying-type */
@@ -78,7 +78,7 @@ details.details {
 }
 
 .details__description {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
+  @include vertical-spacing(rem(gesso-spacing(2)));
   color: $details-text-color;
-  font-size: rem(gesso-font-size(1));
+  font-size: rem(gesso-font-size(2));
 }

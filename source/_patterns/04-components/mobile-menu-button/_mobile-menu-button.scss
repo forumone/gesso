@@ -9,12 +9,12 @@
   box-shadow: none;
   display: inline-block;
   font-family: gesso-font-family(system);
-  font-size: rem(gesso-font-size(1));
+  font-size: rem(gesso-font-size(2));
   font-weight: gesso-font-weight(bold);
   height: 55px;
   line-height: 55px;
   margin: 0;
-  padding: 0 gesso-spacing(sm);
+  padding: 0 gesso-spacing(2);
   text-decoration: none;
 }
 
@@ -24,7 +24,7 @@
   background-repeat: no-repeat;
   background-size: 22px 22px;
   display: inline-block;
-  margin-top: gesso-spacing(sm);
+  margin-top: gesso-spacing(2);
 }
 
 .mobile-menu-button--close {

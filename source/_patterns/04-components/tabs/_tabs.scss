@@ -70,10 +70,10 @@ $tab-text-color-hover: gesso-color(text, on-light) !default;
   border-left: 1px solid $tab-border-color;
   display: block;
   font-family: gesso-font-family(system);
-  font-size: rem(gesso-font-size(1));
-  line-height: (17px / gesso-font-size(1));
+  font-size: rem(gesso-font-size(2));
+  line-height: (17px / gesso-font-size(2));
   margin: 0;
-  padding: rem(gesso-spacing(xs)) rem(gesso-spacing(sm));
+  padding: rem(gesso-spacing(1)) rem(gesso-spacing(2));
 
   &:focus {
     background-color: $tab-background-color-hover;

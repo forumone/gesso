@@ -2,7 +2,7 @@
 // Preformatted text styles.
 
 pre {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
+  @include vertical-spacing(rem(gesso-spacing(2)));
   margin: 0;
   overflow: auto;
 

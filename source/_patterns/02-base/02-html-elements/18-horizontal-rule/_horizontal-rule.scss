@@ -4,7 +4,7 @@
 $horizontal-rule-color: gesso-color(ui, generic, border);
 
 hr {
-  @include vertical-spacing(rem(gesso-spacing(md)));
+  @include vertical-spacing(rem(gesso-spacing(3)));
   border: 1px solid $horizontal-rule-color;
   box-sizing: content-box;
   height: 0;

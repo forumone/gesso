@@ -15,7 +15,7 @@
     > .menu__link {
       display: inline-block;
       font-weight: gesso-font-weight(semibold);
-      margin-right: gesso-spacing(lg);
+      margin-right: gesso-spacing(5);
       padding: 0;
       position: relative;
       text-decoration: none;
@@ -43,7 +43,7 @@
     background-color: gesso-color(ui, generic, background-dark);
     display: none;
     left: 0;
-    margin-top: gesso-spacing(xs);
+    margin-top: gesso-spacing(1);
     padding: 0;
     position: absolute;
     top: 0;
@@ -52,7 +52,7 @@
       @include link(gesso-color(ui, generic, text-lighter));
       display: block;
       line-height: gesso-line-height(tight);
-      padding: rem(gesso-spacing(sm)) rem(gesso-spacing(md));
+      padding: rem(gesso-spacing(2)) rem(gesso-spacing(3));
       position: relative;
       text-decoration: none;
       width: rem(200px);

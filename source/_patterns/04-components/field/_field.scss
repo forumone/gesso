@@ -2,13 +2,13 @@
 // Styles for fields.
 
 .field {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
+  @include vertical-spacing(rem(gesso-spacing(2)));
 }
 
 .field__label {
-  @include vertical-spacing(rem(gesso-spacing(xs)));
+  @include vertical-spacing(rem(gesso-spacing(1)));
   display: block;
-  font-size: rem(gesso-font-size(1));
+  font-size: rem(gesso-font-size(2));
   font-weight: gesso-font-weight(bold);
 
   &.is-inline {

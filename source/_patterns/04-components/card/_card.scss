@@ -5,7 +5,7 @@ $card-accent-border-color: gesso-color(ui, generic, accent) !default;
 $card-link-color: gesso-color(text, on-light) !default;
 $card-link-color-hover: gesso-color(ui, generic, text-dark) !default;
 $card-meta-color: gesso-color(ui, generic, text-dark) !default;
-$card-padding: rem(gesso-spacing(md)) !default;
+$card-padding: rem(gesso-spacing(3)) !default;
 
 .card {
   border-bottom: 4px solid $card-accent-border-color;
@@ -21,13 +21,13 @@ $card-padding: rem(gesso-spacing(md)) !default;
 }
 
 .card__date {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
-  font-size: rem(gesso-font-size(0));
+  @include vertical-spacing(rem(gesso-spacing(2)));
+  font-size: rem(gesso-font-size(1));
 }
 
 .card__title {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
-  font-size: rem(gesso-font-size(3));
+  @include vertical-spacing(rem(gesso-spacing(2)));
+  font-size: rem(gesso-font-size(4));
   margin: 0;
 
   a {
@@ -46,16 +46,16 @@ $card-padding: rem(gesso-spacing(md)) !default;
 }
 
 .card__header {
-  @include vertical-spacing(rem(gesso-spacing(md)));
+  @include vertical-spacing(rem(gesso-spacing(3)));
 }
 
 .card__date {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
+  @include vertical-spacing(rem(gesso-spacing(2)));
   color: $card-meta-color;
 }
 
 .card__content {
-  margin-bottom: rem(gesso-spacing(md));
+  margin-bottom: rem(gesso-spacing(3));
 }
 
 .card__media {
@@ -77,7 +77,7 @@ $card-padding: rem(gesso-spacing(md)) !default;
 }
 
 .card__tags {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
+  @include vertical-spacing(rem(gesso-spacing(2)));
 }
 
 .card__readmore {
@@ -93,7 +93,7 @@ $card-padding: rem(gesso-spacing(md)) !default;
     flex-direction: row;
 
     .card__title {
-      font-size: rem(gesso-font-size(4));
+      font-size: rem(gesso-font-size(5));
     }
 
     .card__body {
