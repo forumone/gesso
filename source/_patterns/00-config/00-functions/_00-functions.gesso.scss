@@ -36,11 +36,12 @@
   @return gesso-get-map(breakpoints, $keys...);
 }
 
-// Get Palette
+// Get Brand Palette
 @function gesso-brand($keys...) {
   @return gesso-get-map(palette, brand, $keys...);
 }
 
+// Get Grayscale Palette
 @function gesso-grayscale($keys...) {
   @return gesso-get-map(palette, grayscale, $keys...);
 }
@@ -65,7 +66,7 @@
   @return gesso-get-map(typography, font-size, $keys...);
 }
 
-// Get Font Size
+// Get Font Weight
 @function gesso-font-weight($keys...) {
   @return gesso-get-map(typography, font-weight, $keys...);
 }
