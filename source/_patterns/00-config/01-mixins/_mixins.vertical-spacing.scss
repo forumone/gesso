@@ -1,0 +1,15 @@
+// @file
+// Mixin for setting vertical spacing around an element.
+// @param {String} $top-spacing - Spacing to add before this element.
+// @param {String} $bottom-spacing - Spacing to add after this element.
+@mixin vertical-spacing($top-spacing: 1em, $bottom-spacing: $top-spacing) {
+  // Add top margin when preceded by another element.
+  *:not(.visually-hidden) + & {
+    margin-top: $top-spacing;
+  }
+
+  // Add top margin to element directly after this.
+  &:not(.visually-hidden) + * {
+    margin-top: $bottom-spacing;
+  }
+}

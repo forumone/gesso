@@ -11,10 +11,10 @@ $message-warning-background-color: gesso-color(ui, warning, background) !default
 $message-warning-border-color: gesso-color(ui, warning, border) !default;
 
 .message {
+  @include vertical-spacing(rem(gesso-spacing(sm)));
   background-color: $message-background-color;
   border: 1px solid $message-border-color;
   color: gesso-color(text, primary);
-  margin-bottom: rem(gesso-spacing(sm));
   overflow: hidden;
   padding: rem(gesso-spacing(sm));
   position: relative;
@@ -44,11 +44,7 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
 
 }
 
-.message__content {
-  > *:last-child {
-    margin-bottom: 0;
-  }
-}
+// .message__content {}
 
 .message--status {
   background-color: $message-status-background-color;

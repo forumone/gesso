@@ -25,8 +25,8 @@
         {% include '@components/list/list.twig' with {
           'modifier_classes': 'list--pipeline',
           'list': [
-            { 'text': article_date },
-            { 'text': article_author }
+            { 'content': article_date },
+            { 'content': article_author }
           ]
         } %}
       {% endblock %}

@@ -5,12 +5,8 @@ $blockquote-cite-divider-color: gesso-color(ui, generic, border);
 
 blockquote {
   @include display-text-style(blockquote);
-  margin: 0 0 rem(gesso-spacing(lg));
-
-  // Add top margin when blockquote is preceded by other elements
-  * + & {
-    margin-top: rem(gesso-spacing(lg));
-  }
+  @include vertical-spacing(rem(gesso-spacing(lg)));
+  margin: 0;
 
   p {
     color: inherit;
@@ -29,8 +25,9 @@ blockquote {
   }
 
   cite {
+    @include vertical-spacing(rem(gesso-spacing(sm)));
     display: block;
-    margin-top: rem(gesso-spacing(sm));
+    margin: 0;
     text-align: right;
 
     em {
@@ -39,10 +36,6 @@ blockquote {
       margin-left: rem(gesso-spacing(xxs));
       padding-left: rem(gesso-spacing(xs));
     }
-  }
-
-  :last-child {
-    margin-bottom: 0;
   }
 
   @media print {
