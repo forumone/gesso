@@ -2,7 +2,7 @@
 // Styles for radio form items.
 
 .form-item--radio {
-  margin-bottom: gesso-spacing(xs);
+  @include vertical-spacing(rem(gesso-spacing(xs)));
 
   .form-item__radio {
     @include focus();

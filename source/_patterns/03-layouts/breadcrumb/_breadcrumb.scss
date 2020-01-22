@@ -1,4 +1,6 @@
 // @file
 // Styles for Breadcrumb Layout.
 
-// .l-breadcrumb {}
+.l-breadcrumb {
+  @include vertical-spacing(rem(gesso-spacing(sm)));
+}

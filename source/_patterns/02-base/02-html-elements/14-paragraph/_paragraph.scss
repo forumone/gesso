@@ -2,7 +2,8 @@
 // Paragraph styles.
 
 p {
-  margin: 0 0 rem(gesso-spacing(sm));
+  @include vertical-spacing(rem(gesso-spacing(sm)));
+  margin: 0;
 
   @media print {
     orphans: 3;

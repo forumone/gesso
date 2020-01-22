@@ -1,0 +1,6 @@
+// @file
+// Styles for checkboxes fieldsets.
+
+.fieldset--checkboxes {
+  @include vertical-spacing(rem(gesso-spacing(md)));
+}

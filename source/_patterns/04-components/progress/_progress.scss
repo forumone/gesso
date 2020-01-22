@@ -17,7 +17,7 @@ $progress-text-color: gesso-color(text, on-light) !default;
   border-radius: $progress-border-radius;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
   height: 1rem;
-  margin: 0.2em 0;
+  margin: rem(gesso-spacing(xxs)) 0;
   max-width: 100%;
   min-width: 6em;
   overflow: hidden;

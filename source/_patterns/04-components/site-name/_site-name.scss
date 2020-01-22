@@ -1,4 +1,7 @@
 // @file
 // Styles for Site name.
 
-// .site-name {}
+.site-name {
+  display: inline-block;
+  margin-bottom: rem(gesso-spacing(sm));
+}

@@ -4,9 +4,8 @@
 // .article {}
 
 .article__footer {
+  @include vertical-spacing(rem(gesso-spacing(sm)));
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: rem(gesso-spacing(sm));
 }
-

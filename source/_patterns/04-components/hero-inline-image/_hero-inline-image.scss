@@ -29,12 +29,12 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 }
 
 .hero-inline-image__media {
+  @include vertical-spacing(rem(gesso-spacing(md)));
   display: block;
   line-height: 0;
-  margin-bottom: rem(gesso-spacing(md));
 
   @include breakpoint($hero-inline-image-bp) {
-    margin-bottom: 0;
+    @include vertical-spacing(0);
   }
 
   img,
@@ -58,11 +58,11 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 
 .hero-inline-image__title {
   @include display-text-style(display);
-  margin-bottom: rem(gesso-spacing(md));
+  @include vertical-spacing(rem(gesso-spacing(md)));
 
   @include breakpoint($hero-inline-image-bp) {
+    @include vertical-spacing(rem(gesso-spacing(lg)));
     color: gesso-color(text, on-dark);
-    margin-bottom: rem(gesso-spacing(lg));
   }
 
   @include breakpoint(max-width $hero-inline-image-bp) {
@@ -72,11 +72,11 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 
 .hero-inline-image__summary {
   @include display-text-style(body-large);
-  margin-bottom: rem(gesso-spacing(md));
+  @include vertical-spacing(rem(gesso-spacing(md)));
 
   @include breakpoint($hero-inline-image-bp) {
+    @include vertical-spacing(rem(gesso-spacing(lg)));
     color: gesso-color(text, on-dark);
-    margin-bottom: rem(gesso-spacing(lg));
   }
 }
 

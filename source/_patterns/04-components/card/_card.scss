@@ -21,11 +21,14 @@ $card-padding: rem(gesso-spacing(md)) !default;
 }
 
 .card__date {
+  @include vertical-spacing(rem(gesso-spacing(sm)));
   font-size: rem(gesso-font-size(0));
 }
 
 .card__title {
+  @include vertical-spacing(rem(gesso-spacing(sm)));
   font-size: rem(gesso-font-size(3));
+  margin: 0;
 
   a {
     @include link(
@@ -39,16 +42,16 @@ $card-padding: rem(gesso-spacing(md)) !default;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 0 $card-padding 0;
+  padding: $card-padding;
+}
 
-  p:last-child {
-    margin-bottom: 0;
-  }
+.card__header {
+  @include vertical-spacing(rem(gesso-spacing(md)));
 }
 
 .card__date {
+  @include vertical-spacing(rem(gesso-spacing(sm)));
   color: $card-meta-color;
-  margin-bottom: rem(gesso-spacing(sm));
 }
 
 .card__content {
@@ -56,7 +59,6 @@ $card-padding: rem(gesso-spacing(md)) !default;
 }
 
 .card__media {
-  margin-bottom: rem(gesso-spacing(md));
   order: -1;
 
   a {
@@ -72,15 +74,10 @@ $card-padding: rem(gesso-spacing(md)) !default;
 
 .card__footer {
   margin-top: auto;
-  padding: 0 0 $card-padding;
+}
 
-  > div {
-    margin-bottom: rem(gesso-spacing(sm));
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+.card__tags {
+  @include vertical-spacing(rem(gesso-spacing(sm)));
 }
 
 .card__readmore {
@@ -88,13 +85,8 @@ $card-padding: rem(gesso-spacing(md)) !default;
 }
 
 .card--feature {
-  .card__body {
-    padding-top: $card-padding;
-  }
-
   .card__media {
     flex-grow: 1;
-    margin-bottom: 0;
   }
 
   @include breakpoint(gesso-breakpoint(desktop)) {
@@ -106,7 +98,7 @@ $card-padding: rem(gesso-spacing(md)) !default;
 
     .card__body {
       max-width: 600px;
-      padding: $card-padding 2vw 0;
+      padding: $card-padding 2vw;
     }
 
     .card__media {

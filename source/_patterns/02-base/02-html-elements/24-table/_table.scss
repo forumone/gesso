@@ -2,7 +2,8 @@
 // Table styles.
 
 caption {
-  margin-bottom: rem(gesso-spacing(xxs));
+  @include vertical-spacing(rem(gesso-spacing(xxs)));
+  margin: 0;
 }
 
 // col {}
@@ -10,9 +11,10 @@ caption {
 // colgroup {}
 
 table {
+  @include vertical-spacing(rem(gesso-spacing(sm)));
   border-collapse: collapse;
   border-spacing: 0;
-  margin-bottom: rem(gesso-spacing(xs));
+  margin: 0;
   min-width: 100%;
 }
 

@@ -1,0 +1,6 @@
+// @file
+// Styles for radios fieldsets.
+
+.fieldset--radios {
+  @include vertical-spacing(rem(gesso-spacing(md)));
+}

@@ -10,5 +10,5 @@
 }
 
 .menu__item {
-  margin-bottom: 0;
+  @include vertical-spacing(0);
 }

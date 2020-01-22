@@ -1,12 +1,10 @@
 .tag {
-  @include link(
-    gesso-color(ui, generic, accent-dark)
-  );
+  @include link(gesso-color(ui, generic, accent-dark));
+  @include vertical-spacing(rem(gesso-spacing(xs)));
   border: 2px solid gesso-color(ui, generic, accent-light);
   border-radius: 70px;
   display: inline-block;
   font-size: rem(gesso-font-size(0));
-  margin: 0 0 rem(gesso-spacing(xs)) 0;
   padding: 0.25em 1.65em;
   text-align: center;
   text-decoration: none;

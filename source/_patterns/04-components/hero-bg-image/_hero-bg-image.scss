@@ -44,17 +44,18 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 
 .hero-bg-image__summary {
   @include display-text-style(body-large);
+  @include vertical-spacing(rem(gesso-spacing(lg)));
   color: gesso-color(text, on-dark);
-  margin-bottom: rem(gesso-spacing(lg));
 
   @include breakpoint(max-width $hero-bg-image-bp) {
+    @include vertical-spacing(rem(gesso-spacing(md)));
     font-size: rem(gesso-font-size(1));
-    margin-bottom: rem(gesso-spacing(md));
   }
 }
 
 .hero-bg-image--left {
   text-align: left;
+
   @include breakpoint($hero-bg-image-bp) {
     padding-left: 10%;
     padding-right: 35%;
@@ -63,6 +64,7 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 
 .hero-bg-image--right {
   text-align: left;
+
   @include breakpoint($hero-bg-image-bp) {
     padding-left: 35%;
     padding-right: 10%;
