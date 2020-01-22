@@ -73,3 +73,10 @@
 @mixin invisible-important {
   @include invisible(true);
 }
+
+// Completely hide an element if it has a true aria-hidden attribute.
+@mixin aria-hidden {
+  &[aria-hidden='true'] {
+    display: none;
+  }
+}

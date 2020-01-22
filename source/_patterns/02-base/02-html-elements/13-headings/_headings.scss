@@ -26,7 +26,7 @@ h1,
   @extend %hN;
   @include display-text-style(h1);
 
-  @include breakpoint(max-width gesso-breakpoint(sm)) {
+  @include breakpoint(max-width gesso-breakpoint(tablet)) {
     font-size: rem(gesso-font-size(4));
   }
 }
@@ -36,7 +36,7 @@ h2,
   @extend %hN;
   @include display-text-style(h2);
 
-  @include breakpoint(max-width gesso-breakpoint(sm)) {
+  @include breakpoint(max-width gesso-breakpoint(tablet)) {
     font-size: rem(gesso-font-size(3));
   }
 }
@@ -46,7 +46,7 @@ h3,
   @extend %hN;
   @include display-text-style(h3);
 
-  @include breakpoint(max-width gesso-breakpoint(sm)) {
+  @include breakpoint(max-width gesso-breakpoint(tablet)) {
     font-size: rem(gesso-font-size(2));
   }
 }
@@ -56,7 +56,7 @@ h4,
   @extend %hN;
   @include display-text-style(h4);
 
-  @include breakpoint(max-width gesso-breakpoint(sm)) {
+  @include breakpoint(max-width gesso-breakpoint(tablet)) {
     font-size: rem(gesso-font-size(1));
   }
 }

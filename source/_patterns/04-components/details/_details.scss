@@ -57,6 +57,10 @@ details.details {
   &::-webkit-details-marker {
     display: none;
   }
+
+  &::before {
+    display: none; // remove icon added by polyfill
+  }
 }
 
 .details__fallback-link {

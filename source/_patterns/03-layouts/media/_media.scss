@@ -7,7 +7,7 @@ $media-gutter: rem(gesso-spacing(sm));
   display: flex;
   flex-direction: column;
 
-  @include breakpoint(gesso-breakpoint(sm)) {
+  @include breakpoint(gesso-breakpoint(tablet)) {
     flex-direction: row;
   }
 }
