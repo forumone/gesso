@@ -2,6 +2,6 @@
 // Styles for checkboxes form items.
 
 .form-item--checkboxes {
-  @include vertical-spacing(rem(gesso-spacing(xxs)));
-  margin-top: rem(gesso-spacing(xxs));
+  @include vertical-spacing(rem(gesso-spacing(0.5)));
+  margin-top: rem(gesso-spacing(0.5));
 }

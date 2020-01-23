@@ -2,7 +2,7 @@
 // Styles for Block.
 
 .block {
-  @include vertical-spacing(rem(gesso-spacing(lg)));
+  @include vertical-spacing(rem(gesso-spacing(5)));
 }
 
 // disable margin for layout builder blocks

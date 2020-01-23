@@ -9,10 +9,10 @@
   </thead>
   <tbody>
     {# Base font value should be a pixel value or unitless value #}
-    {% for name, unit in gesso.spacing %}
-      {% set remValue = 
-        (unit|replace({'px':''})) / 
-        (gesso.typography['base-font-size']|replace({'px':''})) 
+    {% for name, unit in gesso.spacing|keysort %}
+      {% set remValue =
+        (unit|replace({'px':''})) /
+        (gesso.typography['base-font-size']|replace({'px':''}))
       %}
 
       <tr>

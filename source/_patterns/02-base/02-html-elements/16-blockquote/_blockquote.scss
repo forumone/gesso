@@ -5,7 +5,7 @@ $blockquote-cite-divider-color: gesso-color(ui, generic, border);
 
 blockquote {
   @include display-text-style(blockquote);
-  @include vertical-spacing(rem(gesso-spacing(lg)));
+  @include vertical-spacing(rem(gesso-spacing(5)));
   margin: 0;
 
   p {
@@ -25,7 +25,7 @@ blockquote {
   }
 
   cite {
-    @include vertical-spacing(rem(gesso-spacing(sm)));
+    @include vertical-spacing(rem(gesso-spacing(2)));
     display: block;
     margin: 0;
     text-align: right;
@@ -33,8 +33,8 @@ blockquote {
     em {
       border-left: 1px solid $blockquote-cite-divider-color;
       font-weight: gesso-font-weight(regular);
-      margin-left: rem(gesso-spacing(xxs));
-      padding-left: rem(gesso-spacing(xs));
+      margin-left: rem(gesso-spacing(0.5));
+      padding-left: rem(gesso-spacing(1));
     }
   }
 

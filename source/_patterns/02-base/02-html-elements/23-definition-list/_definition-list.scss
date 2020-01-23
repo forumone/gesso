@@ -2,9 +2,9 @@
 // Definition list styles.
 
 dd {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
+  @include vertical-spacing(rem(gesso-spacing(2)));
   margin: 0;
-  padding-left: rem(gesso-spacing(md));
+  padding-left: rem(gesso-spacing(3));
 
   dt + & {
     margin-top: 0;
@@ -12,7 +12,7 @@ dd {
 }
 
 dl {
-  @include vertical-spacing(rem(gesso-spacing(sm)));
+  @include vertical-spacing(rem(gesso-spacing(2)));
   margin: 0;
 }
 

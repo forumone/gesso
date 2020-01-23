@@ -3,7 +3,7 @@
 
 $l-sidebar-bp: 900px;
 $l-sidebar-width: 300px;
-$l-sidebar-gutter: rem(gesso-spacing(sm));
+$l-sidebar-gutter: rem(gesso-spacing(2));
 
 .l-sidebar {
   @include breakpoint($l-sidebar-bp) {
