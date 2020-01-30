@@ -8,6 +8,7 @@
   padding: 0;
 
   li {
+    @include vertical-spacing(0);
     padding-left: 0;
 
     &::before {
@@ -22,6 +23,7 @@
   padding-left: 0;
 
   li {
+    @include vertical-spacing(0);
     padding-left: 0;
   }
 

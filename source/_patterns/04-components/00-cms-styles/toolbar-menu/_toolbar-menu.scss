@@ -3,10 +3,5 @@
 
 /* stylelint-disable-next-line selector-no-qualifying-type */
 ul.toolbar-menu {
-  font-size: 1em;
-
-  li {
-    margin-bottom: 0;
-    padding-left: 0;
-  }
+  @include list-clean;
 }
