@@ -4,7 +4,6 @@
 li {
   @include vertical-spacing(rem(gesso-spacing(1)));
   margin: 0;
-  padding-left: rem(gesso-spacing(1));
 
   @media print {
     page-break-inside: avoid;
