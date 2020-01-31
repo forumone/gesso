@@ -193,8 +193,6 @@ const build = (isProduction = true) => {
     parallel(task('bundleScripts'), buildImages, buildStyles, buildPatterns));
 };
 
-exports.buildConfig = buildConfig;
-
 exports.build = build(true);
 
 exports.default = series(build(false), watchFiles);
