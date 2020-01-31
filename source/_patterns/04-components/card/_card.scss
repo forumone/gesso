@@ -31,10 +31,7 @@ $card-padding: rem(gesso-spacing(3)) !default;
   margin: 0;
 
   a {
-    @include link(
-      $card-link-color,
-      $card-link-color-hover
-    );
+    @include link($card-link-color, $card-link-color-hover);
   }
 }
 

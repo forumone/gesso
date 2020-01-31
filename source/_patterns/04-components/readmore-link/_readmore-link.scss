@@ -1,8 +1,9 @@
 .readmore-link {
   text-decoration: none;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     path {
-      fill: gesso-color(text, link-hover)
+      fill: gesso-color(text, link-hover);
     }
   }
 }

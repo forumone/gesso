@@ -61,7 +61,7 @@ const buildConfig = async () => {
 };
 
 const lintStyles = () => {
-  return src('**/*.scss', { cwd: './source', since: lastRun(lintStyles) }).pipe(
+  return src('**/!(*.artifact).scss', { cwd: './source', since: lastRun(lintStyles) }).pipe(
     stylelint({
       configFile: '.stylelintrc.yml',
       failAfterError: true,

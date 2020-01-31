@@ -3,6 +3,7 @@ extends:
   - stylelint-config-prettier
 
 plugins:
+  - stylelint-prettier
   - stylelint-selector-pseudo-class-lvhfa
 rules:
   block-no-empty: null
@@ -20,6 +21,7 @@ rules:
     - unspecified: ignore
       disableFix: true
   plugin/selector-pseudo-class-lvhfa: true
+  prettier/prettier: true
   property-no-vendor-prefix: null
   selector-attribute-brackets-space-inside: never
   selector-class-pattern:

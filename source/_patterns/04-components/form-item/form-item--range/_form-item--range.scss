@@ -94,12 +94,16 @@ $form-range-track-height: 10px !default;
     &::-ms-fill-lower,
     &::-ms-fill-upper {
       background: gesso-color(form, track);
-      border: $form-range-track-border-width solid gesso-color(form, border-dark);
+      border: $form-range-track-border-width solid
+        gesso-color(form, border-dark);
     }
 
     &::-webkit-slider-thumb {
       @include form-item__range-thumb;
       -webkit-appearance: none;
+      // Stylelint gets confused by the nested math and rem functions here,
+      // so we don't want to lint this line.
+      // stylelint-disable-next-line
       margin-top: rem(((-$form-range-track-border-width * 2) + $form-range-track-height) / 2) - rem($form-range-thumb-height / 2);
     }
 
