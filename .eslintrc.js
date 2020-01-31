@@ -1,7 +1,7 @@
 module.exports = {
   "root": true,
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 8,
     "sourceType": "module"
   },
   "env": {
@@ -28,7 +28,7 @@ module.exports = {
     "dot-notation": "error",
     "eqeqeq": "error",
     "guard-for-in": "error",
-    "implicit-dependencies/no-implicit": ["error", { optional: true }],
+    "implicit-dependencies/no-implicit": ["error", { optional: true, dev: true }],
     "no-console": "error",
     "no-empty-function": "error",
     "no-floating-decimal": "error",
