@@ -67,7 +67,8 @@ $swatch-padding: 1rem;
 }
 
 .pattern-lab-color-swatch__hex {
-  font-family: Menlo, Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif;
+  font-family: Menlo, Consolas, 'Lucida Console', 'Liberation Mono',
+    'Courier New', monospace, sans-serif;
   font-size: rem(14px);
 }
 
@@ -305,7 +306,7 @@ $swatch-padding: 1rem;
 $dark-bg-padding: 1em;
 
 /* stylelint-disable selector-max-id */
-[id*="--inverse"].pl-c-pattern {
+[id*='--inverse'].pl-c-pattern {
   background: #212121;
   color: #fff;
   margin-left: -$dark-bg-padding;

@@ -7,7 +7,11 @@ $message-error-background-color: gesso-color(ui, error, background) !default;
 $message-error-border-color: gesso-color(ui, error, border) !default;
 $message-status-background-color: gesso-color(ui, success, background) !default;
 $message-status-border-color: gesso-color(ui, success, border) !default;
-$message-warning-background-color: gesso-color(ui, warning, background) !default;
+$message-warning-background-color: gesso-color(
+  ui,
+  warning,
+  background
+) !default;
 $message-warning-border-color: gesso-color(ui, warning, border) !default;
 
 .message {
@@ -41,7 +45,6 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
     font-weight: gesso-font-weight(semibold);
     text-decoration: underline;
   }
-
 }
 
 // .message__content {}

@@ -21,6 +21,7 @@ rules:
     - unspecified: ignore
       disableFix: true
   plugin/selector-pseudo-class-lvhfa: true
+  prettier/prettier: true
   property-no-vendor-prefix: null
   selector-attribute-brackets-space-inside: never
   selector-class-pattern:
