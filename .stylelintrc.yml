@@ -3,6 +3,7 @@ extends:
   - stylelint-config-prettier
 
 plugins:
+  - stylelint-prettier
   - stylelint-selector-pseudo-class-lvhfa
 rules:
   block-no-empty: null
