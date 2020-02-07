@@ -63,6 +63,7 @@
     "component": "node lib/component.js"
   },
   "dependencies": {
+    "domready": "^1.0.8",
     "lightercollective": "^0.3.0"
   }
 }
