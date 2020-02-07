@@ -72,7 +72,6 @@ const lintStyles = () => {
 
 const compileStyles = () => {
   return src('*.scss', { cwd: './source' })
-    //.pipe(sassGlob())
     .pipe(sourcemaps.init())
     .pipe(
       sass({
