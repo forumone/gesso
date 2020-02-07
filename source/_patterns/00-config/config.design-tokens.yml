@@ -97,7 +97,7 @@ gesso:
         text-hover: grayscale.white
         text-active: grayscale.white
       back-to-top:
-        background: grayscale.gray-3
+        background: grayscale.gray-4
         background-hover: grayscale.gray-5
         color: grayscale.white
         color-hover: grayscale.white
