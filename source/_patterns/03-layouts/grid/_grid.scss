@@ -6,7 +6,7 @@ $grid-gutter: gesso-get-map(gutter-width);
 .l-grid {
   @include flex-grid(1, $grid-gutter, 0);
 
-  @supports (display:grid) {
+  @supports (display: grid) {
     @include css-fixed-grid(1);
   }
 }
@@ -37,9 +37,9 @@ $grid-gutter: gesso-get-map(gutter-width);
   }
 
   @include breakpoint(760px) {
-   > * {
-     @include set-flex-column(3, $grid-gutter, 275px);
-   }
+    > * {
+      @include set-flex-column(3, $grid-gutter, 275px);
+    }
 
     @supports (display: grid) {
       @include set-css-fixed-columns(3, $grid-gutter, true);

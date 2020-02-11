@@ -10,7 +10,7 @@
   $gutter-width: gesso-get-map(gutter-width),
   $item-min-width: false
 ) {
-  $column-percentage: if($columns > 0, percentage(1 / $columns), 100% );
+  $column-percentage: if($columns > 0, percentage(1 / $columns), 100%);
 
   flex-basis: auto;
   flex-grow: 0;
@@ -66,7 +66,7 @@
   $gutter-width,
   $flex-override: false
 ) {
-  grid-template-columns: repeat(auto-fit, minmax(#{$item-min-width}, 1fr ));
+  grid-template-columns: repeat(auto-fit, minmax(#{$item-min-width}, 1fr));
 
   @if $gutter {
     grid-gap: rem($gutter-width);
@@ -86,7 +86,7 @@
 // @param {String} $gutter-width Pixel value for width of column gutters.
 // @param {Boolean} $flex-override Whether to set override for grid cells.
 @mixin set-css-fixed-columns($columns, $gutter-width, $flex-override: false) {
-  $column-adjust: if($columns < 1 , 1, $columns  );
+  $column-adjust: if($columns < 1, 1, $columns);
   grid-template-columns: repeat($column-adjust, 1fr);
 
   @if $gutter-width {
@@ -105,7 +105,10 @@
 // Create auto fit grid
 // @param {String} $item-min-width Pixel value to set a minimum column width.
 // @param {String} $gutter-width Pixel value for width of column gutters.
-@mixin css-autofit-grid($item-min-width: 300px, $gutter-width: gesso-get-map(gutter-width)) {
+@mixin css-autofit-grid(
+  $item-min-width: 300px,
+  $gutter-width: gesso-get-map(gutter-width)
+) {
   @include css-grid-reset;
   @include set-css-autofit-columns($item-min-width, $gutter-width);
   display: grid;

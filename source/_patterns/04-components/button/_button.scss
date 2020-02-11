@@ -20,17 +20,17 @@
 // Drupal outputs this class on buttons that can delete content.
 .button--danger {
   background-color: gesso-color(button, danger, background);
-  color: gesso-color(button,danger,text);
+  color: gesso-color(button, danger, text);
 
   &:hover,
   &:focus {
     background-color: gesso-color(button, danger, background-hover);
-    color: gesso-color(button,danger,text-hover);
+    color: gesso-color(button, danger, text-hover);
   }
 
   &:active {
     background-color: gesso-color(button, danger, background-active);
-    color: gesso-color(button,danger,text-active);
+    color: gesso-color(button, danger, text-active);
   }
 }
 

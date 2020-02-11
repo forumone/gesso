@@ -23,7 +23,10 @@
   margin-right: 0;
 }
 
-@mixin layout-constrain($max-width: gesso-constrain(md), $gutter-width: gesso-get-map(gutter-width)) {
+@mixin layout-constrain(
+  $max-width: gesso-constrain(md),
+  $gutter-width: gesso-get-map(gutter-width)
+) {
   margin-left: auto;
   margin-right: auto;
   max-width: rem($max-width);
@@ -33,7 +36,8 @@
     padding-right: rem($gutter-width / 2);
   }
 
-  & & { // just in case .l-constrain is nested within another .l-constrain
+  // Just in case .l-constrain is nested within another .l-constrain.
+  & & {
     padding-left: 0;
     padding-right: 0;
   }

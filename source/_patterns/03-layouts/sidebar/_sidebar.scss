@@ -35,7 +35,7 @@ $l-sidebar-gutter: rem(gesso-spacing(2));
     }
 
     // For Browsers that support CSS Grid
-    @supports (display:grid) {
+    @supports (display: grid) {
       display: grid;
       grid-gap: $l-sidebar-gutter;
       grid-template-columns: 1fr $l-sidebar-width;
@@ -47,16 +47,17 @@ $l-sidebar-gutter: rem(gesso-spacing(2));
   }
 }
 
-
 .l-sidebar--multi-2 {
   @include breakpoint($l-sidebar-bp) {
     > * {
-      flex-basis: calc(100% - #{$l-sidebar-width + $l-sidebar-width} - #{$l-sidebar-gutter * 3});
+      flex-basis: calc(
+        100% - #{$l-sidebar-width + $l-sidebar-width} - #{$l-sidebar-gutter * 3}
+      );
       flex-grow: 1;
       flex-shrink: 1;
     }
 
-    @supports (display:grid) {
+    @supports (display: grid) {
       grid-template-columns: $l-sidebar-width 1fr $l-sidebar-width;
 
       .l-sidebar__full {
