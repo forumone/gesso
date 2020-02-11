@@ -30,15 +30,15 @@
     </div>
   {% endif %}
 
-   {% if sidebar_first_content %}
+  {% if sidebar_first_content %}
     <aside {{ add_attributes(additional_sidebar_first_region_attributes, 'region_attributes.sidebar_first') }}>
       {{ sidebar_first_content }}
     </aside>
   {% endif %}
 
-  {% if main_content %}
+  {% if sidebar_main_content %}
     <div {{ add_attributes(additional_main_region_attributes, 'region_attributes.main') }}>
-      {{ main_content }}
+      {{ sidebar_main_content }}
     </div>
   {% endif %}
 

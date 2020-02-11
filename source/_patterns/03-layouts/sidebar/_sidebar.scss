@@ -38,7 +38,7 @@ $l-sidebar-gutter: rem(gesso-spacing(2));
     @supports (display: grid) {
       display: grid;
       grid-gap: $l-sidebar-gutter;
-      grid-template-columns: 1fr $l-sidebar-width;
+      grid-template-columns: $l-sidebar-width 1fr;
 
       .l-sidebar__full {
         grid-column: span 2;
