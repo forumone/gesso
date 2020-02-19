@@ -6,7 +6,7 @@
   ],
 } %}
 
-{% set additional_header_region_attributes = {
+{% set additional_sidebar_header_region_attributes = {
   'class': ['l-sidebar__full'],
 } %}
 
@@ -14,7 +14,7 @@
   'class': ['l-sidebar__sidebar'],
 } %}
 
-{% set additional_main_region_attributes = {
+{% set additional_sidebar_main_region_attributes = {
   'class': ['l-sidebar__main'],
 } %}
 
@@ -24,21 +24,21 @@
 
 <div {{ add_attributes(additional_attributes) }}>
 
-  {% if header_content %}
-    <div {{ add_attributes(additional_header_region_attributes, 'region_attributes.header') }}>
-      {{ header_content }}
+  {% if sidebar_header_content %}
+    <div {{ add_attributes(additional_sidebar_header_region_attributes, 'region_attributes.header') }}>
+      {{ sidebar_header_content }}
     </div>
   {% endif %}
 
-   {% if sidebar_first_content %}
+  {% if sidebar_first_content %}
     <aside {{ add_attributes(additional_sidebar_first_region_attributes, 'region_attributes.sidebar_first') }}>
       {{ sidebar_first_content }}
     </aside>
   {% endif %}
 
-  {% if main_content %}
-    <div {{ add_attributes(additional_main_region_attributes, 'region_attributes.main') }}>
-      {{ main_content }}
+  {% if sidebar_main_content %}
+    <div {{ add_attributes(additional_sidebar_main_region_attributes, 'region_attributes.main') }}>
+      {{ sidebar_main_content }}
     </div>
   {% endif %}
 
