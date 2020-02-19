@@ -2,7 +2,7 @@
 // Heading styles.
 
 %hN {
-  @include vertical-spacing(1em, rem(gesso-spacing(2)));
+  @include vertical-spacing(1em, rem(gesso-spacing(2)), true);
   color: inherit;
   font-weight: gesso-font-weight(bold);
   hyphens: none;
