@@ -77,6 +77,8 @@ gesso:
         background: brand.blue.base
         background-hover: brand.blue.dark
         background-active: brand.blue.dark-1
+        border: brand.blue.base
+        border-hover: brand.blue.dark
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
@@ -84,6 +86,8 @@ gesso:
         background: brand.ocean-blue.base
         background-hover: brand.ocean-blue.dark
         background-active: brand.ocean-blue.dark-1
+        border: brand.ocean-blue.base
+        border-hover: brand.ocean-blue.dark-1
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
@@ -94,6 +98,8 @@ gesso:
         background: other.red.base
         background-hover: other.red.dark
         background-active: other.red.dark-1
+        border: other.red.base
+        border-hover: other.red.dark
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white

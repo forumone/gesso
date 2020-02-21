@@ -1,6 +1,7 @@
 // @file
 // Button styles
 
+$button-border-width: 0 !default;
 $button-border-radius: 0 !default;
 $button-background-color: gesso-color(button, primary, background) !default;
 $button-background-color-active: gesso-color(
@@ -18,6 +19,8 @@ $button-background-color-hover: gesso-color(
   primary,
   background-hover
 ) !default;
+$button-border-color: gesso-color(button, primary, border) !default;
+$button-border-color-hover: gesso-color(button, primary, border-hover) !default;
 $button-text-color: gesso-color(button, primary, text) !default;
 $button-text-color-active: gesso-color(button, primary, text-active) !default;
 $button-text-color-disabled: gesso-color(button, disabled, text) !default;
@@ -27,17 +30,24 @@ $button-font-size: gesso-base-font-size() !default;
 @mixin button(
   $color-background: $button-background-color,
   $color-text: $button-text-color,
+  $color-border: $button-border-color,
   $color-background-hover: $button-background-color-hover,
   $color-text-hover: $button-text-color-hover,
+  $color-border-hover: $button-border-color-hover,
   $color-background-active: $button-background-color-active,
   $color-text-active: $button-text-color-active,
   $color-background-disabled: $button-background-color-disabled,
   $color-text-disabled: $button-text-color-disabled,
   $border-radius: $button-border-radius,
+  $border-width: $button-border-width,
   $font-size: $button-font-size
 ) {
   background-color: $color-background;
-  border: 0;
+  @if $border-width != 0 {
+    border: $border-width solid $color-border;
+  } @else {
+    border: 0;
+  }
   border-radius: $border-radius;
   color: $color-text;
   cursor: pointer;
@@ -62,6 +72,9 @@ $button-font-size: gesso-base-font-size() !default;
   &:hover,
   &:focus {
     background-color: $color-background-hover;
+    @if $border-width != 0 {
+      border-color: $color-border-hover;
+    }
     color: $color-text-hover;
   }
 
