@@ -1,4 +1,5 @@
 import { MenubarItem, SubMenuItem } from './_MenuItem.es6';
+import { Z_INDEX } from '../constants/_GESSO.es6';
 
 class Menu {
   constructor(domNode) {
@@ -216,12 +217,12 @@ export class PopupMenu extends Menu {
       this.domNode.style.display = 'block';
       this.domNode.style.position = 'absolute';
       this.domNode.style.left = `${rect.width}px`;
-      this.domNode.style.zIndex = '100';
+      this.domNode.style.zIndex = Z_INDEX.drawer;
     } else {
       this.domNode.style.display = 'block';
       this.domNode.style.position = 'absolute';
       this.domNode.style.top = `${rect.height - 1}px`;
-      this.domNode.style.zIndex = '100';
+      this.domNode.style.zIndex = Z_INDEX.drawer;
     }
     this.controller.setExpanded(true);
   }

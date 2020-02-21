@@ -55,6 +55,7 @@ gesso:
     mobile: 320px
     mobile-lg: 480px
     tablet: 640px
+    mobile-menu: 699px
     tablet-lg: 880px
     desktop: 1024px
     desktop-lg: 1200px

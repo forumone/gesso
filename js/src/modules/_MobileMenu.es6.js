@@ -1,4 +1,5 @@
 import KEYCODE from '../constants/_KEYCODE.es6.js';
+import { BREAKPOINTS } from '../constants/_GESSO.es6';
 
 class _MobileMenu {
   constructor({
@@ -23,7 +24,7 @@ class _MobileMenu {
     menuButtonClass = 'mobile-menu-button--menu', // Class name for generated menu button
     closeButtonClass = 'mobile-menu-button--close', // Class name for generated close button
     arrowButtonClass = 'mobile-menu__subnav-arrow', // Class name for the subnav toggle
-    mobileMenuBreakpoint = '(max-width: 699px)', // Breakpoint to switch between mobile + original menu
+    mobileMenuBreakpoint = `(max-width: ${BREAKPOINTS['mobile-menu']})`, // Breakpoint to switch between mobile + original menu
   } = {}) {
     this.options = {
       toggleSubNav,
