@@ -84,7 +84,7 @@ class _MobileMenu {
       if (toggleButton.getAttribute('aria-expanded') === 'false') {
         e.currentTarget.setAttribute('aria-expanded', 'true');
         controlled.setAttribute('style', 'display: block;');
-        firstLink[0].focus();
+        firstLink[0][0].focus();
       } else {
         e.currentTarget.setAttribute('aria-expanded', 'false');
         controlled.setAttribute('style', 'display: none;');
