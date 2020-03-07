@@ -56,7 +56,6 @@
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-sass-guidelines": "^6.0.0",
     "stylelint-prettier": "^1.1.2",
-    "stylelint-selector-pseudo-class-lvhfa": "^2.0.0",
     "terser-webpack-plugin": "^1.4.1",
     "webpack": "^4.40.2",
     "yaml": "1.6.0"
