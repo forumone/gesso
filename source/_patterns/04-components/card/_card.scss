@@ -20,11 +20,6 @@ $card-padding: rem(gesso-spacing(3)) !default;
   }
 }
 
-.card__date {
-  @include vertical-spacing(rem(gesso-spacing(2)));
-  font-size: rem(gesso-font-size(1));
-}
-
 .card__title {
   @include vertical-spacing(rem(gesso-spacing(2)));
   font-size: rem(gesso-font-size(4));
@@ -49,6 +44,7 @@ $card-padding: rem(gesso-spacing(3)) !default;
 .card__date {
   @include vertical-spacing(rem(gesso-spacing(2)));
   color: $card-meta-color;
+  font-size: rem(gesso-font-size(1));
 }
 
 .card__content {
