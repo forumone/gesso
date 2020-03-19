@@ -1,6 +1,6 @@
 ---
-legend: 'Fieldset'
-content: |-
+fieldset_legend: 'Fieldset'
+fieldset_content: |-
   <p>Fieldset content goes here&hellip;</p>
-description: |-
+fieldset_description: |-
   <p>The description for this fieldset.</p>

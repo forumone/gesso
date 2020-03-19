@@ -16,5 +16,5 @@ tags:
     title: 'Tag 4'
 media: |-
   <img src="https://picsum.photos/id/1015/800/600">
-content: |-
+card_content: |-
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et accumsan augue. Morbi non laoreet lorem.</p>
