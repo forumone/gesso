@@ -12,14 +12,13 @@ $pager-bp: 600px !default;
 
 .pager__items {
   @include list-clean();
-  @include vertical-spacing(rem(gesso-spacing(3)));
   clear: both;
+  margin: rem(gesso-spacing(3)) 0;
   padding: 0;
   text-align: center;
 }
 
 .pager__item {
-  @include vertical-spacing(0);
   display: inline-block;
   line-height: 1;
   margin: 0;

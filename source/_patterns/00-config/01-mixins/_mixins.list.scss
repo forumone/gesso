@@ -2,13 +2,11 @@
 // Various Mixins for List styles
 
 @mixin list-clean {
-  @include vertical-spacing(0);
   list-style-type: none;
   margin: 0;
   padding: 0;
 
   li {
-    @include vertical-spacing(0);
     padding-left: 0;
 
     &::before {
@@ -23,7 +21,6 @@
   padding-left: 0;
 
   li {
-    @include vertical-spacing(0);
     padding-left: 0;
   }
 
@@ -39,7 +36,6 @@
   padding-left: 0;
 
   > li {
-    @include vertical-spacing(0);
     border-right: 1px solid $pipeline-border-color; // LTR
     display: block;
     float: left; // LTR

@@ -4,4 +4,10 @@
 /* stylelint-disable-next-line selector-no-qualifying-type */
 ul.toolbar-menu {
   @include list-clean;
+  font-size: 1em;
+
+  li {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
 }

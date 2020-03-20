@@ -2,8 +2,15 @@
 // List item styles.
 
 li {
-  @include vertical-spacing(rem(gesso-spacing(1)));
-  margin: 0;
+  margin-bottom: rem(gesso-spacing(1));
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
 
   @media print {
     page-break-inside: avoid;

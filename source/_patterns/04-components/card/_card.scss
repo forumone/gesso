@@ -21,7 +21,6 @@ $card-padding: rem(gesso-spacing(3)) !default;
 }
 
 .card__title {
-  @include vertical-spacing(rem(gesso-spacing(2)));
   font-size: rem(gesso-font-size(4));
   margin: 0;
 
@@ -38,13 +37,13 @@ $card-padding: rem(gesso-spacing(3)) !default;
 }
 
 .card__header {
-  @include vertical-spacing(rem(gesso-spacing(3)));
+  margin-bottom: rem(gesso-spacing(3));
 }
 
 .card__date {
-  @include vertical-spacing(rem(gesso-spacing(2)));
   color: $card-meta-color;
   font-size: rem(gesso-font-size(1));
+  margin-bottom: rem(gesso-spacing(2));
 }
 
 .card__content {
@@ -70,7 +69,7 @@ $card-padding: rem(gesso-spacing(3)) !default;
 }
 
 .card__tags {
-  @include vertical-spacing(rem(gesso-spacing(2)));
+  margin-bottom: rem(gesso-spacing(2));
 }
 
 .card__readmore {

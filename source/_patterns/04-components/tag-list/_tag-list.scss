@@ -3,7 +3,7 @@
 }
 
 .tag-list__item {
-  @include vertical-spacing(rem(gesso-spacing(1)));
   display: inline-block;
+  margin-bottom: rem(gesso-spacing(1));
   margin-right: rem(gesso-spacing(1));
 }
