@@ -10,7 +10,7 @@ $details-text-color: gesso-color(text, on-light) !default;
 // 'details' can appear as a modernizr class on the html tag, so this
 // class is limited to only the details element
 details.details {
-  @include vertical-spacing(rem(gesso-spacing(3)));
+  margin: 0 0 rem(gesso-spacing(3));
 
   // Fallback for browsers that don’t support details.
   .js &:not([open]) > .details__content {
@@ -73,10 +73,14 @@ details.details {
   border: 3px solid $details-background-color;
   border-top: 0;
   padding: $details-padding;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .details__description {
-  @include vertical-spacing(rem(gesso-spacing(2)));
   color: $details-text-color;
   font-size: rem(gesso-font-size(2));
+  margin-bottom: rem(gesso-spacing(2));
 }

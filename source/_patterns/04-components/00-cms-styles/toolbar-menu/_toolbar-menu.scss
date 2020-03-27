@@ -3,4 +3,9 @@
 
 ul.toolbar-menu {
   @include list-clean;
+
+  li {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
 }
