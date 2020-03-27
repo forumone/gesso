@@ -44,12 +44,12 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 
 .hero-bg-image__summary {
   @include display-text-style(body-large);
-  @include vertical-spacing(rem(gesso-spacing(5)));
   color: gesso-color(text, on-dark);
+  margin-bottom: rem(gesso-spacing(5));
 
   @include breakpoint(max-width $hero-bg-image-bp) {
-    @include vertical-spacing(rem(gesso-spacing(3)));
     font-size: rem(gesso-font-size(2));
+    margin-bottom: rem(gesso-spacing(3));
   }
 }
 
