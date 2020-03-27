@@ -1,7 +1,6 @@
 // @file
 // Styles for the Toolbar module.
 
-/* stylelint-disable-next-line selector-no-qualifying-type */
 ul.toolbar-menu {
   @include list-clean;
 }
