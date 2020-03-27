@@ -8,10 +8,8 @@ body {
   padding: 0;
   word-wrap: break-word;
 
-  // stylelint-disable selector-no-qualifying-type
   &.has-open-mobile-menu {
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
   }
-  // stylelint-enable
 }
