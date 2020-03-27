@@ -2,13 +2,12 @@
 // Component: Captioned Image
 
 .captioned-image {
-  @media not speech {
-    display: table;
-    figcaption {
-      caption-side: bottom;
-      display: table-caption;
-    }
-  }
+  display: table;
+}
+
+.captioned-image__caption {
+  caption-side: bottom;
+  display: table-caption;
 }
 
 .captioned-image--center-aligned {
