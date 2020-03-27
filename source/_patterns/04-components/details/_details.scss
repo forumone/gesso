@@ -9,12 +9,10 @@ $details-text-color: gesso-color(text, on-light) !default;
 
 // 'details' can appear as a modernizr class on the html tag, so this
 // class is limited to only the details element
-/* stylelint-disable-next-line selector-no-qualifying-type */
 details.details {
   margin: 0 0 rem(gesso-spacing(3));
 
   // Fallback for browsers that don’t support details.
-  /* stylelint-disable-next-line selector-no-qualifying-type */
   .js &:not([open]) > .details__content {
     display: none;
   }

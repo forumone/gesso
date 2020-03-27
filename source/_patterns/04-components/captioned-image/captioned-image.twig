@@ -1,0 +1,11 @@
+{% set classes = [
+  'captioned-image',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<figure class="{{ classes }}">
+  {{ media }}
+  {% if caption %}
+    <figcaption class="captioned-image__caption">{{ caption }}</figcaption>
+  {% endif %}
+</figure>
