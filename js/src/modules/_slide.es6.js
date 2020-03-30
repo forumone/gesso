@@ -1,7 +1,7 @@
 /**
- * Function: slideUp. Slide target element out view
- * @param  target the element sliding up
- * @param  duration the duration of the animation
+ * Slides target element up and out view.
+ * @param {string} target - The element sliding up.
+ * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const slideUp = (target, duration = 500) => {
   target.style.transitionProperty = 'height, margin, padding';
@@ -30,9 +30,9 @@ export const slideUp = (target, duration = 500) => {
 };
 
 /**
- * Function: slideDown. Slide target element into view
- * @param  target the element sliding down
- * @param  duration the duration of the animation
+ * Slides target element down and into view.
+ * @param {string} target - The element sliding doqn.
+ * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const slideDown = (target, duration = 500) => {
   target.style.removeProperty('display');
@@ -67,10 +67,9 @@ export const slideDown = (target, duration = 500) => {
 };
 
 /**
- * Function: slideToggle. Toggle element between slideDonw
- * and slideDown
- * @param  target the element to toggle
- * @param  duration the duration of the animation
+ * Toggles target element to slide up and down.
+ * @param {string} target - The element to toggle.
+ * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const slideToggle = (target, duration = 500) => {
   if (window.getComputedStyle(target).display === 'none') {

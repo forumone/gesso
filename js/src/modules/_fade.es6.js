@@ -1,7 +1,7 @@
 /**
- * Function: fadeOut. Fade target element out of view
- * @param  target the element fading in
- * @param  duration the duration of the animation
+ * Fades target element out of view.
+ * @param {string} target - The element fading out.
+ * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const fadeOut = (target, duration = 500) => {
   target.style.transitionProperty = 'opacity';
@@ -17,9 +17,9 @@ export const fadeOut = (target, duration = 500) => {
 };
 
 /**
- * Function: fadeIn. Fade target element into view
- * @param  target the element fading out
- * @param  duration the duration of the animation
+ * Fades target element into view.
+ * @param {string} target - The element fading in.
+ * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const fadeIn = (target, duration = 500) => {
   target.style.removeProperty('display');
@@ -42,10 +42,9 @@ export const fadeIn = (target, duration = 500) => {
 };
 
 /**
- * Function: fadeToggle. Toggle element between fadeIn
- * and faddeOut
- * @param  target the element to toggle
- * @param  duration the duration of the animation
+ * Toggles target element to fade in and out.
+ * @param {string} target - The element to toggle.
+ * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const fadeToggle = (target, duration = 500) => {
   if (window.getComputedStyle(target).display === 'none') {
