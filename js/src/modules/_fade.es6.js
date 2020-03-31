@@ -1,5 +1,7 @@
 /**
  * Fades target element out of view.
+ * 
+ * @name fadeOut
  * @param {string} target - The element fading out.
  * @param {integer} duration - The duration of the animation, with default value 500.
  */
@@ -18,6 +20,8 @@ export const fadeOut = (target, duration = 500) => {
 
 /**
  * Fades target element into view.
+ * 
+ * @name fadeIn
  * @param {string} target - The element fading in.
  * @param {integer} duration - The duration of the animation, with default value 500.
  */
@@ -42,7 +46,9 @@ export const fadeIn = (target, duration = 500) => {
 };
 
 /**
- * Toggles target element to fade in and out.
+ * Toggle fades target element in and out of view.
+ * 
+ * @name fadeToggle
  * @param {string} target - The element to toggle.
  * @param {integer} duration - The duration of the animation, with default value 500.
  */
