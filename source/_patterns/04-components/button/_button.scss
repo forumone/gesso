@@ -37,12 +37,12 @@
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--secondary {
   @include button(
-    gesso-color(button, secondary, background),
-    gesso-color(button, secondary, text),
-    gesso-color(button, secondary, background-hover),
-    gesso-color(button, secondary, text-hover),
-    gesso-color(button, secondary, background-active),
-    gesso-color(button, secondary, text-active)
+    $color-background: gesso-color(button, secondary, background),
+    $color-text: gesso-color(button, secondary, text),
+    $color-background-hover: gesso-color(button, secondary, background-hover),
+    $color-text-hover: gesso-color(button, secondary, text-hover),
+    $color-background-active: gesso-color(button, secondary, background-active),
+    $color-text-active: gesso-color(button, secondary, text-active)
   );
 }
 

@@ -1,9 +1,18 @@
 {% set page_content %}
 
+  {% set body_content %}
+    {% include '@components/captioned-image/captioned-image.twig' with {
+      'modifier_classes': 'captioned-image--right-aligned',
+      'media': '<img src="https://picsum.photos/150/150?image=237" alt="dog photo">',
+      'caption': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    } %}
+    {{ content }}
+  {% endset %}
+
   {# include article template #}
   {% include '@templates/article.twig' with {
     'article_title': title,
-    'article_content': content,
+    'article_content': body_content,
     'article_has_footer': true
   } %}
 

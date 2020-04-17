@@ -2,5 +2,5 @@
 // Styles for radios fieldsets.
 
 .fieldset--radios {
-  @include vertical-spacing(rem(gesso-spacing(3)));
+  margin-bottom: rem(gesso-spacing(3));
 }

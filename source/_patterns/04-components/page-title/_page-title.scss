@@ -2,5 +2,5 @@
 // Styles for Page title.
 
 .page-title {
-  @include vertical-spacing(rem(gesso-spacing(5)));
+  margin-bottom: rem(gesso-spacing(5));
 }

@@ -11,7 +11,7 @@ rules:
     - never
     - ignore:
       - 'inside-function'
-  max-nesting-depth: 3
+  max-nesting-depth: 4
   no-empty-first-line: true
   order/order:
     - - type: at-rule
@@ -34,9 +34,6 @@ rules:
     #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
     - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'
   selector-no-qualifying-type:
-    - true
-    - ignore:
-      - attribute
   string-no-newline: true
   scss/at-import-partial-extension-blacklist:
     - 'less'

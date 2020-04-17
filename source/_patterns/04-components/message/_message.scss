@@ -15,10 +15,10 @@ $message-warning-background-color: gesso-color(
 $message-warning-border-color: gesso-color(ui, warning, border) !default;
 
 .message {
-  @include vertical-spacing(rem(gesso-spacing(2)));
   background-color: $message-background-color;
   border: 1px solid $message-border-color;
   color: gesso-color(text, primary);
+  margin-bottom: rem(gesso-spacing(2));
   overflow: hidden;
   padding: rem(gesso-spacing(2));
   position: relative;
@@ -47,7 +47,11 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
   }
 }
 
-// .message__content {}
+.message__content {
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
 
 .message--status {
   background-color: $message-status-background-color;

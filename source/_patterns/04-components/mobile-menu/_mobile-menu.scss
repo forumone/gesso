@@ -122,7 +122,6 @@ $mobile-menu-line-height: gesso-line-height(base);
 }
 
 .mobile-menu__subnav {
-  @include vertical-spacing(0);
   background-color: $mobile-menu-submenu-fallback-bg-color;
   background-color: $mobile-menu-submenu-bg-color;
   display: none;

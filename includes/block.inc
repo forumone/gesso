@@ -5,7 +5,7 @@
  * Provides the necessary hooks for the block theme suggestions.
  */
 
-use \Drupal\block_content\BlockContentInterface;
+use Drupal\block_content\BlockContentInterface;
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
