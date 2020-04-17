@@ -2,10 +2,10 @@
 // Styles for Block.
 
 .block {
-  @include vertical-spacing(rem(gesso-spacing(5)));
+  margin-bottom: rem(gesso-spacing(5));
 }
 
 // disable margin for layout builder blocks
 .block--provider-layout-builder {
-  @include vertical-spacing(0);
+  margin-bottom: 0;
 }
