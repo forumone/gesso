@@ -67,7 +67,10 @@ const buildConfig = async () => {
 };
 
 const lintStyles = () => {
-  return src('**/!(*.artifact).scss', { cwd: './source', since: lastRun(lintStyles) }).pipe(
+  return src('**/!(*.artifact).scss', {
+    cwd: './source',
+    since: lastRun(lintStyles),
+  }).pipe(
     stylelint({
       configFile: '.stylelintrc.yml',
       failAfterError: true,
@@ -190,7 +193,8 @@ const build = (isProduction = true) => {
   task('bundleScripts', scriptTask);
   return series(
     buildConfig,
-    parallel(task('bundleScripts'), buildImages, buildStyles, buildPatterns));
+    parallel(task('bundleScripts'), buildImages, buildStyles, buildPatterns)
+  );
 };
 
 exports.build = build(true);
