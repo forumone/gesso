@@ -6,6 +6,13 @@
  */
 
 /**
+ * Implements hook_preprocess().
+ */
+function gesso_preprocess(&$vars) {
+  $vars['gesso_image_path'] = '/' . $vars['directory'] . '/images';
+}
+
+/**
  * Implements hook_preprocess_html().
  */
 function gesso_preprocess_html(&$vars, $hook) {
@@ -20,7 +27,6 @@ function gesso_preprocess_html(&$vars, $hook) {
     ],
     'x_ua_compatible',
   ];
-  $vars['image_path'] = '/' . $vars['directory'] . '/images';
 }
 
 /**

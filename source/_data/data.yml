@@ -49,4 +49,4 @@ minute:
   long: '20'
   short: '20'
 seconds: '31'
-image_path: '../../../images/'
+gesso_image_path: '../../../images'
