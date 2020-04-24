@@ -1,13 +1,13 @@
 /**
  * Use Notes: To unsure a seamless slide animation, the target element
- * should have both margins and paddings set to 0. You can customize 
+ * should have both margins and paddings set to 0. You can customize
  * whitespace inside the target by adding paddings to any of the child
  * elements.
  */
 
 /**
  * Slides target element up and out view.
- * 
+ *
  * @name slideUp
  * @param {string} target - The element sliding up.
  * @param {integer} duration - The duration of the animation, with default value 500.
@@ -40,7 +40,7 @@ export const slideUp = (target, duration = 500) => {
 
 /**
  * Slides target element down and into view.
- * 
+ *
  * @name slideDown
  * @param {string} target - The element sliding doqn.
  * @param {integer} duration - The duration of the animation, with default value 500.
@@ -79,7 +79,7 @@ export const slideDown = (target, duration = 500) => {
 
 /**
  * Toggle slides target element in and out of view.
- * 
+ *
  * @name slideToggle
  * @param {string} target - The element to toggle.
  * @param {integer} duration - The duration of the animation, with default value 500.
