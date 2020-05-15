@@ -93,6 +93,7 @@ gesso:
         text-active: grayscale.white
       disabled:
         background: grayscale.gray-2
+        border: grayscale.gray-2
         text: grayscale.gray-4
       danger:
         background: other.red.base
