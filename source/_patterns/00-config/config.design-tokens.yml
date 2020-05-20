@@ -103,6 +103,11 @@ gesso:
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
+      back-to-top:
+        background: grayscale.gray-4
+        background-hover: grayscale.gray-5
+        color: grayscale.white
+        color-hover: grayscale.white
     form:
       background: grayscale.gray-1
       background-active: grayscale.white
