@@ -65,6 +65,7 @@
     "component": "node lib/component.js"
   },
   "dependencies": {
+    "custom-event-polyfill": "^1.0.7",
     "domready": "^1.0.8",
     "lightercollective": "^0.3.0"
   }

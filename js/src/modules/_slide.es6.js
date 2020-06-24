@@ -5,11 +5,13 @@
  * elements.
  */
 
+import 'custom-event-polyfill';
+
 /**
  * Slides target element up and out view.
  *
  * @name slideUp
- * @param {string} target - The element sliding up.
+ * @param {HTMLElement} target - The element sliding up.
  * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const slideUp = (target, duration = 500) => {
@@ -19,10 +21,10 @@ export const slideUp = (target, duration = 500) => {
     target.style.transitionDuration = `${duration}ms`;
     target.style.boxSizing = 'border-box';
     target.style.overflow = 'hidden';
-    target.style.paddingTop = 0;
-    target.style.paddingBottom = 0;
-    target.style.marginTop = 0;
-    target.style.marginBottom = 0;
+    target.style.paddingTop = '0';
+    target.style.paddingBottom = '0';
+    target.style.marginTop = '0';
+    target.style.marginBottom = '0';
 
     window.requestAnimationFrame(() => {
       function hideTarget() {
@@ -36,9 +38,11 @@ export const slideUp = (target, duration = 500) => {
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
         target.removeEventListener('transitionend', hideTarget);
+        const event = new CustomEvent('finishslider', { detail: target });
+        target.dispatchEvent(event);
       }
       target.addEventListener('transitionend', hideTarget);
-      target.style.height = 0;
+      target.style.height = '0';
     });
   });
 };
@@ -47,7 +51,7 @@ export const slideUp = (target, duration = 500) => {
  * Slides target element down and into view.
  *
  * @name slideDown
- * @param {string} target - The element sliding down.
+ * @param {HTMLElement} target - The element sliding down.
  * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const slideDown = (target, duration = 500) => {
@@ -61,11 +65,11 @@ export const slideDown = (target, duration = 500) => {
     target.style.display = display;
     height = target.offsetHeight;
     target.style.overflow = 'hidden';
-    target.style.height = 0;
-    target.style.paddingTop = 0;
-    target.style.paddingBottom = 0;
-    target.style.marginTop = 0;
-    target.style.marginBottom = 0;
+    target.style.height = '0';
+    target.style.paddingTop = '0';
+    target.style.paddingBottom = '0';
+    target.style.marginTop = '0';
+    target.style.marginBottom = '0';
     target.style.boxSizing = 'border-box';
     target.style.transitionProperty = 'height, margin, padding';
     target.style.transitionDuration = `${duration}ms`;
@@ -81,6 +85,8 @@ export const slideDown = (target, duration = 500) => {
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
         target.removeEventListener('transitionend', showTarget);
+        const event = new CustomEvent('finishslider', { detail: target });
+        target.dispatchEvent(event);
       }
       target.style.height = `${height}px`;
       target.addEventListener('transitionend', showTarget);
@@ -92,13 +98,21 @@ export const slideDown = (target, duration = 500) => {
  * Toggle slides target element in and out of view.
  *
  * @name slideToggle
- * @param {string} target - The element to toggle.
+ * @param {HTMLElement} target - The element to toggle.
  * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const slideToggle = (target, duration = 500) => {
-  if (window.getComputedStyle(target).display === 'none') {
-    return slideDown(target, duration);
-  } else {
-    return slideUp(target, duration);
+  if (!target.dataset.isSliding) {
+    target.addEventListener('finishslider', () => {
+      delete target.dataset.isSliding;
+      target.removeEventListener('finishslider');
+    });
+    if (window.getComputedStyle(target).display === 'none') {
+      target.dataset.isSliding = 'true';
+      slideDown(target, duration);
+    } else {
+      target.dataset.isSliding = 'true';
+      slideUp(target, duration);
+    }
   }
 };
