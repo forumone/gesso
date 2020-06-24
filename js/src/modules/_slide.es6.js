@@ -1,7 +1,7 @@
 /**
- * Use Notes: To unsure a seamless slide animation, the target element
- * should have both margins and paddings set to 0. You can customize
- * whitespace inside the target by adding paddings to any of the child
+ * Use Notes: To ensure a seamless slide animation, the target element
+ * should have both margin and padding set to 0. You can customize
+ * whitespace inside the target by adding padding to any of the child
  * elements.
  */
 
@@ -13,68 +13,79 @@
  * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const slideUp = (target, duration = 500) => {
-  target.style.transitionProperty = 'height, margin, padding';
-  target.style.transitionDuration = `${duration}ms`;
-  target.style.boxSizing = 'border-box';
   target.style.height = `${target.offsetHeight}px`;
-  target.style.overflow = 'hidden';
-  target.style.paddingTop = 0;
-  target.style.paddingBottom = 0;
-  target.style.marginTop = 0;
-  target.style.marginBottom = 0;
-  window.setTimeout(() => {
-    target.style.height = 0;
-  }, 10);
-  window.setTimeout(() => {
-    target.style.display = 'none';
-    target.style.removeProperty('height');
-    target.style.removeProperty('padding-top');
-    target.style.removeProperty('padding-bottom');
-    target.style.removeProperty('margin-top');
-    target.style.removeProperty('margin-bottom');
-    target.style.removeProperty('overflow');
-    target.style.removeProperty('transition-duration');
-    target.style.removeProperty('transition-property');
-  }, duration);
+  window.requestAnimationFrame(() => {
+    target.style.transitionProperty = 'height, margin, padding';
+    target.style.transitionDuration = `${duration}ms`;
+    target.style.boxSizing = 'border-box';
+    target.style.overflow = 'hidden';
+    target.style.paddingTop = 0;
+    target.style.paddingBottom = 0;
+    target.style.marginTop = 0;
+    target.style.marginBottom = 0;
+
+    window.requestAnimationFrame(() => {
+      function hideTarget() {
+        target.style.display = 'none';
+        target.style.removeProperty('height');
+        target.style.removeProperty('padding-top');
+        target.style.removeProperty('padding-bottom');
+        target.style.removeProperty('margin-top');
+        target.style.removeProperty('margin-bottom');
+        target.style.removeProperty('overflow');
+        target.style.removeProperty('transition-duration');
+        target.style.removeProperty('transition-property');
+        target.removeEventListener('transitionend', hideTarget);
+      }
+      target.addEventListener('transitionend', hideTarget);
+      target.style.height = 0;
+    });
+  });
 };
 
 /**
  * Slides target element down and into view.
  *
  * @name slideDown
- * @param {string} target - The element sliding doqn.
+ * @param {string} target - The element sliding down.
  * @param {integer} duration - The duration of the animation, with default value 500.
  */
 export const slideDown = (target, duration = 500) => {
+  let height;
   target.style.removeProperty('display');
-  let display = window.getComputedStyle(target).display;
-  if (display === 'none') {
-    display = 'block';
-  }
-  target.style.display = display;
-  const height = target.offsetHeight;
-  target.style.overflow = 'hidden';
-  target.style.height = 0;
-  target.style.paddingTop = 0;
-  target.style.paddingBottom = 0;
-  target.style.marginTop = 0;
-  target.style.marginBottom = 0;
-  target.style.boxSizing = 'border-box';
-  target.style.transitionProperty = 'height, margin, padding';
-  target.style.transitionDuration = `${duration}ms`;
-  target.style.removeProperty('padding-top');
-  target.style.removeProperty('padding-bottom');
-  target.style.removeProperty('margin-top');
-  target.style.removeProperty('margin-bottom');
-  window.setTimeout(() => {
-    target.style.height = `${height}px`;
-  }, 10);
-  window.setTimeout(() => {
-    target.style.removeProperty('height');
-    target.style.removeProperty('overflow');
-    target.style.removeProperty('transition-duration');
-    target.style.removeProperty('transition-property');
-  }, duration);
+  window.requestAnimationFrame(() => {
+    let display = window.getComputedStyle(target).display;
+    if (display === 'none') {
+      display = 'block';
+    }
+    target.style.display = display;
+    height = target.offsetHeight;
+    target.style.overflow = 'hidden';
+    target.style.height = 0;
+    target.style.paddingTop = 0;
+    target.style.paddingBottom = 0;
+    target.style.marginTop = 0;
+    target.style.marginBottom = 0;
+    target.style.boxSizing = 'border-box';
+    target.style.transitionProperty = 'height, margin, padding';
+    target.style.transitionDuration = `${duration}ms`;
+
+    window.requestAnimationFrame(() => {
+      function showTarget() {
+        target.style.removeProperty('padding-top');
+        target.style.removeProperty('padding-bottom');
+        target.style.removeProperty('margin-top');
+        target.style.removeProperty('margin-bottom');
+        target.style.removeProperty('height');
+        target.style.removeProperty('overflow');
+        target.style.removeProperty('transition-duration');
+        target.style.removeProperty('transition-property');
+        target.removeEventListener('transitionend', showTarget);
+      }
+      target.style.height = `${height}px`;
+      target.addEventListener('transitionend', showTarget);
+    });
+  });
 };
 
 /**
