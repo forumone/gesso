@@ -75,13 +75,13 @@ $tab-text-color-hover: gesso-color(text, on-light) !default;
   margin: 0;
   padding: rem(gesso-spacing(1)) rem(gesso-spacing(2));
 
-  &:focus {
-    background-color: $tab-background-color-hover;
-  }
-
   &:visited,
   &:hover {
     color: $tab-text-color;
+  }
+
+  &:focus {
+    background-color: $tab-background-color-hover;
   }
 
   &:active {
