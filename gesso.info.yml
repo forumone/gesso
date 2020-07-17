@@ -2,7 +2,7 @@ name: Gesso
 type: theme
 description: 'Sass-based starter theme.'
 package: Core
-core: 8.x
+core_version_requirement: ^8.9 || ^9
 base theme: stable
 
 libraries:
