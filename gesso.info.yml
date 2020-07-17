@@ -4,6 +4,9 @@ description: 'Sass-based starter theme.'
 package: Core
 core_version_requirement: ^8.9 || ^9
 base theme: stable
+dependencies:
+  - components
+  - gesso_helper
 
 libraries:
   - gesso/global
