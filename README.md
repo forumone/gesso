@@ -374,6 +374,6 @@ The Gesso theme is maintained by [Dan Mouyard](https://drupal.org/u/dcmouyard)
 ([@shawnbrackat](http://twitter.com/shawnbrackat)),
 [Corey Lafferty](https://drupal.org/u/clafferty)
 ([@coreylafferty](http://twitter.com/coreylafferty)), and
-[Kelli Monahan](https://www.drupal.org/u/kmonahan).
+[KJ Monahan](https://www.drupal.org/u/kmonahan).
 
 Please use the Github issue queue: https://github.com/forumone/gesso/issues
