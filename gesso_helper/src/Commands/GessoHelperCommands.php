@@ -6,6 +6,7 @@ use Consolidation\SiteAlias\SiteAliasManagerAwareInterface;
 use Consolidation\SiteAlias\SiteAliasManagerAwareTrait;
 use Drush\Drush;
 use Drush\Commands\DrushCommands;
+use Symfony\Component\Filesystem\Filesystem;
 use Webmozart\PathUtil\Path;
 
 /**
@@ -85,7 +86,9 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $new_path = Path::join($theme_path, $machine_name);
 
     // Copy the Gesso theme directory recursively to the new theme’s location.
-    drush_op('drush_copy_dir', $gesso_path, $new_path);
+    $fs = new Filesystem();
+    $fs->mirror($gesso_path, $new_path);
+
 
     // Remove Gesso’s helper module from the new theme.
     $this->gessoRecursiveRm(Path::join($new_path, 'gesso_helper'));
