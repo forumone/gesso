@@ -9,12 +9,12 @@
         }
     ],
     "require": {
-        "php": ">=5.6.0"
+        "php": ">=7.3"
     },
     "extra": {
         "drush": {
             "services": {
-                "drush.services.yml": "^9"
+                "drush.services.yml": "^9.4.0 | ^10.0.0"
             }
         }
     }
