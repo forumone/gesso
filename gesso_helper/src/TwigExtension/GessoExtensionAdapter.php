@@ -18,7 +18,11 @@ class GessoExtensionAdapter extends \Twig_Extension {
    * Simple getter.
    */
   public function getFunctions() {
-    return GessoExtensionLoader::get();
+    return GessoExtensionLoader::getFunctions();
+  }
+
+  public function getFilters() {
+    return GessoExtensionLoader::getFilters();
   }
 
 }

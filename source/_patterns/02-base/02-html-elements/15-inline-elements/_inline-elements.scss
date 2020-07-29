@@ -10,6 +10,10 @@ a {
   transition-property: background-color, border-color, color, outline-color;
   transition-timing-function: gesso-easing(ease-in);
 
+  &:visited {
+    color: gesso-color(text, link-visited);
+  }
+
   &:hover,
   &:focus {
     color: gesso-color(text, link-hover);
@@ -17,10 +21,6 @@ a {
 
   &:active {
     color: gesso-color(text, link-active);
-  }
-
-  &:visited {
-    color: gesso-color(text, link-visited);
   }
 
   @media print {

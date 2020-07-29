@@ -221,6 +221,14 @@
           "functions": ["addWithoutFilter"]
         },
         {
+          "file": "source/_twig-components/filters/keysort.filter.php",
+          "functions": ["addKeySortFilter"]
+        },
+        {
+          "file": "source/_twig-components/filters/unique_id.filter.patternlab.php",
+          "functions": ["addUniqueIdFilter"]
+        },
+        {
           "file": "source/_twig-components/functions/add_attributes.function.patternlab.php",
           "functions": ["addAddAttributesFunction"]
         },

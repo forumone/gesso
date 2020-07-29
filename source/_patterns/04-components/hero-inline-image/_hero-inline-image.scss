@@ -1,7 +1,7 @@
 // @file
 // Styles for hero using an inline image element.
 
-$hero-inline-image-bp: gesso-breakpoint(md) !default;
+$hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 
 .hero-inline-image {
   @include breakpoint($hero-inline-image-bp) {
@@ -31,7 +31,7 @@ $hero-inline-image-bp: gesso-breakpoint(md) !default;
 .hero-inline-image__media {
   display: block;
   line-height: 0;
-  margin-bottom: rem(gesso-spacing(md));
+  margin-bottom: rem(gesso-spacing(3));
 
   @include breakpoint($hero-inline-image-bp) {
     margin-bottom: 0;
@@ -58,25 +58,25 @@ $hero-inline-image-bp: gesso-breakpoint(md) !default;
 
 .hero-inline-image__title {
   @include display-text-style(display);
-  margin-bottom: rem(gesso-spacing(md));
+  margin-bottom: rem(gesso-spacing(3));
 
   @include breakpoint($hero-inline-image-bp) {
     color: gesso-color(text, on-dark);
-    margin-bottom: rem(gesso-spacing(lg));
+    margin-bottom: rem(gesso-spacing(5));
   }
 
   @include breakpoint(max-width $hero-inline-image-bp) {
-    font-size: rem(gesso-font-size(6));
+    font-size: rem(gesso-font-size(7));
   }
 }
 
 .hero-inline-image__summary {
   @include display-text-style(body-large);
-  margin-bottom: rem(gesso-spacing(md));
+  margin-bottom: rem(gesso-spacing(3));
 
   @include breakpoint($hero-inline-image-bp) {
     color: gesso-color(text, on-dark);
-    margin-bottom: rem(gesso-spacing(lg));
+    margin-bottom: rem(gesso-spacing(5));
   }
 }
 

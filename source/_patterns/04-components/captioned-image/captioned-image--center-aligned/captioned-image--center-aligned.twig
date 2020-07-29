@@ -1,0 +1,10 @@
+{% set classes = [
+  'captioned-image--center-aligned',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+{% include '@components/captioned-image/captioned-image.twig' with {
+  'url': url,
+  'text': text,
+  'modifier_classes': classes,
+} %}

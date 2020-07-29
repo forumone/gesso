@@ -6,6 +6,7 @@
   'js-form-type-' ~ type|clean_class,
   'js-form-item-' ~ name|clean_class,
   title_display not in ['after', 'before'] ? 'has-no-label',
+  title_display not in ['invisible'] and title_display in ['after'] ? 'has-visible-label-after',
   disabled == 'disabled' ? 'is-disabled',
   errors ? 'has-error',
 ] %}
@@ -14,7 +15,6 @@
   'form-item__description',
   description_display == 'invisible' ? 'visually-hidden',
 ] %}
-
 <div{{ attributes.addClass(add_classes) }}>
   {% if label_display in ['before', 'invisible'] %}
     {{ label }}

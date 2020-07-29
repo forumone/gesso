@@ -11,6 +11,9 @@
   "private": true,
   "themePath": ".",
   "main": "gulpfile.js",
+  "engines": {
+    "node": ">=10"
+  },
   "browserslist": [
     "explorer >= 11",
     "last 3 versions",
@@ -20,10 +23,10 @@
     "@babel/core": "^7.5.5",
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/preset-env": "^7.5.5",
-    "@pattern-lab/cli": "5.1.0",
-    "@pattern-lab/core": "5.1.0",
-    "@pattern-lab/engine-twig-php": "5.1.0",
-    "@pattern-lab/uikit-workshop": "5.0.2",
+    "@pattern-lab/cli": "5.4.0",
+    "@pattern-lab/core": "5.4.0",
+    "@pattern-lab/engine-twig-php": "5.4.0",
+    "@pattern-lab/uikit-workshop": "5.4.2",
     "autoprefixer": "^9.6.0",
     "babel-loader": "^8.0.6",
     "breakpoint-sass": "^2.7.1",
@@ -39,18 +42,20 @@
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sass-glob": "^1.0.9",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^9.0.0",
+    "gulp-svg-sprite": "1.5.0",
+    "inquirer": "^7.0.4",
+    "mkdirp": "^1.0.3",
     "nani": "2.3.1",
+    "node-sass-glob-importer": "^5.3.2",
     "path": "^0.12.7",
     "postcss-assets": "^5.0.0",
     "prettier": "^1.18.2",
-    "prettier-stylelint": "^0.4.2",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-sass-guidelines": "^6.0.0",
-    "stylelint-selector-pseudo-class-lvhfa": "^2.0.0",
+    "stylelint-prettier": "^1.1.2",
     "terser-webpack-plugin": "^1.4.1",
     "webpack": "^4.40.2",
     "yaml": "1.6.0"
@@ -59,6 +64,8 @@
     "component": "node lib/component.js"
   },
   "dependencies": {
+    "custom-event-polyfill": "^1.0.7",
+    "domready": "^1.0.8",
     "lightercollective": "^0.3.0"
   }
 }

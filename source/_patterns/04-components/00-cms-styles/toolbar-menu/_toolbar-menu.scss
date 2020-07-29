@@ -1,9 +1,8 @@
 // @file
 // Styles for the Toolbar module.
 
-/* stylelint-disable-next-line selector-no-qualifying-type */
 ul.toolbar-menu {
-  font-size: 1em;
+  @include list-clean;
 
   li {
     margin-bottom: 0;

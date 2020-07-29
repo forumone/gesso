@@ -3,14 +3,15 @@ extends:
   - stylelint-config-prettier
 
 plugins:
-  - stylelint-selector-pseudo-class-lvhfa
+  - stylelint-prettier
+  - './lib/stylelintLVHFA.js'
 rules:
   block-no-empty: null
   color-named:
     - never
     - ignore:
       - 'inside-function'
-  max-nesting-depth: 3
+  max-nesting-depth: 4
   no-empty-first-line: true
   order/order:
     - - type: at-rule
@@ -20,6 +21,7 @@ rules:
     - unspecified: ignore
       disableFix: true
   plugin/selector-pseudo-class-lvhfa: true
+  prettier/prettier: true
   property-no-vendor-prefix: null
   selector-attribute-brackets-space-inside: never
   selector-class-pattern:
@@ -32,9 +34,6 @@ rules:
     #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
     - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'
   selector-no-qualifying-type:
-    - true
-    - ignore:
-      - attribute
   string-no-newline: true
   scss/at-import-partial-extension-blacklist:
     - 'less'

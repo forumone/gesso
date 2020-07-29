@@ -3,15 +3,15 @@
 
 .button {
   @include button();
-  margin: 0 0 rem(gesso-spacing(xs));
+  margin-bottom: rem(gesso-spacing(1));
 
   & + & {
-    margin-left: rem(gesso-spacing(xs)); // LTR
+    margin-left: rem(gesso-spacing(1)); // LTR
 
     @if $support-for-rtl {
       [dir='rtl'] & {
         margin-left: 0;
-        margin-right: rem(gesso-spacing(xs));
+        margin-right: rem(gesso-spacing(1));
       }
     }
   }
@@ -20,40 +20,40 @@
 // Drupal outputs this class on buttons that can delete content.
 .button--danger {
   background-color: gesso-color(button, danger, background);
-  color: gesso-color(button,danger,text);
+  color: gesso-color(button, danger, text);
 
   &:hover,
   &:focus {
     background-color: gesso-color(button, danger, background-hover);
-    color: gesso-color(button,danger,text-hover);
+    color: gesso-color(button, danger, text-hover);
   }
 
   &:active {
     background-color: gesso-color(button, danger, background-active);
-    color: gesso-color(button,danger,text-active);
+    color: gesso-color(button, danger, text-active);
   }
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--secondary {
   @include button(
-    gesso-color(button, secondary, background),
-    gesso-color(button, secondary, text),
-    gesso-color(button, secondary, background-hover),
-    gesso-color(button, secondary, text-hover),
-    gesso-color(button, secondary, background-active),
-    gesso-color(button, secondary, text-active)
+    $color-background: gesso-color(button, secondary, background),
+    $color-text: gesso-color(button, secondary, text),
+    $color-background-hover: gesso-color(button, secondary, background-hover),
+    $color-text-hover: gesso-color(button, secondary, text-hover),
+    $color-background-active: gesso-color(button, secondary, background-active),
+    $color-text-active: gesso-color(button, secondary, text-active)
   );
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--large {
-  font-size: rem(gesso-font-size(2));
-  padding: rem(gesso-spacing(sm)) rem(gesso-spacing(lg));
+  font-size: rem(gesso-font-size(3));
+  padding: rem(gesso-spacing(2)) rem(gesso-spacing(5));
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--small {
-  font-size: rem(gesso-font-size(0));
-  padding: rem(gesso-spacing(xxs)) rem(gesso-spacing(xs));
+  font-size: rem(gesso-font-size(1));
+  padding: rem(gesso-spacing(0.5)) rem(gesso-spacing(1));
 }

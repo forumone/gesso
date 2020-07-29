@@ -1,13 +1,13 @@
 // @file
 // Styles for Media Object.
 
-$media-gutter: rem(gesso-spacing(sm));
+$media-gutter: rem(gesso-spacing(2));
 
 .l-media {
   display: flex;
   flex-direction: column;
 
-  @include breakpoint(gesso-breakpoint(sm)) {
+  @include breakpoint(gesso-breakpoint(tablet)) {
     flex-direction: row;
   }
 }

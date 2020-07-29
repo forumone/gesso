@@ -2,14 +2,9 @@
 // List item styles.
 
 li {
-  margin-bottom: rem(gesso-spacing(xs));
-  padding-left: rem(gesso-spacing(xs));
+  margin-bottom: rem(gesso-spacing(1));
 
   &:last-child {
-    margin-bottom: 0;
-  }
-
-  > *:last-child {
     margin-bottom: 0;
   }
 

@@ -13,7 +13,7 @@ $pager-bp: 600px !default;
 .pager__items {
   @include list-clean();
   clear: both;
-  margin: em(gesso-spacing(md)) 0;
+  margin: rem(gesso-spacing(3)) 0;
   padding: 0;
   text-align: center;
 }
@@ -38,8 +38,8 @@ $pager-bp: 600px !default;
 %pager__link {
   background-color: transparent;
   color: $pager-link-color;
-  min-width: rem(gesso-spacing(lg));
-  padding: em(gesso-spacing(xs));
+  min-width: rem(gesso-spacing(5));
+  padding: em(gesso-spacing(1));
   transition: color gesso-duration(short) gesso-easing(ease-out),
     background-color gesso-duration(standard) gesso-easing(ease-out);
 
@@ -94,6 +94,7 @@ $pager-bp: 600px !default;
   &:focus {
     background-color: transparent;
     color: $pager-link-color;
+
     .pager__link-icon g {
       fill: $pager-background-color;
     }
@@ -105,7 +106,7 @@ $pager-bp: 600px !default;
 }
 
 .pager__item--previous {
-  margin-right: rem(gesso-spacing(lg));
+  margin-right: rem(gesso-spacing(5));
 
   .pager__link {
     padding-left: 32px;
@@ -113,7 +114,7 @@ $pager-bp: 600px !default;
 }
 
 .pager__item--next {
-  margin-left: rem(gesso-spacing(lg));
+  margin-left: rem(gesso-spacing(5));
 
   .pager__link {
     padding-right: 32px;

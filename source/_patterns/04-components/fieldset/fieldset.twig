@@ -4,8 +4,10 @@
   </legend>
   <div class="fieldset__content">
     {{ content }}
-    <div class="fieldset__description">
-      {{ description }}
-    </div>
+    {% if description %}
+      <div class="fieldset__description">
+        {{ description }}
+      </div>
+    {% endif %}
   </div>
 </fieldset>

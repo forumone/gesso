@@ -21,11 +21,11 @@
     <div class="{{ constrain_classes }}">
   {% endif %}
 
+  {{ title_prefix }}
   {% if label %}
-    {{ title_prefix }}
     <{{ label_element ?: 'h2' }} {{ add_attributes(additional_title_attributes, 'title_attributes') }}>{{ label }}</{{ label_element ?: 'h2' }}>
-    {{ title_suffix }}
   {% endif %}
+  {{ title_suffix }}
 
   {% if not hide_content_wrapper %}
     <div {{ add_attributes(additional_content_attributes, 'content_attributes') }}>

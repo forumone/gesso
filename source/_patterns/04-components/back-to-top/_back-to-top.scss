@@ -1,0 +1,48 @@
+.back-to-top {
+  display: none;
+
+  @include breakpoint(gesso-breakpoint(mobile-lg)) {
+    align-items: center;
+    background-color: gesso-color(button, back-to-top, background);
+    border-radius: 50%;
+    bottom: rem(gesso-spacing(2.5));
+    color: gesso-color(button, back-to-top, color);
+    display: flex;
+    height: rem(70px);
+    justify-content: center;
+    position: fixed;
+    right: rem(gesso-spacing(2.5));
+    transition-duration: gesso-duration(short);
+    transition-property: background-color, color, opacity;
+    transition-timing-function: gesso-easing(ease-in);
+    width: rem(70px);
+
+    &:visited {
+      color: gesso-color(button, back-to-top, color);
+    }
+
+    &:hover,
+    &:focus {
+      background-color: gesso-color(button, back-to-top, background-hover);
+      color: gesso-color(button, back-to-top, color-hover);
+    }
+
+    &[aria-hidden='true'] {
+      opacity: 0;
+    }
+  }
+}
+
+// Ensure that the button is visible in Pattern Lab.
+@if $pattern-lab-overrides {
+  /* stylelint-disable-next-line selector-max-id */
+  #components-back-to-top .back-to-top {
+    opacity: 1;
+  }
+}
+
+.back-to-top__icon {
+  fill: currentColor;
+  height: rem(22px);
+  width: rem(35px);
+}

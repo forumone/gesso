@@ -1,10 +1,11 @@
 // CSS styles and overrides for Pattern Lab only.
 // This stylesheet is not loaded by the theme.
-@import 'breakpoint';
+$pattern-lab-overrides: true;
 
-@import '_patterns/00-config/**/*.scss';
-@import '_patterns/01-global/**/*.scss';
+// Import all site styles.
+@import 'styles';
 
+// Additional styling and overrides for Pattern Lab elements.
 // The container for the 'view all' screen, which contains the list of patterns.
 .pl-c-pattern-index {
   box-sizing: border-box !important;
@@ -67,7 +68,8 @@ $swatch-padding: 1rem;
 }
 
 .pattern-lab-color-swatch__hex {
-  font-family: Menlo, Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif;
+  font-family: Menlo, Consolas, 'Lucida Console', 'Liberation Mono',
+    'Courier New', monospace, sans-serif;
   font-size: rem(14px);
 }
 
@@ -305,7 +307,7 @@ $swatch-padding: 1rem;
 $dark-bg-padding: 1em;
 
 /* stylelint-disable selector-max-id */
-[id*="--inverse"].pl-c-pattern {
+[id*='--inverse'].pl-c-pattern {
   background: #212121;
   color: #fff;
   margin-left: -$dark-bg-padding;

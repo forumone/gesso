@@ -52,10 +52,14 @@ gesso:
     md: 1440px
     lg: 2200px
   breakpoints:
-    xs: 480px
-    sm: 700px
-    md: 960px
-    lg: 1280px
+    mobile: 320px
+    mobile-lg: 480px
+    tablet: 640px
+    mobile-menu: 699px
+    tablet-lg: 880px
+    desktop: 1024px
+    desktop-lg: 1200px
+    widescreen: 1400px
   colors:
     text:
       primary: grayscale.black
@@ -73,6 +77,8 @@ gesso:
         background: brand.blue.base
         background-hover: brand.blue.dark
         background-active: brand.blue.dark-1
+        border: brand.blue.base
+        border-hover: brand.blue.dark
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
@@ -80,19 +86,29 @@ gesso:
         background: brand.ocean-blue.base
         background-hover: brand.ocean-blue.dark
         background-active: brand.ocean-blue.dark-1
+        border: brand.ocean-blue.base
+        border-hover: brand.ocean-blue.dark-1
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
       disabled:
         background: grayscale.gray-2
+        border: grayscale.gray-2
         text: grayscale.gray-4
       danger:
         background: other.red.base
         background-hover: other.red.dark
         background-active: other.red.dark-1
+        border: other.red.base
+        border-hover: other.red.dark
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
+      back-to-top:
+        background: grayscale.gray-4
+        background-hover: grayscale.gray-5
+        color: grayscale.white
+        color-hover: grayscale.white
     form:
       background: grayscale.gray-1
       background-active: grayscale.white
@@ -154,16 +170,16 @@ gesso:
         stack: 'Menlo, Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif'
     base-font-size: 16px
     font-size:
-      0: 12px
-      1: 16px
-      2: 20px
-      3: 24px
-      4: 32px
-      5: 40px
-      6: 48px
-      7: 56px
-      8: 64px
-      9: 72px
+      1: 12px
+      2: 16px
+      3: 20px
+      4: 24px
+      5: 32px
+      6: 40px
+      7: 48px
+      8: 56px
+      9: 64px
+      10: 80px
     font-weight:
       light: 300
       regular: 400
@@ -177,43 +193,43 @@ gesso:
       display:
         color: text.primary
         font-family: primary.stack
-        font-size: 8
+        font-size: 9
         font-weight: bold
         line-height: tight
       h1:
         color: text.primary
         font-family: primary.stack
-        font-size: 6
+        font-size: 7
         font-weight: bold
         line-height: tight
       h2:
         color: text.primary
         font-family: primary.stack
-        font-size: 5
+        font-size: 6
         font-weight: bold
         line-height: tight
       h3:
         color: text.primary
         font-family: primary.stack
-        font-size: 4
+        font-size: 5
         font-weight: bold
         line-height: tight
       h4:
         color: text.primary
         font-family: primary.stack
-        font-size: 3
+        font-size: 4
         font-weight: bold
         line-height: base
       h5:
         color: text.primary
         font-family: primary.stack
-        font-size: 1
+        font-size: 2
         font-weight: bold
         line-height: base
       h6:
         color: text.primary
         font-family: primary.stack
-        font-size: 0
+        font-size: 1
         font-weight: semibold
         letter-spacing: -0.04em
         line-height: loose
@@ -221,25 +237,25 @@ gesso:
       blockquote:
         color: text.link
         font-family: primary.stack
-        font-size: 3
+        font-size: 4
         font-weight: regular
         line-height: base
       body:
         color: text.primary
         font-family: primary.stack
-        font-size: 1
+        font-size: 2
         font-weight: regular
         line-height: base
       body-large:
         color: text.primary
         font-family: primary.stack
-        font-size: 2
+        font-size: 3
         font-weight: regular
         line-height: base
       cite:
         color: text.secondary
         font-family: primary.stack
-        font-size: 0
+        font-size: 1
         font-style: normal
         font-weight: semibold
         letter-spacing: .02em
@@ -262,11 +278,20 @@ gesso:
     drawer: 1200
     modal: 1300
   spacing:
-    xxs: 4px
-    xs: 8px
-    sm: 16px
-    md: 24px
-    lg: 40px
-    xl: 56px
-    xxl: 96px
+    0: 0
+    0.5: 4px
+    1: 8px
+    1.5: 12px
+    2: 16px
+    2.5: 20px
+    3: 24px
+    4: 32px
+    5: 40px
+    6: 48px
+    7: 56px
+    8: 64px
+    9: 72px
+    10: 80px
+    12: 96px
+    15: 120px
   gutter-width: 40px

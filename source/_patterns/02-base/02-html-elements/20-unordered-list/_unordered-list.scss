@@ -3,17 +3,17 @@
 
 ul {
   list-style-type: disc;
-  margin: 0 0 rem(gesso-spacing(sm));
-  padding: 0 0 0 rem(gesso-spacing(md)); // LTR
+  margin: 0 0 rem(gesso-spacing(2));
+  padding: 0 0 0 rem(gesso-spacing(3)); // LTR
 
   @if $support-for-rtl {
     [dir='rtl'] & {
-      padding: 0 rem(gesso-spacing(md)) 0 0;
+      padding: 0 rem(gesso-spacing(3)) 0 0;
     }
   }
 
   ol,
   ul {
-    margin: rem(gesso-spacing(sm) / 2) 0 0;
+    margin-top: rem(gesso-spacing(2) / 2);
   }
 }

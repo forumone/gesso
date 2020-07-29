@@ -16,8 +16,7 @@ menus when the mobile menu is in use.
 
 The styles for this menu are in `source/_patterns/04-components/menus/menu--main`.
 By default, the script is applied to a menu with the class `menu--main`. To use
-a different class, change the query selector in `primary-menu.es6.js`. This
-script is not included by default in Pattern Lab or Drupal.
+a different class, change the query selector in `primary-menu.es6.js`.
 
 ## Mobile Menu
 
