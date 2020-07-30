@@ -60,7 +60,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     if (!isset($name)) {
       $name = $options['name'];
     }
-    $machine_name = $options['machine-name'] ?: $this->gessMachineName($name);
+    $machine_name = $options['machine-name'] ?: $this->gessoMachineName($name);
     $description = $options['description'];
 
     // Validate the command.

@@ -10,13 +10,13 @@
  *
  * @todo - This needs to be ported to D8 date handling most likely.
  *
- * @param \Twig_Environment $env
+ * @param Twig_Environment $env
  *   Current Twig environment.
  * @param string $config
  *   Current configuration state.
  */
-function addFormatDateFilter(\Twig_Environment &$env, $config) {
-  $env->addFilter(new \Twig_SimpleFilter('format_date', function ($string) {
+function add_format_date_filter(Twig_Environment &$env, $config) {
+  $env->addFilter(new Twig_SimpleFilter('format_date', function ($string) {
     return $string;
   }));
 }

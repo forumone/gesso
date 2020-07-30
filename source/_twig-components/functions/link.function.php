@@ -8,12 +8,12 @@
 /**
  * Accepts a path, attributes, and title and returns a valid a html element.
  *
- * @param \Twig_Environment $env
+ * @param Twig_Environment $env
  *   The current Twig environment.
  * @param string $config
  *   Current configuration.
  */
-function addLinkFunction(\Twig_Environment &$env, $config) {
+function add_link_function(Twig_Environment &$env, $config) {
   $env->addFunction(new Twig_SimpleFunction(
     'link',
     function ($title, $url, $attributes) {

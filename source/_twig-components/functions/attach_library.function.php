@@ -8,13 +8,12 @@
 /**
  * Stub that doesn't currently do anything.
  *
- * @param \Twig_Environment $env
+ * @param Twig_Environment $env
  *   Current Twig environment.
  * @param string $config
  *   Current configuration state.
  */
-function addAttachLibraryFunction(\Twig_Environment &$env, $config) {
-  $env->addFunction(new \Twig_SimpleFunction('attach_library', function ($string) {
-    return;
+function add_attach_library_function(Twig_Environment &$env, $config) {
+  $env->addFunction(new Twig_SimpleFunction('attach_library', function ($string) {
   }));
 }

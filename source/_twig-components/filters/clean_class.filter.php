@@ -8,13 +8,13 @@
 /**
  * Helper function to clean up potential class names.
  *
- * @param \Twig_Environment $env
+ * @param Twig_Environment $env
  *   Current Twig environment.
  * @param string $config
  *   Current configuration state.
  */
-function addCleanClassFilter(\Twig_Environment &$env, $config) {
-  $env->addFilter(new \Twig_SimpleFilter('clean_class', function ($string) {
+function add_clean_class_filter(Twig_Environment &$env, $config) {
+  $env->addFilter(new Twig_SimpleFilter('clean_class', function ($string) {
     $filters = [
       ' ' => '-',
       '_' => '-',

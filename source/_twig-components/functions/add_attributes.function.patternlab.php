@@ -12,12 +12,12 @@
  * attributes from trickling down through includes.
  * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
  *
- * @param \Twig_Environment $env
+ * @param Twig_Environment $env
  *   Current Twig environment.
  * @param string $config
  *   Current config.
  */
-function addAddAttributesFunction(\Twig_Environment &$env, $config) {
+function add_add_attributes_function(Twig_Environment &$env, $config) {
   $env->addFunction(new Twig_SimpleFunction('add_attributes', function ($context, $additional_attributes = [], $attribute_type = 'attributes') {
 
     $attributes = [];

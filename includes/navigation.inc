@@ -29,7 +29,7 @@ function gesso_preprocess_menu_local_tasks(array &$variables) {
       ];
 
       // Check if the tab should be shown by rendering the original.
-      $link = \Drupal::service('renderer')->render($variables[$type][$key]);
+      $link = Drupal::service('renderer')->render($variables[$type][$key]);
       if (!$link) {
         unset($tabs[$key]);
       }

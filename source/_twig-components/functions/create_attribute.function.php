@@ -8,12 +8,12 @@
 /**
  * Add attributes to an element.
  *
- * @param \Twig_Environment $env
+ * @param Twig_Environment $env
  *   Current twig environment.
  * @param string $config
  *   Current config.
  */
-function addCreateAttributeFunction(\Twig_Environment &$env, $config) {
+function add_create_attribute_function(Twig_Environment &$env, $config) {
   $function = new Twig_SimpleFunction(
     'create_attribute',
     function ($attributes = []) {
