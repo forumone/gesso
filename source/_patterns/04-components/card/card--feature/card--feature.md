@@ -11,4 +11,4 @@ __Variables:__
 * read_more: [boolean] Whether to show the read more link.
 * footer: [string] Footer content of the card.
 * media: [string] URL for the background-image.
-* content: [string] Content of the card.
+* card_content: [string] Content of the card.

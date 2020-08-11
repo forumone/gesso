@@ -13,7 +13,7 @@
         'date': card.date,
         'tags': card.tags,
         'read_more': card.read_more,
-        'content': card.content
+        'card_content': card.content
       } %}
     {% endset %}
     {% set rows_content = rows_content|merge([{
@@ -34,7 +34,7 @@
   {% set rows %}
     {% include '@layouts/grid/grid.twig' with {
       'modifier_classes': 'l-grid--3col',
-      'content': grid_content
+      'grid_content': grid_content
     } %}
   {% endset %}
 
@@ -54,7 +54,7 @@
   {% endset %}
 
   {# define the content for the landing page template as a view, using dummy content from above #}
-  {% set content %}
+  {% set main_content %}
     {% include '@components/view/views-view/views-view.twig' with {
       'title': false,
       'pager': pager,
@@ -65,12 +65,12 @@
   {# include landing page template #}
   {% include '@templates/landing-page.twig' with {
     'landing_page_title': title,
-    'landing_page_content': content
+    'landing_page_content': main_content
   } %}
 
 {% endset %}
 
 {# pass page_content to default page wrapper #}
 {% include '@pages/_page-default.twig' with {
-  'content': page_content
+  'page_default_content': page_content
 } %}

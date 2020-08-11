@@ -6,7 +6,7 @@
       'media': '<img src="https://picsum.photos/150/150?image=237" alt="dog photo">',
       'caption': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     } %}
-    {{ content }}
+    {{ main_content }}
   {% endset %}
 
   {# include article template #}
@@ -20,5 +20,5 @@
 
 {# pass page_content to default page wrapper #}
 {% include '@pages/_page-default.twig' with {
-  'content': page_content
+  'page_default_content': page_content
 } %}

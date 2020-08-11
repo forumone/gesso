@@ -3,12 +3,12 @@
   {# include page template #}
   {% include '@templates/page.twig' with {
     'page_title': title,
-    'page_content': content
+    'page_content': main_content
   } %}
 
 {% endset %}
 
 {# pass page_content to default page wrapper #}
 {% include '@pages/_page-default.twig' with {
-  'content': page_content
+  'page_default_content': page_content
 } %}
