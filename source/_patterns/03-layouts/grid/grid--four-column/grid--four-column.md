@@ -5,4 +5,4 @@ title: Four Column Grid
 
 __Variables:__
 * modifier_classes: [string] Classes to modify the default layout styling.
-* content: [object] Grid content.
+* grid_content: [object] Grid content.

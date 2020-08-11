@@ -15,4 +15,4 @@ __Variables:__
 * title_suffix: [object] Additional output populated by modules, intended to be
   displayed after the main title tag that appears in the template.
 * hide_content_wrapper: [boolean] Whether to output the block content wrapper.
-* content: [object] The content of the block.
+* block_content: [object] The content of the block.
