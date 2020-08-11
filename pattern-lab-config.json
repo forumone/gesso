@@ -23,25 +23,13 @@
   "ishViewportRange": {
     "s": [
       240,
-      500,
-      240,
-      500,
-      240,
       500
     ],
     "m": [
       500,
-      800,
-      500,
-      800,
-      500,
       800
     ],
     "l": [
-      800,
-      2600,
-      800,
-      2600,
       800,
       2600
     ]
@@ -58,7 +46,7 @@
       "patterns": "./source/_patterns/",
       "data": "./source/_data/",
       "meta": "./source/_meta/",
-      "annotations": "source/_annotations/",
+      "annotations": "./source/_annotations/",
       "styleguide": "dist/",
       "patternlabFiles": {
         "general-header": "views/partials/general-header.mustache",
@@ -84,16 +72,15 @@
   "patternStateCascade": [
     "inprogress",
     "inreview",
-    "complete",
-    "inprogress",
-    "inreview",
-    "complete",
-    "inprogress",
-    "inreview",
     "complete"
   ],
+  "patternExportAll": false,
   "patternExportDirectory": "./pattern-lab/pattern_exports/",
   "patternExportPatternPartials": [],
+  "patternExportPreserveDirectoryStructure": true,
+  "patternExportRaw": false,
+  "patternMergeVariantArrays": true,
+  "renderFlatPatternsOnViewAllPages": false,
   "serverOptions": {
     "wait": 1000
   },
@@ -102,23 +89,10 @@
   "theme": {
     "color": "light",
     "density": "compact",
-    "layout": "horizontal"
+    "layout": "horizontal",
+    "noViewAll": false
   },
   "uikits": [
-    {
-      "name": "uikit-workshop",
-      "outputDir": "",
-      "enabled": true,
-      "excludedPatternStates": [],
-      "excludedTags": []
-    },
-    {
-      "name": "uikit-workshop",
-      "outputDir": "",
-      "enabled": true,
-      "excludedPatternStates": [],
-      "excludedTags": []
-    },
     {
       "name": "uikit-workshop",
       "outputDir": "",

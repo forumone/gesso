@@ -163,7 +163,7 @@ class _MobileMenu {
 
   _setTabIndex(elem, tabIndex) {
     if (Array.isArray(elem)) {
-      elem.forEach(function(item) {
+      elem.forEach(function (item) {
         item.tabIndex = tabIndex;
       });
     } else {

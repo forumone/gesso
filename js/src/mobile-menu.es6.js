@@ -1,6 +1,6 @@
 import Drupal from 'drupal';
 import MobileMenu from './modules/_MobileMenu.es6';
-(function(Drupal) {
+(function (Drupal) {
   'use strict';
 
   // The styling for this mobile menu is located in source/_patterns/04-components/mobile-menu/_mobile-menu.scss.

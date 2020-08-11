@@ -1,7 +1,7 @@
 import { MenuBar } from './modules/_Menu.es6';
 import Drupal from 'drupal';
 
-(function(Drupal) {
+(function (Drupal) {
   'use strict';
 
   // The styling for this mobile menu is located in source/_patterns/04-components/menus/menu--main/.
