@@ -5,7 +5,7 @@ const patternLabConfig = require('./pattern-lab-config.json');
 const patternLab = require('@pattern-lab/core')(patternLabConfig);
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
-const sassGlob = require('gulp-sass-glob');
+const sassGlobImporter = require('node-sass-glob-importer');
 const sourcemaps = require('gulp-sourcemaps');
 const stylelint = require('gulp-stylelint');
 const svgSprite = require('gulp-svg-sprite');
@@ -67,7 +67,10 @@ const buildConfig = async () => {
 };
 
 const lintStyles = () => {
-  return src('**/!(*.artifact).scss', { cwd: './source', since: lastRun(lintStyles) }).pipe(
+  return src('**/!(*.artifact).scss', {
+    cwd: './source',
+    since: lastRun(lintStyles),
+  }).pipe(
     stylelint({
       configFile: '.stylelintrc.yml',
       failAfterError: true,
@@ -78,12 +81,12 @@ const lintStyles = () => {
 
 const compileStyles = () => {
   return src('*.scss', { cwd: './source' })
-    .pipe(sassGlob())
     .pipe(sourcemaps.init())
     .pipe(
       sass({
         includePaths: ['./node_modules/breakpoint-sass/stylesheets'],
         precision: 10,
+        importer: sassGlobImporter()
       })
     )
     .pipe(
@@ -190,7 +193,8 @@ const build = (isProduction = true) => {
   task('bundleScripts', scriptTask);
   return series(
     buildConfig,
-    parallel(task('bundleScripts'), buildImages, buildStyles, buildPatterns));
+    parallel(task('bundleScripts'), buildImages, buildStyles, buildPatterns)
+  );
 };
 
 exports.build = build(true);

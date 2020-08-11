@@ -4,7 +4,7 @@ extends:
 
 plugins:
   - stylelint-prettier
-  - stylelint-selector-pseudo-class-lvhfa
+  - './lib/stylelintLVHFA.js'
 rules:
   block-no-empty: null
   color-named:
