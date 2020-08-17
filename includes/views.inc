@@ -8,7 +8,7 @@
 /**
  * Implements hook_theme_suggestions_views_view().
  */
-function views_theme_suggestions_views_view(array $variables) {
+function gesso_theme_suggestions_views_view(array $variables) {
   $suggestions = [];
   $view = $variables['view'];
 
@@ -22,7 +22,7 @@ function views_theme_suggestions_views_view(array $variables) {
 /**
  * Implements hook_theme_suggestions_views_view_unformatted().
  */
-function views_theme_suggestions_views_view_unformatted(array $variables) {
+function gesso_theme_suggestions_views_view_unformatted(array $variables) {
   $suggestions = [];
   $view = $variables['view'];
 
