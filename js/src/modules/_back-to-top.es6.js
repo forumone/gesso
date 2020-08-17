@@ -5,7 +5,7 @@
  * @param {boolean} smoothScroll - Whether to animate the user's scroll back
  *   to the top.
  */
-export default function(threshold = 200, smoothScroll = true) {
+export default function (threshold = 200, smoothScroll = true) {
   const backToTop = document.querySelector('.back-to-top');
   if (backToTop) {
     if (!isNaN(threshold)) {

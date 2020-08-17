@@ -1,7 +1,7 @@
 // Custom scripts file
 import backToTop from './modules/_back-to-top.es6';
 import domready from 'domready';
-(function() {
+(function () {
   'use strict';
 
   // Generic function that runs on window resize.
