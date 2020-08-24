@@ -4,3 +4,6 @@ COPY package*.json ./
 RUN if test -e package-lock.json; then npm ci; else npm i; fi
 
 COPY . .
+
+EXPOSE 3000
+EXPOSE 3001
