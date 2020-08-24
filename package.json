@@ -30,6 +30,7 @@
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.1.0",
     "breakpoint-sass": "^2.7.1",
+    "browser-sync": "^2.26.12",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-loader": "^4.0.2",
