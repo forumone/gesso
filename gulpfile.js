@@ -1,6 +1,7 @@
 'use strict';
 
 const { dest, lastRun, parallel, series, src, watch, task } = require('gulp');
+const browserSync = require('browser-sync').create();
 const patternLabConfig = require('./pattern-lab-config.json');
 const patternLab = require('@pattern-lab/core')(patternLabConfig);
 const postcss = require('gulp-postcss');
@@ -98,7 +99,8 @@ const compileStyles = () => {
       ])
     )
     .pipe(sourcemaps.write('.'))
-    .pipe(dest('css'));
+    .pipe(dest('css'))
+    .pipe(browserSync.stream({match: '**/*.css'}));
 };
 
 const createSprite = () => {
@@ -140,6 +142,25 @@ const bundleScripts = (exports.gessoBundleScripts = () =>
 
 const bundleScriptsDev = () => webpackBundleScripts('development');
 
+const startBrowsersync = () => {
+  browserSync.init({
+    proxy: 'nginx:80',
+    open: false,
+    startPath: '/themes/gesso/pattern-lab/?p=all'
+  });
+}
+
+const buildStyles = (exports.buildStyles = series(lintStyles, compileStyles));
+const buildPatterns = (exports.buildPatterns = series(
+  lintPatterns,
+  buildPatternLab
+));
+const buildImages = (exports.buildImages = createSprite);
+
+const reload = (done) => {
+  browserSync.reload();
+  done();
+}
 const watchFiles = () => {
   watch(
     [
@@ -171,22 +192,15 @@ const watchFiles = () => {
       '!source/_patterns/00-config/config.design-tokens.yml',
     ],
     { usePolling: true, interval: 1500 },
-    series(lintPatterns, buildPatternLab)
+    series(lintPatterns, buildPatternLab, reload)
   );
   watch(
     ['js/src/**/*.es6.js'],
     { usePolling: true, interval: 1500 },
-    bundleScriptsDev
+    series(bundleScriptsDev, reload)
   );
   watch(['source/**/*.md'], { usePolling: true, interval: 1500 }, lintPatterns);
 };
-
-const buildStyles = (exports.buildStyles = series(lintStyles, compileStyles));
-const buildPatterns = (exports.buildPatterns = series(
-  lintPatterns,
-  buildPatternLab
-));
-const buildImages = (exports.buildImages = createSprite);
 
 const build = (isProduction = true) => {
   const scriptTask = isProduction ? bundleScripts : bundleScriptsDev;
@@ -199,4 +213,4 @@ const build = (isProduction = true) => {
 
 exports.build = build(true);
 
-exports.default = series(build(false), watchFiles);
+exports.default = series(build(false), parallel(startBrowsersync, watchFiles));
