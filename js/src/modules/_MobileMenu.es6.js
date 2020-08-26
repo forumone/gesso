@@ -174,7 +174,7 @@ class _MobileMenu {
   _handleKeyDown(event) {
     // Select all focusable items
     const focusable = this.overlay.querySelectorAll(
-      'button, [href], input, select, textarea,[tabindex]:not([tabindex="-1"]'
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
     );
 
     const numberFocusElements = focusable.length;

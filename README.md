@@ -1,9 +1,12 @@
 # Gesso
 
-Gesso is a [Sass](http://sass-lang.com/)-based and [Pattern Lab](https://patternlab.io)
+Gesso is a [Sass](http://sass-lang.com/)-based and 
+[Pattern Lab](https://patternlab.io)
 integrated starter theme that outputs accessible HTML5 markup. It uses a
-mobile-first responsive approach and leverages [SMACSS](https://smacss.com/) to
-organize styles as outlined in the [Drupal 8 CSS architecture guidelines](https://www.drupal.org/node/1887918).
+mobile-first responsive approach and leverages 
+[SMACSS](https://smacss.com/) to
+organize styles as outlined in the 
+[Drupal 8 CSS architecture guidelines](https://www.drupal.org/node/1887918).
 This encourages a component-based approach to theming through the creation of
 discrete, reusable UI elements. Gesso is heavily integrated with
 [Pattern Lab](http://patternlab.io/) and the
@@ -53,8 +56,8 @@ available on the command line.
    This is not required, but will make working with Twig templates easier.
 
 6. Optional: Because Gesso is a starter theme, you may want to rename the
-   Gesso directory or copy its contents to a new custom theme directory based on
-   the name of your project.
+   Gesso directory or copy its contents to a new custom theme directory based
+   on the name of your project.
 
 The easiest way to accomplish this is to use
 [Drush](https://github.com/drush-ops/drush).
@@ -83,14 +86,15 @@ the following NPM command in the theme folder.
 npm install
 ```
 
-To initiate the Gulp build tasks that compile the Sass and Pattern Lab files and
-watch for changes, run the following command in the theme directory:
+To initiate the Gulp build tasks that compile the Sass and Pattern Lab files
+and watch for changes, run the following command in the theme directory:
 
 ```
 gulp
 ```
 
-To initiate the Gulp build tasks only (without watching for changes), run the following command in the theme directory:
+To initiate the Gulp build tasks only (without watching for changes), 
+run the following command in the theme directory:
 
 ```
 gulp build
@@ -105,7 +109,8 @@ browser from your file system.
 
 ### Design Tokens
 
-Gesso uses a configuration file `source/\_patterns/00-config/config.design-tokens.yml`
+Gesso uses a configuration file 
+`source/\_patterns/00-config/config.design-tokens.yml`
 to manage the theme’s design tokens and automatically generate the global sass
 map for styling and patterns to represent the theme’s design tokens. The default
 gulp command will monitor changes in the config and rebuild all necessary
@@ -132,9 +137,11 @@ gesso:
 
 #### Design Token Functions
 
-The following Sass functions can be used to access the tokens defined in `config.design-tokens.yml`.
+The following Sass functions can be used to access the tokens defined in 
+`config.design-tokens.yml`.
 
-**`gesso-box-shadow($shadow)` Output a shadow value from the box-shadow token list**
+**`gesso-box-shadow($shadow)` 
+Output a shadow value from the box-shadow token list**
 
 example:
 
@@ -142,7 +149,8 @@ example:
 box-shadow: gesso-box-shadow(1);
 ```
 
-**`gesso-breakpoint($breakpoint)` Output a size value from the breakpoints token list**
+**`gesso-breakpoint($breakpoint)` 
+Output a size value from the breakpoints token list**
 
 example:
 
@@ -152,7 +160,8 @@ example:
 }
 ```
 
-**`gesso-brand($color, $variant)` Output a color value from the palette brand token list**
+**`gesso-brand($color, $variant)` 
+Output a color value from the palette brand token list**
 
 example:
 
@@ -160,7 +169,8 @@ example:
 color: gesso-brand(blue, light);
 ```
 
-**`gesso-color($type, $subtype)` Output a color value from the colors token list**
+**`gesso-color($type, $subtype)` 
+Output a color value from the colors token list**
 
 example:
 
@@ -168,7 +178,8 @@ example:
 color: gesso-color(text, primary);
 ```
 
-**`gesso-constrain($constrain)` Output a size value from the constrains token list**
+**`gesso-constrain($constrain)` 
+Output a size value from the constrains token list**
 
 example:
 
@@ -176,7 +187,8 @@ example:
 max-width: gesso-constrain(sm);
 ```
 
-**`gesso-duration($duration)` Output a timing value from the transitions duration token list**
+**`gesso-duration($duration)` 
+Output a timing value from the transitions duration token list**
 
 example:
 
@@ -184,7 +196,8 @@ example:
 transition-duration: gesso-duration(short);
 ```
 
-**`gesso-easing($easing)` Output an easing value from the transitions ease token list**
+**`gesso-easing($easing)` 
+Output an easing value from the transitions ease token list**
 
 example:
 
@@ -192,7 +205,8 @@ example:
 transition-timing-function: gesso-easing(ease-in-out);
 ```
 
-**`gesso-font-family($family)` Output a stack value from the font-family token list**
+**`gesso-font-family($family)` 
+Output a stack value from the font-family token list**
 
 example:
 
@@ -200,7 +214,8 @@ example:
 font-family: gesso-font-family(primary);
 ```
 
-**`gesso-font-size($size)` Output a size value from the font-size token list**
+**`gesso-font-size($size)` 
+Output a size value from the font-size token list**
 
 example (combined with the rem() function to convert to rems):
 
@@ -208,7 +223,8 @@ example (combined with the rem() function to convert to rems):
 font-size: rem(gesso-font-size(2));
 ```
 
-**`gesso-font-weight($weight)` Output a weight value from the font-weight token list**
+**`gesso-font-weight($weight)` 
+Output a weight value from the font-weight token list**
 
 example:
 
@@ -216,7 +232,8 @@ example:
 font-weight: gesso-font-weight(semibold);
 ```
 
-**`gesso-grayscale($color)` Output a color value from the palette grayscale token list**
+**`gesso-grayscale($color)` 
+Output a color value from the palette grayscale token list**
 
 example:
 
@@ -224,7 +241,8 @@ example:
 color: gesso-grayscale(gray-2);
 ```
 
-**`gesso-line-height($height)` Output a height value from the line-height token list**
+**`gesso-line-height($height)` 
+Output a height value from the line-height token list**
 
 example:
 
@@ -232,7 +250,8 @@ example:
 line-height: gesso-line-height(tight);
 ```
 
-**`gesso-spacing($spacing)` Output a size value from the spacing token list**
+**`gesso-spacing($spacing)` 
+Output a size value from the spacing token list**
 
 example (combined with the rem() function to convert to rems):
 
@@ -240,7 +259,8 @@ example (combined with the rem() function to convert to rems):
 margin-bottom: rem(gesso-spacing(md));
 ```
 
-**`gesso-z-index($index)` Output an index value from the z-index token list**
+**`gesso-z-index($index)` 
+Output an index value from the z-index token list**
 
 example:
 
@@ -283,8 +303,9 @@ npm run component
 ### Build Artifacts
 
 By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/
-and /css/\*.css) as well as some configuration artifacts (e.g., design-tokens.artifact.yml,
-\_design-tokens.artifact.scss) are ignored by Git as these files are generated
+and /css/\*.css) as well as some configuration artifacts (e.g., 
+design-tokens.artifact.yml, \_design-tokens.artifact.scss) 
+are ignored by Git as these files are generated
 when the Gulp tasks run. To change this, edit the included `.gitignore` file.
 
 ### Sass/Gulp dependencies
