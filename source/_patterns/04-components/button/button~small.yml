@@ -1,0 +1,7 @@
+---
+modifier_classes: 'button--small'
+is_button_tag: true
+is_demo: true
+url: '#'
+text: 'Small Button'
+text_demo: 'Small Link Button'
