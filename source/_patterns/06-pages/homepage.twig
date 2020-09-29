@@ -10,7 +10,7 @@
         'date': card.date,
         'tags': card.tags,
         'read_more': card.read_more,
-        'content': card.content
+        'card_content': card.content
       } %}
     {% endfor %}
   {% endset %}
@@ -30,5 +30,5 @@
 
 {# pass page_content to default page wrapper #}
 {% include '@pages/_page-default.twig' with {
-  'content': page_content
+  'page_default_content': page_content
 } %}

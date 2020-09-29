@@ -5,7 +5,7 @@ title: Grid Layout
 
 __Variables:__
 * modifier_classes: [string] Classes to modify the default layout styling.
-* content: [object] Grid content.
+* grid_content: [object] Grid content.
 
 __Usage:__
 To create a grid, include the grid.twig file and pass it a class via the

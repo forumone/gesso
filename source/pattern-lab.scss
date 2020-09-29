@@ -1,10 +1,11 @@
 // CSS styles and overrides for Pattern Lab only.
 // This stylesheet is not loaded by the theme.
-@import 'breakpoint';
+$pattern-lab-overrides: true;
 
-@import '_patterns/00-config/**/*.scss';
-@import '_patterns/01-global/**/*.scss';
+// Import all site styles.
+@import 'styles';
 
+// Additional styling and overrides for Pattern Lab elements.
 // The container for the 'view all' screen, which contains the list of patterns.
 .pl-c-pattern-index {
   box-sizing: border-box !important;

@@ -1,5 +1,7 @@
 // Custom scripts file
-(function() {
+import backToTop from './modules/_back-to-top.es6';
+import domready from 'domready';
+(function () {
   'use strict';
 
   // Generic function that runs on window resize.
@@ -17,5 +19,10 @@
 
     // 200 is time in miliseconds.
     timeOut = setTimeout(resizeStuff, 200);
+  });
+
+  // Any scripts you want to initialize once the DOM is ready go here.
+  domready(() => {
+    backToTop();
   });
 })();
