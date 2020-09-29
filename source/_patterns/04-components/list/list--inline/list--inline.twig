@@ -1,9 +1,0 @@
-{% set classes = [
-  'list--inline',
-  modifier_classes ? modifier_classes,
-]|join(' ')|trim %}
-
-{% include '@components/list/list.twig' with {
-  'modifier_classes': classes,
-  'list': list
-} %}

@@ -1,4 +1,5 @@
 ---
+modifier_classes: 'list--clean'
 list:
   -
     content: 'List Item One'
