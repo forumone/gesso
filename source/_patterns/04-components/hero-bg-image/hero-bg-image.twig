@@ -4,7 +4,7 @@
   has_overlay ? 'has-overlay',
 ]|join(' ')|trim %}
 
-<div class="{{ classes }}" style="background-image: url({{ hero_image }});" role="img" aria-label="{{ image_alt }}">
+<div class="{{ classes }}"{% if hero_image %} style="background-image: url({{ hero_image }});"{% endif %}{% if image_alt %} role="img" aria-label="{{ image_alt }}"{% endif %}>
   <div class="hero-bg-image__content">
     {% if hero_title %}
       <h1 class="hero-bg-image__title">{{ hero_title }}</h1>
