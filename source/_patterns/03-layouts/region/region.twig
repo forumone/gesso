@@ -8,7 +8,9 @@
     <div class="{{ constrain_classes }}">
   {% endif %}
   {% block content %}
-    Region Content
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Region Content',
+    } %}
   {% endblock %}
   {% if has_constrain %}
     </div>

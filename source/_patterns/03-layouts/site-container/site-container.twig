@@ -1,5 +1,7 @@
 <div class="l-site-container">
   {% block site_content %}
-    Site Content
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Site Content',
+    } %}
   {% endblock %}
 </div>
