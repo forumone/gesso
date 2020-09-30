@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /**
  * @file
@@ -7,9 +7,14 @@
 
 /**
  * Implements hook_preprocess().
+ *
+ * @param array $variables
+ *   Variables that get passed along to the theming template.
  */
-function gesso_preprocess(&$vars) {
-  $vars['gesso_image_path'] = '/' . $vars['directory'] . '/images';
+function gesso_preprocess(array &$variables) {
+  if (!empty($variables['directory'])) {
+    $variables['gesso_image_path'] = '/' . $variables['directory'] . '/images/';
+  }
 }
 
 /**
