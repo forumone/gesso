@@ -1,9 +1,33 @@
-{% embed '@layouts/nav/nav.twig' with {
-  'label': 'Main Menu'
+{#
+ /**
+  * @file
+  * Theme override for the main menu block.
+  */
+#}
+
+{% set classes = [
+  'block--admin',
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% embed '@components/block/block.twig' with {
+  'hide_wrapper': not logged_in,
+  'has_constrain': false,
+  'hide_content_wrapper': true,
+  'label': false
 } %}
 
   {% block content %}
-    {{ content }}
+    {% embed '@layouts/nav/nav.twig' with {
+      'label': 'Main Menu'
+    } %}
+
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+
+    {% endembed %}
   {% endblock %}
 
 {% endembed %}

@@ -21,8 +21,14 @@
   */
 #}
 
+{% set classes = [
+  'block--admin',
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
 {% embed '@components/block/block.twig' with {
-  'hide_wrapper': true,
+  'hide_wrapper': not logged_in,
   'has_constrain': false,
   'hide_content_wrapper': true,
   'label': false
