@@ -58,6 +58,15 @@ $tab-font-size: gesso-base-font-size() !default;
       border-top-right-radius: $tab-border-radius;
     }
   }
+
+  &.is-active {
+    z-index: 1;
+  }
+
+  &:focus-within,
+  &:hover {
+    z-index: 2;
+  }
 }
 
 .tabs__link {
