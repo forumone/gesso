@@ -1,4 +1,9 @@
-<div class="file">
+{% set classes = [
+  'file',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   <img class="file__icon" alt="{{ file.mime }}" src="{{ file.icon }}">
   <a href="#" class="file__link">{{ file.name }}</a>
   <span class="file__size">({{ file.size }})</span>

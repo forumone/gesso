@@ -1,4 +1,10 @@
-<div class="form-item form-item--date">
+{% set classes = [
+  'form-item',
+  'form-item--date',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   <label class="form-item__label" for="edit-date">Date</label>
   <input class="form-item__date" id="edit-date" type="date" data-drupal-date-format="Y-m-d">
 </div>

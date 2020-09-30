@@ -1,4 +1,10 @@
-<div class="form-item form-item--range">
+{% set classes = [
+  'form-item',
+  'form-item--range',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   <label class="form-item__label" for="edit-range">Range</label>
   <input class="form-item__range" id="edit-range" type="range" step="1" min="0" max="100">
   <div class="form-item__description">The description for this form field.</div>

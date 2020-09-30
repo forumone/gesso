@@ -1,9 +1,14 @@
+{% set classes = [
+  'l-content',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
 {% set constrain_classes = [
   'l-constrain',
   constrain_modifier_classes ? constrain_modifier_classes,
 ]|join(' ')|trim %}
 
-<div class="l-content">
+<div class="{{ classes }}">
   {% if has_constrain %}
     <div class="{{ constrain_classes }}">
   {% endif %}

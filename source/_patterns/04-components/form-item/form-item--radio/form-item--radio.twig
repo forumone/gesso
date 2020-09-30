@@ -1,4 +1,10 @@
-<div class="form-item form-item--radio">
+{% set classes = [
+  'form-item',
+  'form-item--radio',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   <input class="form-item__radio" id="{{ radio_option_id }}" name="radios" aria-describedby="edit-radios-description" type="radio"{% if radio_option_disabled %} disabled{% endif %}>
   <label class="form-item__label is-after" for="{{ radio_option_id }}">{{ radio_option_label }}</label>
 </div>

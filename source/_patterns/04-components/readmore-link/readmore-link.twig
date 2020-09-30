@@ -1,4 +1,9 @@
-<a href="{{ url }}" class="readmore-link">
+{% set classes = [
+  'readmore-link',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<a href="{{ url }}" class="{{ classes }}">
   {{ label|default('Read more') }}
   <span class="readmore-link__icon">
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">

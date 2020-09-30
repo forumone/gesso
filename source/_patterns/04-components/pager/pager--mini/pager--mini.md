@@ -4,6 +4,7 @@ title: Mini Pager
 ---
 
 __Variables:__
+* modifier_classes: [string] Classes to modify the default component styling.
 * items: [array] The pager items. Each item is an object containing:
   * previous: [array] Previous pager item.
     * href: [string] Previous item href.
