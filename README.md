@@ -55,7 +55,13 @@ available on the command line.
    [Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
    This is not required, but will make working with Twig templates easier.
 
-6. Optional: Because Gesso is a starter theme, you may want to rename the
+6. Optional: Install the
+   [Background Images Formatter](https://www.drupal.org/project/bg_image_formatter) module
+   and its Responsive Background Images Formatter submodule. This is not required,
+   but will allow you to use images uploaded to Drupal as background images,
+   with different image sizes at different breakpoints.
+
+7. Optional: Because Gesso is a starter theme, you may want to rename the
    Gesso directory or copy its contents to a new custom theme directory based
    on the name of your project.
 

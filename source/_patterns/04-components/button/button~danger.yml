@@ -1,4 +1,5 @@
 ---
+modifier_classes: 'button--danger'
 is_button_tag: true
 is_demo: true
 url: '#'
