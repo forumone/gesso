@@ -69,7 +69,7 @@
   grid-template-columns: repeat(auto-fit, minmax(#{$item-min-width}, 1fr));
 
   @if $gutter {
-    grid-gap: rem($gutter-width);
+    grid-gap: 0 rem($gutter-width);
   }
 
   @if $flex-override {
@@ -90,7 +90,7 @@
   grid-template-columns: repeat($column-adjust, 1fr);
 
   @if $gutter-width {
-    grid-gap: rem($gutter-width);
+    grid-gap: 0 rem($gutter-width);
   }
 
   @if $flex-override {
