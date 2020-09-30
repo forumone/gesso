@@ -1,10 +1,28 @@
 {% set classes = [
   'l-grid',
+  num_of_cols ? ('l-grid--' ~ num_of_cols ~ '-col'),
   modifier_classes ? modifier_classes,
 ]|join(' ')|trim %}
 
 <div class="{{ classes }}">
   {% block content %}
-    {{ grid_content }}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Grid Item 1',
+    } %}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Grid Item 2',
+    } %}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Grid Item 3',
+    } %}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Grid Item 4',
+    } %}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Grid Item 5',
+    } %}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Grid Item 6',
+    } %}
   {% endblock %}
 </div>
