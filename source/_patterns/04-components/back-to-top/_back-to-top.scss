@@ -35,7 +35,7 @@
 
 // Ensure that the button is visible in Pattern Lab.
 @if $pattern-lab-overrides {
-  /* stylelint-disable-next-line selector-max-id */
+  // stylelint-disable-next-line selector-max-id
   #components-back-to-top .back-to-top {
     opacity: 1;
   }

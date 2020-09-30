@@ -335,11 +335,11 @@ when the Gulp tasks run. To change this, edit the included `.gitignore` file.
 break the build, so if you have a valid reason to break Stylelint rules you can
 have it ignore code in two ways:
 
-1. Add `/* stylelint-disable-next-line */` to the line just before where the
+1. Add `// stylelint-disable-next-line` to the line just before where the
    Stylelint warning is triggered.
 
-2. To ignore several lines, add `/* stylelint-disable */` before the code in
-   question and add `/* stylelint-enable */` afterwards.
+2. To ignore several lines, add `// stylelint-disable` before the code in
+   question and add `// stylelint-enable` afterwards.
 
 The Stylelint rules can be changed in the `.stylelintrc.yml` file. By default,
 Gesso follows the [sass-guideline.es](https://github.com/bjankord/stylelint-config-sass-guidelines)
