@@ -1,7 +1,7 @@
 ---
 element: 'div'
-title: 'false'
-header: 'false'
+title: false
+header: false
 exposed: false
 attachment_before: false
 rows: 'Rows'
@@ -11,5 +11,5 @@ attachment_after: false
 more: false
 footer: false
 feed_icons: false
-title_prefix: 'false'
-title_suffix: 'false'
+title_prefix: false
+title_suffix: false
