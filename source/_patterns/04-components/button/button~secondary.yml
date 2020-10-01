@@ -1,4 +1,5 @@
 ---
+modifier_classes: 'button--secondary'
 is_button_tag: true
 is_demo: true
 url: '#'

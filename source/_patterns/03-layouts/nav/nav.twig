@@ -1,4 +1,9 @@
-<nav role="navigation">
+{% set classes = [
+  'l-nav',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<nav class="{{ classes }}" role="navigation">
   <h2 class="visually-hidden">{{ label }}</h2>
   {% block content %}
     {{ nav_content }}

@@ -306,7 +306,7 @@ $swatch-padding: 1rem;
 // For components used on a dark background. (e.g., `--inverse` variants)
 $dark-bg-padding: 1em;
 
-/* stylelint-disable selector-max-id */
+// stylelint-disable selector-max-id
 [id*='--inverse'].pl-c-pattern {
   background: #212121;
   color: #fff;
@@ -323,4 +323,4 @@ $dark-bg-padding: 1em;
     color: #212121;
   }
 }
-/* stylelint-enable */
+// stylelint-enable
