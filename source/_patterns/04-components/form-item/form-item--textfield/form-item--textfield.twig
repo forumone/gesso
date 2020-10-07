@@ -1,4 +1,10 @@
-<div class="form-item form-item--textfield">
+{% set classes = [
+  'form-item',
+  'form-item--textfield',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   <label class="form-item__label" for="edit-textfield">Textfield</label>
   <input class="form-item__text" id="edit-textfield" type="text" size="60" maxlength="128">
   <div class="form-item__description">The description for this form field.</div>

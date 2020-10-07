@@ -1,4 +1,10 @@
-<fieldset class="fieldset fieldset--checkboxes" aria-describedby="edit-checkboxes-description">
+{% set classes = [
+  'fieldset',
+  'fieldset--checkboxes',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<fieldset class="{{ classes }}" aria-describedby="edit-checkboxes-description">
   <legend class="fieldset__legend">
     <span class="fieldset__legend-text">Checkboxes</span>
   </legend>

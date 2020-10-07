@@ -1,4 +1,10 @@
-<div class="form-item form-item--select">
+{% set classes = [
+  'form-item',
+  'form-item--select',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   <label class="form-item__label" for="edit-select">Select</label>
   <select class="form-item__select" id="edit-select">
     <option>Option One</option>

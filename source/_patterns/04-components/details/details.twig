@@ -4,7 +4,10 @@
 {{ attach_library('gesso/details') }}
 
 {% set additional_attributes = {
-  'class': ['details'],
+  'class': [
+    'details',
+    modifier_classes ? modifier_classes,
+  ],
 } %}
 
 {% set additional_summary_attributes = {

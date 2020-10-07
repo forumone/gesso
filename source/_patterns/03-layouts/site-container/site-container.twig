@@ -1,4 +1,9 @@
-<div class="l-site-container">
+{% set classes = [
+  'l-site-container',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   {% block site_content %}
     Site Content
   {% endblock %}

@@ -1,6 +1,12 @@
+{% set classes = [
+  'pager',
+  'pager--mini',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
 {% set pagination_heading_id = 'pagination-heading'|unique_id %}
 {% if items.previous or items.next %}
-  <nav class="pager pager--mini" role="navigation" aria-labelledby="{{ pagination_heading_id }}">
+  <nav class="{{ classes }}" role="navigation" aria-labelledby="{{ pagination_heading_id }}">
     <h4 id="{{ pagination_heading_id }}" class="visually-hidden">{{ heading|default('Pagination') }}</h4>
     <ul class="pager__items js-pager__items">
 

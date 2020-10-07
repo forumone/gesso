@@ -1,4 +1,9 @@
-<article class="image-teaser" role="article">
+{% set classes = [
+  'image-teaser',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<article class="{{ classes }}" role="article">
   <div class="l-media">
     {% if image %}
       <div class="l-media__object">
