@@ -86,6 +86,11 @@
   @return gesso-get-map(spacing, $keys...);
 }
 
+// Get Site margins
+@function gesso-site-margins($keys...) {
+  @return gesso-get-map(site-margins, $keys...);
+}
+
 @function gesso-duration($keys...) {
   @return gesso-get-map(transitions, duration, $keys...);
 }
