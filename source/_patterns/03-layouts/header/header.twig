@@ -1,9 +1,14 @@
+{% set classes = [
+  'l-header',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
 {% set constrain_classes = [
   'l-constrain',
   constrain_modifier_classes ? constrain_modifier_classes,
 ]|join(' ')|trim %}
 
-<header class="l-header" role="banner">
+<header class="{{ classes }}" role="banner">
   {% if has_constrain %}
     <div class="{{ constrain_classes }}">
   {% endif %}

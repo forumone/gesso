@@ -5,7 +5,8 @@
   margin-bottom: rem(gesso-spacing(5));
 }
 
-// disable margin for layout builder blocks
+// Disable margin for admin and layout builder blocks.
+.block--admin,
 .block--provider-layout-builder {
   margin-bottom: 0;
 }

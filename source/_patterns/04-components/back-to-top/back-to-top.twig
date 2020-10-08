@@ -1,4 +1,9 @@
-<a href="#{{ top_element }}" class="back-to-top" title="{{ text }}" aria-hidden="true">
+{% set classes = [
+  'back-to-top',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<a href="#{{ top_element }}" class="{{ classes }}" title="{{ text }}" aria-hidden="true">
   <svg class="back-to-top__icon" role="img" aria-label="{{ text }}">
     <use xlink:href="{{ gesso_image_path }}/sprite.artifact.svg#arrow"></use>
   </svg>

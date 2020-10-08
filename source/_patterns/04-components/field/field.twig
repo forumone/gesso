@@ -1,6 +1,10 @@
 {% set additional_attributes = {
-  'class': ['field'],
+  'class': [
+    'field',
+    modifier_classes ? modifier_classes,
+  ],
 } %}
+
 {% set additional_title_attributes = {
   'class': [
     'field__label',
@@ -8,6 +12,7 @@
     label_display == 'visually_hidden' ? 'visually-hidden',
   ],
 } %}
+
 {% set additional_item_attributes = {
   'class': ['field__item'],
 } %}
