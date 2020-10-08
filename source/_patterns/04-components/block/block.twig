@@ -1,9 +1,14 @@
 {% set additional_attributes = {
-  'class': ['block'],
+  'class': [
+    'block',
+    modifier_classes ? modifier_classes,
+  ],
 } %}
+
 {% set additional_title_attributes = {
   'class': ['block__title'],
 } %}
+
 {% set additional_content_attributes = {
   'class': ['block__content'],
 } %}

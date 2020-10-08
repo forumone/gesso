@@ -1,5 +1,8 @@
 {% set additional_attributes = {
-  'class': ['article']
+  'class': [
+    'article',
+    modifier_classes ? modifier_classes,
+  ],
 } %}
 
 <article {{ add_attributes(additional_attributes) }}>

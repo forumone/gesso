@@ -4,7 +4,7 @@ title: Grid Layout
 ---
 
 __Variables:__
-* modifier_classes: [string] Classes to modify the default layout styling.
+* modifier_classes: [string] Classes to modify the default component styling.
 * grid_content: [object] Grid content.
 
 __Usage:__

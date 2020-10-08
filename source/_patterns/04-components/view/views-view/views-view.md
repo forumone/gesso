@@ -4,6 +4,7 @@ title: Views View
 ---
 
 __Variables:__
+* modifier_classes: [string] Classes to modify the default component styling.
 * element: [string] HTML element of the view wrapper.
 * title_prefix: [object] Additional output populated by modules, intended to be
   displayed before the title that appears in the template.

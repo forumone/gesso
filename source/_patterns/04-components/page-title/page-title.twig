@@ -1,1 +1,6 @@
-<h1 class="page-title">{{ page_title }}</h1>
+{% set classes = [
+  'page-title',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<h1 class="{{ classes }}">{{ page_title }}</h1>

@@ -1,4 +1,11 @@
-<div class="form-item form-item--checkbox has-visible-label-after">
+{% set classes = [
+  'form-item',
+  'form-item--checkbox',
+  'has-visible-label-after',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   <input class="form-item__checkbox" id="{{ checkbox_id }}" type="checkbox" {% if checkbox_disabled %}disabled{% endif %} {% if checkbox_checked %}checked{% endif %}>
   <label class="form-item__label is-after" for="{{ checkbox_id }}">{{ checkbox_label }}</label>
 </div>

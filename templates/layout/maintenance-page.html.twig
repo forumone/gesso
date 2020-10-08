@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ * Some may be blank but they are provided for consistency.
+ *
+ * @see template_preprocess_maintenance_page()
+ *
+ * @ingroup themeable
+ */
+#}
+{% extends '@layouts/site-container/site-container.twig' %}
+
+{% block site_content %}
+  {{ page.header }}
+  {{ page.navigation }}
+  {{ page.breadcrumb }}
+  {{ page.highlighted }}
+  {{ page.help }}
+
+  <main id="main" class="main" role="main" tabindex="-1">
+    <div class="l-constrain">
+      {{ page.preface }}
+
+      {% include '@components/page-title/page-title.twig' with {
+        'page_title': page['#title'],
+      } %}
+
+      {{ page.content }}
+      {{ page.postscript }}
+    </div>
+  </main>
+
+  {{ page.footer }}
+{% endblock %}
