@@ -2,10 +2,10 @@
 has_multiple_sidebar: true
 modifier_classes: ''
 sidebar_header_content: |-
-  <p style="background:#333;color:#fff;padding:1em; margin:0;">Header</p>
+  <p style="background:#333;border:1px solid #fff;color:#fff;margin:0;padding:1em;">Header</p>
 sidebar_first_content: |-
-  <p style="background:#333;color:#fff;padding:1em; margin:0;">Optional Sidebar</p>
+  <p style="background:#333;border:1px solid #fff;color:#fff;margin:0;padding:1em;">Optional Sidebar</p>
 sidebar_main_content: |-
-  <p style="background:#333;color:#fff;padding:1em; margin:0;">Main Content</p>
+  <p style="background:#333;border:1px solid #fff;color:#fff;margin:0;padding:1em;">Main Content</p>
 sidebar_second_content: |-
-  <p style="background:#333;color:#fff;padding:1em; margin:0;">Optional Sidebar</p>
+  <p style="background:#333;border:1px solid #fff;color:#fff;margin:0;padding:1em;">Optional Sidebar</p>

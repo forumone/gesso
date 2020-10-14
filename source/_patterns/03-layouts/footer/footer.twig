@@ -8,12 +8,17 @@
   constrain_modifier_classes ? constrain_modifier_classes,
 ]|join(' ')|trim %}
 
+{% if pattern_lab and not footer_content %}
+  {% import '@macros/gesso.macro.twig' as macros %}
+  {% set footer_content = macros.sample_content('Footer Layout Content') %}
+{% endif %}
+
 <footer class="{{ classes }}" role="contentinfo">
   {% if has_constrain %}
     <div class="{{ constrain_classes }}">
   {% endif %}
   {% block content %}
-    Footer Content
+    {{ footer_content }}
   {% endblock %}
   {% if has_constrain %}
     </div>
