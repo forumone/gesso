@@ -1,7 +1,20 @@
 {% set classes = [
   'l-grid',
+  num_of_cols ? ('l-grid--' ~ num_of_cols ~ '-col'),
   modifier_classes ? modifier_classes,
 ]|join(' ')|trim %}
+
+{% if pattern_lab and not grid_content %}
+  {% import '@macros/gesso.macro.twig' as macros %}
+  {% set grid_content %}
+    {{ macros.sample_content('Grid Item 1') }}
+    {{ macros.sample_content('Grid Item 2') }}
+    {{ macros.sample_content('Grid Item 3') }}
+    {{ macros.sample_content('Grid Item 4') }}
+    {{ macros.sample_content('Grid Item 5') }}
+    {{ macros.sample_content('Grid Item 6') }}
+  {% endset %}
+{% endif %}
 
 <div class="{{ classes }}">
   {% block content %}

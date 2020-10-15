@@ -1,14 +1,24 @@
+{% set classes = [
+  'l-' ~ (region_name ?: 'region'),
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
 {% set constrain_classes = [
   'l-constrain',
   constrain_modifier_classes ? constrain_modifier_classes,
 ]|join(' ')|trim %}
 
-<div class="l-{{ region_name ?: 'region' }}">
+{% if pattern_lab and not region_content %}
+  {% import '@macros/gesso.macro.twig' as macros %}
+  {% set region_content = macros.sample_content('Region Layout Content') %}
+{% endif %}
+
+<div class="{{ classes }}">
   {% if has_constrain %}
     <div class="{{ constrain_classes }}">
   {% endif %}
   {% block content %}
-    Region Content
+    {{ region_content }}
   {% endblock %}
   {% if has_constrain %}
     </div>

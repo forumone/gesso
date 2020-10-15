@@ -1,9 +1,3 @@
 ---
 modifier_classes: ''
-grid_content: |-
-  <div><p style="background:#333;color:#fff;padding:1em;margin:0;">Grid Item</p></div>
-  <div><p style="background:#333;color:#fff;padding:1em;margin:0;">Grid Item</p></div>
-  <div><p style="background:#333;color:#fff;padding:1em;margin:0;">Grid Item</p></div>
-  <div><p style="background:#333;color:#fff;padding:1em;margin:0;">Grid Item</p></div>
-  <div><p style="background:#333;color:#fff;padding:1em;margin:0;">Grid Item</p></div>
-  <div><p style="background:#333;color:#fff;padding:1em;margin:0;">Grid Item</p></div>
+num_of_cols: ''

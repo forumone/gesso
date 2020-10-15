@@ -1,7 +1,7 @@
 {% set classes = [
   'tag',
   type ? 'tag--' ~ type,
-  size ? 'tag--' ~ size
+  size ? 'tag--' ~ size,
 ]|join(' ')|trim %}
 
 <a href="{{ url }}" class="{{ classes }}" rel="tag">

@@ -25,15 +25,23 @@
 
 @mixin layout-constrain(
   $max-width: gesso-constrain(md),
-  $gutter-width: gesso-get-map(gutter-width)
+  $margins-mobile: gesso-site-margins(mobile),
+  $margins: gesso-site-margins(desktop)
 ) {
   margin-left: auto;
   margin-right: auto;
   max-width: rem($max-width);
 
-  @if $gutter-width {
-    padding-left: rem($gutter-width / 2);
-    padding-right: rem($gutter-width / 2);
+  @if $margins-mobile {
+    padding-left: rem($margins-mobile);
+    padding-right: rem($margins-mobile);
+  }
+
+  @if $margins {
+    @include breakpoint(gesso-breakpoint(desktop)) {
+      padding-left: rem($margins);
+      padding-right: rem($margins);
+    }
   }
 
   // Just in case .l-constrain is nested within another .l-constrain.

@@ -1,7 +1,7 @@
 {#
  /**
   * @file
-  * Theme override to display system branding block.
+  * Theme override for the system branding block.
   *
   * Available variables:
   * - plugin_id: The ID of the block implementation.
@@ -25,14 +25,13 @@
 
 {% set classes = [
   'block',
-  'block--provider-' ~ configuration.provider|clean_class,
-  'block--id-' ~ plugin_id|clean_class,
+  'block--admin',
 ] %}
 
 {% set attributes = attributes.addClass(classes) %}
 
 {% embed '@components/block/block.twig' with {
-  'hide_wrapper': true,
+  'hide_wrapper': not logged_in,
   'has_constrain': false,
   'hide_content_wrapper': true,
   'label': false

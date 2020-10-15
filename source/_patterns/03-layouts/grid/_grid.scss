@@ -11,7 +11,7 @@ $grid-gutter: gesso-get-map(gutter-width);
   }
 }
 
-.l-grid--2col {
+.l-grid--2-col {
   @include flex-grid(1, $grid-gutter, 0);
 
   @supports (display: grid) {
@@ -29,7 +29,7 @@ $grid-gutter: gesso-get-map(gutter-width);
   }
 }
 
-.l-grid--3col {
+.l-grid--3-col {
   @include flex-grid(1, $grid-gutter, 0);
 
   @supports (display: grid) {
@@ -47,7 +47,7 @@ $grid-gutter: gesso-get-map(gutter-width);
   }
 }
 
-.l-grid--4col {
+.l-grid--4-col {
   @include flex-grid(1, $grid-gutter, 0);
 
   @supports (display: grid) {
@@ -75,7 +75,7 @@ $grid-gutter: gesso-get-map(gutter-width);
   }
 }
 
-.l-grid--6col {
+.l-grid--6-col {
   @include flex-grid(1, $grid-gutter, 0);
 
   @supports (display: grid) {

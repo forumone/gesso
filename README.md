@@ -1,11 +1,11 @@
 # Gesso
 
-Gesso is a [Sass](http://sass-lang.com/)-based and 
+Gesso is a [Sass](http://sass-lang.com/)-based and
 [Pattern Lab](https://patternlab.io)
 integrated starter theme that outputs accessible HTML5 markup. It uses a
-mobile-first responsive approach and leverages 
+mobile-first responsive approach and leverages
 [SMACSS](https://smacss.com/) to
-organize styles as outlined in the 
+organize styles as outlined in the
 [Drupal 8 CSS architecture guidelines](https://www.drupal.org/node/1887918).
 This encourages a component-based approach to theming through the creation of
 discrete, reusable UI elements. Gesso is heavily integrated with
@@ -55,7 +55,13 @@ available on the command line.
    [Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
    This is not required, but will make working with Twig templates easier.
 
-6. Optional: Because Gesso is a starter theme, you may want to rename the
+6. Optional: Install the
+   [Background Images Formatter](https://www.drupal.org/project/bg_image_formatter) module
+   and its Responsive Background Images Formatter submodule. This is not required,
+   but will allow you to use images uploaded to Drupal as background images,
+   with different image sizes at different breakpoints.
+
+7. Optional: Because Gesso is a starter theme, you may want to rename the
    Gesso directory or copy its contents to a new custom theme directory based
    on the name of your project.
 
@@ -93,7 +99,7 @@ and watch for changes, run the following command in the theme directory:
 gulp
 ```
 
-To initiate the Gulp build tasks only (without watching for changes), 
+To initiate the Gulp build tasks only (without watching for changes),
 run the following command in the theme directory:
 
 ```
@@ -109,7 +115,7 @@ browser from your file system.
 
 ### Design Tokens
 
-Gesso uses a configuration file 
+Gesso uses a configuration file
 `source/\_patterns/00-config/config.design-tokens.yml`
 to manage the theme’s design tokens and automatically generate the global sass
 map for styling and patterns to represent the theme’s design tokens. The default
@@ -137,10 +143,10 @@ gesso:
 
 #### Design Token Functions
 
-The following Sass functions can be used to access the tokens defined in 
+The following Sass functions can be used to access the tokens defined in
 `config.design-tokens.yml`.
 
-**`gesso-box-shadow($shadow)` 
+**`gesso-box-shadow($shadow)`
 Output a shadow value from the box-shadow token list**
 
 example:
@@ -149,7 +155,7 @@ example:
 box-shadow: gesso-box-shadow(1);
 ```
 
-**`gesso-breakpoint($breakpoint)` 
+**`gesso-breakpoint($breakpoint)`
 Output a size value from the breakpoints token list**
 
 example:
@@ -160,7 +166,7 @@ example:
 }
 ```
 
-**`gesso-brand($color, $variant)` 
+**`gesso-brand($color, $variant)`
 Output a color value from the palette brand token list**
 
 example:
@@ -169,7 +175,7 @@ example:
 color: gesso-brand(blue, light);
 ```
 
-**`gesso-color($type, $subtype)` 
+**`gesso-color($type, $subtype)`
 Output a color value from the colors token list**
 
 example:
@@ -178,7 +184,7 @@ example:
 color: gesso-color(text, primary);
 ```
 
-**`gesso-constrain($constrain)` 
+**`gesso-constrain($constrain)`
 Output a size value from the constrains token list**
 
 example:
@@ -187,7 +193,7 @@ example:
 max-width: gesso-constrain(sm);
 ```
 
-**`gesso-duration($duration)` 
+**`gesso-duration($duration)`
 Output a timing value from the transitions duration token list**
 
 example:
@@ -196,7 +202,7 @@ example:
 transition-duration: gesso-duration(short);
 ```
 
-**`gesso-easing($easing)` 
+**`gesso-easing($easing)`
 Output an easing value from the transitions ease token list**
 
 example:
@@ -205,7 +211,7 @@ example:
 transition-timing-function: gesso-easing(ease-in-out);
 ```
 
-**`gesso-font-family($family)` 
+**`gesso-font-family($family)`
 Output a stack value from the font-family token list**
 
 example:
@@ -214,7 +220,7 @@ example:
 font-family: gesso-font-family(primary);
 ```
 
-**`gesso-font-size($size)` 
+**`gesso-font-size($size)`
 Output a size value from the font-size token list**
 
 example (combined with the rem() function to convert to rems):
@@ -223,7 +229,7 @@ example (combined with the rem() function to convert to rems):
 font-size: rem(gesso-font-size(2));
 ```
 
-**`gesso-font-weight($weight)` 
+**`gesso-font-weight($weight)`
 Output a weight value from the font-weight token list**
 
 example:
@@ -232,7 +238,7 @@ example:
 font-weight: gesso-font-weight(semibold);
 ```
 
-**`gesso-grayscale($color)` 
+**`gesso-grayscale($color)`
 Output a color value from the palette grayscale token list**
 
 example:
@@ -241,7 +247,7 @@ example:
 color: gesso-grayscale(gray-2);
 ```
 
-**`gesso-line-height($height)` 
+**`gesso-line-height($height)`
 Output a height value from the line-height token list**
 
 example:
@@ -250,7 +256,7 @@ example:
 line-height: gesso-line-height(tight);
 ```
 
-**`gesso-spacing($spacing)` 
+**`gesso-spacing($spacing)`
 Output a size value from the spacing token list**
 
 example (combined with the rem() function to convert to rems):
@@ -259,7 +265,7 @@ example (combined with the rem() function to convert to rems):
 margin-bottom: rem(gesso-spacing(md));
 ```
 
-**`gesso-z-index($index)` 
+**`gesso-z-index($index)`
 Output an index value from the z-index token list**
 
 example:
@@ -303,8 +309,8 @@ npm run component
 ### Build Artifacts
 
 By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/
-and /css/\*.css) as well as some configuration artifacts (e.g., 
-design-tokens.artifact.yml, \_design-tokens.artifact.scss) 
+and /css/\*.css) as well as some configuration artifacts (e.g.,
+design-tokens.artifact.yml, \_design-tokens.artifact.scss)
 are ignored by Git as these files are generated
 when the Gulp tasks run. To change this, edit the included `.gitignore` file.
 
@@ -329,11 +335,11 @@ when the Gulp tasks run. To change this, edit the included `.gitignore` file.
 break the build, so if you have a valid reason to break Stylelint rules you can
 have it ignore code in two ways:
 
-1. Add `/* stylelint-disable-next-line */` to the line just before where the
+1. Add `// stylelint-disable-next-line` to the line just before where the
    Stylelint warning is triggered.
 
-2. To ignore several lines, add `/* stylelint-disable */` before the code in
-   question and add `/* stylelint-enable */` afterwards.
+2. To ignore several lines, add `// stylelint-disable` before the code in
+   question and add `// stylelint-enable` afterwards.
 
 The Stylelint rules can be changed in the `.stylelintrc.yml` file. By default,
 Gesso follows the [sass-guideline.es](https://github.com/bjankord/stylelint-config-sass-guidelines)

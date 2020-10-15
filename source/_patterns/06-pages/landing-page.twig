@@ -33,7 +33,7 @@
   {# define rows as a grid with the unformatted view dummy content inside #}
   {% set rows %}
     {% include '@layouts/grid/grid.twig' with {
-      'modifier_classes': 'l-grid--3col',
+      'num_of_cols': '3',
       'grid_content': grid_content
     } %}
   {% endset %}

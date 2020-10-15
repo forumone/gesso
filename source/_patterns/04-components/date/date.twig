@@ -1,4 +1,9 @@
-<div class="date">
+{% set classes = [
+  'date',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   {% if format == 'long-date' %}
     {% include '@base/date-formats/long-date.twig' %}
   {% elseif format == 'long-datetime' %}

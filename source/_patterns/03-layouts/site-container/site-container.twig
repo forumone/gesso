@@ -1,5 +1,15 @@
-<div class="l-site-container">
+{% set classes = [
+  'l-site-container',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+{% if pattern_lab and not site_container_content %}
+  {% import '@macros/gesso.macro.twig' as macros %}
+  {% set site_container_content = macros.sample_content('Site Container Layout Content') %}
+{% endif %}
+
+<div class="{{ classes }}">
   {% block site_content %}
-    Site Content
+    {{ site_container_content }}
   {% endblock %}
 </div>

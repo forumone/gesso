@@ -1,3 +1,8 @@
-<div class="copyright">
+{% set classes = [
+  'copyright',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
   &copy; {{ year.long }} {{ site_name }}.
 </div>

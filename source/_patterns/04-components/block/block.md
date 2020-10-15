@@ -4,6 +4,7 @@ title: Block
 ---
 
 __Variables:__
+* modifier_classes: [string] Classes to modify the default component styling.
 * hide_wrapper: [boolean] Whether to output the block wrapper.
 * has_constrain: [boolean] Whether to add a constrain wrapper.
 * constrain_modifier_classes: [string] Additional constrain classes used to

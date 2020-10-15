@@ -14,11 +14,16 @@ $tab-background-color-disabled: gesso-color(
 ) !default;
 $tab-background-color-hover: gesso-color(ui, generic, background) !default;
 $tab-border-color: gesso-color(ui, generic, border) !default;
+$tab-border-color-active: gesso-color(ui, generic, border) !default;
+$tab-border-color-disabled: gesso-color(ui, generic, border) !default;
+$tab-border-color-hover: gesso-color(ui, generic, border) !default;
 $tab-border-radius: 0 !default;
+$tab-border-width: 0 !default;
 $tab-text-color: gesso-color(text, on-light) !default;
 $tab-text-color-active: gesso-color(text, on-dark) !default;
 $tab-text-color-disabled: gesso-color(ui, generic, text-light) !default;
 $tab-text-color-hover: gesso-color(text, on-light) !default;
+$tab-font-size: gesso-base-font-size() !default;
 
 .tabs {
   @include clearfix;
@@ -53,19 +58,33 @@ $tab-text-color-hover: gesso-color(text, on-light) !default;
       border-top-right-radius: $tab-border-radius;
     }
   }
+
+  &.is-active {
+    z-index: 1;
+  }
+
+  &:focus-within,
+  &:hover {
+    z-index: 2;
+  }
 }
 
 .tabs__link {
   @include button(
     $tab-background-color,
     $tab-text-color,
+    $tab-border-color,
     $tab-background-color-hover,
     $tab-text-color-hover,
+    $tab-border-color-hover,
     $tab-background-color-active,
     $tab-text-color-active,
     $tab-background-color-disabled,
+    $tab-border-color-disabled,
     $tab-text-color-disabled,
-    0
+    $tab-border-radius,
+    $tab-border-width,
+    $tab-font-size
   );
   border-left: 1px solid $tab-border-color;
   display: block;
@@ -75,25 +94,14 @@ $tab-text-color-hover: gesso-color(text, on-light) !default;
   margin: 0;
   padding: rem(gesso-spacing(1)) rem(gesso-spacing(2));
 
-  &:visited,
-  &:hover {
-    color: $tab-text-color;
-  }
-
-  &:focus {
-    background-color: $tab-background-color-hover;
-  }
-
-  &:active {
-    background-color: $tab-background-color-active;
-    color: $tab-text-color-active;
-  }
-
   &.is-active {
     background-color: $tab-background-color-active;
+    border-color: $tab-border-color-active;
     color: $tab-text-color-active;
 
     &:hover {
+      background-color: $tab-background-color-active;
+      border-color: $tab-border-color-active;
       color: $tab-text-color-active;
     }
   }

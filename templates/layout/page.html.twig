@@ -36,24 +36,19 @@
 #}
 
 {% extends '@layouts/site-container/site-container.twig' %}
-  {% block site_content %}
 
-    {{ page.header }}
+{% block site_content %}
+  {{ page.header }}
+  {{ page.navigation }}
+  {{ page.breadcrumb }}
+  {{ page.highlighted }}
+  {{ page.help }}
 
-    {{ page.navigation }}
+  <main id="main" class="main" role="main" tabindex="-1">
+    {{ page.preface }}
+    {{ page.content }}
+    {{ page.postscript }}
+  </main>
 
-    {{ page.breadcrumb }}
-
-    {{ page.highlighted }}
-
-    {{ page.help }}
-
-    <main id="main" class="main" role="main" tabindex="-1">
-      {{ page.preface }}
-      {{ page.content }}
-      {{ page.postscript }}
-    </main>
-
-    {{ page.footer }}
-
-  {% endblock %}
+  {{ page.footer }}
+{% endblock %}
