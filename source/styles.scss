@@ -10,5 +10,5 @@ $pattern-lab-overrides: false !default;
 @import '_patterns/03-layouts/**/*.scss';
 @import '_patterns/04-components/**/*.scss';
 
-@import '_patterns/utility-classes';
+@import '_patterns/utility-classes/**/*.scss';
 @import '_patterns/shame';

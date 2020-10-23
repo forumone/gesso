@@ -1,0 +1,7 @@
+// @file
+// Clearfix utility class
+
+.clearfix,
+.u-clearfix {
+  @include clearfix;
+}
