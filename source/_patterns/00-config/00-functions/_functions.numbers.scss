@@ -1,6 +1,6 @@
-/// Remove the unit of a length
-/// @param {Number} $number - Number to remove unit from
-/// @return {Number} - Unitless number
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
@@ -91,4 +91,20 @@
 
 @function is-number($value) {
   @return type-of($value) == 'number';
+}
+
+// Escape a decimal number (replaces . with -)
+@function escape-number($value) {
+  @if type-of($value) != 'number' {
+    @return $value;
+  }
+  $integer: floor(strip-unit($value));
+  $fraction: $value - $integer;
+  @if ($fraction == 0) {
+    @return $integer;
+  }
+  @while ($fraction != floor($fraction)) {
+    $fraction: $fraction * 10;
+  }
+  @return $integer + '-' + $fraction;
 }
