@@ -16,6 +16,14 @@
   }
 }
 
+.u-align-center {
+  margin-bottom: rem(gesso-get-map(gutter-width));
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: rem(gesso-get-map(gutter-width));
+  text-align: center;
+}
+
 // Clear floats
 .u-clear-both {
   clear: both;
