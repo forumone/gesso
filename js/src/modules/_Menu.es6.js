@@ -23,7 +23,7 @@ class Menu {
       const nodesArray = [].slice.call(this.domNode.children);
       nodesArray.forEach(childElement => {
         const menuElement = childElement.firstElementChild;
-        if (menuElement && menuElement.tagName === 'A') {
+        if (menuElement && this.isValidTag(menuElement.tagName)) {
           const menuItem = this._createMenuItem(menuElement);
           menuItem.init();
           this.menuItems.push(menuItem);
@@ -39,6 +39,10 @@ class Menu {
       this.firstItem = this.menuItems[0];
       this.lastItem = this.menuItems[numItems - 1];
     }
+  }
+
+  isValidTag(tagName) {
+    return tagName === 'A' || tagName === 'BUTTON';
   }
 
   setFocus(state) {
@@ -113,6 +117,8 @@ class Menu {
 
 export class MenuBar extends Menu {
   constructor(domNode) {
+    super(domNode);
+
     // Validate that the domNode is a menu that can be made into a MenuBar.
     const msgPrefix = 'Menubar constructor argument menuBarNode';
     if (!(domNode instanceof Element)) {
@@ -124,12 +130,13 @@ export class MenuBar extends Menu {
     let elem = domNode.firstElementChild;
     while (elem) {
       const menuBarItem = elem.firstElementChild;
-      if (elem && menuBarItem && menuBarItem.tagName !== 'A') {
-        throw new Error(`${msgPrefix} has child elements are not A elements`);
+      if (elem && menuBarItem && !this.isValidTag(menuBarItem.tagName)) {
+        throw new Error(
+          `${msgPrefix} has child elements are not A or Button elements`
+        );
       }
       elem = elem.nextElementSibling;
     }
-    super(domNode);
     this.isMenubar = true;
   }
 

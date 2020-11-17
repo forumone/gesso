@@ -13,6 +13,8 @@
     position: relative;
 
     > .menu__link {
+      background-color: transparent;
+      border: 0;
       display: inline-block;
       font-weight: gesso-font-weight(semibold);
       margin-right: gesso-spacing(5);
