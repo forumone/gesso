@@ -1,0 +1,38 @@
+// @file
+// Alignment utility classes
+
+// Align items
+.u-align-left,
+.align-left {
+  @include breakpoint(gesso-breakpoint(tablet)) {
+    float: left;
+    margin-right: rem(gesso-get-map(gutter-width));
+  }
+}
+
+.u-align-right,
+.align-right {
+  @include breakpoint(gesso-breakpoint(tablet)) {
+    float: right;
+    margin-left: rem(gesso-get-map(gutter-width));
+  }
+}
+
+.u-align-center,
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Clear floats
+.u-clear-both {
+  clear: both;
+}
+
+.u-clear-left {
+  clear: left;
+}
+
+.u-clear-right {
+  clear: right;
+}

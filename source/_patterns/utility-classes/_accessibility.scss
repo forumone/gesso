@@ -1,15 +1,12 @@
 // @file
-// Utility classes
-
-// Clearfix
-.clearfix {
-  @include clearfix-important;
-}
-
 // Accessibility utility classes
-.visually-hidden {
+
+.visually-hidden,
+.u-visually-hidden {
   @include visually-hidden-important;
-  &.focusable {
+
+  &.focusable,
+  &.u-focusable {
     &:focus,
     &:active {
       @include visually-hidden-off-important;
@@ -17,10 +14,12 @@
   }
 }
 
-.hidden {
+.hidden,
+.u-hidden {
   @include hidden-important;
 }
 
-.invisible {
+.invisible,
+.u-invisible {
   @include invisible-important;
 }

@@ -1,0 +1,26 @@
+// @file
+// Utility classes for vertical spacing
+
+$sizes: 0.5, 1, 1.5, 2, 2.5, 3, 4, 5;
+
+@each $size in $sizes {
+  .u-spaced-#{escape-number($size)},
+  .u-spaced-#{escape-number($size)}-above {
+    margin-top: #{rem(gesso-spacing($size))} !important;
+  }
+
+  .u-spaced-#{escape-number($size)},
+  .u-spaced-#{escape-number($size)}-below {
+    margin-bottom: #{rem(gesso-spacing($size))} !important;
+  }
+}
+
+.u-spaced-none,
+.u-spaced-none-above {
+  margin-top: 0 !important;
+}
+
+.u-spaced-none,
+.u-spaced-none-below {
+  margin-bottom: 0 !important;
+}
