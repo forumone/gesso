@@ -132,7 +132,7 @@ export class MenuBar extends Menu {
       const menuBarItem = elem.firstElementChild;
       if (elem && menuBarItem && !this.isValidTag(menuBarItem.tagName)) {
         throw new Error(
-          `${msgPrefix} has child elements are not A or Button elements`
+          `${msgPrefix} has child elements that are not A or Button elements. If you need to create a non-linked menu item within your menu, use 'route:<button>' instead of '<nolink>' in the link field.`
         );
       }
       elem = elem.nextElementSibling;
