@@ -18,6 +18,11 @@ The styles for this menu are in `source/_patterns/04-components/menus/menu--main
 By default, the script is applied to a menu with the class `menu--main`. To use
 a different class, change the query selector in `primary-menu.es6.js`.
 
+The primary menu script does NOT work with menu items whose link is set to
+`<nolink>` since that would create a `<span>` tag instead of a focusable element.
+If you need to create a non-linked menu item within your menu, use
+`route:<button>` instead of `<nolink>` in the link field.
+
 ## Mobile Menu
 
 The styles for the overall mobile menu component are in
