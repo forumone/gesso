@@ -8,7 +8,7 @@
 
 {% for row in rows %}
   {% if has_wrapper %}
-    <{{ element ?: 'div' }} {{ add_attributes(additional_row_attributes) }}>
+    <{{ element ?: 'div' }} {{ add_attributes(additional_row_attributes, 'row.attributes') }}>
       {{ row.content }}
     </{{ element ?: 'div' }}>
   {% else %}
