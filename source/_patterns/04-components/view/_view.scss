@@ -2,6 +2,8 @@
 // Styles for a view.
 
 .view {
+  // hides certain table cells on small screens if enabled within the
+  // settings of a view using the table format
   table.responsive-enabled {
     @include breakpoint(max-width gesso-breakpoint(tablet)) {
       th.priority-low,
