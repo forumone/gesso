@@ -1,7 +1,26 @@
 // @file
 // Styles for a view.
 
-// .view {}
+.view {
+  // hides certain table cells on small screens if enabled within the
+  // settings of a view using the table format
+  table.responsive-enabled {
+    @include breakpoint(max-width gesso-breakpoint(tablet)) {
+      th.priority-low,
+      td.priority-low,
+      th.priority-medium,
+      td.priority-medium {
+        display: none;
+      }
+    }
+    @include breakpoint(max-width gesso-breakpoint(tablet-lg)) {
+      th.priority-low,
+      td.priority-low {
+        display: none;
+      }
+    }
+  }
+}
 
 .view__filters {
   margin-bottom: rem(gesso-spacing(2));
