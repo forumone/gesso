@@ -1,7 +1,8 @@
 ---
-modifier_classes: 'button--large'
+modifier_classes: 'button--danger'
 is_button_tag: true
 is_demo: true
 url: '#'
-text: 'Large Button'
-text_demo: 'Large Link Button'
+button_type: 'submit'
+text: 'Danger Button'
+text_demo: 'Danger Link Button'
