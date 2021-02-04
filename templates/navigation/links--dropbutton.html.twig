@@ -31,7 +31,7 @@
       {% set item_attributes = item.attributes %}
       <li{{ item.attributes.addClass('dropbutton__item') }}>
         {%- if item.link -%}
-          {{ item.link }}
+          {{ link(item.link['#title'], item.link['#url'], {'class': ['button', 'dropbutton__button']}) }}
         {%- elseif item.text_attributes -%}
           <span{{ item.text_attributes.addClass('dropbutton__text') }}>{{ item.text }}</span>
         {%- else -%}
