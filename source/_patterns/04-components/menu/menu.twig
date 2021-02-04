@@ -43,7 +43,7 @@
         {% set link_classes = link_classes|merge(['is-expanded']) %}
       {% endif %}
       {% if item['original_link'].options.attributes.class %}
-        {% set link_classes = link_classes|merge([item['original_link'].options.attributes.class]) %}
+        {% set link_classes = link_classes|merge(item['original_link'].options.attributes.class) %}
       {% endif %}
       {% if item_class %}
         {% set item_classes = item_classes|merge(item_class) %}
