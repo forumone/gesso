@@ -11,5 +11,5 @@
 
 {% if is_demo %}
   <a href="{{ url }}" class="{{ classes }}">{{ text_demo }}</a>
-  <button class="{{ classes }}" disabled {% if button_type %} type="{{ button_type }}"{% endif %}>Disabled {{ text }}</button>
+  <button class="{{ classes }}" disabled>Disabled {{ text }}</button>
 {% endif %}
