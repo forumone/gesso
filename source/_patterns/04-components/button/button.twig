@@ -4,7 +4,7 @@
 ]|join(' ')|trim %}
 
 {% if is_button_tag %}
-  <button class="{{ classes }}"{% if is_disabled %} disabled{% endif %}{% if button_type %} type="{{button_type }}"{% endif %}>{{ text }}</button>
+  <button class="{{ classes }}"{% if is_disabled %} disabled{% endif %}{% if button_type %} type="{{ button_type }}"{% endif %}>{{ text }}</button>
 {% else %}
   <a href="{{ url }}" class="{{ classes }}">{{ text }}</a>
 {% endif %}
