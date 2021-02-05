@@ -3,5 +3,6 @@ modifier_classes: 'button--small'
 is_button_tag: true
 is_demo: true
 url: '#'
+button_type: 'submit'
 text: 'Small Button'
 text_demo: 'Small Link Button'

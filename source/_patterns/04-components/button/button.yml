@@ -4,5 +4,6 @@ is_demo: true
 is_disabled: false
 url: '#'
 text: 'Button'
+button_type: 'submit'
 text_demo: 'Link Button'
 modifier_classes: ''
