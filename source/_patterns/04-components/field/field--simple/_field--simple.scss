@@ -1,0 +1,17 @@
+// @file
+// Component: Simple Field
+
+.field--simple {
+  .field__label {
+    display: inline-block;
+    font-family: revert;
+    font-size: revert;
+    line-height: revert;
+    margin-bottom: 0;
+    margin-right: 0.25rem;
+
+    &::after {
+      content: ':';
+    }
+  }
+}

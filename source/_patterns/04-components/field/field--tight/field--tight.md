@@ -1,6 +1,6 @@
 ---
-el: .field
-title: Field
+el: .field--tight
+title: Tight Field
 ---
 
 __Variables:__

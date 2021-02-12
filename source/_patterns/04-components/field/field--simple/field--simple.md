@@ -1,6 +1,6 @@
 ---
-el: .field
-title: Field
+el: .field--simple
+title: Simple Field
 ---
 
 __Variables:__
