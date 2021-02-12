@@ -1,7 +1,7 @@
 {
   "cacheBust": true,
   "cleanPublic": true,
-  "defaultPattern": "all",
+  "defaultPattern": "global-overview",
   "defaultShowPatternInfo": false,
   "ishControlsHide": {
     "s": false,
