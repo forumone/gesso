@@ -1,0 +1,18 @@
+// @file
+// Styles for Inline Form layout.
+
+.l-inline-form {
+  > * {
+    margin: 0 0 rem(gesso-spacing(2));
+
+    @include breakpoint(gesso-breakpoint(tablet)) {
+      display: inline-block;
+      margin-right: rem(gesso-spacing(2));
+      vertical-align: bottom;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

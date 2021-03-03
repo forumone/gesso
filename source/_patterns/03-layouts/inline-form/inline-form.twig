@@ -1,0 +1,21 @@
+{% set classes = [
+  'l-inline-form',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
+  {% block content %}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Form Item 1',
+    } %}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Form Item 2',
+    } %}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Form Item 3',
+    } %}
+    {% include '@layouts/_sample-content/sample-content.twig' with {
+      'content': 'Form Item 4',
+    } %}
+  {% endblock %}
+</div>
