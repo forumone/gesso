@@ -1,4 +1,5 @@
 .readmore-link {
+  padding-right: 28px;
   text-decoration: none;
   &:hover,
   &:focus {
@@ -10,11 +11,13 @@
 
 .readmore-link__icon {
   display: inline-block;
+  margin-right: -28px;
   position: relative;
   top: 8px;
   path {
     fill: gesso-color(text, link);
   }
+  width: 28px;
 }
 
 .readmore-link__accessibility-description {
