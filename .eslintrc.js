@@ -9,7 +9,7 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ['implicit-dependencies'],
+  plugins: [],
   extends: ['eslint:recommended', 'plugin:prettier/recommended'],
   rules: {
     'arrow-parens': ['off', 'as-needed'],
@@ -23,10 +23,6 @@ module.exports = {
     'dot-notation': 'error',
     eqeqeq: 'error',
     'guard-for-in': 'error',
-    'implicit-dependencies/no-implicit': [
-      'error',
-      { optional: true, dev: true },
-    ],
     'no-console': 'error',
     'no-empty-function': 'error',
     'no-floating-decimal': 'error',
