@@ -1,0 +1,27 @@
+x-defaults:
+  codacy: &codacy
+    image: codacy/codacy-analysis-cli:latest
+    environment:
+      CODACY_CODE: ${PWD}
+    command: analyze
+    volumes:
+      - $PWD:$PWD
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
+    
+
+version: "3.7"
+services:
+  gesso:
+    build: .
+    volumes:
+      - $PWD:/
+
+  codacy:
+    <<: *codacy
+    command: analyze
+
+  phpcs:
+    <<: *codacy
+    command: analyze -t phpcs
+
