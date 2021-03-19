@@ -1,27 +1,31 @@
-x-defaults:
-  codacy: &codacy
-    image: codacy/codacy-analysis-cli:latest
-    environment:
-      CODACY_CODE: ${PWD}
-    command: analyze
-    volumes:
-      - $PWD:$PWD
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /tmp:/tmp
-    
-
 version: "3.7"
 services:
   gesso:
     build: .
     volumes:
-      - $PWD:/
+      - "$PWD:/"
 
-  codacy:
-    <<: *codacy
+  # Run all scans with `f1 run codacy`.
+  # Target a specific tool with `f1 run codacy analyze -t <tool>`
+  codacy: &codacy
+    image: codacy/codacy-analysis-cli:latest
+    environment:
+      CODACY_CODE: "${PWD}"
+    working_dir: "${PWD}"
     command: analyze
+    volumes:
+      - "$PWD:$PWD"
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
 
+  # Run PHPCS linting with `f1 run phpcs`.
   phpcs:
     <<: *codacy
-    command: analyze -t phpcs
+    entrypoint: /opt/codacy/bin/codacy-analysis-cli analyze -t phpcs
+    command: ''
 
+  # Run ESLint linting with `f1 run eslint`.
+  eslint:
+    <<: *codacy
+    entrypoint: /opt/codacy/bin/codacy-analysis-cli analyze -t eslint
+    command: ''
