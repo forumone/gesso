@@ -29,3 +29,9 @@ services:
     <<: *codacy
     entrypoint: /opt/codacy/bin/codacy-analysis-cli analyze -t eslint
     command: ''
+    
+  # Run StyleLint linting with `f1 run stylelint`.
+  stylelint:
+    <<: *codacy
+    entrypoint: /opt/codacy/bin/codacy-analysis-cli analyze -t stylelint
+    command: ''
