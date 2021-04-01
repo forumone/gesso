@@ -10,6 +10,7 @@ dependencies:
 
 libraries:
   - gesso/global
+  - gesso/svgxuse
 
 libraries-override:
   core/drupal.dropbutton:

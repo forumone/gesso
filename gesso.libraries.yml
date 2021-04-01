@@ -21,3 +21,7 @@ details:
   version: VERSION
   js:
     js/libraries/details-element-polyfill.js: {}
+svgxuse:
+  version: 1.2.6
+  js:
+    js/libraries/svgxuse.min.js: {}
