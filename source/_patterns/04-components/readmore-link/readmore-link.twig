@@ -3,6 +3,7 @@
   modifier_classes ? modifier_classes,
 ]|join(' ')|trim %}
 
+{% spaceless %}
 <a href="{{ url }}" class="{{ classes }}">
   {{ label|default('Read more') }}
   <span class="readmore-link__icon">
@@ -10,8 +11,11 @@
       <path fill="#231f20" d="M14 4.648l9.352 9.352-9.352 9.352-1.641-1.641 6.508-6.563h-14.219v-2.297h14.219l-6.508-6.563z"></path>
     </svg>
   </span>
-  <span class="readmore-link__accessibility-description">
-    {{ description_prefix|default('about') }}
-    {{ title }}
-  </span>
+  {% if not hide_description %}
+    <span class="readmore-link__accessibility-description">
+      {{ description_prefix|default('about') }}
+      {{ title }}
+    </span>
+  {% endif %}
 </a>
+{% endspaceless %}
