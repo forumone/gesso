@@ -88,15 +88,15 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
 
     // Validate the command.
     if (!$this->gessoThemeExists('gesso')) {
-      throw new Exception(dt('Where is the Gesso theme? I could not find it.'));
+      throw new \Exception(dt('Where is the Gesso theme? I could not find it.'));
     }
 
     if ($this->gessoThemeExists($machine_name)) {
-      throw new Exception(dt('A theme with that name already exists. The machine-readable name must be unique.'));
+      throw new \Exception(dt('A theme with that name already exists. The machine-readable name must be unique.'));
     }
 
     if (!$machine_name || !preg_match('/^[a-z][a-z0-9_]*$/', $machine_name)) {
-      throw new Exception(dt('The machine name was invalid or could not be generated properly. It must start '
+      throw new \Exception(dt('The machine name was invalid or could not be generated properly. It must start '
         . 'with a letter and may only contain lowercase letters, numbers, and underscores.'));
     }
 
