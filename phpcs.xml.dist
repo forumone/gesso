@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="gesso_theme">
+  <description>PHP_CodeSniffer standards for the Gesso Drupal theme.</description>
+
+  <!-- Use default Drupal coding standards. -->
+  <rule ref="Drupal" />
+  <rule ref="DrupalPractice" />
+
+  <!-- Scan within this directory. -->
+  <file>.</file>
+
+  <exclude-pattern>vendor/*</exclude-pattern>
+  <exclude-pattern>node_modules/*</exclude-pattern>
+  <exclude-pattern>css/*</exclude-pattern>
+  <exclude-pattern>js/dist/*</exclude-pattern>
+  <exclude-pattern>js/libraries/*</exclude-pattern>
+  <exclude-pattern>js/overrides/*</exclude-pattern>
+  <exclude-pattern>lib/*</exclude-pattern>
+  <exclude-pattern>**/*.min.js</exclude-pattern>
+  <exclude-pattern>pattern-lab/*</exclude-pattern>
+
+</ruleset>
+
