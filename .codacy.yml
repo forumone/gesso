@@ -8,6 +8,8 @@ engines:
     exclude_paths:
       - '**/*.svg'
       - '**/*.artifact.scss'
+  remark-lint:
+    enabled: false
 languages:
   php:
     extensions:
