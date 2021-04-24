@@ -14,6 +14,8 @@ use Drupal\Core\Template\Attribute;
  * through includes.
  * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
  */
+// $function is used by GessoExtensionLoader.php, where this file is included.
+// @codingStandardsIgnoreLine
 $function = new Twig_SimpleFunction('add_attributes', function ($context, $additional_attributes = [], $attribute_type = 'attributes') {
 
   if (class_exists('Drupal')) {
