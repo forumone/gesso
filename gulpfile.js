@@ -5,7 +5,7 @@ const patternLabConfig = require('./pattern-lab-config.json');
 const patternLab = require('@pattern-lab/core')(patternLabConfig);
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
-const magicImporter = require('node-sass-magic-importer');
+const sassGlobImporter = require('node-sass-glob-importer');
 const sourcemaps = require('gulp-sourcemaps');
 const stylelint = require('gulp-stylelint');
 const svgSprite = require('gulp-svg-sprite');
@@ -86,7 +86,7 @@ const compileStyles = () => {
       sass({
         includePaths: ['./node_modules/breakpoint-sass/stylesheets'],
         precision: 10,
-        importer: magicImporter(),
+        importer: sassGlobImporter(),
       })
     )
     .pipe(
