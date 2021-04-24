@@ -1,0 +1,8 @@
+{% set classes = [
+  'video',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
+  <iframe src="{{ iframe_src }}" allowfullscreen frameborder="0"></iframe>
+</div>

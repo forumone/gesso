@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Theme override for a media remote video field.
+ */
+#}
+
+{% for item in items %}
+  {% include '@components/video/video.twig' with {
+    'iframe_src': item.content['#attributes'].src,
+  } %}
+{% endfor %}
