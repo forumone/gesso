@@ -372,6 +372,13 @@ code.
 See the README.md file in the /js directory for details on included scripts
 (e.g., mobile menu, primary menu, etc.).
 
+## Contributing
+
+Please use the Github issue queue (https://github.com/forumone/gesso/issues) for
+discussion, bug reports, feature requests, etc.
+
+Submitted pull requests should be against the release candidate branch, `4.x-RC`.
+
 ## Maintainers
 
 The Gesso theme is maintained by [Dan Mouyard](https://drupal.org/u/dcmouyard)
@@ -382,4 +389,3 @@ The Gesso theme is maintained by [Dan Mouyard](https://drupal.org/u/dcmouyard)
 ([@coreylafferty](http://twitter.com/coreylafferty)), and
 [KJ Monahan](https://www.drupal.org/u/kmonahan).
 
-Please use the Github issue queue: https://github.com/forumone/gesso/issues

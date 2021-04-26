@@ -86,7 +86,7 @@ const compileStyles = () => {
       sass({
         includePaths: ['./node_modules/breakpoint-sass/stylesheets'],
         precision: 10,
-        importer: sassGlobImporter()
+        importer: sassGlobImporter(),
       })
     )
     .pipe(
@@ -178,7 +178,11 @@ const watchFiles = () => {
     { usePolling: true, interval: 1500 },
     bundleScriptsDev
   );
-  watch(['source/**/*.md'], { usePolling: true, interval: 1500 }, lintPatterns);
+  watch(
+    ['source/**/*.md'],
+    { usePolling: true, interval: 1500 },
+    series(lintPatterns, buildPatternLab)
+  );
 };
 
 const buildStyles = (exports.buildStyles = series(lintStyles, compileStyles));
