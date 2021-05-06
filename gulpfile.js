@@ -1,10 +1,12 @@
 'use strict';
 
 const { dest, lastRun, parallel, series, src, watch, task } = require('gulp');
+const Fiber = require('fibers');
 const patternLabConfig = require('./pattern-lab-config.json');
 const patternLab = require('@pattern-lab/core')(patternLabConfig);
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
+sass.compiler = require('sass');
 const sassGlobImporter = require('node-sass-glob-importer');
 const sourcemaps = require('gulp-sourcemaps');
 const stylelint = require('gulp-stylelint');
@@ -87,6 +89,7 @@ const compileStyles = () => {
         includePaths: ['./node_modules/breakpoint-sass/stylesheets'],
         precision: 10,
         importer: sassGlobImporter(),
+        fiber: Fiber,
       })
     )
     .pipe(
