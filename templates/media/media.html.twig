@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ */
+#}
+
+{% if logged_in %}
+  <div class="contextual-region">
+    {{ title_suffix.contextual_links }}
+{% endif %}
+{{ content }}
+{% if logged_in %}</div>{% endif %}
