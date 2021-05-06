@@ -16,7 +16,8 @@
   },
   "browserslist": [
     "last 2 versions and not dead",
-    ">= 1%"
+    ">= 1%",
+    ">= 1% in US"
   ],
   "devDependencies": {
     "@babel/core": "^7.11.1",
