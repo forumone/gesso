@@ -22,9 +22,10 @@ module.exports = mode => {
       },
       minimizer: [
         new TerserJsPlugin({
-          sourceMap: true,
           terserOptions: {
-            comments: false,
+            format: {
+              comments: false,
+            },
           },
         }),
       ],
