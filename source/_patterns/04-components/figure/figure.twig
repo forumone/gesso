@@ -4,7 +4,7 @@
 ]|join(' ')|trim %}
 
 <figure class="{{ classes }}"{% if caption is defined %} role="group"{% endif %}>
-  {{ media }}
+  <div class="figure__media">{{ media }}</div>
   {% if caption is defined %}
     <figcaption class="figure__caption">{{ caption }}</figcaption>
   {% endif %}
