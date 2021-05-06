@@ -19,6 +19,7 @@ module.exports = mode => {
       splitChunks: {
         chunks: 'all',
         name: 'common',
+        minChunks: 2,
       },
       minimizer: [
         new TerserJsPlugin({
