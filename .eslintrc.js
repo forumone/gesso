@@ -27,7 +27,7 @@ module.exports = {
       'error',
       { optional: true, dev: true },
     ],
-    'no-console': 'error',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-empty-function': 'error',
     'no-floating-decimal': 'error',
     'no-irregular-whitespace': 'off',
