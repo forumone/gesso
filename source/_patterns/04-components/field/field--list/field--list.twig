@@ -28,26 +28,26 @@
 </{{ element ?: 'div' }}>
 
 {% if is_demo %}
-<div class="{{ classes }}">
-  <h3 class="field__label">{{ label }} with Multiple Items</h3>
-  <ul class="field__content">
-    <li>{{ field_items.0.content }} 1</li>
-    <li>{{ field_items.0.content }} 2</li>
-  </ul>
-</div>
+  <div class="{{ classes }}">
+    <h3 class="field__label">{{ label }} with Multiple Items</h3>
+    <ul class="field__content">
+      <li>{{ field_items.0.content }} 1</li>
+      <li>{{ field_items.0.content }} 2</li>
+    </ul>
+  </div>
 
-<div class="{{ classes }}">
-  <h3 class="field__label is-inline">Inline {{ label }}</h3>
-  <ul class="field__content">
-    <li>{{ field_items.0.content }}</li>
-  </ul>
-</div>
+  <div class="{{ classes }}">
+    <h3 class="field__label is-inline">Inline {{ label }}</h3>
+    <ul class="field__content">
+      <li>{{ field_items.0.content }}</li>
+    </ul>
+  </div>
 
-<div class="{{ classes }}">
-  <h3 class="field__label is-inline">Inline {{ label }} with Multiple Items</h3>
-  <ul class="field__content">
-    <li>{{ field_items.0.content }} 1</li>
-    <li>{{ field_items.0.content }} 2</li>
-  </ul>
-</div>
+  <div class="{{ classes }}">
+    <h3 class="field__label is-inline">Inline {{ label }} with Multiple Items</h3>
+    <ul class="field__content">
+      <li>{{ field_items.0.content }} 1</li>
+      <li>{{ field_items.0.content }} 2</li>
+    </ul>
+  </div>
 {% endif %}
