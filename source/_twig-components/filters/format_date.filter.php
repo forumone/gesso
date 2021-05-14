@@ -8,7 +8,7 @@
 /**
  * Helper function that is a passthrough to the D8 format_date function.
  *
- * @todo - This needs to be ported to D8 date handling most likely.
+ * @todo This needs to be ported to D8 date handling most likely.
  *
  * @param Twig_Environment $env
  *   Current Twig environment.

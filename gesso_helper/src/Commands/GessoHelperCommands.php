@@ -4,6 +4,7 @@ namespace Drupal\gesso_helper\Commands;
 
 use Consolidation\SiteAlias\SiteAliasManagerAwareInterface;
 use Consolidation\SiteAlias\SiteAliasManagerAwareTrait;
+use Drupal\Core\Extension\ThemeHandlerInterface;
 use Drush\Drush;
 use Drush\Commands\DrushCommands;
 use Symfony\Component\Filesystem\Filesystem;
@@ -25,11 +26,29 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   use SiteAliasManagerAwareTrait;
 
   /**
+   * The theme handler service.
+   *
+   * @var Drupal\Core\Extension\ThemeHandlerInterface
+   */
+  protected $themeHandler;
+
+  /**
    * Set of available themes.
    *
    * @var array
    */
   protected $themeList;
+
+  /**
+   * GessoHelperCommands constructor.
+   *
+   * @param Drupal\Core\Extension\ThemeHandlerInterface $themeHandler
+   *   The theme handler.
+   */
+  public function __construct(ThemeHandlerInterface $themeHandler) {
+    parent::__construct();
+    $this->themeHandler = $themeHandler;
+  }
 
   /**
    * Create a new theme based on the Gesso theme.
@@ -56,7 +75,10 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    *
    * @throws \Exception
    */
-  public function gesso($name, array $options = ['description' => NULL, 'machine-name' => NULL]) {
+  public function gesso(
+    $name,
+    array $options = ['description' => NULL, 'machine-name' => NULL]
+  ) {
     // Get new theme options.
     if (!isset($name)) {
       $name = $options['name'];
@@ -88,7 +110,6 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     // Copy the Gesso theme directory recursively to the new theme’s location.
     $fs = new Filesystem();
     $fs->mirror($gesso_path, $new_path);
-
 
     // Remove Gesso’s helper module from the new theme.
     $this->gessoRecursiveRm(Path::join($new_path, 'gesso_helper'));
@@ -146,7 +167,11 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       'includes/views.inc',
     ];
     foreach ($files as $file) {
-      $this->gessoFileStrReplace(Path::join($new_path, $file), ['gesso', 'Gesso'], [$machine_name, $name]);
+      $this->gessoFileStrReplace(
+        Path::join($new_path, $file),
+        ['gesso', 'Gesso'],
+        [$machine_name, $name]
+      );
     }
 
     // Notify user of the newly created theme.
@@ -160,7 +185,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
 
     // Warn the user that they might have some additional steps.
     $this->io()->caution(dt('If you want to remove the gesso theme entirely, be sure to copy and rename the '
-     . 'gesso_helper module first.'));
+      . 'gesso_helper module first.'));
   }
 
   /**
@@ -186,8 +211,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    */
   private function gessoThemeExists($theme_name) {
     if (empty($this->themeList)) {
-      $theme_handler = \Drupal::service('theme_handler');
-      $this->themeList = $theme_handler->rebuildThemeData();
+      $this->themeList = $this->themeHandler->rebuildThemeData();
     }
 
     return isset($this->themeList[$theme_name]);

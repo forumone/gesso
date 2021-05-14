@@ -58,19 +58,10 @@ regions:
   disabled: Disabled
   page_bottom: 'Page bottom'
 
-component-libraries:
-  base:
-    paths:
-      - source/_patterns/02-base
-  layouts:
-    paths:
-      - source/_patterns/03-layouts
-  components:
-    paths:
-      - source/_patterns/04-components
-  templates:
-    paths:
-      - source/_patterns/05-templates
-  macros:
-    paths:
-      - source/_macros
+components:
+  namespaces:
+    base: source/_patterns/02-base
+    layouts: source/_patterns/03-layouts
+    components: source/_patterns/04-components
+    templates: source/_patterns/05-templates
+    macros: source/_macros
