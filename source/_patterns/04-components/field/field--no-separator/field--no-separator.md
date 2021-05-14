@@ -1,6 +1,6 @@
 ---
 el: .field
-title: Field
+title: Field without item separator
 ---
 
 __Variables:__

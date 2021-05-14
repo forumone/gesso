@@ -22,7 +22,6 @@
   <div class="field__content">
     {%- for item in field_items -%}
       {{- item.content -}}
-      {{- not loop.last ? ', ' -}}
     {%- endfor -%}
   </div>
 </{{ element ?: 'div' }}>
@@ -31,7 +30,7 @@
   <div class="{{ classes }}">
     <h3 class="field__label">{{ label }} with Multiple Items</h3>
     <div class="field__content">
-      {{ field_items.0.content }} 1, {{ field_items.0.content }} 2
+      {{ field_items.0.content }} 1{{ field_items.0.content }} 2
     </div>
   </div>
 
@@ -43,7 +42,7 @@
   <div class="{{ classes }}">
     <h3 class="field__label is-inline">Inline {{ label }} with Multiple Items</h3>
     <div class="field__content">
-      {{ field_items.0.content }} 1, {{ field_items.0.content }} 2
+      {{ field_items.0.content }} 1{{ field_items.0.content }} 2
     </div>
   </div>
 {% endif %}

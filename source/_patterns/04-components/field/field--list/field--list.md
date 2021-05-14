@@ -1,6 +1,6 @@
 ---
-el: .field
-title: Field
+el: .field--list
+title: List Field
 ---
 
 __Variables:__

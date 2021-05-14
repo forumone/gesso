@@ -1,5 +1,6 @@
 {% set classes = [
   'field',
+  'field--list',
   modifier_classes ? modifier_classes,
 ]|join(' ')|trim %}
 
@@ -19,31 +20,34 @@
   {% if not label_hidden -%}
     <{{ label_element ?: 'h3' }} {{ add_attributes(additional_title_attributes,'title_attributes') }}>{{ label }}</{{ label_element ?: 'h3' }}>
   {%- endif -%}
-  <div class="field__content">
+  <ul class="field__content">
     {%- for item in field_items -%}
-      {{- item.content -}}
-      {{- not loop.last ? ', ' -}}
+      <li>{{ item.content }}</li>
     {%- endfor -%}
-  </div>
+  </ul>
 </{{ element ?: 'div' }}>
 
 {% if is_demo %}
   <div class="{{ classes }}">
     <h3 class="field__label">{{ label }} with Multiple Items</h3>
-    <div class="field__content">
-      {{ field_items.0.content }} 1, {{ field_items.0.content }} 2
-    </div>
+    <ul class="field__content">
+      <li>{{ field_items.0.content }} 1</li>
+      <li>{{ field_items.0.content }} 2</li>
+    </ul>
   </div>
 
   <div class="{{ classes }}">
     <h3 class="field__label is-inline">Inline {{ label }}</h3>
-    <div class="field__content">{{ field_items.0.content }}</div>
+    <ul class="field__content">
+      <li>{{ field_items.0.content }}</li>
+    </ul>
   </div>
 
   <div class="{{ classes }}">
     <h3 class="field__label is-inline">Inline {{ label }} with Multiple Items</h3>
-    <div class="field__content">
-      {{ field_items.0.content }} 1, {{ field_items.0.content }} 2
-    </div>
+    <ul class="field__content">
+      <li>{{ field_items.0.content }} 1</li>
+      <li>{{ field_items.0.content }} 2</li>
+    </ul>
   </div>
 {% endif %}

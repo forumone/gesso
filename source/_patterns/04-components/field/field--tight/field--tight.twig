@@ -1,0 +1,14 @@
+{% set classes = [
+  'field--tight',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+{% include '@components/field/field.twig' with {
+  'modifier_classes': classes,
+  'element': element,
+  'label': label,
+  'label_display': label_display,
+  'label_hidden': label_hidden,
+  'label_element': label_element,
+  'field_items': field_items,
+} %}
