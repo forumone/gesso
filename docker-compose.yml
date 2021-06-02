@@ -1,9 +1,18 @@
 version: "3.7"
 services:
   gesso:
-    build: .
+    build: ./
+    init: true
     volumes:
-      - "$PWD:/"
+      - ./images:/app/images:cached
+      - ./js:/app/js:cached
+      - ./source:/app/source:cached
+      - type: volume
+        source: gesso-pattern-lab
+        target: /app/pattern-lab
+      - type: volume
+        source: gesso-css
+        target: /app/css
 
   # Run all scans with `docker-compose run codacy`.
   # Target a specific tool with `docker-compose run codacy analyze -t <tool>`
