@@ -38,9 +38,12 @@ services:
     <<: *codacy
     entrypoint: /opt/codacy/bin/codacy-analysis-cli analyze -t eslint
     command: ''
-    
+
   # Run StyleLint linting with `docker-compose run stylelint`.
   stylelint:
     <<: *codacy
     entrypoint: /opt/codacy/bin/codacy-analysis-cli analyze -t stylelint
     command: ''
+volumes:
+  ? gesso-pattern-lab
+  ? gesso-css
