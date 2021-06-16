@@ -23,7 +23,7 @@ services:
     working_dir: "${PWD}"
     command: analyze
     volumes:
-      - "$PWD:$PWD"
+      - ${PWD}:${PWD}:cached
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp:/tmp
 
