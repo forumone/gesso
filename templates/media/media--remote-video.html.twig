@@ -16,7 +16,10 @@
     attributes.hasClass('align-right') ? 'u-align-right',
   ]|join(' ')|trim %}
 
-  {{ title_suffix.contextual_links }}
+  {% if logged_in %}
+    <div class="contextual-region">
+      {{ title_suffix.contextual_links }}
+  {% endif %}
 
   {% include '@components/figure/figure.twig' with {
     'modifier_classes': classes,
@@ -24,3 +27,4 @@
     'caption': caption,
   } %}
 {% endif %}
+{% if logged_in %}</div>{% endif %}
