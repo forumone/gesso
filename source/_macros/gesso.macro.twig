@@ -17,7 +17,7 @@
 {% endmacro %}
 
 {% macro sample_content(content = 'Example Content') %}
-  {% include '@layouts/_sample-content/sample-content.twig' with {
-    'content': content,
-  } %}
+  <div style="background:#333;border:1px solid #fff;color:#fff;padding:1em;">
+    {{ content }}
+  </div>
 {% endmacro %}

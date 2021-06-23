@@ -2,25 +2,10 @@
 // Normalize resets.
 //
 // Inspiration: http://necolas.github.com/normalize.css
-// version 3.0.2
+// version 8.0.1
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section {
+main {
   display: block;
-}
-
-b,
-strong {
-  font-weight: inherit;
 }
 
 b,
@@ -44,11 +29,8 @@ sup {
   vertical-align: baseline;
 }
 
-audio,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
+img {
+  border-style: none;
 }
 
 button,
@@ -72,7 +54,7 @@ select {
 }
 
 button,
-html [type='button'],
+[type='button'],
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
@@ -93,6 +75,23 @@ button::-moz-focusring,
   outline: 1px dotted ButtonText;
 }
 
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
 [type='checkbox'],
 [type='radio'] {
   box-sizing: border-box;
@@ -109,7 +108,6 @@ button::-moz-focusring,
   outline-offset: -2px;
 }
 
-[type='search']::-webkit-search-cancel-button,
 [type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -117,6 +115,14 @@ button::-moz-focusring,
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
 }
 
 template,

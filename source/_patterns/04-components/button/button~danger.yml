@@ -3,5 +3,6 @@ modifier_classes: 'button--danger'
 is_button_tag: true
 is_demo: true
 url: '#'
+button_type: 'submit'
 text: 'Danger Button'
 text_demo: 'Danger Link Button'

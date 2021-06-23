@@ -3,7 +3,7 @@
   {% for key, list in gesso.palette.brand %}
     <div class="pattern-lab-color__group">
       {% for name, color in list %}
-        {% include '@global/00-colors/_color-item.twig' with  {
+        {% include '@global/00-colors/color-item.twig' with  {
           color: color,
           name: key ~'-'~ name
         } %}
@@ -16,7 +16,7 @@
 <div class="pattern-lab-color">
   <div class="pattern-lab-color__group">
     {% for name, color in gesso.palette.grayscale %}
-      {% include '@global/00-colors/_color-item.twig' with  {
+      {% include '@global/00-colors/color-item.twig' with  {
         color: color,
         name: name
       } %}
@@ -29,7 +29,7 @@
   {% for key, list in gesso.palette.other %}
     <div class="pattern-lab-color__group">
       {% for name, color in list %}
-        {% include '@global/00-colors/_color-item.twig' with  {
+        {% include '@global/00-colors/color-item.twig' with  {
           color: color,
           name: key ~'-'~ name
         } %}

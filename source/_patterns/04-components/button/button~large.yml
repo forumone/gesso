@@ -3,5 +3,6 @@ modifier_classes: 'button--large'
 is_button_tag: true
 is_demo: true
 url: '#'
+button_type: 'submit'
 text: 'Large Button'
 text_demo: 'Large Link Button'
