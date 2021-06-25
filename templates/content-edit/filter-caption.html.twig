@@ -12,12 +12,21 @@
  * - string classes: The classes of the captioned HTML tag.
  */
 #}
-{% set modifier_classes = [
-  classes ? classes
+{% if media_bundle == 'remote_video'%}
+  {% set media_bundle = 'video' %}
+{% endif %}
+{% set classes = [
+  view_mode != '' ? ('figure--' ~ view_mode)|clean_class,
+  media_bundle ? ('figure--' ~ media_bundle)|clean_class,
+  align == 'center' ? 'u-align-center',
+  align == 'left' ? 'u-align-left',
+  align == 'right' ? 'u-align-right',
 ]|join(' ')|trim %}
 
-{% include '@components/captioned-image/captioned-image.twig' with {
-  'modifier_classes': modifier_classes,
+{{ title_suffix.contextual_links }}
+
+{% include '@components/figure/figure.twig' with {
+  'modifier_classes': classes,
   'media': node,
-  'caption': caption
+  'caption': caption,
 } %}

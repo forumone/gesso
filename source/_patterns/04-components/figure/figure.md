@@ -1,6 +1,6 @@
 ---
-el: .captioned-image
-title: Captioned Image
+el: .figure
+title: Figure
 ---
 
 __Variables:__
