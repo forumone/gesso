@@ -2,5 +2,5 @@
 // Global settings variables
 // http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
 
-@include breakpoint-set('to ems', true);
+$breakpoints-ems: true !default;
 $support-for-rtl: true !default;

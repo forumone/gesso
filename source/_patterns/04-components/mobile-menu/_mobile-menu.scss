@@ -1,5 +1,6 @@
 // @file
 // Styles for the mobile menu.
+@use "sass:math";
 
 $mobile-menu-fallback-bg-color: gesso-color(
   ui,
@@ -65,10 +66,11 @@ $mobile-menu-line-height: gesso-line-height(base);
   line-height: $mobile-menu-line-height;
   margin: 0;
   padding: rem(
-      (
-          $mobile-menu-button-height -
-            ($mobile-menu-font-size * $mobile-menu-line-height)
-        ) / 2
+      math.div(
+        $mobile-menu-button-height -
+          ($mobile-menu-font-size * $mobile-menu-line-height),
+        2
+      )
     )
     rem(gesso-spacing(2));
   text-align: left;
