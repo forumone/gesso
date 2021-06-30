@@ -13,3 +13,5 @@ js/dist/*.map
 dependencyGraph.json
 .vscode
 .idea
+
+/vendor/
