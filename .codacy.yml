@@ -23,8 +23,10 @@ languages:
 exclude_paths:
   - 'pattern-lab/**'
   - 'css/**'
+  - 'images/**'
   - 'js/dist/**'
   - 'js/libraries/**'
   - 'js/overrides/**'
   - 'node_modules/**'
+  - 'vendor/**'
   - 'lib/**'

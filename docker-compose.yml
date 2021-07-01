@@ -1,3 +1,6 @@
+# This is the Compose file for command-line services.
+# Anything that doesn't need to be run as part of the main `docker-compose up'
+# command should reside in here and be invoked by a helper script.
 version: "3.7"
 services:
   gesso:
@@ -14,8 +17,9 @@ services:
         source: gesso-css
         target: /app/css
 
-  # Run all scans with `docker-compose run codacy`.
+  # Run all scans with `docker-compose run codacy` or `f1 run codacy`.
   # Target a specific tool with `docker-compose run codacy analyze -t <tool>`
+  # or `f1 run codacy analyze -t <tool>`.
   codacy: &codacy
     image: codacy/codacy-analysis-cli:latest
     environment:
@@ -27,23 +31,24 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp:/tmp
 
-  # Run PHPCS linting with `docker-compose run phpcs`.
+  # Run PHPCS linting with `docker-compose run phpcs` or `f1 run phpcs`.
   phpcs:
     <<: *codacy
     entrypoint: /opt/codacy/bin/codacy-analysis-cli analyze -t phpcs
     command: ''
 
-  # Run ESLint linting with `docker-compose run eslint`.
+  # Run ESLint linting with `docker-compose run eslint` or `f1 run eslint`.
   eslint:
     <<: *codacy
     entrypoint: /opt/codacy/bin/codacy-analysis-cli analyze -t eslint
     command: ''
 
-  # Run StyleLint linting with `docker-compose run stylelint`.
+  # Run StyleLint linting with `docker-compose run stylelint` or `f1 run stylelint`.
   stylelint:
     <<: *codacy
     entrypoint: /opt/codacy/bin/codacy-analysis-cli analyze -t stylelint
     command: ''
+
 volumes:
   ? gesso-pattern-lab
   ? gesso-css
