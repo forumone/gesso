@@ -86,7 +86,7 @@ const compileStyles = () => {
     .pipe(sourcemaps.init())
     .pipe(
       sass({
-        includePaths: ['./node_modules/breakpoint-sass/stylesheets'],
+        includePaths: [],
         precision: 10,
         importer: sassGlobImporter(),
         fiber: Fiber,

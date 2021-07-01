@@ -316,13 +316,8 @@ when the Gulp tasks run. To change this, edit the included `.gitignore` file.
 
 ### Sass/Gulp dependencies
 
-- [Breakpoint](http://breakpoint-sass.com): Easy to write media queries.
-
 - [Sass](http://sass-lang.com): CSS on steroids. Adds nested rules, variables,
   mixins, selector inheritance, and more.
-
-- [Sass Globbing](https://github.com/mikevercoelen/gulp-sass-glob): Adds
-  glob-based imports to Sass.
 
 - [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
   browser CSS property prefixes during Sass compilation.
