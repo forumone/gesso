@@ -1,0 +1,12 @@
+# This is the Docker Compose entry point for this project.
+# Services listed in this file will automatically be built and started when you bring
+# the project up.
+#
+# Note: This file adds no additional configuration, but it is present to support
+#   execution with the `forumone/forumone-cli` utility in the format of
+#   `f1 run <service>`.
+version: "3.7"
+services:
+  {}
+volumes:
+  {}
