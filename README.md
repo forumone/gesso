@@ -158,11 +158,19 @@ box-shadow: gesso-box-shadow(1);
 **`gesso-breakpoint($breakpoint)`
 Output a size value from the breakpoints token list**
 
-example:
+examples:
 
 ```
-@include breakpoint(gesso-breakpoint(lg)) {
+@include breakpoint(gesso-breakpoint(desktop)) {
   display: flex;
+}
+
+@include breakpoint(gesso-breakpoint(mobile), 'max') {
+  display: none;
+}
+
+@media (min-width: #{em(gesso-breakpoint(mobile))}) and (max-width: #{em(gesso-breakpoint(tablet))}) {
+  display: block;
 }
 ```
 
