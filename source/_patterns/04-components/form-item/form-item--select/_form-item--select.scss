@@ -1,19 +1,22 @@
 // @file
 // Styles for select form items.
+@use "sass:math";
 
 $form-select-arrow-size: 20px !default;
 
 .form-item--select {
   .form-item__select {
     @include svg-background(select-arrows);
-    background-position: right rem($form-select-arrow-size / 2) center; // LTR
+    background-position: right rem(math.div($form-select-arrow-size, 2)) center; // LTR
     background-repeat: no-repeat;
     background-size: rem($form-select-arrow-size);
     padding-right: rem($form-select-arrow-size * 2); // LTR
 
     @if $support-for-rtl {
       [dir='rtl'] & {
-        background-position: left rem($form-select-arrow-size / 2) center;
+        background-position: left
+          rem(math.div($form-select-arrow-size, 2))
+          center;
         padding-left: rem($form-select-arrow-size * 2);
         padding-right: 0;
       }

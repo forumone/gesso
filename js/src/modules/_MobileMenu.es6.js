@@ -164,7 +164,14 @@ class _MobileMenu {
   _setTabIndex(elem, tabIndex) {
     if (Array.isArray(elem)) {
       elem.forEach(function (item) {
-        item.tabIndex = tabIndex;
+        // Check if item is a NodeList.
+        if (Object.prototype.isPrototypeOf.call(NodeList.prototype, item)) {
+          for (let i = 0; i < item.length; i++) {
+            item[i].tabIndex = tabIndex;
+          }
+        } else {
+          item.tabIndex = tabIndex;
+        }
       });
     } else {
       elem.tabIndex = tabIndex;

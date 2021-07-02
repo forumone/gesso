@@ -1,0 +1,10 @@
+@use "sass:string";
+
+@mixin breakpoint($breakpoint, $width-type: 'min') {
+  @if $breakpoints-ems {
+    $breakpoint: em($breakpoint);
+  }
+  @media (#{string.to-lower-case($width-type)}-width: #{$breakpoint}) {
+    @content;
+  }
+}

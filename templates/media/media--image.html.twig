@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% if has_caption %}
+  <div>{{ content }}</div>
+{%  else %}
+  {% set classes = [
+    view_mode != 'default' ? ('figure--' ~ view_mode)|clean_class,
+    attributes.hasClass('align-center') ? 'u-align-center',
+    attributes.hasClass('align-left') ? 'u-align-left',
+    attributes.hasClass('align-right') ? 'u-align-right',
+  ]|join(' ')|trim %}
+
+  {% if logged_in %}
+    <div class="contextual-region">
+      {{ title_suffix.contextual_links }}
+  {% endif %}
+
+  {% include '@components/figure/figure.twig' with {
+    'modifier_classes': classes,
+    'media': content,
+    'caption': caption,
+  } %}
+{% endif %}
+{% if logged_in %}</div>{% endif %}

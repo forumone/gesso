@@ -1,5 +1,6 @@
 // @file
 // Ordered list styles.
+@use "sass:math";
 
 ol {
   margin: 0 0 rem(gesso-spacing(2));
@@ -13,6 +14,6 @@ ol {
 
   ol,
   ul {
-    margin-top: rem(gesso-spacing(2) / 2);
+    margin-top: rem(math.div(gesso-spacing(2), 2));
   }
 }

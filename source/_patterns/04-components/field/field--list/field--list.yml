@@ -1,0 +1,9 @@
+---
+is_demo: true
+label: 'Field Label'
+label_hidden: false
+label_element: 'strong'
+element: 'div'
+field_items:
+  -
+    content: 'Field Item'

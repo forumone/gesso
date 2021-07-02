@@ -1,0 +1,32 @@
+{% set classes = [
+  'field',
+  'field--simple',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+{% set additional_attributes = {
+  'class': [classes],
+} %}
+
+{% set additional_title_attributes = {
+  'class': [
+    'field__label',
+  ]|join(' ')|trim,
+} %}
+
+<{{ element ?: 'div' }} {{ add_attributes(additional_attributes) }}>
+  {% if not label_hidden -%}
+    <{{ label_element ?: 'strong' }} {{ add_attributes(additional_title_attributes,'title_attributes') }}>{{ label }}</{{ label_element ?: 'strong' }}>
+  {%- endif %}
+  {% for item in field_items -%}
+    {{- item.content -}}
+    {{- not loop.last ? ', ' -}}
+  {%- endfor -%}
+</{{ element ?: 'div' }}>
+
+{% if is_demo %}
+  <div class="{{ classes }}">
+    <strong class="field__label">{{ label }} with Multiple Items</strong>
+    {{ field_items.0.content }} 1, {{ field_items.0.content }} 2
+  </div>
+{% endif %}

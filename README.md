@@ -158,11 +158,19 @@ box-shadow: gesso-box-shadow(1);
 **`gesso-breakpoint($breakpoint)`
 Output a size value from the breakpoints token list**
 
-example:
+examples:
 
 ```
-@include breakpoint(gesso-breakpoint(lg)) {
+@include breakpoint(gesso-breakpoint(desktop)) {
   display: flex;
+}
+
+@include breakpoint(gesso-breakpoint(mobile), 'max') {
+  display: none;
+}
+
+@media (min-width: #{em(gesso-breakpoint(mobile))}) and (max-width: #{em(gesso-breakpoint(tablet))}) {
+  display: block;
 }
 ```
 
@@ -316,13 +324,8 @@ when the Gulp tasks run. To change this, edit the included `.gitignore` file.
 
 ### Sass/Gulp dependencies
 
-- [Breakpoint](http://breakpoint-sass.com): Easy to write media queries.
-
 - [Sass](http://sass-lang.com): CSS on steroids. Adds nested rules, variables,
   mixins, selector inheritance, and more.
-
-- [Sass Globbing](https://github.com/mikevercoelen/gulp-sass-glob): Adds
-  glob-based imports to Sass.
 
 - [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
   browser CSS property prefixes during Sass compilation.

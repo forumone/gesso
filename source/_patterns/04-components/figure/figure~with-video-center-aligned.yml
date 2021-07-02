@@ -1,0 +1,7 @@
+---
+modifier_classes: 'figure--video u-align-center'
+media: |-
+  <div class="video">
+    <iframe src="https://player.vimeo.com/video/505735218" allowfullscreen frameborder="0"></iframe>
+  </div>
+caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper vel metus at cursus.'

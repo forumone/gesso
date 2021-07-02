@@ -1,8 +1,8 @@
 {% set page_content %}
 
   {% set body_content %}
-    {% include '@components/captioned-image/captioned-image.twig' with {
-      'modifier_classes': 'captioned-image--right-aligned',
+    {% include '@components/figure/figure.twig' with {
+      'modifier_classes': 'u-align-right',
       'media': '<img src="https://picsum.photos/150/150?image=237" alt="dog photo">',
       'caption': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     } %}

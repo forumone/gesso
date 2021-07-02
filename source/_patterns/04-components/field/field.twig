@@ -1,8 +1,10 @@
+{% set classes = [
+  'field',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
 {% set additional_attributes = {
-  'class': [
-    'field',
-    modifier_classes ? modifier_classes,
-  ],
+  'class': [classes],
 } %}
 
 {% set additional_title_attributes = {
@@ -10,24 +12,38 @@
     'field__label',
     label_display == 'inline' ? 'is-inline',
     label_display == 'visually_hidden' ? 'visually-hidden',
-  ],
-} %}
-
-{% set additional_item_attributes = {
-  'class': ['field__item'],
+  ]|join(' ')|trim,
 } %}
 
 <{{ element ?: 'div' }} {{ add_attributes(additional_attributes) }}>
-  {% if not label_hidden %}
+  {% if not label_hidden -%}
     <{{ label_element ?: 'h3' }} {{ add_attributes(additional_title_attributes,'title_attributes') }}>{{ label }}</{{ label_element ?: 'h3' }}>
-  {% endif %}
-  {% if multiple %}
-    <div class="field__items">
-  {% endif %}
-  {% for item in items %}
-    <div {{ add_attributes(additional_item_attributes) }}>{{ item.content }}</div>
-  {% endfor %}
-  {% if multiple %}
-    </div>
-  {% endif %}
+  {%- endif -%}
+  <div class="field__content">
+    {%- for item in field_items -%}
+      {{- item.content -}}
+      {{- not loop.last ? ', ' -}}
+    {%- endfor -%}
+  </div>
 </{{ element ?: 'div' }}>
+
+{% if is_demo %}
+  <div class="{{ classes }}">
+    <h3 class="field__label">{{ label }} with Multiple Items</h3>
+    <div class="field__content">
+      {{ field_items.0.content }} 1, {{ field_items.0.content }} 2
+    </div>
+  </div>
+
+  <div class="{{ classes }}">
+    <h3 class="field__label is-inline">Inline {{ label }}</h3>
+    <div class="field__content">{{ field_items.0.content }}</div>
+  </div>
+
+  <div class="{{ classes }}">
+    <h3 class="field__label is-inline">Inline {{ label }} with Multiple Items</h3>
+    <div class="field__content">
+      {{ field_items.0.content }} 1, {{ field_items.0.content }} 2
+    </div>
+  </div>
+{% endif %}

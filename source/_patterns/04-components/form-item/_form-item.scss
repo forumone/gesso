@@ -1,5 +1,6 @@
 // @file
 // Styles for form items.
+@use "sass:math";
 
 $form-background-color: gesso-color(form, background) !default;
 $form-background-color-focus: gesso-color(form, background-active) !default;
@@ -64,7 +65,7 @@ $form-text-size: gesso-base-font-size() !default;
   display: inline-block;
   font-size: rem($form-text-size);
   height: rem(44px);
-  line-height: (22px / $form-text-size);
+  line-height: math.div(22px, $form-text-size);
   margin: rem(gesso-spacing(0.5)) 0;
   max-width: 100%;
   padding: em(10px, $form-text-size) em(7px, $form-text-size);
