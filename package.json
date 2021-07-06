@@ -57,7 +57,8 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-prettier": "^1.2.0",
-    "webpack": "^5.36.2",
+    "terser-webpack-plugin": "^5.1.4",
+    "webpack": "^5.42.1",
     "yaml": "1.10.0"
   },
   "scripts": {
