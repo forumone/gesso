@@ -30,7 +30,7 @@
   }
 }
 
-// Create a media query with both min-width and max-width
+// Create a media query with both min-width and max-width.
 @mixin breakpoint-min-max($breakpoint-min, $breakpoint-max) {
   @if $breakpoints-ems {
     $breakpoint-min: em($breakpoint-min);
