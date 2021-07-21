@@ -3,7 +3,7 @@
 
 @use "sass:string";
 
-// Create a min-width media query
+// Create a min-width media query.
 @mixin breakpoint-min($breakpoint) {
   @if $breakpoints-ems {
     $breakpoint: em($breakpoint);
@@ -13,14 +13,14 @@
   }
 }
 
-// Assume min-width if you use shorthand breakpoint mixin
+// Assume min-width if shorthand breakpoint mixin is used.
 @mixin breakpoint($breakpoint) {
   @include breakpoint-min($breakpoint) {
     @content;
   }
 }
 
-// Create a max-width media query
+// Create a max-width media query.
 @mixin breakpoint-max($breakpoint) {
   @if $breakpoints-ems {
     $breakpoint: em($breakpoint);
