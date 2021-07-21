@@ -5,7 +5,7 @@
   // hides certain table cells on small screens if enabled within the
   // settings of a view using the table format
   table.responsive-enabled {
-    @include breakpoint(gesso-breakpoint(tablet), 'max') {
+    @include breakpoint-max(gesso-breakpoint(tablet)) {
       th.priority-low,
       td.priority-low,
       th.priority-medium,
@@ -13,7 +13,7 @@
         display: none;
       }
     }
-    @include breakpoint(gesso-breakpoint(tablet-lg), 'max') {
+    @include breakpoint-max(gesso-breakpoint(tablet-lg)) {
       th.priority-low,
       td.priority-low {
         display: none;

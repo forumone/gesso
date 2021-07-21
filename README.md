@@ -165,11 +165,11 @@ examples:
   display: flex;
 }
 
-@include breakpoint(gesso-breakpoint(mobile), 'max') {
+@include breakpoint-max(gesso-breakpoint(mobile)) {
   display: none;
 }
 
-@media (min-width: #{em(gesso-breakpoint(mobile))}) and (max-width: #{em(gesso-breakpoint(tablet))}) {
+@include breakpoint-min-max(gesso-breakpoint(mobile), gesso-breakpoint(tablet)) {
   display: block;
 }
 ```
