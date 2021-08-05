@@ -305,6 +305,68 @@ value, if available. If there is no fallback value, the token will be omitted
 from the JavaScript objects. In general, if you want to share a value between
 CSS and JavaScript, you should use simple strings or numbers.
 
+### Width Based Media Queries
+
+Gesso uses custom mixins to specify viewport width based media queries:
+`breakpoint`, `breakpoint-max` and `breakpoint-min-max` for min-width,
+max-width or a combination of both, respectively. Each mixin takes one or two
+width parameters, which can be a straight value (e.g., 800px, 40em) or a design
+token value called using the `gesso-breakpoint` function (e.g.,
+`gesso-breakpoint(tablet-lg)`).  The `breakpoint-max` and `breakpoint-min-max`
+mixins can also take an optional parameter to subtrax one pixel from the
+max-width value, which can be useful when using the Gesso breakpoint token
+values.
+
+**`@include breakpoint($width) { // styles }`
+Output a min-width based media query.**
+
+examples:
+
+```
+@include breakpoint(gesso-breakpoint(800px)) {
+  display: flex;
+}
+
+@include breakpoint(gesso-breakpoint(desktop)) {
+  display: none;
+}
+```
+
+**`@include breakpoint-max($width, $subtract_1_from_max) { // styles }`
+Output a max-width based media query. The optional $subtract_1_from_max
+parameter will subtract 1px from the width value if set to `true`
+(default: `false`).**
+
+examples:
+
+```
+@include breakpoint-max(900px) {
+  display: block;
+}
+
+@include breakpoint-max(gesso-breakpoint(mobile), true) {
+  display: none;
+}
+```
+
+**`@include breakpoint-min-max($min-width, $max-width, $subtract_1_from_max)
+{ // styles }`
+Output a media query with both a min-width and max-width. The optional
+$subtract_1_from_max parameter will subtract 1px from the max-width value if
+set to `true` (default: `false`).**
+
+examples:
+
+```
+@include breakpoint-min-max(400px, 700px) {
+  display: flex;
+}
+
+@include breakpoint-min-max(gesso-breakpoint(mobile), gesso-breakpoint(tablet), true) {
+  display: block;
+}
+```
+
 ### Creating New Components
 
 Gesso includes a script to generate new component files. To use, run the
