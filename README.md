@@ -308,14 +308,17 @@ CSS and JavaScript, you should use simple strings or numbers.
 ### Width Based Media Queries
 
 Gesso uses custom mixins to specify viewport width based media queries:
-`breakpoint`, `breakpoint-max` and `breakpoint-min-max` for min-width,
-max-width or a combination of both, respectively. Each mixin takes one or two
+* `breakpoint`: min-width queries
+* `breakpoint-max`: max-width queries
+* `breakpoint-min-max`: queries with both a min and max width
+
+Each mixin takes one or two
 width parameters, which can be a straight value (e.g., 800px, 40em) or a design
 token value called using the `gesso-breakpoint` function (e.g.,
 `gesso-breakpoint(tablet-lg)`).  The `breakpoint-max` and `breakpoint-min-max`
-mixins can also take an optional parameter to subtrax one pixel from the
-max-width value, which can be useful when using the Gesso breakpoint token
-values.
+mixins can also take an optional parameter to subtract one pixel from the
+max-width value, which can be useful when you want your query to go up to the
+value but not to include it, such as when using Gesso breakpoint token values.
 
 **`@include breakpoint($width) { // styles }`
 Output a min-width based media query.**
