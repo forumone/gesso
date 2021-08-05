@@ -1,10 +1,59 @@
+// @file
+// Breakpoint mixins
+
 @use "sass:string";
 
-@mixin breakpoint($breakpoint, $width-type: 'min') {
+// Create a min-width media query.
+// @param {Number} $breakpoint - width value.
+@mixin breakpoint-min($breakpoint) {
   @if $breakpoints-ems {
     $breakpoint: em($breakpoint);
   }
-  @media (#{string.to-lower-case($width-type)}-width: #{$breakpoint}) {
+  @media (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+// Assume min-width if shorthand breakpoint mixin is used.
+// @param {Number} $breakpoint - width value.
+@mixin breakpoint($breakpoint) {
+  @include breakpoint-min($breakpoint) {
+    @content;
+  }
+}
+
+// Create a max-width media query.
+// @param {Number} $breakpoint - width value.
+// @param {Boolean} $subtract_1_from_max - whether to subtract 1px from $breakpoint value.
+@mixin breakpoint-max($breakpoint, $subtract_1_from_max: false) {
+  @if $subtract_1_from_max {
+    $breakpoint: px($breakpoint) - 1px;
+  }
+  @if $breakpoints-ems {
+    $breakpoint: em($breakpoint);
+  }
+  @media (max-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+// Create a media query with both min-width and max-width.
+// @param {Number} $breakpoint-min - width value.
+// @param {Number} $breakpoint-max - width value.
+// @param {Boolean} $subtract_1_from_max - whether to subtract 1px from $breakpoint-max value.
+@mixin breakpoint-min-max(
+  $breakpoint-min,
+  $breakpoint-max,
+  $subtract_1_from_max: false
+) {
+  @if $subtract_1_from_max {
+    $breakpoint-max: px($breakpoint-max) - 1px;
+  }
+  @if $breakpoints-ems {
+    $breakpoint-min: em($breakpoint-min);
+    $breakpoint-max: em($breakpoint-max);
+  }
+  @media (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max}) {
     @content;
   }
 }
