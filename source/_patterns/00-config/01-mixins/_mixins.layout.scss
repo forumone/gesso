@@ -50,3 +50,23 @@
     padding-right: 0;
   }
 }
+
+// Breaks something outside its parent l-constrain or other centered container.
+@mixin layout-full-bleed() {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+}
+
+// Reverses the above.
+@mixin layout-undo-full-bleed() {
+  left: auto;
+  margin-left: 0;
+  margin-right: 0;
+  position: static;
+  right: auto;
+  width: auto;
+}
