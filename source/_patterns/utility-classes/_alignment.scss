@@ -24,6 +24,11 @@
   margin-right: auto;
 }
 
+// Breaks something outside its parent l-constrain or other centered container.
+.u-align-full {
+  @include layout-full-bleed();
+}
+
 // Clear floats
 .u-clear-both {
   clear: both;
