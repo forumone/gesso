@@ -1,0 +1,7 @@
+// @file
+// Full-width utility class
+
+// Breaks something outside its parent l-constrain or other centered container.
+.u-full-width {
+  @include layout-full-bleed();
+}
