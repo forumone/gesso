@@ -6,15 +6,35 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch --config ./webpack.dev.js",
-    "build": "webpack --config ./webpack.production.js"
+    "build": "webpack --config ./webpack.production.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Forum One",
   "license": "GPL-2.0+",
+  "browserslist": [
+    "last 2 versions and not dead",
+    ">= 1%",
+    ">= 1% in US"
+  ],
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@storybook/addon-actions": "^6.4.0-alpha.32",
+    "@storybook/addon-essentials": "^6.4.0-alpha.32",
+    "@storybook/addon-links": "^6.4.0-alpha.32",
+    "@storybook/builder-webpack5": "^6.4.0-alpha.32",
+    "@storybook/manager-webpack5": "^6.4.0-alpha.32",
+    "@storybook/react": "^6.4.0-alpha.32",
+    "@storybook/storybook-deployer": "^2.8.10",
+    "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "fibers": "^5.0.0",
     "glob": "^7.1.7",
+    "js-yaml-loader": "^1.2.2",
     "mini-css-extract-plugin": "^1.6.0",
+    "react": "^16.14.0",
     "remove-files-webpack-plugin": "^1.4.5",
     "sass": "^1.34.1",
     "sass-loader": "^12.0.0",

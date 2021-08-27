@@ -3,7 +3,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% set breadcrumb_id = 'breadcrumb-label'|unique_id %}
+{% set breadcrumb_id = 'breadcrumb-label' %}
 
 <nav aria-labelledby="{{ breadcrumb_id }}" class="{{ classes }}" role="navigation">
   <div class="l-constrain">
