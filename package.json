@@ -8,7 +8,8 @@
     "start": "webpack --watch --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.production.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "dev": "concurrently --raw \"npm run start\" \"npm run storybook\""
   },
   "author": "Forum One",
   "license": "GPL-2.0+",
@@ -29,6 +30,7 @@
     "@storybook/react": "^6.4.0-alpha.32",
     "@storybook/storybook-deployer": "^2.8.10",
     "babel-loader": "^8.2.2",
+    "concurrently": "^6.2.1",
     "css-loader": "^5.2.6",
     "fibers": "^5.0.0",
     "glob": "^7.1.7",

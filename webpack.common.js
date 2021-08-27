@@ -28,7 +28,7 @@ module.exports = {
         const sourceDirIndex = filePaths.indexOf("source");
         if (sourceDirIndex >= 0) {
           const filePath = path.join(...filePaths.slice(sourceDirIndex + 1));
-          const newFilePath = `css/${filePath.replace(".css", "")}`;
+          const newFilePath = `css/${filePath.replace(".scss", "")}`;
           entries[newFilePath] = `./${currentFile}`;
         }
         return entries;

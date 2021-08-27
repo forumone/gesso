@@ -1,0 +1,25 @@
+// @file
+// Accessibility utility classes
+
+.visually-hidden,
+.u-visually-hidden {
+  @include visually-hidden-important;
+
+  &.focusable,
+  &.u-focusable {
+    &:focus,
+    &:active {
+      @include visually-hidden-off-important;
+    }
+  }
+}
+
+.hidden,
+.u-hidden {
+  @include hidden-important;
+}
+
+.invisible,
+.u-invisible {
+  @include invisible-important;
+}

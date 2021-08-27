@@ -5,13 +5,13 @@
 //$breadcrumb-divider-color: gesso-color(ui, generic, border-light) !default;
 //$breadcrumb-link-color: gesso-color(ui, generic, text-light) !default;
 //$breadcrumb-text-color: gesso-color(text, on-dark) !default;
-$breadcrumb-background-color: #112E51;
-$breadcrumb-divider-color: #323a45;
+$breadcrumb-background-color: #112e51;
+$breadcrumb-divider-color: #f1f1f1;
 $breadcrumb-link-color: #aeb0b5;
 $breadcrumb-text-color: #fff;
 
 .breadcrumb {
-  //@include clearfix();
+  @include clearfix();
   background-color: $breadcrumb-background-color;
   color: $breadcrumb-text-color;
   font-size: 12px;
@@ -21,12 +21,8 @@ $breadcrumb-text-color: #fff;
   padding-top: 16px;
 }
 
-.breadcrumb__title {
-  //@extend %visually-hidden;
-}
-
 .breadcrumb__list {
-  //@include list-inline();
+  @include list-inline();
   margin-bottom: 0;
 }
 
@@ -35,19 +31,18 @@ $breadcrumb-text-color: #fff;
 
   &::after {
     color: $breadcrumb-divider-color;
-    content: '/';
+    content: "/";
     margin-left: 0.75em;
   }
 
   &:last-child::after {
-    content: '';
+    content: "";
     margin-left: 0;
   }
 }
 
 .breadcrumb__list .breadcrumb__item {
-  @media (max-width: 768px) {
-  //@include breakpoint(max-width gesso-breakpoint(tablet)) {
+  @include breakpoint-max(600px) {
     display: none;
 
     &:nth-last-child(2) {
@@ -59,7 +54,7 @@ $breadcrumb-text-color: #fff;
 
       &::before {
         color: $breadcrumb-divider-color;
-        content: '<';
+        content: "<";
         margin-right: 0.75em;
       }
     }
@@ -67,6 +62,6 @@ $breadcrumb-text-color: #fff;
 }
 
 .breadcrumb__link {
-  //@include link($breadcrumb-link-color, $breadcrumb-text-color);
+  @include link($breadcrumb-link-color, $breadcrumb-text-color);
   text-decoration: none;
 }

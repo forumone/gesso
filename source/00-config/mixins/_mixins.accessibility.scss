@@ -1,0 +1,82 @@
+// @file
+// Accessibility mixins
+
+// Makes an element visually hidden, but accessible.
+// @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+// @param {Boolean} $important
+
+@mixin visually-hidden($important: false) {
+  clip: rect(1px, 1px, 1px, 1px) iff($important, !important);
+  height: 1px iff($important, !important);
+  overflow: hidden iff($important, !important);
+  position: absolute iff($important, !important);
+  width: 1px iff($important, !important);
+  word-wrap: normal iff($important, !important);
+}
+
+// Makes an element visually hidden with important.
+@mixin visually-hidden-important {
+  @include visually-hidden(true);
+}
+
+// Turns off the visually-hidden effect.
+//@param {boolean} $important
+@mixin visually-hidden-off($important: false) {
+  clip: auto iff($important, !important);
+  height: auto iff($important, !important);
+  overflow: visible iff($important, !important);
+  position: static iff($important, !important);
+  width: auto iff($important, !important);
+}
+
+// Turns off the visually-hidden effect with important
+@mixin visually-hidden-off-important {
+  @include visually-hidden-off(true);
+}
+
+// Makes an element visible when focused if it also has the visually-hidden styles.
+@mixin focusable {
+  &:focus,
+  &:active {
+    @include visually-hidden-off;
+  }
+}
+
+// Makes an element visible when focused if it also has the visually-hidden styles
+// with important.
+@mixin focusable-important {
+  &:focus,
+  &:active {
+    @include visually-hidden-off-important;
+  }
+}
+
+// Makes an element completely hidden, visually and to screen readers.
+@mixin hidden($important: false) {
+  display: none iff($important, !important);
+}
+
+// Makes an element completely hidden, visually and to screen readers with
+// important;
+@mixin hidden-important {
+  @include hidden(true);
+}
+
+// Makes an element completely hidden, visually and to screen readers, but
+// maintains its layout.
+@mixin invisible($important: false) {
+  visibility: hidden iff($important, !important);
+}
+
+// Makes an element completely hidden, visually and to screen readers, but
+// maintains its layout using important
+@mixin invisible-important {
+  @include invisible(true);
+}
+
+// Completely hide an element if it has a true aria-hidden attribute.
+@mixin aria-hidden {
+  &[aria-hidden='true'] {
+    display: none;
+  }
+}

@@ -3,4 +3,8 @@
 //@import '03-elements/**/_*.scss';
 //@import '04-components/**/_*.scss';
 
-@import '04-components/breadcrumb/_breadcrumb.scss';
+@import "00-config/_config.scss";
+@import "01-global/global";
+@import "04-components/breadcrumb/_breadcrumb.scss";
+@import "04-components/site-name/_site-name.scss";
+@import "utility/_accessibility.scss";
