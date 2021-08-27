@@ -81,7 +81,7 @@ const lintStyles = () => {
   );
 };
 
-const compileStyles = () => {
+const buildSass = mode => {
   return src('*.scss', { cwd: './source' })
     .pipe(sourcemaps.init())
     .pipe(
@@ -90,6 +90,7 @@ const compileStyles = () => {
         precision: 10,
         importer: sassGlobImporter(),
         fiber: Fiber,
+        outputStyle: mode === 'production' ? 'compressed' : 'expanded',
       })
     )
     .pipe(
@@ -143,6 +144,11 @@ const bundleScripts = (exports.gessoBundleScripts = () =>
 
 const bundleScriptsDev = () => webpackBundleScripts('development');
 
+const compileStyles = () => buildSass('production');
+exports.buildStyles = series(lintStyles, compileStyles);
+
+const compileStylesDev = () => buildSass('development');
+
 const watchFiles = () => {
   watch(
     [
@@ -150,7 +156,7 @@ const watchFiles = () => {
       '!source/_patterns/00-config/_config.artifact.design-tokens.scss',
     ],
     { usePolling: true, interval: 1500 },
-    series(lintStyles, buildStyles)
+    series(lintStyles, compileStylesDev)
   );
   watch(
     ['images/_sprite-source-files/*.svg'],
@@ -163,7 +169,7 @@ const watchFiles = () => {
     series(
       buildConfig,
       parallel(
-        series(lintStyles, buildStyles),
+        series(lintStyles, compileStylesDev),
         series(lintPatterns, buildPatternLab)
       )
     )
@@ -188,7 +194,6 @@ const watchFiles = () => {
   );
 };
 
-const buildStyles = (exports.buildStyles = series(lintStyles, compileStyles));
 const buildPatterns = (exports.buildPatterns = series(
   lintPatterns,
   buildPatternLab
@@ -197,10 +202,17 @@ const buildImages = (exports.buildImages = createSprite);
 
 const build = (isProduction = true) => {
   const scriptTask = isProduction ? bundleScripts : bundleScriptsDev;
+  const stylesTask = isProduction ? compileStyles : compileStylesDev;
   task('bundleScripts', scriptTask);
+  task('compileStyles', stylesTask);
   return series(
     buildConfig,
-    parallel(task('bundleScripts'), buildImages, buildStyles, buildPatterns)
+    parallel(
+      task('bundleScripts'),
+      buildImages,
+      task('compileStyles'),
+      buildPatterns
+    )
   );
 };
 
