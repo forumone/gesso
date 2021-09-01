@@ -1,0 +1,10 @@
+{% set classes = [
+  'list',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<ul class="{{ classes }}">
+  {% for item in list %}
+    <li>{{ item.content }}</li>
+  {% endfor %}
+</ul>
