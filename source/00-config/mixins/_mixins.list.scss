@@ -29,7 +29,7 @@
   }
 }
 
-@mixin list-pipeline($pipeline-border-color: gesso-color(ui, generic, border)) {
+@mixin list-pipeline($pipeline-border-color: #aeb0b5) {
   @include clearfix;
   list-style-type: none;
   margin-left: 0;
@@ -44,7 +44,7 @@
     padding-right: 0.75em; // LTR
 
     @if $support-for-rtl {
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         border-left: 1px solid $pipeline-border-color;
         border-right: 0;
         float: right;
@@ -65,7 +65,7 @@
       padding-right: 0; // LTR
 
       @if $support-for-rtl {
-        [dir='rtl'] & {
+        [dir="rtl"] & {
           border-left: 0;
           margin-left: 0;
           padding-left: 0;

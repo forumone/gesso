@@ -1,0 +1,11 @@
+// @file
+// Styles for Article.
+
+// .article {}
+
+.article__footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: rem(16px, 16px);
+}

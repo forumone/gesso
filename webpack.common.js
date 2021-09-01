@@ -69,6 +69,16 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/i,
+        exclude: /images\/_sprite-source-files\/.*\.svg$/,
+        loader: "file-loader",
+      },
     ],
+  },
+  externals: {
+    jquery: "jQuery",
+    drupal: "Drupal",
+    drupalSettings: "drupalSettings",
   },
 };

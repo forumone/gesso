@@ -1,5 +1,6 @@
 const gessoWebpack = require("../webpack.dev");
 const { resolve } = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   stories: ["../source/**/*.stories.mdx", "../source/**/*.stories.@(js|jsx)"],
@@ -28,6 +29,26 @@ module.exports = {
       test: /\.ya?ml$/,
       loader: "js-yaml-loader",
     });
+
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        "style-loader",
+        "css-loader",
+        {
+          loader: "sass-loader",
+          options: {
+            implementation: require("sass"),
+          },
+        },
+      ],
+    });
+
+    config.externals = {
+      jquery: "jQuery",
+      drupal: "Drupal",
+      drupalSettings: "drupalSettings",
+    };
 
     return config;
   },
