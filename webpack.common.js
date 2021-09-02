@@ -34,6 +34,7 @@ module.exports = {
         return entries;
       }, {});
     return {
+      "css/design-tokens": "./source/00-config/config.design-tokens.yml",
       ...jsFiles,
       ...scssFiles,
     };
@@ -55,6 +56,12 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /config\.design-tokens\.yml$/,
+        exclude: /node_modules/,
+        use: [path.resolve(__dirname, "./lib/configLoader.js")],
+        type: "asset/resource",
+      },
       {
         test: /\.scss$/i,
         exclude: /node_modules/,
