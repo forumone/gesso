@@ -19,7 +19,7 @@
   @include list-pipeline;
 
   .menu__link {
-    font-size: rem(12px, 16px);
+    font-size: rem(gesso-font-size(1));
   }
 }
 
@@ -67,7 +67,7 @@
     background-color: gesso-color(ui, generic, background-dark);
     display: none;
     left: 0;
-    margin: rem(gesso-spacing(1), 16px) 0 0;
+    margin: rem(gesso-spacing(1)) 0 0;
     padding: 0;
     position: absolute;
     top: 0;
@@ -76,10 +76,10 @@
       @include link(gesso-color(ui, generic, text-lighter));
       display: block;
       line-height: gesso-line-height(tight);
-      padding: rem(gesso-spacing(2), 16px) rem(gesso-spacing(3), 16px);
+      padding: rem(gesso-spacing(2)) rem(gesso-spacing(3));
       position: relative;
       text-decoration: none;
-      width: rem(200px, 16px);
+      width: rem(200px);
 
       &:hover,
       &:focus {

@@ -29,7 +29,7 @@
   }
 }
 
-@mixin list-pipeline($pipeline-border-color: #aeb0b5) {
+@mixin list-pipeline($pipeline-border-color: gesso-color(ui, generic, border)) {
   @include clearfix;
   list-style-type: none;
   margin-left: 0;

@@ -3,17 +3,17 @@
 @use "sass:math";
 
 ol {
-  margin: 0 0 rem(16px, 16px);
-  padding: 0 0 0 rem(24px, 16px); // LTR
+  margin: 0 0 rem(gesso-spacing(2));
+  padding: 0 0 0 rem(gesso-spacing(3)); // LTR
 
   @if $support-for-rtl {
     [dir="rtl"] & {
-      padding: 0 rem(24px, 16px) 0 0;
+      padding: 0 rem(gesso-spacing(3)) 0 0;
     }
   }
 
   ol,
   ul {
-    margin-top: rem(math.div(16, 2), 16px);
+    margin-top: rem(math.div(gesso-spacing(2), 2));
   }
 }
