@@ -15,9 +15,9 @@ module.exports = {
             twigOptions: {
               namespaces: {
                 global: resolve(__dirname, "../", "source/01-global"),
-                base: resolve(__dirname, "../", "source/02-base"),
-                layouts: resolve(__dirname, "../", "source/03-layouts"),
-                components: resolve(__dirname, "../", "source/04-components"),
+                layouts: resolve(__dirname, "../", "source/02-layouts"),
+                components: resolve(__dirname, "../", "source/03-components"),
+                templates: resolve(__dirname, "../", "source/04-templates"),
               },
             },
           },

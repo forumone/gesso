@@ -1,6 +1,13 @@
 // @file
 // Styles for Breadcrumb trail.
 
+@use '../../00-config/functions/functions.gesso' as *;
+@use '../../00-config/functions/functions.unit-convert' as *;
+@use '../../00-config/mixins/mixins.breakpoint' as *;
+@use '../../00-config/mixins/mixins.clearfix' as *;
+@use '../../00-config/mixins/mixins.link' as *;
+@use '../../00-config/mixins/mixins.list' as *;
+
 $breadcrumb-background-color: gesso-color(ui, generic, accent-dark) !default;
 $breadcrumb-divider-color: gesso-color(ui, generic, border-light) !default;
 $breadcrumb-link-color: gesso-color(ui, generic, text-light) !default;

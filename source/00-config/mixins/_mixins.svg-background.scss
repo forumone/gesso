@@ -10,11 +10,3 @@
   $url: $image-location + $image-name + '.svgz';
   background-image: url($url);
 }
-
-@mixin svg-background-inline($image-name, $image-location: '../images/') {
-  background-image: inline($image-location + $image-name + '.svg');
-}
-
-@mixin svgz-background-inline($image-name, $image-location: '../images/') {
-  background-image: inline($image-location + $image-name + '.svgz');
-}

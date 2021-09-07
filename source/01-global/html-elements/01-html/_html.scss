@@ -1,6 +1,7 @@
 // @file
 // HTML styles.
 @use "sass:math";
+@use "../../../00-config/functions/functions.gesso" as *;
 
 html {
   box-sizing: border-box;

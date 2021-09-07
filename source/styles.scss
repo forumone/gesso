@@ -1,11 +1,5 @@
-//@import '01-foundations/**/_*.scss';
-//@import '02-layouts/**/_*.scss';
-//@import '03-elements/**/_*.scss';
-//@import '04-components/**/_*.scss';
-
-@import "00-config/_config.scss";
-@import "01-global/global";
-@import "04-components/breadcrumb/_breadcrumb.scss";
-@import "04-components/list/_list.scss";
-@import "04-components/site-name/_site-name.scss";
-@import "utility/_accessibility.scss";
+@use '01-global' as *;
+@use '02-layouts' as *;
+@use '03-components' as *;
+@use '04-templates' as *;
+@use '06-utility' as *;

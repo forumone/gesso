@@ -1,6 +1,8 @@
 // @file
 // Clearfix
 
+@use '../functions/functions.iff' as *;
+
 @mixin clearfix($important: false) {
   &::after {
     clear: both iff($important, !important);

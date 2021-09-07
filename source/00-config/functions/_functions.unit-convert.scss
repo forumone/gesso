@@ -1,4 +1,6 @@
 @use "sass:math";
+@use "functions.gesso" as *;
+@use 'functions.numbers' as *;
 
 /// Convert unitless number to unit value
 // @param {Number} $value - unitless number

@@ -1,0 +1,8 @@
+// @file
+// Styles for Page title.
+@use '../../00-config/functions/functions.unit-convert' as *;
+@use '../../00-config/functions/functions.gesso' as *;
+
+.page-title {
+  margin-bottom: rem(gesso-spacing(5));
+}
