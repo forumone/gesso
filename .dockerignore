@@ -1,0 +1,12 @@
+.DS_Store
+node_modules
+.sass-cache
+pattern-lab
+source/_data/design-tokens.artifact.yml
+source/_patterns/00-config/_design-tokens.artifact.scss
+dist
+source/00-config/_GESSO.es6.js
+images/sprite.artifact.svg
+dependencyGraph.json
+.vscode
+.idea
