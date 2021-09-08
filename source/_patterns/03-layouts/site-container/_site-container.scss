@@ -1,8 +1,11 @@
 // @file
 // Styles for the site container.
 
-// overflow and width properties ensure elements using full bleed techniques
+// Overflow and width properties ensure elements using full bleed techniques
 // (e.g., the layout-full-bleed mixin) do not create horizontal scroll bars.
+// Note: if you add a max-width to this container, any elements that makes use
+// of the layout-full-bleed mixin (e.g., the u-full-bleed class) will get
+// cropped on viewports larger than that max-width.
 .l-site-container {
   overflow-x: hidden;
   width: 100%;
