@@ -1,5 +1,5 @@
 ---
-labeld_by: 'tablecaption01'
+labeled_by: 'tablecaption01'
 table: |-
   <table>
     <caption id="tablecaption01">Table caption</caption>
