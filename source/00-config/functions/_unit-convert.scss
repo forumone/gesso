@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 @use './gesso' as *;
 @use './numbers' as *;
 
@@ -29,10 +29,10 @@
   @if unitless($value) {
     @return convert($value, px);
   }
-  @if (type-of($base) != "number" or unit($base) != "px") {
+  @if (type-of($base) != 'number' or unit($base) != 'px') {
     @error "Base font size must be in pixels.";
   }
-  @if (unit($value) != "px") {
+  @if (unit($value) != 'px') {
     @return strip-unit($value) * $base;
   } @else {
     @return $value;
@@ -46,11 +46,11 @@
 // @return {Number} - Value in ems.
 
 @function em($value, $base: gesso-get-map(typography, base-font-size)) {
-  @if (type-of($base) != "number" or unit($base) != "px") {
+  @if (type-of($base) != 'number' or unit($base) != 'px') {
     @error "Base font size must be in pixels.";
   }
-  @if (type-of($value) == "number" and unit($value) != "em") {
-    @if (unit($value) != "px") {
+  @if (type-of($value) == 'number' and unit($value) != 'em') {
+    @if (unit($value) != 'px') {
       $value: px($value, $base);
     }
     @return (math.div($value, $base)) * 1em;
@@ -67,11 +67,11 @@
 // @return {Number} - Value in rems.
 
 @function rem($value, $base: gesso-get-map(typography, base-font-size)) {
-  @if (type-of($base) != "number" or unit($base) != "px") {
+  @if (type-of($base) != 'number' or unit($base) != 'px') {
     @error "Base font size must be in pixels.";
   }
-  @if (type-of($value) == "number" and unit($value) != "rem") {
-    @if (unit($value) != "px") {
+  @if (type-of($value) == 'number' and unit($value) != 'rem') {
+    @if (unit($value) != 'px') {
       $value: px($value, $base);
     }
     @return (math.div($value, $base)) * 1rem;

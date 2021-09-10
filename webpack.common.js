@@ -2,6 +2,7 @@ const path = require("path");
 const glob = require("glob");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemovePlugin = require("remove-files-webpack-plugin");
+const StylelintPlugin = require("stylelint-webpack-plugin");
 
 module.exports = {
   entry: () => {
@@ -53,6 +54,7 @@ module.exports = {
         ],
       },
     }),
+    new StylelintPlugin(),
   ],
   module: {
     rules: [
