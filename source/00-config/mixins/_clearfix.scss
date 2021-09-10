@@ -1,7 +1,7 @@
 // @file
 // Clearfix
 
-@use '../functions/functions.iff' as *;
+@use '../functions/iff' as *;
 
 @mixin clearfix($important: false) {
   &::after {

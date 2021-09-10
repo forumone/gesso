@@ -1,11 +1,11 @@
 // @file
 // Styles for the Menu.
-@use '00-config/functions/functions.unit-convert' as *;
-@use '00-config/functions/functions.gesso' as *;
-@use '00-config/mixins/mixins.link' as *;
-@use '00-config/mixins/mixins.list' as *;
-@use '00-config/mixins/mixins.image-replace' as *;
-@use '00-config/mixins/mixins.svg-background' as *;
+@use '00-config/functions/unit-convert' as *;
+@use '00-config/functions/gesso' as *;
+@use '00-config/mixins/link' as *;
+@use '00-config/mixins/list' as *;
+@use '00-config/mixins/image-replace' as *;
+@use '00-config/mixins/svg-background' as *;
 
 .menu {
   @include list-clean;

@@ -1,7 +1,7 @@
 // @file
 // Body styles.
 
-@use "00-config/functions/functions.gesso" as *;
+@use '00-config/functions/gesso' as *;
 
 body {
   background-color: gesso-color(background, site);

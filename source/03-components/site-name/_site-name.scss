@@ -1,9 +1,9 @@
 // @file
 // Styles for Site name.
 
-@use '00-config/functions/functions.unit-convert' as *;
-@use '00-config/functions/functions.gesso' as *;
-@use '00-config/mixins/mixins.display-text-style' as *;
+@use '00-config/functions/unit-convert' as *;
+@use '00-config/functions/gesso' as *;
+@use '00-config/mixins/display-text-style' as *;
 
 .site-name {
   display: inline-block;

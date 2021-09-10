@@ -1,6 +1,6 @@
 @use '../config.settings' as *;
 @use "sass:string";
-@use '../functions/functions.unit-convert' as *;
+@use '../functions/unit-convert' as *;
 
 // @file
 // Breakpoint mixins
