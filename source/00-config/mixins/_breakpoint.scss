@@ -1,7 +1,9 @@
+@use '../config.settings' as *;
+@use "sass:string";
+@use '../functions/unit-convert' as *;
+
 // @file
 // Breakpoint mixins
-
-@use "sass:string";
 
 // Create a min-width media query.
 // @param {Number} $breakpoint - width value.

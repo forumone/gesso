@@ -1,6 +1,9 @@
 // @file
 // Ordered list styles.
 @use "sass:math";
+@use '00-config/config.settings' as *;
+@use '00-config/functions/gesso' as *;
+@use '00-config/functions/unit-convert' as *;
 
 ol {
   margin: 0 0 rem(gesso-spacing(2));

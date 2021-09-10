@@ -1,0 +1,15 @@
+// @file
+// Styles for Site name.
+
+@use '00-config/functions/unit-convert' as *;
+@use '00-config/functions/gesso' as *;
+@use '00-config/mixins/display-text-style' as *;
+
+.site-name {
+  display: inline-block;
+}
+
+.site-name__text {
+  @include display-text-style(h1);
+  margin-bottom: rem(gesso-spacing(2));
+}

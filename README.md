@@ -30,12 +30,17 @@ These can be ignored for the time being.
 Sass can be compiled as part of the global styles.css file or to individual CSS files
 for use in a Drupal library.
 
+`@use` is used to import Sass variables, mixins, and/or functions into individual SCSS files. [`@import` is discouraged by the Sass team and will eventually be phased out.](https://sass-lang.com/documentation/at-rules/import).
+This means that most files will start with `@use 00-config/functions/gesso as *`. This allows you to use the
+design token accessor functions without an additional namespace. Other functions and mixins can be used similarly. Note that to avoid namespace
+collisions, only Gesso-related variables, mixins, and functions should be used with `*`.
+
 ### Global Styles
 Prefix the name of your Sass file with `_`, e.g. `_card.scss`. Add it to the appropriate
-aggregate file (i.e. `_components.scss`). (This step is necessary because Sass globbing
-is not yet in place).
+aggregate file (i.e. `_components.scss`).
 
 ### Individual Component/Library Styles
 DO NOT prefix the name of your Sass file with `_`, e.g. `menu.scss`. Import the config
 and global aggregate files. Import your SCSS file at the top of your Storybook file.
-See `menu.stories.js` for an example.
+See `menu.stories.js` for an example. Don't forget to add it to the `gesso-next.libraries.yml`
+file as well.

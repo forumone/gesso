@@ -88,4 +88,7 @@ module.exports = {
     drupal: "Drupal",
     drupalSettings: "drupalSettings",
   },
+  resolve: {
+    modules: [path.resolve(__dirname, 'source'), 'node_modules']
+  }
 };
