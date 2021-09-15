@@ -51,11 +51,8 @@
   }
 }
 
-// Breaks something outside its parent l-constrain or other centered container and
-// makes it flush with the edge of the viewport. Note: you should probably NOT use
-// this utility class on elements of a site that adds a max-width to the
-// l-site-container wrapper div because those elements would get cropped when
-// the viewport is larger than that max-width.
+// Breaks something outside its parent l-constrain or other centered container
+// and makes it flush with the edge of the viewport.
 @mixin layout-full-bleed() {
   left: 50%;
   margin-left: -50vw;
