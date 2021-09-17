@@ -3,6 +3,7 @@ const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemovePlugin = require('remove-files-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const dartSass = require('sass');
 
 module.exports = {
   entry: () => {
@@ -10,14 +11,15 @@ module.exports = {
     const jsFiles = glob
       .sync('source/**/!(*.stories).js')
       .reduce((entries, currentFile) => {
+        const updatedEntries = entries;
         const filePaths = currentFile.split(path.sep);
         const sourceDirIndex = filePaths.indexOf('source');
         if (sourceDirIndex >= 0) {
           const filePath = path.join(...filePaths.slice(sourceDirIndex + 1));
           const newFilePath = `js/${filePath.replace('.js', '')}`;
-          entries[newFilePath] = path.resolve(__dirname, currentFile);
+          updatedEntries[newFilePath] = path.resolve(__dirname, currentFile);
         }
-        return entries;
+        return updatedEntries;
       }, {});
     // Grab any SCSS files that aren't prefixed with _.
     const scssFiles = glob
@@ -25,14 +27,15 @@ module.exports = {
         ignore: ['**/_*'],
       })
       .reduce((entries, currentFile) => {
+        const updatedEntries = entries;
         const filePaths = currentFile.split(path.sep);
         const sourceDirIndex = filePaths.indexOf('source');
         if (sourceDirIndex >= 0) {
           const filePath = path.join(...filePaths.slice(sourceDirIndex + 1));
           const newFilePath = `css/${filePath.replace('.scss', '')}`;
-          entries[newFilePath] = `./${currentFile}`;
+          updatedEntries[newFilePath] = `./${currentFile}`;
         }
-        return entries;
+        return updatedEntries;
       }, {});
     return {
       'css/design-tokens': './source/00-config/config.design-tokens.yml',
@@ -47,9 +50,8 @@ module.exports = {
         test: [
           {
             folder: './dist/css',
-            method: absolutePath => {
-              return new RegExp(/\.js(\.map)?$/, 'm').test(absolutePath);
-            },
+            method: absolutePath =>
+              new RegExp(/\.js(\.map)?$/, 'm').test(absolutePath),
           },
         ],
       },
@@ -65,6 +67,11 @@ module.exports = {
         type: 'asset/resource',
       },
       {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader'],
+      },
+      {
         test: /\.scss$/i,
         exclude: /node_modules/,
         use: [
@@ -73,7 +80,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              implementation: require('sass'),
+              implementation: dartSass,
               sassOptions: {
                 includePaths: [path.resolve(__dirname, 'source')],
               },

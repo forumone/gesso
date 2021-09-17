@@ -1,6 +1,4 @@
-const gessoWebpack = require('../webpack.dev');
 const { resolve } = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
