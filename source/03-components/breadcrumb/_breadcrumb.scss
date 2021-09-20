@@ -34,12 +34,12 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
 
   &::after {
     color: $breadcrumb-divider-color;
-    content: "/";
+    content: '/';
     margin-left: 0.75em;
   }
 
   &:last-child::after {
-    content: "";
+    content: '';
     margin-left: 0;
   }
 }
@@ -57,7 +57,7 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
 
       &::before {
         color: $breadcrumb-divider-color;
-        content: "<";
+        content: '<';
         margin-right: 0.75em;
       }
     }

@@ -1,12 +1,11 @@
-import Twig from "twig";
-import { resolve } from "path";
-import { addDecorator } from "@storybook/react";
-import { useEffect } from "@storybook/client-api";
-import twigDrupal from "twig-drupal-filters";
-import twigAttributes from "add-attributes-twig-extension";
+import Twig from 'twig';
+import { addDecorator } from '@storybook/react';
+import { useEffect } from '@storybook/client-api';
+import twigDrupal from 'twig-drupal-filters';
+import twigAttributes from 'add-attributes-twig-extension';
 
-import "../dist/css/styles.css";
-import "./_drupal.js";
+import '../dist/css/styles.css';
+import './_drupal.js';
 
 function setupTwig(twig) {
   twig.cache();
@@ -17,7 +16,7 @@ function setupTwig(twig) {
 
 setupTwig(Twig);
 
-addDecorator((storyFn) => {
+addDecorator(storyFn => {
   useEffect(() => Drupal.attachBehaviors(), []);
   return storyFn();
 });

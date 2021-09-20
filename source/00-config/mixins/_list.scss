@@ -50,7 +50,7 @@
     padding-right: 0.75em; // LTR
 
     @if $support-for-rtl {
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         border-left: 1px solid $pipeline-border-color;
         border-right: 0;
         float: right;
@@ -71,7 +71,7 @@
       padding-right: 0; // LTR
 
       @if $support-for-rtl {
-        [dir="rtl"] & {
+        [dir='rtl'] & {
           border-left: 0;
           margin-left: 0;
           padding-left: 0;

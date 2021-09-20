@@ -1,7 +1,8 @@
 // @file
 // Styles for the Menu.
-@use '00-config/functions/unit-convert' as *;
+
 @use '00-config/functions/gesso' as *;
+@use '00-config/functions/unit-convert' as *;
 @use '00-config/mixins/link' as *;
 @use '00-config/mixins/list' as *;
 @use '00-config/mixins/image-replace' as *;
@@ -55,9 +56,9 @@
 
       &.has-subnav::after {
         @include image-replace(16px, 16px);
-        @include svg-background(menu-arrow-down, "../../../images/");
+        @include svg-background(menu-arrow-down, '../../../images/');
         background-size: 16px 16px;
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         right: 5px;
@@ -92,9 +93,9 @@
 
       &.has-subnav::after {
         @include image-replace(16px, 16px);
-        @include svg-background(menu-arrow-right, "../../../images/");
+        @include svg-background(menu-arrow-right, '../../../images/');
         background-size: 16px 16px;
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         right: 5px;
