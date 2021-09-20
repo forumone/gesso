@@ -17,7 +17,10 @@ module.exports = {
         if (sourceDirIndex >= 0) {
           const filePath = path.join(...filePaths.slice(sourceDirIndex + 1));
           const newFilePath = `js/${filePath.replace('.js', '')}`;
-          updatedEntries[newFilePath] = path.resolve(__dirname, currentFile);
+          updatedEntries[newFilePath] = {
+            import: path.resolve(__dirname, currentFile),
+            dependOn: 'design-tokens',
+          };
         }
         return updatedEntries;
       }, {});
@@ -33,12 +36,15 @@ module.exports = {
         if (sourceDirIndex >= 0) {
           const filePath = path.join(...filePaths.slice(sourceDirIndex + 1));
           const newFilePath = `css/${filePath.replace('.scss', '')}`;
-          updatedEntries[newFilePath] = `./${currentFile}`;
+          updatedEntries[newFilePath] = {
+            import: `./${currentFile}`,
+            dependOn: 'design-tokens',
+        };
         }
         return updatedEntries;
       }, {});
     return {
-      'css/design-tokens': './source/00-config/config.design-tokens.yml',
+      'design-tokens': './source/00-config/config.design-tokens.yml',
       ...jsFiles,
       ...scssFiles,
     };

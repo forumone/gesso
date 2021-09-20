@@ -1,5 +1,0 @@
-name: Gesso
-type: theme
-description: 'Storybook-based starter theme'
-package: Core
-core_version_requirement: ^8.9 || ^9

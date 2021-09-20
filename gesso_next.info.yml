@@ -1,0 +1,18 @@
+name: Gesso
+type: theme
+base theme: false
+description: 'Storybook-based starter theme'
+package: Custom
+core_version_requirement: ^8.9 || ^9
+libraries:
+  - gesso_next/global
+dependencies:
+  - components
+  - gesso_helper
+components:
+  namespaces:
+    global: source/01-global
+    layouts: source/02-layouts
+    components: source/03-components
+    templates: source/04-templates
+    utility: source/06-utility

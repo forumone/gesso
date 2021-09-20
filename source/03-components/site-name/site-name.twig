@@ -1,8 +1,13 @@
 {% set classes = [
   'site-name',
   modifier_classes ? modifier_classes : '',
-]|join(' ')|trim %}
+] %}
 
-<a class="{{ classes }}" href="{{ url }}" title="{{ 'Home'|t }}" rel="home">
+<a {{ add_attributes({
+  class: classes,
+  href: url,
+  title: 'Home'|t,
+  rel: "home"
+}) }}>
   <h1 class="site-name__text">{{ site_name }}</h1>
 </a>
