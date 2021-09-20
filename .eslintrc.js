@@ -17,7 +17,6 @@ module.exports = {
   },
   rules: {
     'class-methods-use-this': 'off', // Too many false positives
-    'import/no-cycle': 'off', // Resource-intensive
     'react/no-danger': 'off', // Necessary for Storybook
     'no-param-reassign': [
       // Allow modifying props, esp. for DOM Nodes

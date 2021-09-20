@@ -1,5 +1,3 @@
-import PopupMenu from './PopupMenu.es6';
-
 /**
  * @abstract
  */
@@ -18,13 +16,6 @@ class MenuItem {
   }
 
   init() {
-    const popupMenu = this.domNode.parentElement.querySelector('ul');
-    if (popupMenu) {
-      this.domNode.setAttribute('aria-haspopup', 'true');
-      this.popupMenu = new PopupMenu(popupMenu, this);
-      this.popupMenu.init();
-    }
-
     this.domNode.addEventListener('keydown', this.handleKeydown.bind(this));
     this.domNode.addEventListener('focus', this.handleFocus.bind(this));
     this.domNode.addEventListener('blur', this.handleBlur.bind(this));

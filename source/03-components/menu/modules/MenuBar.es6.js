@@ -1,5 +1,5 @@
 import Menu from './Menu.es6';
-import MenubarItem from './MenubarItem';
+import MenubarItem from './MenubarItem.es6';
 
 class MenuBar extends Menu {
   constructor(domNode) {
@@ -38,26 +38,24 @@ class MenuBar extends Menu {
 
   // Set focus to a specific MenubarItem in the menu.
   setFocusToItem(newItem) {
-    const newMenuItem = newItem;
     let openMenu = false;
     // Close any existing menus.
     this.menuItems.forEach(mbi => {
-      const menuBarItem = mbi;
       if (mbi.domNode.tabIndex === 0) {
         openMenu = mbi.domNode.getAttribute('aria-expanded') === 'true';
       }
 
-      menuBarItem.domNode.tabIndex = -1;
+      mbi.domNode.tabIndex = -1;
       if (mbi.popupMenu) {
         mbi.popupMenu.close();
       }
     });
 
-    newMenuItem.domNode.focus();
-    newMenuItem.domNode.tabIndex = 0;
+    newItem.domNode.focus();
+    newItem.domNode.tabIndex = 0;
 
-    if (openMenu && newMenuItem.popupMenu) {
-      newMenuItem.popupMenu.open();
+    if (openMenu && newItem.popupMenu) {
+      newItem.popupMenu.open();
     }
     // Focus on the new menu, and open it if the previous menu was open.
   }

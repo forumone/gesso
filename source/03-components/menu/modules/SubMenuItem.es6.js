@@ -1,9 +1,20 @@
 import KEYCODE from '../../../00-config/_KEYCODE.es6';
 import MenuItem from './MenuItem.es6';
+// Because the menu can be multiple levels deep,
+// SubMenuItems can contain PopupMenus that in turn
+// contain SubMenuItems.
+// eslint-disable-next-line import/no-cycle
+import PopupMenu from './PopupMenu.es6';
 
 class SubMenuItem extends MenuItem {
   init() {
     super.init();
+    const popupMenu = this.domNode.parentElement.querySelector('ul');
+    if (popupMenu) {
+      this.domNode.setAttribute('aria-haspopup', 'true');
+      this.popupMenu = new PopupMenu(popupMenu, this);
+      this.popupMenu.init();
+    }
     this.domNode.addEventListener('click', this.handleClick.bind(this));
   }
 

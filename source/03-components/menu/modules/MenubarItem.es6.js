@@ -1,6 +1,7 @@
 import KEYCODE from '../../../00-config/_KEYCODE.es6';
 
 import MenuItem from './MenuItem.es6';
+import PopupMenu from './PopupMenu.es6';
 
 class MenubarItem extends MenuItem {
   constructor(domNode, menuObj) {
@@ -10,6 +11,12 @@ class MenubarItem extends MenuItem {
 
   init() {
     super.init();
+    const popupMenu = this.domNode.parentElement.querySelector('ul');
+    if (popupMenu) {
+      this.domNode.setAttribute('aria-haspopup', 'true');
+      this.popupMenu = new PopupMenu(popupMenu, this);
+      this.popupMenu.init();
+    }
     this.domNode.tabIndex = -1;
   }
 
