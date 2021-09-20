@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import breadcrumbTwig from "./breadcrumb.twig";
-import breacrumbData from "./breadcrumb.yml";
+import breadcrumbTwig from './breadcrumb.twig';
+import breadcrumbData from './breadcrumb.yml';
 
-export default { title: "Components/Breadcrumb" };
+export default { title: 'Components/Breadcrumb' };
 
 const Breadcrumb = () => (
-  <div dangerouslySetInnerHTML={{ __html: breadcrumbTwig(breacrumbData) }} />
+  <div dangerouslySetInnerHTML={{ __html: breadcrumbTwig(breadcrumbData) }} />
 );
 
 export { Breadcrumb };

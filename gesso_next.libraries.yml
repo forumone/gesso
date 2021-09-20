@@ -1,0 +1,10 @@
+global:
+  css:
+    theme:
+      dist/css/styles.css: {}
+main-menu:
+  css:
+    theme:
+      dist/css/03-components/menu/menu.css: {}
+  js:
+      dist/css/03-components/menu/menu.js: {}

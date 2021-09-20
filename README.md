@@ -13,7 +13,7 @@ or work only in Storybook.
 4. Open `localhost:6006` (it will typically open automatically) to view Storybook.
 
 ### With Docker + Drupal
-1. Update `docker-compose.yml` and `docker-compose.cli.yml` for your project to change any paths that include `/gesso/` to `/gesso-next/`.
+1. Update `docker-compose.yml` and `docker-compose.cli.yml` for your project to change any paths that include `/gesso/` to `/gesso_next/`.
 2. Run `f1 up`.
 3. Run `f1 run --publish 6006:6006 gesso npm run dev`.
 4. Open `localhost:6006` to view Storybook and/or `localhost:8080` to view Drupal.
@@ -42,5 +42,5 @@ aggregate file (i.e. `_components.scss`).
 ### Individual Component/Library Styles
 DO NOT prefix the name of your Sass file with `_`, e.g. `menu.scss`. Import the config
 and global aggregate files. Import your SCSS file at the top of your Storybook file.
-See `menu.stories.js` for an example. Don't forget to add it to the `gesso-next.libraries.yml`
+See `menu.stories.js` for an example. Don't forget to add it to the `gesso_next.libraries.yml`
 file as well.

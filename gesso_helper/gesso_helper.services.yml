@@ -1,0 +1,5 @@
+services:
+  add_attributes.twig_extension:
+    class: Drupal\gesso_helper\TwigExtension\AddAttributesTwigExtension
+    tags:
+      - { name: twig.extension }

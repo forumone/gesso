@@ -1,11 +1,9 @@
-{% set additional_attributes = {
-  'class': [
-    'article',
-    modifier_classes ? modifier_classes : '',
-  ],
-} %}
+{% set classes = [
+  'article',
+  modifier_classes ? modifier_classes : '',
+] %}
 
-<article {{ add_attributes(additional_attributes) }}>
+<article {{ add_attributes({ class: classes }) }}>
   {% block title %}
     {% include '@components/page-title/page-title.twig' with {
       'page_title': article_page_title
