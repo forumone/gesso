@@ -1,5 +1,5 @@
-import Menu from './Menu.es6';
-import MenubarItem from './MenubarItem.es6';
+import Menu from './_Menu.es6';
+import MenubarItem from './_MenubarItem.es6';
 
 class MenuBar extends Menu {
   constructor(domNode) {

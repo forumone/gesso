@@ -17,14 +17,15 @@ or work only in Storybook.
 2. Run `f1 up`.
 3. Run `f1 run --publish 6006:6006 gesso npm run dev`.
 4. Open `localhost:6006` to view Storybook and/or `localhost:8080` to view Drupal.
+5. Enable Gesso Helper and Components modules before setting the theme to active.
 
-Setting the theme as active in Drupal has not been testing yet and probably will not work.
-However, you can use this method if you prefer running Node via Docker or want to contribute
-to getting Gesso Next working as Drupal theme.
+The theme can be set as active in Drupal but is not yet ready for project use.
+However, you can use this method if you prefer running Node via Docker or want
+to contribute to getting Gesso Next working as Drupal theme.
 
-### Notes/Known Issues
-When you first run Webpack, you will probably see some errors about _GESSO not existing.
-These can be ignored for the time being.
+## Storybook
+Name your stories files `[component].stories.jsx`. See `menu.stories.jsx` for
+an example.
 
 ## Sass
 Sass can be compiled as part of the global styles.css file or to individual CSS files
@@ -42,5 +43,28 @@ aggregate file (i.e. `_components.scss`).
 ### Individual Component/Library Styles
 DO NOT prefix the name of your Sass file with `_`, e.g. `menu.scss`. Import the config
 and global aggregate files. Import your SCSS file at the top of your Storybook file.
-See `menu.stories.js` for an example. Don't forget to add it to the `gesso_next.libraries.yml`
+See `menu.stories.jsx` for an example. Don't forget to add it to the `gesso_next.libraries.yml`
 file as well.
+
+### Linting
+Stylelint and Prettier are used to lint CSS and SCSS files.
+
+## JavaScript
+JavaScript can be compiled to individual JS files for use in a JavaScript library or included
+within a different JS file. JS files that use modern (ES2015+) syntax must be named
+`[name].es6.js`, but this is not required by the compiler. JavaScript files should go in the
+appropriate folder under source (e.g. `source/03-components/menu` for menu-related JavaScript).
+There is not a separate folder for JS files as there was in previous versions of Gesso.
+
+### Modules
+Prefix the name of your JavaScript file with `_`, e.g. `_Menu.es6.js`. Import it to the appropriate
+JavaScript file(s), (i.e. `primary-menu.es6.js`).
+
+### Individual Component/Library Scripts
+DO NOT prefix the name of your JS file with `_`. Import your JS file at the top
+of your Storybook file. See `menu.stories.jsx` for an example. Don't forget to
+add it to the `gesso_next.libraries.yml` file as well.
+
+### Linting
+ESLint and Prettier are used to lint JavaScript files. ESLint uses the [Airbnb
+standards](https://github.com/airbnb/javascript/), which are [followed by Drupal](https://www.drupal.org/docs/develop/standards/javascript/javascript-coding-standards) as well.

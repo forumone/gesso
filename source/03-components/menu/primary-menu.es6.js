@@ -1,5 +1,5 @@
 import Drupal from 'drupal';
-import MenuBar from './modules/MenuBar.es6';
+import MenuBar from './modules/_MenuBar.es6';
 
 Drupal.behaviors.primaryNav = {
   attach(context) {

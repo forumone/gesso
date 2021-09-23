@@ -2,9 +2,9 @@
 // SubMenuItems can contain PopupMenus that in turn
 // contain SubMenuItems.
 // eslint-disable-next-line import/no-cycle
-import SubMenuItem from './SubMenuItem.es6';
+import SubMenuItem from './_SubMenuItem.es6';
 import { Z_INDEX } from '../../../00-config/_GESSO.es6';
-import Menu from './Menu.es6';
+import Menu from './_Menu.es6';
 
 class PopupMenu extends Menu {
   constructor(domNode, controllerObj) {

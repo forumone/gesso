@@ -1,7 +1,7 @@
 import KEYCODE from '../../../00-config/_KEYCODE.es6';
 
-import MenuItem from './MenuItem.es6';
-import PopupMenu from './PopupMenu.es6';
+import MenuItem from './_MenuItem.es6';
+import PopupMenu from './_PopupMenu.es6';
 
 class MenubarItem extends MenuItem {
   constructor(domNode, menuObj) {

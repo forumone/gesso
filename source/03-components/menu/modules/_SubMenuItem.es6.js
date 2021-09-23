@@ -1,10 +1,10 @@
 import KEYCODE from '../../../00-config/_KEYCODE.es6';
-import MenuItem from './MenuItem.es6';
+import MenuItem from './_MenuItem.es6';
 // Because the menu can be multiple levels deep,
 // SubMenuItems can contain PopupMenus that in turn
 // contain SubMenuItems.
 // eslint-disable-next-line import/no-cycle
-import PopupMenu from './PopupMenu.es6';
+import PopupMenu from './_PopupMenu.es6';
 
 class SubMenuItem extends MenuItem {
   init() {

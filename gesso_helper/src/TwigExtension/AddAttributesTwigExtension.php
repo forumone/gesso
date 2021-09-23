@@ -21,7 +21,7 @@ class AddAttributesTwigExtension extends AbstractExtension {
   /**
    * @inheritdoc
    */
-  public function getFunctions() {
+  public function getFunctions(): array {
     $functions = parent::getFunctions();
     $functions[] = new TwigFunction('add_attributes', [$this, 'addAttributes'], ['needs_context' => TRUE, 'is_safe' => ['html']]);
     return $functions;
@@ -34,7 +34,7 @@ class AddAttributesTwigExtension extends AbstractExtension {
    * through includes.
    * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
    */
-  public function addAttributes($context, $additional_attributes = [], $attribute_type = 'attributes') {
+  public function addAttributes($context, $additional_attributes = [], $attribute_type = 'attributes'): Attribute {
     $attributes = new Attribute();
 
     $context_attribute = &$context;
