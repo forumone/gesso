@@ -1,5 +1,5 @@
 import Drupal from 'drupal';
-import MobileMenu from './modules/MobileMenu.es6';
+import MobileMenu from './modules/_MobileMenu.es6';
 
 Drupal.behaviors.mobileMenu = {
   attach() {

@@ -9,7 +9,9 @@ module.exports = {
   entry: () => {
     // Grab any JS files.
     const jsFiles = glob
-      .sync('source/**/!(*.stories).js')
+      .sync('source/**/!(*.stories).js', {
+        ignore: ['**/_*'],
+      })
       .reduce((entries, currentFile) => {
         const updatedEntries = entries;
         const filePaths = currentFile.split(path.sep);
@@ -58,6 +60,7 @@ module.exports = {
             folder: './dist/css',
             method: absolutePath =>
               new RegExp(/\.js(\.map)?$/, 'm').test(absolutePath),
+            recursive: true
           },
         ],
       },
