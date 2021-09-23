@@ -23,6 +23,11 @@ The theme can be set as active in Drupal but is not yet ready for project use.
 However, you can use this method if you prefer running Node via Docker or want
 to contribute to getting Gesso Next working as Drupal theme.
 
+## Generating New Components
+Run `npm run component` (locally) or `f1 run gesso npm run component` (Docker) to
+create boilerplate files for a new component. This is the recommended approach as it
+will set up a basic Twig and Storybook file that you can modify from there.
+
 ## Storybook
 Name your stories files `[component].stories.jsx`. See `menu.stories.jsx` for
 an example.

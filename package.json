@@ -9,7 +9,8 @@
     "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "dev": "concurrently --raw \"npm run start\" \"npm run storybook\""
+    "dev": "concurrently --raw \"npm run start\" \"npm run storybook\"",
+    "component": "node lib/component.js"
   },
   "author": "Forum One",
   "license": "GPL-2.0+",
@@ -63,7 +64,9 @@
   "dependencies": {
     "add-attributes-twig-extension": "^0.1.0",
     "glob": "^7.1.7",
+    "inquirer": "^8.1.5",
     "mini-css-extract-plugin": "^1.6.0",
+    "mkdirp": "^1.0.4",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "remove-files-webpack-plugin": "^1.4.5",
