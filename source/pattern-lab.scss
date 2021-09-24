@@ -1,5 +1,7 @@
 // CSS styles and overrides for Pattern Lab only.
 // This stylesheet is not loaded by the theme.
+@use "sass:math";
+
 $pattern-lab-overrides: true;
 
 // Import all site styles.
@@ -48,7 +50,7 @@ $swatch-padding: 1rem;
 .pattern-lab-color-swatch {
   border: 1px solid #c1c1c1;
   flex: 0 0 ($swatch-size + 2 * $swatch-padding);
-  margin: 0 $swatch-padding / 2 $swatch-padding;
+  margin: 0 math.div($swatch-padding, 2) $swatch-padding;
   max-width: ($swatch-size + 2 * $swatch-padding);
   padding: $swatch-padding;
 }
@@ -183,7 +185,7 @@ $shadow-gutter: rem(50px);
   display: flex;
   flex: 0 0 $shadow-swatch;
   height: $shadow-swatch;
-  margin: 0 ($shadow-gutter / 2) $shadow-gutter;
+  margin: 0 math.div($shadow-gutter, 2) $shadow-gutter;
   width: $shadow-swatch;
 }
 
@@ -277,7 +279,7 @@ $swatch-padding: 1rem;
 .pattern-lab-color-swatch {
   border: 1px solid #c1c1c1;
   flex: 0 0 ($swatch-size + 2 * $swatch-padding);
-  margin: 0 $swatch-padding/2 $swatch-padding;
+  margin: 0 math.div($swatch-padding, 2) $swatch-padding;
   max-width: ($swatch-size + 2 * $swatch-padding);
   padding: $swatch-padding;
 }

@@ -1,0 +1,42 @@
+// @file
+// Component: Figure
+
+.figure {
+  display: table;
+  margin-bottom: rem(gesso-spacing(2));
+  margin-top: 0;
+  &.u-align-center {
+    clear: both;
+    margin-top: rem(gesso-spacing(2));
+  }
+  &.u-align-left {
+    @include breakpoint(gesso-breakpoint(tablet)) {
+      margin-right: rem(gesso-spacing(4));
+      max-width: calc(50% - #{rem(gesso-spacing(2))});
+    }
+  }
+  &.u-align-right {
+    @include breakpoint(gesso-breakpoint(tablet)) {
+      margin-left: rem(gesso-spacing(4));
+      max-width: calc(50% - #{rem(gesso-spacing(2))});
+    }
+  }
+}
+
+.figure__caption {
+  caption-side: bottom;
+  display: table-caption;
+  font-family: font-family(alt);
+  font-size: font-size(alt, 1);
+  font-weight: font-weight(bold);
+  line-height: line-height(alt, 2);
+  margin-top: rem(gesso-spacing(1));
+}
+
+.figure--video {
+  display: block;
+  width: 100%;
+  .figure__caption {
+    display: block;
+  }
+}

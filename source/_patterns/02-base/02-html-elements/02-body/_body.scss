@@ -1,11 +1,15 @@
 // @file
 // Body styles.
 
+// Overflow-x and width properties ensure elements using full bleed techniques
+// (e.g., the layout-full-bleed mixin) do not create horizontal scroll bars.
 body {
   background-color: gesso-color(background, site);
   color: gesso-color(text, primary);
   margin: 0;
+  overflow-x: hidden;
   padding: 0;
+  width: 100%;
   word-wrap: break-word;
 
   &.has-open-mobile-menu {

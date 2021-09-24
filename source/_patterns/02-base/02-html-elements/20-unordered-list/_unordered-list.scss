@@ -1,5 +1,6 @@
 // @file
 // Unordered list styles.
+@use "sass:math";
 
 ul {
   list-style-type: disc;
@@ -14,6 +15,6 @@ ul {
 
   ol,
   ul {
-    margin-top: rem(gesso-spacing(2) / 2);
+    margin-top: rem(math.div(gesso-spacing(2), 2));
   }
 }

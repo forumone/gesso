@@ -1,7 +1,8 @@
 // @file
 // Styles for a video.
+@use "sass:math";
 
-$video-aspect-ratio: (9 / 16); // 16:9
+$video-aspect-ratio: math.div(9, 16); // 16:9
 
 .video {
   height: 0;

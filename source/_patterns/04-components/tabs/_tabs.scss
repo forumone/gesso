@@ -1,5 +1,6 @@
 // @file
 // Styles for Tabs.
+@use "sass:math";
 
 $tab-background-color: gesso-color(ui, generic, background-light) !default;
 $tab-background-color-active: gesso-color(
@@ -90,7 +91,7 @@ $tab-font-size: gesso-base-font-size() !default;
   display: block;
   font-family: gesso-font-family(system);
   font-size: rem(gesso-font-size(2));
-  line-height: (17px / gesso-font-size(2));
+  line-height: math.div(17px, gesso-font-size(2));
   margin: 0;
   padding: rem(gesso-spacing(1)) rem(gesso-spacing(2));
 

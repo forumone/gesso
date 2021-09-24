@@ -1,10 +1,11 @@
 // @file
 // HTML styles.
+@use "sass:math";
 
 html {
   box-sizing: border-box;
   font-family: gesso-font-family(primary);
-  font-size: 100% * (gesso-base-font-size() / 16px);
+  font-size: 100% * (math.div(gesso-base-font-size(), 16px));
   line-height: gesso-line-height(base);
   min-height: 100%;
   text-size-adjust: 100%;

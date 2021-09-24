@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /// Convert unitless number to unit value
 // @param {Number} $value - unitless number
 // @return {String} - unit type
@@ -28,7 +30,11 @@
   @if (type-of($base) != 'number' or unit($base) != 'px') {
     @error "Base font size must be in pixels.";
   }
-  @return strip-unit($value) * $base;
+  @if (unit($value) != 'px') {
+    @return strip-unit($value) * $base;
+  } @else {
+    @return $value;
+  }
 }
 
 /// Convert values to em.
@@ -45,7 +51,7 @@
     @if (unit($value) != 'px') {
       $value: px($value, $base);
     }
-    @return ($value / $base) * 1em;
+    @return (math.div($value, $base)) * 1em;
   }
   @return $value;
 }
@@ -66,7 +72,7 @@
     @if (unit($value) != 'px') {
       $value: px($value, $base);
     }
-    @return ($value / $base) * 1rem;
+    @return (math.div($value, $base)) * 1rem;
   }
   @return $value;
 }
