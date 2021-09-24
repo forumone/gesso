@@ -13,11 +13,43 @@ or work only in Storybook.
 4. Open `localhost:6006` (it will typically open automatically) to view Storybook.
 
 ### With Docker + Drupal
-1. Update `docker-compose.yml` and `docker-compose.cli.yml` for your project to change any paths that include `/gesso/` to `/gesso_next/`.
-2. Run `f1 up`.
-3. Run `f1 run --publish 6006:6006 gesso npm run dev`.
-4. Open `localhost:6006` to view Storybook and/or `localhost:8080` to view Drupal.
-5. Enable Gesso Helper and Components modules before setting the theme to active.
+First, update `docker-compose.yml` and `docker-compose.cli.yml` for your project to
+change any paths that include `/gesso/` to `/gesso_next/` and to map the
+volumes to the paths Gesso Next uses.
+docker-composer.yml
+```yaml
+      - type: volume
+        source: fs-data
+        target: /var/www/html/web/sites/default/files
+        read_only: true
+      - &a1
+        type: volume
+        source: gesso-js
+        target: /var/www/html/web/themes/gesso_next/dist/js
+      - &a2
+        type: volume
+        source: gesso-css
+        target: /var/www/html/web/themes/gesso_next/dist/css
+volumes:
+  ? fs-data
+  ? mysql-data
+  ? gesso-js
+  ? gesso-css
+```
+docker-compose.cli.yml
+```yaml
+      - type: volume
+        source: gesso-js
+        target: /app/dist/js
+      - type: volume
+        source: gesso-css
+        target: /app/dist/css
+```
+
+1. Run `f1 up`.
+2. Run `f1 run --publish 6006:6006 gesso npm run dev`.
+3. Open `localhost:6006` to view Storybook and/or `localhost:8080` to view Drupal.
+4. Enable Gesso Helper and Components modules before setting the theme to active.
 
 The theme can be set as active in Drupal but is not yet ready for project use.
 However, you can use this method if you prefer running Node via Docker or want
