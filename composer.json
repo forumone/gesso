@@ -1,0 +1,32 @@
+{
+  "name": "forumone/gesso",
+  "description": "The Forum One Gesso Drupal starter theme.",
+  "type": "drupal-theme",
+  "homepage": "https://github.com/forumone/gesso",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Forum One",
+      "homepage": "https://www.forumone.com/"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "7.4"
+    },
+    "optimize-autoloader": true
+  },
+  "require-dev": {
+    "php": ">=7.4.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+    "drupal/coder": "^8.3"
+  },
+  "scripts": {
+    "lint": "vendor/bin/phpcs --standard=Drupal --extensions=php,module,inc,install,profile,theme,test --ignore=node_modules,bower_components,vendor --report=full .",
+    "lint-fix": "vendor/bin/phpcbf --standard=Drupal --extensions=php,module,inc,install,profile,theme,test --ignore=node_modules,bower_components,vendor",
+    "lint-practices": "vendor/bin/phpcs --standard=DrupalPractice --extensions=php,module,inc,install,profile,theme,test --ignore=node_modules,bower_components,vendor --report=full ."
+  },
+  "extra": {
+    "phpcodesniffer-search-depth": 5
+  }
+}
