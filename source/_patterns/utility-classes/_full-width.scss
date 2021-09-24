@@ -1,11 +1,8 @@
 // @file
 // Full-width utility class
 
+// Breaks something outside its parent l-constrain or other centered container
+// and makes it flush with the edge of the viewport.
 .u-full-width {
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  position: relative;
-  right: 50%;
-  width: 100vw;
+  @include layout-full-bleed();
 }
