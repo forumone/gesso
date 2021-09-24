@@ -1,0 +1,21 @@
+{% set classes = [
+  'hero-bg-image',
+  has_overlay ? 'has-overlay' : '',
+  modifier_classes ? modifier_classes : ''
+] %}
+
+<div {{add_attributes({ class: classes })}}>
+  {{ hero_image }}
+  <div class="hero-bg-image__content">
+    {% if hero_title %}
+      <h1 class="hero-bg-image__title">{{ hero_title }}</h1>
+    {% endif %}
+    {% if hero_summary %}
+      <div class="hero-bg-image__summary">{{ hero_summary }}</div>
+    {% endif %}
+    {% if hero_button_text and hero_button_url %}
+      <div class="hero-bg-image__button">
+      </div>
+    {% endif %}
+  </div>
+</div>
