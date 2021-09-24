@@ -1,19 +1,21 @@
-{{ attach_library('gesso/hero_bg_image') }}
+{{ attach_library('gesso/hero_inline_image') }}
 
 {% set classes = [
-  'hero-bg-image',
+  'hero-inline-image',
   has_overlay ? 'has-overlay' : '',
   modifier_classes ? modifier_classes : ''
 ] %}
 
 <div {{add_attributes({ class: classes })}}>
-  {{ hero_image }}
-  <div class="hero-bg-image__content">
+  <div class="hero-inline-image__media">
+    {{ hero_media }}
+  </div>
+  <div class="hero-inline-image__content">
     {% if hero_title %}
-      <h1 class="hero-bg-image__title">{{ hero_title }}</h1>
+      <h1 class="hero-inline-image__title">{{ hero_title }}</h1>
     {% endif %}
     {% if hero_summary %}
-      <div class="hero-bg-image__summary">{{ hero_summary }}</div>
+      <div class="hero-inline-image__summary">{{ hero_summary }}</div>
     {% endif %}
     {% if hero_button_text and hero_button_url %}
       <div class="hero-bg-image__button">

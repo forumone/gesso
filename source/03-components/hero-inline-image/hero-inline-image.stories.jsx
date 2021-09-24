@@ -1,11 +1,11 @@
 import React from 'react';
 
-import twigTemplate from './hero-bg-image.twig';
-import data from './hero-bg-image.yml';
-import './hero-bg-image.scss';
+import twigTemplate from './hero-inline-image.twig';
+import data from './hero-inline-image.yml';
+import './hero-inline-image.scss';
 
 const settings = {
-  title: 'Components/Hero/Hero with Background Image',
+  title: 'Components/Hero/Hero with Inline Image',
 };
 
 const Default = args => (
@@ -24,7 +24,7 @@ const Left = () => (
     dangerouslySetInnerHTML={{
       __html: twigTemplate({
         ...data,
-        modifier_classes: 'hero-bg-image--left',
+        modifier_classes: 'hero-inline-image--left',
       }),
     }}
   />
@@ -35,7 +35,7 @@ const Right = () => (
     dangerouslySetInnerHTML={{
       __html: twigTemplate({
         ...data,
-        modifier_classes: 'hero-bg-image--right',
+        modifier_classes: 'hero-inline-image--right',
       }),
     }}
   />

@@ -9,3 +9,11 @@ main-menu:
   js:
       dist/js/03-components/menu/primary-menu.es6.js: {}
       dist/js/03-components/menu/mobile-menu.es6.js: {}
+hero_bg_image:
+  css:
+    theme:
+      dist/css/03-components/hero-bg-image/hero-bg-image.css: {}
+hero_inline_image:
+  css:
+    theme:
+      dist/css/03-components/hero-inline-image/hero-inline-image.css: {}
