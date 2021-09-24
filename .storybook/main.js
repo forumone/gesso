@@ -3,7 +3,16 @@ const path = require('path');
 
 module.exports = {
   stories: ['../source/**/*.stories.mdx', '../source/**/*.stories.@(js|jsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  addons: [
+    '@storybook/addon-links',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        actions: false,
+      },
+    },
+    '@storybook/addon-a11y',
+  ],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
       test: /\.twig$/,

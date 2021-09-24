@@ -64,6 +64,10 @@ will set up a basic Twig and Storybook file that you can modify from there.
 Name your stories files `[component].stories.jsx`. See `menu.stories.jsx` for
 an example.
 
+To match Storybook to your site's branding, change the colors in `.storybook/manager.js`.
+Any fonts can be added in `.storybook/manager-head.html`. See the [Storybook docs](https://storybook.js.org/docs/react/configure/theming)
+for more information about and examples of theming.
+
 ## Sass
 Sass can be compiled as part of the global styles.css file or to individual CSS files
 for use in a Drupal library.
