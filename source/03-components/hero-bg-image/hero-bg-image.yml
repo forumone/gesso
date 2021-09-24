@@ -1,0 +1,7 @@
+---
+has_overlay: true
+hero_image: '<img src="https://picsum.photos/1600/800?image=11" alt="alt text" />'
+hero_title: 'Hero Title'
+hero_summary: '<p>Hero summary text.</p>'
+hero_button_text: 'Hero Button'
+hero_button_url: '#'
