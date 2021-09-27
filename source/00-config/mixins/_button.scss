@@ -1,0 +1,102 @@
+// @file
+// Button styles
+
+@use '../config.settings' as *;
+@use '../functions/' as *;
+@use 'clearfix' as *;
+@use 'breakpoint' as *;
+
+$button-border-width: 0 !default;
+$button-border-radius: 0 !default;
+$button-background-color: gesso-color(button, primary, background) !default;
+$button-background-color-active: gesso-color(
+  button,
+  primary,
+  background-active
+) !default;
+$button-background-color-disabled: gesso-color(
+  button,
+  disabled,
+  background
+) !default;
+$button-background-color-hover: gesso-color(
+  button,
+  primary,
+  background-hover
+) !default;
+$button-border-color: gesso-color(button, primary, border) !default;
+$button-border-color-hover: gesso-color(button, primary, border-hover) !default;
+$button-border-color-disabled: gesso-color(button, disabled, border) !default;
+$button-text-color: gesso-color(button, primary, text) !default;
+$button-text-color-active: gesso-color(button, primary, text-active) !default;
+$button-text-color-disabled: gesso-color(button, disabled, text) !default;
+$button-text-color-hover: gesso-color(button, primary, text-hover) !default;
+$button-font-size: gesso-base-font-size() !default;
+
+@mixin button(
+  $color-background: $button-background-color,
+  $color-text: $button-text-color,
+  $color-border: $button-border-color,
+  $color-background-hover: $button-background-color-hover,
+  $color-text-hover: $button-text-color-hover,
+  $color-border-hover: $button-border-color-hover,
+  $color-background-active: $button-background-color-active,
+  $color-text-active: $button-text-color-active,
+  $color-background-disabled: $button-background-color-disabled,
+  $color-border-disabled: $button-border-color-disabled,
+  $color-text-disabled: $button-text-color-disabled,
+  $border-radius: $button-border-radius,
+  $border-width: $button-border-width,
+  $font-size: $button-font-size
+) {
+  background-color: $color-background;
+  @if $border-width != 0 {
+    border: $border-width solid $color-border;
+  } @else {
+    border: 0;
+  }
+  border-radius: $border-radius;
+  color: $color-text;
+  cursor: pointer;
+  display: inline-block;
+  font-family: gesso-font-family(primary);
+  font-size: rem($font-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: gesso-font-weight(bold);
+  line-height: gesso-line-height(base);
+  padding: rem(gesso-spacing(1)) rem(gesso-spacing(2));
+  text-align: center;
+  text-decoration: none;
+  transition: background gesso-duration(short) gesso-easing(ease-in);
+  vertical-align: top;
+  white-space: normal;
+
+  &:visited {
+    color: $color-text;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-background-hover;
+    @if $border-width != 0 {
+      border-color: $color-border-hover;
+    }
+    color: $color-text-hover;
+  }
+
+  &:active {
+    background-color: $color-background-active;
+    color: $color-text-active;
+  }
+
+  &[disabled] {
+    background-color: $color-background-disabled;
+    @if $border-width != 0 {
+      border-color: $color-border-disabled;
+    }
+    color: $color-text-disabled;
+    cursor: default;
+    pointer-events: none;
+  }
+}

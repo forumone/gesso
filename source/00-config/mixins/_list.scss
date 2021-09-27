@@ -2,10 +2,10 @@
 // Various Mixins for List styles
 
 @use '../config.settings' as *;
-@use '../functions/gesso' as *;
+@use '../functions' as *;
 
-@use './clearfix' as *;
-@use './breakpoint' as *;
+@use 'clearfix' as *;
+@use 'breakpoint' as *;
 
 @mixin list-clean {
   list-style-type: none;

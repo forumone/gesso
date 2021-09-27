@@ -1,0 +1,8 @@
+// @file
+// Aspect Ratio mixin
+
+@mixin aspect-ratio($width, $height) {
+  height: 0;
+  padding-top: ($height / $width) * 100%;
+  width: 100%;
+}

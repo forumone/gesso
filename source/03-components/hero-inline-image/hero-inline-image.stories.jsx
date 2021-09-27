@@ -19,27 +19,29 @@ const Default = args => (
 );
 Default.args = { ...data };
 
-const Left = () => (
+const Left = args => (
   <div
     dangerouslySetInnerHTML={{
       __html: twigTemplate({
-        ...data,
+        ...args,
         modifier_classes: 'hero-inline-image--left',
       }),
     }}
   />
 );
+Left.args = { ...data };
 
-const Right = () => (
+const Right = args => (
   <div
     dangerouslySetInnerHTML={{
       __html: twigTemplate({
-        ...data,
+        ...args,
         modifier_classes: 'hero-inline-image--right',
       }),
     }}
   />
 );
+Right.args = { ...data };
 
 export default settings;
 export { Default, Left, Right };

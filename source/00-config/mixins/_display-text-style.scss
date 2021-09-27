@@ -1,5 +1,4 @@
-@use '../functions/gesso' as *;
-@use '../functions/unit-convert' as *;
+@use '../functions' as *;
 
 @mixin display-text-style($keys...) {
   $display: gesso-get-map(typography, display, $keys...);

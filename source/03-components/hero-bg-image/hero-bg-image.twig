@@ -2,11 +2,11 @@
 
 {% set classes = [
   'hero-bg-image',
-  has_overlay ? 'has-overlay' : '',
-  modifier_classes ? modifier_classes : ''
+  has_overlay ? 'has-overlay' : null,
+  modifier_classes ? modifier_classes : null
 ] %}
 
-<div {{add_attributes({ class: classes })}}>
+<div {{ add_attributes({ class: classes }) }}>
   {{ hero_image }}
   <div class="hero-bg-image__content">
     {% if hero_title %}
@@ -17,6 +17,11 @@
     {% endif %}
     {% if hero_button_text and hero_button_url %}
       <div class="hero-bg-image__button">
+        {% include '@components/button/button.twig' with {
+          'modifier_classes': 'button--large',
+          'url': hero_button_url,
+          'text': hero_button_text
+        } %}
       </div>
     {% endif %}
   </div>
