@@ -1,7 +1,6 @@
 // @file
 // Layout mixins
 
-//@use '../design-tokens.artifact' as *;
 @use '../functions' as *;
 
 @mixin layout-align-left($margin) {

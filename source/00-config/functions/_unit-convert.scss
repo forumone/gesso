@@ -5,7 +5,6 @@
 /// Convert unitless number to unit value
 // @param {Number} $value - unitless number
 // @return {String} - unit type
-
 @function convert($value, $unit: px) {
   @if unitless($value) {
     @if $unit == px {
@@ -24,7 +23,6 @@
 //   If unitless, pixels are assumed.
 // @param {Number} $base - Base font size in pixels.
 // @return {Number} - Value in pixels.
-
 @function px($value, $base: gesso-get-map(typography, base-font-size)) {
   @if unitless($value) {
     @return convert($value, px);
@@ -44,7 +42,6 @@
 //   If unitless, pixels are assumed.
 // @param {Number} $base - Base font size in pixels.
 // @return {Number} - Value in ems.
-
 @function em($value, $base: gesso-get-map(typography, base-font-size)) {
   @if (type-of($base) != 'number' or unit($base) != 'px') {
     @error "Base font size must be in pixels.";
@@ -65,7 +62,6 @@
 //   a different font size, do rem(px($emValue, $emBase), $remBase).
 // @param {Number} $base - Base font size in pixels.
 // @return {Number} - Value in rems.
-
 @function rem($value, $base: gesso-get-map(typography, base-font-size)) {
   @if (type-of($base) != 'number' or unit($base) != 'px') {
     @error "Base font size must be in pixels.";

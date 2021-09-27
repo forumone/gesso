@@ -1,7 +1,9 @@
 @use 'sass:math';
+
 // Remove the unit of a length
 // @param {Number} $number - Number to remove unit from
 // @return {Number} - Unitless number
+
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     @return math.div($number, ($number * 0 + 1));
@@ -10,7 +12,6 @@
 }
 
 // _decimal.scss | MIT License | gist.github.com/terkel/4373420
-
 // Round a number to specified digits.
 //
 // @param  {Number} $number A number to round
@@ -25,6 +26,7 @@
 //     decimal-round(0.666, 1) => 0.7
 //     decimal-round(0.666, 2) => 0.67
 //
+
 @function decimal-round($number, $digits: 0, $mode: round) {
   $n: 1;
   // $number must be a number
@@ -68,6 +70,7 @@
 //     decimal-ceil(0.666, 1) => 0.7
 //     decimal-ceil(0.666, 2) => 0.67
 //
+
 @function decimal-ceil($number, $digits: 0) {
   @return decimal-round($number, $digits, ceil);
 }
@@ -85,6 +88,7 @@
 //     decimal-floor(0.666, 1) => 0.6
 //     decimal-floor(0.666, 2) => 0.66
 //
+
 @function decimal-floor($number, $digits: 0) {
   @return decimal-round($number, $digits, floor);
 }

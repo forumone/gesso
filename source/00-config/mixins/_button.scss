@@ -1,10 +1,7 @@
 // @file
 // Button styles
 
-@use '../config.settings' as *;
 @use '../functions/' as *;
-@use 'clearfix' as *;
-@use 'breakpoint' as *;
 
 $button-border-width: 0 !default;
 $button-border-radius: 0 !default;

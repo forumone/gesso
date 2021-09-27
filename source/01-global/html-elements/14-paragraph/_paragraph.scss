@@ -1,0 +1,13 @@
+// @file
+// Paragraph styles.
+
+@use '00-config' as *;
+
+p {
+  margin: 0 0 rem(gesso-spacing(2));
+
+  @media print {
+    orphans: 3;
+    widows: 3;
+  }
+}

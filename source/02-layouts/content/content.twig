@@ -1,0 +1,26 @@
+{% set classes = [
+  'l-content',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+{% set constrain_classes = [
+  'l-constrain',
+  constrain_modifier_classes ? constrain_modifier_classes,
+]|join(' ')|trim %}
+
+{% if pattern_lab and not content_content %}
+  {% import '@macros/gesso.macro.twig' as macros %}
+  {% set content_content = macros.sample_content('Content Layout Content') %}
+{% endif %}
+
+<div class="{{ classes }}">
+  {% if has_constrain %}
+    <div class="{{ constrain_classes }}">
+  {% endif %}
+  {% block content %}
+    {{ content_content }}
+  {% endblock %}
+  {% if has_constrain %}
+    </div>
+  {% endif %}
+</div>
