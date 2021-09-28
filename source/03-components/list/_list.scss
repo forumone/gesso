@@ -1,6 +1,7 @@
 // @file
 // Styles for list.
-@use '00-config/mixins/list' as *;
+
+@use '00-config' as *;
 
 .list--border {
   @include list-border();

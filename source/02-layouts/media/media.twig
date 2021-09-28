@@ -3,7 +3,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<div {{ add_attributes({ class: classes }) }}>
+<div {{ add_attributes({ 'class': classes }) }}>
   {% if media %}
     <div class="l-media__object">{{ media }}</div>
   {% endif %}

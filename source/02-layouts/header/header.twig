@@ -13,9 +13,12 @@
   {% set header_content = macros.sample_content('Header Layout Content') %}
 {% endif %}
 
-<header {{ add_attributes({ class: classes }) }} role="banner">
+<header {{ add_attributes({
+  'class': classes,
+  'role': 'banner'
+}) }}>
   {% if has_constrain %}
-    <div {{ add_attributes({ class: constrain_classes }) }}>
+    <div {{ add_attributes({ 'class': constrain_classes }) }}>
   {% endif %}
   {% block content %}
     {{ header_content }}

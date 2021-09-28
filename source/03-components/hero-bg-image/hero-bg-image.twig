@@ -4,9 +4,9 @@
   'hero-bg-image',
   has_overlay ? 'has-overlay' : '',
   modifier_classes ? modifier_classes : ''
-] %}
+]|join(' ')|trim %}
 
-<div {{ add_attributes({ class: classes }) }}>
+<div {{ add_attributes({ 'class': classes }) }}>
   {{ hero_image }}
   <div class="hero-bg-image__content">
     {% if hero_title %}

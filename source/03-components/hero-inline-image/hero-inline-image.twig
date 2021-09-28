@@ -4,9 +4,9 @@
   'hero-inline-image',
   has_overlay ? 'has-overlay' : '',
   modifier_classes ? modifier_classes : ''
-] %}
+]|join(' ')|trim %}
 
-<div {{ add_attributes({ class: classes }) }}>
+<div {{ add_attributes({ 'class': classes }) }}>
   <div class="hero-inline-image__media">
     {{ hero_media }}
   </div>

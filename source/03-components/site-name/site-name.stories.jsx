@@ -1,10 +1,10 @@
 import React from "react";
 
-import siteNameTwig from "./site-name.twig";
-import siteNameData from "./site-name.yaml";
+import twigTemplate from './site-name.twig';
+import data from './site-name.yml';
 
-export default {
-  title: "Components/Site Name",
+const settings = {
+  title: 'Components/Site Name',
   argTypes: {
     url: {
       type: "string",
@@ -34,14 +34,16 @@ export default {
   },
 };
 
-const siteName = (args) => (
+const SiteName = args => (
   <div
     dangerouslySetInnerHTML={{
-      __html: siteNameTwig({
+      __html: twigTemplate({
         ...args,
       }),
     }}
   />
 );
-siteName.args = { ...siteNameData };
-export { siteName };
+SiteName.args = { ...data };
+
+export default settings;
+export { SiteName };

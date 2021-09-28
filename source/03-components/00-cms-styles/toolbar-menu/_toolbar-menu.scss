@@ -1,0 +1,13 @@
+// @file
+// Styles for the Toolbar module.
+
+@use '00-config' as *;
+
+ul.toolbar-menu {
+  @include list-clean;
+
+  li {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+}

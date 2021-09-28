@@ -8,7 +8,7 @@
   {% set site_container_content = macros.sample_content('Site Container Layout Content') %}
 {% endif %}
 
-<div {{ add_attributes({ class: classes }) }}>
+<div {{ add_attributes({ 'class': classes }) }}>
   {% block site_content %}
     {{ site_container_content }}
   {% endblock %}

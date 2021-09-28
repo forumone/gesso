@@ -13,9 +13,9 @@
   {% set content_content = macros.sample_content('Content Layout Content') %}
 {% endif %}
 
-<div {{ add_attributes({ class: classes }) }}>
+<div {{ add_attributes({ 'class': classes }) }}>
   {% if has_constrain %}
-    <div {{ add_attributes({ class: constrain_classes }) }}>
+    <div {{ add_attributes({ 'class': constrain_classes }) }}>
   {% endif %}
   {% block content %}
     {{ content_content }}

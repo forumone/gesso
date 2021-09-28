@@ -13,9 +13,12 @@
   {% set footer_content = macros.sample_content('Footer Layout Content') %}
 {% endif %}
 
-<footer {{ add_attributes({ class: classes }) }} role="contentinfo">
+<footer {{ add_attributes({
+  'class': classes,
+  'role': 'contentinfo'
+}) }}>
   {% if has_constrain %}
-    <div {{ add_attributes({ class: constrain_classes }) }}>
+    <div {{ add_attributes({ 'class': constrain_classes }) }}>
   {% endif %}
   {% block content %}
     {{ footer_content }}

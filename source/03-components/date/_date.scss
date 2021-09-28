@@ -1,0 +1,9 @@
+// @file
+// Styles for Date.
+
+@use '00-config' as *;
+
+.date {
+  color: gesso-color(text, secondary);
+  font-size: rem(gesso-font-size(2));
+}

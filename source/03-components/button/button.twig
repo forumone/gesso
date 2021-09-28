@@ -4,12 +4,12 @@
 ]|join(' ')|trim %}
 
 {% if is_button_tag %}
-  <button {{ add_attributes({ class: classes }) }}{% if is_disabled %} disabled{% endif %}{% if button_type %} type="{{ button_type }}"{% endif %}>{{ text }}</button>
+  <button {{ add_attributes({ 'class': classes }) }}{% if is_disabled %} disabled{% endif %}{% if button_type %} type="{{ button_type }}"{% endif %}>{{ text }}</button>
 {% else %}
-  <a href="{{ url }}" {{ add_attributes({ class: classes }) }}>{{ text }}</a>
+  <a href="{{ url }}" {{ add_attributes({ 'class': classes }) }}>{{ text }}</a>
 {% endif %}
 
 {% if is_demo %}
-  <a href="{{ url }}" {{ add_attributes({ class: classes }) }}>{{ text_demo }}</a>
-  <button {{ add_attributes({ class: classes }) }} disabled>Disabled {{ text }}</button>
+  <a href="{{ url }}" {{ add_attributes({ 'class': classes }) }}>{{ text_demo }}</a>
+  <button {{ add_attributes({ 'class': classes }) }} disabled>Disabled {{ text }}</button>
 {% endif %}

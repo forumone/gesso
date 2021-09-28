@@ -13,9 +13,9 @@
   {% set region_content = macros.sample_content('Region Layout Content') %}
 {% endif %}
 
-<div {{ add_attributes({ class: classes }) }}>
+<div {{ add_attributes({ 'class': classes }) }}>
   {% if has_constrain %}
-    <div {{ add_attributes({ class: constrain_classes }) }}>
+    <div {{ add_attributes({ 'class': constrain_classes }) }}>
   {% endif %}
   {% block content %}
     {{ region_content }}
