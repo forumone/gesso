@@ -1,16 +1,16 @@
 {% set classes = [
   'l-section',
-  modifier_classes ? modifier_classes,
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% set constrain_classes = [
   'l-constrain',
-  constrain_modifier_classes ? constrain_modifier_classes,
+  constrain_modifier_classes ? constrain_modifier_classes : '',
 ]|join(' ')|trim %}
 
-<section class="{{ classes }}">
+<section {{ add_attributes({ class: classes }) }}>
   {% if has_constrain %}
-    <div class="{{ constrain_classes }}">
+    <div {{ add_attributes({ class: constrain_classes }) }}>
   {% endif %}
 
   {% if section_title %}

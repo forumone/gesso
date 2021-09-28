@@ -4,6 +4,9 @@ import twigTemplate from './definition-list.twig';
 
 const settings = {
   title: 'Global/Definition List',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 const DefinitionList = () => (

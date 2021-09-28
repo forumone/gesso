@@ -1,9 +1,9 @@
 {% set classes = [
   'l-media',
-  modifier_classes ? modifier_classes,
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<div class="{{ classes }}">
+<div {{ add_attributes({ class: classes }) }}>
   {% if media %}
     <div class="l-media__object">{{ media }}</div>
   {% endif %}

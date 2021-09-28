@@ -3,7 +3,10 @@ import React from 'react';
 import twigTemplate from './table-with-row-headers.twig';
 
 const settings = {
-  title: 'Global/Table with Row Headers',
+  title: 'Global/Table/Table with Row Headers',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 const TableWithRowHeaders = () => (
@@ -13,6 +16,9 @@ const TableWithRowHeaders = () => (
     }}
   />
 );
+
+TableWithRowHeaders.storyName = 'Table with Row Headers';
+
 
 export default settings;
 export { TableWithRowHeaders };

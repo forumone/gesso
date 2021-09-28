@@ -4,6 +4,9 @@ import twigTemplate from './horizontal-rule.twig';
 
 const settings = {
   title: 'Global/Horizontal Rule',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 const HorizontalRule = () => (

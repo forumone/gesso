@@ -1,21 +1,21 @@
 {% set classes = [
   'l-breadcrumb',
-  modifier_classes ? modifier_classes,
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% set constrain_classes = [
   'l-constrain',
-  constrain_modifier_classes ? constrain_modifier_classes,
+  constrain_modifier_classes ? constrain_modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% if pattern_lab and not breadcrumb_content %}
-  {% import '@macros/gesso.macro.twig' as macros %}
+{% if is_demo and not breadcrumb_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
   {% set breadcrumb_content = macros.sample_content('Breadcrumb Layout Content') %}
 {% endif %}
 
-<div class="{{ classes }}">
+<div {{ add_attributes({ class: classes }) }}>
   {% if has_constrain %}
-    <div class="{{ constrain_classes }}">
+    <div {{ add_attributes({ class: constrain_classes }) }}>
   {% endif %}
   {% block content %}
     {{ breadcrumb_content }}

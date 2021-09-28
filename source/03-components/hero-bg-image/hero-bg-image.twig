@@ -2,8 +2,8 @@
 
 {% set classes = [
   'hero-bg-image',
-  has_overlay ? 'has-overlay' : null,
-  modifier_classes ? modifier_classes : null
+  has_overlay ? 'has-overlay' : '',
+  modifier_classes ? modifier_classes : ''
 ] %}
 
 <div {{ add_attributes({ class: classes }) }}>

@@ -1,6 +1,7 @@
 // @file
 // Styles for Media Object.
 
+@use '00-config' as *;
 $media-gutter: rem(gesso-spacing(2));
 
 .l-media {

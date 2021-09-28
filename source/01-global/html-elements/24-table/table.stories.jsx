@@ -4,9 +4,12 @@ import twigTemplate from './table.twig';
 
 const settings = {
   title: 'Global/Table',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
-const Table = () => (
+const Default = () => (
   <div
     dangerouslySetInnerHTML={{
       __html: twigTemplate(),
@@ -15,4 +18,4 @@ const Table = () => (
 );
 
 export default settings;
-export { Table };
+export { Default };

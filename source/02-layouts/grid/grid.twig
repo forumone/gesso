@@ -1,7 +1,7 @@
 {% set classes = [
   'l-grid',
-  num_of_cols ? ('l-grid--' ~ num_of_cols ~ '-col') : null,
-  modifier_classes ? modifier_classes : null,
+  num_of_cols ? ('l-grid--' ~ num_of_cols ~ '-col') : '',
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% if is_demo and not grid_content %}

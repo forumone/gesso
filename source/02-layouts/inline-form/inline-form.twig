@@ -1,10 +1,10 @@
 {% set classes = [
   'l-inline-form',
-  modifier_classes ? modifier_classes,
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% if pattern_lab and not form_content %}
-  {% import '@macros/gesso.macro.twig' as macros %}
+{% if is_demo and not form_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
   {% set form_content %}
     {{ macros.sample_content('Form Item 1') }}
     {{ macros.sample_content('Form Item 2') }}
@@ -13,7 +13,7 @@
   {% endset %}
 {% endif %}
 
-<div class="{{ classes }}">
+<div {{ add_attributes({ class: classes }) }}>
   {% block content %}
     {{ form_content }}
   {% endblock %}

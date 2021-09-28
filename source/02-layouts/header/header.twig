@@ -1,21 +1,21 @@
 {% set classes = [
   'l-header',
-  modifier_classes ? modifier_classes,
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% set constrain_classes = [
   'l-constrain',
-  constrain_modifier_classes ? constrain_modifier_classes,
+  constrain_modifier_classes ? constrain_modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% if pattern_lab and not header_content %}
-  {% import '@macros/gesso.macro.twig' as macros %}
+{% if is_demo and not header_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
   {% set header_content = macros.sample_content('Header Layout Content') %}
 {% endif %}
 
-<header class="{{ classes }}" role="banner">
+<header {{ add_attributes({ class: classes }) }} role="banner">
   {% if has_constrain %}
-    <div class="{{ constrain_classes }}">
+    <div {{ add_attributes({ class: constrain_classes }) }}>
   {% endif %}
   {% block content %}
     {{ header_content }}

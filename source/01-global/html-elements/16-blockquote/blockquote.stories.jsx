@@ -5,6 +5,9 @@ import data from './blockquote.yml';
 
 const settings = {
   title: 'Global/Blockquote',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 const Blockquote = () => (

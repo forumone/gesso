@@ -4,6 +4,9 @@ import twigTemplate from './inline-elements.twig';
 
 const settings = {
   title: 'Global/Inline Elements',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 const InlineElements = () => (

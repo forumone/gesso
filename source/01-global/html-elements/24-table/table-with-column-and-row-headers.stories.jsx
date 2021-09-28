@@ -3,7 +3,10 @@ import React from 'react';
 import twigTemplate from './table-with-column-and-row-headers.twig';
 
 const settings = {
-  title: 'Global/Table with Column and Row Headers',
+  title: 'Global/Table/Table with Column and Row Headers',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 const TableWithColumnAndRowHeaders = () => (
@@ -13,6 +16,8 @@ const TableWithColumnAndRowHeaders = () => (
     }}
   />
 );
+
+TableWithColumnAndRowHeaders.storyName = 'Table with Column and Row Headers';
 
 export default settings;
 export { TableWithColumnAndRowHeaders };

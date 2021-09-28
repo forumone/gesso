@@ -1,8 +1,8 @@
 {% set additional_attributes = {
   'class': [
     'l-sidebar',
-    has_multiple_sidebar ? ' l-sidebar--multi-2',
-    modifier_classes ? modifier_classes,
+    has_multiple_sidebar ? ' l-sidebar--multi-2' : '',
+    modifier_classes ? modifier_classes : '',
   ],
 } %}
 
@@ -22,23 +22,23 @@
   'class': ['l-sidebar__sidebar'],
 } %}
 
-{% if pattern_lab and not sidebar_header_content %}
-  {% import '@macros/gesso.macro.twig' as macros %}
+{% if is_demo and not sidebar_header_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
   {% set sidebar_header_content = macros.sample_content('Header Content') %}
 {% endif %}
 
-{% if pattern_lab and not sidebar_first_content %}
-  {% import '@macros/gesso.macro.twig' as macros %}
+{% if is_demo and not sidebar_first_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
   {% set sidebar_first_content = macros.sample_content('Optional Sidebar Content') %}
 {% endif %}
 
-{% if pattern_lab and not sidebar_main_content %}
-  {% import '@macros/gesso.macro.twig' as macros %}
+{% if is_demo and not sidebar_main_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
   {% set sidebar_main_content = macros.sample_content('Main Content') %}
 {% endif %}
 
-{% if pattern_lab and not sidebar_second_content %}
-  {% import '@macros/gesso.macro.twig' as macros %}
+{% if is_demo and not sidebar_second_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
   {% set sidebar_second_content = macros.sample_content('Optional Sidebar Content') %}
 {% endif %}
 

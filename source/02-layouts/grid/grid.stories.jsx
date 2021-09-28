@@ -5,11 +5,13 @@ import data from './grid.yml';
 
 const settings = {
   title: 'Layouts/Grid',
-  parameters: {
-    controls: {
-      include: ['num_of_cols']
+  argTypes: {
+    is_demo: {
+      table: {
+        disable: true
+      }
     }
-  }
+  },
 };
 
 const Default = args => (
@@ -72,4 +74,4 @@ const SixColumn = args => (
 SixColumn.args = { ...data };
 
 export default settings;
-export {  Default, TwoColumn, ThreeColumn, FourColumn, SixColumn };
+export { Default, TwoColumn, ThreeColumn, FourColumn, SixColumn };

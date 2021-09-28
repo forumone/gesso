@@ -4,6 +4,9 @@ import twigTemplate from './address.twig';
 
 const settings = {
   title: 'Global/Address',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 const Address = () => (
