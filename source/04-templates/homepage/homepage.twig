@@ -1,0 +1,27 @@
+{% set homepage_hero %}
+  {% include '@components/hero-bg-image/hero-bg-image.twig' with {
+    'has_overlay': true,
+    'hero_image': homepage_hero_image,
+    'hero_title': homepage_hero_title,
+    'hero_summary': homepage_hero_summary,
+    'hero_button_text': homepage_hero_button_text,
+    'hero_button_url': homepage_hero_button_url
+  } %}
+{% endset %}
+
+{% set homepage_grid %}
+  {% include '@layouts/grid/grid.twig' with {
+    'num_of_cols': '2',
+    'grid_content': homepage_grid_content
+  } %}
+{% endset %}
+
+{% include '@layouts/section/section.twig' with {
+  'section_title': false,
+  'section_content': homepage_hero
+} %}
+
+{% include '@layouts/section/section.twig' with {
+  'section_title': homepage_grid_title,
+  'section_content': homepage_grid
+} %}

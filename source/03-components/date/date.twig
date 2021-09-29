@@ -1,6 +1,6 @@
 {% set classes = [
   'date',
-  modifier_classes ? modifier_classes,
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 <div {{ add_attributes({ 'class': classes }) }}>

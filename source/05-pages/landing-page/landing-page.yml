@@ -1,0 +1,83 @@
+---
+body_class: 'not-front'
+title: 'Great Scott!'
+grid_cards:
+  - title: 'Delorean'
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=429">'
+    date: October 25, 1985
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'Skating'
+      - url: '#'
+        title: 'Transportation'
+    content: |-
+      <p>It’s a board with wheels. What’s with the life preserver?</p>
+  - title: 'Eighty Eight MPH'
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=823">'
+    date: November 5, 1955
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'Science'
+    content: |-
+      <p>No no no this sucker’s electrical, but I need a nuclear reaction to
+      generate the one point twenty-one gigawatts of electricity that I need.
+      </p>
+  - title: '1.21 Gigawatts'
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=967">'
+    date: October 21, 2015
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'Science'
+      - url: '#'
+        title: 'Pyrology'
+    content: |-
+      <p>If you guys ever have kids and one of them when he’s eight years old,
+      accidentally sets fire to the living room rug, be easy on him.</p>
+  - title: 'Doctor Brown'
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=1024">'
+    date: January 1, 1885
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'Education'
+      - url: '#'
+        title: 'Transportation'
+      - url: '#'
+        title: 'Horology'
+    content: |-
+      <p>Hey, Doc, we better back up, we don’t have enough road to get up to 88.
+      </p>
+  - title: 'Enchantment Under The Sea'
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=659">'
+    date: October 21, 2015
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'Dancing'
+      - url: '#'
+        title: 'Oceangraphy'
+    content: |-
+      <p>Not a word, not a word, not a word now. Quiet… you want me to make a
+      donation to the coast guard youth auxiliary?</p>
+  - title: 'Twin Pines Mall'
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=660">'
+    date: October 25, 1985
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'Shopping'
+      - url: '#'
+        title: 'Dendrology'
+    content: |-
+      <p>You fell and you hit your head on the sink, and that’s when you came up
+      with the idea for the flux capacitor, which makes time travel possible.
+      </p>

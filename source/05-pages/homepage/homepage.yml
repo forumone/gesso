@@ -1,0 +1,66 @@
+---
+body_class: 'front'
+hero_image: 'https://picsum.photos/1600/800/?image=96&gravity=north'
+hero_title: "Where’d You Get The Coconuts?"
+hero_summary: |-
+  <p>The swallow may fly south with the sun, and the house martin or the plover
+  may seek warmer climes in winter, yet these are not strangers to our land. Are
+  you suggesting that coconuts migrate? Not at all. They could be carried. What?
+  A swallow carrying a coconut? It could grip it by the husk!</p>
+hero_button_text: 'Ni! Ni! Ni! Ni!'
+hero_button_url: '#'
+grid_title: "You Don’t Vote For Kings"
+grid_cards:
+  - title: "It’s Only a Model"
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=1069">'
+    date: September 30, 2019
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'Arthur'
+      - url: '#'
+        title: 'Excalibur'
+    content: |-
+      <p>The Lady of the Lake, her arm clad in the purest shimmering samite,
+      held aloft Excalibur from the bosom of the water, signifying by divine
+      providence that I, Arthur, was to carry Excalibur.</p>
+  - title: 'Let Us Ride to Camelot'
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=1025">'
+    date: October 25, 2019
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'Witches'
+    content: |-
+      <p>Well, we did do the nose. I don’t want to talk to you no more, you
+      empty-headed animal food trough water!</p>
+  - title: 'What a Strange Person'
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=1040">'
+    date: June 27, 2019
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'France'
+      - url: '#'
+        title: 'Taunts'
+      - url: '#'
+        title: 'Berries'
+    content: |-
+      <p>Your mother was a hamster and your father smelt of elderberries! Now
+      leave before I am forced to taunt you a second time!</p>
+  - title: 'The Knights Who Say Ni'
+    url: '#'
+    media: '<img src="https://picsum.photos/800/600?image=870">'
+    date: October 30, 2019
+    read_more: true
+    tags:
+      - url: '#'
+        title: 'Ni'
+      - url: '#'
+        title: 'Shrubbery'
+    content: |-
+      <p>Ah, now we see the violence inherent in the system! How do you know she
+      is a witch? We shall say ‘Ni’ again to you, if you do not appease us.</p>
