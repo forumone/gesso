@@ -1,0 +1,26 @@
+{% set classes = [
+  'icon',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if is_demo %}
+  {% set icons = [
+    'facebook',
+    'linkedin',
+    'twitter',
+   ] %}
+  {% for icon in icons %}
+    <p>
+      <svg {{ add_attributes({ 'class': classes }) }}{% if is_hidden %} aria-hidden="true"{% endif %}>
+        <use xlink:href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon }}"></use>
+      </svg>
+      {{ icon }}
+    </p>
+  {% endfor %}
+{%- else -%}
+  {% spaceless %}
+    <svg {{ add_attributes({ 'class': classes }) }}{% if is_hidden %} aria-hidden="true"{% endif %}>
+      <use xlink:href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
+    </svg>
+  {% endspaceless %}
+{%- endif -%}

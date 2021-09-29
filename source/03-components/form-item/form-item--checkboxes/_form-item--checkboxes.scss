@@ -1,0 +1,9 @@
+// @file
+// Styles for checkboxes form items.
+
+@use '00-config' as *;
+
+.form-item--checkboxes {
+  margin-bottom: rem(gesso-spacing(0.5));
+  margin-top: rem(gesso-spacing(0.5));
+}

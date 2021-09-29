@@ -1,0 +1,8 @@
+{% set classes = [
+  'site-logo',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<a {{ add_attributes({ 'class': classes })}} href="{{ url }}" title="{{ 'Home'|t }}" rel="home">
+  <img class="site-logo__image" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+</a>

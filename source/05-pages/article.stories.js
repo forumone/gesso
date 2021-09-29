@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 
 import { siteName } from "../03-components/site-name/site-name.stories";
-import siteNameData from "../03-components/site-name/site-name.yml";
+// import siteNameData from "../03-components/site-name/site-name.yml";
 import { Breadcrumb } from "../03-components/breadcrumb/breadcrumb.stories";
 import { AccountMenu, MainMenu } from "../03-components/menu/menu.stories";
 import ArticleTwig from "../04-templates/article/article.twig";

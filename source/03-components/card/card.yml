@@ -1,0 +1,19 @@
+---
+title: 'Card title'
+url: '#'
+footer: ''
+date: September 28, 2018
+read_more: true
+tags:
+  - url: '#'
+    title: 'Tag 1'
+  - url: '#'
+    title: 'Tag 2'
+  - url: '#'
+    title: 'Tag 3'
+  - url: '#'
+    title: 'Tag 4'
+media: |-
+  <img src="https://picsum.photos/id/1015/800/600">
+card_content: |-
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et accumsan augue. Morbi non laoreet lorem.</p>

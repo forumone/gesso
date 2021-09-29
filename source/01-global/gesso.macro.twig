@@ -1,4 +1,3 @@
-{#}
 {% macro readmore(url, title, label = "Read more", description_prefix = "about" ) %}
   {% include '@components/readmore-link/readmore-link.twig' with {
     'url': url,
@@ -16,7 +15,7 @@
     'size': size
   } %}
 {% endmacro %}
-#}
+
 {% macro sample_content(content = 'Example Content') %}
   <div style="background:#333;border:1px solid #fff;color:#fff;padding:1em;">
     {{ content }}

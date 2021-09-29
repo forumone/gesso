@@ -1,7 +1,7 @@
 import React from "react";
 
 import twigTemplate from './site-name.twig';
-import data from './site-name.yml';
+import globalData from '../../00-config/storybook.global-data.yml';
 
 const settings = {
   title: 'Components/Site Name',
@@ -26,6 +26,9 @@ const settings = {
     },
   },
   parameters: {
+    controls: {
+      include: ['site_name', 'url', 'modifier_classes']
+    },
     docs: {
       description: {
         component: "The site title, displayed prominently in the header.",
@@ -43,7 +46,7 @@ const SiteName = args => (
     }}
   />
 );
-SiteName.args = { ...data };
+SiteName.args = { ...globalData };
 
 export default settings;
 export { SiteName };

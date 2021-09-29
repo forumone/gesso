@@ -1,0 +1,14 @@
+// @file
+// Styles for Tag List.
+
+@use '00-config' as *;
+
+.tag-list {
+  @include list-clean();
+}
+
+.tag-list__item {
+  display: inline-block;
+  margin-bottom: rem(gesso-spacing(1));
+  margin-right: rem(gesso-spacing(1));
+}

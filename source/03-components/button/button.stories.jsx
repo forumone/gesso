@@ -67,4 +67,4 @@ const Small = args => (
 Small.args = { ...data };
 
 export default settings;
-export {  Default, Danger, Large, Secondary, Small };
+export { Default, Danger, Large, Secondary, Small };

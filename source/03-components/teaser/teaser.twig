@@ -1,0 +1,10 @@
+{% set classes = [
+  'teaser',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<article {{ add_attributes({ 'class': classes })}} role="article">
+  <h2><a href="{{ url }}">{{ title }}</a></h2>
+  {{ date }}
+  {{ summary }}
+</article>

@@ -1,10 +1,15 @@
 import React from 'react';
 
 import twigTemplate from './hero-image.twig';
-import data from './hero-image.yml';
+import globalData from '../../00-config/storybook.global-data.yml';
 
 const settings = {
   title: 'Global/Images/Hero Image',
+  parameters: {
+    controls: {
+      include: ['img_hero', 'modifier_classes']
+    }
+  }
 };
 
 const HeroImage = args => (
@@ -16,7 +21,7 @@ const HeroImage = args => (
     }}
   />
 );
-HeroImage.args = { ...data };
+HeroImage.args = { ...globalData };
 
 export default settings;
 export { HeroImage };

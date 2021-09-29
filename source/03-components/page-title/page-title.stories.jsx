@@ -1,7 +1,7 @@
 import React from "react";
 
 import twigTemplate from './page-title.twig';
-import data from './page-title.yml';
+import globalData from '../../00-config/storybook.global-data.yml';
 
 const settings = {
   title: "Components/Page Title",
@@ -16,6 +16,11 @@ const settings = {
       },
     },
   },
+  parameters: {
+    controls: {
+      include: ['page_title', 'modifier_classes']
+    }
+  },
 };
 
 const PageTitle = args => (
@@ -27,7 +32,7 @@ const PageTitle = args => (
     }}
   />
 );
-PageTitle.args = { ...data };
+PageTitle.args = { ...globalData };
 
 export default settings;
 export { PageTitle };

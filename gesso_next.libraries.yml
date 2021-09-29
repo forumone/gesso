@@ -17,3 +17,7 @@ hero_inline_image:
   css:
     theme:
       dist/css/03-components/hero-inline-image/hero-inline-image.css: {}
+details:
+  version: VERSION
+  js:
+    dist/js/03-components/details/details-element-polyfill.js: {}

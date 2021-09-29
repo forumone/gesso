@@ -1,0 +1,6 @@
+---
+url: '#'
+title: 'Title'
+date: 'Teaser Date'
+summary: |-
+  <p>This is the summary, which can contain <abbr title="Hyper Text Markup Language">HTML</abbr> markup. It should be 600 characters or less.</p>

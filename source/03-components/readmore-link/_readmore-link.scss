@@ -1,0 +1,31 @@
+// @file
+// Styles for Read More Link.
+
+@use '00-config' as *;
+@use '01-global' as *;
+
+.readmore-link {
+  padding-right: 28px;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    path {
+      fill: gesso-color(text, link-hover);
+    }
+  }
+}
+
+.readmore-link__icon {
+  display: inline-block;
+  margin-right: -28px;
+  position: relative;
+  top: 8px;
+  path {
+    fill: gesso-color(text, link);
+  }
+  width: 28px;
+}
+
+.readmore-link__accessibility-description {
+  @extend %visually-hidden;
+}
