@@ -1,0 +1,26 @@
+// Box Shadows
+
+@use 'sass:math';
+@use '00-config' as *;
+
+$shadow-swatch: rem(200px);
+$shadow-gutter: rem(50px);
+
+.gesso-storybook-box-shadow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gesso-storybook-box-shadow__item {
+  display: flex;
+  flex: 0 0 $shadow-swatch;
+  height: $shadow-swatch;
+  margin: 0 math.div($shadow-gutter, 2) $shadow-gutter;
+  width: $shadow-swatch;
+}
+
+.gesso-storybook-box-shadow__label {
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+}

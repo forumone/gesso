@@ -1,0 +1,37 @@
+{% for name, item in gesso.typography['font-family'] %}
+
+  {# {% set stack = item.stack|replace({'\\' : ""})  %} #}
+  {% set stack = item.stack %}
+  {% set font_family = 'font-family: ' ~ stack ~ ';' %}
+
+  <div class="gesso-storybook-font">
+    <h3 class="gesso-storybook-font__family" style='{{font_family}}'>
+      {{item.name}}
+    </h3>
+
+    {% for key, weight in gesso.typography['font-weight'] %}
+      {% set font_weight = 'font-weight: ' ~ weight ~ ';' %}
+
+      {% set preview_style = 'font-style: normal;' ~ font_weight ~ font_family %}
+
+      <div class="gesso-storybook-font__item">
+        <div class="gesso-storybook-font__preview-character" style='{{preview_style}}'>AaBbCc</div>
+        <div class="gesso-storybook-font__preview" style='{{preview_style}}'>
+          ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br/>1234567890(,.;:?!$&*)
+        </div>
+        <div class="gesso-storybook-font__preview-meta">
+          <div class="gesso-storybook-font__name">{{item.name }}</div>
+          <div class="gesso-storybook-font__weight">
+            <span class="gesso-storybook-font__label">Weight:</span>
+            {{ weight }}
+          </div>
+          <div class="gesso-storybook-font__style">
+            <span class="pattern-lab-font__label">Style:</span>
+            {{ stack }}
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+  </div>
+{% endfor %}

@@ -1,5 +1,5 @@
 ---
-homepage_hero_image: 'https://picsum.photos/1600/800?image=62'
+homepage_hero_image: '<img src="https://picsum.photos/1600/800?image=62" alt="alt text">'
 homepage_hero_title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'
 homepage_hero_summary: |-
   <p>Optional extra supporting/explanatory text goes here.</p>

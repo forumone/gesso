@@ -1,6 +1,6 @@
 ---
 body_class: 'front'
-hero_image: 'https://picsum.photos/1600/800/?image=96&gravity=north'
+hero_image: '<img src="https://picsum.photos/1600/800/?image=96&gravity=north" alt="alt text">'
 hero_title: "Where’d You Get The Coconuts?"
 hero_summary: |-
   <p>The swallow may fly south with the sun, and the house martin or the plover

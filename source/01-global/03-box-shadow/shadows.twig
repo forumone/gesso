@@ -1,0 +1,11 @@
+<div class="gesso-storybook-box-shadow">
+  {% for  elevation, box_shadow in gesso['box-shadow'] %}
+    {% set box_style = 'box-shadow: '~ box_shadow ~';' %}
+    <div class="gesso-storybook-box-shadow__item" style="{{box_style}}">
+      <div class="gesso-storybook-box-shadow__label">
+        Elevation Level
+        {{elevation}}
+      </div>
+    </div>
+  {% endfor %}
+</div>
