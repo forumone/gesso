@@ -3,7 +3,7 @@ import React from 'react';
 import twigTemplate from './definition-list.twig';
 
 const settings = {
-  title: 'Global/Definition List',
+  title: 'Global/HTML Elements/Definition List',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

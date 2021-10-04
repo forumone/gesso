@@ -3,7 +3,7 @@ import React from 'react';
 import twigTemplate from './paragraph.twig';
 
 const settings = {
-  title: 'Global/Paragraph',
+  title: 'Global/HTML Elements/Paragraph',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

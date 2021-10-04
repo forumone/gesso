@@ -3,7 +3,7 @@ import React from 'react';
 import twigTemplate from './headings.twig';
 
 const settings = {
-  title: 'Global/Headings',
+  title: 'Global/HTML Elements/Headings',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

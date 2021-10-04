@@ -3,7 +3,7 @@ import React from 'react';
 import twigTemplate from './table-with-row-headers.twig';
 
 const settings = {
-  title: 'Global/Table/Table with Row Headers',
+  title: 'Global/HTML Elements/Table/Table with Row Headers',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

@@ -3,7 +3,7 @@ import React from 'react';
 import twigTemplate from './ordered-list.twig';
 
 const settings = {
-  title: 'Global/Ordered List',
+  title: 'Global/HTML Elements/Ordered List',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

@@ -3,7 +3,7 @@ import React from 'react';
 import twigTemplate from './table.twig';
 
 const settings = {
-  title: 'Global/Table',
+  title: 'Global/HTML Elements/Table',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

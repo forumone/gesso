@@ -4,7 +4,7 @@ import twigTemplate from './blockquote.twig';
 import data from './blockquote.yml';
 
 const settings = {
-  title: 'Global/Blockquote',
+  title: 'Global/HTML Elements/Blockquote',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

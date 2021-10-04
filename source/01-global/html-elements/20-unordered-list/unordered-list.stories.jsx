@@ -3,7 +3,7 @@ import React from 'react';
 import twigTemplate from './unordered-list.twig';
 
 const settings = {
-  title: 'Global/Unordered List',
+  title: 'Global/HTML Elements/Unordered List',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

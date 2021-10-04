@@ -3,7 +3,7 @@ import React from 'react';
 import twigTemplate from './preformatted-text.twig';
 
 const settings = {
-  title: 'Global/Preformatted Text',
+  title: 'Global/HTML Elements/Preformatted Text',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

@@ -3,7 +3,7 @@ import React from 'react';
 import twigTemplate from './horizontal-rule.twig';
 
 const settings = {
-  title: 'Global/Horizontal Rule',
+  title: 'Global/HTML Elements/Horizontal Rule',
   parameters: {
     controls: { hideNoControlsWarning: true },
   },
