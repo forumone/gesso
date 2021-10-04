@@ -5,11 +5,11 @@
   "main": "js/dist/scripts.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --config ./webpack.theme-config.js && webpack --watch --config ./webpack.dev.js",
+    "start": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "dev": "concurrently --raw \"npm run start\" \"npm run storybook\"",
+    "dev": "npm run start && concurrently --raw \"webpack watch --config ./webpack.dev.js\" \"npm run storybook\"",
     "component": "node lib/component.js"
   },
   "author": "Forum One",
