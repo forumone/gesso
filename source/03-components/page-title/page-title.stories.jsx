@@ -1,9 +1,9 @@
 import React from "react";
 
-import pageTitleTwig from "./page-title.twig";
-import pageTitleData from "./page-title.yml";
+import twigTemplate from './page-title.twig';
+import globalData from '../../00-config/storybook.global-data.yml';
 
-export default {
+const settings = {
   title: "Components/Page Title",
   argTypes: {
     page_title: {
@@ -16,17 +16,23 @@ export default {
       },
     },
   },
+  parameters: {
+    controls: {
+      include: ['page_title', 'modifier_classes']
+    }
+  },
 };
 
-const PageTitle = (args) => (
+const PageTitle = args => (
   <div
     dangerouslySetInnerHTML={{
-      __html: pageTitleTwig({
-        ...pageTitleData,
+      __html: twigTemplate({
         ...args,
       }),
     }}
   />
 );
+PageTitle.args = { ...globalData };
 
+export default settings;
 export { PageTitle };

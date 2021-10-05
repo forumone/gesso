@@ -1,10 +1,10 @@
 import React from "react";
 
-import siteNameTwig from "./site-name.twig";
-import siteNameData from "./site-name.yaml";
+import twigTemplate from './site-name.twig';
+import globalData from '../../00-config/storybook.global-data.yml';
 
-export default {
-  title: "Components/Site Name",
+const settings = {
+  title: 'Components/Site Name',
   argTypes: {
     url: {
       type: "string",
@@ -26,6 +26,9 @@ export default {
     },
   },
   parameters: {
+    controls: {
+      include: ['site_name', 'url', 'modifier_classes']
+    },
     docs: {
       description: {
         component: "The site title, displayed prominently in the header.",
@@ -34,14 +37,16 @@ export default {
   },
 };
 
-const siteName = (args) => (
+const SiteName = args => (
   <div
     dangerouslySetInnerHTML={{
-      __html: siteNameTwig({
+      __html: twigTemplate({
         ...args,
       }),
     }}
   />
 );
-siteName.args = { ...siteNameData };
-export { siteName };
+SiteName.args = { ...globalData };
+
+export default settings;
+export { SiteName };

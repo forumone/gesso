@@ -1,9 +1,7 @@
 // @file
 // Component: Hero with Background Image
-@use '00-config/functions/gesso' as *;
-@use '00-config/functions/unit-convert' as *;
-@use '00-config/mixins/breakpoint' as *;
-@use '00-config/mixins/display-text-style' as *;
+
+@use '00-config' as *;
 
 $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 

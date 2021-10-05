@@ -1,0 +1,53 @@
+// @file
+// Blockquote styles.
+
+@use '00-config' as *;
+
+$blockquote-cite-divider-color: gesso-color(ui, generic, border);
+
+blockquote {
+  @include display-text-style(blockquote);
+  margin: 0 0 rem(gesso-spacing(5));
+
+  // Add top margin when blockquote is preceded by other elements
+  * + & {
+    margin-top: rem(gesso-spacing(5));
+  }
+
+  p {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+
+    &::before {
+      content: '\201C';
+    }
+
+    &::after {
+      content: '\201D';
+    }
+  }
+
+  cite {
+    display: block;
+    margin-top: rem(gesso-spacing(2));
+    text-align: right;
+
+    em {
+      border-left: 1px solid $blockquote-cite-divider-color;
+      font-weight: gesso-font-weight(regular);
+      margin-left: rem(gesso-spacing(0.5));
+      padding-left: rem(gesso-spacing(1));
+    }
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  @media print {
+    page-break-inside: avoid;
+  }
+}

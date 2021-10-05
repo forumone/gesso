@@ -1,0 +1,6 @@
+---
+type: 'error'
+heading: 'Error message'
+messages:
+  - 'Error message one'
+  - 'Error message two'

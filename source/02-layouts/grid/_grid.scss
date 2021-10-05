@@ -1,0 +1,106 @@
+// @file
+// Styles for Grid Layout.
+
+@use '00-config' as *;
+
+$grid-gutter: gesso-get-map(gutter-width);
+
+.l-grid {
+  @include flex-grid(1, $grid-gutter, 0);
+
+  @supports (display: grid) {
+    @include css-fixed-grid(1);
+  }
+}
+
+.l-grid--2-col {
+  @include flex-grid(1, $grid-gutter, 0);
+
+  @supports (display: grid) {
+    @include css-fixed-grid(1);
+  }
+
+  @include breakpoint(600px) {
+    > * {
+      @include set-flex-column(2, $grid-gutter, 275px);
+    }
+
+    @supports (display: grid) {
+      @include set-css-fixed-columns(2, $grid-gutter, true);
+    }
+  }
+}
+
+.l-grid--3-col {
+  @include flex-grid(1, $grid-gutter, 0);
+
+  @supports (display: grid) {
+    @include css-fixed-grid(1);
+  }
+
+  @include breakpoint(760px) {
+    > * {
+      @include set-flex-column(3, $grid-gutter, 275px);
+    }
+
+    @supports (display: grid) {
+      @include set-css-fixed-columns(3, $grid-gutter, true);
+    }
+  }
+}
+
+.l-grid--4-col {
+  @include flex-grid(1, $grid-gutter, 0);
+
+  @supports (display: grid) {
+    @include css-fixed-grid(1);
+  }
+
+  @include breakpoint-min-max(600px, 800px) {
+    > * {
+      @include set-flex-column(2, $grid-gutter, 275px);
+    }
+
+    @supports (display: grid) {
+      @include set-css-fixed-columns(2, $grid-gutter, true);
+    }
+  }
+
+  @include breakpoint(801px) {
+    > * {
+      @include set-flex-column(4, $grid-gutter, 0);
+    }
+
+    @supports (display: grid) {
+      @include set-css-fixed-columns(4, $grid-gutter, true);
+    }
+  }
+}
+
+.l-grid--6-col {
+  @include flex-grid(1, $grid-gutter, 0);
+
+  @supports (display: grid) {
+    @include css-fixed-grid(1);
+  }
+
+  @include breakpoint-min-max(600px, 999px) {
+    > * {
+      @include set-flex-column(3, $grid-gutter, 0);
+    }
+
+    @supports (display: grid) {
+      @include set-css-fixed-columns(3, $grid-gutter, true);
+    }
+  }
+
+  @include breakpoint(1000px) {
+    > * {
+      @include set-flex-column(6, $grid-gutter, 0);
+    }
+
+    @supports (display: grid) {
+      @include set-css-fixed-columns(6, $grid-gutter, true);
+    }
+  }
+}

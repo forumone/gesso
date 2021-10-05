@@ -1,0 +1,20 @@
+// @file
+// Horizontal rule styles.
+
+@use '00-config' as *;
+
+$horizontal-rule-color: gesso-color(ui, generic, border);
+
+hr {
+  border: 1px solid $horizontal-rule-color;
+  border-width: 1px 0 0;
+  box-sizing: content-box;
+  height: 0;
+  margin: 0 0 rem(gesso-spacing(3));
+  overflow: auto; // Fix for when next to a floated element.
+
+  // Add top margin when preceded by another element.
+  * + & {
+    margin-top: rem(gesso-spacing(3));
+  }
+}

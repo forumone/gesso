@@ -1,0 +1,15 @@
+// @file
+// IMG element styles.
+
+img {
+  border: 0;
+  font-style: italic; // Makes alt text stand out from surrounding text.
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+
+  @media print {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}

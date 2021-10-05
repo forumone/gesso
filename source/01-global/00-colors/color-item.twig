@@ -1,0 +1,23 @@
+{% if color is iterable %}
+  {% set color_label = color['sass'] %}
+  {% set color_value = color['fallback'] is empty ? color['sass'] : color['fallback'] %}
+{% else %}
+  {% set color_label = color %}
+  {% set color_value = color %}
+{% endif %}
+{% set style = 'background-color:' ~ color_value  ~ ';' %}
+
+<div class="gesso-storybook-color-swatch">
+  <div class="gesso-storybook-color-swatch__indicator" style="{{ style }}"></div>
+  <div class="gesso-storybook-color-swatch__meta">
+    <div class="gesso-storybook-color-swatch__name">{{ name }}</div>
+    <div class="gesso-storybook-color-swatch__hex">
+      {% if color_value is same as(color_label) %}
+        {{ color_value }}
+      {% else %}
+        {{ color_value }}
+        <code class="gesso-storybook-color-swatch__sass-code">{{ color_label }}</code>
+      {% endif %}
+    </div>
+  </div>
+</div>

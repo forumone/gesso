@@ -1,0 +1,8 @@
+{% set classes = [
+  'author',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<div {{ add_attributes({ 'class': classes }) }}>
+  <a href="{{ url }}">{{ author }}</a>
+</div>

@@ -1,0 +1,16 @@
+<div class="gesso-storybook-easing">
+  <div class="gesso-storybook-easing__help-text">
+    (Hover to demo easing)
+  </div>
+  <div class="gesso-storybook-easing__group">
+    {% for label, ease in gesso.transitions.ease %}
+      <div class="gesso-storybook-easing__item">
+        {% set ease_style = 'transition-timing-function: '~ ease ~';' %}
+        <div class="gesso-storybook-easing__indicator" style="{{ease_style}}"></div>
+        <div class="gesso-storybook-easing__label">
+          {{label}}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

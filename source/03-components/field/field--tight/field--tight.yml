@@ -1,0 +1,9 @@
+---
+is_demo: true
+element: 'div'
+label: 'Field Label'
+label_hidden: false
+label_element: 'h3'
+field_items:
+  -
+    content: 'Field Item'

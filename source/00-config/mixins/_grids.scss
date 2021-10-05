@@ -1,0 +1,127 @@
+// @file
+// Flex Grid mixins
+
+@use 'sass:math';
+@use '../functions' as *;
+
+// Set flex column width.
+// @param {Number} $columns Number of columns. 1 or 0 result in a single column.
+// @param {String} $gutter-width Pixel value for width of column gutters.
+// @param {String} $item-min-width Pixel value to set a minimum column width.
+@mixin set-flex-column(
+  $columns: 1,
+  $gutter-width: gesso-get-map(gutter-width),
+  $item-min-width: false
+) {
+  $column-percentage: if($columns > 0, percentage(math.div(1, $columns)), 100%);
+
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-bottom: rem($gutter-width);
+  margin-left: rem(math.div($gutter-width, 2));
+  margin-right: rem(math.div($gutter-width, 2));
+  width: calc(#{$column-percentage} - #{rem($gutter-width)});
+
+  @if $item-min-width {
+    min-width: rem($item-min-width);
+  }
+}
+
+// Set flex grid layout
+// @param {Number} $columns Number of columns. 1 or 0 result in a single column.
+// @param {String} $gutter-width Pixel value for width of column gutters.
+// @param {String} $item-min-width Pixel value to set a minimum column width.
+@mixin flex-grid(
+  $columns: 1,
+  $gutter-width: gesso-get-map(gutter-width),
+  $item-min-width: 300px
+) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: rem(math.div(-$gutter-width, 2));
+  margin-right: rem(math.div(-$gutter-width, 2));
+
+  > * {
+    @include set-flex-column($columns, $gutter-width, $item-min-width);
+  }
+}
+
+// CSS grid reset for flex parent and children items.
+// Remove flex constrains and margins.
+@mixin css-grid-reset {
+  margin-left: 0;
+  margin-right: 0;
+
+  > * {
+    margin: 0;
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+// Set auto fit grid template.
+// @param {String} $item-min-width Pixel value to set a minimum column width.
+// @param {String} $gutter-width Pixel value for width of column gutters.
+// @param {Boolean} $flex-override Whether to set override for grid cells.
+@mixin set-css-autofit-columns(
+  $item-min-width,
+  $gutter-width,
+  $flex-override: false
+) {
+  grid-template-columns: repeat(auto-fit, minmax(#{$item-min-width}, 1fr));
+
+  @if $gutter {
+    grid-gap: rem($gutter-width);
+  }
+
+  @if $flex-override {
+    > * {
+      margin: 0;
+      min-width: 0;
+      width: 100%;
+    }
+  }
+}
+
+// Set fixed grid template.
+// @param {Number} $columns Number of columns. 1 or 0 result in a single column.
+// @param {String} $gutter-width Pixel value for width of column gutters.
+// @param {Boolean} $flex-override Whether to set override for grid cells.
+@mixin set-css-fixed-columns($columns, $gutter-width, $flex-override: false) {
+  $column-adjust: if($columns < 1, 1, $columns);
+  grid-template-columns: repeat($column-adjust, 1fr);
+
+  @if $gutter-width {
+    grid-gap: rem($gutter-width);
+  }
+
+  @if $flex-override {
+    > * {
+      margin: 0;
+      min-width: 0;
+      width: 100%;
+    }
+  }
+}
+
+// Create auto fit grid
+// @param {String} $item-min-width Pixel value to set a minimum column width.
+// @param {String} $gutter-width Pixel value for width of column gutters.
+@mixin css-autofit-grid(
+  $item-min-width: 300px,
+  $gutter-width: gesso-get-map(gutter-width)
+) {
+  @include css-grid-reset;
+  @include set-css-autofit-columns($item-min-width, $gutter-width);
+  display: grid;
+}
+
+// Create fixed grid.
+// @param {Number} $columns Number of columns. 1 or 0 result in a single column.
+// @param {String} $gutter-width Pixel value for width of column gutters.
+@mixin css-fixed-grid($columns: 1, $gutter-width: gesso-get-map(gutter-width)) {
+  @include css-grid-reset;
+  @include set-css-fixed-columns($columns, $gutter-width);
+  display: grid;
+}

@@ -1,0 +1,6 @@
+{% set classes = [
+  'site-slogan',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<span {{ add_attributes({ 'class': classes })}}>{{ site_slogan }}</span>

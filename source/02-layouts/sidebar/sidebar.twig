@@ -1,0 +1,68 @@
+{% set classes = [
+  'l-sidebar',
+  has_multiple_sidebar ? ' l-sidebar--multi-2' : '',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set sidebar_header_classes = [
+  'l-sidebar__full',
+]|join(' ')|trim %}
+
+{% set sidebar_first_classes = [
+  'l-sidebar__sidebar',
+]|join(' ')|trim %}
+
+{% set sidebar_main_classes = [
+  'l-sidebar__main',
+]|join(' ')|trim %}
+
+{% set sidebar_second_classes = [
+  'l-sidebar__sidebar',
+]|join(' ')|trim %}
+
+{% if is_demo and not sidebar_header_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
+  {% set sidebar_header_content = macros.sample_content('Header Content') %}
+{% endif %}
+
+{% if is_demo and not sidebar_first_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
+  {% set sidebar_first_content = macros.sample_content('Optional Sidebar Content') %}
+{% endif %}
+
+{% if is_demo and not sidebar_main_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
+  {% set sidebar_main_content = macros.sample_content('Main Content') %}
+{% endif %}
+
+{% if is_demo and not sidebar_second_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
+  {% set sidebar_second_content = macros.sample_content('Optional Sidebar Content') %}
+{% endif %}
+
+<div {{ add_attributes({ 'class': classes }) }}>
+
+  {% if sidebar_header_content %}
+    <div {{ add_attributes({ 'class': sidebar_header_classes }, 'region_attributes.header') }}>
+      {{ sidebar_header_content }}
+    </div>
+  {% endif %}
+
+  {% if sidebar_first_content %}
+    <aside {{ add_attributes({ 'class': sidebar_first_classes }, 'region_attributes.sidebar_first') }}>
+      {{ sidebar_first_content }}
+    </aside>
+  {% endif %}
+
+  {% if sidebar_main_content %}
+    <div {{ add_attributes({ 'class': sidebar_main_classes }, 'region_attributes.main') }}>
+      {{ sidebar_main_content }}
+    </div>
+  {% endif %}
+
+  {% if sidebar_second_content %}
+    <aside {{ add_attributes({ 'class': sidebar_second_classes }, 'region_attributes.sidebar_second') }}>
+      {{ sidebar_second_content }}
+    </aside>
+  {% endif %}
+</div>

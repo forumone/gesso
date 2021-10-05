@@ -1,0 +1,43 @@
+// Duration
+
+@use 'sass:math';
+@use '00-config' as *;
+
+$duration-swatch: rem(40px);
+
+.gesso-storybook-duration {
+  margin-bottom: 1rem;
+}
+
+.gesso-storybook-duration__help-text {
+  margin-bottom: 1rem;
+}
+.gesso-storybook-duration__indicator {
+  background-color: #666;
+  border-radius: 50%;
+  display: inline-block;
+  height: $duration-swatch;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: all 2s ease-out;
+  width: $duration-swatch;
+}
+
+.gesso-storybook-duration__item {
+  flex: 0 0 rem(150px);
+  padding: 1rem;
+  text-align: center;
+}
+
+.gesso-storybook-duration__group {
+  background-color: #eee;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+
+  &:hover {
+    .gesso-storybook-duration__indicator {
+      transform: scale(1.5);
+    }
+  }
+}

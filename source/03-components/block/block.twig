@@ -1,0 +1,51 @@
+{% set classes = [
+  'block',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set title_classes = [
+  'block__title',
+]|join(' ')|trim %}
+
+{% set content_classes = [
+  'block__content',
+]|join(' ')|trim %}
+
+{% set constrain_classes = [
+  'l-constrain',
+  constrain_modifier_classes ? constrain_modifier_classes,
+]|join(' ')|trim %}
+
+{% if not hide_wrapper %}
+  <div {{ add_attributes({ 'class': classes }) }}>
+{% endif %}
+
+  {% if has_constrain %}
+    <div {{ add_attributes({ 'class': constrain_classes }) }}>
+  {% endif %}
+
+  {{ title_prefix }}
+  {% if label %}
+    <{{ label_element ?: 'h2' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>{{ label }}</{{ label_element ?: 'h2' }}>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if not hide_content_wrapper %}
+    <div {{ add_attributes({ 'class': content_classes }, 'content_attributes') }}>
+  {% endif %}
+
+  {% block content %}
+    {{ block_content }}
+  {% endblock %}
+
+  {% if not hide_content_wrapper %}
+    </div>
+  {% endif %}
+
+  {% if has_constrain %}
+    </div>
+  {% endif %}
+
+{% if not hide_wrapper %}
+  </div>
+{% endif %}

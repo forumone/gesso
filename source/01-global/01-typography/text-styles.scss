@@ -1,0 +1,11 @@
+// Text Styles
+
+@use '00-config' as *;
+
+.gesso-storybook-text-style {
+  margin-bottom: 3rem;
+}
+
+.gesso-storybook-text-style__label {
+  text-transform: uppercase;
+}

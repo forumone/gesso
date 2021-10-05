@@ -1,0 +1,66 @@
+{% set classes = [
+  'view',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<{{ element ?: 'div' }} {{ add_attributes({ 'class': classes })}}>
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if header %}
+    <div class="view__header">
+      {{- header -}}
+    </div>
+  {% endif %}
+
+  {% if exposed %}
+    <div class="view__filters">
+      {{- exposed -}}
+    </div>
+  {% endif %}
+
+  {% if attachment_before %}
+    <div class="attachment attachment--before">
+      {{- attachment_before -}}
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    <div class="view__content">
+      {{- rows -}}
+    </div>
+  {% elseif empty %}
+    <div class="view__empty">
+      {{- empty -}}
+    </div>
+  {% endif %}
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+
+  {% if attachment_after %}
+    <div class="attachment attachment--after">
+      {{- attachment_after -}}
+    </div>
+  {% endif %}
+
+  {% if more %}
+    {{ more }}
+  {% endif %}
+
+  {% if footer %}
+    <div class="view__footer">
+      {{- footer -}}
+    </div>
+  {% endif %}
+
+  {% if feed_icons %}
+    <div class="feed-icons">
+      {{- feed_icons -}}
+    </div>
+  {% endif %}
+</{{ element ?: 'div' }}>

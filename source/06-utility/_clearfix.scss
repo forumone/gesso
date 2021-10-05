@@ -1,0 +1,9 @@
+// @file
+// Clearfix utility class
+
+@use '00-config' as *;
+
+.clearfix,
+.u-clearfix {
+  @include clearfix;
+}

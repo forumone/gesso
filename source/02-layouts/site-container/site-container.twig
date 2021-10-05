@@ -1,0 +1,15 @@
+{% set classes = [
+  'l-site-container',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if is_demo and not site_container_content %}
+  {% import '@global/gesso.macro.twig' as macros %}
+  {% set site_container_content = macros.sample_content('Site Container Layout Content') %}
+{% endif %}
+
+<div {{ add_attributes({ 'class': classes }) }}>
+  {% block site_content %}
+    {{ site_container_content }}
+  {% endblock %}
+</div>

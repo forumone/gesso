@@ -1,0 +1,13 @@
+// @file
+// Preformatted text styles.
+
+@use '00-config' as *;
+
+pre {
+  margin: 0 0 rem(gesso-spacing(2));
+  overflow: auto;
+
+  @media print {
+    page-break-inside: avoid;
+  }
+}

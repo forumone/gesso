@@ -1,5 +1,4 @@
 ---
-modifier_classes: ''
 list:
   -
     content: 'List Item One'
@@ -9,3 +8,4 @@ list:
     content: 'List Item Three'
   -
     content: 'List Item Four'
+modifier_classes: ''

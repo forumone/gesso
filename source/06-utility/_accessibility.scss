@@ -1,7 +1,7 @@
 // @file
 // Accessibility utility classes
 
-@use '00-config/mixins/accessibility' as *;
+@use '00-config' as *;
 
 .visually-hidden,
 .u-visually-hidden {

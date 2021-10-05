@@ -1,0 +1,23 @@
+{% macro readmore(url, title, label = "Read more", description_prefix = "about" ) %}
+  {% include '@components/readmore-link/readmore-link.twig' with {
+    'url': url,
+    'label': label,
+    'description_prefix': description_prefix,
+    'title': title
+  } %}
+{% endmacro %}
+
+{% macro tag(url, title, type = "full", size = "normal" ) %}
+  {% include '@components/tag/tag.twig' with {
+    'url': url,
+    'title': title,
+    'type': type,
+    'size': size
+  } %}
+{% endmacro %}
+
+{% macro sample_content(content = 'Example Content') %}
+  <div style="background:#333;border:1px solid #fff;color:#fff;padding:1em;">
+    {{ content }}
+  </div>
+{% endmacro %}

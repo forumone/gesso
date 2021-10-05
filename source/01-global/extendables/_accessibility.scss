@@ -1,0 +1,31 @@
+// @file
+// Accessibility utility classes
+//
+// Included from global/helpers/_accessibility.scss.
+
+@use '00-config' as *;
+
+%visually-hidden {
+  @include visually-hidden;
+}
+
+%visually-hidden-off {
+  @include visually-hidden-off;
+}
+
+%focusable {
+  @extend %visually-hidden;
+
+  &:focus,
+  &:active {
+    @extend %visually-hidden-off;
+  }
+}
+
+%hidden {
+  @include hidden;
+}
+
+%invisible {
+  @include invisible;
+}

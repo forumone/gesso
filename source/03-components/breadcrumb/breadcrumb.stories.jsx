@@ -1,12 +1,22 @@
 import React from 'react';
 
-import breadcrumbTwig from './breadcrumb.twig';
-import breadcrumbData from './breadcrumb.yml';
+import twigTemplate from './breadcrumb.twig';
+import data from './breadcrumb.yml';
 
-export default { title: 'Components/Breadcrumb' };
+const settings = {
+  title: 'Components/Breadcrumb',
+};
 
-const Breadcrumb = () => (
-  <div dangerouslySetInnerHTML={{ __html: breadcrumbTwig(breadcrumbData) }} />
+const Breadcrumb = args => (
+  <div
+    dangerouslySetInnerHTML={{
+      __html: twigTemplate({
+        ...args,
+      }),
+    }}
+  />
 );
+Breadcrumb.args = { ...data };
 
+export default settings;
 export { Breadcrumb };

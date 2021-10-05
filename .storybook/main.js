@@ -26,6 +26,7 @@ module.exports = {
                 layouts: resolve(__dirname, '../', 'source/02-layouts'),
                 components: resolve(__dirname, '../', 'source/03-components'),
                 templates: resolve(__dirname, '../', 'source/04-templates'),
+                pages: resolve(__dirname, '../', 'source/05-pages'),
               },
             },
           },

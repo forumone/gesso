@@ -1,0 +1,18 @@
+{% set row_classes = [
+  'view__row',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if title %}
+  <{{ title_element ?: 'h3' }}>{{ title }}</{{ title_element ?: 'h3' }}>
+{% endif %}
+
+{% for row in rows %}
+  {% if has_wrapper %}
+    <{{ element ?: 'div' }} {{ add_attributes({ 'class': row_classes }, 'row.attributes') }}>
+      {{ row.content }}
+    </{{ element ?: 'div' }}>
+  {% else %}
+    {{ row.content }}
+  {% endif %}
+{% endfor %}

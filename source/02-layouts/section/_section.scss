@@ -1,0 +1,8 @@
+// @file
+// Styles for Section Layout.
+
+@use '00-config' as *;
+
+.l-section {
+  margin-bottom: rem(gesso-spacing(5));
+}

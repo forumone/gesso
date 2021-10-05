@@ -1,0 +1,17 @@
+<div class="gesso-storybook-duration">
+  <div class="gesso-storybook-duration__help-text">
+    (Hover to demo duration)
+  </div>
+  <div class="gesso-storybook-duration__group">
+    {% for label, duration in gesso.transitions.duration %}
+      <div class="gesso-storybook-duration__item">
+        {% set duration_style = 'transition-duration: '~ duration ~';' %}
+        <div class="gesso-storybook-duration__indicator" style="{{duration_style}}"></div>
+        <div class="gesso-storybook-duration__label">
+          <div class="gesso-storybook-duration__name">{{label}}</div>
+          <div class="gesso-storybook-duration__duration">{{duration}}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
