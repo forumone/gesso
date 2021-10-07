@@ -5,18 +5,18 @@ global:
 main-menu:
   css:
     theme:
-      dist/css/03-components/menu/menu.css: {}
+      dist/css/menu.css: {}
   js:
-      dist/js/03-components/menu/primary-menu.es6.js: {}
-      dist/js/03-components/menu/mobile-menu.es6.js: {}
+      dist/js/primary-menu.es6.js: {}
+      dist/js/mobile-menu.es6.js: {}
 hero_bg_image:
   css:
     theme:
-      dist/css/03-components/hero-bg-image/hero-bg-image.css: {}
+      dist/css/hero-bg-image.css: {}
 hero_inline_image:
   css:
     theme:
-      dist/css/03-components/hero-inline-image/hero-inline-image.css: {}
+      dist/css/hero-inline-image.css: {}
 details:
   version: VERSION
   js:

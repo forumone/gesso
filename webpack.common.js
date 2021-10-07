@@ -17,8 +17,8 @@ module.exports = {
         const filePaths = currentFile.split(path.sep);
         const sourceDirIndex = filePaths.indexOf('source');
         if (sourceDirIndex >= 0) {
-          const filePath = path.join(...filePaths.slice(sourceDirIndex + 1));
-          const newFilePath = `js/${filePath.replace('.js', '')}`;
+          const fileName = path.basename(currentFile, '.js');
+          const newFilePath = `js/${fileName}`;
           updatedEntries[newFilePath] = {
             import: path.resolve(__dirname, currentFile),
             dependOn: 'design-tokens',
@@ -36,12 +36,12 @@ module.exports = {
         const filePaths = currentFile.split(path.sep);
         const sourceDirIndex = filePaths.indexOf('source');
         if (sourceDirIndex >= 0) {
-          const filePath = path.join(...filePaths.slice(sourceDirIndex + 1));
-          const newFilePath = `css/${filePath.replace('.scss', '')}`;
+          const fileName = path.basename(currentFile, '.scss');
+          const newFilePath = `css/${fileName}`;
           updatedEntries[newFilePath] = {
             import: `./${currentFile}`,
             dependOn: 'design-tokens',
-        };
+          };
         }
         return updatedEntries;
       }, {});
@@ -60,7 +60,7 @@ module.exports = {
             folder: './dist/css',
             method: absolutePath =>
               new RegExp(/\.js(\.map)?$/, 'm').test(absolutePath),
-            recursive: true
+            recursive: true,
           },
         ],
       },
