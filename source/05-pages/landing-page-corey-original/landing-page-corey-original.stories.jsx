@@ -1,14 +1,14 @@
 import React from 'react';
 
-import twigTemplate from './page.twig';
+import twigTemplate from './landing-page.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
-import data from './page.yml';
+import data from './landing-page.yml';
 
 const settings = {
-  title: 'Pages/Page',
+  title: 'Pages/Corey Original/Landing Page',
 };
 
-const Page = args => (
+const LandingPage = args => (
   <div
     dangerouslySetInnerHTML={{
       __html: twigTemplate({
@@ -17,7 +17,7 @@ const Page = args => (
     }}
   />
 );
-Page.args = { ...globalData, ...data };
+LandingPage.args = { ...globalData, ...data };
 
 export default settings;
-export { Page };
+export { LandingPage };

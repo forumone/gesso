@@ -1,14 +1,14 @@
 import React from 'react';
 
-import twigTemplate from './article.twig';
+import twigTemplate from './page.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
-import data from './article.yml';
+import data from './page.yml';
 
 const settings = {
-  title: 'Pages/Article',
+  title: 'Pages/Corey Original/Page',
 };
 
-const Article = args => (
+const Page = args => (
   <div
     dangerouslySetInnerHTML={{
       __html: twigTemplate({
@@ -17,7 +17,7 @@ const Article = args => (
     }}
   />
 );
-Article.args = { ...globalData, ...data };
+Page.args = { ...globalData, ...data };
 
 export default settings;
-export { Article };
+export { Page };

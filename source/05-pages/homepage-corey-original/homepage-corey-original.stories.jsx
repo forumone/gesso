@@ -5,7 +5,7 @@ import globalData from '../../00-config/storybook.global-data.yml';
 import data from './homepage.yml';
 
 const settings = {
-  title: 'Pages/Homepage',
+  title: 'Pages/Corey Original/Homepage',
 };
 
 const Homepage = args => (
