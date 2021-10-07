@@ -21,7 +21,6 @@ module.exports = {
           const newFilePath = `js/${fileName}`;
           updatedEntries[newFilePath] = {
             import: path.resolve(__dirname, currentFile),
-            dependOn: 'design-tokens',
           };
         }
         return updatedEntries;
@@ -40,7 +39,6 @@ module.exports = {
           const newFilePath = `css/${fileName}`;
           updatedEntries[newFilePath] = {
             import: `./${currentFile}`,
-            dependOn: 'design-tokens',
           };
         }
         return updatedEntries;
@@ -57,7 +55,7 @@ module.exports = {
       after: {
         test: [
           {
-            folder: './dist/css',
+            folder: './css',
             method: absolutePath =>
               new RegExp(/\.js(\.map)?$/, 'm').test(absolutePath),
             recursive: true,
@@ -111,5 +109,8 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'source'), 'node_modules'],
+  },
+  output: {
+    path: path.resolve(__dirname, '.'),
   },
 };
