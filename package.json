@@ -2,7 +2,7 @@
   "name": "gesso5",
   "version": "5.0.0",
   "description": "Drupal starter theme",
-  "main": "js/dist/scripts.min.js",
+  "main": "js/scripts.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.dev.js",
