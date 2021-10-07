@@ -1,22 +1,22 @@
 global:
   css:
     theme:
-      dist/css/styles.css: {}
+      css/styles.css: {}
 main-menu:
   css:
     theme:
-      dist/css/menu.css: {}
+      css/menu.css: {}
   js:
-      dist/js/primary-menu.es6.js: {}
-      dist/js/mobile-menu.es6.js: {}
+    js/primary-menu.es6.js: {}
+    js/mobile-menu.es6.js: {}
 hero_bg_image:
   css:
     theme:
-      dist/css/hero-bg-image.css: {}
+      css/hero-bg-image.css: {}
 hero_inline_image:
   css:
     theme:
-      dist/css/hero-inline-image.css: {}
+      css/hero-inline-image.css: {}
 details:
   version: VERSION
   js:
