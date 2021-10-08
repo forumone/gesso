@@ -1,12 +1,12 @@
 // @file
 // SVG background image
 
-@mixin svg-background($image-name, $image-location: '../images/') {
+@mixin svg-background($image-name, $image-location: 'images/') {
   $url: $image-location + $image-name + '.svg';
   background-image: url($url);
 }
 
-@mixin svgz-background($image-name, $image-location: '../images/') {
+@mixin svgz-background($image-name, $image-location: 'images/') {
   $url: $image-location + $image-name + '.svgz';
   background-image: url($url);
 }

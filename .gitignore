@@ -12,5 +12,4 @@ dependencyGraph.json
 .vscode
 .idea
 design-tokens.js
-*.svg
-!images/**/*.svg
+design-tokens.js.map

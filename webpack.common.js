@@ -71,7 +71,7 @@ module.exports = {
         test: /config\.design-tokens\.yml$/,
         exclude: /node_modules/,
         use: [path.resolve(__dirname, './lib/configLoader.js')],
-        type: 'asset/resource',
+        type: 'asset/source',
       },
       {
         test: /\.(js|jsx)$/,
@@ -98,7 +98,10 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/i,
         exclude: /images\/_sprite-source-files\/.*\.svg$/,
-        loader: 'file-loader',
+        type: 'asset',
+        generator: {
+          filename: 'css/images/[hash][ext][query]',
+        },
       },
     ],
   },
