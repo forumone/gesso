@@ -21,7 +21,7 @@ details.details {
 }
 
 .details__summary {
-  //@include svg-background(plus);
+  @include svg-background(plus);
   background-color: $details-background-color;
   background-position: right $details-padding center; // LTR
   background-repeat: no-repeat;
@@ -43,7 +43,7 @@ details.details {
   }
 
   [open] > & {
-    //@include svg-background(minus);
+    @include svg-background(minus);
   }
 
   &:hover {

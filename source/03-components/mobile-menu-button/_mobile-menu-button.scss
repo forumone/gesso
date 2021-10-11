@@ -32,13 +32,13 @@
 
 .mobile-menu-button--close {
   .mobile-menu-button__icon {
-    //@include svg-background-inline(mobile-close);
+    @include svg-background(mobile-close);
   }
 }
 
 .mobile-menu-button--menu {
   .mobile-menu-button__icon {
-    //@include svg-background-inline(mobile-menu);
+    @include svg-background(mobile-menu);
     background-size: 33px 22px;
     width: 33px;
   }
