@@ -1,7 +1,6 @@
 {% for name, item in gesso.typography['font-family'] %}
 
-  {# {% set stack = item.stack|replace({'\\' : ""})  %} #}
-  {% set stack = item.stack %}
+  {% set stack = item.stack|replace({'/\\/' : ""})  %}
   {% set font_family = 'font-family: ' ~ stack ~ ';' %}
 
   <div class="gesso-storybook-font">
