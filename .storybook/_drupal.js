@@ -16,7 +16,7 @@ window.Drupal = { behaviors: {} };
     const behaviors = Drupal.behaviors;
 
     Object.keys(behaviors).forEach(function (i) {
-      if (typeof behaviors[i].attach === "function") {
+      if (typeof behaviors[i].attach === 'function') {
         try {
           behaviors[i].attach(context, settings);
         } catch (e) {
@@ -24,5 +24,11 @@ window.Drupal = { behaviors: {} };
         }
       }
     });
+  };
+
+  Drupal.t = string => string;
+
+  Drupal.theme = function (themeFunction, options) {
+    return Drupal.theme[themeFunction](options);
   };
 })(Drupal, window.drupalSettings);

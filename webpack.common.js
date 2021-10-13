@@ -128,6 +128,7 @@ module.exports = {
     jquery: 'jQuery',
     drupal: 'Drupal',
     drupalSettings: 'drupalSettings',
+    once: 'once',
   },
   resolve: {
     modules: [path.resolve(__dirname, 'source'), 'node_modules'],
