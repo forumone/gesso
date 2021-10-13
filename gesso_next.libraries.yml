@@ -9,6 +9,8 @@ main-menu:
   js:
     js/primary-menu.es6.js: {}
     js/mobile-menu.es6.js: {}
+  dependencies:
+    - gesso/common
 hero_bg_image:
   css:
     theme:
