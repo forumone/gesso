@@ -7,10 +7,9 @@ source/_patterns/00-config/_design-tokens.artifact.scss
 css
 js
 source/00-config/_GESSO.es6.js
-images/sprite.artifact.svg
+/images
 dependencyGraph.json
 .vscode
 .idea
 design-tokens.js
-*.svg
-!images/**/*.svg
+design-tokens.js.map

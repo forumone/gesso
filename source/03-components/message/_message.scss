@@ -60,7 +60,7 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
   border-color: $message-status-border-color;
 
   &::before {
-    //@include svg-background(messages-status);
+    @include svg-background(messages-status);
   }
 }
 
@@ -69,7 +69,7 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
   border-color: $message-error-border-color;
 
   &::before {
-    //@include svg-background(messages-error);
+    @include svg-background(messages-error);
   }
 
   .message__item {
@@ -85,6 +85,6 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
   border-color: $message-warning-border-color;
 
   &::before {
-    //@include svg-background(messages-warning);
+    @include svg-background(messages-warning);
   }
 }

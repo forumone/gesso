@@ -51,7 +51,7 @@
 
       &.has-subnav::after {
         @include image-replace(16px, 16px);
-        @include svg-background(menu-arrow-down, '../../../images/');
+        @include svg-background(menu-arrow-down);
         background-size: 16px 16px;
         content: '';
         display: block;
@@ -88,7 +88,7 @@
 
       &.has-subnav::after {
         @include image-replace(16px, 16px);
-        @include svg-background(menu-arrow-right, '../../../images/');
+        @include svg-background(menu-arrow-right);
         background-size: 16px 16px;
         content: '';
         display: block;

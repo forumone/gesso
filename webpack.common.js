@@ -3,6 +3,7 @@ const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemovePlugin = require('remove-files-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const dartSass = require('sass');
 
 module.exports = {
@@ -43,8 +44,9 @@ module.exports = {
         }
         return updatedEntries;
       }, {});
+    // const spriteFiles = glob
+    //   .sync()
     return {
-      'design-tokens': './source/00-config/config.design-tokens.yml',
       ...jsFiles,
       ...scssFiles,
     };
@@ -64,6 +66,7 @@ module.exports = {
       },
     }),
     new StylelintPlugin(),
+    new SpriteLoaderPlugin(),
   ],
   module: {
     rules: [
@@ -71,7 +74,7 @@ module.exports = {
         test: /config\.design-tokens\.yml$/,
         exclude: /node_modules/,
         use: [path.resolve(__dirname, './lib/configLoader.js')],
-        type: 'asset/resource',
+        type: 'asset/source',
       },
       {
         test: /\.(js|jsx)$/,
@@ -96,9 +99,28 @@ module.exports = {
         ],
       },
       {
+        test: /images\/_sprite-source-files\/.*\.svg$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              spriteFilename: 'sprite.artifact.svg',
+              outputPath: 'images/',
+            },
+          },
+          'svg-transform-loader',
+          'svgo-loader',
+        ],
+      },
+      {
         test: /\.(png|svg|jpg|gif)$/i,
-        exclude: /images\/_sprite-source-files\/.*\.svg$/,
-        loader: 'file-loader',
+        exclude: [/images\/_sprite-source-files\/.*\.svg$/, '/node_modules/'],
+        type: 'asset',
+        generator: {
+          filename: 'css/images/[hash][ext][query]',
+        },
       },
     ],
   },

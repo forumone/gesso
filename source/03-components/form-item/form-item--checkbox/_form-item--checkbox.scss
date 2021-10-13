@@ -36,7 +36,7 @@
     }
 
     &:checked + .form-item__label::before {
-      //@include svg-background(correct);
+      @include svg-background(correct);
       background-color: gesso-color(form, background-checked);
       background-position: 50%;
       background-repeat: no-repeat;
