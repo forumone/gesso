@@ -6,6 +6,12 @@ package: Custom
 core_version_requirement: ^8.9 || ^9
 libraries:
   - gesso_next/global
+  core/drupal.dropbutton:
+    js:
+      misc/dropbutton/dropbutton.js: js/dropbutton.es6.js
+    css:
+      component:
+        /core/themes/stable/css/core/dropbutton/dropbutton.css: css/dropbutton.css
 dependencies:
   - components
   - gesso_helper
