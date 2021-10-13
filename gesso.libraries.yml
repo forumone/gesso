@@ -1,7 +1,3 @@
-common:
-  version: VERSION
-  js:
-    js/dist/common.min.js: {}
 global:
   version: VERSION
   css:
