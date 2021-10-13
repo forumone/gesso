@@ -96,7 +96,7 @@ $mobile-menu-line-height: gesso-line-height(base);
 .mobile-menu__subnav-arrow {
   @include focus();
   @include image-replace($mobile-menu-button-width, $mobile-menu-button-height);
-  //@include svg-background-inline(mobile-arrow-down);
+  @include svg-background(mobile-arrow-down);
   background-attachment: initial;
   background-color: initial;
   background-position: 50%;
@@ -121,7 +121,7 @@ $mobile-menu-line-height: gesso-line-height(base);
   }
 
   &[aria-expanded='true'] {
-    //@include svg-background-inline(mobile-arrow-up);
+    @include svg-background(mobile-arrow-up);
   }
 }
 
