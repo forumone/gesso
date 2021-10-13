@@ -35,7 +35,17 @@ module.exports = {
     });
 
     config.module.rules.push({
+      test: /config\.design-tokens\.yml$/,
+      exclude: /node_modules/,
+      use: [
+        'js-yaml-loader',
+        path.resolve(__dirname, '../lib/configLoader.js'),
+      ],
+    });
+
+    config.module.rules.push({
       test: /\.ya?ml$/,
+      exclude: /config\.design-tokens\.yml$/,
       loader: 'js-yaml-loader',
     });
 
