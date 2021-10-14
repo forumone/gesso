@@ -67,9 +67,9 @@ module.exports = {
     });
 
     config.externals = {
-      jquery: 'jQuery',
       drupal: 'Drupal',
       drupalSettings: 'drupalSettings',
+      once: 'once',
     };
 
     config.resolve.modules.push(path.resolve(__dirname, '../source'));

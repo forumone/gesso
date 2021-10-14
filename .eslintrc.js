@@ -13,7 +13,7 @@ module.exports = {
   extends: ['airbnb', 'prettier'],
   settings: {
     'import/resolver': 'webpack',
-    'import/core-modules': ['drupal', 'drupalSettings', 'jquery'],
+    'import/core-modules': ['drupal', 'drupalSettings', 'jquery', 'once'],
   },
   rules: {
     'class-methods-use-this': 'off', // Too many false positives

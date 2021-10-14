@@ -1,0 +1,20 @@
+{% set classes = [
+  'dropbutton',
+  'js-dropbutton',
+  'has-multiple',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<div class="{{ classes }}">
+  <ul class="dropbutton__list js-dropbutton-list">
+    <li class="dropbutton__item is-action">
+      <a class="button dropbutton__button" href="#">Primary Action</a>
+    </li>
+    <li class="dropbutton__item is-secondary-action">
+      <a class="button dropbutton__button" href="#">Secondary Action</a>
+    </li>
+    <li class="dropbutton__item is-secondary-action">
+      <a class="button dropbutton__button" href="#">Another Secondary Action</a>
+    </li>
+  </ul>
+</div>
