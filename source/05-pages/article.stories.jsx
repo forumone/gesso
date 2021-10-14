@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { Markup } from 'interweave';
+import parse from 'html-react-parser';
+
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/article/article.twig';
 import wysiwygTwigTemplate from '../03-components/content-block/content-block.twig';
@@ -57,10 +58,7 @@ const articleContent = twigTemplate({
 
 const Article = () => (
   <PageWrapper>
-    <Markup
-      noWrap={true}
-      content={articleContent}
-    />
+    {parse(articleContent)}
   </PageWrapper>
 );
 

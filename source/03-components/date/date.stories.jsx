@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './date.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
@@ -14,13 +15,9 @@ const settings = {
 };
 
 const Date = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Date.args = { ...globalData, ...data };
 

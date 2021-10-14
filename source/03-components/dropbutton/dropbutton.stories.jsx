@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import './dropbutton.es6';
 import './dropbutton.scss';
@@ -9,13 +10,9 @@ const settings = {
 };
 
 const Dropbutton = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Dropbutton.args = {};
 

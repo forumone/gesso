@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './teaser.twig';
 import data from './teaser.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const Teaser = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Teaser.args = { ...data };
 

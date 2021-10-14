@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './landing-page.twig';
 import data from './landing-page.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const LandingPage = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 LandingPage.args = { ...data };
 

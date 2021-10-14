@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { Markup } from 'interweave';
+import parse from 'html-react-parser';
+
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/page/page.twig';
-import { wysiwygContent } from '../03-components/content-block/content-block.stories.jsx';
+import { WYSIWYGContent } from '../03-components/content-block/content-block.stories.jsx';
 
 export default {
   title: 'Pages/Page',
@@ -13,15 +14,12 @@ export default {
 // see Article page.
 const pageContent = twigTemplate({
   page_title: 'Look, I Can Take You as Far as Anchorhead',
-  page_content: ReactDOMServer.renderToStaticMarkup(<>{wysiwygContent()}</>),
+  page_content: ReactDOMServer.renderToStaticMarkup(<>{WYSIWYGContent()}</>),
 });
 
 const Page = () => (
   <PageWrapper>
-    <Markup
-      noWrap={true}
-      content={pageContent}
-    />
+    {parse(pageContent)}
   </PageWrapper>
 );
 

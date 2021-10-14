@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './grid.twig';
 import data from './grid.yml';
@@ -15,61 +16,41 @@ const settings = {
 };
 
 const Default = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Default.args = { ...data };
 
 const TwoColumn = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        num_of_cols: '2',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    num_of_cols: '2',
+  }))
 );
 TwoColumn.args = { ...data };
 
 const ThreeColumn = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        num_of_cols: '3',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    num_of_cols: '3',
+  }))
 );
 ThreeColumn.args = { ...data };
 
 const FourColumn = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        num_of_cols: '4',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    num_of_cols: '4',
+  }))
 );
 FourColumn.args = { ...data };
 
 const SixColumn = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        num_of_cols: '6',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    num_of_cols: '6',
+  }))
 );
 SixColumn.args = { ...data };
 

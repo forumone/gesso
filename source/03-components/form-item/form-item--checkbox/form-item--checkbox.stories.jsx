@@ -1,5 +1,5 @@
 import React from 'react';
-
+import parse from 'html-react-parser';
 import twigTemplate from './form-item--checkbox.twig';
 import data from './form-item--checkbox.yml';
 
@@ -8,13 +8,9 @@ const settings = {
 };
 
 const FormItemCheckbox = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 FormItemCheckbox.args = { ...data };
 

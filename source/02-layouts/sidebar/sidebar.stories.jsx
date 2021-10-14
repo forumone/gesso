@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './sidebar.twig';
 import data from './sidebar.yml';
@@ -15,13 +16,9 @@ const settings = {
 };
 
 const Sidebar = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Sidebar.args = { ...data };
 

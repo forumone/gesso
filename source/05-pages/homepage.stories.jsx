@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { Markup } from 'interweave';
+import parse from 'html-react-parser';
+
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/homepage/homepage.twig';
 import { Default as HeroBgImage } from '../03-components/hero-bg-image/hero-bg-image.stories.jsx';
@@ -51,10 +52,7 @@ const homepageContent = twigTemplate({
 
 const Homepage = () => (
   <PageWrapper>
-    <Markup
-      noWrap={true}
-      content={homepageContent}
-    />
+    {parse(homepageContent)}
   </PageWrapper>
 );
 Homepage.args = {};

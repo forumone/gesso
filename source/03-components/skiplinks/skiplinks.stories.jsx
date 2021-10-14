@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './skiplinks.twig';
 import data from './skiplinks.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const Skiplinks = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Skiplinks.args = { ...data };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './form-item--radios.twig';
 
@@ -10,13 +11,9 @@ const settings = {
 };
 
 const FormItemRadios = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 FormItemRadios.args = { };
 

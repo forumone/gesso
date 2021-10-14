@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './preformatted-text.twig';
 
@@ -10,11 +11,7 @@ const settings = {
 };
 
 const PreformattedText = () => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate(),
-    }}
-  />
+  parse(twigTemplate())
 );
 
 export default settings;

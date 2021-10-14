@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './site-logo.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
@@ -13,13 +14,9 @@ const settings = {
 };
 
 const SiteLogo = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 SiteLogo.args = { ...globalData };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { Markup } from 'interweave';
+import parse from 'html-react-parser';
 
 import {
   AccountMenu,
@@ -22,75 +22,60 @@ const PageWrapper = props => {
   const { children } = props;
   return (
     <div className="l-site-container">
-      <Markup
-        noWrap={true}
-        content={
-          HeaderTwig({
-            has_constrain: true,
-            header_content: ReactDOMServer.renderToStaticMarkup(
-              <>
-                {AccountMenu(AccountMenu)}
-                {SiteName(siteNameData)}
-              </>
-            )
-          })
-        }
-      />
-      <Markup
-        noWrap={true}
-        content={
-          RegionTwig({
-            region_name: 'navigation',
-            has_constrain: true,
-            region_content: ReactDOMServer.renderToStaticMarkup(
-              <>
-                {MainMenu()}
-              </>
-            ),
-          })
-        }
-      />
-      <Markup
-        noWrap={true}
-        content={
-          BreadcrumbTwig({
-            has_constrain: false,
-            breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
-              <>
-                {Breadcrumb(Breadcrumb.args)}
-              </>
-            ),
-          })
-        }
-      />
+      {parse(
+        HeaderTwig({
+          has_constrain: true,
+          header_content: ReactDOMServer.renderToStaticMarkup(
+            <>
+              {AccountMenu(AccountMenu)}
+              {SiteName(siteNameData)}
+            </>
+          )
+        })
+      )}
+      {parse(
+        RegionTwig({
+          region_name: 'navigation',
+          has_constrain: true,
+          region_content: ReactDOMServer.renderToStaticMarkup(
+            <>
+              {MainMenu()}
+            </>
+          ),
+        })
+      )}
+      {parse(
+        BreadcrumbTwig({
+          has_constrain: false,
+          breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
+            <>
+              {Breadcrumb(Breadcrumb.args)}
+            </>
+          ),
+        })
+      )}
       <main id="main" className="main" role="main" tabIndex="-1">
-        <Markup
-          noWrap={true}
-          content={
-            ContentTwig({
-              has_constrain: true,
-              content_content: ReactDOMServer.renderToStaticMarkup(
-                <>
-                  {children}
-                </>
-              ),
-            })
-          }
-        />
-      </main>
-      <Markup
-        noWrap={true}
-        content={
-          FooterTwig({
-            footer_content: ReactDOMServer.renderToStaticMarkup(
+        {parse(
+          ContentTwig({
+            has_constrain: true,
+            content_content: ReactDOMServer.renderToStaticMarkup(
               <>
-                {FooterMenu()}
-                {Copyright(Copyright.args)}
+                {children}
               </>
             ),
           })
-        }
-      />
+        )}
+      </main>
+      {parse(
+        FooterTwig({
+          footer_content: ReactDOMServer.renderToStaticMarkup(
+            <>
+              {FooterMenu()}
+              {Copyright(Copyright.args)}
+            </>
+          ),
+        })
+      )}
     </div>
   );
 };
