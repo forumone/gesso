@@ -5,7 +5,7 @@ description: 'Storybook-based starter theme'
 package: Custom
 core_version_requirement: ^8.9 || ^9
 libraries:
-  - gesso_next/global
+  - gesso/global
 libraries-override:
   core/drupal.dropbutton:
     js:
