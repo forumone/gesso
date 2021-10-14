@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { Markup } from 'interweave';
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/landing-page/landing-page.twig';
 import { Default as Card } from '../03-components/card/card.stories.jsx';
@@ -42,7 +43,10 @@ const landingPageContent = twigTemplate({
 
 const LandingPage = () => (
   <PageWrapper>
-    <div dangerouslySetInnerHTML={{ __html: landingPageContent }} />
+    <Markup
+      noWrap={true}
+      content={landingPageContent}
+    />
   </PageWrapper>
 );
 LandingPage.args = {};

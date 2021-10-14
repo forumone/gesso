@@ -1,4 +1,5 @@
 import React from "react";
+import { Markup } from 'interweave';
 
 import twigTemplate from './site-name.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
@@ -38,12 +39,13 @@ const settings = {
 };
 
 const SiteName = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
+  <Markup
+    noWrap={true}
+    content={
+      twigTemplate({
         ...args,
-      }),
-    }}
+      })
+    }
   />
 );
 SiteName.args = { ...globalData };

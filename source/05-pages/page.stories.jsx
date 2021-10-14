@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-
+import { Markup } from 'interweave';
+import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/page/page.twig';
 import { wysiwygContent } from '../03-components/content-block/content-block.stories.jsx';
-import PageWrapper from './page-wrappers/default.jsx';
 
 export default {
   title: 'Pages/Page',
@@ -18,7 +18,10 @@ const pageContent = twigTemplate({
 
 const Page = () => (
   <PageWrapper>
-    <div dangerouslySetInnerHTML={{ __html: pageContent }} />
+    <Markup
+      noWrap={true}
+      content={pageContent}
+    />
   </PageWrapper>
 );
 

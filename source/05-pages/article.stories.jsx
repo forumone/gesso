@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-
-import ArticleTwig from '../04-templates/article/article.twig';
-import wysiwygTwigTemplate from '../03-components/content-block/content-block.twig';
+import { Markup } from 'interweave';
 import PageWrapper from './page-wrappers/default.jsx';
+import twigTemplate from '../04-templates/article/article.twig';
+import wysiwygTwigTemplate from '../03-components/content-block/content-block.twig';
 import { FigureRightAligned } from '../03-components/figure/figure.stories.jsx';
 
 export default {
@@ -49,7 +49,7 @@ const mainContent = wysiwygTwigTemplate({
 
 // For an example of customizing the WYSIWYG content on a demo page,
 // see Page.
-const articleContent = ArticleTwig({
+const articleContent = twigTemplate({
   article_title: 'As You Wish',
   article_has_footer: true,
   article_content: mainContent,
@@ -57,7 +57,10 @@ const articleContent = ArticleTwig({
 
 const Article = () => (
   <PageWrapper>
-    <div dangerouslySetInnerHTML={{ __html: articleContent }} />
+    <Markup
+      noWrap={true}
+      content={articleContent}
+    />
   </PageWrapper>
 );
 

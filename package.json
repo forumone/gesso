@@ -67,6 +67,7 @@
     "add-attributes-twig-extension": "^0.1.0",
     "glob": "^7.1.7",
     "inquirer": "^8.1.5",
+    "interweave": "^12.8.0",
     "mini-css-extract-plugin": "^1.6.0",
     "mkdirp": "^1.0.4",
     "react": "^16.14.0",
