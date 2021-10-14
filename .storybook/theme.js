@@ -3,8 +3,8 @@ import { create } from '@storybook/theming';
 const storybookTheme = create({
   appBg: '#F8F8F8',
   appContentBg: '#fff',
-  barBg: '#3E2A5E',
-  barSelectedColor: '#fff',
+  barBg: '#19013A',
+  barSelectedColor: '#EE2737',
   barTextColor: '#fff',
   base: 'light',
   brandTitle: 'Forum One',
