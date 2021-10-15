@@ -13,9 +13,8 @@ or work only in Storybook.
 4. Open `localhost:6006` (it will typically open automatically) to view Storybook.
 
 ### With Docker + Drupal
-First, update `docker-compose.yml` and `docker-compose.cli.yml` for your project to
-change any paths that include `/gesso/` to `/gesso_next/` and to map the
-volumes to the paths Gesso Next uses.
+First, update `docker-compose.yml` and `docker-compose.cli.yml` for your project
+to map the volumes to the paths Gesso now uses.
 docker-composer.yml
 ```yaml
       - type: volume
@@ -25,11 +24,11 @@ docker-composer.yml
       - &a1
         type: volume
         source: gesso-js
-        target: /var/www/html/web/themes/gesso_next/js
+        target: /var/www/html/web/themes/gesso/js
       - &a2
         type: volume
         source: gesso-css
-        target: /var/www/html/web/themes/gesso_next/css
+        target: /var/www/html/web/themes/gesso/css
 volumes:
   ? fs-data
   ? mysql-data
@@ -84,7 +83,7 @@ aggregate file (i.e. `_components.scss`).
 ### Individual Component/Library Styles
 DO NOT prefix the name of your Sass file with `_`, e.g. `menu.scss`. Import the config
 and global aggregate files. Import your SCSS file at the top of your Storybook file.
-See `menu.stories.jsx` for an example. Don't forget to add it to the `gesso_next.libraries.yml`
+See `menu.stories.jsx` for an example. Don't forget to add it to the `gesso.libraries.yml`
 file as well.
 
 ### Linting
@@ -104,7 +103,7 @@ JavaScript file(s), (i.e. `primary-menu.es6.js`).
 ### Individual Component/Library Scripts
 DO NOT prefix the name of your JS file with `_`. Import your JS file at the top
 of your Storybook file. See `menu.stories.jsx` for an example. Don't forget to
-add it to the `gesso_next.libraries.yml` file as well.
+add it to the `gesso.libraries.yml` file as well.
 
 ### Linting
 ESLint and Prettier are used to lint JavaScript files. ESLint uses the [Airbnb
