@@ -1,4 +1,5 @@
 import React from "react";
+import parse from 'html-react-parser';
 
 import twigTemplate from './page-title.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
@@ -24,13 +25,9 @@ const settings = {
 };
 
 const PageTitle = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 PageTitle.args = { ...globalData };
 

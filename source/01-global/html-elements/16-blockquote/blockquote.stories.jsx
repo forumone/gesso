@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './blockquote.twig';
 import data from './blockquote.yml';
@@ -11,13 +12,9 @@ const settings = {
 };
 
 const Blockquote = () => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...data
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...data
+  }))
 );
 
 export default settings;

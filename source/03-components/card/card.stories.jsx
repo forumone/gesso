@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './card.twig';
 import data from './card.yml';
@@ -8,25 +9,17 @@ const settings = {
 };
 
 const Default = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Default.args = { ...data };
 
 const FeatureCard = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'card--feature',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'card--feature',
+  }))
 );
 FeatureCard.args = { ...data };
 

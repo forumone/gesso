@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './site-container.twig';
 import data from './site-container.yml';
@@ -15,13 +16,9 @@ const settings = {
 };
 
 const SiteContainer = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 SiteContainer.args = { ...data };
 

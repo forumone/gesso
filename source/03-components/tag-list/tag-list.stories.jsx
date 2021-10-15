@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './tag-list.twig';
 import data from './tag-list.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const TagList = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 TagList.args = { ...data };
 

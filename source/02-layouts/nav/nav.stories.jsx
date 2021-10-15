@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './nav.twig';
 import data from './nav.yml';
@@ -15,13 +16,9 @@ const settings = {
 };
 
 const Nav = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Nav.args = { ...data };
 

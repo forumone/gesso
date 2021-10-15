@@ -1,4 +1,5 @@
 import React from "react";
+import parse from 'html-react-parser';
 
 import "./menu.scss";
 import "./mobile-menu.es6";
@@ -15,40 +16,28 @@ const meta = {
 };
 
 const BasicMenu = () => (
-  <div dangerouslySetInnerHTML={{ __html: menuTwig(menuData) }} />
+  parse(menuTwig(menuData))
 );
 
 const AccountMenu = () => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: menuTwig({
-        ...menuData,
-        ...accountMenuData,
-      }),
-    }}
-  />
+  parse(menuTwig({
+    ...menuData,
+    ...accountMenuData,
+  }))
 );
 
 const MainMenu = () => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: menuTwig({
-        ...menuData,
-        ...mainMenuData,
-      }),
-    }}
-  />
+  parse(menuTwig({
+    ...menuData,
+    ...mainMenuData,
+  }))
 );
 
 const FooterMenu = () => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: menuTwig({
-        ...menuData,
-        ...footerMenuData,
-      }),
-    }}
-  />
+  parse(menuTwig({
+    ...menuData,
+    ...footerMenuData,
+  }))
 );
 
 export default meta;

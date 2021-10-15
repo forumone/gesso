@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './hero-bg-image.twig';
 import data from './hero-bg-image.yml';
@@ -9,37 +10,25 @@ const settings = {
 };
 
 const Default = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Default.args = { ...data };
 
 const Left = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'hero-bg-image--left',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'hero-bg-image--left',
+  }))
 );
 Left.args = { ...data };
 
 const Right = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'hero-bg-image--right',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'hero-bg-image--right',
+  }))
 );
 Right.args = { ...data };
 

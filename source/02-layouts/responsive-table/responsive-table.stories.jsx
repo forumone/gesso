@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './responsive-table.twig';
 import data from './responsive-table.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const ResponsiveTable = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 ResponsiveTable.args = { ...data };
 

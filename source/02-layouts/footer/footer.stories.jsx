@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './footer.twig';
 import data from './footer.yml';
@@ -15,13 +16,9 @@ const settings = {
 };
 
 const Footer = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Footer.args = { ...data };
 

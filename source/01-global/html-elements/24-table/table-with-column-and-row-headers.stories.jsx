@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './table-with-column-and-row-headers.twig';
 
@@ -10,11 +11,7 @@ const settings = {
 };
 
 const TableWithColumnAndRowHeaders = () => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate(),
-    }}
-  />
+  parse(twigTemplate())
 );
 
 TableWithColumnAndRowHeaders.storyName = 'Table with Column and Row Headers';

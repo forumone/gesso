@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './field--no-separator.twig';
 import data from './field--no-separator.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const FieldNoSeparator = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 FieldNoSeparator.args = { ...data };
 

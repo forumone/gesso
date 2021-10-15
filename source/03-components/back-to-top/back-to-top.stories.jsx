@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './back-to-top.twig';
 import data from './back-to-top.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const BackToTop = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 BackToTop.args = { ...data };
 

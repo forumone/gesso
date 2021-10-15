@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './duration.twig';
 import data from '../../00-config/config.design-tokens.yml';
@@ -16,13 +17,9 @@ const settings = {
 };
 
 const Duration = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Duration.args = { ...data };
 

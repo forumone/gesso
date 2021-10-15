@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './pager--mini.twig';
 import data from './pager--mini.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const MiniPager = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 MiniPager.args = { ...data };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './figure.twig';
 import data from './figure.yml';
@@ -9,97 +10,65 @@ const settings = {
 };
 
 const Default = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Default.args = { ...data };
 
 const FigureCentered = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'u-align-center',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'u-align-center',
+  }))
 );
 FigureCentered.args = { ...data };
 
 const FigureLeftAligned = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'u-align-left',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'u-align-left',
+  }))
 );
 FigureLeftAligned.args = { ...data };
 
 const FigureRightAligned = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'u-align-right',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'u-align-right',
+  }))
 );
 FigureRightAligned.args = { ...data };
 
 const FigureWithVideo = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'figure--video',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'figure--video',
+  }))
 );
 FigureWithVideo.args = { ...videoData };
 
 const FigureWithVideoCentered = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'figure--video u-align-center',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'figure--video u-align-center',
+  }))
 );
 FigureWithVideoCentered.args = { ...videoData };
 
 const FigureWithVideoLeftAligned = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'figure--video u-align-left',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'figure--video u-align-left',
+  }))
 );
 FigureWithVideoLeftAligned.args = { ...videoData };
 
 const FigureWithVideoRightAligned = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'figure--video u-align-right',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'figure--video u-align-right',
+  }))
 );
 FigureWithVideoRightAligned.args = { ...videoData };
 

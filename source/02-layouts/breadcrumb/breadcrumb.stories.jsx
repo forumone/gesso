@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './breadcrumb.twig';
 import data from './breadcrumb.yml';
@@ -15,13 +16,9 @@ const settings = {
 };
 
 const Breadcrumb = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Breadcrumb.args = { ...data };
 

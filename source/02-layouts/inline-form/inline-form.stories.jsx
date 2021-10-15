@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './inline-form.twig';
 import data from './inline-form.yml';
@@ -15,13 +16,9 @@ const settings = {
 };
 
 const InlineForm = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 InlineForm.args = { ...data };
 
