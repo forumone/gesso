@@ -109,3 +109,7 @@ add it to the `gesso_next.libraries.yml` file as well.
 ### Linting
 ESLint and Prettier are used to lint JavaScript files. ESLint uses the [Airbnb
 standards](https://github.com/airbnb/javascript/), which are [followed by Drupal](https://www.drupal.org/docs/develop/standards/javascript/javascript-coding-standards) as well.
+
+## Building Storybook
+A static Storybook site can be built with `npm run build-storybook`. You will
+then be able to view Storybook at [your url]/themes/gesso/storybook/index.html.
