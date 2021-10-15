@@ -17,6 +17,8 @@ import RegionTwig from '../../02-layouts/region/region.twig';
 import BreadcrumbTwig from '../../02-layouts/breadcrumb/breadcrumb.twig';
 import ContentTwig from '../../02-layouts/content/content.twig';
 import { Copyright } from '../../03-components/copyright/copyright.stories.jsx';
+import BackToTopTwig from '../../03-components/back-to-top/back-to-top.twig';
+import backToTopData from '../../03-components/back-to-top/back-to-top.yml';
 
 const PageWrapper = props => {
   // eslint-disable-next-line react/prop-types
@@ -84,6 +86,9 @@ const PageWrapper = props => {
           })
         )}
       </div>
+      {parse(
+        BackToTopTwig(backToTopData)
+      )}
     </>
   );
 };
