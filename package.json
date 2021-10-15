@@ -9,7 +9,7 @@
     "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js",
     "storybook": "start-storybook -s ./images -p 6006",
     "build-storybook": "npm run build && build-storybook -s ./images -o storybook",
-    "deploy-storybook": "storybook-to-ghpages --out=storybook",
+    "deploy-storybook": "storybook-to-ghpages --out=docs",
     "dev": "npm run start && concurrently --raw \"webpack watch --config ./webpack.dev.js\" \"npm run storybook\"",
     "component": "node lib/component.js"
   },
