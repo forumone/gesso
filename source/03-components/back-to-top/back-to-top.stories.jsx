@@ -2,6 +2,7 @@ import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './back-to-top.twig';
+import globalData from '../../00-config/storybook.global-data.yml';
 import data from './back-to-top.yml';
 
 const settings = {
@@ -13,7 +14,7 @@ const BackToTop = args => (
     ...args,
   }))
 );
-BackToTop.args = { ...data };
+BackToTop.args = { ...globalData, ...data };
 
 export default settings;
 export { BackToTop };

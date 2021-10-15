@@ -13,3 +13,4 @@ dependencyGraph.json
 .idea
 design-tokens.js
 design-tokens.js.map
+/storybook
