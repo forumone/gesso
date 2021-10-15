@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 // import "./details-element-polyfill.js";
 import twigTemplate from './details.twig';
@@ -9,13 +10,9 @@ const settings = {
 };
 
 const Details = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Details.args = { ...data };
 

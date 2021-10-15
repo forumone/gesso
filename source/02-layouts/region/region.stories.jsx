@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './region.twig';
 import data from './region.yml';
@@ -15,13 +16,9 @@ const settings = {
 };
 
 const Region = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Region.args = { ...data };
 

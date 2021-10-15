@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './table-with-row-headers.twig';
 
@@ -10,15 +11,10 @@ const settings = {
 };
 
 const TableWithRowHeaders = () => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate(),
-    }}
-  />
+  parse(twigTemplate())
 );
 
 TableWithRowHeaders.storyName = 'Table with Row Headers';
-
 
 export default settings;
 export { TableWithRowHeaders };

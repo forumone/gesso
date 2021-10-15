@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './homepage.twig';
 import data from './homepage.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const Homepage = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Homepage.args = { ...data };
 

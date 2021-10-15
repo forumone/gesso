@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './field.twig';
 import data from './field.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const Default = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Default.args = { ...data };
 

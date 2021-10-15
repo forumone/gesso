@@ -1,7 +1,22 @@
----
-body_class: 'not-front node-page node-page--node-type-article'
-title: 'As You Wish'
-main_content: |-
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import parse from 'html-react-parser';
+
+import PageWrapper from './page-wrappers/default.jsx';
+import twigTemplate from '../04-templates/article/article.twig';
+import wysiwygTwigTemplate from '../03-components/content-block/content-block.twig';
+import { FigureRightAligned } from '../03-components/figure/figure.stories.jsx';
+
+export default {
+  title: 'Pages/Article',
+};
+
+// For an example of reusing the same content as the Content Block/WYSIWYG
+// component, see Page page.
+const articleDemoContent = `
+  ${ReactDOMServer.renderToStaticMarkup(
+    <>{FigureRightAligned(FigureRightAligned.args)}</>
+  )}
   <p>You’re the Dread Pirate Roberts, admit it. How many do you think you could
   handle? You mean you wish to surrender to me? Very well, I accept. But how can
   you be sure? Will this do? You truly love each other and so you might have
@@ -27,3 +42,24 @@ main_content: |-
   seem a decent fellow… I hate to kill you. You seem a decent fellow… I hate to
   die. Naturally… but I find that Thibault cancels out Capa Ferro. Don’t you?
   </p>
+`;
+
+const mainContent = wysiwygTwigTemplate({
+  content: articleDemoContent,
+});
+
+// For an example of customizing the content block on a demo page,
+// see Page.
+const articleContent = twigTemplate({
+  article_title: 'As You Wish',
+  article_has_footer: true,
+  article_content: mainContent,
+});
+
+const Article = () => (
+  <PageWrapper>
+    {parse(articleContent)}
+  </PageWrapper>
+);
+
+export { Article };

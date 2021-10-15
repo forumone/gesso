@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './horizontal-rule.twig';
 
@@ -10,11 +11,7 @@ const settings = {
 };
 
 const HorizontalRule = () => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate(),
-    }}
-  />
+  parse(twigTemplate())
 );
 
 export default settings;

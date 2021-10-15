@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './message.twig';
 import data from './message.yml';
@@ -8,37 +9,25 @@ const settings = {
 };
 
 const Default = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Default.args = { ...data };
 
 const ErrorMessage = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        type: 'error',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    type: 'error',
+  }))
 );
 ErrorMessage.args = { ...data };
 
 const WarningMessage = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        type: 'warning',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    type: 'warning',
+  }))
 );
 WarningMessage.args = { ...data };
 

@@ -67,6 +67,7 @@
     "@drupal/once": "^1.0.1",
     "add-attributes-twig-extension": "^0.1.0",
     "glob": "^7.1.7",
+    "html-react-parser": "^1.4.0",
     "inquirer": "^8.1.5",
     "jquery": "^3.6.0",
     "mini-css-extract-plugin": "^1.6.0",

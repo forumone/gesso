@@ -1,14 +1,21 @@
-import React from "react";
+import React from 'react';
+import parse from 'html-react-parser';
 
-import contentBlockTwig from "./content-block.twig";
-import contentBlockData from "./content-block.yaml";
+import twigTemplate from './content-block.twig';
+import data from './content-block.yml';
 
-export default {
-  title: "Components/WYSIWYG content",
+const settings = {
+  title: 'Components/Content Block',
 };
 
-export const wysiwygContent = () => (
-  <div
-    dangerouslySetInnerHTML={{ __html: contentBlockTwig(contentBlockData) }}
-  />
+const ContentBlock = args => (
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  )
 );
+ContentBlock.args = { ...data };
+
+export default settings;
+export { ContentBlock };

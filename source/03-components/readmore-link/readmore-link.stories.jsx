@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './readmore-link.twig';
 import data from './readmore-link.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const ReadMoreLink = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 ReadMoreLink.args = { ...data };
 

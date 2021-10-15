@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './button.twig';
 import data from './button.yml';
@@ -8,61 +9,41 @@ const settings = {
 };
 
 const Default = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Default.args = { ...data };
 
 const Danger = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'button--danger',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'button--danger',
+  }))
 );
 Danger.args = { ...data };
 
 const Large = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'button--large',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'button--large',
+  }))
 );
 Large.args = { ...data };
 
 const Secondary = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'button--secondary',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'button--secondary',
+  }))
 );
 Secondary.args = { ...data };
 
 const Small = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'button--small',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'button--small',
+  }))
 );
 Small.args = { ...data };
 

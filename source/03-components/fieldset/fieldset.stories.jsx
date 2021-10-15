@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './fieldset.twig';
 import data from './fieldset.yml';
@@ -8,37 +9,25 @@ const settings = {
 };
 
 const Default = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Default.args = { ...data };
 
 const FieldsetCheckboxes = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'fieldset--checkboxes',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'fieldset--checkboxes',
+  }))
 );
 FieldsetCheckboxes.args = { ...data };
 
 const FieldsetRadios = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-        modifier_classes: 'fieldset--radios',
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'fieldset--radios',
+  }))
 );
 FieldsetRadios.args = { ...data };
 

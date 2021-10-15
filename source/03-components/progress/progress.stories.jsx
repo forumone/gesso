@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './progress.twig';
 import data from './progress.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const Progress = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Progress.args = { ...data };
 

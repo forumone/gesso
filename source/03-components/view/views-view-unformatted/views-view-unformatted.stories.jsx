@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import twigTemplate from './views-view-unformatted.twig';
 import data from './views-view-unformatted.yml';
@@ -8,13 +9,9 @@ const settings = {
 };
 
 const Unformatted = args => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: twigTemplate({
-        ...args,
-      }),
-    }}
-  />
+  parse(twigTemplate({
+    ...args,
+  }))
 );
 Unformatted.args = { ...data };
 
