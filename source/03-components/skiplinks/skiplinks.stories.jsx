@@ -16,4 +16,4 @@ const Skiplinks = args => (
 Skiplinks.args = { ...data };
 
 export default settings;
-export { Skiplinks };
+// export { Skiplinks };
