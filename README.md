@@ -13,6 +13,38 @@ or work only in Storybook.
 4. Open `localhost:6006` (it will typically open automatically) to view Storybook.
 
 ### With Docker + Drupal
+First, update `docker-compose.yml` and `docker-compose.cli.yml` for your project
+to map the volumes to the paths Gesso now uses.
+docker-composer.yml
+```yaml
+      - type: volume
+        source: fs-data
+        target: /var/www/html/web/sites/default/files
+        read_only: true
+      - &a1
+        type: volume
+        source: gesso-js
+        target: /var/www/html/web/themes/gesso/js
+      - &a2
+        type: volume
+        source: gesso-css
+        target: /var/www/html/web/themes/gesso/css
+volumes:
+  ? fs-data
+  ? mysql-data
+  ? gesso-js
+  ? gesso-css
+```
+docker-compose.cli.yml
+```yaml
+      - type: volume
+        source: gesso-js
+        target: /app/js
+      - type: volume
+        source: gesso-css
+        target: /app/css
+```
+
 1. Run `f1 up`.
 2. Run `f1 run --publish 6006:6006 gesso npm run dev`.
 3. Open `localhost:6006` to view Storybook and/or `localhost:8080` to view Drupal.
