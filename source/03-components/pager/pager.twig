@@ -3,9 +3,15 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
+{% set pagination_id = 'pagination-heading'|unique_id %}
+
 {% if items %}
-  <nav aria-labelledby="pagination-heading" {{ add_attributes({ 'class': classes })}} role="navigation">
-    <h4 class="visually-hidden" id="pagination-heading">{{ heading|default('Pagination') }}</h4>
+  <nav {{ add_attributes({
+    'class': classes,
+    'aria-labelledby': pagination_id,
+    'role': 'navigation'
+  })}}>
+    <h4 class="visually-hidden" id="{{ pagination_id }}">{{ heading|default('Pagination') }}</h4>
     <ul
       class="pager__items js-pager__items">
 

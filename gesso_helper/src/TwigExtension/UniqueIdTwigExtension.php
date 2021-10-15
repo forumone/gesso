@@ -18,6 +18,9 @@ class UniqueIdTwigExtension extends AbstractExtension {
     return 'gesso_helper_unique_id';
   }
 
+  /**
+   * @inheritdoc
+   */
   public function getFilters() {
     $filters = parent::getFilters();
     $filters[] = new TwigFilter('unique_id', '\Drupal\Component\Utility\Html::getUniqueId');

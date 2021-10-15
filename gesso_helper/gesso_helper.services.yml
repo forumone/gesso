@@ -3,3 +3,11 @@ services:
     class: Drupal\gesso_helper\TwigExtension\AddAttributesTwigExtension
     tags:
       - { name: twig.extension }
+  keysort.twig_extension:
+    class: Drupal\gesso_helper\TwigExtension\KeysortTwigExtension
+    tags:
+      - { name: twig.extension }
+  unique_id.twig_extension:
+    class: Drupal\gesso_helper\TwigExtension\UniqueIdTwigExtension
+    tags:
+      - { name: twig.extension }
