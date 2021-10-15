@@ -4,17 +4,17 @@ import parse from 'html-react-parser';
 
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/page/page.twig';
-import { WYSIWYGContent } from '../03-components/content-block/content-block.stories.jsx';
+import { ContentBlock } from '../03-components/content-block/content-block.stories.jsx';
 
 export default {
   title: 'Pages/Page',
 };
 
-// For an example of customizing the WYSIWYG content on a demo page,
+// For an example of customizing the content block on a demo page,
 // see Article page.
 const pageContent = twigTemplate({
   page_title: 'Look, I Can Take You as Far as Anchorhead',
-  page_content: ReactDOMServer.renderToStaticMarkup(<>{WYSIWYGContent()}</>),
+  page_content: ReactDOMServer.renderToStaticMarkup(<>{ContentBlock(ContentBlock.args)}</>),
 });
 
 const Page = () => (

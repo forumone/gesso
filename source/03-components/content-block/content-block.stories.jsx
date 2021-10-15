@@ -5,17 +5,17 @@ import twigTemplate from './content-block.twig';
 import data from './content-block.yml';
 
 const settings = {
-  title: 'Components/WYSIWYG Content',
+  title: 'Components/Content Block',
 };
 
-const WYSIWYGContent = args => (
+const ContentBlock = args => (
   parse(
     twigTemplate({
       ...args,
     })
   )
 );
-WYSIWYGContent.args = { ...data };
+ContentBlock.args = { ...data };
 
 export default settings;
-export { WYSIWYGContent };
+export { ContentBlock };

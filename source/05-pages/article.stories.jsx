@@ -48,7 +48,7 @@ const mainContent = wysiwygTwigTemplate({
   content: articleDemoContent,
 });
 
-// For an example of customizing the WYSIWYG content on a demo page,
+// For an example of customizing the content block on a demo page,
 // see Page.
 const articleContent = twigTemplate({
   article_title: 'As You Wish',
