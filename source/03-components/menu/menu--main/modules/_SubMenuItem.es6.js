@@ -1,4 +1,4 @@
-import KEYCODE from '../../../00-config/_KEYCODE.es6';
+import KEYCODE from '../../../../00-config/_KEYCODE.es6';
 import MenuItem from './_MenuItem.es6';
 // Because the menu can be multiple levels deep,
 // SubMenuItems can contain PopupMenus that in turn
