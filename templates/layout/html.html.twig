@@ -29,7 +29,7 @@
   node_type ? 'node-page node-page--node-type-' ~ node_type|clean_class,
 ] %}
 
-{% set body_id = 'top' %}
+{% set body_id = 'top'|unique_id %}
 
 <!DOCTYPE html>
 <html{{ html_attributes }} class="no-js">
