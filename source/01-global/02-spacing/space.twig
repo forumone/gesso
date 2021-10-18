@@ -7,7 +7,7 @@
       <th class="pattern-lab-spacing__header">Example</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody>{% spaceless %}
     {# Base font value should be a pixel value or unitless value #}
     {% for name, unit in gesso.spacing|keysort %}
       {% set remValue =
@@ -16,7 +16,7 @@
       %}
 
       <tr>
-        <td class="pattern-lab-spacing__cell">{{name}}</td>
+        <td class="pattern-lab-spacing__cell">{{name|trim}}</td>
         <td class="pattern-lab-spacing__cell">{{remValue}}rem</td>
         <td class="pattern-lab-spacing__cell">{{unit}}</td>
         <td class="pattern-lab-spacing__cell">
@@ -24,5 +24,5 @@
         </td>
       </tr>
     {% endfor %}
-  </tbody>
+  {% endspaceless %}</tbody>
 </table>

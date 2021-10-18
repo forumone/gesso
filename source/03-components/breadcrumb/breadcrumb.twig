@@ -3,7 +3,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% set breadcrumb_id = 'breadcrumb-label' %}
+{% set breadcrumb_id = 'breadcrumb-label'|unique_id %}
 
 <nav {{ add_attributes({
   'aria-labelledby': breadcrumb_id,

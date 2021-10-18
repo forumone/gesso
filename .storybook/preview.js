@@ -5,6 +5,7 @@ import once from '@drupal/once';
 import twigDrupal from 'twig-drupal-filters';
 import twigAttributes from 'add-attributes-twig-extension';
 import keysort from '../lib/keysort';
+import uniqueId from '../lib/uniqueId';
 
 import '../css/styles.css';
 import './_drupal';
@@ -15,6 +16,7 @@ function setupTwig(twig) {
   twigDrupal(twig);
   twigAttributes(twig);
   keysort(twig);
+  uniqueId(twig);
   return twig;
 }
 
@@ -24,3 +26,5 @@ addDecorator(storyFn => {
   useEffect(() => Drupal.attachBehaviors(), []);
   return storyFn();
 });
+
+export const parameters = { layout: 'fullscreen' }
