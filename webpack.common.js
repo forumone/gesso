@@ -20,6 +20,10 @@ module.exports = {
         if (sourceDirIndex >= 0) {
           const fileName = path.basename(currentFile, '.js');
           const newFilePath = `js/${fileName}`;
+          // Throw an error if duplicate files detected.
+          if (updatedEntries[newFilePath]) {
+            throw new Error(`More than one file named ${fileName}.js found.`);
+          }
           updatedEntries[newFilePath] = {
             import: path.resolve(__dirname, currentFile),
           };
@@ -38,14 +42,16 @@ module.exports = {
         if (sourceDirIndex >= 0) {
           const fileName = path.basename(currentFile, '.scss');
           const newFilePath = `css/${fileName}`;
+          // Throw an error if duplicate files detected.
+          if (updatedEntries[newFilePath]) {
+            throw new Error(`More that one file named ${fileName}.scss found.`);
+          }
           updatedEntries[newFilePath] = {
             import: `./${currentFile}`,
           };
         }
         return updatedEntries;
       }, {});
-    // const spriteFiles = glob
-    //   .sync()
     return {
       ...jsFiles,
       ...scssFiles,
