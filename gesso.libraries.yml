@@ -2,24 +2,24 @@ global:
   css:
     theme:
       //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
-      css/styles.css: {}
+      dist/css/styles.css: {}
 main-menu:
   css:
     theme:
-      css/menu.css: {}
+      dist/css/menu.css: {}
   js:
-    js/primary-menu.es6.js: {}
-    js/mobile-menu.es6.js: {}
+    dist/js/primary-menu.es6.js: {}
+    dist/js/mobile-menu.es6.js: {}
   dependencies:
     - gesso/common
 hero_bg_image:
   css:
     theme:
-      css/hero-bg-image.css: {}
+      dist/css/hero-bg-image.css: {}
 hero_inline_image:
   css:
     theme:
-      css/hero-inline-image.css: {}
+      dist/css/hero-inline-image.css: {}
 details:
   version: VERSION
   js:
