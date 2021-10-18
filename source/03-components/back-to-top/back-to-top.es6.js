@@ -2,12 +2,12 @@ import Drupal from 'drupal';
 
 Drupal.behaviors.backToTop = {
   attach(context, settings) {
-    const threshold = settings.gesso.backToTopThreshold || 200;
-    const smoothScroll = settings.gesso.backToTopSmoothScroll || true;
+    const threshold = settings.gesso.backToTopThreshold ?? 200;
+    const smoothScroll = settings.gesso.backToTopSmoothScroll ?? true;
 
     const backToTop = context.querySelector('.back-to-top');
     if (backToTop) {
-      if (!Number.isNaN(threshold)) {
+      if (!Number.isNaN(threshold) && threshold > 0) {
         backToTop.setAttribute('aria-hidden', 'true');
         backToTop.setAttribute('tabIndex', '-1');
         const scrollHandler = () => {
@@ -32,6 +32,9 @@ Drupal.behaviors.backToTop = {
           }
           stillScrolling = setTimeout(scrollHandler, 60);
         });
+      } else {
+        backToTop.setAttribute('aria-hidden', 'false');
+        backToTop.removeAttribute('tabIndex');
       }
       if (smoothScroll) {
         backToTop.addEventListener('click', event => {
