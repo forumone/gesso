@@ -1,5 +1,5 @@
-import KEYCODE from '../../../00-config/_KEYCODE.es6';
-import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
+import KEYCODE from '../../../../00-config/_KEYCODE.es6';
+import { BREAKPOINTS } from '../../../../00-config/_GESSO.es6';
 
 class _MobileMenu {
   constructor({

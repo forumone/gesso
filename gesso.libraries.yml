@@ -3,9 +3,6 @@ global:
     theme:
       css/styles.css: {}
 main-menu:
-  css:
-    theme:
-      css/menu.css: {}
   js:
     js/primary-menu.es6.js: {}
     js/mobile-menu.es6.js: {}
