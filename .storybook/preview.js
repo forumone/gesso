@@ -26,3 +26,5 @@ addDecorator(storyFn => {
   useEffect(() => Drupal.attachBehaviors(), []);
   return storyFn();
 });
+
+export const parameters = { layout: 'fullscreen' }
