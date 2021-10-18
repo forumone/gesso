@@ -70,6 +70,7 @@ const PageWrapper = props => {
         </main>
         {parse(
           FooterTwig({
+            has_constrain: true,
             footer_content: ReactDOMServer.renderToStaticMarkup(
               <>
                 {FooterMenu(FooterMenu.args)}
