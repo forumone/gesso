@@ -7,7 +7,7 @@ import twigAttributes from 'add-attributes-twig-extension';
 import keysort from '../lib/keysort';
 import uniqueId from '../lib/uniqueId';
 
-import '../css/styles.css';
+import '../dist/css/styles.css';
 import './_drupal';
 global.once = once;
 
