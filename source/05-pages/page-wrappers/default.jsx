@@ -30,7 +30,7 @@ const PageWrapper = props => {
           modifier_classes: false
         })
       )}
-      <div className="l-site-container">
+      <div className="l-site-container" id="top">
         {parse(
           HeaderTwig({
             has_constrain: true,
@@ -87,7 +87,10 @@ const PageWrapper = props => {
         )}
       </div>
       {parse(
-        BackToTopTwig(backToTopData)
+        BackToTopTwig({
+          ...backToTopData,
+          top_element: 'top'
+        })
       )}
     </>
   );
