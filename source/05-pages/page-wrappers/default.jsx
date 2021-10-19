@@ -22,8 +22,12 @@ const PageWrapper = props => {
   const { children } = props;
   return (
     <>
-      {parse(SkiplinksTwig())}
-      <div className="l-site-container">
+      {parse(
+        SkiplinksTwig({
+          modifier_classes: false
+        })
+      )}
+      <div className="l-site-container" id="top">
         {parse(
           HeaderTwig({
             has_constrain: true,
@@ -80,7 +84,11 @@ const PageWrapper = props => {
           })
         )}
       </div>
-      {BackToTop(BackToTop.args)}
+      {BackToTop({
+        ...BackToTop.args,
+        top_element: 'top',
+        is_demo: false
+      })}
     </>
   );
 };
