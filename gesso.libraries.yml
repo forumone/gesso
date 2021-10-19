@@ -17,7 +17,9 @@ hero_inline_image:
   css:
     theme:
       dist/css/hero-inline-image.css: {}
-details:
-  version: VERSION
+back_to_top:
+  css:
+    theme:
+      dist/css/back-to-top.css: {}
   js:
-    dist/js/03-components/details/details-element-polyfill.js: {}
+    dist/js/back-to-top.es6.js: {}
