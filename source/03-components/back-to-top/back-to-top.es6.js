@@ -2,9 +2,8 @@ import Drupal from 'drupal';
 
 Drupal.behaviors.backToTop = {
   attach(context, settings) {
-    const threshold = settings.gesso.backToTopThreshold ?? 200;
-    const smoothScroll = settings.gesso.backToTopSmoothScroll ?? true;
-
+    const threshold = settings?.gesso?.backToTopThreshold ?? 200;
+    const smoothScroll = settings?.gesso?.backToTopSmoothScroll ?? true;
     const backToTop = context.querySelector('.back-to-top');
     if (backToTop) {
       if (!Number.isNaN(threshold) && threshold > 0) {

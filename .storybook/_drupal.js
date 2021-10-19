@@ -2,6 +2,7 @@
 // via https://github.com/emulsify-ds/emulsify-drupal/
 
 window.Drupal = { behaviors: {} };
+window.drupalSettings = {};
 
 (function (Drupal, drupalSettings) {
   Drupal.throwError = function (error) {
