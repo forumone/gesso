@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Theme override to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ * Some may be blank but they are provided for consistency.
+ *
+ * @see template_preprocess_maintenance_page()
+ */
+#}
+{% extends '@layouts/site-container/site-container.twig' %}
+
+{% block site_content %}
+  {# page.header is missing system-branding-block. #}
+  {% set header_content %}
+    {% include '@gesso/block/block--system-branding-block.html.twig' %}
+    {{ page.header }}
+  {% endset %}
+
+  {# We have to manually wrap region content. #}
+  {% include '@gesso/layout/region--header.html.twig' with {
+    'content': header_content,
+  } %}
+
+  {# We have to manually wrap region content. #}
+  {% include '@gesso/layout/region.html.twig' with {
+    'region': 'navigation',
+    'content': page.navigation,
+  } %}
+
+  {# We have to manually wrap region content. #}
+  {% include '@gesso/layout/region--breadcrumb.html.twig' with {
+    'content': page.breadcrumb,
+  } %}
+
+  {# We have to manually wrap region content. #}
+  {% include '@gesso/layout/region.html.twig' with {
+    'region': 'highlighted',
+    'content': page.highlighted,
+  } %}
+
+  {# We have to manually wrap region content. #}
+  {% include '@gesso/layout/region.html.twig' with {
+    'region': 'help',
+    'content': page.help,
+  } %}
+  {{ page.breadcrumb }}
+
+  <main id="main" class="main" role="main" tabindex="-1">
+    {# We have to manually wrap region content. #}
+    {% include '@gesso/layout/region.html.twig' with {
+      'region': 'preface',
+      'content': page.preface,
+    } %}
+
+    {# page.content is missing page title. #}
+    {% set content %}
+      {% include '@components/page-title/page-title.twig' with {
+        'page_title': page['#title'],
+      } %}
+      {{ page.content }}
+    {% endset %}
+
+    {# We have to manually wrap region content. #}
+    {% include '@gesso/layout/region--content.html.twig' with {
+      'content': content,
+    } %}
+
+    {# We have to manually wrap region content. #}
+    {% include '@gesso/layout/region.html.twig' with {
+      'region': 'postscript',
+      'content': page.postscript,
+    } %}
+  </main>
+
+  {# We have to manually wrap region content. #}
+  {% include '@gesso/layout/region--footer.html.twig' with {
+    'content': page.footer,
+  } %}
+{% endblock %}

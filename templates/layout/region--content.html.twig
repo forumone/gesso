@@ -12,12 +12,14 @@
  * @see template_preprocess_region()
  */
 #}
-{% embed '@layouts/content/content.twig' with {
-  'has_constrain': true,
-} %}
+{% if content %}
+  {% embed '@layouts/content/content.twig' with {
+    'has_constrain': true,
+  } %}
 
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
 
-{% endembed %}
+  {% endembed %}
+{% endif %}

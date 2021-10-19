@@ -12,12 +12,14 @@
  * @see template_preprocess_region()
  */
 #}
-{% embed '@layouts/breadcrumb/breadcrumb.twig' with {
-  'has_constrain': false
-} %}
+{% if content %}
+  {% embed '@layouts/breadcrumb/breadcrumb.twig' with {
+    'has_constrain': false
+  } %}
 
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
 
-{% endembed %}
+  {% endembed %}
+{% endif %}
