@@ -1,28 +1,28 @@
 ---
 menu_name: 'footer'
 items:
-  - title: 'Footer Link 1'
+  - title: 'Careers'
     url: '#'
     original_link:
       options:
         attributes:
           class: ''
     in_active_trail: false
-  - title: 'Footer Link 2'
+  - title: 'Contact'
     url: '#'
     original_link:
       options:
         attributes:
           class: ''
     in_active_trail: false
-  - title: 'Footer Link 3'
+  - title: 'Credits'
     url: '#'
     original_link:
       options:
         attributes:
           class: ''
     in_active_trail: false
-  - title: 'Footer Link 4'
+  - title: 'Terms of Use'
     url: '#'
     original_link:
       options:
