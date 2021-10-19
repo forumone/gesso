@@ -2,42 +2,35 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
-import {
-  AccountMenu,
-  MainMenu,
-  FooterMenu,
-} from '../../03-components/menu/menu.stories.jsx';
-import { SiteName } from '../../03-components/site-name/site-name.stories.jsx';
-import siteNameData from '../../00-config/storybook.global-data.yml';
-import { Breadcrumb } from '../../03-components/breadcrumb/breadcrumb.stories.jsx';
+import globalData from '../../00-config/storybook.global-data.yml';
+import RegionTwig from '../../02-layouts/region/region.twig';
 import SkiplinksTwig from '../../03-components/skiplinks/skiplinks.twig';
 import HeaderTwig from '../../02-layouts/header/header.twig';
-import FooterTwig from '../../02-layouts/footer/footer.twig';
-import RegionTwig from '../../02-layouts/region/region.twig';
 import BreadcrumbTwig from '../../02-layouts/breadcrumb/breadcrumb.twig';
 import ContentTwig from '../../02-layouts/content/content.twig';
+import FooterTwig from '../../02-layouts/footer/footer.twig';
+import { SiteName } from '../../03-components/site-name/site-name.stories.jsx';
+import { AccountMenu } from '../../03-components/menu/menu--account/menu--account.stories.jsx';
+import { MainMenu } from '../../03-components/menu/menu--main/menu--main.stories.jsx';
+import { Breadcrumb } from '../../03-components/breadcrumb/breadcrumb.stories.jsx';
+import { FooterMenu } from '../../03-components/menu/menu--footer/menu--footer.stories.jsx';
 import { Copyright } from '../../03-components/copyright/copyright.stories.jsx';
-import BackToTopTwig from '../../03-components/back-to-top/back-to-top.twig';
-import backToTopData from '../../03-components/back-to-top/back-to-top.yml';
+import { BackToTop } from '../../03-components/back-to-top/back-to-top.stories.jsx';
 
 const PageWrapper = props => {
   // eslint-disable-next-line react/prop-types
   const { children } = props;
   return (
     <>
-      {parse(
-        SkiplinksTwig({
-          modifier_classes: false
-        })
-      )}
+      {parse(SkiplinksTwig())}
       <div className="l-site-container">
         {parse(
           HeaderTwig({
             has_constrain: true,
             header_content: ReactDOMServer.renderToStaticMarkup(
               <>
-                {AccountMenu(AccountMenu)}
-                {SiteName(siteNameData)}
+                {AccountMenu(AccountMenu.args)}
+                {SiteName(globalData)}
               </>
             )
           })
@@ -48,7 +41,7 @@ const PageWrapper = props => {
             has_constrain: true,
             region_content: ReactDOMServer.renderToStaticMarkup(
               <>
-                {MainMenu()}
+                {MainMenu(MainMenu.args)}
               </>
             ),
           })
@@ -77,18 +70,17 @@ const PageWrapper = props => {
         </main>
         {parse(
           FooterTwig({
+            has_constrain: true,
             footer_content: ReactDOMServer.renderToStaticMarkup(
               <>
-                {FooterMenu()}
+                {FooterMenu(FooterMenu.args)}
                 {Copyright(Copyright.args)}
               </>
             ),
           })
         )}
       </div>
-      {parse(
-        BackToTopTwig(backToTopData)
-      )}
+      {BackToTop(BackToTop.args)}
     </>
   );
 };
