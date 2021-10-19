@@ -41,8 +41,11 @@
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
-  <body{{ attributes.addClass(body_classes).setAttribute('id', body_id) }}>
-    {% include '@components/skiplinks/skiplinks.twig' only %}
+  <body {{ add_attributes({
+    classes: body_classes,
+    id: body_id
+  }) }}>
+    {% include '@components/skiplinks/skiplinks.twig' %}
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
@@ -51,7 +54,7 @@
         text: 'Back to top'|t,
         top_element: body_id,
         gesso_image_path: gesso_image_path,
-      } only %}
+      } %}
     {% endif %}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
