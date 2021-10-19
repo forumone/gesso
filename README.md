@@ -24,11 +24,11 @@ docker-composer.yml
       - &a1
         type: volume
         source: gesso-js
-        target: /var/www/html/web/themes/gesso/js
+        target: /var/www/html/web/themes/gesso/dist/js
       - &a2
         type: volume
         source: gesso-css
-        target: /var/www/html/web/themes/gesso/css
+        target: /var/www/html/web/themes/gesso/dist/css
 volumes:
   ? fs-data
   ? mysql-data
@@ -39,10 +39,10 @@ docker-compose.cli.yml
 ```yaml
       - type: volume
         source: gesso-js
-        target: /app/js
+        target: /app/dist/js
       - type: volume
         source: gesso-css
-        target: /app/css
+        target: /app/dist/css
 ```
 
 1. Run `f1 up`.
