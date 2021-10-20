@@ -80,7 +80,11 @@ const PageWrapper = props => {
           })
         )}
       </div>
-      {BackToTop(BackToTop.args)}
+      {BackToTop({
+        ...BackToTop.args,
+        top_element: 'top',
+        is_demo: false
+      })}
     </>
   );
 };

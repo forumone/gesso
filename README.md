@@ -24,11 +24,11 @@ docker-composer.yml
       - &a1
         type: volume
         source: gesso-js
-        target: /var/www/html/web/themes/gesso/js
+        target: /var/www/html/web/themes/gesso/dist/js
       - &a2
         type: volume
         source: gesso-css
-        target: /var/www/html/web/themes/gesso/css
+        target: /var/www/html/web/themes/gesso/dist/css
 volumes:
   ? fs-data
   ? mysql-data
@@ -39,10 +39,10 @@ docker-compose.cli.yml
 ```yaml
       - type: volume
         source: gesso-js
-        target: /app/js
+        target: /app/dist/js
       - type: volume
         source: gesso-css
-        target: /app/css
+        target: /app/dist/css
 ```
 
 1. Run `f1 up`.
@@ -53,6 +53,11 @@ docker-compose.cli.yml
 The theme can be set as active in Drupal but is not yet ready for project use.
 However, you can use this method if you prefer running Node via Docker or want
 to contribute to getting Gesso Next working as Drupal theme.
+
+## Adding New Files
+If you add new SCSS and/or JS files, you will need to restart webpack by canceling
+and then re-running `npm run dev`. New files will not be processed or an errors
+shown for duplicate files until webpack restarts.
 
 ## Generating New Components
 Run `npm run component` (locally) or `f1 run gesso npm run component` (Docker) to
@@ -76,6 +81,9 @@ This means that most files will start with `@use 00-config/functions/gesso as *`
 design token accessor functions without an additional namespace. Other functions and mixins can be used similarly. Note that to avoid namespace
 collisions, only Gesso-related variables, mixins, and functions should be used with `*`.
 
+All Sass files that are compiled to individual CSS files must have a unique name,
+even if they are in different directories.
+
 ### Global Styles
 Prefix the name of your Sass file with `_`, e.g. `_card.scss`. Add it to the appropriate
 aggregate file (i.e. `_components.scss`).
@@ -95,6 +103,8 @@ within a different JS file. JS files that use modern (ES2015+) syntax must be na
 `[name].es6.js`, but this is not required by the compiler. JavaScript files should go in the
 appropriate folder under source (e.g. `source/03-components/menu` for menu-related JavaScript).
 There is not a separate folder for JS files as there was in previous versions of Gesso.
+
+All JavaScript files must have a unique name, even if they are in different directories.
 
 ### Modules
 Prefix the name of your JavaScript file with `_`, e.g. `_Menu.es6.js`. Import it to the appropriate

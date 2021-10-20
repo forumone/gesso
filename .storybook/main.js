@@ -12,6 +12,7 @@ module.exports = {
       },
     },
     '@storybook/addon-a11y',
+    'storybook-addon-root-attribute/register',
   ],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({

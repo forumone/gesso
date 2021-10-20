@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Theme override for a branding block.
+ *
+ * Each branding element variable (logo, name, slogan) is only available if
+ * enabled in the block configuration.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
+ */
+#}
+{% set classes = [
+  'block',
+  'block--admin',
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% embed '@components/block/block.twig' with {
+  'hide_wrapper': not logged_in,
+  'has_constrain': false,
+  'hide_content_wrapper': true,
+  'label': false,
+} %}
+
+  {% block content %}
+    {% if site_logo %}
+      {% include '@components/site-logo/site-logo.twig' with {
+        'url': path('<front>'),
+        'site_logo': site_logo,
+      } %}
+    {% endif %}
+
+    {% if site_name %}
+      {% include '@components/site-name/site-name.twig' with {
+        'url': path('<front>'),
+        'site_name': site_name,
+      } %}
+    {% endif %}
+
+    {% if site_slogan %}
+      {% include '@components/site-slogan/site-slogan.twig' with {
+        'site_slogan': site_slogan,
+      } %}
+    {% endif %}
+  {% endblock %}
+
+{% endembed %}

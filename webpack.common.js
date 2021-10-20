@@ -63,7 +63,7 @@ module.exports = {
       after: {
         test: [
           {
-            folder: './css',
+            folder: './dist/css',
             method: absolutePath =>
               new RegExp(/\.js(\.map)?$/, 'm').test(absolutePath),
             recursive: true,
@@ -125,7 +125,7 @@ module.exports = {
         exclude: [/images\/_sprite-source-files\/.*\.svg$/, '/node_modules/'],
         type: 'asset',
         generator: {
-          filename: 'css/images/[hash][ext][query]',
+          filename: 'images/[hash][ext][query]',
         },
       },
     ],
@@ -140,6 +140,6 @@ module.exports = {
     modules: [path.resolve(__dirname, 'source'), 'node_modules'],
   },
   output: {
-    path: path.resolve(__dirname, '.'),
+    path: path.resolve(__dirname, 'dist'),
   },
 };

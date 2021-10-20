@@ -7,7 +7,12 @@ import twigAttributes from 'add-attributes-twig-extension';
 import keysort from '../lib/keysort';
 import uniqueId from '../lib/uniqueId';
 
-import '../css/styles.css';
+import {
+  addParameters
+} from "@storybook/react";
+import { withRootAttribute } from "storybook-addon-root-attribute";
+
+import '../dist/css/styles.css';
 import './_drupal';
 global.once = once;
 
@@ -28,3 +33,15 @@ addDecorator(storyFn => {
 });
 
 export const parameters = { layout: 'fullscreen' }
+
+addDecorator(withRootAttribute);
+addParameters({
+  rootAttribute: {
+    root: "body",
+    attribute: "id",
+    defaultState: {
+      name: "Default",
+      value: "top"
+    }
+  }
+});

@@ -26,3 +26,16 @@ components:
     components: source/03-components
     templates: source/04-templates
     utility: source/06-utility
+regions:
+  page_top: 'Page top'
+  header: Header
+  navigation: Navigation
+  breadcrumb: Breadcrumb
+  help: Help
+  highlighted: Highlighted
+  preface: Preface
+  content: Content
+  postscript: Postscript
+  footer: Footer
+  disabled: Disabled
+  page_bottom: 'Page bottom'
