@@ -122,3 +122,18 @@ standards](https://github.com/airbnb/javascript/), which are [followed by Drupal
 ## Building Storybook
 A static Storybook site can be built with `npm run build-storybook`. You will
 then be able to view Storybook at [your url]/themes/gesso/storybook/index.html.
+
+## Theme Settings
+Some aspects of Gesso can be configured in the theme settings. These include
+the Back to Top component and button styles for links.
+
+For the buttons, put the classes that should be added for each button size
+and button style on each line, with classes separated with ` .`, similar to how
+you would add custom classes to the WYSIWYG editor.
+```
+button|Primary
+button.button--secondary|Secondary
+button.button--tertiary|Tertiary
+```
+To use these classes, select **Gesso Button** as the formatter for a link field
+under the entity's display settings.
