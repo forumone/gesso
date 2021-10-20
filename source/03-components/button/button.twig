@@ -10,6 +10,6 @@
 {% endif %}
 
 {% if is_demo %}
-  {{ link(text, url, {'class': classes}) }}
+  {{ link(text_demo, url, {'class': classes}) }}
   <button {{ add_attributes({ 'class': classes }) }} disabled>Disabled {{ text }}</button>
 {% endif %}
