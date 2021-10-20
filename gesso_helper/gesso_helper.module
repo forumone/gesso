@@ -27,6 +27,7 @@ function gesso_helper_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
     '#default_value' => theme_get_setting('button_sizes', $theme) ?? "button|Standard\nbutton.button--small|Small\nbutton.button--large|Large",
     '#description' => t('Enter one or more classes on each line in the format: classA.classB|Label. Example: button.button--small|Small'),
     '#required' => TRUE,
+    '#element_validate' => ['gesso_helper_validate_buttons']
   ];
   $form['buttons']['button_styles'] = [
     '#type' => 'textarea',
@@ -34,5 +35,17 @@ function gesso_helper_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
     '#default_value' => theme_get_setting('button_styles', $theme) ?? "button|Primary\nbutton.button--secondary|Secondary\nbutton.button--danger|Danger",
     '#description' => t('Enter one or more classes on each line in the format: classA.classB|Label. Example: button.button--danger|Danger'),
     '#required' => TRUE,
+    '#element_validate' => ['gesso_helper_validate_buttons']
   ];
+}
+
+function gesso_helper_validate_buttons(array $element, \Drupal\Core\Form\FormStateInterface $formState) {
+  $value = str_replace(["\r\n", "\r"], "\n", trim($element['#value']));
+  $options = explode("\n", $value);
+  foreach ($options as $option) {
+    if (!preg_match('@^ *[a-zA-Z0-9_-]+ *(\\.[a-zA-Z0-9_-]+ *)*\\| *.+ *$@', $option)) {
+      $formState->setError($element, t('The provided list of classes and labels is invalid.'));
+      return FALSE;
+    }
+  }
 }
