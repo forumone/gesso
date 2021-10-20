@@ -127,6 +127,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       'Gesso' => $name,
       'Sass-based starter theme.' => $description,
       'gesso' => $machine_name,
+      $machine_name . '_helper' => 'gesso_helper',
     ];
     $this->gessoFileStrReplace($new_info_file, array_keys($changes), $changes);
 
@@ -162,7 +163,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     // with the machine name of the new theme.
     $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($new_path, \FilesystemIterator::SKIP_DOTS), \RecursiveIteratorIterator::SELF_FIRST);
     foreach ($files as $file) {
-      if (!$file->isDir()) {
+      if (!$file->isDir() && !in_array($file->getFileName(), ['Dockerfile', $machine_name . '.info.yml'])) {
         $this->gessoFileStrReplace(
           $file->getPathname(),
           ['gesso', 'Gesso'],
@@ -220,11 +221,9 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    */
   private function gessoFileStrReplace($file_path, $find, $replace) {
     $file_path = Path::normalize($file_path);
-//    if ($this->fs->exists($file_path)) {
-      $file_contents = file_get_contents($file_path);
-      $file_contents = str_replace($find, $replace, $file_contents);
-      drush_op('file_put_contents', $file_path, $file_contents);
-//    }
+    $file_contents = file_get_contents($file_path);
+    $file_contents = str_replace($find, $replace, $file_contents);
+    drush_op('file_put_contents', $file_path, $file_contents);
   }
 
   /**
