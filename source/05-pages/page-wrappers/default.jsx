@@ -22,12 +22,8 @@ const PageWrapper = props => {
   const { children } = props;
   return (
     <>
-      {parse(
-        SkiplinksTwig({
-          modifier_classes: false
-        })
-      )}
-      <div className="l-site-container" id="top">
+      {parse(SkiplinksTwig())}
+      <div className="l-site-container">
         {parse(
           HeaderTwig({
             has_constrain: true,
