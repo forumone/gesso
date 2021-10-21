@@ -1,0 +1,10 @@
+field.formatter.settings.gesso_helper_gesso_button:
+  type: mapping
+  label: Gesso Button formatter settings
+  mapping:
+    button_sizes:
+      type: string
+      label: Button Sizes
+    button_styles:
+      type: string
+      label: Button Styles
