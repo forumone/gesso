@@ -2,7 +2,7 @@
 
 namespace Drupal\gesso_helper;
 
-class GessoHelperDirFilter extends \RecursiveFilterIterator {
+class GessoHelperDirFilterExclude extends \RecursiveFilterIterator {
 
   /**
    * @var array
@@ -20,7 +20,7 @@ class GessoHelperDirFilter extends \RecursiveFilterIterator {
   }
 
   public function getChildren() {
-    return new GessoHelperDirFilter($this->getInnerIterator()->getChildren());
+    return new GessoHelperDirFilterExclude($this->getInnerIterator()->getChildren());
   }
 
 }

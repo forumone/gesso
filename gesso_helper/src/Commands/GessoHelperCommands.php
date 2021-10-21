@@ -9,7 +9,8 @@ use Drush\Drush;
 use Drush\Commands\DrushCommands;
 use Symfony\Component\Filesystem\Filesystem;
 use Webmozart\PathUtil\Path;
-use Drupal\gesso_helper\GessoHelperDirFilter;
+use Drupal\gesso_helper\GessoHelperDirFilterExclude;
+use Drupal\gesso_helper\GessoHelperDirFilterInclude;
 
 /**
  * A Drush commandfile.
@@ -115,7 +116,40 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $new_path = Path::join($theme_path, $machine_name);
 
     // Copy the Gesso theme directory recursively to the new theme’s location.
-    $this->fs->mirror($gesso_path, $new_path, new \RecursiveIteratorIterator(new GessoHelperDirFilter(new \RecursiveDirectoryIterator($gesso_path))), \RecursiveIteratorIterator::SELF_FIRST);
+    $this->fs->mirror($gesso_path, $new_path, new \RecursiveIteratorIterator(new GessoHelperDirFilterExclude(new \RecursiveDirectoryIterator($gesso_path))), \RecursiveIteratorIterator::SELF_FIRST);
+
+    // Replace specific occurrences of 'gesso'
+    // with the machine name of the new theme.
+    $files = new \RecursiveIteratorIterator(
+      new GessoHelperDirFilterInclude(
+        new \RecursiveDirectoryIterator(
+          $new_path, \FilesystemIterator::SKIP_DOTS
+        )
+      ),
+      \RecursiveIteratorIterator::SELF_FIRST);
+    foreach ($files as $file) {
+      if (!$file->isDir()) {
+        $this->gessoFileStrReplace(
+          $file->getPathname(),
+          ['gesso', 'Gesso'],
+          [$machine_name, $name]
+        );
+      }
+    }
+    $templateFiles = new \RecursiveIteratorIterator(
+        new \RecursiveDirectoryIterator(
+          $new_path . '/source', \FilesystemIterator::SKIP_DOTS
+        ),
+      \RecursiveIteratorIterator::SELF_FIRST);
+    foreach ($templateFiles as $templateFile) {
+      if (!$templateFile->isDir()) {
+        $this->gessoFileStrReplace(
+          $templateFile->getPathname(),
+          ["attach_library('gesso"],
+          ["attach_library('" . $machine_name]
+        );
+      }
+    }
 
     // Rename the .info.yml file.
     $gesso_info_file = Path::join($new_path, 'gesso.info.yml');
@@ -157,19 +191,6 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $new_theme_file = Path::join($new_path, $machine_name . '.theme');
     if ($this->fs->exists($gesso_theme_file)) {
       drush_op('rename', $gesso_theme_file, $new_theme_file);
-    }
-
-    // Replace all occurrences of 'gesso'
-    // with the machine name of the new theme.
-    $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($new_path, \FilesystemIterator::SKIP_DOTS), \RecursiveIteratorIterator::SELF_FIRST);
-    foreach ($files as $file) {
-      if (!$file->isDir() && !in_array($file->getFileName(), ['Dockerfile', $machine_name . '.info.yml'])) {
-        $this->gessoFileStrReplace(
-          $file->getPathname(),
-          ['gesso', 'Gesso'],
-          [$machine_name, $name]
-        );
-      }
     }
 
     // Notify user of the newly created theme.
