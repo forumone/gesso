@@ -12,40 +12,29 @@
  * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
-{% set classes = [
-  'block',
-  'block--admin',
-] %}
+{% extends "block--admin.html.twig" %}
 
-{% set attributes = attributes.addClass(classes) %}
+{% block block_content %}
+  {% if site_logo %}
+    {% include '@components/site-logo/site-logo.twig' with {
+      'attributes': '',
+      'url': path('<front>'),
+      'site_logo': site_logo,
+    } %}
+  {% endif %}
 
-{% embed '@components/block/block.twig' with {
-  'hide_wrapper': not logged_in,
-  'has_constrain': false,
-  'hide_content_wrapper': true,
-  'label': false,
-} %}
+  {% if site_name %}
+    {% include '@components/site-name/site-name.twig' with {
+      'attributes': '',
+      'url': path('<front>'),
+      'site_name': site_name,
+    } %}
+  {% endif %}
 
-  {% block content %}
-    {% if site_logo %}
-      {% include '@components/site-logo/site-logo.twig' with {
-        'url': path('<front>'),
-        'site_logo': site_logo,
-      } %}
-    {% endif %}
-
-    {% if site_name %}
-      {% include '@components/site-name/site-name.twig' with {
-        'url': path('<front>'),
-        'site_name': site_name,
-      } %}
-    {% endif %}
-
-    {% if site_slogan %}
-      {% include '@components/site-slogan/site-slogan.twig' with {
-        'site_slogan': site_slogan,
-      } %}
-    {% endif %}
-  {% endblock %}
-
-{% endembed %}
+  {% if site_slogan %}
+    {% include '@components/site-slogan/site-slogan.twig' with {
+      'attributes': '',
+      'site_slogan': site_slogan,
+    } %}
+  {% endif %}
+{% endblock %}
