@@ -8,12 +8,12 @@ const settings = {
   title: 'Components/Button',
 };
 
-const Default = args => (
+const Primary = args => (
   parse(twigTemplate({
     ...args,
   }))
 );
-Default.args = { ...data };
+Primary.args = { ...data };
 
 const Danger = args => (
   parse(twigTemplate({
@@ -48,4 +48,4 @@ const Small = args => (
 Small.args = { ...data };
 
 export default settings;
-export { Default, Danger, Large, Secondary, Small };
+export { Primary, Danger, Large, Secondary, Small };
