@@ -131,7 +131,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       if (!$file->isDir()) {
         $this->gessoFileStrReplace(
           $file->getPathname(),
-          ['gesso', 'Gesso'],
+          ["/(?<!\[('|\")drupalSettings('|\")\]\[('|\"))gesso(?!_image_path)/", '/Gesso/'],
           [$machine_name, $name]
         );
       }
@@ -145,8 +145,8 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       if (!$templateFile->isDir()) {
         $this->gessoFileStrReplace(
           $templateFile->getPathname(),
-          ["attach_library('gesso"],
-          ["attach_library('" . $machine_name]
+          ["/attach_library\((')?gesso/"],
+          ['attach_library($1' . $machine_name]
         );
       }
     }
@@ -158,10 +158,9 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
 
     // Update the .info.yml file based on the command options.
     $changes = [
-      'Gesso' => $name,
-      'Sass-based starter theme.' => $description,
-      'gesso' => $machine_name,
-      $machine_name . '_helper' => 'gesso_helper',
+      '/Gesso/' => $name,
+      '/Sass-based starter theme\./' => $description,
+      '/gesso(?!_helper)/' => $machine_name,
     ];
     $this->gessoFileStrReplace($new_info_file, array_keys($changes), $changes);
 
@@ -243,7 +242,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   private function gessoFileStrReplace($file_path, $find, $replace) {
     $file_path = Path::normalize($file_path);
     $file_contents = file_get_contents($file_path);
-    $file_contents = str_replace($find, $replace, $file_contents);
+    $file_contents = preg_replace($find, $replace, $file_contents);
     drush_op('file_put_contents', $file_path, $file_contents);
   }
 
