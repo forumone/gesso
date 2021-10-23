@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override to display a one-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ */
+#}
+{% if content %}
+  {% if attributes is not empty %}
+    <div{{ attributes }}>
+  {% endif %}
+
+  {% if region_attributes.content is not empty %}
+    <div{{ region_attributes.content }}>
+  {% endif %}
+
+  {{ content.content }}
+
+  {% if region_attributes.content is not empty %}
+    </div>
+  {% endif %}
+
+  {% if attributes is not empty %}
+    </div>
+  {% endif %}
+{% endif %}
+
+{% set catch_cache = content|render %}

@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Theme override to display a sidebar layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ */
+#}
+{% if content %}
+  {% if content.sidebar_first and content.sidebar_second %}
+    {% set has_multiple_sidebar = TRUE %}
+  {% endif %}
+
+  {% include '@layouts/sidebar/sidebar.twig' with {
+    'has_multiple_sidebar': has_multiple_sidebar,
+    'sidebar_header_content': content.header ?: false,
+    'sidebar_first_content': content.sidebar_first ?: false,
+    'sidebar_main_content': content.main ?: false,
+    'sidebar_second_content': content.sidebar_second ?: false,
+  } %}
+{% endif %}
+
+{% set catch_cache = content|render %}
