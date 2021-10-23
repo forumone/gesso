@@ -5,8 +5,10 @@
  *
  * Available variables:
  * - breadcrumb: Breadcrumb trail items.
- * - include_current_page: Whether to add the current page to the breadcrumb list.
- * - page_title: The page title, for use in the actual content.
+ * - include_current_page: Whether to add the current page to the breadcrumb
+ *   list. Controlled via theme setting.
+ * - page_title: The page title, for use in the actual content. This only has
+ *   content if include_current_page is true.
  */
 #}
 {% if breadcrumb %}
