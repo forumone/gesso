@@ -32,4 +32,15 @@ function gesso_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormSt
     '#description' => t('Whether to animate the scroll back to the top'),
     '#default_value' => theme_get_setting('smooth_scroll') ?? TRUE,
   ];
+
+  $form['breadcrumb'] = [
+    '#type' => 'details',
+    '#title' => t('Breadcrumb'),
+    '#open' => TRUE,
+  ];
+  $form['breadcrumb']['include_current_page_in_breadcrumb'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Include current page in breadcrumb'),
+    '#default_value' => theme_get_setting('include_current_page_in_breadcrumb') ?? TRUE,
+  ];
 }
