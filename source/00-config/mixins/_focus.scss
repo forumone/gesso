@@ -1,6 +1,8 @@
 // @file
 // Focus mixin
 
+@use '00-config/functions/gesso' as *;
+
 @mixin focus(
   $color: gesso-color(ui, generic, focus),
   $width: 2px,
@@ -11,5 +13,9 @@
 
   &:focus {
     outline-color: $color;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline-color: transparent;
   }
 }

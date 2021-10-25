@@ -6,6 +6,7 @@ import globalData from '../../00-config/storybook.global-data.yml';
 import data from './mega-menu.yml';
 import { ImageTeaser } from '../image-teaser/image-teaser.stories.jsx';
 import './mega-menu.scss';
+import './mega-menu';
 
 const settings = {
   title: 'Components/Menu/Mega Menu',

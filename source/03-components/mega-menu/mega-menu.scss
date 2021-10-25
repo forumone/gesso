@@ -4,9 +4,24 @@
 
 .mega-menu {
   align-items: center;
+  background: gesso-color('background', 'site');
   display: flex;
   margin: 0 0 rem(gesso-spacing(2.5));
+  position: relative;
   width: 100%;
+  z-index: 1;
+
+  &::after {
+    background-color: gesso-color(background, site);
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: gesso-z-index(drawer);
+  }
 
   > .menu__item {
     border-bottom: 1px solid gesso-grayscale(white);
@@ -43,6 +58,7 @@
     left: 0;
     margin-bottom: 0;
     margin-top: 0;
+    overflow-wrap: normal;
     padding: rem(gesso-spacing(7));
     position: absolute;
     top: 100%;
@@ -61,9 +77,7 @@
     &[hidden] {
       display: block;
       transform: translate3d(0, -100%, 0);
-    }
-
-    &[hidden] {
+      z-index: -1;
     }
   }
 
@@ -84,10 +98,9 @@
   .menu__section-close {
     @include text-button;
     color: gesso-color(text, on-dark);
-    display: inline-block;
-    float: right;
     height: rem(50px);
-    position: relative;
+    position: absolute;
+    right: rem(10px);
     text-align: center;
     top: rem(10px);
     transition: opacity gesso-duration(short) gesso-easing(ease-in);

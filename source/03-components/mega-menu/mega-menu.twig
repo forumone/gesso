@@ -20,14 +20,6 @@
           <span>{{ item.title }}</span>
         </button>
         <div class="menu__section" id="mega-menu--{{ loop.index }}" hidden>
-          <button aria-label="{{ 'Close menu'|t }}" class="menu__section-close">
-            {% include '@components/icon/icon.twig' with {
-              icon_name: 'close',
-              modifier_classes: 'menu__close-icon',
-              is_hidden: true,
-              gesso_image_path: gesso_image_path
-            } %}
-          </button>
           <div class="l-constrain menu__section-inner">
             <div class="menu__overview">
               <h2 class="menu__section-title">{{ item.title }}</h2>
@@ -37,9 +29,17 @@
               {{ item.featured }}
             {% endblock %}
           </div>
+          <button aria-label="{{ 'Close menu'|t }}" class="menu__section-close">
+            {% include '@components/icon/icon.twig' with {
+              icon_name: 'close',
+              modifier_classes: 'menu__close-icon',
+              is_hidden: true,
+              gesso_image_path: gesso_image_path
+            } %}
+          </button>
         </div>
       {% else %}
-        {{ link(item.title, item.url, {class: ['menu__link']}) }}
+        {{ link(item.title, item.url, {class: ['menu__link js-top-link']}) }}
       {% endif %}
     </li>
   {% endfor %}
