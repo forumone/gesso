@@ -1,23 +1,30 @@
+/**
+ * @abstract
+ */
 class Menu {
   constructor(domNode) {
     this.domNode = domNode; // DOM node containing the menu.
     this.menuItems = []; // Set of items in the menu.
-    this.firstChars = [];
+    this.firstChars = []; // Set of first characters.
     this.firstItem = null; // First menu item.
     this.lastItem = null; // Last menu item.
-    this.hasFocus = false;
-    this.hasHover = false;
-    this.isMenubar = false;
+    this.hasFocus = false; // Whether menu has keyboard focus.
+    this.hasHover = false; // Whether menu has hover.
+    this.isMenubar = false; // Whether this is a menubar.
   }
 
   // Allow an empty function here because this is an abstract class.
   // eslint-disable-next-line
   createMenuItem(menuElement) {}
 
+  isValidTag(tagName) {
+    return tagName === 'A' || tagName === 'BUTTON';
+  }
+
   init() {
     // Set up any and all submenu items.
     if (this.domNode.children.length > 0) {
-      const nodesArray = [].slice.call(this.domNode.children);
+      const nodesArray = [...this.domNode.children];
       nodesArray.forEach(childElement => {
         const menuElement = childElement.firstElementChild;
         if (menuElement && this.isValidTag(menuElement.tagName)) {
@@ -36,10 +43,6 @@ class Menu {
       [this.firstItem] = this.menuItems;
       this.lastItem = this.menuItems[numItems - 1];
     }
-  }
-
-  isValidTag(tagName) {
-    return tagName === 'A' || tagName === 'BUTTON';
   }
 
   setFocus(state) {
@@ -63,7 +66,7 @@ class Menu {
   }
 
   setFocusToPreviousItem(currentItem) {
-    let newItem = false;
+    let newItem;
     if (currentItem === this.firstItem) {
       newItem = this.lastItem;
     } else {
@@ -76,7 +79,7 @@ class Menu {
   }
 
   setFocusToNextItem(currentItem) {
-    let newItem = false;
+    let newItem;
     if (currentItem === this.lastItem) {
       newItem = this.firstItem;
     } else {

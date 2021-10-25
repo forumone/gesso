@@ -1,0 +1,6 @@
+{{ attach_library('gesso/dropdown-menu') }}
+{% include '@components/menu/menu.twig' with {
+  'menu_name': menu_name,
+  'items': items,
+  'modifier_classes': 'dropdown-menu'
+} %}

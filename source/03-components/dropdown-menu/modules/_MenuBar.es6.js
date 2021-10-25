@@ -40,24 +40,24 @@ class MenuBar extends Menu {
   setFocusToItem(newItem) {
     let openMenu = false;
     // Close any existing menus.
-    this.menuItems.forEach(mbi => {
-      if (mbi.domNode.tabIndex === 0) {
-        openMenu = mbi.domNode.getAttribute('aria-expanded') === 'true';
+    this.menuItems.forEach(menubarItem => {
+      if (menubarItem.domNode.tabIndex === 0) {
+        openMenu = menubarItem.domNode.getAttribute('aria-expanded') === 'true';
       }
 
-      mbi.domNode.tabIndex = -1;
-      if (mbi.popupMenu) {
-        mbi.popupMenu.close();
+      menubarItem.domNode.tabIndex = -1;
+      if (menubarItem.popupMenu) {
+        menubarItem.popupMenu.close();
       }
     });
 
+    // Focus on the new menu, and open it if the previous menu was open.
     newItem.domNode.focus();
     newItem.domNode.tabIndex = 0;
 
     if (openMenu && newItem.popupMenu) {
       newItem.popupMenu.open();
     }
-    // Focus on the new menu, and open it if the previous menu was open.
   }
 }
 

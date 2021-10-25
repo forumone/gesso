@@ -5,11 +5,6 @@
 @use 'sass:math';
 @use '00-config' as *;
 
-$mobile-menu-fallback-bg-color: gesso-color(
-  ui,
-  generic,
-  background-light
-) !default;
 $mobile-menu-bg-color: rgba(
   gesso-color(ui, generic, background-light),
   0.98
@@ -37,7 +32,6 @@ $mobile-menu-font-size: gesso-font-size(3);
 $mobile-menu-line-height: gesso-line-height(base);
 
 .mobile-menu {
-  background-color: $mobile-menu-fallback-bg-color;
   background-color: $mobile-menu-bg-color;
   left: 0;
   overflow-y: auto;

@@ -1,0 +1,122 @@
+---
+menu_name: 'main'
+items:
+  - title: 'Visit'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+    below:
+      - title: 'Submenu item one'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item two'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item three'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+  - title: 'About'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+    below:
+      - title: 'Submenu item one'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item two'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item three'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+    section: 'about'
+  - title: 'Resources'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+    below:
+      - title: 'Submenu item one'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item two'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+    section: 'resources'
+  - title: 'Get Involved'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+    below:
+      - title: 'Submenu item one'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item two'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item three'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+    section: 'get-involved'
+menu_class:
+  - 'primary-nav'
+item_class:
+  - 'primary-nav__item'
+link_class:
+  - 'primary-nav__link'
+  - 'special-link-class'

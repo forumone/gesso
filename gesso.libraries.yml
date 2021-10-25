@@ -3,12 +3,21 @@ global:
     theme:
       //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
       dist/css/styles.css: {}
-main-menu:
+dropdown-menu:
+  css:
+    theme:
+      dist/css/dropdown-menu.css: {}
   js:
     dist/js/primary-menu.es6.js: {}
-    dist/js/mobile-menu.es6.js: {}
   dependencies:
     - gesso/common
+mobile-menu:
+  css:
+    theme:
+      dist/css/mobile-menu.css: {}
+      dist/css/mobile-menu-button.css: {}
+ js:
+   dist/js/mobile-menu.es6.js: {}
 hero_bg_image:
   css:
     theme:

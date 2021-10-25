@@ -1,4 +1,4 @@
-import KEYCODE from '../../../../00-config/_KEYCODE.es6';
+import KEYCODE from '../../../00-config/_KEYCODE.es6';
 
 import MenuItem from './_MenuItem.es6';
 import PopupMenu from './_PopupMenu.es6';
