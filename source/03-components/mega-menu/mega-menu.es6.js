@@ -1,5 +1,6 @@
 import Drupal from 'drupal';
 import MegaMenu from './modules/MegaMenu';
+import MobileMenu from '../mobile-menu/modules/_MobileMenu.es6';
 
 Drupal.behaviors.megaMenu = {
   attach(context) {
@@ -8,6 +9,10 @@ Drupal.behaviors.megaMenu = {
       menus.forEach(menu => {
         const megaMenu = new MegaMenu(menu);
         megaMenu.init();
+        const mobileMenu = new MobileMenu({
+          navMenu: menu,
+        });
+        mobileMenu.init();
       });
     }
   },

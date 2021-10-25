@@ -3,7 +3,7 @@
 
 @use '00-config' as *;
 
-.menu--main {
+.dropdown-menu {
   @include list-inline;
 
   .menu__link.has-subnav {

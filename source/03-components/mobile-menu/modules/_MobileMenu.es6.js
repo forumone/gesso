@@ -4,7 +4,7 @@ import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
 class _MobileMenu {
   constructor({
     toggleSubNav = true, // Enable subnav toggle
-    navMenu = '.menu--main', // Selector for primary menu to clone for mobile menu
+    navMenu = null, // Selector for primary menu to clone for mobile menu
     searchBlock = '', // Selector for search block
     utilityMenu = '', // Selector for utility menu to add to mobile menu
     header = '.l-header', // Selector for site header
@@ -44,7 +44,7 @@ class _MobileMenu {
       arrowButtonClass,
       mobileMenuBreakpoint,
     };
-    this.navMenu = navMenu ? document.querySelector(navMenu) : null;
+    this.navMenu = navMenu;
     this.searchBlock = searchBlock ? document.querySelector(searchBlock) : null;
     this.utilityMenu = utilityMenu ? document.querySelector(utilityMenu) : null;
     this.header = header ? document.querySelector(header) : null;
@@ -238,10 +238,10 @@ class _MobileMenu {
   }
 
   init() {
+    if (!this.navMenu) return;
     // Set up the overlay.
     this.overlay = document.createElement('nav');
     this.overlay.classList.add(this.options.overlayClass);
-    this.overlay.setAttribute('aria-role', 'menu');
     this.overlay.setAttribute('aria-modal', 'true');
 
     // Create and set up the close button.
@@ -265,7 +265,7 @@ class _MobileMenu {
       if (this.header) {
         this.header.insertAdjacentElement('beforeEnd', this.toggleButton);
       } else {
-        document.body.insertAdjacentElement('afterBegin', this.toggleButton);
+        this.navMenu.insertAdjacentElement('beforebegin', this.toggleButton);
       }
     }
     this.toggleButton.addEventListener('click', () => this.open());
@@ -296,7 +296,7 @@ class _MobileMenu {
     } else if (this.header) {
       this.header.insertAdjacentElement('afterEnd', this.overlay);
     } else {
-      document.body.insertAdjacentElement('afterBegin', this.overlay);
+      this.navMenu.insertAdjacentElement('beforebegin', this.overlay);
     }
 
     this.toggleMenuDisplay();

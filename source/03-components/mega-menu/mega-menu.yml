@@ -113,10 +113,3 @@ items:
               class: ''
         in_active_trail: false
     section: 'get-involved'
-menu_class:
-  - 'primary-nav'
-item_class:
-  - 'primary-nav__item'
-link_class:
-  - 'primary-nav__link'
-  - 'special-link-class'
