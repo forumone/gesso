@@ -9,8 +9,12 @@
  * Implements hook_preprocess_breadcrumb().
  */
 function gesso_preprocess_breadcrumb(array &$variables) {
+  /** @var \Drupal\Core\Render\Renderer $renderer */
+  $renderer = \Drupal::service('renderer');
   $variables['include_current_page']
     = theme_get_setting('include_current_page_in_breadcrumb', 'gesso') ?? TRUE;
+  $themeConfig = \Drupal::config('gesso.settings');
+  $renderer->addCacheableDependency($variables, $themeConfig);
 
     if ($variables['include_current_page']) {
       $request = \Drupal::request();
@@ -20,5 +24,7 @@ function gesso_preprocess_breadcrumb(array &$variables) {
       $variables['breadcrumb'][] = array(
         'text' => $page_title,
       );
+      $variables['#cache']['contexts'][] = 'route';
     }
+
 }
