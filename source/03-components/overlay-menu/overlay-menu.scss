@@ -1,0 +1,43 @@
+// @file
+// Component: Overlay Menu
+
+@use '00-config' as *;
+
+$overlay-menu-bg-color: rgba(
+  gesso-color(ui, generic, background-light),
+  0.98
+) !default;
+
+.overlay-menu {
+  background-color: transparent;
+  height: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transition: all gesso-duration(long) gesso-easing(ease-in-out);
+  width: 0;
+  z-index: -1;
+
+  &.is-open {
+    background-color: $overlay-menu-bg-color;
+    height: 100vh;
+    overflow-y: auto;
+    width: 100%;
+    z-index: gesso-z-index(modal);
+  }
+}
+
+.overlay-menu__menu {
+  @include list-clean;
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.overlay-menu__link {
+  margin-right: 0;
+}

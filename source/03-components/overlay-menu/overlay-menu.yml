@@ -1,0 +1,31 @@
+---
+menu_name: 'main'
+items:
+  - title: 'Home'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'About'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'Resources'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'Contact'
+    url: '#'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false

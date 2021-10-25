@@ -1,7 +1,7 @@
-import { DropdownMenu } from "../dropdown-menu/dropdown-menu.stories.jsx";
-import "./mobile-menu.scss";
-import "../mobile-menu-button/mobile-menu-button.scss";
-import "./mobile-menu.es6";
+import { DropdownMenu } from '../dropdown-menu/dropdown-menu.stories.jsx';
+import './mobile-menu.scss';
+import '../hamburger-button/hamburger-button.scss';
+import './mobile-menu.es6';
 
 const settings = {
   title: 'Components/Menu/Mobile Menu',

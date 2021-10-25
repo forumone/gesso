@@ -38,7 +38,7 @@ $mobile-menu-line-height: gesso-line-height(base);
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999999;
+  z-index: gesso-z-index(modal);
 }
 
 .mobile-menu__menu {

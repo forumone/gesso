@@ -1,0 +1,16 @@
+{% set classes = [
+  'overlay-menu',
+  modifier_classes ? modifier_classes : ''
+]|join(' ')|trim %}
+
+{% set id = 'overlay-menu'|unique_id %}
+
+<nav {{ add_attributes({class: classes, id: id}) }}>
+  {% include '@components/menu/menu.twig' with {
+    'menu_name': menu_name,
+    'items': items,
+    'menu_class': ['overlay-menu__menu'],
+    'item_class': ['overlay-menu__item'],
+    'link_class': ['overlay-menu__link']
+  } %}
+</nav>
