@@ -21,6 +21,10 @@
   padding: 0 gesso-spacing(2);
   position: relative;
   text-decoration: none;
+
+  &[hidden] {
+    display: none;
+  }
 }
 
 .hamburger-button__icon {

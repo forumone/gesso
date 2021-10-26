@@ -8,8 +8,8 @@ Drupal.behaviors.dropdownMenu = {
     if (menuNode) {
       const dropdownMenu = new MenuBar(menuNode);
       dropdownMenu.init();
-      const mobileMenu = new MobileMenu({
-        navMenu: menuNode,
+      const mobileMenu = new MobileMenu(menuNode, context, {
+        classPrefix: 'dropdown',
       });
       mobileMenu.init();
     }

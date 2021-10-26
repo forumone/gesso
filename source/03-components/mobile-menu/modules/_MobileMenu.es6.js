@@ -1,307 +1,216 @@
-import KEYCODE from '../../../00-config/_KEYCODE.es6';
+import OverlayMenu from '../../overlay-menu/modules/_OverlayMenu.es6';
+import cleanString from '../../../06-utility/_cleanString.es6';
 import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
 
-class _MobileMenu {
-  constructor({
-    toggleSubNav = true, // Enable subnav toggle
-    navMenu = null, // Selector for primary menu to clone for mobile menu
-    searchBlock = '', // Selector for search block
-    utilityMenu = '', // Selector for utility menu to add to mobile menu
-    header = '.l-header', // Selector for site header
-    toggleButton = '.hamburger-button--menu', // Selector for Menu toggle
-    container = '.mobile-menu-container', // Selector for destination container for mobile nav
-    menuItem = '.menu__item', // Selector for individual menu items
-    menuItemClass = 'mobile-menu__item', // Class name to add to individual menu items
-    menuLink = '.menu__link', // Selector for individual menu links
-    menuLinkClass = 'mobile-menu__link', // Class name to add to individual menu links
-    menuSubMenu = '.menu__subnav', // Selector for submenus
-    menuSubMenuClass = 'mobile-menu__subnav', // Class name to add to submenus
-    overlayClass = 'mobile-menu', // Overlay class name
-    mobileMenuClass = 'mobile-menu__menu', // Class name for main navigation section
-    mobileSearchClass = 'mobile-menu__search', // Class name for search section
-    mobileUtilityMenuClass = 'mobile-menu__menu', // Class name for utility section
-    buttonClass = 'hamburger-button', // Class name for all menu buttons
-    menuButtonClass = 'hamburger-button--menu', // Class name for generated menu button
-    closeButtonClass = 'hamburger-button--close', // Class name for generated close button
-    arrowButtonClass = 'mobile-menu__subnav-arrow', // Class name for the subnav toggle
-    mobileMenuBreakpoint = `(max-width: ${BREAKPOINTS['mobile-menu']})`, // Breakpoint to switch between mobile + original menu
-  } = {}) {
-    this.options = {
-      toggleSubNav,
-      menuItem,
-      menuItemClass,
-      menuLink,
-      menuLinkClass,
-      menuSubMenu,
-      menuSubMenuClass,
-      overlayClass,
-      mobileMenuClass,
-      mobileSearchClass,
-      mobileUtilityMenuClass,
-      buttonClass,
-      menuButtonClass,
-      closeButtonClass,
-      arrowButtonClass,
-      mobileMenuBreakpoint,
-    };
-    this.navMenu = navMenu;
-    this.searchBlock = searchBlock ? document.querySelector(searchBlock) : null;
-    this.utilityMenu = utilityMenu ? document.querySelector(utilityMenu) : null;
-    this.header = header ? document.querySelector(header) : null;
-    this.toggleButton = toggleButton
-      ? document.querySelector(toggleButton)
+class MobileMenu extends OverlayMenu {
+  /**
+   * @constructor
+   * @param {HTMLElement} domNode - The menu to turn into a mobile menu
+   * @param context
+   * @param {string|null} searchBlockClass - Optional selector for the search block.
+   *   If included, the search block will be cloned into the mobile menu. Set to
+   *   null to omit the search block from the mobile menu.
+   * @param {string|null} utilityNavClass - Optional selector for the utility nav.
+   *   If included, the utility nav will be cloned into the mobile menu. Set to
+   *   null to omit the utility nav in the mobile menu.
+   * @param {boolean} toggleSubnav - Whether sub-menus should be hidden initially and toggleable.
+   * @param {string} mobileMenuBreakpoint - Breakpoint at which to switch to the mobile menu.
+   */
+  constructor(
+    domNode,
+    context,
+    {
+      searchBlockClass = '.search',
+      utilityNavClass = '.menu--utility',
+      toggleSubnav = true,
+      mobileMenuBreakpoint = `(max-width: ${BREAKPOINTS['mobile-menu']})`,
+      classPrefix = '',
+    } = {}
+  ) {
+    super(null);
+    this.menu = domNode;
+    this.searchBlock = searchBlockClass
+      ? context.querySelector(searchBlockClass)
       : null;
-    this.container = container ? document.querySelector(container) : null;
-    this.prevFocused = null;
-    // Necessary so removeEventListener will work properly.
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.utilityNav = utilityNavClass
+      ? context.querySelector(utilityNavClass)
+      : null;
+    this.options = {
+      toggleSubnav,
+      mobileMenuBreakpoint,
+      classPrefix,
+    };
     this.toggleMenuDisplay = this.toggleMenuDisplay.bind(this);
-    this.close = this.close.bind(this);
   }
 
-  cleanString(stringToClean) {
-    return stringToClean.toLowerCase().replace(' ', '-');
+  /**
+   * Create the outer overlay that will hold the mobile menu.
+   * @return {HTMLElement}
+   */
+  createMenuOverlay() {
+    const overlay = document.createElement('nav');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.classList.add('mobile-menu');
+    return this.menu.insertAdjacentElement('afterend', overlay);
   }
 
-  processLinks(elem, controlled, index) {
-    const thisNode = elem;
-    const toggleButton = document.createElement('button');
-    const firstLink = [...controlled.querySelectorAll(this.options.menuLink)];
-
-    const elemID = this.cleanString(
-      `mobile-menu-${elem.innerText}${index || ''}`
-    );
-
-    controlled.setAttribute('id', elemID);
-
-    toggleButton.classList.add(this.options.arrowButtonClass);
-    toggleButton.setAttribute('aria-controls', elemID);
-    toggleButton.setAttribute('aria-expanded', 'false');
-    toggleButton.innerHTML =
-      '<span class="visually-hidden">Toggle SubNav</span>';
-
-    toggleButton.addEventListener('click', e => {
-      if (toggleButton.getAttribute('aria-expanded') === 'false') {
-        e.currentTarget.setAttribute('aria-expanded', 'true');
-        controlled.setAttribute('style', 'display: block;');
-        firstLink[0][0].focus();
-      } else {
-        e.currentTarget.setAttribute('aria-expanded', 'false');
-        controlled.setAttribute('style', 'display: none;');
-      }
-    });
-
-    thisNode.parentNode.insertBefore(toggleButton, controlled);
-  }
-
+  /**
+   * Clone a Drupal block to include in the mobile menu.
+   * @param {HTMLElement} block - The block to clone
+   * @param {string} blockClass - Optional CSS class to add to the cloned block
+   * @return {Node}
+   */
   cloneBlock(block, blockClass = '') {
-    let blockClone = null;
-    if (block) {
-      blockClone = block.cloneNode(true);
-      if (blockClass) {
-        blockClone.classList.add(blockClass);
-      }
+    const blockClone = block.cloneNode(true);
+    if (blockClass) {
+      blockClone.classList.add(blockClass);
+    }
+    if (blockClone.id) {
+      blockClone.id = `${blockClone.id}-mobile`;
     }
     return blockClone;
   }
 
+  /**
+   * Create a toggle button to hide/show a subnav.
+   * @param {HTMLElement} subnav - The submenu the toggle button will be used to display.
+   * @return {Element}
+   */
+  createToggleButton(subnav) {
+    const button = document.createElement('button');
+    button.classList.add('mobile-menu__subnav-arrow');
+    button.setAttribute('aria-controls', subnav.id);
+    button.setAttribute('aria-expanded', 'false');
+    button.innerHTML = '<span class="visually-hidden">Toggle Subnav</span>';
+    return subnav.insertAdjacentElement('beforebegin', button);
+  }
+
+  /**
+   * Set up a submenu by adding a toggle button if one does not exist already,
+   * and using it to hide/show the subnav.
+   * @param {HTMLElement} link - The top-level menu link or button.
+   * @param {HTMLElement} subnav - The submenu to hide/show.
+   */
+  setupSubnav(link, subnav) {
+    const toggleButton =
+      link.tagName === 'BUTTON' ? link : this.createToggleButton(subnav);
+    subnav.hidden = true;
+    toggleButton.addEventListener('click', event => {
+      event.preventDefault();
+      if (toggleButton.getAttribute('aria-expanded') === 'true') {
+        subnav.hidden = true;
+        toggleButton.setAttribute('aria-expanded', 'false');
+      } else {
+        subnav.hidden = false;
+        toggleButton.setAttribute('aria-expanded', 'true');
+        subnav.querySelector('.menu__link').focus();
+      }
+    });
+  }
+
+  /**
+   * Clone a menu and its submenus to include in the mobile menu.
+   * @param {HTMLElement} menu - The menu to clone.
+   * @param {string} menuClass - Optional CSS class to add to the menu.
+   * @return {Node}
+   */
   cloneMenu(menu, menuClass = '') {
-    let menuClone = null;
-    if (menu) {
-      menuClone = menu.cloneNode(true);
+    const menuClone = menu.cloneNode(true);
+    if (menuClass) {
+      menuClone.classList.add(menuClass);
+    }
+    const subNavTypeClass = this.options.toggleSubNav
+      ? 'mobile-menu__menu--toggle-subnav'
+      : 'mobile-menu__menu--show-subnav';
+    menuClone.classList.add(subNavTypeClass);
 
-      menuClone.className = '';
-      const subNavClass = this.options.toggleSubNav
-        ? 'mobile-menu__menu--toggle-subnav'
-        : 'mobile-menu__menu--show-subnav';
+    // Swap classes on the mobile menu items.
+    const menuItems = menuClone.querySelectorAll('.menu__item');
+    if (menuItems.length) {
+      menuItems.forEach(item => {
+        item.classList.remove('menu__item');
+        item.classList.remove(`${this.options.classPrefix}__item`);
+        item.classList.add('mobile-menu__item');
+      });
+    }
 
-      if (menuClass) {
-        menuClone.classList.add(menuClass);
-      }
-      menuClone.classList.add(subNavClass);
+    // Swap classes on mobile menu links.
+    const menuLinks = menuClone.querySelectorAll('.menu__link');
+    menuLinks.forEach(link => {
+      link.classList.remove('menu__link');
+      link.classList.remove(`${this.options.classPrefix}__link`);
+      link.classList.add('mobile-menu__link');
+    });
 
-      const items = menuClone.querySelectorAll(this.options.menuItem);
-      if (items.length) {
-        items.forEach(item => {
-          item.classList.add(this.options.menuItemClass);
-          item.classList.remove('menu__item');
-        });
-      }
-
-      const menus = menuClone.querySelectorAll(this.options.menuSubMenu);
-      if (menus.length) {
-        menus.forEach(item => {
-          item.classList.add(this.options.menuSubMenuClass);
-          item.classList.remove('menu');
-          item.classList.remove('menu__subnav');
-        });
-      }
-
-      // Prep subnav menus, if there are any.
-      const links = menuClone.querySelectorAll(this.options.menuLink);
-      if (links.length) {
-        links.forEach((item, index) => {
-          const link = item;
-          const nextElement = item.nextElementSibling;
-          link.tabIndex = -1;
-
-          if (
-            this.options.toggleSubNav &&
-            link.classList.contains('has-subnav') &&
-            nextElement &&
-            nextElement.tagName === 'UL'
-          ) {
-            this.processLinks(link, nextElement, index);
-          }
-          link.classList.add(this.options.menuLinkClass);
-          link.classList.remove('menu__link');
-        });
-      }
+    // Prep sub-menus, if applicable.
+    const subMenus = menuClone.querySelectorAll('.menu__subnav');
+    if (subMenus.length) {
+      subMenus.forEach((submenu, index) => {
+        const link = submenu
+          .closest('.mobile-menu__item')
+          .querySelector('.mobile-menu__link');
+        // Swap submenu classes and ID.
+        submenu.classList.add('mobile-menu__subnav');
+        submenu.classList.remove('menu');
+        submenu.classList.remove('menu__subnav');
+        submenu.classList.remove(`${this.options.classPrefix}__subnav`);
+        submenu.id = cleanString(`mobile-menu-${link.innerText}${index || ''}`);
+        if (this.options.toggleSubnav) {
+          this.setupSubnav(link, link.nextElementSibling);
+        }
+      });
     }
     return menuClone;
   }
 
-  setTabIndex(elem, tabIndex) {
-    if (Array.isArray(elem)) {
-      elem.forEach(item => {
-        // Check if item is a NodeList.
-        if (Object.prototype.isPrototypeOf.call(NodeList.prototype, item)) {
-          for (let i = 0; i < item.length; i += 1) {
-            item[i].tabIndex = tabIndex;
-          }
-        } else {
-          item.tabIndex = tabIndex;
-        }
-      });
-    } else {
-      elem.tabIndex = tabIndex;
-    }
-  }
-
-  handleKeyDown(event) {
-    // Select all focusable items
-    const focusable = this.overlay.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-
-    const numberFocusElements = focusable.length;
-    const firstFocusableElement = focusable[0];
-    const lastFocusableElement = focusable[numberFocusElements - 1];
-
-    // Close modal
-    if (event.keyCode === KEYCODE.ESC) {
-      this.close();
-    }
-
-    // Trap Tab
-    if (event.keyCode === KEYCODE.TAB && event.shiftKey) {
-      if (document.activeElement === firstFocusableElement) {
-        event.preventDefault();
-        lastFocusableElement.focus();
-      }
-    } else if (event.keyCode === KEYCODE.TAB) {
-      if (document.activeElement === lastFocusableElement) {
-        event.preventDefault();
-        firstFocusableElement.focus();
-      }
-    }
-  }
-
+  /**
+   * Hide the original or mobile menu, depending on screen size.
+   * @return void
+   */
   toggleMenuDisplay() {
-    // Hide the original or cloned content, depending on screen size.
     if (window.matchMedia(this.options.mobileMenuBreakpoint).matches) {
-      this.overlay.style.display = '';
-      this.toggleButton.style.display = '';
+      this.menuButton.hidden = false;
       if (this.searchBlock) {
-        this.searchBlock.style.display = 'none';
+        this.searchBlock.hidden = true;
       }
-      if (this.navMenu) {
-        this.navMenu.style.display = 'none';
+      this.menu.hidden = true;
+      if (this.utilityNav) {
+        this.utilityNav.hidden = true;
       }
-      if (this.utilityMenu) {
-        this.utilityMenu.style.display = 'none';
-      }
-      this.close();
+      this.closeMenu();
     } else {
-      this.overlay.style.display = 'none';
-      this.toggleButton.style.display = 'none';
+      this.closeMenu();
+      this.menuButton.hidden = true;
       if (this.searchBlock) {
-        this.searchBlock.style.display = '';
+        this.searchBlock.hidden = false;
       }
-      if (this.navMenu) {
-        this.navMenu.style.display = '';
-      }
-      if (this.utilityMenu) {
-        this.utilityMenu.style.display = '';
+      this.menu.hidden = false;
+      if (this.utilityNav) {
+        this.utilityNav.hidden = false;
       }
     }
   }
 
+  /**
+   * Initialize the mobile menu.
+   * @return void
+   */
   init() {
-    if (!this.navMenu) return;
-    // Set up the overlay.
-    this.overlay = document.createElement('nav');
-    this.overlay.classList.add(this.options.overlayClass);
-    this.overlay.setAttribute('aria-modal', 'true');
-
-    // Create and set up the close button.
-    // Multiple calls to classList.add() here because IE doesn't support multiple arguments. :(
-    this.closeButton = document.createElement('button');
-    this.closeButton.classList.add(this.options.buttonClass);
-    this.closeButton.classList.add(this.options.closeButtonClass);
-    this.closeButton.innerHTML =
-      '<span class="hamburger-button__icon">Close</span>';
-    this.closeButton.addEventListener('click', () => this.close());
-    this.overlay.appendChild(this.closeButton);
-
-    // Create a menu toggle button if we don't already have one.
-    if (this.toggleButton === null) {
-      this.toggleButton = document.createElement('button');
-      this.toggleButton.classList.add(this.options.buttonClass);
-      this.toggleButton.classList.add(this.options.menuButtonClass);
-      this.toggleButton.innerHTML =
-        '<span class="hamburger-button__icon">Menu</span>';
-      this.toggleButton.setAttribute('aria-haspopup', 'menu');
-      if (this.header) {
-        this.header.insertAdjacentElement('beforeEnd', this.toggleButton);
-      } else {
-        this.navMenu.insertAdjacentElement('beforebegin', this.toggleButton);
-      }
-    }
-    this.toggleButton.addEventListener('click', () => this.open());
-
-    // Set up the search block
+    if (!this.menu) return;
+    this.overlay = this.overlay ?? this.createMenuOverlay();
+    super.init();
     if (this.searchBlock) {
       this.overlay.appendChild(
-        this.cloneBlock(this.searchBlock, this.options.mobileSearchClass)
+        this.cloneBlock(this.searchBlock, 'mobile-menu__search')
       );
     }
-
-    // Set up the main nav.
-    if (this.navMenu) {
+    this.overlay.appendChild(this.cloneMenu(this.menu, 'mobile-menu__menu'));
+    if (this.utilityNav) {
       this.overlay.appendChild(
-        this.cloneMenu(this.navMenu, this.options.mobileMenuClass)
+        this.cloneMenu(this.utilityNav, 'mobile-menu__menu')
       );
     }
-    // Set up the utility nav.
-    if (this.utilityMenu) {
-      this.overlay.appendChild(
-        this.cloneMenu(this.utilityMenu, this.options.mobileUtilityMenuClass)
-      );
-    }
-
-    // Add the overlay to the page.
-    if (this.container) {
-      this.container.appendChild(this.overlay);
-    } else if (this.header) {
-      this.header.insertAdjacentElement('afterEnd', this.overlay);
-    } else {
-      this.navMenu.insertAdjacentElement('beforebegin', this.overlay);
-    }
-
     this.toggleMenuDisplay();
-    this.close();
-
     let resizeTimeout = false;
     let lastWindowWidth = window.innerWidth;
     window.addEventListener('resize', () => {
@@ -317,45 +226,6 @@ class _MobileMenu {
       }
     });
   }
-
-  open() {
-    // Stash the element currently in focus.
-    this.prevFocused = document.activeElement;
-
-    this.setTabIndex(this.closeButton, 0);
-    this.closeButton.addEventListener('click', this.close);
-
-    const links = [...this.overlay.querySelectorAll('.mobile-menu__link')];
-    this.setTabIndex(links, 0);
-
-    document.body.classList.add('has-open-mobile-menu');
-    this.overlay.setAttribute('style', 'display: block;');
-
-    this.toggleButton.setAttribute('aria-expanded', 'true');
-
-    document.addEventListener('keydown', this.handleKeyDown);
-  }
-
-  close() {
-    // Remove menu items from the tab flow.
-    this.setTabIndex(this.closeButton, -1);
-    const links = [...this.overlay.querySelectorAll('.mobile-menu__link')];
-    this.setTabIndex(links, -1);
-
-    // Remove Event Listeners
-    document.removeEventListener('keydown', this.handleKeyDown);
-    this.closeButton.removeEventListener('click', this.close);
-
-    document.body.classList.remove('has-open-mobile-menu');
-    this.overlay.setAttribute('style', 'display: none;');
-
-    this.toggleButton.removeAttribute('aria-expanded');
-
-    // Restore focus to the original item.
-    if (this.prevFocused) {
-      this.prevFocused.focus();
-    }
-  }
 }
 
-export default _MobileMenu;
+export default MobileMenu;

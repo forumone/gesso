@@ -33,12 +33,18 @@ $mobile-menu-line-height: gesso-line-height(base);
 
 .mobile-menu {
   background-color: $mobile-menu-bg-color;
+  display: none;
   left: 0;
   overflow-y: auto;
+  padding-top: 55px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: gesso-z-index(modal);
+
+  &.is-open {
+    display: block;
+  }
 }
 
 .mobile-menu__menu {
@@ -121,9 +127,7 @@ $mobile-menu-line-height: gesso-line-height(base);
 }
 
 .mobile-menu__subnav {
-  background-color: $mobile-menu-submenu-fallback-bg-color;
   background-color: $mobile-menu-submenu-bg-color;
-  display: none;
   list-style: none;
   margin: 0;
   padding: 0;

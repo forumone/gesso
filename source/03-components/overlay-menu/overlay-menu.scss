@@ -33,6 +33,7 @@ $overlay-menu-bg-color: rgba(
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
+  font-size: gesso-font-size(5);
   height: 100%;
   justify-content: center;
   width: 100%;
@@ -40,4 +41,5 @@ $overlay-menu-bg-color: rgba(
 
 .overlay-menu__link {
   margin-right: 0;
+  text-decoration: none;
 }
