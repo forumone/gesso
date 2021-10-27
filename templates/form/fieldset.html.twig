@@ -3,6 +3,8 @@
   required ? 'is-required',
 ] %}
 
+{% set removeClasses = [] %}
+
 {% if type == 'fieldset' %}
   {% set addClasses = addClasses|merge([
     'fieldset--default',
