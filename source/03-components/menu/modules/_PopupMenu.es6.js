@@ -7,27 +7,44 @@ import { Z_INDEX } from '../../../00-config/_GESSO.es6';
 import Menu from './_Menu.es6';
 
 class PopupMenu extends Menu {
-  constructor(domNode, controllerObj) {
-    super(domNode);
+  /**
+   * @constructor
+   * @param {HTMLElement} domNode - The DOM element for the subnav.
+   * @param {MenuItem} controllerObj - The parent MenuItem
+   * @param {boolean} useArrowKeys - Whether to enable navigation by arrow keys.
+   * @param {boolean} displayMenuOnHover - Whether to show submenus when parent link is hovered over
+   */
+  constructor(
+    domNode,
+    controllerObj,
+    { useArrowKeys = true, displayMenuOnHover = true } = {}
+  ) {
+    super(domNode, { useArrowKeys, displayMenuOnHover });
     this.controller = controllerObj;
   }
 
+  /**
+   * @inheritdoc
+   */
   createMenuItem(menuElement) {
     return new SubMenuItem(menuElement, this);
   }
 
+  /**
+   * @inheritdoc
+   */
   init() {
     super.init();
-    this.domNode.setAttribute('role', 'menu');
     // Add event handlers.
     this.domNode.addEventListener('mouseover', this.handleMouseover.bind(this));
     this.domNode.addEventListener('mouseout', this.handleMouseout.bind(this));
   }
 
-  setFocusToItem(newItem) {
-    newItem.domNode.focus();
-  }
-
+  /**
+   * Send a focus command to the controlling menu item.
+   * @param {''|'previous'|'next'} commandParam - The focus command
+   * @return {void}
+   */
   setFocusToController(commandParam) {
     let command = commandParam;
     if (typeof command !== 'string') {
@@ -46,6 +63,10 @@ class PopupMenu extends Menu {
     }
   }
 
+  /**
+   * Open the submenu.
+   * @return {void}
+   */
   open() {
     // Get position and bounding rectangle of controller object's DOM node
     const rect = this.controller.getBoundaries();
@@ -55,16 +76,20 @@ class PopupMenu extends Menu {
       this.domNode.style.display = 'block';
       this.domNode.style.position = 'absolute';
       this.domNode.style.left = `${rect.width}px`;
-      this.domNode.style.zIndex = Z_INDEX.drawer;
+      this.domNode.style.zIndex = Z_INDEX.drawer.toString();
     } else {
       this.domNode.style.display = 'block';
       this.domNode.style.position = 'absolute';
       this.domNode.style.top = `${rect.height - 1}px`;
-      this.domNode.style.zIndex = Z_INDEX.drawer;
+      this.domNode.style.zIndex = Z_INDEX.drawer.toString();
     }
     this.controller.setExpanded(true);
   }
 
+  /**
+   * Close the submenu
+   * @param {boolean} force - If true, the menu will be closed even if it currently has focus
+   */
   close(force) {
     let controllerHasHover = this.controller.getHover();
     let { hasFocus } = this;
@@ -87,10 +112,18 @@ class PopupMenu extends Menu {
     }
   }
 
+  /**
+   * Handle the user mousing over the submenu.
+   * @return {void}
+   */
   handleMouseover() {
     this.hasHover = true;
   }
 
+  /**
+   * Handle the user mousing away from the submenu.
+   * @return {void}
+   */
   handleMouseout() {
     this.hasHover = false;
   }

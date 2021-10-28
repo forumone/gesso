@@ -18,7 +18,7 @@
     {% set item_description = item.description %}
     <li {{ add_attributes({ 'class': item_classes }) }}>
       {% if item.below %}
-        <button class="mega-menu__link menu__link" aria-expanded="false" aria-controls="menu-main--{{ item_section }}">
+        <button class="js-top-level mega-menu__link menu__link" aria-expanded="false" aria-controls="menu-main--{{ item_section }}">
           <span>{{ item.title }}</span>
         </button>
         <div class="mega-menu__section menu__section" id="mega-menu--{{ loop.index }}" hidden>
@@ -41,7 +41,7 @@
           </button>
         </div>
       {% else %}
-        {{ link(item.title, item.url, {class: ['menu__link js-top-link']}) }}
+        {{ link(item.title, item.url, {class: ['menu__link js-top-level']}) }}
       {% endif %}
     </li>
   {% endfor %}

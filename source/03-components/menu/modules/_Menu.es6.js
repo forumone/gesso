@@ -2,25 +2,52 @@
  * @abstract
  */
 class Menu {
-  constructor(domNode) {
+  /**
+   * @constructor
+   * @param {HTMLElement} domNode - The outer menu element.
+   * @param {boolean} useArrowKeys - Whether to enable navigation by arrow keys.
+   * @param {boolean} displayMenuOnHover - Whether to show submenus when parent link is hovered over
+   */
+  constructor(
+    domNode,
+    { useArrowKeys = true, displayMenuOnHover = true } = {}
+  ) {
     this.domNode = domNode; // DOM node containing the menu.
     this.menuItems = []; // Set of items in the menu.
-    this.firstChars = []; // Set of first characters.
     this.firstItem = null; // First menu item.
     this.lastItem = null; // Last menu item.
     this.hasFocus = false; // Whether menu has keyboard focus.
     this.hasHover = false; // Whether menu has hover.
     this.isMenubar = false; // Whether this is a menubar.
+
+    this.options = {
+      useArrowKeys,
+      displayMenuOnHover,
+    };
   }
 
+  /**
+   * Create the appropriate MenuItem type from a menu element.
+   * @param {HTMLElement} menuElement - The menu element.
+   * @return {MenuItem}
+   */
   // Allow an empty function here because this is an abstract class.
   // eslint-disable-next-line
   createMenuItem(menuElement) {}
 
+  /**
+   * Whether a given tag name is a valid tag for menu links.
+   * @param {string} tagName - The tag name to check.
+   * @return {boolean}
+   */
   isValidTag(tagName) {
     return tagName === 'A' || tagName === 'BUTTON';
   }
 
+  /**
+   * Initialize the menu.
+   * @return {void}
+   */
   init() {
     // Set up any and all submenu items.
     if (this.domNode.children.length > 0) {
@@ -31,8 +58,6 @@ class Menu {
           const menuItem = this.createMenuItem(menuElement);
           menuItem.init();
           this.menuItems.push(menuItem);
-          const textContent = menuElement.textContent.trim();
-          this.firstChars.push(textContent.substring(0, 1).toLowerCase());
         }
       });
     }
@@ -45,26 +70,53 @@ class Menu {
     }
   }
 
+  /**
+   * Set the keyboard focus state.
+   * @param {boolean} state - TRUE if menu has keyboard focus.
+   * @return {void}
+   */
   setFocus(state) {
     this.hasFocus = state;
   }
 
+  /**
+   * Set the hover state.
+   * @param {boolean} state - TRUE if mouse cursor is over the menu.
+   * @return {void}
+   */
   setHover(state) {
     this.hasHover = state;
   }
 
-  // Allow an empty function here because this is an abstract class.
-  // eslint-disable-next-line
-  setFocusToItem(newItem) {}
+  /**
+   * Set focus to a specific menu item.
+   * @param {MenuItem} newItem - The new menu item to focus on.
+   */
+  setFocusToItem(newItem) {
+    newItem.domNode.focus();
+  }
 
+  /**
+   * Set keyboard focus to the first item in the menu.
+   * @return {void}
+   */
   setFocusToFirstItem() {
     this.setFocusToItem(this.firstItem);
   }
 
+  /**
+   * Set keyboard focus to the last item in the menu.
+   * @return {void}
+   */
   setFocusToLastItem() {
     this.setFocusToItem(this.lastItem);
   }
 
+  /**
+   * Set keyboard focus to the previous item in the menu.
+   * @param {MenuItem} currentItem - The currently focused menu item.
+   * @return {void}
+   */
   setFocusToPreviousItem(currentItem) {
     let newItem;
     if (currentItem === this.firstItem) {
@@ -78,6 +130,11 @@ class Menu {
     }
   }
 
+  /**
+   * Set keyboard focus to the next item in the menu.
+   * @param {MenuItem} currentItem - The currently focused menu item.
+   * @return {void}
+   */
   setFocusToNextItem(currentItem) {
     let newItem;
     if (currentItem === this.lastItem) {
@@ -89,30 +146,6 @@ class Menu {
     if (newItem) {
       this.setFocusToItem(newItem);
     }
-  }
-
-  setFocusByFirstCharacter(currentItem, char) {
-    const currChar = char.toLowerCase();
-    let start = this.menuItems.indexOf(currentItem) + 1;
-    if (start === this.menuItems.length) {
-      start = 0;
-    }
-    let index = this.getIndexFirstChars(start, currChar);
-    if (index === -1) {
-      index = this.getIndexFirstChars(0, currChar);
-    }
-    if (index > -1) {
-      this.setFocusToItem(this.menuItems[index]);
-    }
-  }
-
-  getIndexFirstChars(startIndex, char) {
-    for (let i = startIndex; this.firstChars.length > 1; i += 1) {
-      if (char === this.firstChars[i]) {
-        return i;
-      }
-    }
-    return -1;
   }
 }
 

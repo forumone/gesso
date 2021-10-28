@@ -43,6 +43,22 @@
     }
   }
 
+  .menu__toggle {
+    @include text-button;
+    @include image-replace(16px, 16px);
+    @include svg-background(menu-arrow-down);
+    background-color: #f00;
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-40%);
+
+    svg {
+      pointer-events: none;
+    }
+  }
+
   .menu__subnav {
     background-color: gesso-color(ui, generic, background-dark);
     display: none;

@@ -1,5 +1,5 @@
 import Drupal from 'drupal';
-import OverlayMenu from './modules/_OverlayMenu.es6';
+import OverlayMenu from '../menu/modules/_OverlayMenu.es6';
 
 Drupal.behaviors.overlayMenu = {
   attach(context) {

@@ -2,6 +2,9 @@ import Menu from './_Menu.es6';
 import MenubarItem from './_MenubarItem.es6';
 
 class MenuBar extends Menu {
+  /**
+   * @inheritdoc
+   */
   constructor(domNode) {
     super(domNode);
 
@@ -26,38 +29,11 @@ class MenuBar extends Menu {
     this.isMenubar = true;
   }
 
+  /**
+   * @inheritdoc
+   */
   createMenuItem(menuElement) {
     return new MenubarItem(menuElement, this);
-  }
-
-  init() {
-    super.init();
-    this.domNode.setAttribute('role', 'menubar');
-    this.firstItem.setTabIndex(0);
-  }
-
-  // Set focus to a specific MenubarItem in the menu.
-  setFocusToItem(newItem) {
-    let openMenu = false;
-    // Close any existing menus.
-    this.menuItems.forEach(menubarItem => {
-      if (menubarItem.domNode.tabIndex === 0) {
-        openMenu = menubarItem.domNode.getAttribute('aria-expanded') === 'true';
-      }
-
-      menubarItem.domNode.tabIndex = -1;
-      if (menubarItem.popupMenu) {
-        menubarItem.popupMenu.close();
-      }
-    });
-
-    // Focus on the new menu, and open it if the previous menu was open.
-    newItem.domNode.focus();
-    newItem.domNode.tabIndex = 0;
-
-    if (openMenu && newItem.popupMenu) {
-      newItem.popupMenu.open();
-    }
   }
 }
 

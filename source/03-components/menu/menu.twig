@@ -14,12 +14,16 @@
       } %}
       <ul {{ add_attributes(additional_attributes) }}>
     {% else %}
-      <ul class="menu menu__subnav">
+{#      <ul class="menu menu__subnav">#}
+        <ul {{  add_attributes({class: ['menu', 'menu__subnav']}) }}>
     {% endif %}
     {% for item in items %}
 
       {% set item_classes = ['menu__item'] %}
       {% set link_classes = ['menu__link'] %}
+      {% if menu_level == 0 %}
+        {% set link_classes = link_classes|merge(['js-top-level']) %}
+      {% endif %}
 
       {% if item.below %}
         {% set item_classes = item_classes|merge(['has-subnav']) %}
