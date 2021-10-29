@@ -30,11 +30,11 @@ components:
 regions:
   page_top: 'Page top'
   header: Header
-  navigation: Navigation
-  breadcrumb: Breadcrumb
+  navigation: 'Main navigation'
+  breadcrumb: Breadcrumbs
   help: Help
-  highlighted: Highlighted
   preface: Preface
+  highlighted: 'Status messages & Tabs'
   content: Content
   postscript: Postscript
   footer: Footer
