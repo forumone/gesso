@@ -2,11 +2,13 @@ class OverlayMenu {
   /**
    * @constructor
    * @param {HTMLElement} domNode - The top-level menu node
-   * @param {HTMLElement|null} menuButton - The menu toggle
+   * @param {HTMLElement|null} menuButton - The open menu button
+   * @param {HTMLElement|null} closeButton - The close button toggle
    */
-  constructor(domNode, { menuButton = null } = {}) {
+  constructor(domNode, { menuButton, closeButton = null } = {}) {
     this.overlay = domNode;
     this.menuButton = menuButton;
+    this.closeButton = closeButton;
     this.handleKeydown = this.handleKeydown.bind(this);
   }
 
@@ -23,17 +25,27 @@ class OverlayMenu {
     return this.overlay.insertAdjacentElement('beforebegin', menuButton);
   }
 
+  createCloseButton() {
+    const menuButton = document.createElement('button');
+    menuButton.classList.add('hamburger-button', 'hamburger-button--close');
+    menuButton.setAttribute('aria-controls', this.overlay.id);
+    menuButton.setAttribute('aria-expanded', 'true');
+    menuButton.innerHTML = '<span class="hamburger-button__icon">Close</span>';
+    menuButton.hidden = true;
+    return this.overlay.insertAdjacentElement('afterbegin', menuButton);
+  }
+
   /**
    * Close the overlay.
    * @return void
    */
   closeMenu() {
-    this.menuButton.classList.remove('hamburger-button--close');
-    this.menuButton.classList.add('hamburger-button--menu');
-    this.menuButton.innerHTML =
-      '<span class="hamburger-button__icon">Close</span>';
+    this.menuButton.hidden = false;
     this.menuButton.setAttribute('aria-expanded', 'false');
+    this.closeButton.hidden = true;
+    this.closeButton.setAttribute('aria-expanded', 'false');
     this.overlay.classList.remove('is-open');
+    document.body.classList.remove('has-open-menu');
     window.removeEventListener('keydown', this.handleKeydown);
     this.disableTab();
   }
@@ -43,12 +55,12 @@ class OverlayMenu {
    * @return void
    */
   openMenu() {
-    this.menuButton.classList.remove('hamburger-button--menu');
-    this.menuButton.classList.add('hamburger-button--close');
-    this.menuButton.innerHTML =
-      '<span class="hamburger-button__icon">Menu</span>';
+    this.menuButton.hidden = true;
     this.menuButton.setAttribute('aria-expanded', 'true');
+    this.closeButton.hidden = false;
+    this.closeButton.setAttribute('aria-expanded', 'true');
     this.overlay.classList.add('is-open');
+    document.body.classList.add('has-open-menu');
     window.addEventListener('keydown', this.handleKeydown);
     this.enableTab();
   }
@@ -142,6 +154,13 @@ class OverlayMenu {
       this.menuButton = this.createMenuButton();
     }
     this.menuButton.addEventListener(
+      'click',
+      this.handleButtonClick.bind(this)
+    );
+    if (!this.closeButton) {
+      this.closeButton = this.createCloseButton();
+    }
+    this.closeButton.addEventListener(
       'click',
       this.handleButtonClick.bind(this)
     );
