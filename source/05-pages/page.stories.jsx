@@ -13,8 +13,8 @@ export default {
 // For an example of customizing the content block on a demo page,
 // see Article page.
 const pageContent = twigTemplate({
-  page_title: 'Look, I Can Take You as Far as Anchorhead',
-  page_content: ReactDOMServer.renderToStaticMarkup(<>{ContentBlock(ContentBlock.args)}</>),
+  title: 'Look, I Can Take You as Far as Anchorhead',
+  body: ReactDOMServer.renderToStaticMarkup(<>{ContentBlock(ContentBlock.args)}</>),
 });
 
 const Page = () => (

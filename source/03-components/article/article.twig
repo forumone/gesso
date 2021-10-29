@@ -4,46 +4,88 @@
 ]|join(' ')|trim %}
 
 <article {{ add_attributes({ 'class': classes }) }}>
+  {{ title_prefix }}
   {% block title %}
     {% include '@components/page-title/page-title.twig' with {
-      'page_title': article_page_title
+      'page_title': title,
     } %}
   {% endblock %}
+  {{ title_suffix }}
 
-  {% if has_footer %}
+  {% block messages %}
+    {% if show_admin_info %}
+      {% include '@components/message/message.twig' with {
+        'heading': 'Status message',
+        'messages': ['This is a status message about <em class="placeholder">something</em> that has been updated. <a href="#">This is a link</a>.'],
+      } %}
+    {% endif %}
+  {% endblock %}
+
+  {% block local_tasks %}
+    {% if show_admin_info %}
+      {% include '@components/tabs/tabs.twig' with {
+        'tabs': [
+          {
+            'text': 'View',
+            'url': '#',
+            'active': true,
+          },
+          {
+            'text': 'Edit',
+            'url': '#',
+            'active': false,
+          },
+          {
+            'text': 'Delete',
+            'url': '#',
+            'active': false,
+          },
+        ],
+      } %}
+    {% endif %}
+  {% endblock %}
+
+  {% if show_footer %}
     <footer class="article__footer">
       {% block footer %}
-        {% set article_date %}
-          {% include '@components/date/date.twig' with {
-            'format': 'medium-date',
-            'year': {
-              'long': '2016'
-            },
-            'month': {
-              'long': 'September'
-            },
-            'day': {
-              'short': '28'
-            }
-          } %}
-        {% endset %}
-        {% set article_author %}
-          {% include '@components/author/author.twig' with {
-              'author': 'Author Name'
+        {% if not date %}
+          {% set date %}
+            {% include '@components/date/date.twig' with {
+              'format': 'medium-date',
+              'year': {
+                'long': '2016',
+              },
+              'month': {
+                'long': 'September',
+              },
+              'day': {
+                'short': '28',
+              }
             } %}
-        {% endset %}
+          {% endset %}
+        {% endif %}
+
+        {% if not author %}
+          {% set author %}
+            {% include '@components/author/author.twig' with {
+                'author': author_name,
+                'url': '#',
+              } %}
+          {% endset %}
+        {% endif %}
+
         {% include '@components/list/list.twig' with {
           'modifier_classes': 'list--pipeline',
           'list': [
-            { 'content': article_date },
-            { 'content': article_author }
+            { 'content': date },
+            { 'content': author },
           ]
         } %}
       {% endblock %}
     </footer>
   {% endif %}
 
-  {% block main %}
-    {{ article_content }}
+  {% block body %}
+    {{ body }}
   {% endblock %}
 </article>
