@@ -1,6 +1,6 @@
 import Drupal from 'drupal';
 import MegaMenu from './modules/MegaMenu.es6';
-import MobileMenu from '../menu/modules/_MobileMenu.es6';
+import MobileMenu from '../mobile-menu/modules/_MobileMenu.es6';
 
 Drupal.behaviors.megaMenu = {
   attach(context) {

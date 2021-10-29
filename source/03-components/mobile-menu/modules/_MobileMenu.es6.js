@@ -1,4 +1,4 @@
-import OverlayMenu from './_OverlayMenu.es6';
+import OverlayMenu from '../../overlay-menu/modules/_OverlayMenu.es6';
 import cleanString from '../../../06-utility/_cleanString.es6';
 import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
 

@@ -1,6 +1,6 @@
 import Drupal from 'drupal';
-import MobileMenu from '../menu/modules/_MobileMenu.es6';
-import MenuBar from '../menu/modules/_MenuBar.es6';
+import MobileMenu from '../mobile-menu/modules/_MobileMenu.es6';
+import MenuBar from './modules/_MenuBar.es6';
 
 Drupal.behaviors.dropdownMenu = {
   attach(context) {
