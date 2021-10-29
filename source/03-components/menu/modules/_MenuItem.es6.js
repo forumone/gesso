@@ -14,6 +14,11 @@ class MenuItem {
     this.isMenubarItem = false;
     this.hasFocus = false;
     this.hasHover = false;
+    this.handleKeydown = this.handleKeydown.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleMouseover = this.handleMouseover.bind(this);
+    this.handleMouseout = this.handleMouseout.bind(this);
   }
 
   /**
@@ -21,11 +26,19 @@ class MenuItem {
    * @return {void}
    */
   init() {
-    this.domNode.addEventListener('keydown', this.handleKeydown.bind(this));
-    this.domNode.addEventListener('focus', this.handleFocus.bind(this));
-    this.domNode.addEventListener('blur', this.handleBlur.bind(this));
-    this.domNode.addEventListener('mouseover', this.handleMouseover.bind(this));
-    this.domNode.addEventListener('mouseout', this.handleMouseout.bind(this));
+    this.domNode.addEventListener('keydown', this.handleKeydown);
+    this.domNode.addEventListener('focus', this.handleFocus);
+    this.domNode.addEventListener('blur', this.handleBlur);
+    this.domNode.addEventListener('mouseover', this.handleMouseover);
+    this.domNode.addEventListener('mouseout', this.handleMouseout);
+  }
+
+  destroy() {
+    this.domNode.removeEventListener('keydown', this.handleKeydown);
+    this.domNode.removeEventListener('focus', this.handleFocus);
+    this.domNode.removeEventListener('blur', this.handleBlur);
+    this.domNode.removeEventListener('mouseover', this.handleMouseover);
+    this.domNode.removeEventListener('mouseout', this.handleMouseout);
   }
 
   /**

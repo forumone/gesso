@@ -5,8 +5,15 @@ class MenuBar extends Menu {
   /**
    * @inheritdoc
    */
-  constructor(domNode) {
-    super(domNode);
+  constructor(
+    domNode,
+    {
+      useArrowKeys = true,
+      displayMenuOnHover = true,
+      submenuSelector = '.menu__subnav',
+    } = {}
+  ) {
+    super(domNode, { useArrowKeys, displayMenuOnHover, submenuSelector });
 
     // Validate that the domNode is a menu that can be made into a MenuBar.
     const msgPrefix = 'Menubar constructor argument menuBarNode';

@@ -229,6 +229,17 @@
   /* stylelint-enable selector-max-compound-selectors */
 }
 
+@include breakpoint-max(gesso-breakpoint(mobile-menu)) {
+  .mega-menu__section {
+    background-color: rgba(gesso-color(ui, generic, background-lighter), 0.98);
+  }
+
+  .mega-menu__section-title,
+  .mega-menu__section-close {
+    display: none;
+  }
+}
+
 @include breakpoint(gesso-breakpoint(desktop-lg)) {
   .mega-menu {
     .menu__section {
@@ -236,7 +247,7 @@
     }
 
     .menu__section-inner {
-      gap: rem(110px);
+      gap: rem(100px);
     }
 
     .menu__section--research .menu__subnav {

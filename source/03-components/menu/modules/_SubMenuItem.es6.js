@@ -14,6 +14,7 @@ class SubMenuItem extends MenuItem {
   constructor(domNode, menuObj) {
     super(domNode, menuObj);
     this.menu = menuObj;
+    this.handleClick = this.handleClick.bind(this);
   }
 
   /**
@@ -23,12 +24,25 @@ class SubMenuItem extends MenuItem {
    */
   init() {
     super.init();
-    const popupMenu = this.domNode.parentElement.querySelector('.menu__subnav');
+    const popupMenu = this.domNode.parentElement.querySelector(
+      this.menu.options.submenuSelector
+    );
     if (popupMenu) {
       this.popupMenu = new PopupMenu(popupMenu, this);
       this.popupMenu.init();
     }
-    this.domNode.addEventListener('click', this.handleClick.bind(this));
+    this.domNode.addEventListener('click', this.handleClick);
+  }
+
+  /**
+   * @inheritdoc
+   */
+  destroy() {
+    super.destroy();
+    if (this.popupMenu) {
+      this.popupMenu.destroy();
+    }
+    this.domNode.removeEventListener('click', this.handleClick);
   }
 
   /**
@@ -104,7 +118,7 @@ class SubMenuItem extends MenuItem {
         break;
 
       case 'Escape':
-        this.menu.setFocusToController();
+        this.menu.setFocusToController('');
         this.menu.close(true);
         flag = true;
         break;

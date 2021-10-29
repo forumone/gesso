@@ -11,16 +11,24 @@ class PopupMenu extends Menu {
    * @constructor
    * @param {HTMLElement} domNode - The DOM element for the subnav.
    * @param {MenuItem} controllerObj - The parent MenuItem
-   * @param {boolean} useArrowKeys - Whether to enable navigation by arrow keys.
-   * @param {boolean} displayMenuOnHover - Whether to show submenus when parent link is hovered over
+   * @param {boolean} useArrowKeys - Whether to enable navigation by arrow
+   *   keys.
+   * @param {boolean} displayMenuOnHover - Whether to show submenus when parent
+   *   link is hovered over
    */
   constructor(
     domNode,
     controllerObj,
-    { useArrowKeys = true, displayMenuOnHover = true } = {}
+    {
+      useArrowKeys = true,
+      displayMenuOnHover = true,
+      submenuSelector = '.menu__subnav',
+    } = {}
   ) {
-    super(domNode, { useArrowKeys, displayMenuOnHover });
+    super(domNode, { useArrowKeys, displayMenuOnHover, submenuSelector });
     this.controller = controllerObj;
+    this.handleMouseout = this.handleMouseout.bind(this);
+    this.handleMouseover = this.handleMouseover.bind(this);
   }
 
   /**
@@ -36,8 +44,14 @@ class PopupMenu extends Menu {
   init() {
     super.init();
     // Add event handlers.
-    this.domNode.addEventListener('mouseover', this.handleMouseover.bind(this));
-    this.domNode.addEventListener('mouseout', this.handleMouseout.bind(this));
+    this.domNode.addEventListener('mouseover', this.handleMouseover);
+    this.domNode.addEventListener('mouseout', this.handleMouseout);
+  }
+
+  destroy() {
+    super.destroy();
+    this.domNode.removeEventListener('mouseover', this.handleMouseover);
+    this.domNode.removeEventListener('mouseout', this.handleMouseover);
   }
 
   /**
@@ -88,7 +102,8 @@ class PopupMenu extends Menu {
 
   /**
    * Close the submenu
-   * @param {boolean} force - If true, the menu will be closed even if it currently has focus
+   * @param {boolean} force - If true, the menu will be closed even if it
+   *   currently has focus
    */
   close(force) {
     let controllerHasHover = this.controller.getHover();

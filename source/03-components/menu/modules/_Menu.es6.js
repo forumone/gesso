@@ -7,10 +7,15 @@ class Menu {
    * @param {HTMLElement} domNode - The outer menu element.
    * @param {boolean} useArrowKeys - Whether to enable navigation by arrow keys.
    * @param {boolean} displayMenuOnHover - Whether to show submenus when parent link is hovered over
+   * @param {string} submenuSelector - CSS selector to identify submenus.
    */
   constructor(
     domNode,
-    { useArrowKeys = true, displayMenuOnHover = true } = {}
+    {
+      useArrowKeys = true,
+      displayMenuOnHover = true,
+      submenuSelector = '.menu__subnav',
+    } = {}
   ) {
     this.domNode = domNode; // DOM node containing the menu.
     this.menuItems = []; // Set of items in the menu.
@@ -23,6 +28,7 @@ class Menu {
     this.options = {
       useArrowKeys,
       displayMenuOnHover,
+      submenuSelector,
     };
   }
 
@@ -68,6 +74,16 @@ class Menu {
       [this.firstItem] = this.menuItems;
       this.lastItem = this.menuItems[numItems - 1];
     }
+  }
+
+  /**
+   * Destroy the menu.
+   * @return {void}
+   */
+  destroy() {
+    this.menuItems.forEach(item => {
+      item.destroy();
+    });
   }
 
   /**

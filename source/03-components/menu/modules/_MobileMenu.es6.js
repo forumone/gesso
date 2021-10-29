@@ -15,6 +15,7 @@ class MobileMenu extends OverlayMenu {
    *   null to omit the utility nav in the mobile menu.
    * @param {boolean} toggleSubnav - Whether sub-menus should be hidden initially and toggleable.
    * @param {string} mobileMenuBreakpoint - Breakpoint at which to switch to the mobile menu.
+   * @param {string} classPrefix - BEM prefix used for original menu classes, e.g. '.dropdown-menu'
    */
   constructor(
     domNode,
@@ -94,14 +95,14 @@ class MobileMenu extends OverlayMenu {
   setupSubnav(link, subnav) {
     const toggleButton =
       link.tagName === 'BUTTON' ? link : this.createToggleButton(subnav);
-    subnav.hidden = true;
+    subnav.style.display = 'none';
     toggleButton.addEventListener('click', event => {
       event.preventDefault();
       if (toggleButton.getAttribute('aria-expanded') === 'true') {
-        subnav.hidden = true;
+        subnav.style.display = 'none';
         toggleButton.setAttribute('aria-expanded', 'false');
       } else {
-        subnav.hidden = false;
+        subnav.style.display = 'block';
         toggleButton.setAttribute('aria-expanded', 'true');
         subnav.querySelector('.menu__link').focus();
       }
@@ -117,6 +118,7 @@ class MobileMenu extends OverlayMenu {
   cloneMenu(menu, menuClass = '') {
     const menuClone = menu.cloneNode(true);
     if (menuClass) {
+      menuClone.classList.remove(`${this.options.classPrefix}`);
       menuClone.classList.add(menuClass);
     }
     const subNavTypeClass = this.options.toggleSubNav
@@ -169,24 +171,24 @@ class MobileMenu extends OverlayMenu {
    */
   toggleMenuDisplay() {
     if (window.matchMedia(this.options.mobileMenuBreakpoint).matches) {
-      this.menuButton.hidden = false;
+      this.menuButton.style.display = 'block';
       if (this.searchBlock) {
-        this.searchBlock.hidden = true;
+        this.searchBlock.style.display = 'none';
       }
-      this.menu.hidden = true;
+      this.menu.style.display = 'none';
       if (this.utilityNav) {
-        this.utilityNav.hidden = true;
+        this.utilityNav.style.display = 'none';
       }
       this.closeMenu();
     } else {
       this.closeMenu();
-      this.menuButton.hidden = true;
+      this.menuButton.style.display = 'none';
       if (this.searchBlock) {
-        this.searchBlock.hidden = false;
+        this.searchBlock.style.display = '';
       }
-      this.menu.hidden = false;
+      this.menu.style.display = '';
       if (this.utilityNav) {
-        this.utilityNav.hidden = false;
+        this.utilityNav.style.display = '';
       }
     }
   }

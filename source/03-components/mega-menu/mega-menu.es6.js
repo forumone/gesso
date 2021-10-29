@@ -1,5 +1,5 @@
 import Drupal from 'drupal';
-import MegaMenu from './modules/MegaMenu';
+import MegaMenu from './modules/MegaMenu.es6';
 import MobileMenu from '../menu/modules/_MobileMenu.es6';
 
 Drupal.behaviors.megaMenu = {
@@ -9,8 +9,8 @@ Drupal.behaviors.megaMenu = {
       menus.forEach(menu => {
         const megaMenu = new MegaMenu(menu);
         megaMenu.init();
-        const mobileMenu = new MobileMenu({
-          navMenu: menu,
+        const mobileMenu = new MobileMenu(menu, context, {
+          classPrefix: 'mega-menu',
         });
         mobileMenu.init();
       });

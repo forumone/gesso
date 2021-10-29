@@ -35,6 +35,7 @@ $mobile-menu-line-height: gesso-line-height(base);
   background-color: $mobile-menu-bg-color;
   display: none;
   left: 0;
+  max-height: 100vh;
   overflow-y: auto;
   padding-top: 55px;
   position: fixed;

@@ -3,6 +3,12 @@
  * @see https://w3c.github.io/aria-practices/examples/disclosure/js/disclosureMenu.js
  */
 class MegaMenu {
+  /**
+   * @constructor
+   * @param {HTMLElement} domNode - The menu DOM element
+   * @param {boolean} useArrowKeys - Whether to enable navigating by arrow keys
+   * @return {void}
+   */
   constructor(domNode, { useArrowKeys = true } = {}) {
     this.menu = domNode;
     this.menuSections = [];
@@ -14,13 +20,20 @@ class MegaMenu {
     if (this.useArrowKeys) {
       this.topLevelItems = [
         ...this.topLevelItems,
-        ...this.menu.querySelectorAll('.js-top-link'),
+        ...this.menu.querySelectorAll('a.js-top-level'),
       ];
     }
     this.handleClickAnywhere = this.handleClickAnywhere.bind(this);
     this.handleKeydownAnywhere = this.handleKeydownAnywhere.bind(this);
   }
 
+  /**
+   * Show/hide a section.
+   * @param {HTMLElement} section - The menu section to toggle.
+   * @param {boolean} hide - If true, the menu section will be hidden
+   *  regardless of its current state
+   * @return {void}
+   */
   toggleSection(section, hide) {
     if (hide) {
       section.hidden = true;
@@ -29,6 +42,12 @@ class MegaMenu {
     }
   }
 
+  /**
+   * Expand/collapse a menu section.
+   * @param {number} index - The index of the section to toggle.
+   * @param {boolean} expanded - If TRUE, the section will be revealed.
+   * @return {void}
+   */
   toggleExpand(index, expanded) {
     if (this.openIndex !== index) {
       this.toggleExpand(this.openIndex, false);
@@ -38,7 +57,10 @@ class MegaMenu {
         this.openMenu();
       }
       this.openIndex = expanded ? index : null;
-      this.topLevelItems[index].setAttribute('aria-expanded', 'expanded');
+      this.topLevelItems[index].setAttribute(
+        'aria-expanded',
+        expanded ? 'true' : 'false'
+      );
       this.toggleSection(this.menuSections[index], !expanded);
       if (this.openIndex === null) {
         this.closeMenu();
@@ -46,6 +68,13 @@ class MegaMenu {
     }
   }
 
+  /**
+   * Handle navigation key events.
+   * @param {KeyboardEvent} event - The keyboard event
+   * @param {HTMLElement[]} menuLinks - Array of menu links to navigate through
+   * @param {number} currentIndex - Array index of the currently focused menu link
+   * @return {void}
+   */
   controlFocusByKey(event, menuLinks, currentIndex) {
     switch (event.key) {
       case 'ArrowUp':
@@ -78,6 +107,11 @@ class MegaMenu {
     }
   }
 
+  /**
+   * Handle keydown events on a menu section.
+   * @param {KeyboardEvent} event - The keydown event
+   * @return {void}
+   */
   handleSectionKeydown(event) {
     if (this.openIndex === null || !this.useArrowKeys) return;
 
@@ -88,6 +122,11 @@ class MegaMenu {
     this.controlFocusByKey(event, menuLinks, currentIndex);
   }
 
+  /**
+   * Handle clicks on a top-level button.
+   * @param {MouseEvent} event - The click event.
+   * @return {void}
+   */
   handleButtonClick(event) {
     const { currentTarget } = event;
     const buttonIndex = this.topLevelItems.indexOf(currentTarget);
@@ -97,6 +136,11 @@ class MegaMenu {
     );
   }
 
+  /**
+   * Handle keydown events on a top-level button.
+   * @param {MouseEvent} event - The keydown event
+   * @return {void}
+   */
   handleButtonKeydown(event) {
     if (!this.useArrowKeys) return;
     const targetButtonIndex = this.topLevelItems.indexOf(
@@ -110,17 +154,32 @@ class MegaMenu {
     }
   }
 
+  /**
+   * Handle keydown events on a top-level link.
+   * @param {KeyboardEvent} event - The keydown event
+   * @return {void}
+   */
   handleLinkKeydown(event) {
     if (!this.useArrowKeys) return;
     const targetLinkIndex = this.topLevelItems.indexOf(document.activeElement);
     this.controlFocusByKey(event, this.topLevelItems, targetLinkIndex);
   }
 
+  /**
+   * Handle clicks on a close button.
+   * @param {MouseEvent} event
+   * @return {void}
+   */
   handleCloseClick(event) {
     event.preventDefault();
     this.toggleExpand(this.openIndex, false);
   }
 
+  /**
+   * Prep a top-level button and menu subsection.
+   * @param {HTMLButtonElement} button - The button that will toggle the menu section
+   * @return {void}
+   */
   prepSection(button) {
     const section = button.parentNode.querySelector('.menu__section');
     if (!section) return;
@@ -134,11 +193,21 @@ class MegaMenu {
     closeButton.addEventListener('click', this.handleCloseClick.bind(this));
   }
 
+  /**
+   * Prep a top-level menu link, which will not have a subsection.
+   * @param {HTMLAnchorElement} link - The menu link
+   * @return {void}
+   */
   prepLink(link) {
     this.menuSections.push(null);
     link.addEventListener('keydown', this.handleLinkKeydown.bind(this));
   }
 
+  /**
+   * Close the menu if the user clicks outside it.
+   * @param {MouseEvent} event - The click event
+   * @return {void}
+   */
   handleClickAnywhere(event) {
     if (!event.target.closest('.mega-menu')) {
       this.toggleExpand(this.openIndex, false);
@@ -146,6 +215,11 @@ class MegaMenu {
     }
   }
 
+  /**
+   * Close the menu if the user hits the ESC key.
+   * @param {KeyboardEvent} event - The keydown event
+   * @return {void}
+   */
   handleKeydownAnywhere(event) {
     if (event.key === 'Escape' && this.openIndex !== null) {
       this.menuSections[this.openIndex].focus();
@@ -154,16 +228,28 @@ class MegaMenu {
     }
   }
 
+  /**
+   * Remove event listeners when all menu sections closed.
+   * @return {void}
+   */
   closeMenu() {
     window.removeEventListener('click', this.handleClickAnywhere);
     window.removeEventListener('keydown', this.handleKeydownAnywhere);
   }
 
+  /**
+   * Add event listeners when any menu section open.
+   * @return {void}
+   */
   openMenu() {
     window.addEventListener('click', this.handleClickAnywhere);
     window.addEventListener('keydown', this.handleKeydownAnywhere);
   }
 
+  /**
+   * Initialize the mega menu.
+   * @return {void}
+   */
   init() {
     this.topLevelItems.forEach(item => {
       if (item.tagName === 'BUTTON') {

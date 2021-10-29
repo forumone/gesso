@@ -9,7 +9,7 @@ Drupal.behaviors.dropdownMenu = {
       const dropdownMenu = new MenuBar(menuNode);
       dropdownMenu.init();
       const mobileMenu = new MobileMenu(menuNode, context, {
-        classPrefix: 'dropdown',
+        classPrefix: 'dropdown-menu',
       });
       mobileMenu.init();
     }
