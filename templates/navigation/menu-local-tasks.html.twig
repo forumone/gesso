@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Theme override to display primary and secondary local tasks.
+ *
+ * Available variables:
+ * - primary: HTML list items representing primary tasks.
+ * - secondary: HTML list items representing secondary tasks.
+ *
+ * Each item in these variables (primary and secondary) can be individually
+ * themed in menu-local-task.html.twig.
+ */
+#}
+{% if primary %}
+  {% set primary_links = [] %}
+
+  {% for item in primary %}
+    {% set primary_links = primary_links|merge([{
+      'text': item['#link'].title,
+      'url' : item['#link'].url,
+      'active': item['#active'],
+    }]) %}
+  {% endfor %}
+
+  {% include '@components/tabs/tabs.twig' with {
+    'modifier_classes': 'tabs--primary',
+    'heading': 'Primary tabs'|t,
+    'tabs': primary_links,
+  } only %}
+{% endif %}
+
+{% if secondary %}
+  {% set secondary_links = [] %}
+
+  {% for item in secondary %}
+    {% set link %}
+      <a href="{{ item['#link'].url }}">
+        {%- if item['#active'] %}<strong>{% endif -%}
+        {{- item['#link'].title -}}
+        {%- if item['#active'] %}<span class="visually-hidden"> ({{ 'active tab'|t }})</span></strong>{% endif -%}
+      </a>
+    {% endset %}
+
+    {% set secondary_links = secondary_links|merge([{
+      'content': link,
+    }]) %}
+  {% endfor %}
+
+  <h2 class="u-visually-hidden">{{ 'Secondary tabs'|t }}</h2>
+  {% include '@components/list/list.twig' with {
+    'modifier_classes': 'list--pipeline',
+    'list': secondary_links,
+  } only %}
+{% endif %}

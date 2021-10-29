@@ -30,6 +30,7 @@ $tab-font-size: gesso-base-font-size() !default;
 
 .tabs {
   @include clearfix;
+  margin-bottom: rem(gesso-spacing(2));
 }
 
 .tabs__items {
