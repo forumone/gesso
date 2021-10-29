@@ -19,6 +19,7 @@ ckeditor_stylesheets:
 dependencies:
   - components
   - gesso_helper
+  - twig_tweak
 components:
   namespaces:
     global: source/01-global
