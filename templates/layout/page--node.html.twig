@@ -45,22 +45,7 @@
 {% extends "page.html.twig" %}
 
 {% block main_content %}
-  {% if node %}
-    {{ page.preface }}
-    {{ page.content }}
-    {{ page.postscript }}
-  {% else %}
-    {# Use generic wrapper if no node object (e.g., 404 error) #}
-    <div class="l-constrain">
-      {{ page.preface }}
-      {% include '@components/page-title/page-title.twig' with {
-        'attributes': '',
-        'page_title': page['#title'],
-      } %}
-      {{ page.highlighted }}
-      {{ page.content }}
-      {{ page.postscript }}
-    </div>
-  {% endif %}
-
+  {{ page.preface }}
+  {{ page.content }}
+  {{ page.postscript }}
 {% endblock %}
