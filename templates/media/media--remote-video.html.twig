@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media item.
+ *
+ * Available variables:
+ * - media: The media item, with limited access to object properties and
+ *   methods. Only method names starting with "get", "has", or "is" and
+ *   a few common methods such as "id", "label", and "bundle" are available.
+ *   For example:
+ *   - entity.getEntityTypeId() will return the entity type ID.
+ *   - entity.hasField('field_example') returns TRUE if the entity includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   Calling other methods, such as entity.delete(), will result in
+ *   an exception.
+ *   See \Drupal\Core\Entity\EntityInterface for a full list of methods.
+ * - name: Name of the media item.
+ * - content: Media content.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - attributes: HTML attributes for the containing element.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if logged_in -%}
+  <div class="contextual-region">
+    {{- title_suffix.contextual_links }}
+{% endif %}
+
+{% if has_caption %}
+  {{ content }}
+{%  else %}
+  {% set classes = [
+    'figure--video',
+    view_mode != 'default' ? ('figure--' ~ view_mode)|clean_class,
+    attributes.hasClass('align-center') ? 'u-align-center',
+    attributes.hasClass('align-left') ? 'u-align-left',
+    attributes.hasClass('align-right') ? 'u-align-right',
+  ]|join(' ')|trim %}
+
+  {% include '@components/figure/figure.twig' with {
+    'modifier_classes': classes,
+    'media': content,
+    'caption': caption,
+  } %}
+{% endif %}
+
+{% if logged_in %}</div>{% endif %}
