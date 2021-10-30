@@ -52,7 +52,6 @@ const mainContent = wysiwygTwigTemplate({
 // see Page.
 const articleContent = twigTemplate({
   title: 'As You Wish',
-  has_footer: true,
   show_admin_info: false,
   show_footer: true,
   author_name: 'William Goldman',
