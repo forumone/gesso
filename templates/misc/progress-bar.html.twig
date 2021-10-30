@@ -1,0 +1,18 @@
+{#
+ /**
+  * @file
+  * Theme override for a progress bar.
+  *
+  * Note that the core Batch API uses this only for non-JavaScript batch jobs.
+  *
+  * Available variables:
+  * - label: The label of the working task.
+  * - percent: The percentage of the progress.
+  * - message: A string containing information to be displayed.
+  */
+#}
+{% include '@components/progress/progress.twig' with {
+  'label': label,
+  'percent': percent,
+  'message': message,
+} %}
