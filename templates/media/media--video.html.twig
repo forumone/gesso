@@ -35,7 +35,7 @@
   {{ content }}
 {%  else %}
   {% set classes = [
-    'figure--iframe',
+    'figure--video',
     view_mode != 'default' ? ('figure--' ~ view_mode)|clean_class,
     attributes.hasClass('align-center') ? 'u-align-center',
     attributes.hasClass('align-left') ? 'u-align-left',
