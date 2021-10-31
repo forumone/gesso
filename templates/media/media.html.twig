@@ -32,10 +32,10 @@
  */
 #}
 {% if logged_in -%}
-  <div class="contextual-region">
+  <span class="contextual-region">
     {{- title_suffix.contextual_links }}
 {% endif %}
 
 {{ content }}
 
-{% if logged_in %}</div>{% endif %}
+{% if logged_in %}</span>{% endif %}

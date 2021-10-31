@@ -68,4 +68,5 @@ function gesso_preprocess_image(&$variables) {
  */
 function gesso_preprocess_media(&$variables) {
   $variables['has_caption'] = isset($variables['attributes']['data-caption']);
+  $variables['bundle'] = $variables['media']->bundle();
 }
