@@ -4,6 +4,7 @@
 ]|join(' ')|trim %}
 
 <figure {{ add_attributes({ 'class': classes }) }}{% if caption is defined %} role="group"{% endif %}>
+  {{ title_suffix }}
   <div class="figure__media">{{ media }}</div>
   {% if caption is defined %}
     <figcaption class="figure__caption">{{ caption }}</figcaption>

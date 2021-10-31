@@ -31,11 +31,6 @@
  * @ingroup themeable
  */
 #}
-{% if logged_in -%}
-  <div class="contextual-region">
-    {{- title_suffix.contextual_links }}
-{% endif %}
-
 {% if has_caption %}
   {{ content }}
 {%  else %}
@@ -52,5 +47,3 @@
     'caption': caption,
   } %}
 {% endif %}
-
-{% if logged_in %}</div>{% endif %}
