@@ -1,24 +1,26 @@
 ---
-current: '4'
-items:
-  pages:
-    1:
-      url: '#'
-    2:
-      url: '#'
-    3:
-      url: '#'
-    4:
-      url: '#'
-    5:
-      url: '#'
-    6:
-      url: '#'
-  first: false
+heading: 'Pagination'
+current: '6'
+ellipses:
   previous: true
   next: true
-  last: false
-  ellipses:
-    previous: true
-    next: true
-modifier_classes: ''
+pager_items:
+  pages:
+    4:
+      href: '#'
+    5:
+      href: '#'
+    6:
+      href: '#'
+    7:
+      href: '#'
+    8:
+      href: '#'
+  first:
+    href: '#'
+  previous:
+    href: '#'
+  next:
+    href: '#'
+  last:
+    href: '#'
