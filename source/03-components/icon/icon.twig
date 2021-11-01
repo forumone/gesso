@@ -5,6 +5,11 @@
 
 {% if is_demo %}
   {% set icons = [
+    'angle-double-left',
+    'angle-double-right',
+    'angle-down',
+    'angle-left',
+    'angle-right',
     'angle-up',
     'facebook',
     'linkedin',
@@ -12,7 +17,7 @@
    ] %}
   {% for icon in icons %}
     <p>
-      <svg {{ add_attributes({ 'class': classes }) }}{% if is_hidden %} aria-hidden="true"{% endif %}>
+      <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
         {% if label %}<title>{{ label }}</title>{% endif %}
         <use xlink:href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon }}"></use>
       </svg>
@@ -21,7 +26,7 @@
   {% endfor %}
 {%- else -%}
   {% spaceless %}
-    <svg {{ add_attributes({ 'class': classes }) }}{% if is_hidden %} aria-hidden="true"{% endif %}>
+    <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
       {% if label %}<title>{{ label }}</title>{% endif %}
       <use xlink:href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
     </svg>
