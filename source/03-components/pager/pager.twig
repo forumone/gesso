@@ -15,13 +15,15 @@
         {% set link_label = 'Go to first page'|t %}
         <li class="pager__item pager__item--first">
           <a class="pager__link pager__link--first" href="{{ pager_items.first.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ pager_items.first.attributes|without('aria-label', 'href', 'title') }}>
-            {% include '@components/icon/icon.twig' with {
-              'is_hidden': true,
-              'modifier_classes': 'icon--pager',
-              'icon_name': 'angle-double-left',
-            }  %}
-            <span class="u-visually-hidden">{{ link_label }}</span>
-            <span aria-hidden="true">{{ 'First'|t }}</span>
+            {%- spaceless %}
+              {% include '@components/icon/icon.twig' with {
+                'is_hidden': true,
+                'modifier_classes': 'icon--pager is-spaced-after',
+                'icon_name': 'angle-double-left',
+              } %}
+              <span class="u-visually-hidden">{{ link_label }}</span>
+              <span aria-hidden="true">{{ 'First'|t }}</span>
+            {% endspaceless -%}
           </a>
         </li>
       {% endif %}
@@ -31,13 +33,15 @@
         {% set link_label = 'Go to previous page'|t %}
         <li class="pager__item pager__item--previous">
           <a class="pager__link pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
-            {% include '@components/icon/icon.twig' with {
-              'is_hidden': true,
-              'modifier_classes': 'icon--pager',
-              'icon_name': 'angle-left',
-            }  %}
-            <span class="u-visually-hidden">{{ link_label }}</span>
-            <span aria-hidden="true">{{ 'Previous'|t }}</span>
+            {%- spaceless %}
+              {% include '@components/icon/icon.twig' with {
+                'is_hidden': true,
+                'modifier_classes': 'icon--pager is-spaced-after',
+                'icon_name': 'angle-left',
+              } %}
+              <span class="u-visually-hidden">{{ link_label }}</span>
+              <span aria-hidden="true">{{ 'Previous'|t }}</span>
+            {% endspaceless -%}
           </a>
         </li>
       {% endif %}
@@ -77,13 +81,15 @@
         {% set link_label = 'Go to next page'|t %}
         <li class="pager__item pager__item--next">
           <a class="pager__link pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
-            <span class="u-visually-hidden">{{ link_label }}</span>
-            <span aria-hidden="true">{{ 'Next'|t }}</span>
-            {% include '@components/icon/icon.twig' with {
-              'is_hidden': true,
-              'modifier_classes': 'icon--pager',
-              'icon_name': 'angle-right',
-            }  %}
+            {%- spaceless %}
+              <span class="u-visually-hidden">{{ link_label }}</span>
+              <span aria-hidden="true">{{ 'Next'|t }}</span>
+              {% include '@components/icon/icon.twig' with {
+                'is_hidden': true,
+                'modifier_classes': 'icon--pager is-spaced-before',
+                'icon_name': 'angle-right',
+              } %}
+            {% endspaceless -%}
           </a>
         </li>
       {% endif %}
@@ -93,14 +99,15 @@
         {% set link_label = 'Go to last page'|t %}
         <li class="pager__item pager__item--last">
           <a class="pager__link pager__link--last" href="{{ pager_items.last.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ pager_items.last.attributes|without('aria-label', 'href', 'title') }}>
-            <span class="u-visually-hidden">{{ link_label }}</span>
-            <span aria-hidden="true">{{ 'Last'|t }}</span>
-            {% include '@components/icon/icon.twig' with {
-              'is_hidden': true,
-              'modifier_classes': 'icon--pager',
-              'icon_name': 'angle-double-right',
-            }  %}
-
+            {%- spaceless %}
+              <span class="u-visually-hidden">{{ link_label }}</span>
+              <span aria-hidden="true">{{ 'Last'|t }}</span>
+              {% include '@components/icon/icon.twig' with {
+                'is_hidden': true,
+                'modifier_classes': 'icon--pager is-spaced-before',
+                'icon_name': 'angle-double-right',
+              } %}
+            {% endspaceless -%}
           </a>
         </li>
       {% endif %}
