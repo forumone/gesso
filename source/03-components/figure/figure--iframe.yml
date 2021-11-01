@@ -1,0 +1,7 @@
+---
+media: |-
+  <div class="video has-iframe">
+    <iframe class="video__iframe" src="https://player.vimeo.com/video/505735218" title="Say Hello to the New Forum One" allowfullscreen frameborder="0"></iframe>
+  </div>
+caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper vel metus at cursus.'
+modifier_classes: 'figure--iframe'
