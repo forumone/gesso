@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ * - display_name: The user’s diplay name.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+{% set messages %}
+  {{ drupal_block('system_messages_block', wrapper=false) }}
+{% endset %}
+
+{% set local_tasks %}
+  {{ drupal_block('local_tasks_block', wrapper=false) }}
+  {{ drupal_block('local_actions_block', wrapper=false) }}
+{% endset %}
+
+{% include '@templates/page/page.twig' with {
+  'title': display_name,
+  'messages': messages,
+  'local_tasks': local_tasks,
+  'show_footer': false,
+  'body': content,
+} %}
+
+{# Uncomment the following if you don’t render the content variable. #}
+{# {% set catch_cache = content|render %} #}
