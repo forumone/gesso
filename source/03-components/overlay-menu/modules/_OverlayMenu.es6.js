@@ -5,7 +5,7 @@ class OverlayMenu {
    * @param {HTMLElement|null} menuButton - The open menu button
    * @param {HTMLElement|null} closeButton - The close button toggle
    */
-  constructor(domNode, { menuButton, closeButton = null } = {}) {
+  constructor(domNode, { menuButton = null, closeButton = null } = {}) {
     this.overlay = domNode;
     this.menuButton = menuButton;
     this.closeButton = closeButton;
@@ -47,7 +47,7 @@ class OverlayMenu {
     this.overlay.classList.remove('is-open');
     document.body.classList.remove('has-open-menu');
     window.removeEventListener('keydown', this.handleKeydown);
-    this.disableTab();
+    this.disableTab(this.overlay);
   }
 
   /**
@@ -62,7 +62,7 @@ class OverlayMenu {
     this.overlay.classList.add('is-open');
     document.body.classList.add('has-open-menu');
     window.addEventListener('keydown', this.handleKeydown);
-    this.enableTab();
+    this.enableTab(this.overlay);
   }
 
   /**
@@ -88,12 +88,20 @@ class OverlayMenu {
   }
 
   /**
-   * Trap the tab within a group of focusable elements
-   * @param {KeyboardEvent} event - The keyboard event
-   * @param {NodeList} focusable - The set of focusable element.
+   * Handle keydown events.
+   * @param {KeyboardEvent} event - The keydown event
    * @return void
    */
-  trapTab(event, focusable) {
+  handleKeydown(event) {
+    if (event.key === 'Escape') {
+      this.closeMenu();
+    }
+    // Keep the user from tabbing out of the menu.
+    const focusable = [
+      ...this.overlay.querySelectorAll(
+        'button, [href], input, select, textarea'
+      ),
+    ].filter(item => item.tabIndex !== -1);
     const numberFocusElements = focusable.length;
     const firstFocusableElement = focusable[0];
     const lastFocusableElement = focusable[numberFocusElements - 1];
@@ -109,39 +117,27 @@ class OverlayMenu {
   }
 
   /**
-   * Handle keydown events.
-   * @param {KeyboardEvent} event - The keydown event
-   * @return void
-   */
-  handleKeydown(event) {
-    if (event.key === 'Escape') {
-      this.closeMenu();
-    }
-    // Keep the user from tabbing out of the menu.
-    const focusable = this.overlay.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    this.trapTab(event, focusable);
-  }
-
-  /**
    * Disable tab on all menu links. This is to ensure hidden items
    * do not still receive tab focus.
    */
-  disableTab() {
-    const menuLinks = this.overlay.querySelectorAll('.menu__link');
+  disableTab(startingPoint) {
+    const menuLinks = startingPoint.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]'
+    );
     menuLinks.forEach(link => {
-      link.tabIndex = -1;
+      link.setAttribute('tabindex', '-1');
     });
   }
 
   /**
    * Enable tabbing on all menu links.
    */
-  enableTab() {
-    const menuLinks = this.overlay.querySelectorAll('.menu__link');
+  enableTab(startingPoint) {
+    const menuLinks = startingPoint.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]'
+    );
     menuLinks.forEach(link => {
-      link.tabIndex = 0;
+      link.setAttribute('tabindex', '0');
     });
   }
 
@@ -164,7 +160,7 @@ class OverlayMenu {
       'click',
       this.handleButtonClick.bind(this)
     );
-    this.disableTab();
+    this.disableTab(this.overlay);
   }
 }
 

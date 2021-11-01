@@ -1,0 +1,47 @@
+// @file
+// Component: Side Menu
+
+@use '00-config' as *;
+
+$side-menu-bg-color: gesso-color(ui, generic, background);
+
+.side-menu {
+  background: $side-menu-bg-color;
+  height: 100vh;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transform: translate3d(-100%, 0, 0);
+  transition: transform gesso-duration(short) gesso-easing(ease-in);
+  width: rem(300px);
+  z-index: -1;
+
+  &.is-open {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.side-menu__menu,
+.side-menu .menu__subnav {
+  background: $side-menu-bg-color;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.side-menu__menu {
+  height: calc(100% - 55px);
+  top: 55px;
+}
+
+.side-menu .menu__subnav {
+  height: 100%;
+  top: 0;
+  transform: translate3d(-100%, 0, 0);
+  transition: transform gesso-duration(short) gesso-easing(ease-in);
+
+  &.is-open {
+    transform: translate3d(0, 0, 0);
+  }
+}

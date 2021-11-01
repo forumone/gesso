@@ -1,0 +1,17 @@
+{{ attach_library('gesso/side_menu') }}
+{% set classes = [
+  'side-menu',
+  modifier_classes ? modifier_classes : ''
+]|join(' ')|trim %}
+
+{% set id = 'side-menu'|unique_id %}
+
+<nav {{ add_attributes({class: classes, id: id}) }}>
+  {% include '@components/menu/menu.twig' with {
+    'menu_name': menu_name,
+    'items': items,
+    'menu_class': ['side-menu__menu'],
+    'item_class': ['side-menu__item'],
+    'link_class': ['side-menu__link']
+  } %}
+</nav>
