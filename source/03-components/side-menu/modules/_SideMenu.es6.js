@@ -9,60 +9,135 @@ class SideMenu extends OverlayMenu {
     this.menuItems = [];
   }
 
-  prepButton(button) {
-    this.menuItems.push(button);
+  /**
+   * Create a button to go back to the previous menu section.
+   * @param {HTMLElement} submenu - The current menu section.
+   *   This should be the section the back button will be added to.
+   * @return {HTMLButtonElement}
+   */
+  createBackButton(submenu) {
+    const submenuBack = document.createElement('button');
+    submenuBack.classList.add('side-menu__back');
+    submenuBack.innerText = 'Back';
+    submenuBack.addEventListener('click', () => {
+      this.closeSubmenu(submenu);
+    });
+    return submenuBack;
   }
 
+  /**
+   * Create an element to display the current menu section.
+   * @param {string} title - The menu section title.
+   * @return {HTMLDivElement}
+   */
+  createSubmenuTitle(title) {
+    const submenuTitle = document.createElement('div');
+    submenuTitle.classList.add('side-menu__section-title');
+    submenuTitle.innerText = title;
+    return submenuTitle;
+  }
+
+  /**
+   * Create a button to reveal a submenu.
+   * @param {HTMLElement} submenu - The submenu to reveal.
+   * @return {HTMLButtonElement}
+   */
+  createSubmenuToggle(submenu) {
+    const submenuToggle = document.createElement('button');
+    submenuToggle.classList.add('side-menu__toggle');
+    submenuToggle.innerHTML =
+      '<span class="side-menu__toggle-icon">Toggle Submenu</span>';
+    submenuToggle.addEventListener('click', () => {
+      this.openSubmenu(submenu);
+    });
+    return submenuToggle;
+  }
+
+  /**
+   * Close a menu section.
+   * @param {HTMLElement} submenu - The menu section to close.
+   */
+  closeSubmenu(submenu) {
+    submenu.classList.remove('is-open');
+    const currentSection = submenu.closest('.is-open');
+    if (currentSection) {
+      this.enableTab(currentSection);
+      currentSection
+        .querySelector(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+        .focus();
+    }
+  }
+
+  openSubmenu(submenu) {
+    const currentSection = submenu.closest('.is-open');
+    if (currentSection) {
+      const focusableItems = currentSection.querySelectorAll(
+        'button:not(.hamburger-button--close), [href], input, select, textarea'
+      );
+      focusableItems.forEach(item => {
+        item.setAttribute('tabindex', '-1');
+      });
+    }
+    submenu.classList.add('is-open');
+    this.enableTab(submenu);
+    window.removeEventListener('keydown', this.handleKeydown);
+    window.addEventListener('keydown', this.handleKeydown);
+    submenu
+      .querySelector(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )
+      .focus();
+  }
+
+  /**
+   * Prepare a submenu by adding back button, title, and event handlers.
+   * @param {HTMLElement} topLevelItem - The button or link that controls the subsection.
+   * @return {HTMLElement | null}
+   */
+  prepSubmenu(topLevelItem) {
+    const submenu = topLevelItem.parentElement.querySelector('.menu__subnav');
+    if (!submenu) return null;
+    const submenuBack = this.createBackButton(submenu);
+    submenu.insertAdjacentElement('afterbegin', submenuBack);
+    const submenuTitle = this.createSubmenuTitle(topLevelItem.innerText);
+    submenuBack.insertAdjacentElement('afterend', submenuTitle);
+    return submenu;
+  }
+
+  /**
+   * Prepare a button menu item.
+   * @param {HTMLButtonElement} button - The button menu item.
+   * @return {void}
+   */
+  prepButton(button) {
+    this.menuItems.push(button);
+    const submenu = this.prepSubmenu(button);
+    button.addEventListener('click', () => {
+      this.openSubmenu(submenu);
+    });
+  }
+
+  /**
+   * Prepare a link menu item.
+   * @param {HTMLAnchorElement} link - The link menu item.
+   * @return {void}
+   */
   prepLink(link) {
     this.menuItems.push(link);
     if (link.classList.contains('has-subnav')) {
-      const submenu = link.parentElement.querySelector('.menu__subnav');
-      if (!submenu) return;
-      const submenuBack = document.createElement('button');
-      submenuBack.classList.add('side-menu__back');
-      submenuBack.innerText = 'Back';
-      submenuBack.addEventListener('click', () => {
-        submenu.classList.remove('is-open');
-        const currentSection = submenu.closest('.is-open');
-        if (currentSection) {
-          this.enableTab(currentSection);
-          currentSection
-            .querySelector(
-              'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            )
-            .focus();
-        }
-      });
-      submenu.insertAdjacentElement('afterbegin', submenuBack);
-      const submenuTitle = document.createElement('div');
-      submenuTitle.classList.add('side-menu__section-title');
-      submenuTitle.innerText = link.innerText;
-      submenuBack.insertAdjacentElement('afterend', submenuTitle);
-      const submenuToggle = document.createElement('button');
-      submenuToggle.classList.add('side-menu__toggle');
-      submenuToggle.innerHTML =
-        '<span class="side-menu__toggle-icon">Toggle Submenu</span>';
-      submenuToggle.addEventListener('click', () => {
-        submenu.classList.add('is-open');
-        const currentSection = link.closest('.is-open');
-        if (currentSection) {
-          const focusableItems = currentSection.querySelectorAll(
-            'button:not(.hamburger-button--close), [href], input, select, textarea'
-          );
-          focusableItems.forEach(item => {
-            item.setAttribute('tabindex', '-1');
-          });
-        }
-        this.enableTab(submenu);
-        window.removeEventListener('keydown', this.handleKeydown);
-        window.addEventListener('keydown', this.handleKeydown);
-        submenuBack.focus();
-      });
+      const submenu = this.prepSubmenu(link);
+      const submenuToggle = this.createSubmenuToggle(submenu);
       this.menuItems.push(submenuToggle);
       link.insertAdjacentElement('afterend', submenuToggle);
     }
   }
 
+  /**
+   * Initialize the side menu.
+   * @return {void}
+   */
   init() {
     super.init();
     const menuItems = document.querySelectorAll('.menu__link');
@@ -79,6 +154,9 @@ class SideMenu extends OverlayMenu {
     });
   }
 
+  /**
+   * @inheritdoc
+   */
   enableTab(startingPoint) {
     super.enableTab(startingPoint);
     const subNavs = startingPoint.querySelectorAll('.menu__subnav');
