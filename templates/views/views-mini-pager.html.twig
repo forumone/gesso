@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Theme override for a views mini-pager.
+ *
+ * Available variables:
+ * - heading_id: Pagination heading ID.
+ * - items: List of pager items.
+ *
+ * @see template_preprocess_views_mini_pager()
+ */
+#}
+{% if items %}
+  {% include '@components/pager/pager--mini/pager--mini.twig' with {
+    'heading': 'Pagination'|t,
+    'pager_items': items,
+  } %}
+{% endif %}
