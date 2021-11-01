@@ -42,28 +42,10 @@
  * @see html.html.twig
  */
 #}
-{% extends '@layouts/site-container/site-container.twig' %}
+{% extends "page.html.twig" %}
 
-{% block site_content %}
-  {{ page.header }}
-  {{ page.navigation }}
-  {{ page.breadcrumb }}
-  {{ page.help }}
-
-  <main id="main" class="main" role="main" tabindex="-1">
-    {% block main_content %}
-      <div class="l-constrain">
-        {{ page.preface }}
-        {% include '@components/page-title/page-title.twig' with {
-          'attributes': '',
-          'page_title': page['#title'],
-        } %}
-        {{ page.highlighted }}
-        {{ page.content }}
-        {{ page.postscript }}
-      </div>
-    {% endblock %}
-  </main>
-
-  {{ page.footer }}
+{% block main_content %}
+  {{ page.preface }}
+  {{ page.content }}
+  {{ page.postscript }}
 {% endblock %}

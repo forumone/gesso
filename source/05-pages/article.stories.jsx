@@ -51,9 +51,11 @@ const mainContent = wysiwygTwigTemplate({
 // For an example of customizing the content block on a demo page,
 // see Page.
 const articleContent = twigTemplate({
-  article_title: 'As You Wish',
-  article_has_footer: true,
-  article_content: mainContent,
+  title: 'As You Wish',
+  show_admin_info: false,
+  show_footer: true,
+  author_name: 'William Goldman',
+  body: mainContent,
 });
 
 const Article = () => (
