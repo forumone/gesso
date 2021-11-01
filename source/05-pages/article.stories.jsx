@@ -9,6 +9,11 @@ import { FigureRightAligned } from '../03-components/figure/figure.stories.jsx';
 
 export default {
   title: 'Pages/Article',
+  parameters: {
+    controls: {
+      hideNoControlsWarning: true,
+    },
+  },
 };
 
 // For an example of reusing the same content as the Content Block/WYSIWYG
@@ -56,10 +61,6 @@ const articleContent = twigTemplate({
   article_content: mainContent,
 });
 
-const Article = () => (
-  <PageWrapper>
-    {parse(articleContent)}
-  </PageWrapper>
-);
+const Article = () => <PageWrapper>{parse(articleContent)}</PageWrapper>;
 
 export { Article };

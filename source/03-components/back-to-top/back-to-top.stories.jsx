@@ -1,4 +1,3 @@
-import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './back-to-top.twig';
@@ -9,13 +8,19 @@ import './back-to-top.es6';
 
 const settings = {
   title: 'Components/Back To Top',
+  parameters: {
+    controls: {
+      include: ['is_demo', 'text', 'top_element'],
+    },
+  },
 };
 
-const BackToTop = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const BackToTop = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 BackToTop.args = { ...globalData, ...data };
 
 export default settings;
