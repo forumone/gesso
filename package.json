@@ -77,7 +77,6 @@
     "react-dom": "^16.14.0",
     "remove-files-webpack-plugin": "^1.4.5",
     "sass": "^1.34.1",
-    "storybook-addon-root-attribute": "^1.0.2",
     "stylelint-webpack-plugin": "^3.0.1",
     "svg-sprite-loader": "^6.0.9",
     "svg-transform-loader": "^2.0.13",
