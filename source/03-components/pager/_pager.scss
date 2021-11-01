@@ -53,6 +53,8 @@ $pager-bp: 600px !default;
 .pager__item--ellipsis {
   @extend %pager__link;
   display: none;
+  padding-left: 0;
+  padding-right: 0;
 
   @include breakpoint($pager-ellipsis-bp) {
     display: inline-block;
@@ -86,57 +88,27 @@ $pager-bp: 600px !default;
   }
 }
 
+.pager__link--first,
 .pager__link--previous,
-.pager__link--next {
+.pager__link--next,
+.pager__link--last {
   background-color: transparent;
-  color: $pager-link-color;
-  position: relative;
+  color: gesso-color(text, link);
+
+  &:visited {
+    color: gesso-color(text, link);
+  }
 
   &:hover,
   &:focus {
     background-color: transparent;
-    color: $pager-link-color;
-
-    .pager__link-icon g {
-      fill: $pager-background-color;
-    }
+    color: gesso-color(text, link-hover);
+    text-decoration: underline;
   }
 
-  &:visited {
-    color: $pager-link-color;
-  }
-}
-
-.pager__item--previous {
-  margin-right: rem(gesso-spacing(5));
-
-  .pager__link {
-    padding-left: 32px;
-  }
-}
-
-.pager__item--next {
-  margin-left: rem(gesso-spacing(5));
-
-  .pager__link {
-    padding-right: 32px;
-  }
-}
-
-.pager__link-icon {
-  left: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-48%);
-  width: 24px;
-
-  g {
-    fill: $pager-link-color;
-  }
-
-  .pager__item--next & {
-    left: auto;
-    right: 0;
-    transform: translateY(-48%) rotate(180deg);
+  &:active {
+    background-color: transparent;
+    color: gesso-color(text, link-active);
+    text-decoration: underline;
   }
 }

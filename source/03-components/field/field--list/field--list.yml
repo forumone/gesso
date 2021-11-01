@@ -1,9 +1,12 @@
 ---
-is_demo: true
 element: 'div'
+is_inline: false
 label: 'Field Label'
-label_hidden: false
-label_element: 'strong'
+hide_label: false
+label_element: 'h3'
+list_element: 'ul'
 field_items:
   -
-    content: 'Field Item'
+    content: 'First field item'
+  -
+    content: 'Second field item'

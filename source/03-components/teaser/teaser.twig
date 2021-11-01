@@ -3,8 +3,22 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
+{% set title_classes = [
+  'teaser__title',
+  title_modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
 <article {{ add_attributes({ 'class': classes })}} role="article">
-  <h2><a href="{{ url }}">{{ title }}</a></h2>
-  {{ date }}
-  {{ summary }}
+  {{ title_prefix }}
+  <{{ title_element ?: 'h2' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>  <a href="{{ url ?: '#' }}">{{ title }}</a></{{ title_element ?: 'h2' }}>
+  {{ title_suffix }}
+
+  {% if date %}
+    <div class="teaser__date">{{ date }}</div>
+    {{ rdf_metadata }}
+  {% endif %}
+
+  {% if summary %}
+    <div class="teaser__summary">{{ summary }}</div>
+  {% endif %}
 </article>

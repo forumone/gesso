@@ -36,12 +36,6 @@
 
   {# We have to manually wrap region content. #}
   {% include '@gesso/layout/region.html.twig' with {
-    'region': 'highlighted',
-    'content': page.highlighted,
-  } %}
-
-  {# We have to manually wrap region content. #}
-  {% include '@gesso/layout/region.html.twig' with {
     'region': 'help',
     'content': page.help,
   } %}
@@ -59,6 +53,7 @@
       {% include '@components/page-title/page-title.twig' with {
         'page_title': page['#title'],
       } %}
+      {{ page.highlighted }}
       {{ page.content }}
     {% endset %}
 

@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Theme override for status messages.
+ *
+ * Displays status, error, and warning messages, grouped by type.
+ *
+ * An invisible heading identifies the messages for assistive technology.
+ * Sighted users see a colored box. See http://www.w3.org/TR/WCAG-TECHS/H69.html
+ * for info.
+ *
+ * Add an ARIA label to the contentinfo area so that assistive technology
+ * user agents will better describe this landmark.
+ *
+ * Available variables:
+ * - message_list: List of messages to be displayed, grouped by type.
+ * - status_headings: List of all status types.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.
+ */
+#}
+{% for type, messages in message_list %}
+  {% set classes = [
+    'message',
+    'message--' ~ type,
+  ] %}
+
+  {% set attributes = attributes.addClass(classes)|without('role', 'aria-label') %}
+
+  {% include '@components/message/message.twig' with {
+    'type': type,
+    'heading': status_headings[type],
+    'messages': messages,
+  } %}
+
+{% endfor %}
