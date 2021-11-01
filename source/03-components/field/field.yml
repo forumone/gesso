@@ -1,9 +1,14 @@
 ---
-is_demo: true
 element: 'div'
+is_inline: false
 label: 'Field Label'
-label_hidden: false
+hide_label: false
 label_element: 'h3'
+hide_content_wrapper: false
+show_separator: true
+separator: ', '
 field_items:
   -
-    content: 'Field Item'
+    content: 'First field item'
+  -
+    content: 'Second field item'
