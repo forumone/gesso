@@ -3,10 +3,11 @@
 
 @use '00-config' as *;
 
-$side-menu-bg-color: gesso-color(ui, generic, background);
+$side-menu-bg-color: gesso-color(ui, generic, background-light);
 
 .side-menu {
   background: $side-menu-bg-color;
+  font-size: gesso-font-size(3);
   height: 100vh;
   left: 0;
   overflow: hidden;
@@ -19,6 +20,10 @@ $side-menu-bg-color: gesso-color(ui, generic, background);
 
   &.is-open {
     transform: translate3d(0, 0, 0);
+  }
+
+  li {
+    padding-left: gesso-spacing(2);
   }
 }
 
@@ -44,4 +49,62 @@ $side-menu-bg-color: gesso-color(ui, generic, background);
   &.is-open {
     transform: translate3d(0, 0, 0);
   }
+}
+
+.side-menu .menu__item {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: gesso-spacing(1) gesso-spacing(2);
+  width: 100%;
+}
+
+.side-menu__toggle {
+  @include text-button;
+  margin-left: gesso-spacing(2);
+  padding: gesso-spacing(0.5);
+
+  &[tabindex='-1'] {
+    display: none;
+  }
+}
+
+.side-menu__toggle-icon {
+  @include svg-background(mobile-arrow-down);
+  @include image-replace(22px, 22px);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  display: inline-block;
+  transform: rotate(270deg);
+  vertical-align: middle;
+}
+
+.side-menu__back {
+  @include text-button;
+  color: gesso-color(text, link);
+
+  &::before {
+    @include svg-background(mobile-arrow-down);
+    @include image-replace(22px, 22px);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    content: '';
+    display: inline-block;
+    margin-right: gesso-spacing(1);
+    transform: rotate(90deg);
+    vertical-align: middle;
+  }
+
+  &:hover,
+  &:focus {
+    color: gesso-color(text, link-hover);
+  }
+}
+
+.side-menu__section-title {
+  font-size: gesso-font-size(4);
+  font-weight: gesso-font-weight(semibold);
+  padding: gesso-spacing(1) gesso-spacing(2);
 }

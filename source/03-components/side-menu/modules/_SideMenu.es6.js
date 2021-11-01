@@ -34,6 +34,10 @@ class SideMenu extends OverlayMenu {
         }
       });
       submenu.insertAdjacentElement('afterbegin', submenuBack);
+      const submenuTitle = document.createElement('div');
+      submenuTitle.classList.add('side-menu__section-title');
+      submenuTitle.innerText = link.innerText;
+      submenuBack.insertAdjacentElement('afterend', submenuTitle);
       const submenuToggle = document.createElement('button');
       submenuToggle.classList.add('side-menu__toggle');
       submenuToggle.innerHTML =
