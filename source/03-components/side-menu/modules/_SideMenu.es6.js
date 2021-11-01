@@ -2,10 +2,20 @@ import OverlayMenu from '../../overlay-menu/modules/_OverlayMenu.es6';
 
 class SideMenu extends OverlayMenu {
   /**
-   * @inheritdoc
+   * @override
+   * @param {HTMLElement} domNode - The top-level menu node
+   * @param {HTMLElement|null} menuButton - The open menu button
+   * @param {HTMLElement|null} closeButton - The close button toggle
+   * @param {boolean} useArrowKeys - Whether to enable navigation by arrow keys
    */
-  constructor(domNode, { menuButton = null, closeButton = null } = {}) {
+  constructor(
+    domNode,
+    { menuButton = null, closeButton = null, useArrowKeys = true } = {}
+  ) {
     super(domNode, { menuButton, closeButton });
+    this.options = {
+      useArrowKeys,
+    };
     this.menuItems = [];
   }
 
@@ -93,7 +103,8 @@ class SideMenu extends OverlayMenu {
 
   /**
    * Prepare a submenu by adding back button, title, and event handlers.
-   * @param {HTMLElement} topLevelItem - The button or link that controls the subsection.
+   * @param {HTMLElement} topLevelItem - The button or link that controls the
+   *   subsection.
    * @return {HTMLElement | null}
    */
   prepSubmenu(topLevelItem) {
@@ -170,6 +181,78 @@ class SideMenu extends OverlayMenu {
         });
       }
     });
+  }
+
+  /**
+   * @inheritdoc
+   */
+  handleKeydown(event) {
+    const { key } = event;
+    if (key === 'Tab' || key === 'Escape') {
+      super.handleKeydown(event);
+    } else {
+      if (!this.options.useArrowKeys) return;
+      const focusable = [
+        ...this.overlay.querySelectorAll(
+          'button, [href], input, select, textarea'
+        ),
+      ].filter(item => item.tabIndex !== -1);
+      const numberFocusElements = focusable.length;
+      const firstFocusableElement = focusable[0];
+      const lastFocusableElement = focusable[numberFocusElements - 1];
+      switch (key) {
+        case 'ArrowUp':
+          if (document.activeElement === firstFocusableElement) {
+            lastFocusableElement.focus();
+          } else {
+            const currentIndex = focusable.indexOf(document.activeElement);
+            if (currentIndex !== -1) {
+              focusable[currentIndex - 1].focus();
+            }
+          }
+          break;
+        case 'ArrowDown':
+          if (document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus();
+          } else {
+            const currentIndex = focusable.indexOf(document.activeElement);
+            if (currentIndex !== -1) {
+              focusable[currentIndex + 1].focus();
+            }
+          }
+          break;
+        case 'ArrowRight':
+          if (document.activeElement.closest('.menu__item')) {
+            const activeMenuItem =
+              document.activeElement.closest('.menu__item');
+            if (activeMenuItem.classList.contains('has-subnav')) {
+              const submenu = activeMenuItem.querySelector('.menu__subnav');
+              this.openSubmenu(submenu);
+            }
+          }
+          break;
+        case 'ArrowLeft':
+          if (document.activeElement.closest('.menu__item')) {
+            const activeMenuItem =
+              document.activeElement.closest('.menu__item');
+            if (activeMenuItem.classList.contains('has-subnav')) {
+              const submenu = activeMenuItem.querySelector('.menu__subnav');
+              this.closeSubmenu(submenu);
+            }
+          }
+          break;
+        case 'Home':
+        case 'PageUp':
+          firstFocusableElement.focus();
+          break;
+        case 'End':
+        case 'PageDown':
+          lastFocusableElement.focus();
+          break;
+        default:
+          break;
+      }
+    }
   }
 }
 
