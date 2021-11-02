@@ -1,0 +1,12 @@
+---
+hide_wrapper: true
+title: ''
+title_element: 'h3'
+list:
+  type: ul
+rows:
+ - content: 'First Row Content'
+ - content: 'Second Row Content'
+title_modifier_classes: ''
+list_modifier_classes: ''
+item_modifier_classes: ''

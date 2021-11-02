@@ -1,0 +1,34 @@
+{% set title_classes = [
+  title_modifier_classes ? title_modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set list_classes = [
+  list_modifier_classes ? list_modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set item_classes = [
+  item_modifier_classes ? item_modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if not hide_wrapper %}
+  <div{{ attributes }}>
+{% endif %}
+
+{% if title %}
+  <{{ title_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>{{ title }}</{{ title_element ?: 'h3' }}>
+{% endif %}
+
+  <{{ list.type }} {{ add_attributes({ 'class': list_classes }, 'list.attributes') }}>
+
+
+    {% for row in rows %}
+      <li {{ add_attributes({ 'class': item_classes }, 'row.attributes') }}>
+        {{- row.content -}}
+      </li>
+    {% endfor %}
+
+  </{{ list.type }}>
+
+{% if not hide_wrapper %}
+  </div>
+{% endif %}
