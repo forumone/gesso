@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% include '@components/view/views-view-unformatted/views-view-unformatted.twig' with {
+  'title': title,
+  'title_element': 'h3',
+  'element': 'div',
+  'hide_row_wrapper': rows.0.attributes is empty,
+  'has_default_class': default_row_class,
+  'rows': rows,
+} %}
