@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const TerserJsPlugin = require('terser-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -21,4 +22,5 @@ module.exports = merge(common, {
     ],
   },
   devtool: false,
+  plugins: [new ESLintPlugin()],
 });
