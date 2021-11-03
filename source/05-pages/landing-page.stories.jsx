@@ -11,6 +11,11 @@ import { View } from '../03-components/view/views-view/views-view.stories.jsx';
 
 export default {
   title: 'Pages/Landing Page',
+  parameters: {
+    controls: {
+      hideNoControlsWarning: true,
+    },
+  },
 };
 
 // You can create a loop to quickly add multiple instances of the same story.
@@ -43,9 +48,7 @@ const landingPageContent = twigTemplate({
 });
 
 const LandingPage = () => (
-  <PageWrapper>
-    {parse(landingPageContent)}
-  </PageWrapper>
+  <PageWrapper>{parse(landingPageContent)}</PageWrapper>
 );
 LandingPage.args = {};
 

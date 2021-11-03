@@ -9,6 +9,11 @@ import { Default as Card } from '../03-components/card/card.stories.jsx';
 
 export default {
   title: 'Pages/Homepage',
+  parameters: {
+    controls: {
+      hideNoControlsWarning: true,
+    },
+  },
 };
 
 // You can override the default arguments, as done here, to demo different
@@ -50,11 +55,7 @@ const homepageContent = twigTemplate({
   homepage_grid_title: 'You Don’t Vote For Kings',
 });
 
-const Homepage = () => (
-  <PageWrapper>
-    {parse(homepageContent)}
-  </PageWrapper>
-);
+const Homepage = () => <PageWrapper>{parse(homepageContent)}</PageWrapper>;
 Homepage.args = {};
 
 export { Homepage };
