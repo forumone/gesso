@@ -14,14 +14,16 @@
  *   Variables that get passed along to the template file.
  */
 function gesso_theme_suggestions_container_alter(array &$suggestions, array $variables) {
-  // Add container parents as a template suggestions.
-  if (isset($variables['element']['#array_parents'])) {
-    $parents = [];
+  $array_parents = isset($variables['element']['#array_parents']) ? $variables['element']['#array_parents'] : null;
 
-    foreach ($variables['element']['#array_parents'] as $key => $value) {
+  // Add parents as template suggestions.
+  if (isset($array_parents)) {
+    $ancestors = [];
+
+    foreach ($array_parents as $key => $value) {
       if (is_string($value)) {
-        $parents[] = $value;
-        $suggestions[] = 'container__' . implode('__', $parents);
+        $ancestors[] = $value;
+        $suggestions[] = 'container__' . implode('__', $ancestors);
       }
     }
   }
