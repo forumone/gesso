@@ -48,7 +48,7 @@ docker-compose.cli.yml
 1. Run `f1 up`.
 2. Run `f1 run --publish 6006:6006 gesso npm run dev`.
 3. Open `localhost:6006` to view Storybook and/or `localhost:8080` to view Drupal.
-4. Enable Gesso Helper and Components modules before setting the theme to active.
+4. Enable Gesso Helper, Components, and Twig Tweak modules before setting the theme to active.
 
 The theme can be set as active in Drupal but is not yet ready for project use.
 However, you can use this method if you prefer running Node via Docker or want

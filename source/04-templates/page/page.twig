@@ -1,5 +1,14 @@
-{% include '@components/article/article.twig' with {
-  'article_page_title': page_title,
-  'has_footer': false,
-  'article_content': page_content
+{% embed '@components/article/article.twig' with {
+  'title': title,
+  'show_footer': show_footer,
+  'body': body,
 } %}
+
+  {% block messages %}
+    {{ messages }}
+  {% endblock %}
+
+  {% block local_tasks %}
+    {{ local_tasks }}
+  {% endblock %}
+{% endembed %}

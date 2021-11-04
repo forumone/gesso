@@ -4,44 +4,25 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
+{% if not label_display %}
+  {% if is_inline %}
+    {% set label_display = 'inline' %}
+  {% endif %}
+{% endif %}
+
 {% set title_classes = [
   'field__label',
   label_display == 'inline' ? 'is-inline' : '',
-  label_display == 'visually_hidden' ? 'visually-hidden' : '',
+  label_display == 'visually_hidden' ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}
 
 <{{ element ?: 'div' }} {{ add_attributes({ 'class': classes }) }}>
-  {% if not label_hidden -%}
+  {% if not hide_label -%}
     <{{ label_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes },'title_attributes') }}>{{ label }}</{{ label_element ?: 'h3' }}>
   {%- endif -%}
-  <ul class="field__content">
+  <{{ list_element ?: 'ul' }} class="field__content">
     {%- for item in field_items -%}
-      <li>{{ item.content }}</li>
+      <li>{{- item.content -}}</li>
     {%- endfor -%}
-  </ul>
+  </{{ list_element ?: 'ul' }}>
 </{{ element ?: 'div' }}>
-
-{% if is_demo %}
-  <div {{ add_attributes({ 'class': classes }) }}>
-    <h3 class="field__label">{{ label }} with Multiple Items</h3>
-    <ul class="field__content">
-      <li>{{ field_items.0.content }} 1</li>
-      <li>{{ field_items.0.content }} 2</li>
-    </ul>
-  </div>
-
-  <div {{ add_attributes({ 'class': classes }) }}>
-    <h3 class="field__label is-inline">Inline {{ label }}</h3>
-    <ul class="field__content">
-      <li>{{ field_items.0.content }}</li>
-    </ul>
-  </div>
-
-  <div {{ add_attributes({ 'class': classes }) }}>
-    <h3 class="field__label is-inline">Inline {{ label }} with Multiple Items</h3>
-    <ul class="field__content">
-      <li>{{ field_items.0.content }} 1</li>
-      <li>{{ field_items.0.content }} 2</li>
-    </ul>
-  </div>
-{% endif %}

@@ -9,6 +9,11 @@ import { FigureRightAligned } from '../03-components/figure/figure.stories.jsx';
 
 export default {
   title: 'Pages/Article',
+  parameters: {
+    controls: {
+      hideNoControlsWarning: true,
+    },
+  },
 };
 
 // For an example of reusing the same content as the Content Block/WYSIWYG
@@ -51,15 +56,13 @@ const mainContent = wysiwygTwigTemplate({
 // For an example of customizing the content block on a demo page,
 // see Page.
 const articleContent = twigTemplate({
-  article_title: 'As You Wish',
-  article_has_footer: true,
-  article_content: mainContent,
+  title: 'As You Wish',
+  show_admin_info: false,
+  show_footer: true,
+  author_name: 'William Goldman',
+  body: mainContent,
 });
 
-const Article = () => (
-  <PageWrapper>
-    {parse(articleContent)}
-  </PageWrapper>
-);
+const Article = () => <PageWrapper>{parse(articleContent)}</PageWrapper>;
 
 export { Article };

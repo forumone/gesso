@@ -19,6 +19,10 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
   padding-top: gesso-spacing(2);
 }
 
+.breadcrumb__title {
+  color: $breadcrumb-text-color;
+}
+
 .breadcrumb__list {
   @include list-inline();
   margin-bottom: 0;
