@@ -1,0 +1,68 @@
+---
+menu_name: 'main'
+items:
+  - title: 'Home'
+    url: 'route:button'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'About'
+    url: 'route:button'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+    below:
+      - title: 'Submenu item one'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item two'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item three'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+  - title: 'Resources'
+    url: 'route:button'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+    below:
+      - title: 'Submenu item one'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+      - title: 'Submenu item two'
+        url: '#'
+        original_link:
+          options:
+            attributes:
+              class: ''
+        in_active_trail: false
+  - title: 'Contact'
+    url: 'route:button'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false

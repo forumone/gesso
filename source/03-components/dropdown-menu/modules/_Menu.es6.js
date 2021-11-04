@@ -64,6 +64,9 @@ class Menu {
           const menuItem = this.createMenuItem(menuElement);
           menuItem.init();
           this.menuItems.push(menuItem);
+          if (menuElement.tagName === 'BUTTON') {
+            this.options.displayMenuOnHover = false;
+          }
         }
       });
     }
