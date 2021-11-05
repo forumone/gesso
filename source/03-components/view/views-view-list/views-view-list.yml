@@ -1,12 +1,12 @@
 ---
+hide_wrapper: true
 title: ''
 title_element: 'h3'
-has_default_class: true
-hide_row_wrapper: false
-element: 'div'
+list:
+  type: ul
 rows:
  - content: 'First Row Content'
  - content: 'Second Row Content'
-modifier_classes: ''
 title_modifier_classes: ''
-row_modifier_classes: ''
+list_modifier_classes: ''
+item_modifier_classes: ''
