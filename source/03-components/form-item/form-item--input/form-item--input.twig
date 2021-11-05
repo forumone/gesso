@@ -1,6 +1,6 @@
 {% set classes = [
   'form-item',
-  'form-item--range',
+  'form-item--' ~ type,
   modifier_classes ? modifier_classes : '',
   is_disabled ? 'is-disabled' : '',
   is_full_width ? 'is-full-width' : '',
@@ -17,11 +17,11 @@
 ]|join(' ')|trim %}
 
 {% if not id %}
-  {% set id = 'range'|unique_id %}
+  {% set id = type|unique_id %}
 {% endif %}
 
 {% if not described_by %}
-  {% set described_by = 'range-description'|unique_id %}
+  {% set described_by = type ~ '-description'|unique_id %}
 {% endif %}
 
 <div {{ add_attributes({ 'class': classes }) }}>
@@ -38,16 +38,38 @@
       {% endspaceless -%}
     {% endif -%}
   </label>
-  <input
-    class="form-item__range"
-    id="{{ id }}"
-    type="range"
-    step="1"
-    min="0"
-    max="100"
-    {%- if is_disabled %} disabled="disabled"{% endif -%}
-    {%- if is_required %} required="required" aria-required="true"{% endif -%}
-  >
+
+  {% if prefix or suffix %}
+    <div class="form-item__element">
+  {% endif %}
+
+    {% if prefix %}
+      <span class="form-item__prefix">{{ prefix }}</span>
+    {% endif %}
+
+    <input
+      class="{{ 'form-item__' ~ type }}"
+      id="{{ id }}"
+      type="{{ type }}"
+      {%- if size %} size="{{ size }}"{% endif -%}
+      {%- if max_length %} maxlength="{{ max_length }}"{% endif -%}
+      {%- if placeholder %} placeholder="{{ placeholder }}"{% endif -%}
+      {%- if step %} step="{{ step }}"{% endif -%}
+      {%- if min %} min="{{ min }}"{% endif -%}
+      {%- if max %} max="{{ max }}"{% endif -%}
+      {%- if accept %} accept="{{ accept }}"{% endif -%}
+      {%- if disabled %} disabled="disabled"{% endif -%}
+      {%- if is_disabled %} disabled="disabled"{% endif -%}
+      {%- if is_required %} required="required" aria-required="true"{% endif -%}
+    >
+
+    {% if suffix %}
+      <span class="form-item__suffix">{{ suffix }}</span>
+    {% endif %}
+
+  {% if prefix or suffix %}
+    </div>
+  {% endif %}
 
   {% if errors %}
     <div class="form-item__error-message">

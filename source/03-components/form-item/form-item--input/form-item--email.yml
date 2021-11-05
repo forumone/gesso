@@ -1,6 +1,6 @@
 ---
-label: 'Search'
-placeholder: 'Placeholder'
+label: 'Email'
+placeholder: 'email@example.com'
 hide_label: false
 is_disabled: false
 is_full_width: false
@@ -9,6 +9,6 @@ prefix: ''
 suffix: ''
 description: 'The description for this form field.'
 size: 60
-max_length: '128'
+max_length: 255
 errors: ''
-type: 'search'
+type: 'email'
