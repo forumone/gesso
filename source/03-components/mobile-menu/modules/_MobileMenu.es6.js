@@ -104,7 +104,7 @@ class MobileMenu extends OverlayMenu {
       } else {
         subnav.style.display = 'block';
         toggleButton.setAttribute('aria-expanded', 'true');
-        subnav.querySelector('.menu__link').focus();
+        subnav.querySelector('.mobile-menu__link').focus();
       }
     });
   }
@@ -127,25 +127,59 @@ class MobileMenu extends OverlayMenu {
     menuClone.classList.add(subNavTypeClass);
 
     // Swap classes on the mobile menu items.
-    const menuItems = menuClone.querySelectorAll('.menu__item');
+    const menuItems = menuClone.querySelectorAll(
+      `.${this.options.classPrefix}__item`
+    );
     if (menuItems.length) {
       menuItems.forEach(item => {
-        item.classList.remove('menu__item');
         item.classList.remove(`${this.options.classPrefix}__item`);
         item.classList.add('mobile-menu__item');
       });
     }
 
     // Swap classes on mobile menu links.
-    const menuLinks = menuClone.querySelectorAll('.menu__link');
+    const menuLinks = menuClone.querySelectorAll(
+      `.${this.options.classPrefix}__link`
+    );
     menuLinks.forEach(link => {
-      link.classList.remove('menu__link');
       link.classList.remove(`${this.options.classPrefix}__link`);
       link.classList.add('mobile-menu__link');
     });
 
+    // Swap classes on menu sections, if applicable.
+    const menuSections = menuClone.querySelectorAll(
+      `.${this.options.classPrefix}__section`
+    );
+    if (menuSections.length) {
+      menuSections.forEach(section => {
+        section.classList.remove(`${this.options.classPrefix}__section`);
+        section.classList.add('mobile-menu__section');
+
+        const sectionInner = section.querySelector(
+          `.${this.options.classPrefix}__section-inner`
+        );
+        if (sectionInner) {
+          sectionInner.classList.remove(
+            `${this.options.classPrefix}__section-inner`
+          );
+          sectionInner.classList.add('mobile-menu__section-inner');
+        }
+
+        const sectionOverview = section.querySelector(
+          `.${this.options.classPrefix}__overview`
+        );
+        if (sectionOverview) {
+          sectionOverview.classList.remove(
+            `${this.options.classPrefix}__overview`
+          );
+        }
+      });
+    }
+
     // Prep sub-menus, if applicable.
-    const subMenus = menuClone.querySelectorAll('.menu__subnav');
+    const subMenus = menuClone.querySelectorAll(
+      `.${this.options.classPrefix}__subnav`
+    );
     if (subMenus.length) {
       subMenus.forEach((submenu, index) => {
         const link = submenu
@@ -153,10 +187,10 @@ class MobileMenu extends OverlayMenu {
           .querySelector('.mobile-menu__link');
         // Swap submenu classes and ID.
         submenu.classList.add('mobile-menu__subnav');
-        submenu.classList.remove('menu');
-        submenu.classList.remove('menu__subnav');
         submenu.classList.remove(`${this.options.classPrefix}__subnav`);
-        submenu.id = cleanString(`mobile-menu-${link.innerText}${index || ''}`);
+        submenu.id = cleanString(
+          `mobile-menu-${link.innerText.trim()}${index || ''}`
+        );
         if (this.options.toggleSubnav) {
           this.setupSubnav(link, link.nextElementSibling);
         }

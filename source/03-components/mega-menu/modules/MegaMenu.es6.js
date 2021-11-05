@@ -40,6 +40,15 @@ class MegaMenu {
     } else {
       section.hidden = !section.hidden;
     }
+    const focusable = section.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]'
+    );
+    focusable.forEach(focusableItem => {
+      focusableItem.tabIndex = section.hidden ? -1 : 0;
+    });
+    if (!section.hidden) {
+      focusable[0].focus();
+    }
   }
 
   /**
@@ -138,7 +147,7 @@ class MegaMenu {
 
   /**
    * Handle keydown events on a top-level button.
-   * @param {MouseEvent} event - The keydown event
+   * @param {KeyboardEvent} event - The keydown event
    * @return {void}
    */
   handleButtonKeydown(event) {
@@ -181,9 +190,9 @@ class MegaMenu {
    * @return {void}
    */
   prepSection(button) {
-    const section = button.parentNode.querySelector('.menu__section');
+    const section = button.parentNode.querySelector('.mega-menu__section');
     if (!section) return;
-    const closeButton = section.querySelector('.menu__section-close');
+    const closeButton = section.querySelector('.mega-menu__section-close');
     this.menuSections.push(section);
     button.setAttribute('aria-expanded', 'false');
     this.toggleSection(section, true);
@@ -225,6 +234,18 @@ class MegaMenu {
       this.menuSections[this.openIndex].focus();
       this.toggleExpand(this.openIndex, false);
       this.closeMenu();
+    } else if (event.key === 'Tab') {
+      setTimeout(() => {
+        if (document.activeElement.classList.contains('js-top-level')) {
+          const openButton = this.menu.querySelector(
+            'button[aria-expanded="true"]'
+          );
+          if (openButton) {
+            const buttonIndex = this.topLevelItems.indexOf(openButton);
+            this.toggleExpand(buttonIndex, false);
+          }
+        }
+      }, 0);
     }
   }
 

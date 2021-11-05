@@ -95,6 +95,10 @@ $mobile-menu-line-height: gesso-line-height(base);
   }
 }
 
+button.mobile-menu__link {
+  cursor: pointer;
+}
+
 .mobile-menu__subnav-arrow {
   @include focus();
   @include image-replace($mobile-menu-button-width, $mobile-menu-button-height);
@@ -143,4 +147,9 @@ $mobile-menu-line-height: gesso-line-height(base);
       color: $mobile-menu-submenu-link-hover-color;
     }
   }
+}
+
+.mobile-menu__section-inner {
+  @include layout-constrain();
+  background-color: $mobile-menu-submenu-bg-color;
 }
