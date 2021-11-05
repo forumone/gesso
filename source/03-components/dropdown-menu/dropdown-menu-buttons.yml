@@ -2,7 +2,7 @@
 menu_name: 'main'
 items:
   - title: 'Home'
-    url: 'route:button'
+    url: '#'
     original_link:
       options:
         attributes:
@@ -60,7 +60,7 @@ items:
               class: ''
         in_active_trail: false
   - title: 'Contact'
-    url: 'route:button'
+    url: '#'
     original_link:
       options:
         attributes:

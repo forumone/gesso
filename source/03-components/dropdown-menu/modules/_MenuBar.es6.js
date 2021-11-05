@@ -10,7 +10,7 @@ class MenuBar extends Menu {
     {
       useArrowKeys = true,
       displayMenuOnHover = true,
-      submenuSelector = '.menu__subnav',
+      submenuSelector = '.dropdown-menu__subnav',
     } = {}
   ) {
     super(domNode, { useArrowKeys, displayMenuOnHover, submenuSelector });

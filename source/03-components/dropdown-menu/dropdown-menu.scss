@@ -6,15 +6,11 @@
 .dropdown-menu {
   @include list-inline;
 
-  .menu__link.has-subnav {
-    position: relative;
-  }
-
-  > .menu__item {
+  > .dropdown-menu__item {
     display: inline-block;
     position: relative;
 
-    > .menu__link {
+    > .dropdown-menu__link {
       background-color: transparent;
       border: 0;
       display: inline-block;
@@ -41,62 +37,76 @@
         transform: translateY(-40%);
       }
     }
-  }
 
-  .menu__toggle {
-    @include text-button;
-    @include image-replace(16px, 16px);
-    @include svg-background(menu-arrow-down);
-    background-color: #f00;
+    > button.dropdown-menu__link {
+      @include text-button;
+      @include link(gesso-color(text, link), gesso-color(text, link-hover));
+    }
+  }
+}
+
+.dropdown-menu__item {
+  margin-bottom: 0;
+}
+
+.dropdown-menu__link.has-subnav {
+  position: relative;
+}
+
+.dropdown-menu__toggle {
+  @include text-button;
+  @include image-replace(16px, 16px);
+  @include svg-background(menu-arrow-down);
+  background-color: #f00;
+  display: block;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-40%);
+
+  svg {
+    pointer-events: none;
+  }
+}
+
+.dropdown-menu__subnav {
+  @include list-clean;
+  background-color: gesso-color(ui, generic, background-dark);
+  display: none;
+  left: 0;
+  margin: rem(gesso-spacing(1)) 0 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+
+  .dropdown-menu__link {
+    @include link(gesso-color(ui, generic, text-lighter));
     display: block;
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-40%);
+    line-height: gesso-line-height(tight);
+    padding: rem(gesso-spacing(2)) rem(gesso-spacing(3));
+    position: relative;
+    text-decoration: none;
+    width: rem(200px);
 
-    svg {
-      pointer-events: none;
+    &:hover,
+    &:focus {
+      background-color: gesso-color(ui, generic, background-darker);
+    }
+
+    &.has-subnav::after {
+      @include image-replace(16px, 16px);
+      @include svg-background(menu-arrow-right);
+      background-size: 16px 16px;
+      content: '';
+      display: block;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 
-  .menu__subnav {
-    background-color: gesso-color(ui, generic, background-dark);
-    display: none;
-    left: 0;
-    margin: rem(gesso-spacing(1)) 0 0;
-    padding: 0;
-    position: absolute;
-    top: 0;
-
-    .menu__link {
-      @include link(gesso-color(ui, generic, text-lighter));
-      display: block;
-      line-height: gesso-line-height(tight);
-      padding: rem(gesso-spacing(2)) rem(gesso-spacing(3));
-      position: relative;
-      text-decoration: none;
-      width: rem(200px);
-
-      &:hover,
-      &:focus {
-        background-color: gesso-color(ui, generic, background-darker);
-      }
-
-      &.has-subnav::after {
-        @include image-replace(16px, 16px);
-        @include svg-background(menu-arrow-right);
-        background-size: 16px 16px;
-        content: '';
-        display: block;
-        position: absolute;
-        right: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-    }
-
-    .menu__subnav {
-      margin: 0;
-    }
+  .dropdown-menu__subnav {
+    margin: 0;
   }
 }
