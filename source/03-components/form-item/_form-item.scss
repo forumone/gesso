@@ -28,6 +28,23 @@ $form-text-size: gesso-base-font-size() !default;
   font-weight: gesso-font-weight(semibold);
 }
 
+.form-item__element {
+  align-items: center;
+  display: flex;
+  gap: 0.25em;
+
+  > input {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .is-full-width > & {
+    > input {
+      flex-grow: 1;
+    }
+  }
+}
+
 .form-item__fieldset {
   border: 0;
   margin: 0;

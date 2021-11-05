@@ -38,20 +38,37 @@
       {% endspaceless -%}
     {% endif -%}
   </label>
-  <input
-    class="{{ 'form-item__' ~ type }}"
-    id="{{ id }}"
-    type="{{ type }}"
-    {%- if size %} size="{{ size }}"{% endif -%}
-    {%- if max_length %} maxlength="{{ max_length }}"{% endif -%}
-    {%- if placeholder %} placeholder="{{ placeholder }}"{% endif -%}
-    {%- if step %} step="{{ step }}"{% endif -%}
-    {%- if min %} min="{{ min }}"{% endif -%}
-    {%- if max %} max="{{ max }}"{% endif -%}
-    {%- if disabled %} disabled="disabled"{% endif -%}
-    {%- if is_disabled %} disabled="disabled"{% endif -%}
-    {%- if is_required %} required="required" aria-required="true"{% endif -%}
-  >
+
+  {% if prefix or suffix %}
+    <div class="form-item__element">
+  {% endif %}
+
+    {% if prefix %}
+      <span class="form-item__prefix">{{ prefix }}</span>
+    {% endif %}
+
+    <input
+      class="{{ 'form-item__' ~ type }}"
+      id="{{ id }}"
+      type="{{ type }}"
+      {%- if size %} size="{{ size }}"{% endif -%}
+      {%- if max_length %} maxlength="{{ max_length }}"{% endif -%}
+      {%- if placeholder %} placeholder="{{ placeholder }}"{% endif -%}
+      {%- if step %} step="{{ step }}"{% endif -%}
+      {%- if min %} min="{{ min }}"{% endif -%}
+      {%- if max %} max="{{ max }}"{% endif -%}
+      {%- if disabled %} disabled="disabled"{% endif -%}
+      {%- if is_disabled %} disabled="disabled"{% endif -%}
+      {%- if is_required %} required="required" aria-required="true"{% endif -%}
+    >
+
+    {% if suffix %}
+      <span class="form-item__suffix">{{ suffix }}</span>
+    {% endif %}
+
+  {% if prefix or suffix %}
+    </div>
+  {% endif %}
 
   {% if errors %}
     <div class="form-item__error-message">
