@@ -15,6 +15,7 @@
     + .form-item__label {
       cursor: pointer;
       display: block;
+      font-weight: gesso-font-weight(regular);
 
       &::before {
         @include focus();

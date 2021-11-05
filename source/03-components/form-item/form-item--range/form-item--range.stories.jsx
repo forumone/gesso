@@ -2,20 +2,18 @@ import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './form-item--range.twig';
+import data from './form-item--range.yml';
 
 const settings = {
-  title: 'Components/Form Item/Form Item Range',
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  }
+  title: 'Components/Form Item/Range',
 };
 
-const FormItemRange = args => (
+const Range = args => (
   parse(twigTemplate({
     ...args,
   }))
 );
-FormItemRange.args = { };
+Range.args = { ...data };
 
 export default settings;
-export { FormItemRange };
+export { Range };

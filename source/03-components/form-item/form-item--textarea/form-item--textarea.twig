@@ -1,6 +1,6 @@
 {% set classes = [
   'form-item',
-  'form-item--range',
+  'form-item--textarea',
   modifier_classes ? modifier_classes : '',
   is_disabled ? 'is-disabled' : '',
   is_full_width ? 'is-full-width' : '',
@@ -17,11 +17,11 @@
 ]|join(' ')|trim %}
 
 {% if not id %}
-  {% set id = 'range'|unique_id %}
+  {% set id = 'textarea'|unique_id %}
 {% endif %}
 
 {% if not described_by %}
-  {% set described_by = 'range-description'|unique_id %}
+  {% set described_by = 'textarea-description'|unique_id %}
 {% endif %}
 
 <div {{ add_attributes({ 'class': classes }) }}>
@@ -38,16 +38,17 @@
       {% endspaceless -%}
     {% endif -%}
   </label>
-  <input
-    class="form-item__range"
+  <textarea
+    class="form-item__textarea"
     id="{{ id }}"
-    type="range"
-    step="1"
-    min="0"
-    max="100"
+    type="{{ type }}"
+    {%- if cols %} cols="{{ cols }}"{% endif -%}
+    {%- if rows %} rows="{{ rows }}"{% endif -%}
+    {%- if placeholder %} placeholder="{{ placeholder }}"{% endif -%}
+    {%- if disabled %} disabled="disabled"{% endif -%}
     {%- if is_disabled %} disabled="disabled"{% endif -%}
     {%- if is_required %} required="required" aria-required="true"{% endif -%}
-  >
+  ></textarea>
 
   {% if errors %}
     <div class="form-item__error-message">

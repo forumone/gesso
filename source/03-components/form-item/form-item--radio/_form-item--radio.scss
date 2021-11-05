@@ -39,6 +39,7 @@
     + .form-item__label {
       cursor: pointer;
       display: inline;
+      font-weight: gesso-font-weight(regular);
     }
 
     &:disabled + .form-item__label {

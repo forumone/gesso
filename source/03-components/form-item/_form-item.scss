@@ -16,12 +16,16 @@ $form-text-size: gesso-base-font-size() !default;
   margin: 0 0 rem(gesso-spacing(3));
 }
 
-.form-item__label {
-  display: block;
-
+%disabled-form-styles {
   .is-disabled > & {
     opacity: $form-disabled-opacity;
   }
+}
+
+.form-item__label {
+  @extend %disabled-form-styles;
+  display: block;
+  font-weight: gesso-font-weight(semibold);
 }
 
 .form-item__fieldset {
@@ -33,12 +37,17 @@ $form-text-size: gesso-base-font-size() !default;
 // .form-item__legend {}
 
 .form-item__description {
+  @extend %disabled-form-styles;
   color: gesso-color(text, secondary);
   font-size: rem(gesso-font-size(2));
 
   > :last-child {
     margin-bottom: 0;
   }
+}
+
+.form-item__errors {
+  @extend %disabled-form-styles;
 }
 
 .form-item__required-marker::before {

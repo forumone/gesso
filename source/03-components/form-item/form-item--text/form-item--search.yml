@@ -1,0 +1,12 @@
+---
+label: 'Search'
+placeholder: 'Placeholder'
+hide_label: false
+is_disabled: false
+is_full_width: false
+is_required: false
+description: 'The description for this form field.'
+size: 60
+max_length: '128'
+errors: ''
+type: 'search'

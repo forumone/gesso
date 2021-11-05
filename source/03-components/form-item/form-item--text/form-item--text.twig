@@ -1,6 +1,6 @@
 {% set classes = [
   'form-item',
-  'form-item--range',
+  'form-item--text',
   modifier_classes ? modifier_classes : '',
   is_disabled ? 'is-disabled' : '',
   is_full_width ? 'is-full-width' : '',
@@ -17,11 +17,11 @@
 ]|join(' ')|trim %}
 
 {% if not id %}
-  {% set id = 'range'|unique_id %}
+  {% set id = type|unique_id %}
 {% endif %}
 
 {% if not described_by %}
-  {% set described_by = 'range-description'|unique_id %}
+  {% set described_by = type ~ '-description'|unique_id %}
 {% endif %}
 
 <div {{ add_attributes({ 'class': classes }) }}>
@@ -39,12 +39,16 @@
     {% endif -%}
   </label>
   <input
-    class="form-item__range"
+    class="{{ 'form-item__' ~ type }}"
     id="{{ id }}"
-    type="range"
-    step="1"
-    min="0"
-    max="100"
+    type="{{ type }}"
+    {%- if size %} size="{{ size }}"{% endif -%}
+    {%- if max_length %} maxlength="{{ max_length }}"{% endif -%}
+    {%- if placeholder %} placeholder="{{ placeholder }}"{% endif -%}
+    {%- if step %} step="{{ step }}"{% endif -%}
+    {%- if min %} min="{{ min }}"{% endif -%}
+    {%- if max %} max="{{ max }}"{% endif -%}
+    {%- if disabled %} disabled="disabled"{% endif -%}
     {%- if is_disabled %} disabled="disabled"{% endif -%}
     {%- if is_required %} required="required" aria-required="true"{% endif -%}
   >

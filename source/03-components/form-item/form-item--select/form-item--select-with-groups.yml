@@ -1,0 +1,30 @@
+---
+label: 'Select with groups'
+hide_label: false
+is_disabled: false
+is_full_width: false
+is_required: false
+description: 'The description for this form field.'
+options:
+  -
+    type: 'optgroup'
+    label: 'Group One'
+    options:
+      -
+        label: 'Option A'
+      -
+        label: 'Option B'
+      -
+        label: 'Option C'
+  -
+    type: 'optgroup'
+    label: 'Group Two'
+    options:
+      -
+        label: 'Option D'
+      -
+        label: 'Option E'
+      -
+        label: 'Disabled Option'
+        disabled: true
+errors: ''
