@@ -35,13 +35,13 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   protected $themeHandler;
 
   /**
-   * Set of available themes.
-   *
    * @var array
    */
   protected $themeList;
 
   /**
+   * Filesystem variable.
+   *
    * @var \Symfony\Component\Filesystem\Filesystem
    */
   protected $fs;
@@ -131,7 +131,10 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       if (!$file->isDir()) {
         $this->gessoFileStrReplace(
           $file->getPathname(),
-          ["/(?<!\[('|\")drupalSettings('|\")\]\[('|\"))gesso(?!_image_path)/", '/Gesso/'],
+          [
+            "/(?<!\[('|\")drupalSettings('|\")\]\[('|\"))gesso(?!_image_path)/",
+            '/Gesso/',
+          ],
           [$machine_name, $name]
         );
       }

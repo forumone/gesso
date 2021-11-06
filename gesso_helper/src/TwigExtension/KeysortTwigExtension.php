@@ -18,7 +18,7 @@ class KeysortTwigExtension extends AbstractExtension {
   }
 
   /**
-   *
+   * Add keysort Twig filter.
    */
   public function getFilters() {
     $filters = parent::getFilters();
@@ -27,7 +27,7 @@ class KeysortTwigExtension extends AbstractExtension {
   }
 
   /**
-   *
+   * Sort array by keys.
    */
   public function keysort($array) {
     ksort($array);

@@ -7,9 +7,6 @@
 
 /**
  * Implements hook_preprocess_HOOK().
- *
- * @param array $variables
- *   Variables that get passed along to the template file.
  */
 function gesso_preprocess_input(array &$variables) {
   $variables['is_required'] = isset($variables['element']['#required']) ? $variables['element']['#required'] : NULL;
@@ -19,9 +16,6 @@ function gesso_preprocess_input(array &$variables) {
 
 /**
  * Implements hook_preprocess_HOOK().
- *
- * @param array $variables
- *   Variables that get passed along to the template file.
  */
 function gesso_preprocess_fieldset(array &$variables) {
   $variables['type'] = isset($variables['element']['#type']) ? $variables['element']['#type'] : 'fieldset';
@@ -30,9 +24,6 @@ function gesso_preprocess_fieldset(array &$variables) {
 
 /**
  * Implements hook_preprocess_HOOK().
- *
- * @param array $variables
- *   Variables that get passed along to the template file.
  */
 function gesso_preprocess_form_element(array &$variables) {
   $variables['is_required'] = isset($variables['element']['#required']) ? $variables['element']['#required'] : NULL;
@@ -40,11 +31,6 @@ function gesso_preprocess_form_element(array &$variables) {
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
- *
- * @param array $suggestions
- *   Theme suggestions.
- * @param array $variables
- *   Variables that get passed along to the template file.
  */
 function gesso_theme_suggestions_container_alter(array &$suggestions, array $variables) {
   $array_parents = isset($variables['element']['#array_parents']) ? $variables['element']['#array_parents'] : NULL;
@@ -73,11 +59,6 @@ function gesso_theme_suggestions_container_alter(array &$suggestions, array $var
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
- *
- * @param array $suggestions
- *   Theme suggestions.
- * @param array $variables
- *   Variables that get passed along to the template file.
  */
 function gesso_theme_suggestions_form_alter(array &$suggestions, array $variables) {
   if (isset($variables['element']['#form_id'])) {
@@ -87,11 +68,6 @@ function gesso_theme_suggestions_form_alter(array &$suggestions, array $variable
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
- *
- * @param array $suggestions
- *   Theme suggestions.
- * @param array $variables
- *   Variables that get passed along to the template file.
  */
 function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
   $id = isset($variables['element']['#type']) ? $variables['element']['#id'] : NULL;

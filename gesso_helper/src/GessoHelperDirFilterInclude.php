@@ -3,19 +3,23 @@
 namespace Drupal\gesso_helper;
 
 /**
- *
+ * Iterator to include directories.
  */
 class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
 
   /**
    * @var array
-   *   Directories to include
+   *   Directories to include.
    */
   protected array $includeDirs = [
     'includes',
     'templates',
   ];
 
+  /**
+   * @var array
+   *   Files to include.
+   */
   protected array $includeFiles = [
     'gesso.libraries.yml',
     'gesso.theme',

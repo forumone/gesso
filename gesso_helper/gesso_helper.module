@@ -2,16 +2,13 @@
 
 /**
  * @file
- */
-
-/**
- * Implements hook_form_system_theme_settings_alter().
+ * Helper module for the Gesso theme.
  */
 
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- *
+ * Implements hook_form_system_theme_settings_alter().
  */
 function gesso_helper_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
   // Work-around for a core bug affecting admin themes.
@@ -51,7 +48,7 @@ function gesso_helper_form_system_theme_settings_alter(&$form, FormStateInterfac
 }
 
 /**
- *
+ * Helper function to validate button classes and labels.
  */
 function gesso_helper_validate_buttons(array $element, FormStateInterface $formState) {
   $value = str_replace(["\r\n", "\r"], "\n", trim($element['#value']));

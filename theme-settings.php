@@ -1,9 +1,16 @@
 <?php
 
 /**
- * Implements hook_form_system_theme_settings_alter().
+ * @file
+ * Functions to support theme settings.
  */
-function gesso_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for system_theme_settings.
+ */
+function gesso_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
   // Work-around for a core bug affecting admin themes.
   // See https://www.drupal.org/docs/8/theming-drupal-8/creating-advanced-theme-settings.
   if (isset($form_id)) {

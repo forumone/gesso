@@ -3,13 +3,13 @@
 namespace Drupal\gesso_helper;
 
 /**
- *
+ * Iterator to exclude directories.
  */
 class GessoHelperDirFilterExclude extends \RecursiveFilterIterator {
 
   /**
    * @var array
-   *   Directories to exclude
+   *   Directories to exclude.
    */
   protected array $exclude = [
     'node_modules',
