@@ -25,11 +25,11 @@ function gesso_preprocess_filter_caption(&$variables) {
     // decisions during media rendering based upon whether or not there's a
     // caption.
     $new_media_element->setAttribute('data-caption', $variables['caption']);
-    $dom_media_element->parentNode->replaceChild($new_media_element,$dom_media_element);
+    $dom_media_element->parentNode->replaceChild($new_media_element, $dom_media_element);
 
     // Grab the view mode and alignment info from the embedded media tag and
     // make it available to the filter-caption template.
-    foreach (['data-view-mode' => 'view_mode','data-align' => 'align'] as $attribute => $var) {
+    foreach (['data-view-mode' => 'view_mode', 'data-align' => 'align'] as $attribute => $var) {
       $variables[$var] = $dom_media_element->getAttribute($attribute);
     }
 

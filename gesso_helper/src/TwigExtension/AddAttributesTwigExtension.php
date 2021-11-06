@@ -1,16 +1,16 @@
 <?php
 
-/**
- * @file
- * Gesso theme twig extension for adding attributes.
- */
 namespace Drupal\gesso_helper\TwigExtension;
 
 use Drupal\Core\Template\Attribute;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
+/**
+ * Gesso theme twig extension for adding attributes.
+ */
 class AddAttributesTwigExtension extends AbstractExtension {
+
   /**
    * @inheritdoc
    */
@@ -90,4 +90,5 @@ class AddAttributesTwigExtension extends AbstractExtension {
 
     return $attributes;
   }
+
 }

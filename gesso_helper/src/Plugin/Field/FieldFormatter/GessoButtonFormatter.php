@@ -183,6 +183,7 @@ class GessoButtonFormatter extends LinkFormatter {
 
   /**
    * Get the button sizes from a given theme's settings.
+   *
    * @param string $theme
    *   The machine name of the theme.
    *
@@ -205,6 +206,7 @@ class GessoButtonFormatter extends LinkFormatter {
 
   /**
    * Get the button styles from a given theme's settings.
+   *
    * @param string $theme
    *   The machine name of the theme.
    *

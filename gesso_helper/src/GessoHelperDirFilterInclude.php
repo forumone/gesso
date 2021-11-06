@@ -2,6 +2,9 @@
 
 namespace Drupal\gesso_helper;
 
+/**
+ *
+ */
 class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
 
   /**
@@ -10,20 +13,26 @@ class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
    */
   protected array $includeDirs = [
     'includes',
-    'templates'
+    'templates',
   ];
 
   protected array $includeFiles = [
     'gesso.libraries.yml',
     'gesso.theme',
-    'theme-settings.php'
+    'theme-settings.php',
   ];
 
+  /**
+   *
+   */
   public function accept() {
     return ($this->isDir() && in_array($this->getFilename(), $this->includeDirs) ||
       !$this->isDir() && in_array($this->getFilename(), $this->includeFiles));
   }
 
+  /**
+   *
+   */
   public function getChildren() {
     return new GessoHelperDirFilterExclude($this->getInnerIterator()->getChildren());
   }

@@ -47,13 +47,13 @@ function gesso_preprocess_form_element(array &$variables) {
  *   Variables that get passed along to the template file.
  */
 function gesso_theme_suggestions_container_alter(array &$suggestions, array $variables) {
-  $array_parents = isset($variables['element']['#array_parents']) ? $variables['element']['#array_parents'] : null;
+  $array_parents = isset($variables['element']['#array_parents']) ? $variables['element']['#array_parents'] : NULL;
 
   // Add parents as template suggestions.
   if (isset($array_parents)) {
     $ancestors = [];
 
-    foreach ($array_parents as $key => $value) {
+    foreach ($array_parents as $value) {
       if (is_string($value)) {
         $ancestors[] = $value;
         $suggestions[] = 'container__' . implode('__', $ancestors);
@@ -94,8 +94,8 @@ function gesso_theme_suggestions_form_alter(array &$suggestions, array $variable
  *   Variables that get passed along to the template file.
  */
 function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
-  $id = isset($variables['element']['#type']) ? $variables['element']['#id'] : null;
-  $type = isset($variables['element']['#type']) ? $variables['element']['#type'] : null;
+  $id = isset($variables['element']['#type']) ? $variables['element']['#id'] : NULL;
+  $type = isset($variables['element']['#type']) ? $variables['element']['#type'] : NULL;
 
   if (isset($type)) {
     $suggestions[] = 'form-element__' . $type;

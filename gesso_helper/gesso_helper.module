@@ -1,9 +1,19 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_form_system_theme_settings_alter().
  */
-function gesso_helper_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ *
+ */
+function gesso_helper_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
   // Work-around for a core bug affecting admin themes.
   // See https://www.drupal.org/docs/8/theming-drupal-8/creating-advanced-theme-settings.
   if (isset($form_id)) {
@@ -12,7 +22,8 @@ function gesso_helper_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
 
   if ($form['config_key'] && $form['config_key']['#value']) {
     $theme = explode('.', $form['config_key']['#value'])[0];
-  } else {
+  }
+  else {
     $theme = \Drupal::theme()->getActiveTheme()->getName();
   }
 
@@ -27,7 +38,7 @@ function gesso_helper_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
     '#default_value' => theme_get_setting('button_sizes', $theme) ?? "button|Standard\nbutton.button--small|Small\nbutton.button--large|Large",
     '#description' => t('Enter one or more classes on each line in the format: classA.classB|Label. Example: button.button--small|Small'),
     '#required' => TRUE,
-    '#element_validate' => ['gesso_helper_validate_buttons']
+    '#element_validate' => ['gesso_helper_validate_buttons'],
   ];
   $form['buttons']['button_styles'] = [
     '#type' => 'textarea',
@@ -35,11 +46,14 @@ function gesso_helper_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
     '#default_value' => theme_get_setting('button_styles', $theme) ?? "button|Primary\nbutton.button--secondary|Secondary\nbutton.button--danger|Danger",
     '#description' => t('Enter one or more classes on each line in the format: classA.classB|Label. Example: button.button--danger|Danger'),
     '#required' => TRUE,
-    '#element_validate' => ['gesso_helper_validate_buttons']
+    '#element_validate' => ['gesso_helper_validate_buttons'],
   ];
 }
 
-function gesso_helper_validate_buttons(array $element, \Drupal\Core\Form\FormStateInterface $formState) {
+/**
+ *
+ */
+function gesso_helper_validate_buttons(array $element, FormStateInterface $formState) {
   $value = str_replace(["\r\n", "\r"], "\n", trim($element['#value']));
   $options = explode("\n", $value);
   foreach ($options as $option) {

@@ -42,7 +42,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   protected $themeList;
 
   /**
-   * @var Filesystem
+   * @var \Symfony\Component\Filesystem\Filesystem
    */
   protected $fs;
 
