@@ -14,22 +14,6 @@ const Primary = args => (
 );
 Primary.args = { ...data };
 
-const Danger = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'button--danger',
-  }))
-);
-Danger.args = { ...data };
-
-const Large = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'button--large',
-  }))
-);
-Large.args = { ...data };
-
 const Secondary = args => (
   parse(twigTemplate({
     ...args,
@@ -37,6 +21,22 @@ const Secondary = args => (
   }))
 );
 Secondary.args = { ...data };
+
+const Base = args => (
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'button--base',
+  }))
+);
+Base.args = { ...data };
+
+const Danger = args => (
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'button--danger',
+  }))
+);
+Danger.args = { ...data };
 
 const Small = args => (
   parse(twigTemplate({
@@ -46,5 +46,13 @@ const Small = args => (
 );
 Small.args = { ...data };
 
+const Large = args => (
+  parse(twigTemplate({
+    ...args,
+    modifier_classes: 'button--large',
+  }))
+);
+Large.args = { ...data };
+
 export default settings;
-export { Primary, Danger, Large, Secondary, Small };
+export { Primary, Secondary, Base, Danger, Large, Small };
