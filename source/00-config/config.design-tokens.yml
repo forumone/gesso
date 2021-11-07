@@ -17,14 +17,15 @@ gesso:
         dark: '#00a6d2'
         dark-1: '#046b99'
     grayscale:
-      white: '#fff'
-      gray-1: '#f7f7f7'
-      gray-2: '#f1f1f1'
-      gray-3: '#d6d7d9'
-      gray-4: '#aeb0b5'
-      gray-5: '#5b616b'
-      gray-6: '#323a45'
-      black: '#212121'
+      white: '#ffffff'
+      gray-1: '#f1f1f1'
+      gray-2: '#e6e6e6'
+      gray-3: '#adadad'
+      gray-4: '#757575'
+      gray-5: '#5c5c5c'
+      gray-6: '#454545'
+      gray-7: '#1b1b1b'
+      black: '#000000'
     other:
       yellow:
         base: '#fad980'
@@ -62,9 +63,9 @@ gesso:
     widescreen: 1400px
   colors:
     text:
-      primary: grayscale.black
+      primary: grayscale.gray-7
       secondary: grayscale.gray-5
-      on-light: grayscale.black
+      on-light: grayscale.gray-7
       on-dark: grayscale.white
       link: brand.blue.base
       link-hover: brand.blue.dark
@@ -92,9 +93,9 @@ gesso:
         text-hover: grayscale.white
         text-active: grayscale.white
       disabled:
-        background: grayscale.gray-2
-        border: grayscale.gray-2
-        text: grayscale.gray-4
+        background: grayscale.gray-1
+        border: grayscale.gray-1
+        text: grayscale.gray-3
       danger:
         background: other.red.base
         background-hover: other.red.dark
@@ -105,7 +106,7 @@ gesso:
         text-hover: grayscale.white
         text-active: grayscale.white
       back-to-top:
-        background: grayscale.gray-4
+        background: grayscale.gray-3
         background-hover: grayscale.gray-5
         color: grayscale.white
         color-hover: grayscale.white
@@ -114,36 +115,36 @@ gesso:
       background-active: grayscale.white
       background-checked: brand.blue.base
       background-unchecked: grayscale.white
-      border: grayscale.gray-3
+      border: grayscale.gray-2
       border-dark: grayscale.gray-5
       border-light: grayscale.gray-1
       thumb: grayscale.gray-5
-      track: grayscale.gray-4
+      track: grayscale.gray-3
     mark:
       background: other.yellow-neon.base
-      text: grayscale.black
+      text: grayscale.gray-7
     selection:
       background: brand.blue.base
       text: grayscale.white
     table:
       border: grayscale.gray-5
       background: grayscale.white
-      background-head: grayscale.gray-2
-      background-foot: grayscale.gray-2
+      background-head: grayscale.gray-1
+      background-foot: grayscale.gray-1
     ui:
       generic:
-        background: grayscale.gray-4
-        background-darker: grayscale.black
+        background: grayscale.gray-3
+        background-darker: grayscale.gray-7
         background-dark: grayscale.gray-6
-        background-light: grayscale.gray-2
+        background-light: grayscale.gray-1
         background-lighter: grayscale.gray-1
-        border: grayscale.gray-4
+        border: grayscale.gray-3
         border-dark: grayscale.gray-6
-        border-light: grayscale.gray-2
+        border-light: grayscale.gray-1
         text-lighter: grayscale.white
-        text-light: grayscale.gray-4
+        text-light: grayscale.gray-3
         text-dark: grayscale.gray-5
-        text-darker: grayscale.black
+        text-darker: grayscale.gray-7
         accent: brand.blue.base
         accent-dark: brand.blue.dark-1
         accent-light: brand.blue.light
