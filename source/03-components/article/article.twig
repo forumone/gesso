@@ -27,17 +27,14 @@
         'tabs': [
           {
             'text': 'View',
-            'url': '#',
             'active': true,
           },
           {
             'text': 'Edit',
-            'url': '#',
             'active': false,
           },
           {
             'text': 'Delete',
-            'url': '#',
             'active': false,
           },
         ],
@@ -69,7 +66,6 @@
           {% set author %}
             {% include '@components/author/author.twig' with {
                 'author': author_name,
-                'url': '#',
               } %}
           {% endset %}
         {% endif %}

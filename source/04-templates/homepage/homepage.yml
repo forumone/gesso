@@ -4,6 +4,6 @@ homepage_hero_title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, s
 homepage_hero_summary: |-
   <p>Optional extra supporting/explanatory text goes here.</p>
 homepage_hero_button_text: 'SIGN UP'
-homepage_hero_button_url: '#'
+homepage_hero_button_url: '#0'
 homepage_grid_title: 'Grid Area Title'
 homepage_grid_content: 'Homepage Grid Content'

@@ -10,7 +10,7 @@ site_logo: 'http://fpoimg.com/250x100?text=Logo'
 body: '<p>This is the body content, which can contain <abbr title="Hyper Text Markup Language">HTML</abbr> markup. There is no limit to how long this content can be.</p>'
 summary: '<p>This is the summary, which can contain <abbr title="Hyper Text Markup Language">HTML</abbr> markup. It should be 600 characters or less.</p>'
 title: 'Title'
-url: '#'
+url: '#0'
 file:
   icon: 'http://fpoimg.com/16x16?text=icon'
   mime: 'application/pdf'

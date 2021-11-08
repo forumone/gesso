@@ -4,5 +4,5 @@ text_demo: 'Link Button'
 is_demo: true
 is_button_tag: true
 is_disabled: false
-url: '#'
+url: '#0'
 button_type: 'submit'

@@ -1,17 +1,17 @@
 ---
 title: 'Card title'
-url: '#'
+url: '#0'
 footer: ''
 date: September 28, 2018
 read_more: true
 tags:
-  - url: '#'
+  - url: '#0'
     title: 'Tag 1'
-  - url: '#'
+  - url: '#0'
     title: 'Tag 2'
-  - url: '#'
+  - url: '#0'
     title: 'Tag 3'
-  - url: '#'
+  - url: '#0'
     title: 'Tag 4'
 media: |-
   <img src="https://picsum.photos/id/1015/800/600">

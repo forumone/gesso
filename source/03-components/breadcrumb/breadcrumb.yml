@@ -6,13 +6,13 @@ title_element: 'h2'
 title: 'Breadcrumb'
 breadcrumb:
   -
-    url: '#'
+    url: '#0'
     text: 'Home'
   -
-    url: '#'
+    url: '#0'
     text: 'Level 1'
   -
-    url: '#'
+    url: '#0'
     text: 'Level 2'
   -
     text: 'Current item'
