@@ -11,11 +11,11 @@ gesso:
         dark: '#205493'
         dark-1: '#112E51'
       ocean-blue:
-        base: '#02bfe7'
-        light: '#9bdaf1'
-        light-1: '#e1f3f8'
-        dark: '#00a6d2'
-        dark-1: '#046b99'
+        base: '#1dc2ae'
+        light: '#29e1cb'
+        light-1: '#7efbe1'
+        dark: '#008480'
+        dark-1: '#0b4b3f'
     grayscale:
       white: '#ffffff'
       gray-1: '#f1f1f1'
@@ -84,14 +84,14 @@ gesso:
         text-hover: grayscale.white
         text-active: grayscale.white
       secondary:
-        background: brand.ocean-blue.base
-        background-hover: brand.ocean-blue.dark
-        background-active: brand.ocean-blue.dark-1
-        border: brand.ocean-blue.base
-        border-hover: brand.ocean-blue.dark-1
-        text: grayscale.white
-        text-hover: grayscale.white
-        text-active: grayscale.white
+        background: brand.ocean-blue.light-1
+        background-hover: brand.ocean-blue.light
+        background-active: brand.ocean-blue.base
+        border: brand.ocean-blue.light-1
+        border-hover: brand.ocean-blue.light
+        text: brand.ocean-blue.dark-1
+        text-hover: brand.ocean-blue.dark-1
+        text-active: grayscale.gray-7
       base:
         background: grayscale.gray-4
         background-hover: grayscale.gray-5
