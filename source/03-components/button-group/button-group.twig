@@ -7,7 +7,7 @@
   <{{ element ?: 'div' }}
     class="{{ classes }}"
     {%- if element != 'nav' %} role="group"{% endif %}
-    aria-label="{{ heading|t -}}
+    aria-label="{{ heading -}}
   ">
     <ul class="button-group__list">
       {% for button in buttons %}
