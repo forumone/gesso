@@ -3,5 +3,5 @@
 @use '00-config' as *;
 
 .menu--footer {
-  @include list-inline;
+  @include list-inline();
 }

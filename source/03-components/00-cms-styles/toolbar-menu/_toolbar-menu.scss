@@ -4,7 +4,7 @@
 @use '00-config' as *;
 
 ul.toolbar-menu {
-  @include list-clean;
+  @include list-clean();
 
   li {
     margin-bottom: 0;

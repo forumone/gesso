@@ -28,12 +28,12 @@ $tab-text-color-hover: gesso-color(text, on-light) !default;
 $tab-font-size: gesso-base-font-size() !default;
 
 .tabs {
-  @include clearfix;
+  @include clearfix();
   margin-bottom: rem(gesso-spacing(2));
 }
 
 .tabs__items {
-  @include list-clean;
+  @include list-clean();
   display: flex;
   flex-direction: column;
 

@@ -34,7 +34,7 @@
 }
 
 @mixin list-pipeline($pipeline-border-color: gesso-color(ui, generic, border)) {
-  @include clearfix;
+  @include clearfix();
   list-style-type: none;
   margin-left: 0;
   padding-left: 0;

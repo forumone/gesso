@@ -4,11 +4,11 @@
 @use '00-config' as *;
 
 %visually-hidden {
-  @include visually-hidden;
+  @include visually-hidden();
 }
 
 %visually-hidden-off {
-  @include visually-hidden-off;
+  @include visually-hidden-off();
 }
 
 %focusable {
@@ -21,9 +21,9 @@
 }
 
 %hidden {
-  @include hidden;
+  @include hidden();
 }
 
 %invisible {
-  @include invisible;
+  @include invisible();
 }
