@@ -3,12 +3,12 @@ heading: ''
 tabs:
   -
     text: 'View'
-    url: '#'
+    url: '#0'
     active: true
   -
     text: 'Edit'
-    url: '#'
+    url: '#0'
   -
     text: 'Delete'
-    url: '#'
+    url: '#0'
 modifier_classes: ''

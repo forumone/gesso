@@ -1,27 +1,27 @@
-// @file
-// Accessibility utility classes
+// Utility: Accessibility
+// Used for accessibility-related helper classes.
 
 @use '00-config' as *;
 
 .visually-hidden,
 .u-visually-hidden {
-  @include visually-hidden-important;
+  @include visually-hidden-important();
 
   &.focusable,
   &.u-focusable {
     &:focus,
     &:active {
-      @include visually-hidden-off-important;
+      @include visually-hidden-off-important();
     }
   }
 }
 
 .hidden,
 .u-hidden {
-  @include hidden-important;
+  @include hidden-important();
 }
 
 .invisible,
 .u-invisible {
-  @include invisible-important;
+  @include invisible-important();
 }

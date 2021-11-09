@@ -1,5 +1,4 @@
-// @file
-// Styles for the mobile menu.
+// Component: Mobile Menu
 // See 03-components/menu/menu--main/mobile-menu-es6.js.
 
 @use 'sass:math';
@@ -48,7 +47,7 @@ $mobile-menu-line-height: gesso-line-height(base);
 }
 
 .mobile-menu__menu {
-  @include list-clean;
+  @include list-clean();
   margin: 0.75em 0 0;
 }
 

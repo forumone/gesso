@@ -1,5 +1,4 @@
-// @file
-// Flex Grid mixins
+// Mixins: Grid
 
 @use 'sass:math';
 @use '../functions' as *;
@@ -112,7 +111,7 @@
   $item-min-width: 300px,
   $gutter-width: gesso-get-map(gutter-width)
 ) {
-  @include css-grid-reset;
+  @include css-grid-reset();
   @include set-css-autofit-columns($item-min-width, $gutter-width);
   display: grid;
 }
@@ -121,7 +120,7 @@
 // @param {Number} $columns Number of columns. 1 or 0 result in a single column.
 // @param {String} $gutter-width Pixel value for width of column gutters.
 @mixin css-fixed-grid($columns: 1, $gutter-width: gesso-get-map(gutter-width)) {
-  @include css-grid-reset;
+  @include css-grid-reset();
   @include set-css-fixed-columns($columns, $gutter-width);
   display: grid;
 }

@@ -1,3 +1,5 @@
+// Mixins: Display Text Style
+
 @use '../functions' as *;
 
 @mixin display-text-style($keys...) {
