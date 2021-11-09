@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Theme override of a datetime form element.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the datetime form element.
+ * - content: The datelist form element to be output.
+ *
+ * @see template_preprocess_datetime_form()
+ */
+#}
+{% set classes = [
+  'l-inline-form',
+  'l-inline-form--no-wrap',
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ content }}
+</div>

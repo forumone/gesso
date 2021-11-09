@@ -1,6 +1,6 @@
 {% set classes = [
   'form-item',
-  'form-item--select',
+  'form-item--textarea',
   modifier_classes ? modifier_classes : '',
   is_disabled ? 'is-disabled' : '',
   is_full_width ? 'is-full-width' : '',
@@ -17,11 +17,11 @@
 ]|join(' ')|trim %}
 
 {% if not id %}
-  {% set id = 'select'|unique_id %}
+  {% set id = 'textarea'|unique_id %}
 {% endif %}
 
 {% if not described_by %}
-  {% set described_by = 'select-description'|unique_id %}
+  {% set described_by = 'textarea-description'|unique_id %}
 {% endif %}
 
 <div {{ add_attributes({ 'class': classes }) }}>
@@ -38,32 +38,17 @@
       {% endspaceless -%}
     {% endif -%}
   </label>
-  <select
-    class="form-item__select"
+  <textarea
+    class="form-item__textarea"
     id="{{ id }}"
+    type="{{ type }}"
+    {%- if cols %} cols="{{ cols }}"{% endif -%}
+    {%- if rows %} rows="{{ rows }}"{% endif -%}
+    {%- if placeholder %} placeholder="{{ placeholder }}"{% endif -%}
+    {%- if disabled %} disabled="disabled"{% endif -%}
     {%- if is_disabled %} disabled="disabled"{% endif -%}
     {%- if is_required %} required="required" aria-required="true"{% endif -%}
-  >
-    {% for option in options %}
-      {% if option.type == 'optgroup' %}
-        <optgroup label="{{ option.label }}">
-          {% for sub_option in option.options %}
-            <option
-              value="{{ sub_option.value }}"
-              {{- sub_option.disabled ? ' disabled="disabled"' : '' -}}
-              {{- sub_option.selected ? ' selected="selected"' : '' -}}
-            >{{ sub_option.label }}</option>
-          {% endfor %}
-        </optgroup>
-      {% elseif option.type == 'option' %}
-        <option
-          value="{{ option.value }}"
-          {{- option.disabled ? ' disabled="disabled"' : '' -}}
-          {{- option.selected ? ' selected="selected"' : '' -}}
-        >{{ option.label }}</option>
-      {% endif %}
-    {% endfor %}
-  </select>
+  ></textarea>
 
   {% if errors %}
     <div class="form-item__error-message">

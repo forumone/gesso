@@ -1,10 +1,25 @@
 {% set classes = [
   'form-item',
   'form-item--radio',
+  'has-visible-label-after',
   modifier_classes ? modifier_classes : '',
+  is_disabled ? 'is-disabled' : '',
+  is_required ? 'is-required' : '',
 ]|join(' ')|trim %}
 
+{% if not id %}
+  {% set id = 'radio'|unique_id %}
+{% endif %}
+
 <div {{ add_attributes({ 'class': classes }) }}>
-  <input class="form-item__radio" id="{{ radio_option_id }}" name="radios" aria-describedby="edit-radios-description" type="radio"{% if radio_option_disabled %} disabled{% endif %}>
-  <label class="form-item__label is-after" for="{{ radio_option_id }}">{{ radio_option_label }}</label>
+  <input
+    class="form-item__radio"
+    id="{{ id }}"
+    name="{{ name }}"
+    type="radio"
+    {%- if described_by %} aria-describedby="{{ described_by }}"{% endif -%}
+    {%- if is_disabled %} disabled="disabled"{% endif -%}
+    {%- if is_required %} required="required" aria-required="true"{% endif -%}
+  >
+  <label class="form-item__label is-after" for="{{ id }}">{{ label }}</label>
 </div>

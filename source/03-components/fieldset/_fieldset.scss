@@ -2,6 +2,7 @@
 // Styles for form fieldsets.
 
 @use '00-config' as *;
+@use '../form-item/form-item' as *;
 
 $fieldset-legend-offset: rem(
   gesso-line-height(base) * gesso-base-font-size()
@@ -17,6 +18,7 @@ $fieldset-legend-offset: rem(
 .fieldset__legend {
   box-sizing: content-box;
   display: block;
+  font-weight: gesso-font-weight(semibold);
   left: -1px; // LTR
   position: absolute;
   text-indent: 0;
@@ -53,7 +55,8 @@ $fieldset-legend-offset: rem(
 .fieldset--default {
   background: #fff;
   border: 1px solid gesso-color(form, border);
-  margin: rem(gesso-spacing(2)) 0 (rem(gesso-spacing(2)) + rem(12px));
+  margin: rem(gesso-spacing(2)) 0 rem(gesso-spacing(3)) +
+    $fieldset-legend-offset;
   padding: 0 rem(gesso-spacing(2));
 
   .fieldset__legend {
@@ -65,6 +68,10 @@ $fieldset-legend-offset: rem(
     line-height: 2;
     padding: 0;
     text-shadow: 0 1px 0 #fff;
+
+    &.is-disabled {
+      opacity: $form-disabled-opacity;
+    }
   }
 
   .fieldset__legend-text {
@@ -80,6 +87,10 @@ $fieldset-legend-offset: rem(
 
   .fieldset__content {
     padding: rem(gesso-spacing(3)) 0 rem(gesso-spacing(2));
+
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 
   .fieldset__description {
@@ -88,10 +99,27 @@ $fieldset-legend-offset: rem(
   }
 }
 
-.fieldset--checkboxes {
-  margin-bottom: rem(gesso-spacing(3));
+%fieldset--form-item {
+  margin-bottom: rem(gesso-spacing(3)) + $fieldset-legend-offset;
+
+  .fieldset__content {
+    margin-top: rem(gesso-spacing(0.5));
+  }
+
+  &.is-disabled {
+    .fieldset__legend,
+    .fieldset__description {
+      opacity: $form-disabled-opacity;
+    }
+  }
+
+  .fieldset__description {
+    margin-top: -1 * gesso-spacing(2);
+  }
 }
 
+.fieldset--checkboxes,
+.fieldset--datetime,
 .fieldset--radios {
-  margin-bottom: rem(gesso-spacing(3));
+  @extend %fieldset--form-item;
 }

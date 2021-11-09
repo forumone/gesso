@@ -1,18 +1,19 @@
 import React from 'react';
 import parse from 'html-react-parser';
+
 import twigTemplate from './form-item--checkbox.twig';
 import data from './form-item--checkbox.yml';
 
 const settings = {
-  title: 'Components/Form Item/Form Item Checkbox',
+  title: 'Components/Form Item/Checkbox',
 };
 
-const FormItemCheckbox = args => (
+const Checkbox = args => (
   parse(twigTemplate({
     ...args,
   }))
 );
-FormItemCheckbox.args = { ...data };
+Checkbox.args = { ...data };
 
 export default settings;
-export { FormItemCheckbox };
+export { Checkbox };

@@ -3,9 +3,22 @@
   'form-item--checkbox',
   'has-visible-label-after',
   modifier_classes ? modifier_classes : '',
+  is_disabled ? 'is-disabled' : '',
+  is_required ? 'is-required' : '',
 ]|join(' ')|trim %}
 
+{% if not id %}
+  {% set id = 'checkbox'|unique_id %}
+{% endif %}
+
 <div {{ add_attributes({ 'class': classes }) }}>
-  <input class="form-item__checkbox" id="{{ checkbox_id }}" type="checkbox" {% if checkbox_disabled %}disabled{% endif %} {% if checkbox_checked %}checked{% endif %}>
-  <label class="form-item__label is-after" for="{{ checkbox_id }}">{{ checkbox_label }}</label>
+  <input
+    class="form-item__checkbox"
+    id="{{ id }}"
+    type="checkbox"
+    {%- if is_checked %} checked="checked"{% endif -%}
+    {%- if is_disabled %} disabled="disabled"{% endif -%}
+    {%- if is_required %} required="required" aria-required="true"{% endif -%}
+  >
+  <label class="form-item__label is-after" for="{{ id }}">{{ label }}</label>
 </div>

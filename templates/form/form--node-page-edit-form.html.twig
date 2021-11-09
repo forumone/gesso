@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ */
+#}
+{% set messages %}
+  {{ drupal_block('system_messages_block', wrapper=false) }}
+{% endset %}
+
+{% set local_tasks %}
+  {{ drupal_block('local_tasks_block', wrapper=false) }}
+  {{ drupal_block('local_actions_block', wrapper=false) }}
+{% endset %}
+
+{% set body -%}
+  <form{{ attributes }}>{{ children }}</form>
+{%- endset %}
+
+{% include '@templates/page/page.twig' with {
+  'title': element['#title'],
+  'messages': messages,
+  'local_tasks': local_tasks,
+  'show_footer': false,
+  'body': body,
+} %}

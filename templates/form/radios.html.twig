@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Theme override for a 'radios' #type form element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The rendered radios.
+ *
+ * @see template_preprocess_radios()
+ */
+#}
+{% set classes = [
+  'form-item',
+  'form-item--radios',
+] %}
+
+<div{{ attributes.addClass(classes) }}>{{ children }}</div>

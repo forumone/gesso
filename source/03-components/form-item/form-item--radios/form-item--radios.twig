@@ -2,38 +2,73 @@
   'fieldset',
   'fieldset--radios',
   modifier_classes ? modifier_classes : '',
+  is_disabled ? 'is-disabled' : '',
+  is_required ? 'is-required' : '',
 ]|join(' ')|trim %}
 
-<fieldset {{ add_attributes({ 'class': classes }) }} aria-describedby="edit-radios-description">
+{% if not id %}
+  {% set id = 'radios'|unique_id %}
+{% endif %}
+
+{% if not name %}
+  {% set name = id %}
+{% endif %}
+
+<fieldset
+  {{ add_attributes({ 'class': classes }) }}
+  {%- if is_disabled %} disabled="disabled"{% endif %}
+  {%- if is_required %} required="required" aria-required="true"{% endif %}
+  {%- if description %} aria-describedby="{{ id }}"{% endif -%}
+>
   <legend class="fieldset__legend">
-    <span class="fieldset__legend-text">Radios</span>
+    <span class="fieldset__legend-text{% if is_required %} is-required{% endif %}">
+      {{- label }}
+
+      {% if is_required %}
+        {%- spaceless %}
+          <span class="form-item__required-marker">
+            <span class="u-visually-hidden">
+              {{ 'This field is required.'|t }}
+            </span>
+          </span>
+        {% endspaceless -%}
+      {% endif -%}
+    </span>
   </legend>
   <div class="fieldset__content">
     <div class="form-item form-item--radios">
       {% include '@components/form-item/form-item--radio/form-item--radio.twig' with {
-        'radio_option_id': 'edit-radios-one',
-        'radio_option_label': 'Option One'
+        'label': 'Option One',
+        'name': name,
+        'id': '',
       } %}
       {% include '@components/form-item/form-item--radio/form-item--radio.twig' with {
-        'radio_option_id': 'edit-radios-two',
-        'radio_option_label': 'Option Two'
+        'label': 'Option Two',
+        'name': name,
+        'id': '',
       } %}
       {% include '@components/form-item/form-item--radio/form-item--radio.twig' with {
-        'radio_option_id': 'edit-radios-three',
-        'radio_option_label': 'Option Three'
+        'label': 'Option Three',
+        'name': name,
+        'id': '',
       } %}
       {% include '@components/form-item/form-item--radio/form-item--radio.twig' with {
-        'radio_option_id': 'edit-radios-four',
-        'radio_option_label': 'Option Four'
+        'label': 'Option Four',
+        'name': name,
+        'id': '',
       } %}
       {% include '@components/form-item/form-item--radio/form-item--radio.twig' with {
-        'radio_option_id': 'edit-radios-five',
-        'radio_option_label': 'Disabled Option',
-        'radio_option_disabled': true
+        'label': 'Disabled Option',
+        'name': name,
+        'id': '',
+        'is_disabled': true,
       } %}
     </div>
-    <div class="fieldset__description" id="edit-radios-description">
-      <p>The description for this form field.</p>
-    </div>
+
+    {% if description %}
+      <div class="fieldset__description" id="{{ id }}">
+        {{ description }}
+      </div>
+    {% endif %}
   </div>
 </fieldset>

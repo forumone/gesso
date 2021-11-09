@@ -2,20 +2,18 @@ import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './form-item--radios.twig';
+import data from './form-item--radios.yml';
 
 const settings = {
-  title: 'Components/Form Item/Form Item Radios',
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  }
+  title: 'Components/Form Item/Radios',
 };
 
-const FormItemRadios = args => (
+const Radios = args => (
   parse(twigTemplate({
     ...args,
   }))
 );
-FormItemRadios.args = { };
+Radios.args = { ...data };
 
 export default settings;
-export { FormItemRadios };
+export { Radios };
