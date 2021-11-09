@@ -36,14 +36,4 @@
  * @see template_preprocess_field()
  */
 #}
-{% include '@components/field/field.twig' with {
-  'element': 'div',
-  'label_display': label_display,
-  'hide_label': label_hidden,
-  'label_element': 'strong',
-  'label': label,
-  'hide_content_wrapper': true,
-  'show_separator': true,
-  'separator': ', ',
-  'field_items': items,
-} %}
+{% extends "field--no-separator.html.twig" %}
