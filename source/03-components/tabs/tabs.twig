@@ -11,7 +11,7 @@
       {% set active_class = tab.active ? ' is-active' : '' %}
       <li class="tabs__item {{- active_class }}">
         {% block link %}
-          <a href="{{ tab.url|default('#0') }}" class="tabs__link {{- active_class }}">
+          <a href="{{ tab.url }}" class="tabs__link {{- active_class }}">
             {{ tab.text }}
             {% if tab.active %}
               <span class="u-visually-hidden">{{ active_label|default('(active tab)') }}</span>

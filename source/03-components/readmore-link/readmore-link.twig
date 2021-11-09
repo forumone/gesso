@@ -4,7 +4,7 @@
 ]|join(' ')|trim %}
 
 {% spaceless %}
-  <a href="{{ url|default('#0') }}" {{ add_attributes({ 'class': classes }) }}>
+  <a href="{{ url }}" {{ add_attributes({ 'class': classes }) }}>
     {{ label|default('Read more') }}
     <span class="readmore-link__icon">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">

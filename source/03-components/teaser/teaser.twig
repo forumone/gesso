@@ -10,7 +10,7 @@
 
 <article {{ add_attributes({ 'class': classes })}} role="article">
   {{ title_prefix }}
-  <{{ title_element ?: 'h2' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>  <a href="{{ url|default('#0') }}">{{ title }}</a></{{ title_element ?: 'h2' }}>
+  <{{ title_element ?: 'h2' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>  <a href="{{ url }}">{{ title }}</a></{{ title_element ?: 'h2' }}>
   {{ title_suffix }}
 
   {% if date %}

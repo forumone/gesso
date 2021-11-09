@@ -4,6 +4,6 @@
   size ? 'tag--' ~ size : '',
 ]|join(' ')|trim %}
 
-<a href="{{ url|default('#0') }}" {{ add_attributes({ 'class': classes }) }} rel="tag">
+<a href="{{ url }}" {{ add_attributes({ 'class': classes }) }} rel="tag">
   {{ title }}
 </a>
