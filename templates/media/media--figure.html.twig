@@ -46,14 +46,14 @@
     attributes.hasClass('align-right') ? 'u-align-right',
   ]|join(' ')|trim %}
 
-  {% set removeClasses = [
+  {% set remove_classes = [
     'align-center',
     'align-left',
     'align-right',
   ] %}
 
   {% include '@components/figure/figure.twig' with {
-    'attributes': attributes.removeClass(removeClasses),
+    'attributes': attributes.removeClass(remove_classes),
     'modifier_classes': classes,
     'media': content,
     'caption': caption,

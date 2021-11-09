@@ -1,5 +1,5 @@
 ---
-checkbox_disabled: false
-checkbox_id: 'edit-checkbox'
-checkbox_label: 'Checkbox'
-modifier_classes: ''
+label: 'Checkbox'
+is_checked: false
+is_disabled: false
+is_required: false

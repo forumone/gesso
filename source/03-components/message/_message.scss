@@ -1,5 +1,5 @@
-// @file
-// Styles for Drupal messages.
+// Component: Message
+// Used for Drupal status messages.
 
 @use '00-config' as *;
 
@@ -50,7 +50,7 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
 }
 
 .message__content {
-  > *:last-child {
+  > :last-child {
     margin-bottom: 0;
   }
 }

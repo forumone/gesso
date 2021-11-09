@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+{% set classes = [
+  dropbutton ? 'dropbutton__button',
+  type != 'submit' ? 'form-item__' ~ type|clean_class,
+  is_required ? 'is-required',
+] %}
+
+{% set remove_classes = [
+  'field-add-more-submit',
+  'form-' ~ type|clean_class,
+  'required',
+] %}
+
+<input{{ attributes.removeClass(remove_classes).addClass(classes) }}>
+{{- children }}

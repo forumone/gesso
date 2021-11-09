@@ -1,7 +1,7 @@
 {% set classes = [
   'fieldset',
-  'fieldset--default',
   modifier_classes ? modifier_classes : '',
+  is_disabled ? 'is-disabled' : '',
 ]|join(' ')|trim %}
 
 <fieldset {{ add_attributes({ 'class': classes }) }}>
@@ -10,6 +10,7 @@
   </legend>
   <div class="fieldset__content">
     {{ fieldset_content }}
+
     {% if fieldset_description %}
       <div class="fieldset__description">
         {{ fieldset_description }}

@@ -1,11 +1,12 @@
-// @file
-// Styles for checkbox form items.
+// Component: Checkbox Form Item
 
 @use '00-config' as *;
 @use '../form-item' as *;
 
 .form-item--checkbox {
-  margin-bottom: gesso-spacing(1);
+  & + & {
+    margin-top: -1 * gesso-spacing(2);
+  }
 }
 
 .form-item--checkbox.has-visible-label-after {
@@ -15,6 +16,7 @@
     + .form-item__label {
       cursor: pointer;
       display: block;
+      font-weight: gesso-font-weight(regular);
 
       &::before {
         @include focus();

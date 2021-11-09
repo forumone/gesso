@@ -1,5 +1,4 @@
-// @file
-// Accessibility mixins
+// Mixins: Accessibility
 
 @use '../functions' as *;
 
@@ -39,7 +38,7 @@
 @mixin focusable {
   &:focus,
   &:active {
-    @include visually-hidden-off;
+    @include visually-hidden-off();
   }
 }
 
@@ -48,7 +47,7 @@
 @mixin focusable-important {
   &:focus,
   &:active {
-    @include visually-hidden-off-important;
+    @include visually-hidden-off-important();
   }
 }
 

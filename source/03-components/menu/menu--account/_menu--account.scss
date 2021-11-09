@@ -1,10 +1,9 @@
-// @file
-// Styles for the account menu.
+// Component: Account Menu
 
 @use '00-config' as *;
 
 .menu--account {
-  @include list-pipeline;
+  @include list-pipeline();
 
   .menu__link {
     font-size: rem(gesso-font-size(1));

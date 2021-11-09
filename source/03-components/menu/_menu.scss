@@ -1,10 +1,9 @@
-// @file
-// Styles for the Menu.
+// Component: Menu
 
 @use '00-config' as *;
 
 .menu {
-  @include list-clean;
+  @include list-clean();
 
   @media print {
     display: none;

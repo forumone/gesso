@@ -1,8 +1,8 @@
-// @file
-// Normalize resets.
-//
-// Inspiration: http://necolas.github.com/normalize.css
+// Global: Normalize
+// Inspiration: https://necolas.github.io/normalize.css/
 // version 8.0.1
+
+@use '00-config' as *;
 
 main {
   display: block;

@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './fieldset.twig';
 import data from './fieldset.yml';
+import formItemData from './fieldset--form-item.yml';
 
 const settings = {
   title: 'Components/Fieldset',
@@ -11,25 +12,26 @@ const settings = {
 const Default = args => (
   parse(twigTemplate({
     ...args,
+    modifier_classes: 'fieldset--default',
   }))
 );
 Default.args = { ...data };
 
-const FieldsetCheckboxes = args => (
+const Checkboxes = args => (
   parse(twigTemplate({
     ...args,
     modifier_classes: 'fieldset--checkboxes',
   }))
 );
-FieldsetCheckboxes.args = { ...data };
+Checkboxes.args = { ...formItemData };
 
-const FieldsetRadios = args => (
+const Radios = args => (
   parse(twigTemplate({
     ...args,
     modifier_classes: 'fieldset--radios',
   }))
 );
-FieldsetRadios.args = { ...data };
+Radios.args = { ...formItemData };
 
 export default settings;
-export { Default, FieldsetCheckboxes, FieldsetRadios };
+export { Default, Checkboxes, Radios };

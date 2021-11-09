@@ -1,0 +1,14 @@
+---
+label: 'Range'
+hide_label: false
+is_disabled: false
+is_full_width: false
+is_required: false
+prefix: ''
+suffix: ''
+description: 'The description for this form field.'
+step: 1
+min: 0
+max: 100
+errors: ''
+type: 'range'

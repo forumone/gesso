@@ -1,5 +1,4 @@
-// @file
-// SVG background image
+// Mixins: SVG Background
 
 @mixin svg-background($image-name, $image-location: 'images/backgrounds/') {
   $url: $image-location + $image-name + '.svg';

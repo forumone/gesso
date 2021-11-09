@@ -7,11 +7,6 @@
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
- *
- * @param array $suggestions
- *   Theme suggestions.
- * @param array $variables
- *   Variables that get passed along to the template file.
  */
 function gesso_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   $suggestions[] = 'field__' . $variables['element']['#entity_type'] . '__' . $variables['element']['#field_name'] . '__' . $variables['element']['#bundle'] . '__' . $variables['element']['#view_mode'];

@@ -1,5 +1,4 @@
-// @file
-// Styles for form items.
+// Component: Form Item
 
 @use 'sass:math';
 @use '00-config' as *;
@@ -16,11 +15,32 @@ $form-text-size: gesso-base-font-size() !default;
   margin: 0 0 rem(gesso-spacing(3));
 }
 
-.form-item__label {
-  display: block;
-
+%disabled-form-styles {
   .is-disabled > & {
     opacity: $form-disabled-opacity;
+  }
+}
+
+.form-item__label {
+  @extend %disabled-form-styles;
+  display: block;
+  font-weight: gesso-font-weight(semibold);
+}
+
+.form-item__element {
+  align-items: center;
+  display: flex;
+  gap: 0.25em;
+
+  > input {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .is-full-width > & {
+    > input {
+      flex-grow: 1;
+    }
   }
 }
 
@@ -33,12 +53,17 @@ $form-text-size: gesso-base-font-size() !default;
 // .form-item__legend {}
 
 .form-item__description {
+  @extend %disabled-form-styles;
   color: gesso-color(text, secondary);
   font-size: rem(gesso-font-size(2));
 
   > :last-child {
     margin-bottom: 0;
   }
+}
+
+.form-item__errors {
+  @extend %disabled-form-styles;
 }
 
 .form-item__required-marker::before {
@@ -49,6 +74,7 @@ $form-text-size: gesso-base-font-size() !default;
 .form-item__color,
 .form-item__date,
 .form-item__email,
+.form-item__file,
 .form-item__month,
 .form-item__number,
 .form-item__password,

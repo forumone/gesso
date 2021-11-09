@@ -10,4 +10,4 @@ hero_media: |-
     <source srcset="https://picsum.photos/800/400?image=11" type="image/jpeg">
     <img srcset="https://picsum.photos/1600/800?image=11" alt="Hero Image Alt Text">
   </picture>
-hero_button_url: '#'
+hero_button_url: '#0'

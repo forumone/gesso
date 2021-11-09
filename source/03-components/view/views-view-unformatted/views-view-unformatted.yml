@@ -1,8 +1,12 @@
 ---
 title: ''
 title_element: 'h3'
-has_wrapper: true
+has_default_class: true
+hide_row_wrapper: false
 element: 'div'
 rows:
- - content: 'Row Content'
+ - content: 'First Row Content'
+ - content: 'Second Row Content'
 modifier_classes: ''
+title_modifier_classes: ''
+row_modifier_classes: ''

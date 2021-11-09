@@ -1,0 +1,11 @@
+---
+label: 'Textarea'
+placeholder: ''
+hide_label: false
+is_disabled: false
+is_full_width: false
+is_required: false
+description: 'The description for this form field.'
+cols: 60
+rows: 5
+errors: ''

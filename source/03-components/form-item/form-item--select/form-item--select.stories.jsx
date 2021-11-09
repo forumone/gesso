@@ -2,20 +2,27 @@ import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './form-item--select.twig';
+import data from './form-item--select.yml';
+import withGroupsData from './form-item--select-with-groups.yml';
 
 const settings = {
-  title: 'Components/Form Item/Form Item Select',
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  }
+  title: 'Components/Form Item/Select',
 };
 
-const FormItemSelect = args => (
+const Default = args => (
   parse(twigTemplate({
     ...args,
   }))
 );
-FormItemSelect.args = { };
+Default.args = { ...data };
+
+
+const WithGroups = args => (
+  parse(twigTemplate({
+    ...args,
+  }))
+);
+WithGroups.args = { ...withGroupsData };
 
 export default settings;
-export { FormItemSelect };
+export { Default, WithGroups };

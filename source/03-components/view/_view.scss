@@ -1,11 +1,10 @@
-// @file
-// Styles for a view.
+// Component: View
 
 @use '00-config' as *;
 
 .view {
-  // hides certain table cells on small screens if enabled within the
-  // settings of a view using the table format
+  // Hides certain table cells on small screens if enabled within the settings
+  // of a view using the table format.
   table.responsive-enabled {
     @include breakpoint-max(gesso-breakpoint(tablet), true) {
       th.priority-low,
@@ -24,6 +23,6 @@
   }
 }
 
-.view__filters {
+.view__exposed {
   margin-bottom: rem(gesso-spacing(2));
 }

@@ -1,10 +1,10 @@
-// @file
-// Styles for constraining the page width.
+// Layout: Constrain
+// Used for constraining the page width.
 
 @use '00-config' as *;
 
 .l-constrain {
-  @include layout-constrain;
+  @include layout-constrain();
 }
 
 .l-constrain--large {

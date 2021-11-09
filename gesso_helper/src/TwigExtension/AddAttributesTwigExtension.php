@@ -1,16 +1,16 @@
 <?php
 
-/**
- * @file
- * Gesso theme twig extension for adding attributes.
- */
 namespace Drupal\gesso_helper\TwigExtension;
 
 use Drupal\Core\Template\Attribute;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
+/**
+ * Gesso theme twig extension for adding attributes.
+ */
 class AddAttributesTwigExtension extends AbstractExtension {
+
   /**
    * @inheritdoc
    */
@@ -23,16 +23,20 @@ class AddAttributesTwigExtension extends AbstractExtension {
    */
   public function getFunctions(): array {
     $functions = parent::getFunctions();
-    $functions[] = new TwigFunction('add_attributes', [$this, 'addAttributes'], ['needs_context' => TRUE, 'is_safe' => ['html']]);
+    $functions[] = new TwigFunction(
+      'add_attributes',
+      [$this, 'addAttributes'],
+      ['needs_context' => TRUE, 'is_safe' => ['html']]
+    );
     return $functions;
   }
 
   /**
    * Creates an "add_attributes" function for Drupal that adds attributes.
    *
-   * There are optional additions while preventing attributes from trickling down
-   * through includes.
-   * Based on https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
+   * There are optional additions while preventing attributes from trickling
+   * down through includes. Based on
+   * https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
    */
   public function addAttributes($context, $additional_attributes = [], $attribute_type = 'attributes'): Attribute {
     $attributes = new Attribute();
@@ -90,4 +94,5 @@ class AddAttributesTwigExtension extends AbstractExtension {
 
     return $attributes;
   }
+
 }

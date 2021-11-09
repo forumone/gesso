@@ -1,0 +1,28 @@
+---
+label: 'Select'
+hide_label: false
+is_disabled: false
+is_full_width: false
+is_required: false
+description: 'The description for this form field.'
+options:
+  -
+    type: 'option'
+    label: 'Option One'
+  -
+    type: 'option'
+    label: 'Option Two'
+  -
+    type: 'option'
+    label: 'Option Three'
+  -
+    type: 'option'
+    label: 'Option Four'
+  -
+    type: 'option'
+    label: 'Option Five'
+  -
+    type: 'option'
+    label: 'Disabled Option'
+    disabled: true
+errors: ''
