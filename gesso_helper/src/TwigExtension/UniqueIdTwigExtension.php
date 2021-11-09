@@ -1,16 +1,15 @@
 <?php
 
-/**
- * @file
- * Gesso theme twig extension for creating a unique ID.
- */
 namespace Drupal\gesso_helper\TwigExtension;
 
-use Drupal\Component\Utility\Html;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
+/**
+ * Gesso theme twig extension for creating a unique ID.
+ */
 class UniqueIdTwigExtension extends AbstractExtension {
+
   /**
    * @inheritdoc
    */

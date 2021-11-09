@@ -60,6 +60,8 @@ class GessoButtonFormatter extends LinkFormatter {
    *   Third party settings.
    * @param \Drupal\Core\Path\PathValidatorInterface $path_validator
    *   The path validator service.
+   * @param \Drupal\Core\Render\RendererInterface $renderer
+   *   The renderer service.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The config factory service.
    * @param \Drupal\Core\Theme\ThemeManagerInterface $themeManager
@@ -143,7 +145,13 @@ class GessoButtonFormatter extends LinkFormatter {
    * {@inheritdoc}
    */
   public function settingsSummary() {
-    $summary[] = $this->t("Size: @size\n Style: @style", ['@size' => $this->getSetting('button_size'), '@style' => $this->getSetting('button_style')]);
+    $summary[] = $this->t(
+      "Size: @size\n Style: @style",
+      [
+        '@size' => $this->getSetting('button_size'),
+        '@style' => $this->getSetting('button_style'),
+      ]
+    );
     return $summary;
   }
 
@@ -183,6 +191,7 @@ class GessoButtonFormatter extends LinkFormatter {
 
   /**
    * Get the button sizes from a given theme's settings.
+   *
    * @param string $theme
    *   The machine name of the theme.
    *
@@ -205,6 +214,7 @@ class GessoButtonFormatter extends LinkFormatter {
 
   /**
    * Get the button styles from a given theme's settings.
+   *
    * @param string $theme
    *   The machine name of the theme.
    *

@@ -25,9 +25,9 @@ function gesso_preprocess_breadcrumb(array &$variables) {
 
       if (!empty($page_title)) {
         $variables['page_title'] = $page_title;
-        $variables['breadcrumb'][] = array(
+        $variables['breadcrumb'][] = [
           'text' => $page_title,
-        );
+        ];
       }
     }
   }

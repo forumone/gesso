@@ -2,7 +2,7 @@
 
 /**
  * @file
- * HTML template functions.
+ * HTML-related hook implementations.
  */
 
 /**
@@ -15,7 +15,7 @@ function gesso_preprocess(array &$variables) {
 }
 
 /**
- * Implements hook_preprocess_html().
+ * Implements hook_preprocess_HOOK().
  */
 function gesso_preprocess_html(array &$variables) {
   $variables['include_back_to_top']
