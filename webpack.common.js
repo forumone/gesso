@@ -71,7 +71,9 @@ module.exports = {
         ],
       },
     }),
-    new StylelintPlugin(),
+    new StylelintPlugin({
+      exclude: ['node_modules', 'dist', 'storybook'],
+    }),
     new SpriteLoaderPlugin(),
   ],
   module: {
