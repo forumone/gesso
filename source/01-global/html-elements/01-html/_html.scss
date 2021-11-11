@@ -9,5 +9,6 @@ html {
   font-size: 100% * (math.div(gesso-base-font-size(), 16px));
   line-height: gesso-line-height(base);
   min-height: 100%;
+  scroll-behavior: smooth;
   text-size-adjust: 100%;
 }
