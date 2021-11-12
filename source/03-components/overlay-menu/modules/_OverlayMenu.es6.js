@@ -109,7 +109,10 @@ class OverlayMenu {
       if (event.shiftKey && document.activeElement === firstFocusableElement) {
         event.preventDefault();
         lastFocusableElement.focus();
-      } else if (document.activeElement === lastFocusableElement) {
+      } else if (
+        document.activeElement === lastFocusableElement &&
+        !event.shiftKey
+      ) {
         event.preventDefault();
         firstFocusableElement.focus();
       }
