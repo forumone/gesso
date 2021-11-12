@@ -25,6 +25,27 @@
       max-width: calc(50% - #{rem(gesso-spacing(2))});
     }
   }
+
+  // Tweak styling in WYSIWYG editor.
+  @if $wysiwyg {
+    // stylelint-disable
+    .cke_widget_wrapper:hover & {
+      outline: 2px solid #ffd25c;
+    }
+
+    .cke_widget_wrapper.cke_widget_focused &,
+    .cke_widget_wrapper.cke_widget_editable_focused & {
+      outline: 2px solid #47a4f5;
+    }
+    // stylelint-enable
+
+    .media-library-item__edit {
+      left: rem(gesso-spacing(1));
+      position: absolute;
+      right: initial;
+      top: rem(gesso-spacing(1));
+    }
+  }
 }
 
 .figure__caption {

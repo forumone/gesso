@@ -2,7 +2,8 @@
 
 @use '00-config' as *;
 
-.button {
+.button,
+%button {
   @include button();
   margin-bottom: rem(gesso-spacing(1));
 
@@ -54,7 +55,8 @@
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
-.button--small {
+.button--small,
+%button--small {
   font-size: rem(gesso-font-size(1));
   padding: rem(gesso-spacing(0.5)) rem(gesso-spacing(1));
 }
