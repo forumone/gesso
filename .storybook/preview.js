@@ -27,4 +27,20 @@ addDecorator(storyFn => {
   return storyFn();
 });
 
-export const parameters = { layout: 'fullscreen' }
+export const parameters = {
+  layout: 'fullscreen',
+  options: {
+    storySort: {
+      method: 'alphabetical',
+      order: [
+        'Global',
+        ['Color Palette', '*'],
+        'Layouts',
+        'Components',
+        'Templates',
+        'Pages',
+      ],
+      includeName: true,
+    },
+  },
+};
