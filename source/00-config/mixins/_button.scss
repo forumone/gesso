@@ -1,6 +1,7 @@
 // Mixins: Button
 
 @use '../functions/' as *;
+@use './focus' as *;
 
 $button-border-width: 0 !default;
 $button-border-radius: 0 !default;
@@ -92,6 +93,26 @@ $button-font-size: gesso-base-font-size() !default;
       border-color: $color-border-disabled;
     }
     color: $color-text-disabled;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+@mixin text-button() {
+  @include focus();
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+
+  &[disabled] {
+    color: gesso-color(button, disabled, text);
     cursor: default;
     pointer-events: none;
   }

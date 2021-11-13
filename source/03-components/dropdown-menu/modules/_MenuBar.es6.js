@@ -2,8 +2,18 @@ import Menu from './_Menu.es6';
 import MenubarItem from './_MenubarItem.es6';
 
 class MenuBar extends Menu {
-  constructor(domNode) {
-    super(domNode);
+  /**
+   * @inheritdoc
+   */
+  constructor(
+    domNode,
+    {
+      useArrowKeys = true,
+      displayMenuOnHover = true,
+      submenuSelector = '.dropdown-menu__subnav',
+    } = {}
+  ) {
+    super(domNode, { useArrowKeys, displayMenuOnHover, submenuSelector });
 
     // Validate that the domNode is a menu that can be made into a MenuBar.
     const msgPrefix = 'Menubar constructor argument menuBarNode';
@@ -26,38 +36,11 @@ class MenuBar extends Menu {
     this.isMenubar = true;
   }
 
+  /**
+   * @inheritdoc
+   */
   createMenuItem(menuElement) {
     return new MenubarItem(menuElement, this);
-  }
-
-  init() {
-    super.init();
-    this.domNode.setAttribute('role', 'menubar');
-    this.firstItem.setTabIndex(0);
-  }
-
-  // Set focus to a specific MenubarItem in the menu.
-  setFocusToItem(newItem) {
-    let openMenu = false;
-    // Close any existing menus.
-    this.menuItems.forEach(mbi => {
-      if (mbi.domNode.tabIndex === 0) {
-        openMenu = mbi.domNode.getAttribute('aria-expanded') === 'true';
-      }
-
-      mbi.domNode.tabIndex = -1;
-      if (mbi.popupMenu) {
-        mbi.popupMenu.close();
-      }
-    });
-
-    newItem.domNode.focus();
-    newItem.domNode.tabIndex = 0;
-
-    if (openMenu && newItem.popupMenu) {
-      newItem.popupMenu.open();
-    }
-    // Focus on the new menu, and open it if the previous menu was open.
   }
 }
 

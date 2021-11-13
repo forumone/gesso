@@ -3,7 +3,7 @@
 
 @use '00-config' as *;
 
-.mobile-menu-button {
+.hamburger-button {
   @include focus();
   background-color: transparent;
   border: 0;
@@ -18,10 +18,15 @@
   line-height: 55px;
   margin: 0;
   padding: 0 gesso-spacing(2);
+  position: relative;
   text-decoration: none;
+
+  &[hidden] {
+    display: none;
+  }
 }
 
-.mobile-menu-button__icon {
+.hamburger-button__icon {
   @include image-replace(22px, 22px);
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -30,14 +35,16 @@
   margin-top: gesso-spacing(2);
 }
 
-.mobile-menu-button--close {
-  .mobile-menu-button__icon {
+.hamburger-button--close {
+  z-index: gesso-z-index(modal) + 1;
+
+  .hamburger-button__icon {
     @include svg-background(mobile-close);
   }
 }
 
-.mobile-menu-button--menu {
-  .mobile-menu-button__icon {
+.hamburger-button--menu {
+  .hamburger-button__icon {
     @include svg-background(mobile-menu);
     background-size: 33px 22px;
     width: 33px;

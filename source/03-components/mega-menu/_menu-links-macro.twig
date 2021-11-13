@@ -1,48 +1,35 @@
+{#
+  This is in a separate file because of a bizarre TwigJS bug,
+  where calling a macro imported with _self somehow wipes out the
+  item object.
+#}
+
 {% macro menu_links(items, attributes, menu_level, menu_name, menu_class, item_class, link_class) %}
   {% import _self as menus %}
   {% if items %}
-    {% if menu_level == 0 %}
-      {% set additional_classes = [
-        'menu',
-        'menu--' ~ menu_name,
-      ] %}
-      {% if menu_class %}
-        {% set additional_classes = additional_classes|merge(menu_class) %}
-      {% endif %}
-      {% set additional_attributes = {
-        'class': additional_classes
-      } %}
-      <ul {{ add_attributes(additional_attributes) }}>
-    {% else %}
-{#      <ul class="menu menu__subnav">#}
-        <ul {{  add_attributes({class: ['menu', 'menu__subnav']}) }}>
-    {% endif %}
-    {% for item in items %}
+    <ul {{ add_attributes({class: ['mega-menu__subnav']}) }}>
+    {% for menu_item in items %}
+      {% set item_classes = ['mega-menu__item'] %}
+      {% set link_classes = ['mega-menu__link'] %}
 
-      {% set item_classes = ['menu__item'] %}
-      {% set link_classes = ['menu__link'] %}
-      {% if menu_level == 0 %}
-        {% set link_classes = link_classes|merge(['js-top-level']) %}
-      {% endif %}
-
-      {% if item.below %}
+      {% if menu_item.below %}
         {% set item_classes = item_classes|merge(['has-subnav']) %}
         {% set link_classes = link_classes|merge(['has-subnav']) %}
       {% endif %}
-      {% if item.in_active_trail %}
+      {% if menu_item.in_active_trail %}
         {% set item_classes = item_classes|merge(['is-active-trail']) %}
         {% set link_classes = link_classes|merge(['is-active-trail']) %}
       {% endif %}
-      {% if item.is_collapsed %}
+      {% if menu_item.is_collapsed %}
         {% set item_classes = item_classes|merge(['is-collapsed']) %}
         {% set link_classes = link_classes|merge(['is-collapsed']) %}
       {% endif %}
-      {% if item.is_expanded %}
+      {% if menu_item.is_expanded %}
         {% set item_classes = item_classes|merge(['is-expanded']) %}
         {% set link_classes = link_classes|merge(['is-expanded']) %}
       {% endif %}
-      {% if item['original_link'].options.attributes.class %}
-        {% set original_link_class = item['original_link'].options.attributes.class %}
+      {% if menu_item['original_link'].options.attributes.class %}
+        {% set original_link_class = menu_item['original_link'].options.attributes.class %}
         {% if original_link_class is not iterable %}
           {% set original_link_class = [original_link_class] %}
         {% endif %}
@@ -64,20 +51,16 @@
       } %}
 
       <li {{ add_attributes(additional_item_attributes) }}>
-        {% if item.url == 'route:button' %}
-          <button {{ add_attributes(link_attributes) }}>{{ item.title }}</button>
+        {% if menu_item.url == 'route:button' %}
+          <button {{ add_attributes(link_attributes) }}>{{ menu_item.title }}</button>
         {% else %}
-          {{ link(item.title, item.url, link_attributes) }}
+          {{ link(menu_item.title, menu_item.url, link_attributes) }}
         {% endif %}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% if menu_item.below %}
+          {{ menus.menu_links(menu_item.below, attributes, menu_level + 1) }}
         {% endif %}
       </li>
     {% endfor %}
     </ul>
   {% endif %}
 {% endmacro %}
-
-{% import _self as menus %}
-
-{{ menus.menu_links(items, attributes, 0, menu_name, menu_class, item_class, link_class) }}
