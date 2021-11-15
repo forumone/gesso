@@ -143,7 +143,7 @@ var {
 
 // Don’t show focus styles for elements that can’t be accessed via keyboard.
 [tabindex='-1']:focus {
-  outline: none !important;
+  outline-color: transparent !important;
 }
 
 // stylelint-disable-next-line selector-no-vendor-prefix
