@@ -1,18 +1,14 @@
 .DS_Store
-node_modules
-.sass-cache
-pattern-lab
-source/00-config/_design-tokens.artifact.scss
-source/00-config/_GESSO.es6.js
-dependencyGraph.json
-.vscode
 .idea
-design-tokens.js
-design-tokens.js.map
-/storybook
+.vscode
+node_modules
 
 ## Ignore compiled files
-dist/js
 dist/css
+dist/js
+dist/design-tokens.js
 dist/images/backgrounds
-sprite.artifact.svg
+dist/images/sprite.artifact.svg
+source/00-config/_design-tokens.artifact.scss
+source/00-config/_GESSO.es6.js
+storybook
