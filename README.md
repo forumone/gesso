@@ -20,38 +20,39 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
-- [Node](https://nodejs.org/en/) version 14.x.x or greater. Long-term stable
-  recommended.
-- [npm](https://www.npmjs.com/get-npm) version 7.x.x or greater.
+-   [Node](https://nodejs.org/en/) version 14.x.x or greater. Long-term stable
+    recommended.
+
+-   [npm](https://www.npmjs.com/get-npm) version 7.x.x or greater.
 
 ## Installation
 
-1. Place the Gesso theme in your site’s theme directory. (e.g., themes/gesso)
-  Read documentation on [installing
-  themes](https://drupal.org/getting-started/install-contrib/themes) for more
-  information.
+1.  Place the Gesso theme in your site’s theme directory. (e.g., themes/gesso)
+    Read documentation on [installing
+    themes](https://drupal.org/getting-started/install-contrib/themes) for more
+    information.
 
-2. Enable the Gesso Helper module. This module comes packaged with the theme,
-  but must be manually enabled for the theme to function.
+2.  Enable the Gesso Helper module. This module comes packaged with the theme,
+    but must be manually enabled for the theme to function.
 
-3. Install the [Component Libraries](https://www.drupal.org/project/components)
-  module. Since many of the Drupal templates reference twig files inside
-  Storybook using Twig namespaces, this module is required for the theme to
-  function.
+3.  Install the [Component Libraries](https://www.drupal.org/project/components)
+    module. Since many of the Drupal templates reference twig files inside
+    Storybook using Twig namespaces, this module is required for the theme to
+    function.
 
-4. Install the [Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
+4.  Install the [Twig Tweak](https://www.drupal.org/project/twig_tweak) module.
 
-5. Optional: Install the
-  [Twig Field Value](https://www.drupal.org/project/twig_field_value) module.
-  This is not required, but it can make working with Twig templates easier.
-  Please note, however, that using the `|field_value` Twig filter from this
-  module will break Drupal’s QuickEdit functionality.
+5.  Optional: Install the [Twig Field
+    Value](https://www.drupal.org/project/twig_field_value) module. This is not
+    required, but it can make working with Twig templates easier. Please note,
+    however, that using the `|field_value` Twig filter from this module will
+    break Drupal’s QuickEdit functionality.
 
-6. Optional: Install the [Background Images
-  Formatter](https://www.drupal.org/project/bg_image_formatter) module and its
-  Responsive Background Images Formatter submodule. This is not required, but it
-  will allow you to use images uploaded to Drupal as background images, with
-  different image sizes at different breakpoints.
+6.  Optional: Install the [Background Images
+    Formatter](https://www.drupal.org/project/bg_image_formatter) module and its
+    Responsive Background Images Formatter submodule. This is not required, but
+    it will allow you to use images uploaded to Drupal as background images,
+    with different image sizes at different breakpoints.
 
 Because Gesso is a starter theme, you may want to rename the Gesso directory or
 copy its contents to a new custom theme directory based on the name of your
@@ -158,11 +159,11 @@ Stylelint and Prettier are used to lint CSS and SCSS files. Warnings will
 break the build, so if you have a valid reason to break Stylelint rules you can
 have it ignore code in two ways:
 
-1. Add `// stylelint-disable-next-line` to the line just before where the
-  Stylelint warning is triggered.
+1.  Add `// stylelint-disable-next-line` to the line just before where the
+    Stylelint warning is triggered.
 
-2. To ignore several lines, add `// stylelint-disable` before the code in
-  question and add `// stylelint-enable` afterwards.
+2.  To ignore several lines, add `// stylelint-disable` before the code in
+    question and add `// stylelint-enable` afterwards.
 
 The Stylelint rules can be changed in the `.stylelintrc.yml` file. By default,
 Gesso follows the
@@ -172,6 +173,7 @@ guidelines](https://github.com/prettier/stylelint-config-prettier), with some
 additional customizations.
 
 The Prettier config can be changed in the `.prettierrc` file.
+
 ## JavaScript
 
 JavaScript can be compiled to individual JS files for use in a JavaScript
@@ -221,7 +223,7 @@ files.
 The following Sass functions can be used to access the tokens defined in
 `config.design-tokens.yml`.
 
-**`gesso-box-shadow($shadow)`**
+#### `gesso-box-shadow($shadow)`
 
 Output a shadow value from the box-shadow token list.
 
@@ -229,7 +231,7 @@ Output a shadow value from the box-shadow token list.
 box-shadow: gesso-box-shadow(1);
 ```
 
-**`gesso-breakpoint($breakpoint)`**
+#### `gesso-breakpoint($breakpoint)`
 
 Output a size value from the breakpoints token list.
 
@@ -247,7 +249,7 @@ Output a size value from the breakpoints token list.
 }
 ```
 
-**`gesso-brand($color, $variant)`**
+#### `gesso-brand($color, $variant)`
 
 Output a color value from the palette brand token list.
 
@@ -255,7 +257,7 @@ Output a color value from the palette brand token list.
 color: gesso-brand(blue, light);
 ```
 
-**`gesso-color($type, $subtype)`**
+#### `gesso-color($type, $subtype)`
 
 Output a color value from the colors token list.
 
@@ -263,7 +265,7 @@ Output a color value from the colors token list.
 color: gesso-color(text, primary);
 ```
 
-**`gesso-constrain($constrain)`**
+#### `gesso-constrain($constrain)`
 
 Output a size value from the constrains token list.
 
@@ -271,7 +273,7 @@ Output a size value from the constrains token list.
 max-width: gesso-constrain(sm);
 ```
 
-**`gesso-duration($duration)`**
+#### `gesso-duration($duration)`
 
 Output a timing value from the transitions duration token list.
 
@@ -279,7 +281,7 @@ Output a timing value from the transitions duration token list.
 transition-duration: gesso-duration(short);
 ```
 
-**`gesso-easing($easing)`**
+#### `gesso-easing($easing)`
 
 Output an easing value from the transitions ease token list.
 
@@ -287,7 +289,7 @@ Output an easing value from the transitions ease token list.
 transition-timing-function: gesso-easing(ease-in-out);
 ```
 
-**`gesso-font-family($family)`**
+#### `gesso-font-family($family)`
 
 Output a stack value from the font-family token list.
 
@@ -295,7 +297,7 @@ Output a stack value from the font-family token list.
 font-family: gesso-font-family(primary);
 ```
 
-**`gesso-font-size($size)`**
+#### `gesso-font-size($size)`
 
 Output a size value from the font-size token list.
 
@@ -303,7 +305,7 @@ Output a size value from the font-size token list.
 font-size: rem(gesso-font-size(2));
 ```
 
-**`gesso-font-weight($weight)`**
+#### `gesso-font-weight($weight)`
 
 Output a weight value from the font-weight token list.
 
@@ -311,7 +313,7 @@ Output a weight value from the font-weight token list.
 font-weight: gesso-font-weight(semibold);
 ```
 
-**`gesso-grayscale($color)`**
+#### `gesso-grayscale($color)`
 
 Output a color value from the palette grayscale token list.
 
@@ -319,7 +321,7 @@ Output a color value from the palette grayscale token list.
 color: gesso-grayscale(gray-2);
 ```
 
-**`gesso-line-height($height)`**
+#### `gesso-line-height($height)`
 
 Output a height value from the line-height token list.
 
@@ -327,7 +329,7 @@ Output a height value from the line-height token list.
 line-height: gesso-line-height(tight);
 ```
 
-**`gesso-spacing($spacing)`**
+#### `gesso-spacing($spacing)`
 
 Output a size value from the spacing token list.
 
@@ -335,7 +337,7 @@ Output a size value from the spacing token list.
 margin-bottom: rem(gesso-spacing(md));
 ```
 
-**`gesso-z-index($index)`**
+#### `gesso-z-index($index)`
 
 Output an index value from the z-index token list.
 
@@ -366,9 +368,9 @@ your Sass.
 ### Width-based media queries
 
 Gesso uses custom mixins to specify viewport width based media queries:
-* `breakpoint`: min-width queries
-* `breakpoint-max`: max-width queries
-* `breakpoint-min-max`: queries with both a min and max width
+-   `breakpoint`: min-width queries
+-   `breakpoint-max`: max-width queries
+-   `breakpoint-min-max`: queries with both a min and max width
 
 Each mixin takes one or two width parameters, which can be a straight value
 (e.g., 800px, 40em) or a design token value called using the `gesso-breakpoint`
@@ -378,7 +380,7 @@ pixel from the max-width value, which can be useful when you want your query to
 go up to the value but not to include it, such as when using Gesso breakpoint
 token values.
 
-**`@include breakpoint($width) { // styles }`**
+#### `@include breakpoint($width) { // styles }`
 
 Output a min-width based media query.
 
@@ -392,7 +394,7 @@ Output a min-width based media query.
 }
 ```
 
-**`@include breakpoint-max($width, $subtract_1_from_max) { // styles }`**
+#### `@include breakpoint-max($width, $subtract_1_from_max) { // styles }`
 
 Output a max-width based media query. The optional `$subtract_1_from_max`
 parameter will subtract 1px from the width value if set to `true` (default:
@@ -408,8 +410,7 @@ parameter will subtract 1px from the width value if set to `true` (default:
 }
 ```
 
-**`@include breakpoint-min-max($min-width, $max-width, $subtract_1_from_max) {
-// styles }`**
+#### `@include breakpoint-min-max($min-width, $max-width, $subtract_1_from_max) { // styles }`
 
 Output a media query with both a min-width and max-width. The optional
 $subtract_1_from_max parameter will subtract 1px from the max-width value if
