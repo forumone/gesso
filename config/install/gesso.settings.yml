@@ -7,7 +7,7 @@ logo:
   use_default: false
 favicon:
   use_default: true
-include_back_to_top: 0
+include_back_to_top: 1
 threshold: '200'
 smooth_scroll: 1
 include_current_page_in_breadcrumb: 1
