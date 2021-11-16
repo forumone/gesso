@@ -97,11 +97,9 @@ class OverlayMenu {
       this.closeMenu();
     }
     // Keep the user from tabbing out of the menu.
-    const focusable = [
-      ...this.overlay.querySelectorAll(
-        'button, [href], input, select, textarea'
-      ),
-    ].filter(item => item.tabIndex !== -1);
+    const focusable = Array.from(
+      this.overlay.querySelectorAll('button, [href], input, select, textarea')
+    ).filter(item => item.tabIndex !== -1);
     const numberFocusElements = focusable.length;
     const firstFocusableElement = focusable[0];
     const lastFocusableElement = focusable[numberFocusElements - 1];
@@ -136,9 +134,11 @@ class OverlayMenu {
    * Enable tabbing on all menu links.
    */
   enableTab(startingPoint) {
-    const menuLinks = startingPoint.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]'
-    );
+    const menuLinks = Array.from(
+      startingPoint.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]'
+      )
+    ).filter(elem => window.getComputedStyle(elem).display !== 'none');
     menuLinks.forEach(link => {
       link.setAttribute('tabindex', '0');
     });

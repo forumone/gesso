@@ -101,10 +101,15 @@ class MobileMenu extends OverlayMenu {
       if (toggleButton.getAttribute('aria-expanded') === 'true') {
         subnav.style.display = 'none';
         toggleButton.setAttribute('aria-expanded', 'false');
+        subnav.classList.remove('is-open');
+        this.enableTab(this.overlay);
       } else {
         subnav.style.display = 'block';
         toggleButton.setAttribute('aria-expanded', 'true');
+        subnav.classList.add('is-open');
+        subnav.hidden = false;
         subnav.querySelector('.mobile-menu__link').focus();
+        this.enableTab(this.overlay);
       }
     });
   }
@@ -224,6 +229,29 @@ class MobileMenu extends OverlayMenu {
       if (this.utilityNav) {
         this.utilityNav.style.display = '';
       }
+    }
+  }
+
+  /**
+   * @inheritdoc
+   */
+  enableTab(startingPoint) {
+    super.enableTab(startingPoint);
+    if (this.options.toggleSubnav) {
+      let subSections = startingPoint.querySelectorAll('.mobile-menu__section');
+      if (!subSections.length) {
+        subSections = startingPoint.querySelectorAll('.mobile-menu__subnav');
+      }
+      subSections.forEach(subSection => {
+        if (subSection.hidden || !subSection.classList.contains('is-open')) {
+          const subSectionItems = subSection.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]'
+          );
+          subSectionItems.forEach(item => {
+            item.setAttribute('tabindex', '-1');
+          });
+        }
+      });
     }
   }
 
