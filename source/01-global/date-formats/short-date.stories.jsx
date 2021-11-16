@@ -1,4 +1,3 @@
-import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './short-date.twig';
