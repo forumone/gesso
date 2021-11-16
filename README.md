@@ -150,8 +150,8 @@ appropriate aggregate file (i.e. `_components.scss`).
 
 DO NOT prefix the name of your Sass file with `_`, e.g. `menu.scss`. Import the
 config and global aggregate files. Import your SCSS file at the top of your
-Storybook file. See `menu.stories.jsx` for an example. Don’t forget to add it to
-the `gesso.libraries.yml` file as well.
+Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t forget to
+add it to the `gesso.libraries.yml` file as well.
 
 ### Linting
 
