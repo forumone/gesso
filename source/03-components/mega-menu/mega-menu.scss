@@ -2,6 +2,16 @@
 // Styles for the Mega Menu.
 @use '00-config' as *;
 
+// Adjust the selector and colors as needed for your site.
+// If the mega menu is not the top element on the page,
+// the element(s) above it need a background color and
+// z-index in order to cover the mega menu.
+.l-header {
+  background: gesso-color('background', 'site');
+  position: relative;
+  z-index: 2;
+}
+
 .mega-menu {
   align-items: center;
   background: gesso-color('background', 'site');
@@ -45,6 +55,7 @@
 
     button.mega-menu__link {
       @include text-button;
+      font-size: rem(gesso-font-size(3));
     }
   }
 

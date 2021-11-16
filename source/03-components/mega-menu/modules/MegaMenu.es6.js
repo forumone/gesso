@@ -14,13 +14,13 @@ class MegaMenu {
     this.menuSections = [];
     this.openIndex = null;
     this.useArrowKeys = useArrowKeys;
-    this.topLevelItems = [
-      ...this.menu.querySelectorAll('button[aria-expanded][aria-controls]'),
-    ];
+    this.topLevelItems = Array.from(
+      this.menu.querySelectorAll('button[aria-expanded][aria-controls]')
+    );
     if (this.useArrowKeys) {
       this.topLevelItems = [
         ...this.topLevelItems,
-        ...this.menu.querySelectorAll('a.js-top-level'),
+        ...Array.from(this.menu.querySelectorAll('a.js-top-level')),
       ];
     }
     this.handleClickAnywhere = this.handleClickAnywhere.bind(this);
@@ -276,6 +276,7 @@ class MegaMenu {
       if (item.tagName === 'BUTTON') {
         this.prepSection(item);
       } else {
+        console.log(item);
         this.prepLink(item);
       }
     });
