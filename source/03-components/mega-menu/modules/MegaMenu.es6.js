@@ -276,7 +276,6 @@ class MegaMenu {
       if (item.tagName === 'BUTTON') {
         this.prepSection(item);
       } else {
-        console.log(item);
         this.prepLink(item);
       }
     });
