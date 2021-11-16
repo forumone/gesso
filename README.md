@@ -197,8 +197,8 @@ to the appropriate JavaScript file(s), (i.e. `primary-menu.es6.js`).
 ### Individual component/library scripts
 
 DO NOT prefix the name of your JS file with `_`. Import your JS file at the top
-of your Storybook file. See `menu.stories.jsx` for an example. Don’t forget to
-add it to the `gesso.libraries.yml` file as well.
+of your Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t
+forget to add it to the `gesso.libraries.yml` file as well.
 
 ### Linting
 
