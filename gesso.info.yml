@@ -34,7 +34,7 @@ regions:
   breadcrumb: Breadcrumbs
   help: Help
   preface: Preface
-  highlighted: 'Status messages & Tabs'
+  status: 'Status messages & Tabs'
   content: Content
   postscript: Postscript
   footer: Footer
