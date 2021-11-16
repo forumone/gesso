@@ -6,8 +6,7 @@ global:
 hamburger_button:
   css:
     theme:
-      dist:
-        dist/css/hamburger-button.css: {}
+      dist/css/hamburger-button.css: {}
 mobile_menu:
   css:
     theme:

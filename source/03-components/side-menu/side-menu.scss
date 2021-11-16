@@ -20,6 +20,7 @@ $side-menu-bg-color: gesso-color(ui, generic, background-light);
 
   &.is-open {
     transform: translate3d(0, 0, 0);
+    z-index: gesso-z-index(nav);
   }
 
   li {

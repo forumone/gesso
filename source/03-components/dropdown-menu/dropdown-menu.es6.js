@@ -4,14 +4,16 @@ import MenuBar from './modules/_MenuBar.es6';
 
 Drupal.behaviors.dropdownMenu = {
   attach(context) {
-    const menuNode = context.querySelector('.dropdown-menu');
-    if (menuNode) {
-      const dropdownMenu = new MenuBar(menuNode);
-      dropdownMenu.init();
-      const mobileMenu = new MobileMenu(menuNode, context, {
-        classPrefix: 'dropdown-menu',
+    const menuNodes = context.querySelectorAll('.dropdown-menu');
+    if (menuNodes.length) {
+      menuNodes.forEach(menuNode => {
+        const dropdownMenu = new MenuBar(menuNode);
+        dropdownMenu.init();
+        const mobileMenu = new MobileMenu(menuNode, context, {
+          classPrefix: 'dropdown-menu',
+        });
+        mobileMenu.init();
       });
-      mobileMenu.init();
     }
   },
 };
