@@ -26,15 +26,17 @@
       }
 
       &.has-subnav::after {
-        @include image-replace(16px, 16px);
         @include svg-background(menu-arrow-down);
         background-size: 16px 16px;
         content: '';
         display: block;
+        height: 16px;
+        overflow: hidden;
         position: absolute;
         right: 5px;
         top: 50%;
         transform: translateY(-40%);
+        width: 16px;
       }
     }
 

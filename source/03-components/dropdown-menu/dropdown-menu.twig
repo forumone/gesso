@@ -1,6 +1,7 @@
 {{ attach_library('gesso/dropdown_menu') }}
+
 {% macro menu_links(items, attributes, menu_level, menu_name, menu_class, item_class, link_class) %}
-  {% import _self as menus %}
+  {% import _self as dropdown_menu %}
   {% if items %}
     {% if menu_level == 0 %}
       {% set additional_classes = [
@@ -17,7 +18,6 @@
   <ul {{  add_attributes({class: ['dropdown-menu__subnav']}) }}>
     {% endif %}
     {% for item in items %}
-
       {% set item_classes = ['dropdown-menu__item'] %}
       {% set link_classes = ['dropdown-menu__link'] %}
       {% if menu_level == 0 %}
@@ -69,14 +69,14 @@
           {{ link(item.title, item.url, link_attributes) }}
         {% endif %}
         {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {{ dropdown_menu.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
       </li>
     {% endfor %}
   </ul>
   {% endif %}
-  {% endmacro %}
+{% endmacro %}
 
-  {% import _self as dropdown_menu %}
+{% import _self as dropdown_menu %}
 
-  {{ dropdown_menu.menu_links(items, attributes, 0, menu_name, menu_class, item_class, link_class) }}
+{{ dropdown_menu.menu_links(items, attributes, 0, menu_name, menu_class, item_class, link_class) }}
