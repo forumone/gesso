@@ -166,7 +166,7 @@ have it ignore code in two ways:
     question and add `// stylelint-enable` afterwards.
 
 In both cases above, please add a comment about the valid reason to disable the
-Stylelint rules in your use case.
+Stylelint rule(s) in your use case.
 
 The Stylelint rules can be changed in the `.stylelintrc.yml` file. By default,
 Gesso follows the
@@ -206,6 +206,9 @@ ESLint and Prettier are used to lint JavaScript files. If you have a valid
 reason to break one of the rules, you can ignore a specific line using any of
 the options in the [ESLint
 documentation](https://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments).
+
+Please add a comment about the valid reason to disable the ESLint rule(s) in
+your use case.
 
 The ESLint config can be changed in the `.eslintrc.js` file. Gesso follows the
 [Airbnb standards](https://github.com/airbnb/javascript/), which are [followed
