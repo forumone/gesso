@@ -165,6 +165,9 @@ have it ignore code in two ways:
 2.  To ignore several lines, add `// stylelint-disable` before the code in
     question and add `// stylelint-enable` afterwards.
 
+In both cases above, please add a comment about the valid reason to disable the
+Stylelint rules in your use case.
+
 The Stylelint rules can be changed in the `.stylelintrc.yml` file. By default,
 Gesso follows the
 [sass-guideline.es](https://github.com/bjankord/stylelint-config-sass-guidelines)
