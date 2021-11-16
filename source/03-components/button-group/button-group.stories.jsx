@@ -1,10 +1,10 @@
 import parse from 'html-react-parser';
 
-import twigTemplate from './button.twig';
-import data from './button.yml';
+import twigTemplate from './button-group.twig';
+import data from './button-group.yml';
 
 const settings = {
-  title: 'Components/Button',
+  title: 'Components/ButtonGroup',
 };
 
 const Primary = args => (
@@ -17,7 +17,7 @@ Primary.args = { ...data };
 const Secondary = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--secondary',
+    button_modifier_classes: 'button--secondary',
   }))
 );
 Secondary.args = { ...data };
@@ -25,7 +25,7 @@ Secondary.args = { ...data };
 const Base = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--base',
+    button_modifier_classes: 'button--base',
   }))
 );
 Base.args = { ...data };
@@ -33,7 +33,7 @@ Base.args = { ...data };
 const Danger = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--danger',
+    button_modifier_classes: 'button--danger',
   }))
 );
 Danger.args = { ...data };
@@ -41,7 +41,7 @@ Danger.args = { ...data };
 const Small = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--small',
+    button_modifier_classes: 'button--small',
   }))
 );
 Small.args = { ...data };
@@ -49,7 +49,7 @@ Small.args = { ...data };
 const Large = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--large',
+    button_modifier_classes: 'button--large',
   }))
 );
 Large.args = { ...data };

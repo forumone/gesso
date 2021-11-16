@@ -19,6 +19,24 @@
   }
 }
 
+// This button class is used for Drupal tabs.
+.button--base {
+  background-color: gesso-color(button, base, background);
+  color: gesso-color(button, base, text);
+
+  &:hover,
+  &:focus {
+    background-color: gesso-color(button, base, background-hover);
+    color: gesso-color(button, base, text-hover);
+  }
+
+  &:active,
+  &.is-active {
+    background-color: gesso-color(button, base, background-active);
+    color: gesso-color(button, base, text-active);
+  }
+}
+
 // Drupal outputs this class on buttons that can delete content.
 .button--danger {
   background-color: gesso-color(button, danger, background);
@@ -30,7 +48,8 @@
     color: gesso-color(button, danger, text-hover);
   }
 
-  &:active {
+  &:active,
+  &.is-active {
     background-color: gesso-color(button, danger, background-active);
     color: gesso-color(button, danger, text-active);
   }
@@ -38,14 +57,20 @@
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .button--secondary {
-  @include button(
-    $color-background: gesso-color(button, secondary, background),
-    $color-text: gesso-color(button, secondary, text),
-    $color-background-hover: gesso-color(button, secondary, background-hover),
-    $color-text-hover: gesso-color(button, secondary, text-hover),
-    $color-background-active: gesso-color(button, secondary, background-active),
-    $color-text-active: gesso-color(button, secondary, text-active)
-  );
+  background-color: gesso-color(button, secondary, background);
+  color: gesso-color(button, secondary, text);
+
+  &:hover,
+  &:focus {
+    background-color: gesso-color(button, secondary, background-hover);
+    color: gesso-color(button, secondary, text-hover);
+  }
+
+  &:active,
+  &.is-active {
+    background-color: gesso-color(button, secondary, background-active);
+    color: gesso-color(button, secondary, text-active);
+  }
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
