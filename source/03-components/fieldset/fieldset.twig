@@ -1,20 +1,62 @@
 {% set classes = [
   'fieldset',
-  modifier_classes ? modifier_classes : '',
+  required or is_required ? 'is-required' : '',
   is_disabled ? 'is-disabled' : '',
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<fieldset {{ add_attributes({ 'class': classes }) }}>
-  <legend class="fieldset__legend">
-    <span class="fieldset__legend-text">{{ fieldset_legend }}</span>
+{% if not id %}
+  {% set id = 'fieldset'|unique_id %}
+{% endif %}
+
+{% set attributes_to_add = {
+  class: classes,
+} %}
+{% if description.content %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'aria-describedby': id
+  }) %}
+{% endif %}
+{% if is_disabled %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'disabled': disabled
+  }) %}
+{% endif %}
+{% if required or is_required %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'required': 'required',
+    'aria-required': 'true'
+  }) %}
+{% endif %}
+
+{% set legend_span_classes = [
+  'fieldset__legend-text',
+  required or is_required ? 'is-required' : '',
+  required or is_required ? 'js-form-required' : '',
+]|join(' ')|trim %}
+
+<fieldset {{ add_attributes(attributes_to_add) }}>
+  {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
+  <legend {{ add_attributes({class: 'fieldset__legend'}, 'legend.attributes') }}>
+    <span {{ add_attributes({class: legend_span_classes}, 'legend_span.attributes') }}>{{ legend.title }}</span>
   </legend>
   <div class="fieldset__content">
-    {{ fieldset_content }}
+    {% if errors %}
+      <div class="fieldset__errors">{{ errors }}</div>
+    {% endif %}
 
-    {% if fieldset_description %}
-      <div class="fieldset__description">
-        {{ fieldset_description }}
-      </div>
+    {% if prefix %}
+      <span class="fieldset__prefix">{{ prefix }}</span>
+    {% endif %}
+
+    {{ children }}
+
+    {% if suffix %}
+      <span class="fieldset__suffix">{{ suffix }}</span>
+    {% endif %}
+
+    {% if description.content %}
+      <div {{ add_attributes({class: 'fieldset__description', id: id}, 'description.attributes') }}>{{ description.content }}</div>
     {% endif %}
   </div>
 </fieldset>
