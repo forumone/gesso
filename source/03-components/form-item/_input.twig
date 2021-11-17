@@ -14,6 +14,13 @@
   }) %}
 {% endif %}
 
+{# Name #}
+{% if name %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'name': name
+  }) %}
+{% endif %}
+
 {# Input Type #}
 {% if type %}
   {% set attributes_to_add = attributes_to_add|merge({
@@ -89,6 +96,13 @@
 {% if is_checked %}
   {% set attributes_to_add = attributes_to_add|merge({
     'checked': 'checked'
+  }) %}
+{% endif %}
+
+{# Described By #}
+{% if described_by %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'aria-describedby': described_by
   }) %}
 {% endif %}
 

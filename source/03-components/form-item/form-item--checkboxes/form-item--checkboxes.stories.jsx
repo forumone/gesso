@@ -16,18 +16,35 @@ const checkboxesChildren = ReactDOMServer.renderToStaticMarkup(
     {Checkbox({
       ...Checkbox.args,
       title: 'Choice A',
+      id: 'checkbox-1',
     })}
     {Checkbox({
       ...Checkbox.args,
       title: 'Choice B',
+      id: 'checkbox-2',
     })}
     {Checkbox({
       ...Checkbox.args,
       title: 'Choice C',
+      id: 'checkbox-3',
     })}
     {Checkbox({
       ...Checkbox.args,
       title: 'Choice D',
+      id: 'checkbox-4',
+    })}
+    {Checkbox({
+      ...Checkbox.args,
+      title: 'Disabled Choice',
+      is_disabled: true,
+      id: 'checkbox-5',
+    })}
+    {Checkbox({
+      ...Checkbox.args,
+      title: 'Disabled Checked Choice',
+      is_disabled: true,
+      is_checked: true,
+      id: 'checkbox-6',
     })}
   </>
 );

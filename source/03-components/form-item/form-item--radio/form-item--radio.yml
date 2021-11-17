@@ -1,5 +1,8 @@
 ---
-label: 'Radio option'
+title: 'Radio option'
+label_display: 'after'
+type: 'radio'
+id: 'radio'
 is_disabled: false
 is_required: false
 name: 'name'
