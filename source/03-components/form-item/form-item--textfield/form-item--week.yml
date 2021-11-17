@@ -1,5 +1,6 @@
 ---
-label: 'Week'
+title: 'Week'
+label_display: 'before'
 placeholder: ''
 hide_label: false
 is_disabled: false

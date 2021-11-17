@@ -1,5 +1,6 @@
 ---
-label: 'Number (decimal)'
+title: 'Number (decimal)'
+label_display: 'before'
 placeholder: 'Placeholder'
 hide_label: false
 is_disabled: false

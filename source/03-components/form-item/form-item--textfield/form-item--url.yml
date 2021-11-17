@@ -1,5 +1,6 @@
 ---
-label: 'URL'
+title: 'URL'
+label_display: 'before'
 placeholder: 'Placeholder'
 hide_label: false
 is_disabled: false

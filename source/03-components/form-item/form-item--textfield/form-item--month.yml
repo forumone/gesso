@@ -1,5 +1,6 @@
 ---
-label: 'Month'
+title: 'Month'
+label_display: 'before'
 placeholder: ''
 hide_label: false
 is_disabled: false

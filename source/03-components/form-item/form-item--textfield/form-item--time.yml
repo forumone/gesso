@@ -1,5 +1,6 @@
 ---
-label: 'Time'
+title: 'Time'
+label_display: 'before'
 placeholder: 'hh:mm:ss'
 hide_label: false
 is_disabled: false

@@ -17,6 +17,10 @@
   {% set described_by = type ~ '-description'|unique_id %}
 {% endif %}
 
+{% if hide_label %}
+  {% set label_display = 'invisible' %}
+{% endif %}
+
 <div {{ add_attributes({ 'class': classes }) }}>
   {% if label_display in ['before', 'invisible'] %}
     {{ label }}

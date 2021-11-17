@@ -1,5 +1,6 @@
 ---
-label: 'Search'
+title: 'Search'
+label_display: 'before'
 placeholder: 'Placeholder'
 hide_label: false
 is_disabled: false

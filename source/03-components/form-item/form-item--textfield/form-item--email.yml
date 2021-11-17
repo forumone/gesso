@@ -1,5 +1,6 @@
 ---
-label: 'Email'
+title: 'Email'
+label_display: 'before'
 placeholder: 'email@example.com'
 hide_label: false
 is_disabled: false

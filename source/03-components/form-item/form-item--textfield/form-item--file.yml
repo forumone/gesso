@@ -1,5 +1,6 @@
 ---
-label: 'File'
+title: 'File'
+label_display: 'before'
 placeholder: ''
 hide_label: false
 is_disabled: false
