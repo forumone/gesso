@@ -5,5 +5,5 @@ module.exports = {
     'no-empty-function': 'off',
     'no-unused-vars': 'off',
     'prefer-const': 'off',
-  }
-}
+  },
+};
