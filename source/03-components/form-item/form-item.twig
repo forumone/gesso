@@ -2,11 +2,12 @@
 
 {% set classes = [
   'form-item',
-  title_display not in ['after', 'before'] ? 'has-no-label',
-  title_display not in ['invisible'] and title_display in ['after'] ? 'has-visible-label-after',
-  errors ? 'has-error',
-  disabled == 'disabled' ? 'is-disabled',
-  required == 'required' ? 'is-required',
+  'form-item--' ~ type,
+  label_display not in ['after', 'before'] ? 'has-no-label' : '',
+  label_display not in ['invisible'] and label_display in ['after'] ? 'has-visible-label-after' : '',
+  errors ? 'has-error' : '',
+  disabled == 'disabled' or is_disabled ? 'is-disabled' : '',
+  required == 'required' or is_required ? 'is-required': '',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 

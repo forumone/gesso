@@ -45,9 +45,7 @@
  */
 #}
 {% set class_type = type == 'textfield' ? 'text' : type %}
-
 {% set classes = [
-  'form-item--' ~ class_type|clean_class,
   'form-item--id-' ~ name|clean_class,
   'js-form-item',
   'js-form-type-' ~ type|clean_class,

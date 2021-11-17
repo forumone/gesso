@@ -19,7 +19,7 @@
 {% set attributes = attributes.addClass(classes) %}
 
 {% if title is not empty or required -%}
-  {% include '@components/form-item/form-item--textfield/_form-item-label.twig' with {
+  {% include '@components/form-item/_form-item-label.twig' with {
     modifier_classes: attributes.class|join(' ')|trim
   } %}
 {%- endif %}

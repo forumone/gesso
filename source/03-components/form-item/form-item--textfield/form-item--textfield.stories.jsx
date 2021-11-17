@@ -1,8 +1,8 @@
 import parse from 'html-react-parser';
 
 import twigTemplate from './form-item--textfield.twig';
-import inputTemplate from './_input.twig';
-import labelTemplate from './_form-item-label.twig';
+import inputTemplate from '../_input.twig';
+import labelTemplate from '../_form-item-label.twig';
 import colorData from './form-item--color.yml';
 import dateData from './form-item--date.yml';
 import emailData from './form-item--email.yml';

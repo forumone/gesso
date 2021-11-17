@@ -21,7 +21,7 @@
   'required',
 ] %}
 
-{% include '@components/form-item/form-item--textfield/_input.twig' with {
+{% include '@components/form-item/_input.twig' with {
   modifier_classes: attributes.removeClass(remove_classes).addClass(classes).class|join(' ')|trim
 } %}
 {{- children }}

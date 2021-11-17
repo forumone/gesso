@@ -85,4 +85,12 @@
   }) %}
 {% endif %}
 
+{# Checked #}
+{% if is_checked %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'checked': 'checked'
+  }) %}
+{% endif %}
+
+
 <input {{ add_attributes(attributes_to_add)}}>

@@ -1,5 +1,8 @@
 ---
-label: 'Checkbox'
+title: 'Checkbox'
+label_display: 'after'
+type: 'checkbox'
+id: 'checkbox'
 is_checked: false
 is_disabled: false
 is_required: false
