@@ -1,0 +1,88 @@
+{% set classes = [
+  'form-item__' ~ type,
+  modifier_classes ? modifier_classes : ''
+]|join(' ')|trim %}
+
+{% set attributes_to_add = {
+  class: classes
+} %}
+
+{# ID #}
+{% if id %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'id': id
+  }) %}
+{% endif %}
+
+{# Input Type #}
+{% if type %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'type': type
+  }) %}
+{% endif %}
+
+{# Input Size #}
+{% if size %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'size': size ~ ''
+  }) %}
+{% endif %}
+
+{# Max Length #}
+{% if max_length is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'maxlength': max_length ~ ''
+  }) %}
+{% endif %}
+
+{# Placeholder #}
+{% if placeholder %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'placeholder': placeholder
+  }) %}
+{% endif %}
+
+{# Step #}
+{% if step %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'step': step ~ ''
+  }) %}
+{% endif %}
+
+{# Min #}
+{% if min %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'min': min ~ ''
+  }) %}
+{% endif %}
+
+{# Max #}
+{% if max %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'max': max ~ ''
+  }) %}
+{% endif %}
+
+{# Accept #}
+{% if accept %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'accept': accept
+  }) %}
+{% endif %}
+
+{# Disabled #}
+{% if disabled or is_disabled %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'disabled': 'disabled'
+  }) %}
+{% endif %}
+
+{# Required #}
+{% if required %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'required': 'required',
+    'aria-required': 'true'
+  }) %}
+{% endif %}
+
+<input {{ add_attributes(attributes_to_add)}}>

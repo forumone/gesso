@@ -47,21 +47,7 @@
       <span class="form-item__prefix">{{ prefix }}</span>
     {% endif %}
 
-    <input
-      class="{{ 'form-item__' ~ type }}"
-      id="{{ id }}"
-      type="{{ type }}"
-      {%- if size %} size="{{ size }}"{% endif -%}
-      {%- if max_length %} maxlength="{{ max_length }}"{% endif -%}
-      {%- if placeholder %} placeholder="{{ placeholder }}"{% endif -%}
-      {%- if step %} step="{{ step }}"{% endif -%}
-      {%- if min %} min="{{ min }}"{% endif -%}
-      {%- if max %} max="{{ max }}"{% endif -%}
-      {%- if accept %} accept="{{ accept }}"{% endif -%}
-      {%- if disabled %} disabled="disabled"{% endif -%}
-      {%- if is_disabled %} disabled="disabled"{% endif -%}
-      {%- if is_required %} required="required" aria-required="true"{% endif -%}
-    >
+    {{ children }}
 
     {% if suffix %}
       <span class="form-item__suffix">{{ suffix }}</span>
