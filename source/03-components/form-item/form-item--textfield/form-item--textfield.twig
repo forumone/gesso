@@ -9,13 +9,6 @@
   hide_label ? 'has-no-label' : '',
 ]|join(' ')|trim %}
 
-{% set label_classes = [
-  'form-item__label',
-  is_disabled ? 'is-disabled' : '',
-  is_required ? 'is-required' : '',
-  hide_label ? 'u-visually-hidden' : '',
-]|join(' ')|trim %}
-
 {% if not id %}
   {% set id = type|unique_id %}
 {% endif %}
@@ -25,19 +18,9 @@
 {% endif %}
 
 <div {{ add_attributes({ 'class': classes }) }}>
-  <label {{ add_attributes({ 'class': label_classes }, 'label_attributes') }} for="{{ id }}">
-    {{- label }}
-
-    {% if is_required %}
-      {%- spaceless %}
-        <span class="form-item__required-marker">
-          <span class="u-visually-hidden">
-            {{ 'This field is required.'|t }}
-          </span>
-        </span>
-      {% endspaceless -%}
-    {% endif -%}
-  </label>
+  {% if label_display in ['before', 'invisible'] %}
+    {{ label }}
+  {% endif %}
 
   {% if prefix or suffix %}
     <div class="form-item__element">
@@ -55,6 +38,10 @@
 
   {% if prefix or suffix %}
     </div>
+  {% endif %}
+
+  {% if label_display == 'after' %}
+    {{ label }}
   {% endif %}
 
   {% if errors %}

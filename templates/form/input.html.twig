@@ -12,7 +12,6 @@
 #}
 {% set classes = [
   dropbutton ? 'dropbutton__button',
-  type != 'submit' ? 'form-item__' ~ type|clean_class,
   is_required ? 'is-required',
 ] %}
 

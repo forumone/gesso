@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './form-item--textfield.twig';
 import inputTemplate from './_input.twig';
+import labelTemplate from './_form-item-label.twig';
 import colorData from './form-item--color.yml';
 import dateData from './form-item--date.yml';
 import emailData from './form-item--email.yml';
@@ -120,10 +121,12 @@ const Telephone = args =>
 Telephone.args = { ...telData };
 
 const textChildren = inputTemplate(textData);
+const textLabel = labelTemplate(textData);
 const Text = args =>
   parse(
     twigTemplate({
       ...args,
+      label: textLabel,
       children: textChildren,
     })
   );
