@@ -1,5 +1,6 @@
 ---
-label: 'Select'
+title: 'Select'
+label_display: 'before'
 hide_label: false
 is_disabled: false
 is_full_width: false

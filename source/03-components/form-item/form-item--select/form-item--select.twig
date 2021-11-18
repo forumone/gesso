@@ -2,18 +2,11 @@
   'form-item',
   'form-item--select',
   modifier_classes ? modifier_classes : '',
-  is_disabled ? 'is-disabled' : '',
+  is_disabled or disabled ? 'is-disabled' : '',
   is_full_width ? 'is-full-width' : '',
-  is_required ? 'is-required' : '',
+  is_required or required ? 'is-required' : '',
   errors ? 'has-error' : '',
-  hide_label ? 'has-no-label' : '',
-]|join(' ')|trim %}
-
-{% set label_classes = [
-  'form-item__label',
-  is_disabled ? 'is-disabled' : '',
-  is_required ? 'is-required' : '',
-  hide_label ? 'u-visually-hidden' : '',
+  label_display in ['invisible', 'hidden'] ? 'has-no-label' : '',
 ]|join(' ')|trim %}
 
 {% if not id %}
@@ -25,45 +18,14 @@
 {% endif %}
 
 <div {{ add_attributes({ 'class': classes }) }}>
-  <label {{ add_attributes({ 'class': label_classes }, 'label_attributes') }} for="{{ id }}">
-    {{- label }}
+  {% if label_display in ['before', 'invisible'] %}
+    {{ label }}
+  {% endif %}
+  {{ children }}
 
-    {% if is_required %}
-      {%- spaceless %}
-        <span class="form-item__required-marker">
-          <span class="u-visually-hidden">
-            {{ 'This field is required.'|t }}
-          </span>
-        </span>
-      {% endspaceless -%}
-    {% endif -%}
-  </label>
-  <select
-    class="form-item__select"
-    id="{{ id }}"
-    {%- if is_disabled %} disabled="disabled"{% endif -%}
-    {%- if is_required %} required="required" aria-required="true"{% endif -%}
-  >
-    {% for option in options %}
-      {% if option.type == 'optgroup' %}
-        <optgroup label="{{ option.label }}">
-          {% for sub_option in option.options %}
-            <option
-              value="{{ sub_option.value }}"
-              {{- sub_option.disabled ? ' disabled="disabled"' : '' -}}
-              {{- sub_option.selected ? ' selected="selected"' : '' -}}
-            >{{ sub_option.label }}</option>
-          {% endfor %}
-        </optgroup>
-      {% elseif option.type == 'option' %}
-        <option
-          value="{{ option.value }}"
-          {{- option.disabled ? ' disabled="disabled"' : '' -}}
-          {{- option.selected ? ' selected="selected"' : '' -}}
-        >{{ option.label }}</option>
-      {% endif %}
-    {% endfor %}
-  </select>
+  {% if label_display == 'after' %}
+    {{ label }}
+  {% endif %}
 
   {% if errors %}
     <div class="form-item__error-message">
