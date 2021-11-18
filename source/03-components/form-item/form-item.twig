@@ -2,19 +2,30 @@
 
 {% set classes = [
   'form-item',
-  'form-item--' ~ type,
+  'form-item--' ~ class_type,
   label_display not in ['after', 'before'] ? 'has-no-label' : '',
   label_display not in ['invisible'] and label_display in ['after'] ? 'has-visible-label-after' : '',
   errors ? 'has-error' : '',
   disabled == 'disabled' or is_disabled ? 'is-disabled' : '',
   required == 'required' or is_required ? 'is-required': '',
+  is_full_width ? 'is-full-width' : '',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% set description_classes = [
   'form-item__description',
-  description_display == 'invisible' ? 'u-visually-hidden',
-] %}
+  description_display == 'invisible' ? 'u-visually-hidden' : '',
+]|join(' ')|trim %}
+
+  {% set description_attributes_to_add = {
+    class: description_classes
+  } %}
+
+  {% if id %}
+    {% set description_attributes_to_add = description_attributes_to_add|merge({
+      id: id ~ '-description'
+    }) %}
+  {% endif %}
 
 <div {{ add_attributes({class: classes}) }}>
   {% if label_display in ['before', 'invisible'] %}
@@ -30,9 +41,7 @@
     {% endif %}
 
     {% if description_display == 'before' and description.content %}
-      <div {{ add_attributes({
-        class: description_classes
-      }, 'description.attributes') }}>
+      <div {{ add_attributes(description_attributes_to_add, 'description.attributes') }}>
         {{ description.content }}
       </div>
     {% endif %}
@@ -58,9 +67,7 @@
   {% endif %}
 
   {% if description_display in ['after', 'invisible'] and description.content %}
-    <div {{ add_attributes({
-      class: description_classes
-    }, 'description.attributes') }}>
+    <div {{ add_attributes(description_attributes_to_add, 'description.attributes') }}>
       {{ description.content }}
     </div>
   {% endif %}

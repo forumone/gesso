@@ -7,3 +7,4 @@ description:
   content: |-
     <p>The description for this fieldset.</p>
 modifier_classes: ''
+id: 'fieldset'

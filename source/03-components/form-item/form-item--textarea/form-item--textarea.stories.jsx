@@ -7,9 +7,23 @@ import data from './form-item--textarea.yml';
 
 const settings = {
   title: 'Components/Form Item/Textarea',
+  argTypes: {
+    label_display: {
+      options: ['before', 'after', 'invisible', 'hidden'],
+      control: { type: 'select' },
+    },
+    description_display: {
+      options: ['before', 'after', 'invisible', 'hidden'],
+      control: { type: 'select' },
+    },
+  },
 };
 
-const textarea = args => textareaTemplate(args);
+const textarea = args =>
+  textareaTemplate({
+    ...args,
+    described_by: args.id ? `${args.id}-description` : null,
+  });
 const label = args => labelTemplate(args);
 const Textarea = args =>
   parse(

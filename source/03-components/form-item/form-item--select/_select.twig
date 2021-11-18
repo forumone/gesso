@@ -28,6 +28,13 @@
   }) %}
 {% endif %}
 
+{# Described by #}
+{% if described_by %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'aria-describedby': described_by
+  }) %}
+{% endif %}
+
 {% apply spaceless %}
   <select {{ add_attributes(attributes_to_add) }}>
     {% for option in options %}

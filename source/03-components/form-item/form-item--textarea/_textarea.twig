@@ -50,5 +50,12 @@
   }) %}
 {% endif %}
 
+{# Described by #}
+{% if described_by %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'aria-describedby': described_by
+  }) %}
+{% endif %}
+
 <textarea {{ add_attributes(attributes_to_add) }}
   >{{- value -}}</textarea>

@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import twigTemplate from './form-item--textfield.twig';
+import twigTemplate from '../form-item.twig';
 import inputTemplate from '../_input.twig';
 import labelTemplate from '../_form-item-label.twig';
 import colorData from './form-item--color.yml';
@@ -22,6 +22,16 @@ import weekData from './form-item--week.yml';
 
 const settings = {
   title: 'Components/Form Item/Input',
+  argTypes: {
+    label_display: {
+      options: ['before', 'after', 'invisible', 'hidden'],
+      control: { type: 'select' },
+    },
+    description_display: {
+      options: ['before', 'after', 'invisible', 'hidden'],
+      control: { type: 'select' },
+    },
+  },
 };
 
 const colorLabel = args => labelTemplate({ ...args });

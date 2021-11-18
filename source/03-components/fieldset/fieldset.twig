@@ -5,10 +5,6 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% if not id %}
-  {% set id = 'fieldset'|unique_id %}
-{% endif %}
-
 {% set attributes_to_add = {
   class: classes,
 } %}
@@ -17,7 +13,7 @@
     'aria-describedby': id
   }) %}
 {% endif %}
-{% if is_disabled %}
+{% if disabled or is_disabled %}
   {% set attributes_to_add = attributes_to_add|merge({
     'disabled': disabled
   }) %}

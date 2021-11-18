@@ -85,7 +85,7 @@
 {% endif %}
 
 {# Required #}
-{% if required %}
+{% if required or is_required %}
   {% set attributes_to_add = attributes_to_add|merge({
     'required': 'required',
     'aria-required': 'true'
