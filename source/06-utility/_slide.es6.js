@@ -56,7 +56,7 @@ export const slideDown = (target, duration = 500) => {
   let height;
   target.style.removeProperty('display');
   window.requestAnimationFrame(() => {
-    let display = window.getComputedStyle(target).display;
+    let {display} = window.getComputedStyle(target);
     if (display === 'none') {
       display = 'block';
     }
