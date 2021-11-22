@@ -1,0 +1,19 @@
+{% set classes = [
+  'accordion',
+  modifier_classes ? modifier_classes : ''
+] %}
+
+<div {{ add_attributes({ class: classes }) }}>
+  {% if accordion_title %}
+    <h2 class="accordion__title">{{ accordion_title }}</h2>
+  {% endif %}
+  {% if accordion_items %}
+    <div
+      class="accordion__content js-accordion"
+      data-allow-multiple {# Allows multiple accordions open at once #}
+      data-allow-toggle
+    >
+      {{ accordion_items }}
+    </div>
+  {% endif %}
+</div>

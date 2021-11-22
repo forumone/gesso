@@ -1,0 +1,36 @@
+{% set section_id = 'accordion-section'|unique_id %}
+{% set button_id = 'accordion-button'|unique_id %}
+
+{% set classes = [
+  'accordion-item',
+  'js-accordion-item',
+  modifier_classes ? modifier_classes : ''
+] %}
+
+<div {{ add_attributes({ class: classes }) }}>
+  <div class="accordion-item__panel expandable">
+    <h3 class="accordion-item__heading">
+      <button
+        class="accordion-item__toggle js-accordion-toggle"
+        id="{{ button_id }}"
+        aria-expanded="false"
+        aria-controls="{{ section_id }}"
+      >
+        {{ accordion_title }}
+        <span class="accordion-item__icon"></span>
+      </button>
+    </h3>
+    <div
+      class="accordion-item__drawer expandable__drawer"
+      id="{{ section_id }}"
+      role="region"
+      aria-labelledby="{{ button_id }}"
+      aria-hidden="true"
+      aria-live="polite"
+    >
+      <div class="accordion-item__drawer-inner">
+        {{ accordion_content }}
+      </div>
+    </div>
+  </div>
+</div>
