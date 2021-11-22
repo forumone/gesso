@@ -5,7 +5,7 @@ import twigTemplate from './accordion-item.twig';
 import data from './accordion-item.yml';
 
 const settings = {
-  title: 'Components/Accordion'
+  title: 'Components/Accordion Item'
 };
 
 const AccordionItem = args => (
@@ -16,4 +16,4 @@ const AccordionItem = args => (
 AccordionItem.args = { ...data };
 
 export default settings;
-// export { AccordionItem };
+export { AccordionItem };

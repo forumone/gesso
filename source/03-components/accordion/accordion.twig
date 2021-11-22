@@ -4,14 +4,15 @@
 ] %}
 
 <div {{ add_attributes({ class: classes }) }}>
-  {% if accordion_title %}
-    <h2 class="accordion__title">{{ accordion_title }}</h2>
-  {% endif %}
   {% if accordion_items %}
     <div
       class="accordion__content js-accordion"
-      data-allow-multiple {# Allows multiple accordions open at once #}
-      data-allow-toggle
+      {# 
+        "data-allow-multiple"
+        Allows multiple accordions to open at once.
+        Remove to only allow one to toggle at a time
+      #}
+      data-allow-multiple
     >
       {{ accordion_items }}
     </div>

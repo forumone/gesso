@@ -2,19 +2,12 @@
 
 @use '00-config' as *;
 
-$accordion-item-border-color: gesso-color(ui, generic, accent) !default;
-$accordion-item-bg-color: gesso-grayscale(gray-1) !default;
-$accordion-item-bg-color-active: gesso-grayscale(white) !default;
+$accordion-item-border-color: gesso-grayscale(gray-2) !default;
 $accordion-item-icon-color: gesso-color(ui, generic, accent) !default;
 $accordion-item-icon-size: 20px !default;
 
 .accordion-item {
-  border: solid 2px $accordion-item-border-color;
-  border-bottom: 0;
-
-  &:last-child {
-    border-bottom: solid 2px $accordion-item-border-color;
-  }
+  border-bottom: solid 1px $accordion-item-border-color;
 }
 
 .accordion-item__heading {
@@ -23,33 +16,26 @@ $accordion-item-icon-size: 20px !default;
 }
 
 .accordion-item__toggle {
-  background: $accordion-item-bg-color;
+  background-color: transparent;
   border: 0;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: rem(gesso-spacing(2)) rem(gesso-spacing(3));
+  padding: rem(gesso-spacing(2)) rem(gesso-spacing(8)) rem(gesso-spacing(2))
+    rem(gesso-spacing(2));
   position: relative;
   text-align: left;
   transition: all gesso-duration(short) gesso-easing(ease-out);
   width: 100%;
-
-  &[aria-expanded='true'] {
-    background: $accordion-item-bg-color-active;
-  }
 }
 
 .accordion-item__drawer {
   background: gesso-grayscale(white);
   display: none;
-
-  &[aria-expanded='true'] {
-    display: block;
-  }
 }
 
 .accordion-item__drawer-inner {
-  padding: 0 rem(gesso-spacing(8)) rem(gesso-spacing(2)) rem(gesso-spacing(3));
+  padding: 0 rem(gesso-spacing(8)) rem(gesso-spacing(2)) rem(gesso-spacing(2));
 }
 
 .accordion-item__icon {
@@ -81,7 +67,7 @@ $accordion-item-icon-size: 20px !default;
 
   [aria-expanded='true'] & {
     &::after {
-      transform: translate(-50%, -50%) rotate(180deg);
+      transform: translate(-50%, -50%) rotate(0deg);
     }
   }
 }

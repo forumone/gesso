@@ -1,20 +1,15 @@
 import Drupal from 'drupal';
-// import { slideDown, slideUp } from './modules/_slide.es6';
-
-const ACCORDION_CLASS = 'js-accordion-item';
-const ACCORDION_GROUP_CLASS = 'js-accordion';
-const ACCORDION_BUTTON_CLASS = 'js-accordion-toggle';
-// const ACCORDION_SPEED = 250;
+import { slideDown, slideUp } from '../../06-utility/_slide.es6';
 
 Drupal.behaviors.accordion = {
   attach(context) {
+    const ACCORDION_CLASS = 'js-accordion';
+    const ACCORDION_TOGGLE_CLASS = 'js-accordion-toggle';
+    const ACCORDION_SPEED = 250;
 
-    console.log('testing');
-
-    const accordionGroups = context.querySelectorAll(
-      `.${ACCORDION_GROUP_CLASS}`
+    const accordions = context.querySelectorAll(
+      `.${ACCORDION_CLASS}`
     );
-    console.log(accordionGroups);
 
     const openAccordion = (accordion, button) => {
       if (button.getAttribute('aria-expanded') === 'false') {
@@ -23,7 +18,7 @@ Drupal.behaviors.accordion = {
           button.getAttribute('aria-controls')
         );
         accordionSection.setAttribute('aria-expanded', 'true');
-        // slideDown(accordionSection, ACCORDION_SPEED);
+        slideDown(accordionSection, ACCORDION_SPEED);
       }
     };
 
@@ -34,17 +29,17 @@ Drupal.behaviors.accordion = {
           button.getAttribute('aria-controls')
         );
         accordionSection.setAttribute('aria-expanded', 'false');
-        // slideUp(
-        //   document.getElementById(button.getAttribute('aria-controls')),
-        //   ACCORDION_SPEED
-        // );
+        slideUp(
+          document.getElementById(button.getAttribute('aria-controls')),
+          ACCORDION_SPEED
+        );
       }
     };
 
     // Accessible Accordion Functionality
     // Based off example work from W3 best aria practices
     // https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html
-    accordionGroups.forEach(accordion => {
+    accordions.forEach(accordion => {
       // Allow for multiple accordion sections to be expanded at the same time
       const allowMultiple = accordion.hasAttribute('data-allow-multiple');
       // Allow for each toggle to both open and close individually
@@ -54,26 +49,25 @@ Drupal.behaviors.accordion = {
 
       // Create the array of toggle elements for the accordion group
       const triggers = Array.prototype.slice.call(
-        accordion.querySelectorAll(`.${ACCORDION_BUTTON_CLASS}`)
+        accordion.querySelectorAll(`.${ACCORDION_TOGGLE_CLASS}`)
       );
 
       accordion.addEventListener('click', event => {
         // Set target differently depending on click vs. keydown
         // because the <span> inside <button> screws things up
         if (
-          event.target.classList.contains(ACCORDION_BUTTON_CLASS) ||
+          event.target.classList.contains(ACCORDION_TOGGLE_CLASS) ||
           event.target.parentElement.classList.contains(
-            ACCORDION_BUTTON_CLASS
+            ACCORDION_TOGGLE_CLASS
           )
         ) {
           let target;
           // Set target based on click or keydown
-          if (event.target.classList.contains(ACCORDION_BUTTON_CLASS)) {
+          if (event.target.classList.contains(ACCORDION_TOGGLE_CLASS)) {
             target = event.target;
           } else {
             target = event.target.parentElement;
           }
-          console.log('clicked');
           // Check if the current toggle is expanded.
           const isExpanded = target.getAttribute('aria-expanded') === 'true';
           const active = accordion.querySelector('[aria-expanded="true"]');
@@ -117,7 +111,7 @@ Drupal.behaviors.accordion = {
         const ctrlModifier = event.ctrlKey && key.match(/33|34/);
 
         // Is this coming from an accordion header?
-        if (currentTarget.classList.contains(ACCORDION_BUTTON_CLASS)) {
+        if (currentTarget.classList.contains(ACCORDION_TOGGLE_CLASS)) {
           // Up/ Down arrow and Control + Page Up/ Page Down keyboard operations
           // 38 = Up, 40 = Down
           if (key.match(/38|40/) || ctrlModifier) {
@@ -149,7 +143,7 @@ Drupal.behaviors.accordion = {
 
       // These are used to style the accordion when one of the buttons has focus
       accordion
-        .querySelectorAll(`.${ACCORDION_BUTTON_CLASS}`)
+        .querySelectorAll(`.${ACCORDION_TOGGLE_CLASS}`)
         .forEach(trigger => {
           trigger.addEventListener('focus', () => {
             accordion.classList.add('focus');
