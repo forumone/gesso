@@ -8,20 +8,23 @@
 {% set attributes_to_add = {
   class: classes,
 } %}
+
 {% if description.content %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'aria-describedby': id
+    'aria-describedby': id,
   }) %}
 {% endif %}
+
 {% if disabled or is_disabled %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'disabled': disabled
+    'disabled': disabled,
   }) %}
 {% endif %}
+
 {% if required or is_required %}
   {% set attributes_to_add = attributes_to_add|merge({
     'required': 'required',
-    'aria-required': 'true'
+    'aria-required': 'true',
   }) %}
 {% endif %}
 

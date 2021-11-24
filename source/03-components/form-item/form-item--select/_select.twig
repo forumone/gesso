@@ -6,32 +6,32 @@
 ]|join(' ')|trim %}
 
 {% set attributes_to_add = {
-  class: classes
+  class: classes,
 } %}
 
 {% if id %}
   {% set attributes_to_add = attributes_to_add|merge({
-    id: id
+    id: id,
   }) %}
 {% endif %}
 
 {% if is_disabled or disabled %}
   {% set attributes_to_add = attributes_to_add|merge({
-    disabled: 'disabled'
+    disabled: 'disabled',
   }) %}
 {% endif %}
 
 {% if is_required or required %}
   {% set attributes_to_add = attributes_to_add|merge({
     required: 'required',
-    'aria-required': 'true'
+    'aria-required': 'true',
   }) %}
 {% endif %}
 
 {# Described by #}
 {% if described_by %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'aria-describedby': described_by
+    'aria-describedby': described_by,
   }) %}
 {% endif %}
 

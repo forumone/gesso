@@ -18,12 +18,12 @@
 ]|join(' ')|trim %}
 
   {% set description_attributes_to_add = {
-    class: description_classes
+    class: description_classes,
   } %}
 
   {% if id %}
     {% set description_attributes_to_add = description_attributes_to_add|merge({
-      id: id ~ '-description'
+      id: id ~ '-description',
     }) %}
   {% endif %}
 

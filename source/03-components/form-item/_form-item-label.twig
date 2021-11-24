@@ -3,15 +3,16 @@
   is_disabled ? 'is-disabled' : '',
   is_required ? 'is-required' : '',
   label_display == 'invisible' ? 'u-visually-hidden' : '',
-  modifier_classes ? modifier_classes : ''
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% set attributes_to_add = {
-  class: label_classes
+  class: label_classes,
 } %}
+
 {% if id %}
   {% set attributes_to_add = attributes_to_add|merge({
-    for: id
+    for: id,
   }) %}
 {% endif %}
 
