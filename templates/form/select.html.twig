@@ -10,28 +10,12 @@
  * @see template_preprocess_select()
  */
 #}
-{% set classes = [
-  'form-item__select',
-  required ? 'is-required',
-] %}
 
-{% set remove_rlasses = [
+{% set remove_classes = [
   'form-select',
   'required',
 ] %}
 
-{% apply spaceless %}
-  <select{{ attributes.removeClass(remove_classes).addClass(classes) }}>
-    {% for option in options %}
-      {% if option.type == 'optgroup' %}
-        <optgroup label="{{ option.label }}">
-          {% for sub_option in option.options %}
-            <option value="{{ sub_option.value }}"{{ sub_option.selected ? ' selected="selected"' }}>{{ sub_option.label }}</option>
-          {% endfor %}
-        </optgroup>
-      {% elseif option.type == 'option' %}
-        <option value="{{ option.value }}"{{ option.selected ? ' selected="selected"' }}>{{ option.label }}</option>
-      {% endif %}
-    {% endfor %}
-  </select>
-{% endapply %}
+{% set attributes = attributes.removeClass(remove_classes) %}
+
+{% include '@components/form-item/form-item--select/_select.twig' %}

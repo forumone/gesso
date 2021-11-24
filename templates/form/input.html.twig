@@ -12,7 +12,6 @@
 #}
 {% set classes = [
   dropbutton ? 'dropbutton__button',
-  type != 'submit' ? 'form-item__' ~ type|clean_class,
   is_required ? 'is-required',
 ] %}
 
@@ -22,5 +21,7 @@
   'required',
 ] %}
 
-<input{{ attributes.removeClass(remove_classes).addClass(classes) }}>
+{% include '@components/form-item/_input.twig' with {
+  modifier_classes: attributes.removeClass(remove_classes).addClass(classes).class|join(' ')|trim
+} %}
 {{- children }}
