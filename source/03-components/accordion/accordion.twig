@@ -1,3 +1,8 @@
+{#
+  "data-allow-multiple" allows multiple accordion items to be open at once.
+  Remove this if you wish to only toggle one at a time.
+#}
+
 {% set classes = [
   'accordion',
   modifier_classes ? modifier_classes : ''
@@ -7,11 +12,6 @@
   {% if accordion_items %}
     <div
       class="accordion__content js-accordion"
-      {# 
-        "data-allow-multiple"
-        Allows multiple accordions to open at once.
-        Remove to only allow one to toggle at a time
-      #}
       data-allow-multiple
     >
       {{ accordion_items }}
