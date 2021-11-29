@@ -49,5 +49,5 @@ minute:
   long: '20'
   short: '20'
 seconds: '31'
-gesso_image_path: '../images'
+image_path: '../images'
 modifier_classes: ''
