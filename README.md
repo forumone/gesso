@@ -250,7 +250,11 @@ Output a size value from the breakpoints token list.
   display: none;
 }
 
-@include breakpoint-min-max(gesso-breakpoint(mobile), gesso-breakpoint(tablet), true) {
+@include breakpoint-min-max(
+  gesso-breakpoint(mobile),
+  gesso-breakpoint(tablet),
+  true
+) {
   display: block;
 }
 ```
@@ -427,7 +431,11 @@ set to `true` (default: `false`).
   display: flex;
 }
 
-@include breakpoint-min-max(gesso-breakpoint(mobile), gesso-breakpoint(tablet), true) {
+@include breakpoint-min-max(
+  gesso-breakpoint(mobile),
+  gesso-breakpoint(tablet),
+  true
+) {
   display: block;
 }
 ```
