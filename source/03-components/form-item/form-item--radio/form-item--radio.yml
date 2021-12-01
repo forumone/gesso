@@ -1,5 +1,14 @@
 ---
-label: 'Radio option'
+title: 'Radio option'
+label_display: 'after'
+description_display: 'after'
+type: 'radio'
+id: 'radio'
+description:
+  content: 'The description for this form field.'
 is_disabled: false
 is_required: false
 name: 'name'
+prefix: ''
+suffix: ''
+errors: ''

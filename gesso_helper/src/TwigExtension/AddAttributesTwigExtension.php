@@ -77,7 +77,9 @@ class AddAttributesTwigExtension extends AbstractExtension {
         // Merge additional attribute values with existing ones.
         if ($context_attribute->offsetExists($key)) {
           $existing_attribute = $context_attribute->offsetGet($key)->value();
-          $value = array_merge($existing_attribute, $value);
+          if (is_array($existing_attribute)) {
+            $value = array_merge($existing_attribute, $value);
+          }
         }
 
         $context_attribute->setAttribute($key, $value);

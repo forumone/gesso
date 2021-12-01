@@ -14,6 +14,7 @@ class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
   protected array $includeDirs = [
     'includes',
     'templates',
+    'config',
   ];
 
   /**

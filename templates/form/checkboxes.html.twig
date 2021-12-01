@@ -9,12 +9,5 @@
  *
  * @see template_preprocess_checkboxes()
  */
- @todo: remove this file once https://www.drupal.org/node/1819284 is resolved.
- This is identical to core/modules/system/templates/container.html.twig
 #}
-{% set classes = [
-  'form-item',
-  'form-item--checkboxes',
-] %}
-
-<div{{ attributes.addClass(classes) }}>{{ children }}</div>
+{% include '@components/form-item/form-item--checkboxes/form-item--checkboxes.twig' %}

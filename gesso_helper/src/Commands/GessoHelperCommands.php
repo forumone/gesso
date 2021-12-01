@@ -195,6 +195,20 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       drush_op('rename', $gesso_theme_file, $new_theme_file);
     }
 
+    // Rename the config files.
+    $configFiles = new \RecursiveIteratorIterator(
+      new \RecursiveDirectoryIterator(
+        $new_path . '/config', \FilesystemIterator::SKIP_DOTS
+      ),
+      \RecursiveIteratorIterator::SELF_FIRST);
+    foreach ($configFiles as $file) {
+      if (!$file->isDir()) {
+        $existing_name = $file->getPathname();
+        $new_name = str_replace('gesso', $machine_name, $existing_name);
+        drush_op('rename', $existing_name, $new_name);
+      }
+    }
+
     // Notify user of the newly created theme.
     $this->io()->block(dt(
       "\nThe \"!name\" theme has been created in: !path\n",

@@ -21,56 +21,20 @@
  * @see template_preprocess_fieldset()
  */
 #}
-{% set classes = [
-  'fieldset',
-  required ? 'is-required',
-  is_disabled ? 'is-disabled',
-  'js-form-item',
-  'js-form-wrapper',
-] %}
-
 {% if type == 'fieldset' %}
-  {% set classes = classes|merge([
+  {% set classes =[
     'fieldset--default',
-  ]) %}
+  ] %}
 {% else %}
   {% set remove_classes = [
     'fieldgroup',
     'form-composite',
   ] %}
-  {% set classes = classes|merge([
+  {% set classes = [
     'fieldset--' ~ type|clean_class,
-  ]) %}
+  ] %}
 {% endif %}
 
-{% set legend_span_classes = [
-  'fieldset__legend-text',
-  required ? 'is-required',
-  required ? 'js-form-required',
-] %}
-
-<fieldset{{ attributes.removeClass(remove_classes).addClass(classes) }}>
-  {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
-  <legend{{ legend.attributes.addClass('fieldset__legend') }}>
-    <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
-  </legend>
-  <div class="fieldset__content">
-    {% if errors %}
-      <div class="fieldset__errors">{{ errors }}</div>
-    {% endif %}
-
-    {% if prefix %}
-      <span class="fieldset__prefix">{{ prefix }}</span>
-    {% endif %}
-
-    {{ children }}
-
-    {% if suffix %}
-      <span class="fieldset__suffix">{{ suffix }}</span>
-    {% endif %}
-
-    {% if description.content %}
-      <div{{ description.attributes.addClass('fieldset__description') }}>{{ description.content }}</div>
-    {% endif %}
-  </div>
-</fieldset>
+{% include '@components/fieldset/fieldset.twig' with {
+  modifier_classes: attributes.addClass(classes).removeClass(remove_classes).class|join(' ')|trim,
+} %}

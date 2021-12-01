@@ -81,14 +81,14 @@ Storybook, and the SVG sprite using [webpack](https://webpack.js.org/).
 To use these tasks, first run the following npm command in the theme folder to
 install node dependencies.
 
-```
+```shell
 npm i
 ```
 
 To compile the theme, start Storybook, and watch for changes run the following
 command in the theme directory:
 
-```
+```shell
 npm run dev
 ```
 
@@ -103,7 +103,7 @@ until webpack restarts. Errors will also be shown for duplicate filenames.
 To initiate the build tasks only (without watching for changes), run the
 following command in the theme directory:
 
-```
+```shell
 npm run build
 ```
 
@@ -153,7 +153,7 @@ config and global aggregate files. Import your SCSS file at the top of your
 Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t forget to
 add it to the `gesso.libraries.yml` file as well.
 
-### Linting
+### Sass Linting
 
 Stylelint and Prettier are used to lint CSS and SCSS files. Warnings will
 break the build, so if you have a valid reason to break Stylelint rules you can
@@ -200,7 +200,7 @@ DO NOT prefix the name of your JS file with `_`. Import your JS file at the top
 of your Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t
 forget to add it to the `gesso.libraries.yml` file as well.
 
-### Linting
+### JS Linting
 
 ESLint and Prettier are used to lint JavaScript files. If you have a valid
 reason to break one of the rules, you can ignore a specific line using any of
@@ -233,7 +233,7 @@ The following Sass functions can be used to access the tokens defined in
 
 Output a shadow value from the box-shadow token list.
 
-```
+```scss
 box-shadow: gesso-box-shadow(1);
 ```
 
@@ -241,7 +241,7 @@ box-shadow: gesso-box-shadow(1);
 
 Output a size value from the breakpoints token list.
 
-```
+```scss
 @include breakpoint(gesso-breakpoint(desktop)) {
   display: flex;
 }
@@ -250,7 +250,11 @@ Output a size value from the breakpoints token list.
   display: none;
 }
 
-@include breakpoint-min-max(gesso-breakpoint(mobile), gesso-breakpoint(tablet), true) {
+@include breakpoint-min-max(
+  gesso-breakpoint(mobile),
+  gesso-breakpoint(tablet),
+  true
+) {
   display: block;
 }
 ```
@@ -259,7 +263,7 @@ Output a size value from the breakpoints token list.
 
 Output a color value from the palette brand token list.
 
-```
+```scss
 color: gesso-brand(blue, light);
 ```
 
@@ -267,7 +271,7 @@ color: gesso-brand(blue, light);
 
 Output a color value from the colors token list.
 
-```
+```scss
 color: gesso-color(text, primary);
 ```
 
@@ -275,7 +279,7 @@ color: gesso-color(text, primary);
 
 Output a size value from the constrains token list.
 
-```
+```scss
 max-width: gesso-constrain(sm);
 ```
 
@@ -283,7 +287,7 @@ max-width: gesso-constrain(sm);
 
 Output a timing value from the transitions duration token list.
 
-```
+```scss
 transition-duration: gesso-duration(short);
 ```
 
@@ -291,7 +295,7 @@ transition-duration: gesso-duration(short);
 
 Output an easing value from the transitions ease token list.
 
-```
+```scss
 transition-timing-function: gesso-easing(ease-in-out);
 ```
 
@@ -299,7 +303,7 @@ transition-timing-function: gesso-easing(ease-in-out);
 
 Output a stack value from the font-family token list.
 
-```
+```scss
 font-family: gesso-font-family(primary);
 ```
 
@@ -307,7 +311,7 @@ font-family: gesso-font-family(primary);
 
 Output a size value from the font-size token list.
 
-```
+```scss
 font-size: rem(gesso-font-size(2));
 ```
 
@@ -315,7 +319,7 @@ font-size: rem(gesso-font-size(2));
 
 Output a weight value from the font-weight token list.
 
-```
+```scss
 font-weight: gesso-font-weight(semibold);
 ```
 
@@ -323,7 +327,7 @@ font-weight: gesso-font-weight(semibold);
 
 Output a color value from the palette grayscale token list.
 
-```
+```scss
 color: gesso-grayscale(gray-2);
 ```
 
@@ -331,7 +335,7 @@ color: gesso-grayscale(gray-2);
 
 Output a height value from the line-height token list.
 
-```
+```scss
 line-height: gesso-line-height(tight);
 ```
 
@@ -339,7 +343,7 @@ line-height: gesso-line-height(tight);
 
 Output a size value from the spacing token list.
 
-```
+```scss
 margin-bottom: rem(gesso-spacing(md));
 ```
 
@@ -347,7 +351,7 @@ margin-bottom: rem(gesso-spacing(md));
 
 Output an index value from the z-index token list.
 
-```
+```scss
 z-index: gesso-z-index(modal);
 ```
 
@@ -360,7 +364,7 @@ in `source/00-config/_GESSO.es6.js`. This file is also rebuilt whenever
 
 For example, to use a breakpoint in a script:
 
-```
+```js
 import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
 
 if (window.matchMedia(`min-width: ${BREAKPOINTS.desktop}`).matches) {
@@ -390,7 +394,7 @@ token values.
 
 Output a min-width based media query.
 
-```
+```scss
 @include breakpoint(800px) {
   display: flex;
 }
@@ -406,7 +410,7 @@ Output a max-width based media query. The optional `$subtract_1_from_max`
 parameter will subtract 1px from the width value if set to `true` (default:
 `false`).
 
-```
+```scss
 @include breakpoint-max(900px) {
   display: block;
 }
@@ -422,12 +426,16 @@ Output a media query with both a min-width and max-width. The optional
 $subtract_1_from_max parameter will subtract 1px from the max-width value if
 set to `true` (default: `false`).
 
-```
+```scss
 @include breakpoint-min-max(400px, 700px) {
   display: flex;
 }
 
-@include breakpoint-min-max(gesso-breakpoint(mobile), gesso-breakpoint(tablet), true) {
+@include breakpoint-min-max(
+  gesso-breakpoint(mobile),
+  gesso-breakpoint(tablet),
+  true
+) {
   display: block;
 }
 ```
@@ -447,7 +455,7 @@ For the buttons, put the classes that should be added for each button size
 and button style on each line, with classes separated with ` .`, similar to how
 you would add custom classes to the WYSIWYG editor.
 
-```
+```text
 button|Primary
 button.button--secondary|Secondary
 button.button--tertiary|Tertiary

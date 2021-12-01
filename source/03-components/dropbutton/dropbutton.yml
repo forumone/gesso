@@ -1,0 +1,13 @@
+links:
+  -
+    link: true
+    text: 'Primary Action'
+    href: '#0'
+  -
+    link: true
+    text: 'Secondary Action'
+    href: '#0'
+  -
+    link: true
+    text: 'Another Secondary Action'
+    href: '#0'
