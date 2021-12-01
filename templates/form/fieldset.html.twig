@@ -36,5 +36,5 @@
 {% endif %}
 
 {% include '@components/fieldset/fieldset.twig' with {
-  modifier_classes: attributes.addClass(classes).removeClass(remove_classes).class|join(' ')|trim
+  modifier_classes: attributes.addClass(classes).removeClass(remove_classes).class|join(' ')|trim,
 } %}

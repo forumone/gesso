@@ -20,6 +20,6 @@
 
 {% if title is not empty or required -%}
   {% include '@components/form-item/_form-item-label.twig' with {
-    modifier_classes: attributes.class|join(' ')|trim
+    modifier_classes: attributes.class|join(' ')|trim,
   } %}
 {%- endif %}
