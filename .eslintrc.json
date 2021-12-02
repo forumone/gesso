@@ -22,15 +22,14 @@
     ]
   },
   "rules": {
-    "class-methods-use-this": "off", // Too many false positives
-    "react/no-danger": "off", // Necessary for Storybook
+    "class-methods-use-this": "off",
+    "react/no-danger": "off",
     "no-param-reassign": [
-      // Allow modifying props, esp. for DOM Nodes
       "error",
       {
         "props": false
       }
     ],
-    "import/no-unresolved": "off" // Breaks linting in Github actions
+    "import/no-unresolved": "off"
   }
 }
