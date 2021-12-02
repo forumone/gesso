@@ -18,19 +18,19 @@ class OverlayMenu {
    */
   createMenuButton() {
     const menuButton = document.createElement('button');
-    menuButton.classList.add('hamburger-button', 'hamburger-button--menu');
+    menuButton.classList.add('c-hamburger-button', 'c-hamburger-button--menu');
     menuButton.setAttribute('aria-controls', this.overlay.id);
     menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.innerHTML = '<span class="hamburger-button__icon">Menu</span>';
+    menuButton.innerHTML = '<span class="c-hamburger-button__icon">Menu</span>';
     return this.overlay.insertAdjacentElement('beforebegin', menuButton);
   }
 
   createCloseButton() {
     const menuButton = document.createElement('button');
-    menuButton.classList.add('hamburger-button', 'hamburger-button--close');
+    menuButton.classList.add('c-hamburger-button', 'c-hamburger-button--close');
     menuButton.setAttribute('aria-controls', this.overlay.id);
     menuButton.setAttribute('aria-expanded', 'true');
-    menuButton.innerHTML = '<span class="hamburger-button__icon">Close</span>';
+    menuButton.innerHTML = '<span class="c-hamburger-button__icon">Close</span>';
     menuButton.hidden = true;
     return this.overlay.insertAdjacentElement('afterbegin', menuButton);
   }

@@ -17,7 +17,7 @@ Primary.args = { ...data };
 const Secondary = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--secondary',
+    modifier_classes: 'c-button--secondary',
   }))
 );
 Secondary.args = { ...data };
@@ -25,7 +25,7 @@ Secondary.args = { ...data };
 const Base = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--base',
+    modifier_classes: 'c-button--base',
   }))
 );
 Base.args = { ...data };
@@ -33,7 +33,7 @@ Base.args = { ...data };
 const Danger = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--danger',
+    modifier_classes: 'c-button--danger',
   }))
 );
 Danger.args = { ...data };
@@ -41,7 +41,7 @@ Danger.args = { ...data };
 const Small = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--small',
+    modifier_classes: 'c-button--small',
   }))
 );
 Small.args = { ...data };
@@ -49,7 +49,7 @@ Small.args = { ...data };
 const Large = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'button--large',
+    modifier_classes: 'c-button--large',
   }))
 );
 Large.args = { ...data };

@@ -1,12 +1,12 @@
 {{ attach_library('gesso/details') }}
 
 {% set classes = [
-  'details',
+  'c-details',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% set summary_classes = [
-  'details__summary',
+  'c-details__summary',
   required ?'is-required' : '',
 ]|join(' ')|trim %}
 
@@ -14,9 +14,9 @@
   {% if details_summary %}
     <summary {{ add_attributes({ 'class': summary_classes, 'role': 'button' }) }}>{{ details_summary }}</summary>
   {% endif %}
-  <div class="details__content">
+  <div class="c-details__content">
     {% if details_description %}
-      <div class="details__description">{{ details_description }}</div>
+      <div class="c-details__description">{{ details_description }}</div>
     {% endif %}
     {{ details_content }}
   </div>

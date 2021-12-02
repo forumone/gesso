@@ -2,8 +2,8 @@
 
 @use '00-config' as *;
 
-// .article {}
+// .c-article {}
 
-.article__footer {
+.c-article__footer {
   margin-bottom: rem(gesso-spacing(2));
 }

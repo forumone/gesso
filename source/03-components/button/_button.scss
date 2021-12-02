@@ -2,8 +2,8 @@
 
 @use '00-config' as *;
 
-.button,
-%button {
+.c-button,
+%c-button {
   @include button();
   margin-bottom: rem(gesso-spacing(1));
 
@@ -20,7 +20,7 @@
 }
 
 // This button class is used for Drupal tabs.
-.button--base {
+.c-button--base {
   background-color: gesso-color(button, base, background);
   color: gesso-color(button, base, text);
 
@@ -38,7 +38,7 @@
 }
 
 // Drupal outputs this class on buttons that can delete content.
-.button--danger {
+.c-button--danger {
   background-color: gesso-color(button, danger, background);
   color: gesso-color(button, danger, text);
 
@@ -56,7 +56,7 @@
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
-.button--secondary {
+.c-button--secondary {
   background-color: gesso-color(button, secondary, background);
   color: gesso-color(button, secondary, text);
 
@@ -74,14 +74,14 @@
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
-.button--large {
+.c-button--large {
   font-size: rem(gesso-font-size(3));
   padding: rem(gesso-spacing(2)) rem(gesso-spacing(5));
 }
 
 // This custom button class, included as an example, is not output by Drupal by default.
-.button--small,
-%button--small {
+.c-button--small,
+%c-button--small {
   font-size: rem(gesso-font-size(1));
   padding: rem(gesso-spacing(0.5)) rem(gesso-spacing(1));
 }

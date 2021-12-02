@@ -26,9 +26,9 @@
  */
 #}
 {% set classes = [
-  'block',
-  'block--provider-' ~ configuration.provider|clean_class,
-  'block--id-' ~ plugin_id|clean_class,
+  'c-block',
+  'c-block--provider-' ~ configuration.provider|clean_class,
+  'c-block--id-' ~ plugin_id|clean_class,
 ] %}
 
 {% set attributes = attributes.addClass(classes) %}

@@ -3,7 +3,7 @@
 
 @use '00-config' as *;
 
-.hamburger-button {
+.c-hamburger-button {
   @include focus();
   background-color: transparent;
   border: 0;
@@ -26,7 +26,7 @@
   }
 }
 
-.hamburger-button__icon {
+.c-hamburger-button__icon {
   @include image-replace(22px, 22px);
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -35,16 +35,16 @@
   margin-top: gesso-spacing(2);
 }
 
-.hamburger-button--close {
+.c-hamburger-button--close {
   z-index: gesso-z-index(modal) + 1;
 
-  .hamburger-button__icon {
+  .c-hamburger-button__icon {
     @include svg-background(mobile-close);
   }
 }
 
-.hamburger-button--menu {
-  .hamburger-button__icon {
+.c-hamburger-button--menu {
+  .c-hamburger-button__icon {
     @include svg-background(mobile-menu);
     background-size: 33px 22px;
     width: 33px;

@@ -1,6 +1,6 @@
 {% set classes = [
-  'pager',
-  'pager--mini',
+  'c-pager',
+  'c-pager--mini',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
@@ -12,16 +12,16 @@
     'aria-label': heading|default('Pagination'),
     'role': 'navigation'
   })}}>
-    <ul class="pager__items js-pager__items">
+    <ul class="c-pager__items js-pager__items">
 
       {% if pager_items.previous %}
         {% set link_label = 'Go to previous page'|t %}
-        <li class="pager__item pager__item--previous">
-          <a class="pager__link pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
+        <li class="c-pager__item c-pager__item--previous">
+          <a class="c-pager__link c-pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
             {%- spaceless %}
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
-                'modifier_classes': 'icon--pager is-spaced-after',
+                'modifier_classes': 'c-icon--pager is-spaced-after',
                 'icon_name': 'angle-left',
               } %}
               <span class="u-visually-hidden">{{ link_label }}</span>
@@ -32,7 +32,7 @@
       {% endif %}
 
       {% if pager_items.current %}
-        <li class="pager__item pager__item--current">
+        <li class="c-pager__item c-pager__item--current">
           <span class="u-visually-hidden">
             {{ 'Currently on page'|t }}
           </span>
@@ -42,14 +42,14 @@
 
       {% if pager_items.next %}
         {% set link_label = 'Go to next page'|t %}
-        <li class="pager__item pager__item--next">
-          <a class="pager__link pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
+        <li class="c-pager__item c-pager__item--next">
+          <a class="c-pager__link c-pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
             {%- spaceless %}
               <span class="u-visually-hidden">{{ link_label }}</span>
               <span aria-hidden="true">{{ 'Next'|t }}</span>
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
-                'modifier_classes': 'icon--pager is-spaced-before',
+                'modifier_classes': 'c-icon--pager is-spaced-before',
                 'icon_name': 'angle-right',
               } %}
             {% endspaceless -%}

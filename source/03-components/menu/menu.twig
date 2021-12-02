@@ -3,8 +3,8 @@
   {% if items %}
     {% if menu_level == 0 %}
       {% set additional_classes = [
-        'menu',
-        'menu--' ~ menu_name,
+        'c-menu',
+        'c-menu--' ~ menu_name,
       ] %}
       {% if menu_class %}
         {% set additional_classes = additional_classes|merge(menu_class) %}
@@ -14,13 +14,12 @@
       } %}
       <ul {{ add_attributes(additional_attributes) }}>
     {% else %}
-{#      <ul class="menu menu__subnav">#}
-        <ul {{  add_attributes({class: ['menu', 'menu__subnav']}) }}>
+      <ul {{ add_attributes({class: ['c-menu', 'c-menu__subnav']}) }}>
     {% endif %}
     {% for item in items %}
 
-      {% set item_classes = ['menu__item'] %}
-      {% set link_classes = ['menu__link'] %}
+      {% set item_classes = ['c-menu__item'] %}
+      {% set link_classes = ['c-menu__link'] %}
       {% if menu_level == 0 %}
         {% set link_classes = link_classes|merge(['js-top-level']) %}
       {% endif %}

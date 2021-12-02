@@ -21,8 +21,8 @@
 #}
 {% for type, messages in message_list %}
   {% set classes = [
-    'message',
-    'message--' ~ type,
+    'c-message',
+    'c-message--' ~ type,
   ] %}
 
   {% set attributes = attributes.addClass(classes)|without('role', 'aria-label') %}

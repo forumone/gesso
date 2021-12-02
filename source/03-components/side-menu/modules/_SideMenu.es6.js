@@ -27,7 +27,7 @@ class SideMenu extends OverlayMenu {
    */
   createBackButton(submenu) {
     const submenuBack = document.createElement('button');
-    submenuBack.classList.add('side-menu__back');
+    submenuBack.classList.add('c-side-menu__back');
     submenuBack.innerText = 'Back';
     submenuBack.addEventListener('click', () => {
       this.closeSubmenu(submenu);
@@ -42,7 +42,7 @@ class SideMenu extends OverlayMenu {
    */
   createSubmenuTitle(title) {
     const submenuTitle = document.createElement('div');
-    submenuTitle.classList.add('side-menu__section-title');
+    submenuTitle.classList.add('c-side-menu__section-title');
     submenuTitle.innerText = title;
     return submenuTitle;
   }
@@ -54,9 +54,9 @@ class SideMenu extends OverlayMenu {
    */
   createSubmenuToggle(submenu) {
     const submenuToggle = document.createElement('button');
-    submenuToggle.classList.add('side-menu__toggle');
+    submenuToggle.classList.add('c-side-menu__toggle');
     submenuToggle.innerHTML =
-      '<span class="side-menu__toggle-icon">Toggle Submenu</span>';
+      '<span class="c-side-menu__toggle-icon">Toggle Submenu</span>';
     submenuToggle.addEventListener('click', () => {
       this.openSubmenu(submenu);
     });
@@ -84,7 +84,7 @@ class SideMenu extends OverlayMenu {
     const currentSection = submenu.closest('.is-open');
     if (currentSection) {
       const focusableItems = currentSection.querySelectorAll(
-        'button:not(.hamburger-button--close), [href], input, select, textarea'
+        'button:not(.c-hamburger-button--close), [href], input, select, textarea'
       );
       focusableItems.forEach(item => {
         item.setAttribute('tabindex', '-1');
@@ -108,7 +108,7 @@ class SideMenu extends OverlayMenu {
    * @return {HTMLElement | null}
    */
   prepSubmenu(topLevelItem) {
-    const submenu = topLevelItem.parentElement.querySelector('.menu__subnav');
+    const submenu = topLevelItem.parentElement.querySelector('.c-menu__subnav');
     if (!submenu) return null;
     const submenuBack = this.createBackButton(submenu);
     submenu.insertAdjacentElement('afterbegin', submenuBack);
@@ -151,7 +151,7 @@ class SideMenu extends OverlayMenu {
    */
   init() {
     super.init();
-    const menuItems = document.querySelectorAll('.menu__link');
+    const menuItems = document.querySelectorAll('.c-menu__link');
     menuItems.forEach(item => {
       if (item.tagName === 'BUTTON') {
         this.prepButton(item);
@@ -170,7 +170,7 @@ class SideMenu extends OverlayMenu {
    */
   enableTab(startingPoint) {
     super.enableTab(startingPoint);
-    const subNavs = startingPoint.querySelectorAll('.menu__subnav');
+    const subNavs = startingPoint.querySelectorAll('.c-menu__subnav');
     subNavs.forEach(subNav => {
       if (!subNav.classList.contains('is-open')) {
         const subnavItems = subNav.querySelectorAll(
@@ -222,21 +222,21 @@ class SideMenu extends OverlayMenu {
           }
           break;
         case 'ArrowRight':
-          if (document.activeElement.closest('.menu__item')) {
+          if (document.activeElement.closest('.c-menu__item')) {
             const activeMenuItem =
-              document.activeElement.closest('.menu__item');
+              document.activeElement.closest('.c-menu__item');
             if (activeMenuItem.classList.contains('has-subnav')) {
-              const submenu = activeMenuItem.querySelector('.menu__subnav');
+              const submenu = activeMenuItem.querySelector('.c-menu__subnav');
               this.openSubmenu(submenu);
             }
           }
           break;
         case 'ArrowLeft':
-          if (document.activeElement.closest('.menu__item')) {
+          if (document.activeElement.closest('.c-menu__item')) {
             const activeMenuItem =
-              document.activeElement.closest('.menu__item');
+              document.activeElement.closest('.c-menu__item');
             if (activeMenuItem.classList.contains('has-subnav')) {
-              const submenu = activeMenuItem.querySelector('.menu__subnav');
+              const submenu = activeMenuItem.querySelector('.c-menu__subnav');
               this.closeSubmenu(submenu);
             }
           }

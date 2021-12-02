@@ -57,7 +57,7 @@ const Checkboxes = args =>
   parse(
     fieldsetTwigTemplate({
       ...args,
-      modifier_classes: 'fieldset--checkboxes',
+      modifier_classes: 'c-fieldset--checkboxes',
       children: fieldsetChildren,
     })
   );

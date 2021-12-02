@@ -39,9 +39,9 @@
  */
 #}
 {% set classes = [
-  'paragraph',
-  'paragraph--type-' ~ paragraph.bundle|clean_class,
-  view_mode ? 'paragraph--view-mode-' ~ view_mode|clean_class,
+  'c-paragraph',
+  'c-paragraph--type-' ~ paragraph.bundle|clean_class,
+  view_mode ? 'c-paragraph--view-mode-' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'is-unpublished',
 ] %}
 

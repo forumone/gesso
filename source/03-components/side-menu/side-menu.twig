@@ -1,6 +1,6 @@
 {{ attach_library('gesso/side_menu') }}
 {% set classes = [
-  'side-menu',
+  'c-side-menu',
   modifier_classes ? modifier_classes : ''
 ]|join(' ')|trim %}
 
@@ -10,8 +10,8 @@
   {% include '@components/menu/menu.twig' with {
     'menu_name': menu_name,
     'items': items,
-    'menu_class': ['side-menu__menu'],
-    'item_class': ['side-menu__item'],
-    'link_class': ['side-menu__link']
+    'menu_class': ['c-side-menu__menu'],
+    'item_class': ['c-side-menu__item'],
+    'link_class': ['c-side-menu__link'],
   } %}
 </nav>

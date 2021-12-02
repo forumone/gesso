@@ -16,7 +16,7 @@ $message-warning-background-color: gesso-color(
 ) !default;
 $message-warning-border-color: gesso-color(ui, warning, border) !default;
 
-.message {
+.c-message {
   background-color: $message-background-color;
   border: 1px solid $message-border-color;
   color: gesso-color(text, primary);
@@ -49,13 +49,13 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
   }
 }
 
-.message__content {
+.c-message__content {
   > :last-child {
     margin-bottom: 0;
   }
 }
 
-.message--status {
+.c-message--status {
   background-color: $message-status-background-color;
   border-color: $message-status-border-color;
 
@@ -64,7 +64,7 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
   }
 }
 
-.message--error {
+.c-message--error {
   background-color: $message-error-background-color;
   border-color: $message-error-border-color;
 
@@ -72,7 +72,7 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
     @include svg-background(messages-error);
   }
 
-  .message__item {
+  .c-message__item {
     em:first-child {
       font-style: normal;
       font-weight: gesso-font-weight(bold);
@@ -80,7 +80,7 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
   }
 }
 
-.message--warning {
+.c-message--warning {
   background-color: $message-warning-background-color;
   border-color: $message-warning-border-color;
 

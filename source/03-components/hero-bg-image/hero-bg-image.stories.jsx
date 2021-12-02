@@ -18,7 +18,7 @@ Default.args = { ...data };
 const Left = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'hero-bg-image--left',
+    modifier_classes: 'c-hero-bg-image--left',
   }))
 );
 Left.args = { ...data };
@@ -26,7 +26,7 @@ Left.args = { ...data };
 const Right = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'hero-bg-image--right',
+    modifier_classes: 'c-hero-bg-image--right',
   }))
 );
 Right.args = { ...data };

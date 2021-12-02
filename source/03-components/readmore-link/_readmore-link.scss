@@ -3,7 +3,7 @@
 @use '00-config' as *;
 @use '01-global' as *;
 
-.readmore-link {
+.c-readmore-link {
   padding-right: 28px;
   text-decoration: none;
 
@@ -15,7 +15,7 @@
   }
 }
 
-.readmore-link__icon {
+.c-readmore-link__icon {
   display: inline-block;
   margin-right: -28px;
   position: relative;
@@ -27,6 +27,6 @@
   }
 }
 
-.readmore-link__accessibility-description {
+.c-readmore-link__accessibility-description {
   @extend %visually-hidden;
 }

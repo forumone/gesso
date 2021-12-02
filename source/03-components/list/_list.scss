@@ -2,22 +2,22 @@
 
 @use '00-config' as *;
 
-.list--border {
+.c-list--border {
   @include list-border();
 }
 
-.list--clean {
+.c-list--clean {
   @include list-clean();
 }
 
-.list--column {
+.c-list--column {
   @include list-column();
 }
 
-.list--inline {
+.c-list--inline {
   @include list-inline();
 }
 
-.list--pipeline {
+.c-list--pipeline {
   @include list-pipeline();
 }
