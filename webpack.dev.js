@@ -8,7 +8,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
   plugins: [
     new ESLintPlugin({
-      overrideConfigFile: path.resolve(__dirname, '.eslintrc-dev.js'),
+      overrideConfigFile: path.resolve(__dirname, '.eslintrc-dev.json'),
       useEslintrc: false,
     }),
   ],

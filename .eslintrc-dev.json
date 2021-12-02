@@ -1,0 +1,10 @@
+{
+  "extends": ".eslintrc.json",
+  "rules": {
+    "no-console": "off",
+    "no-empty-function": "off",
+    "no-unused-vars": "off",
+    "prefer-const": "off",
+    "import/no-unresolved": "error"
+  }
+}
