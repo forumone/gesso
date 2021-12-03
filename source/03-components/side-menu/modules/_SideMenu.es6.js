@@ -159,7 +159,7 @@ class SideMenu extends OverlayMenu {
         this.prepLink(item);
       } else {
         throw new Error(
-          "Side Menu has child elements that are not A or Button elements. If you need to create a non-linked menu item within your menu, use 'route:<button>' instead of '<nolink>' in the link field."
+          "Side Menu has child elements that are not A or Button elements. If you need to create a non-linked menu item within your menu, use '<button>' instead of '<nolink>' in the link field."
         );
       }
     });
