@@ -94,7 +94,18 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: (url) => {
+                // Ignore `/core/` urls.
+                if (url.includes('/core/')) {
+                  return false;
+                }
+                return true;
+              },
+            },
+          },
           {
             loader: 'sass-loader',
             options: {
