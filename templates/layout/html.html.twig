@@ -43,8 +43,8 @@
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
   <body {{ add_attributes({
-    classes: body_classes,
-    id: body_id
+    class: body_classes,
+    id: body_id,
   }) }}>
     {% include '@components/skiplinks/skiplinks.twig' %}
     {{ page_top }}
