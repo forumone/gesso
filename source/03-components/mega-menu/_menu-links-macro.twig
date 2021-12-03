@@ -51,7 +51,12 @@
       } %}
 
       <li {{ add_attributes(additional_item_attributes) }}>
-        {{ link(menu_item.title, menu_item.url, link_attributes) }}
+        {% if menu_item.url == '<button>' %}
+          {# This is needed to work in Storybook. #}
+          <button {{ add_attributes(link_attributes) }}>{{ menu_item.title }}</button>
+        {% else %}
+          {{ link(menu_item.title, menu_item.url, link_attributes) }}
+        {% endif %}
 
         {% if menu_item.below %}
           {{ menus.menu_links(menu_item.below, attributes, menu_level + 1) }}
