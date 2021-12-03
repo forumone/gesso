@@ -97,7 +97,7 @@ function gesso_theme_suggestions_form_alter(array &$suggestions, array $variable
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
-  $id = isset($variables['element']['#type']) ? $variables['element']['#id'] : NULL;
+  $id = isset($variables['element']['#id']) ? $variables['element']['#id'] : NULL;
   $type = isset($variables['element']['#type']) ? $variables['element']['#type'] : NULL;
 
   if (isset($type)) {
