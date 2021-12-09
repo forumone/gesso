@@ -41,10 +41,12 @@ export default function (threshold = 200, smoothScroll = true) {
         if (target) {
           event.preventDefault();
           const coords = target.getBoundingClientRect();
+          target.setAttribute('tabIndex', '-1');
           window.scrollTo({
             top: coords.top,
             behavior: 'smooth',
           });
+          target.focus();
         }
       });
     }

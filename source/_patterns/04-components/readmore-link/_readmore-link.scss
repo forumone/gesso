@@ -1,6 +1,7 @@
 .readmore-link {
   padding-right: 28px;
   text-decoration: none;
+
   &:hover,
   &:focus {
     path {
@@ -14,10 +15,11 @@
   margin-right: -28px;
   position: relative;
   top: 8px;
+  width: 28px;
+
   path {
     fill: gesso-color(text, link);
   }
-  width: 28px;
 }
 
 .readmore-link__accessibility-description {
