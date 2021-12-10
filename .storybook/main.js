@@ -12,6 +12,7 @@ module.exports = {
       },
     },
     '@storybook/addon-a11y',
+    'storybook-addon-performance/register',
   ],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({

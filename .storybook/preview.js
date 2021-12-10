@@ -1,11 +1,13 @@
 import Twig from 'twig';
 import { addDecorator } from '@storybook/react';
 import { useEffect } from '@storybook/client-api';
+import { withPerformance } from 'storybook-addon-performance';
 import once from '@drupal/once';
 import twigDrupal from 'twig-drupal-filters';
 import twigAttributes from 'add-attributes-twig-extension';
 import keysort from '../lib/keysort';
 import uniqueId from '../lib/uniqueId';
+
 
 import '../dist/css/styles.css';
 import './_drupal';
@@ -26,6 +28,8 @@ addDecorator(storyFn => {
   useEffect(() => Drupal.attachBehaviors(), []);
   return storyFn();
 });
+
+addDecorator(withPerformance);
 
 export const parameters = {
   layout: 'fullscreen',
