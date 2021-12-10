@@ -3,16 +3,23 @@ global:
     theme:
       //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
       dist/css/styles.css: {}
-hamburger_button:
+back_to_top:
   css:
     theme:
-      dist/css/hamburger-button.css: {}
-mobile_menu:
+      dist/css/back-to-top.css: {}
+  js:
+    dist/js/back-to-top.es6.js: {}
+dropbutton:
+  js:
+    dist/js/dropbutton.es6.js: {}
   css:
-    theme:
-      dist/css/mobile-menu.css: {}
+    component:
+      dist/css/dropbutton.css: {}
   dependencies:
-    - gesso/hamburger_button
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/once
 dropdown_menu:
   css:
     theme:
@@ -22,6 +29,18 @@ dropdown_menu:
   dependencies:
     - gesso/common
     - gesso/mobile_menu
+hamburger_button:
+  css:
+    theme:
+      dist/css/hamburger-button.css: {}
+hero_bg_image:
+  css:
+    theme:
+      dist/css/hero-bg-image.css: {}
+hero_inline_image:
+  css:
+    theme:
+      dist/css/hero-inline-image.css: {}
 mega_menu:
   css:
     theme:
@@ -31,6 +50,12 @@ mega_menu:
   dependencies:
     - gesso/common
     - gesso/mobile_menu
+mobile_menu:
+  css:
+    theme:
+      dist/css/mobile-menu.css: {}
+  dependencies:
+    - gesso/hamburger_button
 overlay_menu:
   css:
     theme:
@@ -49,28 +74,3 @@ side_menu:
   dependencies:
     - gesso/common
     - gesso/hamburger_button
-hero_bg_image:
-  css:
-    theme:
-      dist/css/hero-bg-image.css: {}
-hero_inline_image:
-  css:
-    theme:
-      dist/css/hero-inline-image.css: {}
-back_to_top:
-  css:
-    theme:
-      dist/css/back-to-top.css: {}
-  js:
-    dist/js/back-to-top.es6.js: {}
-dropbutton:
-  js:
-    dist/js/dropbutton.es6.js: {}
-  css:
-    component:
-      dist/css/dropbutton.css: {}
-  dependencies:
-    - core/jquery
-    - core/drupal
-    - core/drupalSettings
-    - core/once

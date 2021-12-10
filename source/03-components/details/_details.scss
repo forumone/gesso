@@ -10,13 +10,8 @@ $details-text-color: gesso-color(text, on-light) !default;
 
 // 'details' can appear as a modernizr class on the html tag, so this
 // class is limited to only the details element
-details.c-details {
+.c-details {
   margin: 0 0 rem(gesso-spacing(3));
-
-  // Fallback for browsers that don’t support details.
-  .js &:not([open]) > .c-details__content {
-    display: none;
-  }
 }
 
 .c-details__summary {

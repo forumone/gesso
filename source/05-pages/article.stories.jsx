@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/article/article.twig';
-import wysiwygTwigTemplate from '../03-components/content-block/content-block.twig';
+import wysiwygTwigTemplate from '../03-components/wysiwyg/wysiwyg.twig';
 import { FigureRightAligned } from '../03-components/figure/figure.stories.jsx';
 
 export default {
