@@ -50,7 +50,7 @@ const Radios = args =>
   parse(
     fieldsetTwigTemplate({
       ...args,
-      modifier_classes: 'fieldset--radios',
+      modifier_classes: 'c-fieldset--radios',
       children: fieldsetChildren,
     })
   );

@@ -11,16 +11,6 @@ back_to_top:
   js:
     dist/js/back-to-top.es6.js: {}
 
-hero_bg_image:
-  css:
-    theme:
-      dist/css/hero-bg-image.css: {}
-
-hero_inline_image:
-  css:
-    theme:
-      dist/css/hero-inline-image.css: {}
-
 dropbutton:
   js:
     dist/js/dropbutton.es6.js: {}
@@ -47,6 +37,16 @@ hamburger_button:
   css:
     theme:
       dist/css/hamburger-button.css: {}
+
+hero_bg_image:
+  css:
+    theme:
+      dist/css/hero-bg-image.css: {}
+
+hero_inline_image:
+  css:
+    theme:
+      dist/css/hero-inline-image.css: {}
 
 mega_menu:
   css:

@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/page/page.twig';
-import { ContentBlock } from '../03-components/content-block/content-block.stories.jsx';
+import { WYSIWYG } from '../03-components/wysiwyg/wysiwyg.stories.jsx';
 
 export default {
   title: 'Pages/Page',
@@ -19,7 +19,7 @@ export default {
 // see Article page.
 const pageContent = twigTemplate({
   title: 'Look, I Can Take You as Far as Anchorhead',
-  body: ReactDOMServer.renderToStaticMarkup(<>{ContentBlock(ContentBlock.args)}</>),
+  body: ReactDOMServer.renderToStaticMarkup(<>{ContentBlock(WYSIWYG.args)}</>),
 });
 
 const Page = () => <PageWrapper>{parse(pageContent)}</PageWrapper>;

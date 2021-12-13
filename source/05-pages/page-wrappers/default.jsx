@@ -81,7 +81,7 @@ const PageWrapper = props => {
             ),
           })
         )}
-        <main id="main" className="main" role="main" tabIndex="-1">
+        <main id="main" className="c-main" role="main" tabIndex="-1">
           {parse(
             ContentTwig({
               has_constrain: true,

@@ -9,11 +9,11 @@ $progress-border-color: gesso-color(ui, generic, border-dark) !default;
 $progress-border-radius: rem(3px) !default;
 $progress-text-color: gesso-color(text, on-light) !default;
 
-.progress {
+.c-progress {
   position: relative;
 }
 
-.progress__track {
+.c-progress__track {
   background-color: $progress-background-color;
   border: 1px solid $progress-border-color;
   border-radius: $progress-border-radius;
@@ -25,7 +25,7 @@ $progress-text-color: gesso-color(text, on-light) !default;
   overflow: hidden;
 }
 
-.progress__bar {
+.c-progress__bar {
   background-color: $progress-bar-color;
   border-radius: $progress-border-radius;
   height: 1rem;
@@ -35,14 +35,14 @@ $progress-text-color: gesso-color(text, on-light) !default;
   width: 3%;
 }
 
-.progress__description,
-.progress__percentage {
+.c-progress__description,
+.c-progress__percentage {
   color: $progress-text-color;
   font-size: rem(gesso-font-size(1));
   overflow: hidden;
 }
 
-.progress__description {
+.c-progress__description {
   float: left; // LTR
 
   @if $support-for-rtl {
@@ -52,7 +52,7 @@ $progress-text-color: gesso-color(text, on-light) !default;
   }
 }
 
-.progress__percentage {
+.c-progress__percentage {
   float: right; // LTR
 
   @if $support-for-rtl {

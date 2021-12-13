@@ -28,6 +28,6 @@ body.cke_editable {
 }
 
 .media-library-item__edit {
-  @extend %button;
-  @extend %button--small;
+  @extend %c-button;
+  @extend %c-button--small;
 }

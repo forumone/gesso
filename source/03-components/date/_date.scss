@@ -2,7 +2,7 @@
 
 @use '00-config' as *;
 
-.date {
+.c-date {
   color: gesso-color(text, secondary);
   font-size: rem(gesso-font-size(2));
 }

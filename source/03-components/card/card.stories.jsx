@@ -17,7 +17,7 @@ Default.args = { ...data };
 const FeatureCard = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'card--feature',
+    modifier_classes: 'c-card--feature',
   }))
 );
 FeatureCard.args = { ...data };

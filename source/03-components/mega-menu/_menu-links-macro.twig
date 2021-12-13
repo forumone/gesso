@@ -7,10 +7,10 @@
 {% macro menu_links(items, attributes, menu_level, menu_name, menu_class, item_class, link_class) %}
   {% import _self as menus %}
   {% if items %}
-    <ul {{ add_attributes({class: ['mega-menu__subnav']}) }}>
+    <ul {{ add_attributes({class: ['c-mega-menu__subnav']}) }}>
     {% for menu_item in items %}
-      {% set item_classes = ['mega-menu__item'] %}
-      {% set link_classes = ['mega-menu__link'] %}
+      {% set item_classes = ['c-mega-menu__item'] %}
+      {% set link_classes = ['c-mega-menu__link'] %}
 
       {% if menu_item.below %}
         {% set item_classes = item_classes|merge(['has-subnav']) %}

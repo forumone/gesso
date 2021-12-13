@@ -3,17 +3,17 @@
 @use '00-config' as *;
 @use '../form-item' as *;
 
-.form-item--checkbox {
+.c-form-item--checkbox {
   & + & {
     margin-top: -1 * gesso-spacing(2);
   }
 }
 
-.form-item--checkbox.has-visible-label-after {
-  .form-item__checkbox {
+.c-form-item--checkbox.has-visible-label-after {
+  .c-form-item__checkbox {
     @include visually-hidden(true);
 
-    + .form-item__label {
+    + .c-form-item__label {
       cursor: pointer;
       display: block;
       font-weight: gesso-font-weight(regular);
@@ -37,7 +37,7 @@
       }
     }
 
-    &:checked + .form-item__label::before {
+    &:checked + .c-form-item__label::before {
       @include svg-background(correct);
       background-color: gesso-color(form, background-checked);
       background-position: 50%;
@@ -45,11 +45,11 @@
       background-size: rem(20px);
     }
 
-    &:focus + .form-item__label::before {
+    &:focus + .c-form-item__label::before {
       outline-color: gesso-color(ui, generic, focus);
     }
 
-    &:disabled + .form-item__label {
+    &:disabled + .c-form-item__label {
       cursor: default;
       opacity: $form-disabled-opacity;
 

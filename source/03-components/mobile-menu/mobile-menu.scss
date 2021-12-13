@@ -30,7 +30,7 @@ $mobile-menu-button-width: 44px;
 $mobile-menu-font-size: gesso-font-size(3);
 $mobile-menu-line-height: gesso-line-height(base);
 
-.mobile-menu {
+.c-mobile-menu {
   background-color: $mobile-menu-bg-color;
   display: none;
   left: 0;
@@ -48,18 +48,18 @@ $mobile-menu-line-height: gesso-line-height(base);
   }
 }
 
-.mobile-menu__menu {
+.c-mobile-menu__menu {
   @include list-clean();
   margin: 0.75em 0 0;
 }
 
-.mobile-menu__item {
+.c-mobile-menu__item {
   margin: 0;
   padding: 0;
   position: relative;
 }
 
-.mobile-menu__link {
+.c-mobile-menu__link {
   background-color: transparent;
   border: 0;
   color: $mobile-menu-link-color;
@@ -95,11 +95,11 @@ $mobile-menu-line-height: gesso-line-height(base);
   }
 }
 
-button.mobile-menu__link {
+button.c-mobile-menu__link {
   cursor: pointer;
 }
 
-.mobile-menu__subnav-arrow {
+.c-mobile-menu__subnav-arrow {
   @include focus();
   @include image-replace($mobile-menu-button-width, $mobile-menu-button-height);
   @include svg-background(mobile-arrow-down);
@@ -131,13 +131,13 @@ button.mobile-menu__link {
   }
 }
 
-.mobile-menu__subnav {
+.c-mobile-menu__subnav {
   background-color: $mobile-menu-submenu-bg-color;
   list-style: none;
   margin: 0;
   padding: 0;
 
-  .mobile-menu__link {
+  .c-mobile-menu__link {
     color: $mobile-menu-submenu-link-color;
     padding-left: gesso-spacing(3);
 
@@ -149,7 +149,7 @@ button.mobile-menu__link {
   }
 }
 
-.mobile-menu__section-inner {
+.c-mobile-menu__section-inner {
   @include layout-constrain();
   background-color: $mobile-menu-submenu-bg-color;
 }

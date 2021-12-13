@@ -37,10 +37,10 @@
  */
 #}
 {% set classes = [
-  'field',
-  'field--name-' ~ field_name|clean_class,
-  'field--type-' ~ field_type|clean_class,
-  'field--label-' ~ label_display,
+  'c-field',
+  'c-field--name-' ~ field_name|clean_class,
+  'c-field--type-' ~ field_type|clean_class,
+  'c-field--label-' ~ label_display,
 ] %}
 
 {% set attributes = attributes.addClass(classes) %}

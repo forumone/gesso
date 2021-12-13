@@ -23,7 +23,7 @@
 #}
 {% if type == 'fieldset' %}
   {% set classes =[
-    'fieldset--default',
+    'c-fieldset--default',
   ] %}
 {% else %}
   {% set remove_classes = [
@@ -31,7 +31,7 @@
     'form-composite',
   ] %}
   {% set classes = [
-    'fieldset--' ~ type|clean_class,
+    'c-fieldset--' ~ type|clean_class,
   ] %}
 {% endif %}
 

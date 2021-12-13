@@ -1,11 +1,11 @@
 {% set classes = [
-  'rss-feed',
+  'c-rss-feed',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 <a href="{{ url }}" {{ add_attributes({ 'class': classes }) }}>
   {%- include '@components/icon/icon.twig' with {
-    'modifier_classes': 'icon--rss is-spaced-after',
+    'modifier_classes': 'c-icon--rss is-spaced-after',
     'is_hidden': true,
     'icon_name': 'rss',
   } -%}

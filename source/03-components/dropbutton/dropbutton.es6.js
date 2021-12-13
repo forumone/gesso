@@ -206,7 +206,7 @@ import once from 'once';
        *   A string representing a DOM fragment.
        */
       dropbuttonToggle(options) {
-        return `<li class="dropbutton__toggle"><button class="dropbutton__toggle-button" type="button"><span class="visually-hidden">${options.title}</span></button></li>`;
+        return `<li class="c-dropbutton__toggle"><button class="c-dropbutton__toggle-button" type="button"><span class="u-visually-hidden">${options.title}</span></button></li>`;
       },
     }
   );
@@ -231,7 +231,7 @@ import once from 'once';
         once('dropbuttonClick', 'body', context).forEach(bodyElem => {
           const $body = $(bodyElem);
           if ($body.length) {
-            $body.on('click', '.dropbutton__toggle', dropbuttonClickHandler);
+            $body.on('click', '.c-dropbutton__toggle', dropbuttonClickHandler);
           }
           // Initialize all buttons.
           const il = dropbuttons.length;

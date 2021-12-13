@@ -5,7 +5,7 @@
 
 $video-aspect-ratio: math.div(9, 16); // 16:9
 
-.video {
+.c-video {
   &.has-iframe {
     height: 0;
     max-width: 100%;
@@ -14,7 +14,7 @@ $video-aspect-ratio: math.div(9, 16); // 16:9
   }
 }
 
-.video__iframe {
+.c-video__iframe {
   height: 100%;
   left: 0;
   position: absolute;
