@@ -30,6 +30,7 @@
  * @see template_preprocess_views_view()
  */
 #}
+{# The class 'view' is necessary because it's used by ajax_view.js in core. #}
 {% set classes = [
   'c-view',
   'c-view--' ~ id|clean_class,
