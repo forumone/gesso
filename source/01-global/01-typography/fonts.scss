@@ -2,6 +2,16 @@
 
 @use '00-config' as *;
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../../fonts/source-sans-pro/sourcesanspro-regular-webfont.woff2')
+      format('woff2'),
+    url('../../fonts/source-sans-pro/sourcesanspro-regular-webfont.woff')
+      format('woff'),
+    url('../../fonts/source-sans-pro/sourcesanspro-regular-webfont.ttf')
+      format('ttf');
+}
+
 .gesso-storybook-font {
   margin-bottom: rem(45px);
 }
