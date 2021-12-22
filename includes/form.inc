@@ -25,6 +25,24 @@ function gesso_preprocess_input(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function gesso_preprocess_fieldset(array &$variables) {
+  $variables['type'] = isset($variables['element']['#type']) ? $variables['element']['#type'] : 'fieldset';
+  $variables['is_disabled'] = isset($variables['element']['#disabled']) ? $variables['element']['#disabled'] : NULL;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gesso_preprocess_form_element(array &$variables) {
+  $variables['is_required'] = isset($variables['element']['#required']) ? $variables['element']['#required'] : NULL;
+  if (!empty($variables['description']['content']) && !empty($variables['element']['#id'])) {
+    $variables['description']['attributes']['id'] = $variables['element']['#id'] . '-description';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function gesso_preprocess_select(array &$variables) {
   if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
     $description_id = $variables['element']['#id'] . '-description';
@@ -39,24 +57,6 @@ function gesso_preprocess_textarea(array &$variables) {
   if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
     $description_id = $variables['element']['#id'] . '-description';
     $variables['described_by'] = $description_id;
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function gesso_preprocess_fieldset(array &$variables) {
-  $variables['type'] = isset($variables['element']['#type']) ? $variables['element']['#type'] : 'fieldset';
-  $variables['is_disabled'] = isset($variables['element']['#disabled']) ? $variables['element']['#disabled'] : NULL;
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function gesso_preprocess_form_element(array &$variables) {
-  $variables['is_required'] = isset($variables['element']['#required']) ? $variables['element']['#required'] : NULL;
-  if (!empty($variables['description']['content']) && !empty($variables['element']['#id'])) {
-    $variables['description']['attributes']['id'] = $variables['element']['#id'] . '-description';
   }
 }
 
