@@ -24,9 +24,7 @@
  */
 #}
 {% set admin_info %}
-  {{ drupal_block('system_messages_block', wrapper=false) }}
-  {{ drupal_block('local_tasks_block', wrapper=false) }}
-  {{ drupal_block('local_actions_block', wrapper=false) }}
+  {{ region_status }}
 {% endset %}
 
 {% set show_admin_info = false %}
