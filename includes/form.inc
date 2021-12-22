@@ -12,6 +12,10 @@ function gesso_preprocess_input(array &$variables) {
   $variables['is_required'] = isset($variables['element']['#required']) ? $variables['element']['#required'] : NULL;
   $variables['type'] = isset($variables['element']['#attributes']['type']) ? $variables['element']['#attributes']['type'] : NULL;
   $variables['dropbutton'] = isset($variables['element']['#dropbutton']) ? $variables['element']['#dropbutton'] : NULL;
+
+  // Replace button classes with c-button.
+  $variables['attributes']['class'] = preg_replace('/^button/', 'c-button', $variables['attributes']['class']);
+
   if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
     $description_id = $variables['element']['#id'] . '-description';
     $variables['described_by'] = $description_id;
