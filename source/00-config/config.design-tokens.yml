@@ -190,6 +190,49 @@ gesso:
       8: 56px
       9: 64px
       10: 80px
+    responsive-font-size-min-width: 360px
+    responsive-font-size-max-width: 1600px
+    responsive-font-size:
+      1:
+        min: 12px
+        val: auto
+        max: 12px
+      2:
+        min: 16px
+        val: auto
+        max: 16px
+      3:
+        min: 18px
+        val: auto
+        max: 20px
+      4:
+        min: 20px
+        val: auto
+        max: 24px
+      5:
+        min: 24px
+        val: auto
+        max: 32px
+      6:
+        min: 28px
+        val: auto
+        max: 40px
+      7:
+        min: 32px
+        val: auto
+        max: 48px
+      8:
+        min: 36px
+        val: auto
+        max: 56px
+      9:
+        min: 40px
+        val: auto
+        max: 64px
+      10:
+        min: 50px
+        val: auto
+        max: 80px
     font-weight:
       light: 300
       regular: 400

@@ -1,0 +1,20 @@
+// Storybook: Typographic Scale
+
+@use '00-config' as *;
+
+.gesso-storybook-typographic-scale {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  line-height: 1;
+  margin: 1rem;
+}
+
+.gesso-storybook-typographic-scale__label {
+  font-weight: bold;
+}
+
+.gesso-storybook-typographic-scale__preview {
+  // stylelint-disable-next-line
+  -webkit-marquee-increment: 0vw; // Needed to get clamp() to work in Safari.
+}
