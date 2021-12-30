@@ -4,17 +4,17 @@
 ]|join(' ')|trim %}
 
 <div {{ add_attributes({ 'class': classes }) }}>
-  {% if format == 'long-date' %}
+  {% if date_format == 'long-date' %}
     {% include '@global/date-formats/long-date.twig' %}
-  {% elseif format == 'long-datetime' %}
+  {% elseif date_format == 'long-datetime' %}
     {% include '@global/date-formats/long-datetime.twig' %}
-  {% elseif format == 'medium-date' %}
+  {% elseif date_format == 'medium-date' %}
     {% include '@global/date-formats/medium-date.twig' %}
-  {% elseif format == 'medium-datetime' %}
+  {% elseif date_format == 'medium-datetime' %}
     {% include '@global/date-formats/medium-datetime.twig' %}
-  {% elseif format == 'short-date' %}
+  {% elseif date_format == 'short-date' %}
     {% include '@global/date-formats/short-date.twig' %}
-  {% elseif format == 'short-datetime' %}
+  {% elseif date_format == 'short-datetime' %}
     {% include '@global/date-formats/short-datetime.twig' %}
   {% else %}
     {{ date_content }}

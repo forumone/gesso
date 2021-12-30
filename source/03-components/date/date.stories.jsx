@@ -8,7 +8,17 @@ const settings = {
   title: 'Components/Date',
   parameters: {
     controls: {
-      include: ['format', 'date_content', 'modifier_classes', 'year', 'month', 'weekday', 'day', 'hour', 'minute']
+      include: [
+        'date_format',
+        'date_content',
+        'modifier_classes',
+        'year',
+        'month',
+        'weekday',
+        'day',
+        'hour',
+        'minute',
+      ]
     }
   }
 };

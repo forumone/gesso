@@ -53,16 +53,7 @@
         {% if not date %}
           {% set date %}
             {% include '@components/date/date.twig' with {
-              'format': 'medium-date',
-              'year': {
-                'long': '2016',
-              },
-              'month': {
-                'long': 'September',
-              },
-              'day': {
-                'short': '28',
-              }
+              'date_format': date_format,
             } %}
           {% endset %}
         {% endif %}
@@ -89,7 +80,9 @@
     </footer>
   {% endif %}
 
-  {% block body %}
-    {{ body }}
+  {% block content %}
+    {% include '@components/wysiwyg/wysiwyg.twig' with {
+      'content': content,
+    } %}
   {% endblock %}
 </article>
