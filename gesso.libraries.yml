@@ -3,66 +3,14 @@ global:
     theme:
       //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
       dist/css/styles.css: {}
-hamburger_button:
-  css:
-    theme:
-      dist/css/hamburger-button.css: {}
-mobile_menu:
-  css:
-    theme:
-      dist/css/mobile-menu.css: {}
-  dependencies:
-    - gesso/hamburger_button
-dropdown_menu:
-  css:
-    theme:
-      dist/css/dropdown-menu.css: {}
-  js:
-    dist/js/dropdown-menu.es6.js: {}
-  dependencies:
-    - gesso/common
-    - gesso/mobile_menu
-mega_menu:
-  css:
-    theme:
-      dist/css/mega-menu.css: {}
-  js:
-    dist/js/mega-menu.es6.js: {}
-  dependencies:
-    - gesso/common
-    - gesso/mobile_menu
-overlay_menu:
-  css:
-    theme:
-      dist/css/overlay-menu.css: {}
-  js:
-    dist/js/overlay-menu.es6.js: {}
-  dependencies:
-    - gesso/common
-    - gesso/hamburger_button
-side_menu:
-  css:
-    theme:
-      dist/css/side-menu.css: { }
-  js:
-    dist/js/side-menu.es6.js: { }
-  dependencies:
-    - gesso/common
-    - gesso/hamburger_button
-hero_bg_image:
-  css:
-    theme:
-      dist/css/hero-bg-image.css: {}
-hero_inline_image:
-  css:
-    theme:
-      dist/css/hero-inline-image.css: {}
+
 back_to_top:
   css:
     theme:
       dist/css/back-to-top.css: {}
   js:
     dist/js/back-to-top.es6.js: {}
+
 dropbutton:
   js:
     dist/js/dropbutton.es6.js: {}
@@ -74,3 +22,65 @@ dropbutton:
     - core/drupal
     - core/drupalSettings
     - core/once
+
+dropdown_menu:
+  css:
+    theme:
+      dist/css/dropdown-menu.css: {}
+  js:
+    dist/js/dropdown-menu.es6.js: {}
+  dependencies:
+    - gesso/common
+    - gesso/mobile_menu
+
+hamburger_button:
+  css:
+    theme:
+      dist/css/hamburger-button.css: {}
+
+hero_bg_image:
+  css:
+    theme:
+      dist/css/hero-bg-image.css: {}
+
+hero_inline_image:
+  css:
+    theme:
+      dist/css/hero-inline-image.css: {}
+
+mega_menu:
+  css:
+    theme:
+      dist/css/mega-menu.css: {}
+  js:
+    dist/js/mega-menu.es6.js: {}
+  dependencies:
+    - gesso/common
+    - gesso/mobile_menu
+
+mobile_menu:
+  css:
+    theme:
+      dist/css/mobile-menu.css: {}
+  dependencies:
+    - gesso/hamburger_button
+
+overlay_menu:
+  css:
+    theme:
+      dist/css/overlay-menu.css: {}
+  js:
+    dist/js/overlay-menu.es6.js: {}
+  dependencies:
+    - gesso/common
+    - gesso/hamburger_button
+
+side_menu:
+  css:
+    theme:
+      dist/css/side-menu.css: { }
+  js:
+    dist/js/side-menu.es6.js: { }
+  dependencies:
+    - gesso/common
+    - gesso/hamburger_button

@@ -1,5 +1,5 @@
 {% set classes = [
-  'article',
+  'c-article',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
@@ -26,7 +26,7 @@
       {% include '@components/button-group/button-group.twig' with {
         'heading': 'Primary tabs',
         'element': 'nav',
-        'button_modifier_classes': 'button--base',
+        'button_modifier_classes': 'c-button--base',
         'buttons': [
           {
             'text': 'View',
@@ -47,7 +47,7 @@
   {% endblock %}
 
   {% if show_footer %}
-    <footer class="article__footer">
+    <footer class="c-article__footer">
       {% block footer %}
         {% if not date %}
           {% set date %}
@@ -75,7 +75,7 @@
         {% endif %}
 
         {% include '@components/list/list.twig' with {
-          'modifier_classes': 'list--pipeline',
+          'modifier_classes': 'c-list--pipeline',
           'list': [
             { 'content': date },
             { 'content': author },

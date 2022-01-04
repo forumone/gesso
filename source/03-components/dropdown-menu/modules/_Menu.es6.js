@@ -14,7 +14,7 @@ class Menu {
     {
       useArrowKeys = true,
       displayMenuOnHover = true,
-      submenuSelector = '.dropdown-menu__subnav',
+      submenuSelector = '.c-dropdown-menu__subnav',
     } = {}
   ) {
     this.domNode = domNode; // DOM node containing the menu.

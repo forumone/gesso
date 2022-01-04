@@ -3,7 +3,7 @@
 
 @use '00-config' as *;
 
-.skiplinks {
+.c-skiplinks {
   display: flex;
   font-family: gesso-font-family(system);
   justify-content: center;
@@ -12,10 +12,10 @@
   z-index: 9999;
 }
 
-.skiplinks__link,
-.skiplinks__link:visited,
-.skiplinks__link:hover,
-.skiplinks__link:focus {
+.c-skiplinks__link,
+.c-skiplinks__link:visited,
+.c-skiplinks__link:hover,
+.c-skiplinks__link:focus {
   background-color: gesso-color(ui, generic, background-dark);
   border: 2px solid gesso-color(ui, generic, border-light);
   border-bottom-left-radius: 5px;

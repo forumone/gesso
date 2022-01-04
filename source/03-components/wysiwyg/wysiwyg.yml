@@ -53,4 +53,4 @@ content: |-
   <h4>Header Four</h4>
   <h5>Header Five</h5>
   <h6>Header Six</h6>
-  <div><a href="#" class="button">Button</a></div>
+  <div><a href="#" class="c-button">Button</a></div>

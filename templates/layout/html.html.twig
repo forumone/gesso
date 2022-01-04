@@ -28,6 +28,7 @@
   not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
   not root_path ? 'front' : 'not-front',
   node_type ? 'node-page node-page--node-type-' ~ node_type|clean_class,
+  db_offline ? 'db-offline',
 ] %}
 
 {% set body_id = 'top'|unique_id %}
@@ -43,8 +44,8 @@
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
   <body {{ add_attributes({
-    classes: body_classes,
-    id: body_id
+    class: body_classes,
+    id: body_id,
   }) }}>
     {% include '@components/skiplinks/skiplinks.twig' %}
     {{ page_top }}

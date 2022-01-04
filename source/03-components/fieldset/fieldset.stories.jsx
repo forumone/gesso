@@ -11,7 +11,7 @@ const settings = {
 const Default = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'fieldset--default',
+    modifier_classes: 'c-fieldset--default',
   }))
 );
 Default.args = { ...data };
@@ -19,7 +19,7 @@ Default.args = { ...data };
 const Checkboxes = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'fieldset--checkboxes',
+    modifier_classes: 'c-fieldset--checkboxes',
   }))
 );
 Checkboxes.args = { ...formItemData };
@@ -27,7 +27,7 @@ Checkboxes.args = { ...formItemData };
 const Radios = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'fieldset--radios',
+    modifier_classes: 'c-fieldset--radios',
   }))
 );
 Radios.args = { ...formItemData };

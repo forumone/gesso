@@ -1,5 +1,5 @@
 {% set classes = [
-  'fieldset',
+  'c-fieldset',
   required or is_required ? 'is-required' : '',
   is_disabled ? 'is-disabled' : '',
   modifier_classes ? modifier_classes : '',
@@ -29,33 +29,33 @@
 {% endif %}
 
 {% set legend_span_classes = [
-  'fieldset__legend-text',
+  'c-fieldset__legend-text',
   required or is_required ? 'is-required' : '',
   required or is_required ? 'js-form-required' : '',
 ]|join(' ')|trim %}
 
 <fieldset {{ add_attributes(attributes_to_add) }}>
   {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
-  <legend {{ add_attributes({class: 'fieldset__legend'}, 'legend.attributes') }}>
+  <legend {{ add_attributes({class: 'c-fieldset__legend'}, 'legend.attributes') }}>
     <span {{ add_attributes({class: legend_span_classes}, 'legend_span.attributes') }}>{{ legend.title }}</span>
   </legend>
-  <div class="fieldset__content">
+  <div class="c-fieldset__content">
     {% if errors %}
-      <div class="fieldset__errors">{{ errors }}</div>
+      <div class="c-fieldset__errors">{{ errors }}</div>
     {% endif %}
 
     {% if prefix %}
-      <span class="fieldset__prefix">{{ prefix }}</span>
+      <span class="c-fieldset__prefix">{{ prefix }}</span>
     {% endif %}
 
     {{ children }}
 
     {% if suffix %}
-      <span class="fieldset__suffix">{{ suffix }}</span>
+      <span class="c-fieldset__suffix">{{ suffix }}</span>
     {% endif %}
 
     {% if description.content %}
-      <div {{ add_attributes({class: 'fieldset__description', id: id}, 'description.attributes') }}>{{ description.content }}</div>
+      <div {{ add_attributes({class: 'c-fieldset__description', id: id}, 'description.attributes') }}>{{ description.content }}</div>
     {% endif %}
   </div>
 </fieldset>

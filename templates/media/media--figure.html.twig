@@ -39,8 +39,8 @@
   {% endif %}
 
   {% set classes = [
-    view_mode != 'default' ? ('figure--' ~ view_mode)|clean_class,
-    bundle ? ('figure--' ~ bundle)|clean_class,
+    view_mode != 'default' ? ('c-figure--' ~ view_mode)|clean_class,
+    bundle ? ('c-figure--' ~ bundle)|clean_class,
     attributes.hasClass('align-center') ? 'u-align-center',
     attributes.hasClass('align-left') ? 'u-align-left',
     attributes.hasClass('align-right') ? 'u-align-right',

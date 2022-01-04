@@ -3,14 +3,14 @@
 
 @use '00-config' as *;
 
-.dropdown-menu {
+.c-dropdown-menu {
   @include list-inline;
 
-  > .dropdown-menu__item {
+  > .c-dropdown-menu__item {
     display: inline-block;
     position: relative;
 
-    > .dropdown-menu__link {
+    > .c-dropdown-menu__link {
       background-color: transparent;
       border: 0;
       display: inline-block;
@@ -40,22 +40,22 @@
       }
     }
 
-    > button.dropdown-menu__link {
+    > button.c-dropdown-menu__link {
       @include text-button;
       @include link(gesso-color(text, link), gesso-color(text, link-hover));
     }
   }
 }
 
-.dropdown-menu__item {
+.c-dropdown-menu__item {
   margin-bottom: 0;
 }
 
-.dropdown-menu__link.has-subnav {
+.c-dropdown-menu__link.has-subnav {
   position: relative;
 }
 
-.dropdown-menu__toggle {
+.c-dropdown-menu__toggle {
   @include text-button;
   @include image-replace(16px, 16px);
   @include svg-background(menu-arrow-down);
@@ -71,7 +71,7 @@
   }
 }
 
-.dropdown-menu__subnav {
+.c-dropdown-menu__subnav {
   @include list-clean;
   background-color: gesso-color(ui, generic, background-dark);
   display: none;
@@ -81,7 +81,7 @@
   position: absolute;
   top: 0;
 
-  .dropdown-menu__link {
+  .c-dropdown-menu__link {
     @include link(gesso-color(ui, generic, text-lighter));
     display: block;
     line-height: gesso-line-height(tight);
@@ -108,7 +108,7 @@
     }
   }
 
-  .dropdown-menu__subnav {
+  .c-dropdown-menu__subnav {
     margin: 0;
   }
 }

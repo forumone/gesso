@@ -12,7 +12,7 @@
   z-index: 2;
 }
 
-.mega-menu {
+.c-mega-menu {
   align-items: center;
   background: gesso-color('background', 'site');
   display: flex;
@@ -33,12 +33,12 @@
     z-index: gesso-z-index(drawer);
   }
 
-  > .mega-menu__item {
+  > .c-mega-menu__item {
     border-bottom: 1px solid gesso-grayscale(white);
     list-style-type: none;
     padding: 1.25rem 1.8125rem 1.25rem 0.8125rem;
 
-    > .mega-menu__link {
+    > .c-mega-menu__link {
       @include link(gesso-color(text, link), gesso-color(text, link-hover));
       border-bottom: rem(2px) solid transparent;
       border-radius: rem(1px);
@@ -53,22 +53,22 @@
       z-index: gesso-z-index(drawer) + 1;
     }
 
-    button.mega-menu__link {
+    button.c-mega-menu__link {
       @include text-button;
       font-size: rem(gesso-font-size(3));
     }
   }
 
-  > .mega-menu__item:last-child > a {
+  > .c-mega-menu__item:last-child > a {
     font-weight: gesso-font-weight(bold);
   }
 }
 
-.mega-menu__item {
+.c-mega-menu__item {
   margin-bottom: 0;
 }
 
-.mega-menu__section {
+.c-mega-menu__section {
   background-color: gesso-color(ui, generic, background-dark);
   color: gesso-color(text, on-dark);
   left: 0;
@@ -101,7 +101,7 @@
   display: none;
 }
 
-.mega-menu__section-inner {
+.c-mega-menu__section-inner {
   @include layout-constrain();
   align-items: flex-start;
   display: grid;
@@ -112,7 +112,7 @@
   padding-right: rem(gesso-site-margins(desktop));
 }
 
-.mega-menu__section-close {
+.c-mega-menu__section-close {
   @include text-button;
   color: gesso-color(text, on-dark);
   height: rem(50px);
@@ -123,7 +123,7 @@
   transition: opacity gesso-duration(short) gesso-easing(ease-in);
   width: rem(50px);
 
-  .mega-menu__close-icon {
+  .c-mega-menu__close-icon {
     height: rem(22px);
     width: rem(32px);
   }
@@ -133,38 +133,38 @@
   }
 }
 
-.mega-menu__section-title {
+.c-mega-menu__section-title {
   color: gesso-color(text, on-dark);
   display: block;
   font-size: gesso-font-size(8);
 }
 
-.mega-menu__icon {
+.c-mega-menu__icon {
   transition: margin 0.2s;
 }
 
-.mega-menu__subnav {
+.c-mega-menu__subnav {
   @include list-clean;
 }
 
-.mega-menu__subnav .mega-menu__item:not(.has-subnav) {
+.c-mega-menu__subnav .c-mega-menu__item:not(.has-subnav) {
   margin-top: rem(gesso-spacing(1));
 }
 
-.mega-menu__subnav .mega-menu__item.has-subnav {
+.c-mega-menu__subnav .c-mega-menu__item.has-subnav {
   margin-top: 0;
 }
 
 /* stylelint-disable selector-max-compound-selectors */
-.mega-menu__subnav .mega-menu__subnav {
+.c-mega-menu__subnav .c-mega-menu__subnav {
   margin-top: gesso-spacing(1);
 }
 
-.mega-menu__subnav .mega-menu__subnav .mega-menu__item {
+.c-mega-menu__subnav .c-mega-menu__subnav .c-mega-menu__item {
   margin-bottom: gesso-spacing(1);
 }
 
-.mega-menu__subnav .mega-menu__link {
+.c-mega-menu__subnav .c-mega-menu__link {
   border-bottom: 0;
   color: inherit;
   font-size: rem(gesso-font-size(3));
@@ -173,7 +173,7 @@
   text-decoration: none;
 }
 
-.mega-menu__subnav a.mega-menu__link {
+.c-mega-menu__subnav a.c-mega-menu__link {
   > span {
     white-space: nowrap;
 
@@ -210,7 +210,7 @@
   }
 }
 
-.mega-menu__subnav .mega-menu__subnav .mega-menu__link {
+.c-mega-menu__subnav .c-mega-menu__subnav .c-mega-menu__link {
   color: gesso-brand(blue, light-1);
   font-size: rem(gesso-font-size(2));
   font-weight: gesso-font-weight(semibold);
@@ -228,7 +228,7 @@
   }
 }
 
-.mega-menu__subnav .mega-menu__subnav a.mega-menu__link {
+.c-mega-menu__subnav .c-mega-menu__subnav a.c-mega-menu__link {
   > span::after {
     content: '';
     display: none;
@@ -237,27 +237,27 @@
 /* stylelint-enable selector-max-compound-selectors */
 
 @include breakpoint-max(gesso-breakpoint(mobile-menu)) {
-  .mega-menu__section {
+  .c-mega-menu__section {
     background-color: rgba(gesso-color(ui, generic, background-lighter), 0.98);
   }
 
-  .mega-menu__section-title,
-  .mega-menu__section-close {
+  .c-mega-menu__section-title,
+  .c-mega-menu__section-close {
     display: none;
   }
 }
 
 @include breakpoint(gesso-breakpoint(desktop-lg)) {
-  .mega-menu {
-    .mega-menu__section {
+  .c-mega-menu {
+    .c-mega-menu__section {
       padding: rem(gesso-spacing(10)) rem(gesso-spacing(12));
     }
 
-    .mega-menu__section-inner {
+    .c-mega-menu__section-inner {
       gap: rem(100px);
     }
 
-    .mega-menu__section .menu__subnav {
+    .c-mega-menu__section .menu__subnav {
       gap: rem(gesso-spacing(4));
     }
   }

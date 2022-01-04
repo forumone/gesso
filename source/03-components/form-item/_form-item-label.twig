@@ -1,5 +1,5 @@
 {% set label_classes = [
-  'form-item__label',
+  'c-form-item__label',
   is_disabled ? 'is-disabled' : '',
   is_required ? 'is-required' : '',
   label_display == 'invisible' ? 'u-visually-hidden' : '',
@@ -21,7 +21,7 @@
 
   {% if is_required %}
     {%- spaceless %}
-      <span class="form-item__required-marker">
+      <span class="c-form-item__required-marker">
         <span class="u-visually-hidden">
           {{ 'This field is required.'|t }}
         </span>

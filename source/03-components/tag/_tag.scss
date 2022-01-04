@@ -2,7 +2,7 @@
 
 @use '00-config' as *;
 
-.tag {
+.c-tag {
   @include link(gesso-color(ui, generic, accent-dark));
   border: 2px solid gesso-color(ui, generic, accent-light);
   border-radius: 70px;

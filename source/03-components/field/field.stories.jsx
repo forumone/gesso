@@ -26,7 +26,7 @@ List.args = { ...listData };
 const Tight = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'field--tight',
+    modifier_classes: 'c-field--tight',
   }))
 );
 Tight.args = { ...data };

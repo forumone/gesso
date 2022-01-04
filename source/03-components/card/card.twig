@@ -1,19 +1,19 @@
 {% import '@global/gesso.macro.twig' as macros %}
 
 {% set classes = [
-  'card',
+  'c-card',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 <div {{ add_attributes({ 'class': classes }) }}>
-  <div class="card__body">
-    <div class="card__header">
+  <div class="c-card__body">
+    <div class="c-card__header">
       {% if date %}
-        <div class="card__date">
+        <div class="c-card__date">
           {{ date }}
         </div>
       {% endif %}
-      <h3 class="card__title">
+      <h3 class="c-card__title">
         {% if url %}
           <a href="{{ url }}">
         {% endif %}
@@ -23,21 +23,21 @@
         {% endif %}
       </h3>
     </div>
-    <div class="card__content">
+    <div class="c-card__content">
       {{ card_content }}
     </div>
     {% if footer or read_more or tags %}
-      <div class="card__footer">
+      <div class="c-card__footer">
         {{ footer }}
         {% if tags %}
-          <div class="card__tags">
+          <div class="c-card__tags">
             {% include "@components/tag-list/tag-list.twig" with {
               items: tags
             } %}
           </div>
         {% endif %}
         {% if read_more and url %}
-          <div class="card__readmore">
+          <div class="c-card__readmore">
             {{ macros.readmore(url, title) }}
           </div>
         {% endif %}
@@ -45,7 +45,7 @@
     {% endif %}
   </div>
   {% if media %}
-    <div class="card__media">
+    <div class="c-card__media">
       {% if url %}
         <a href="{{ url }}">
       {% endif %}

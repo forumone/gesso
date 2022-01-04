@@ -5,7 +5,7 @@
   {% if items %}
     {% if menu_level == 0 %}
       {% set additional_classes = [
-        'dropdown-menu'
+        'c-dropdown-menu'
       ] %}
       {% if menu_class %}
         {% set additional_classes = additional_classes|merge(menu_class) %}
@@ -15,11 +15,11 @@
       } %}
 <ul {{ add_attributes(additional_attributes) }}>
   {% else %}
-  <ul {{  add_attributes({class: ['dropdown-menu__subnav']}) }}>
+  <ul {{  add_attributes({class: ['c-dropdown-menu__subnav']}) }}>
     {% endif %}
     {% for item in items %}
-      {% set item_classes = ['dropdown-menu__item'] %}
-      {% set link_classes = ['dropdown-menu__link'] %}
+      {% set item_classes = ['c-dropdown-menu__item'] %}
+      {% set link_classes = ['c-dropdown-menu__link'] %}
       {% if menu_level == 0 %}
         {% set link_classes = link_classes|merge(['js-top-level']) %}
       {% endif %}
@@ -64,10 +64,12 @@
 
       <li {{ add_attributes(additional_item_attributes) }}>
         {% if item.url == '<button>' %}
+          {# This is needed to work in Storybook. #}
           <button {{ add_attributes(link_attributes) }}>{{ item.title }}</button>
         {% else %}
           {{ link(item.title, item.url, link_attributes) }}
         {% endif %}
+
         {% if item.below %}
           {{ dropdown_menu.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}

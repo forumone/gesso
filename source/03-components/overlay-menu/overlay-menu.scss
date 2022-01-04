@@ -8,7 +8,7 @@ $overlay-menu-bg-color: rgba(
   0.98
 ) !default;
 
-.overlay-menu {
+.c-overlay-menu {
   background-color: transparent;
   height: 0;
   left: 0;
@@ -28,7 +28,7 @@ $overlay-menu-bg-color: rgba(
   }
 }
 
-.overlay-menu__menu {
+.c-overlay-menu__menu {
   @include list-clean;
   align-items: center;
   display: flex;
@@ -39,7 +39,7 @@ $overlay-menu-bg-color: rgba(
   width: 100%;
 }
 
-.overlay-menu__link {
+.c-overlay-menu__link {
   margin-right: 0;
   text-decoration: none;
 }

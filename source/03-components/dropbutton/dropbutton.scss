@@ -8,7 +8,7 @@ $dropbutton-toggle-height: rem(44px) !default;
 $dropbutton-toggle-width: 2em !default;
 $dropbutton-toggle-icon-size: rem(12px) !default;
 
-.dropbutton {
+.c-dropbutton {
   display: inline-block;
   margin-bottom: rem(gesso-spacing(1));
   position: relative;
@@ -26,22 +26,22 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   }
 
   &.is-open {
-    .dropbutton__item {
+    .c-dropbutton__item {
       display: block;
 
-      &:first-child .dropbutton__button {
+      &:first-child .c-dropbutton__button {
         border-bottom-left-radius: 0;
       }
     }
 
-    .dropbutton__toggle-button {
+    .c-dropbutton__toggle-button {
       @include svg-background(dropbutton-arrow-up);
     }
   }
 
   & + &,
-  + .button,
-  .button + & {
+  + .c-button,
+  .c-button + & {
     margin-left: 0.5em; // LTR
 
     @if $support-for-rtl {
@@ -53,7 +53,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   }
 }
 
-.dropbutton__list {
+.c-dropbutton__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -63,7 +63,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   }
 }
 
-.dropbutton__toggle {
+.c-dropbutton__toggle {
   bottom: 0;
   margin: 0;
   padding: 0;
@@ -73,7 +73,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   width: $dropbutton-toggle-width;
 }
 
-.dropbutton__toggle-button {
+.c-dropbutton__toggle-button {
   @include button();
   @include svg-background(dropbutton-arrow-down);
   background-position: 50%
@@ -91,25 +91,25 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   width: 100%;
 }
 
-.dropbutton__item {
+.c-dropbutton__item {
   margin: 0;
   padding: 0;
 
   &.is-secondary-action {
     display: none;
 
-    &:not(:last-child) .dropbutton__button {
+    &:not(:last-child) .c-dropbutton__button {
       border-bottom-left-radius: 0;
     }
   }
 
-  &:not(:first-child) .dropbutton__button {
+  &:not(:first-child) .c-dropbutton__button {
     border-top-left-radius: 0;
   }
 }
 
 // Nested to override default button styles.
-.dropbutton .dropbutton__button {
+.c-dropbutton .c-dropbutton__button {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   display: block;

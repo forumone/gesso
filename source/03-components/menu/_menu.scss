@@ -2,7 +2,7 @@
 
 @use '00-config' as *;
 
-.menu {
+.c-menu {
   @include list-clean();
 
   @media print {
@@ -10,6 +10,6 @@
   }
 }
 
-.menu__item {
+.c-menu__item {
   margin-bottom: 0;
 }
