@@ -1,10 +1,12 @@
 import Drupal from 'drupal';
+import KEYCODE from '../../00-config/_KEYCODE.es6';
 import { slideDown, slideUp } from '../../06-utility/_slide.es6';
 
 Drupal.behaviors.accordion = {
   attach(context) {
     const ACCORDION_CLASS = 'js-accordion';
     const ACCORDION_TOGGLE_CLASS = 'js-accordion-toggle';
+    const ACCORDION_DRAWER_CLASS = 'js-accordion-drawer';
     const ACCORDION_SPEED = 250;
 
     const accordions = context.querySelectorAll(
@@ -105,31 +107,32 @@ Drupal.behaviors.accordion = {
       // Bind keyboard behaviors on the main accordion container
       accordion.addEventListener('keydown', event => {
         const currentTarget = event.target;
-        const key = event.which.toString();
-
-        // 33 = Page Up, 34 = Page Down
-        const ctrlModifier = event.ctrlKey && key.match(/33|34/);
 
         // Is this coming from an accordion header?
         if (currentTarget.classList.contains(ACCORDION_TOGGLE_CLASS)) {
           // Up/ Down arrow and Control + Page Up/ Page Down keyboard operations
           // 38 = Up, 40 = Down
-          if (key.match(/38|40/) || ctrlModifier) {
+          if (event.keyCode === KEYCODE.UP || event.keyCode === KEYCODE.DOWN || event.keyCode === KEYCODE.PAGEDOWN || event.keyCode === KEYCODE.UP) {
             const index = triggers.indexOf(currentTarget);
-            const direction = key.match(/34|40/) ? 1 : -1;
+            let direction;
+            if (event.keyCode === KEYCODE.DOWN || event.keyCode === KEYCODE.PAGEDOWN) {
+              direction = 1;
+            } else {
+              direction = -1;
+            }
             const triggerLength = triggers.length;
             const newIndex = (index + triggerLength + direction) % triggerLength;
             triggers[newIndex].focus();
             event.preventDefault();
-          } else if (key.match(/35|36/)) {
+          } else if (event.keyCode === KEYCODE.HOME || event.keyCode === KEYCODE.END) {
             // 35 = End, 36 = Home keyboard operations
-            switch (key) {
+            switch (event.keyCode) {
               // Go to first accordion
-              case '36':
+              case KEYCODE.HOME:
                 triggers[0].focus();
                 break;
               // Go to last accordion
-              case '35':
+              case KEYCODE.END:
                 triggers[triggers.length - 1].focus();
                 break;
               default:
@@ -165,6 +168,14 @@ Drupal.behaviors.accordion = {
           expanded.setAttribute('aria-disabled', 'true');
         }
       }
+
+      // Expand accordions on page load if they have 'data-accordion-open'
+      const defaultOpenAccordions = accordion.querySelectorAll('[data-accordion-open="true"]');
+      defaultOpenAccordions.forEach(item => {
+        const drawer = item.querySelector(ACCORDION_DRAWER_CLASS);
+        const toggle = item.querySelector(ACCORDION_TOGGLE_CLASS);
+        openAccordion(drawer, toggle);
+      });
     });
   },
 };

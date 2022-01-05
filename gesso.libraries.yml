@@ -84,3 +84,12 @@ side_menu:
   dependencies:
     - gesso/common
     - gesso/hamburger_button
+
+accordion:
+  css:
+    theme:
+      dist/css/accordion.css: { }
+  js:
+    dist/js/accordion.es6.js: { }
+  dependencies:
+    - gesso/common

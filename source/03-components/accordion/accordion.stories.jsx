@@ -1,9 +1,9 @@
-import React from 'react';
 import parse from 'html-react-parser';
 
 import accordionTemplate from './accordion.twig';
-import accordionItemTemplate from '../accordion-item/accordion-item.twig';
+import accordionItemTemplate from './accordion-item.twig';
 import data from './accordion.yml';
+import './accordion.scss';
 import './accordion.es6';
 
 const accordionData = data.accordions;
