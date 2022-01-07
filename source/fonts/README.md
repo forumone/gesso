@@ -1,4 +1,4 @@
-Font used in a `@font-face` declaration in will be inlined or copied to
+Fonts used in a `@font-face` declaration in will be inlined or copied to
 a `dist/fonts` directory by Webpack, depending on the size of the file.
 
 Fonts used with services like typography.com, where the `@font-face` declaration

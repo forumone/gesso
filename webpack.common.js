@@ -93,12 +93,17 @@ module.exports = {
         test: /\.scss$/i,
         exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
+          },
           {
             loader: 'css-loader',
             options: {
               // Ignore /core/ URLs
-              url: (url) => !url.includes('/core/'),
+              url: url => !url.includes('/core/'),
             },
           },
           {
@@ -133,8 +138,8 @@ module.exports = {
         exclude: ['/node_modules/'],
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[hash][ext][query]'
-        }
+          filename: 'fonts/[hash][ext][query]',
+        },
       },
       {
         test: /\.(png|svg|jpg|gif)$/i,
