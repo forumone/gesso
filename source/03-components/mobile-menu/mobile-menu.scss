@@ -27,7 +27,7 @@ $mobile-menu-submenu-link-hover-color: gesso-color(
 ) !default;
 $mobile-menu-button-height: 54px;
 $mobile-menu-button-width: 44px;
-$mobile-menu-font-size: rem(gesso-font-size(3));
+$mobile-menu-font-size: gesso-font-size(3);
 $mobile-menu-line-height: gesso-line-height(base);
 
 .c-mobile-menu {
