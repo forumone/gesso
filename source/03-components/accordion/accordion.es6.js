@@ -169,12 +169,19 @@ Drupal.behaviors.accordion = {
         }
       }
 
-      // Expand accordions on page load if they have 'data-accordion-open'
-      const defaultOpenAccordions = accordion.querySelectorAll('[data-accordion-open="true"]');
-      defaultOpenAccordions.forEach(item => {
-        const drawer = item.querySelector(ACCORDION_DRAWER_CLASS);
-        const toggle = item.querySelector(ACCORDION_TOGGLE_CLASS);
-        openAccordion(drawer, toggle);
+      // Initiate accordions on page load
+      const accordionItems = accordion.querySelectorAll('.js-accordion-item');
+      accordionItems.forEach(item => {
+        const drawer = item.querySelector(`.${ACCORDION_DRAWER_CLASS}`);
+        const toggle = item.querySelector(`.${ACCORDION_TOGGLE_CLASS}`);
+        // Close all accordion items that are not 'default-open'
+        if (!item.hasAttribute('data-accordion-open')) {
+          closeAccordion(drawer, toggle);
+        }
+        // Update toggle tabindex
+        toggle.removeAttribute('tabindex');
+        // Add attribute 'processed'
+        item.setAttribute('accordion-processed', '');
       });
     });
   },

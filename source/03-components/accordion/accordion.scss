@@ -23,15 +23,21 @@ $accordion-item-icon-size: 20px !default;
   justify-content: space-between;
   padding: rem(gesso-spacing(2)) rem(gesso-spacing(8)) rem(gesso-spacing(2))
     rem(gesso-spacing(2));
+  pointer-events: none;
   position: relative;
   text-align: left;
   transition: all gesso-duration(short) gesso-easing(ease-out);
   width: 100%;
+
+  // Allow pointer events if accordion is prcessed
+  [accordion-processed] & {
+    pointer-events: visible;
+  }
 }
 
 .c-accordion-item__drawer {
   background: gesso-grayscale(white);
-  display: none;
+  // display: none;
 }
 
 .c-accordion-item__drawer-inner {
@@ -39,12 +45,18 @@ $accordion-item-icon-size: 20px !default;
 }
 
 .c-accordion-item__icon {
+  display: none;
   height: $accordion-item-icon-size;
   position: absolute;
   right: rem(gesso-spacing(3));
   top: 50%;
   transform: translateY(-50%);
   width: $accordion-item-icon-size;
+
+  // Only show icon if accordion js is processed
+  [accordion-processed] & {
+    display: block;
+  }
 
   &::before,
   &::after {

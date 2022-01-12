@@ -13,19 +13,20 @@
       <button
         class="c-accordion-item__toggle js-accordion-toggle"
         id="{{ button_id }}"
-        aria-expanded="false"
+        aria-expanded="true"
         aria-controls="{{ section_id }}"
+        tabindex="-1"
       >
         {{ accordion_title }}
         <span class="c-accordion-item__icon"></span>
       </button>
     </{{ accordion_title_element ?: 'h3' }}>
     <div
-      class="c-accordion-item__drawer expandable__drawer"
+      class="c-accordion-item__drawer js-accordion-drawer"
       id="{{ section_id }}"
       role="region"
       aria-labelledby="{{ button_id }}"
-      aria-expanded="false"
+      aria-expanded="true"
     >
       <div class="c-accordion-item__drawer-inner">
         {{ accordion_content }}
