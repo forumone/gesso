@@ -6,6 +6,9 @@ node_modules
 ## Ignore compiled files
 dist/css
 dist/js
+dist/fonts/*
+## To unignore fonts placed in the dist/fonts directory, uncomment and update
+## !dist/fonts/[DIRECTORY_NAME]/
 dist/design-tokens.js
 dist/images/backgrounds
 dist/images/sprite.artifact.svg
