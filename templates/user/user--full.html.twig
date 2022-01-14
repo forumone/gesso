@@ -17,21 +17,22 @@
  * @see template_preprocess_user()
  */
 #}
-{% set messages %}
-  {{ drupal_block('system_messages_block', wrapper=false) }}
+{% set admin_info %}
+  {{ region_status }}
 {% endset %}
 
-{% set local_tasks %}
-  {{ drupal_block('local_tasks_block', wrapper=false) }}
-  {{ drupal_block('local_actions_block', wrapper=false) }}
-{% endset %}
+{% set show_admin_info = false %}
+
+{% if admin_info|render|striptags|trim %}
+  {% set show_admin_info = true %}
+{% endif %}
 
 {% include '@templates/page/page.twig' with {
   'title': display_name,
-  'messages': messages,
-  'local_tasks': local_tasks,
+  'show_admin_info': show_admin_info,
+  'admin_info': admin_info,
   'show_footer': false,
-  'body': content,
+  'content': content,
 } %}
 
 {# Uncomment the following if you don’t render the content variable. #}

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
+import globalData from '../00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/homepage/homepage.twig';
 import { Default as HeroBgImage } from '../03-components/hero-bg-image/hero-bg-image.stories.jsx';
@@ -11,9 +12,11 @@ export default {
   title: 'Pages/Homepage',
   parameters: {
     controls: {
-      hideNoControlsWarning: true,
-    },
-  },
+      include: [
+        'show_admin_info',
+      ]
+    }
+  }
 };
 
 // You can override the default arguments, as done here, to demo different
@@ -45,7 +48,8 @@ const homepageGridContent = [
   }),
 ];
 
-const homepageContent = twigTemplate({
+const homepageContent = args => twigTemplate({
+  ...args,
   homepage_hero: ReactDOMServer.renderToStaticMarkup(
     <>{HeroBgImage(HeroBgImage.args)}</>
   ),
@@ -55,7 +59,9 @@ const homepageContent = twigTemplate({
   homepage_grid_title: 'You Don’t Vote For Kings',
 });
 
-const Homepage = () => <PageWrapper>{parse(homepageContent)}</PageWrapper>;
-Homepage.args = {};
+const Homepage = args => <PageWrapper>{parse(homepageContent(args))}</PageWrapper>;
+Homepage.args = {
+  ...globalData,
+};
 
 export { Homepage };

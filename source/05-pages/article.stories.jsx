@@ -2,22 +2,24 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
+import globalData from '../00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
-import twigTemplate from '../04-templates/article/article.twig';
-import wysiwygTwigTemplate from '../03-components/wysiwyg/wysiwyg.twig';
+import twigTemplate from '../04-templates/page/page.twig';
 import { FigureRightAligned } from '../03-components/figure/figure.stories.jsx';
 
 export default {
   title: 'Pages/Article',
   parameters: {
     controls: {
-      hideNoControlsWarning: true,
-    },
-  },
+      include: [
+        'show_admin_info',
+      ]
+    }
+  }
 };
 
-// For an example of reusing the same content as the Content Block/WYSIWYG
-// component, see Page page.
+// For an example of reusing the same content as the Article component,
+// see Page page.
 const articleDemoContent = `
   ${ReactDOMServer.renderToStaticMarkup(
     <>{FigureRightAligned(FigureRightAligned.args)}</>
@@ -49,20 +51,29 @@ const articleDemoContent = `
   </p>
 `;
 
-const mainContent = wysiwygTwigTemplate({
+// For an example of customizing the content block on a demo page,
+// see Page.
+const articleContent = args => twigTemplate({
+  ...args,
+  title: 'As You Wish',
+  show_footer: true,
+  date_format: 'medium-date',
+  year: {
+    long: '1987',
+  },
+  month: {
+    long: 'October',
+  },
+  day: {
+    short: '9',
+  },
+  author_name: 'William Goldman',
   content: articleDemoContent,
 });
 
-// For an example of customizing the content block on a demo page,
-// see Page.
-const articleContent = twigTemplate({
-  title: 'As You Wish',
-  show_admin_info: false,
-  show_footer: true,
-  author_name: 'William Goldman',
-  body: mainContent,
-});
-
-const Article = () => <PageWrapper>{parse(articleContent)}</PageWrapper>;
+const Article = args => <PageWrapper>{parse(articleContent(args))}</PageWrapper>;
+Article.args = {
+  ...globalData,
+};
 
 export { Article };
