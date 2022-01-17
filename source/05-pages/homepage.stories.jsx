@@ -33,8 +33,8 @@ const homepageGridContent = [
     title: 'Let Us Ride to Camelot',
     media: '<img src="https://picsum.photos/800/600?image=1025" alt="">',
     card_content:
-      '<p>Well, we did do the nose. I don’t want to talk to you no more, you\n' +
-      '      empty-headed animal food trough water!</p>',
+      '<p>Well, we did do the nose. I don’t want to talk to you no more, you ' +
+      'empty-headed animal food trough water!</p>',
   }),
   Card({
     ...Card.args,
