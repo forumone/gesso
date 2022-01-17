@@ -48,7 +48,7 @@ const mainContent = View({
 const landingPageContent = args => twigTemplate({
   ...args,
   page_title: 'Great Scott!',
-  content: ReactDOMServer.renderToStaticMarkup(<>{mainContent}</>),
+  content: ReactDOMServer.renderToStaticMarkup(mainContent),
 });
 
 const LandingPage = args => (
