@@ -13,6 +13,7 @@ module.exports = {
     },
     '@storybook/addon-a11y',
   ],
+  staticDirs: ['../dist'],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
       test: /\.twig$/,

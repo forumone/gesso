@@ -200,7 +200,7 @@ class GessoButtonFormatter extends LinkFormatter {
    */
   private function getSizes($theme) {
     $sizes = [];
-    $theme_sizes = theme_get_setting('button_sizes', $theme) ?? "button|Standard\nbutton.button--small|Small\nbutton.button--large|Large";
+    $theme_sizes = theme_get_setting('button_sizes', $theme) ?? "c-button|Standard\nc-button.c-button--small|Small\nc-button.c-button--large|Large";
     $theme_sizes = str_replace(["\r\n", "\r"], "\n", trim($theme_sizes));
     $theme_sizes = explode("\n", $theme_sizes);
     foreach ($theme_sizes as $theme_size) {
@@ -223,7 +223,7 @@ class GessoButtonFormatter extends LinkFormatter {
    */
   private function getStyles($theme) {
     $styles = [];
-    $theme_styles = theme_get_setting('button_styles', $theme) ?? "button|Primary\nbutton.button--secondary|Secondary\nbutton.button--danger|Danger";
+    $theme_styles = theme_get_setting('button_styles', $theme) ?? "c-button|Primary\nc-button.c-button--secondary|Secondary\nc-button.c-button--danger|Danger";
     $theme_styles = str_replace(["\r\n", "\r"], "\n", trim($theme_styles));
     $theme_styles = explode("\n", $theme_styles);
     foreach ($theme_styles as $theme_style) {
