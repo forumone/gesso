@@ -43,7 +43,7 @@
       border-bottom: rem(2px) solid transparent;
       border-radius: rem(1px);
       display: block;
-      font-size: rem(gesso-font-size(3));
+      font-size: rem(gesso-font-size(4));
       font-weight: gesso-font-weight(regular);
       padding: rem(4.8px) 0;
       position: relative;
@@ -55,7 +55,7 @@
 
     button.c-mega-menu__link {
       @include text-button;
-      font-size: rem(gesso-font-size(3));
+      font-size: rem(gesso-font-size(4));
     }
   }
 
@@ -136,8 +136,7 @@
 .c-mega-menu__section-title {
   color: gesso-color(text, on-dark);
   display: block;
-  font-size: rem(gesso-font-size(8));
-}
+  font-size: rem(gesso-font-size(9));
 
 .c-mega-menu__icon {
   transition: margin 0.2s;
@@ -167,7 +166,7 @@
 .c-mega-menu__subnav .c-mega-menu__link {
   border-bottom: 0;
   color: inherit;
-  font-size: rem(gesso-font-size(3));
+  font-size: rem(gesso-font-size(4));
   font-weight: gesso-font-weight(bold);
   position: static;
   text-decoration: none;

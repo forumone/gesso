@@ -45,7 +45,7 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
   margin-bottom: rem(gesso-spacing(5));
 
   @include breakpoint-max($hero-bg-image-bp, true) {
-    font-size: rem(gesso-font-size(7));
+    font-size: rem(gesso-font-size(8));
     margin-bottom: rem(gesso-spacing(3));
   }
 }
@@ -56,7 +56,7 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
   margin-bottom: rem(gesso-spacing(5));
 
   @include breakpoint-max($hero-bg-image-bp, true) {
-    font-size: rem(gesso-font-size(2));
+    font-size: rem(gesso-font-size(3));
     margin-bottom: rem(gesso-spacing(3));
   }
 }
