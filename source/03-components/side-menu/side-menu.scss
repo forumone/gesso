@@ -7,11 +7,7 @@ $side-menu-bg-color: gesso-color(ui, generic, background-light);
 
 .c-side-menu {
   background: $side-menu-bg-color;
-<<<<<<< HEAD
-  font-size: rem(gesso-font-size(3));
-=======
-  font-size: gesso-font-size(4);
->>>>>>> Update default typographic scale
+  font-size: rem(gesso-font-size(4));
   height: 100vh;
   left: 0;
   overflow: hidden;
