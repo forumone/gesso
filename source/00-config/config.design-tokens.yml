@@ -246,47 +246,47 @@ gesso:
       display:
         color: text.primary
         font-family: primary.stack
-        font-size: 10
         font-weight: bold
         line-height: tight
+        responsive-font-size: 10
       h1:
         color: text.primary
         font-family: primary.stack
-        font-size: 8
         font-weight: bold
         line-height: tight
+        responsive-font-size: 8
       h2:
         color: text.primary
         font-family: primary.stack
-        font-size: 7
         font-weight: bold
         line-height: tight
+        responsive-font-size: 7
       h3:
         color: text.primary
         font-family: primary.stack
-        font-size: 6
         font-weight: bold
         line-height: tight
+        responsive-font-size: 6
       h4:
         color: text.primary
         font-family: primary.stack
-        font-size: 5
         font-weight: bold
         line-height: base
+        responsive-font-size: 5
       h5:
         color: text.primary
         font-family: primary.stack
-        font-size: 3
         font-weight: bold
         line-height: base
+        responsive-font-size: 3
       h6:
         color: text.primary
         font-family: primary.stack
-        font-size: 2
         font-weight: semibold
         letter-spacing: -0.04em
         line-height: loose
         text-transform: uppercase
+        responsive-font-size: 2
       blockquote:
         color: text.link
         font-family: primary.stack
