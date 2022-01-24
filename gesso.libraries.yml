@@ -4,6 +4,15 @@ global:
       //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
       dist/css/styles.css: {}
 
+accordion:
+  css:
+    theme:
+      dist/css/accordion.css: {}
+  js:
+    dist/js/accordion.es6.js: {}
+  dependencies:
+    - gesso/common
+
 back_to_top:
   css:
     theme:
@@ -78,18 +87,9 @@ overlay_menu:
 side_menu:
   css:
     theme:
-      dist/css/side-menu.css: { }
+      dist/css/side-menu.css: {}
   js:
-    dist/js/side-menu.es6.js: { }
+    dist/js/side-menu.es6.js: {}
   dependencies:
     - gesso/common
     - gesso/hamburger_button
-
-accordion:
-  css:
-    theme:
-      dist/css/accordion.css: { }
-  js:
-    dist/js/accordion.es6.js: { }
-  dependencies:
-    - gesso/common
