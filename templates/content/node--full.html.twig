@@ -74,25 +74,26 @@
 
 {% set attributes = attributes.addClass(classes) %}
 
-{% set messages %}
-  {{ drupal_block('system_messages_block', wrapper=false) }}
+{% set admin_info %}
+  {{ region_status }}
 {% endset %}
 
-{% set local_tasks %}
-  {{ drupal_block('local_tasks_block', wrapper=false) }}
-  {{ drupal_block('local_actions_block', wrapper=false) }}
-{% endset %}
+{% set show_admin_info = false %}
+
+{% if admin_info|render|striptags|trim %}
+  {% set show_admin_info = true %}
+{% endif %}
 
 {% include '@templates/page/page.twig' with {
   'title': label,
-  'messages': messages,
-  'local_tasks': local_tasks,
+  'show_admin_info': show_admin_info,
+  'admin_info': admin_info,
   'show_footer': display_submitted ? true : false,
   'date': date,
   'author': author_name,
   'author_picture': author_picture,
   'rdf_metadata': metadata,
-  'body': content,
+  'content': content,
 } %}
 
 {# Uncomment the following if you don’t render the content variable. #}

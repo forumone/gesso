@@ -10,6 +10,15 @@
  */
 function gesso_preprocess_taxonomy_term(array &$variables) {
   $variables['term_name'] = $variables['term']->getName();
+
+  // Array of view modes to add regions to.
+  $allowed_view_modes = ['full'];
+
+  if (in_array($variables['view_mode'], $allowed_view_modes)) {
+    // Array of regions to add to taxonomy term template.
+    $allowed_regions = ['status'];
+    _add_regions_to_template($allowed_regions, $variables);
+  }
 }
 
 /**

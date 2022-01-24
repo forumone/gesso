@@ -136,7 +136,7 @@
 .c-mega-menu__section-title {
   color: gesso-color(text, on-dark);
   display: block;
-  font-size: gesso-font-size(8);
+  font-size: rem(gesso-font-size(8));
 }
 
 .c-mega-menu__icon {

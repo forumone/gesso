@@ -458,9 +458,9 @@ and button style on each line, with classes separated with ` .`, similar to how
 you would add custom classes to the WYSIWYG editor.
 
 ```text
-button|Primary
-button.button--secondary|Secondary
-button.button--tertiary|Tertiary
+c-button|Primary
+c-button.c-button--secondary|Secondary
+c-button.c-button--tertiary|Tertiary
 ```
 
 To use these classes, select **Gesso Button** as the formatter for a link field
