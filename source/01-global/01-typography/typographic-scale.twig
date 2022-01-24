@@ -1,0 +1,46 @@
+{% set demo_content %}
+  {% for number, font_size in gesso.typography['responsive-font-size'] %}
+    {% set rendered_style = '' %}
+
+    {% if font_size.min == font_size.max %}
+      {% set rendered_style = (font_size.min / gesso.typography['base-font-size']) ~ 'rem' %}
+    {% elseif font_size.val == 'auto' %}
+      {#
+        For more details on how we calculate the default value:
+        https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+      #}
+      {% set min_width = (gesso.typography['responsive-font-size-min-width'] / gesso.typography['base-font-size']) ~ 'rem' %}
+      {% set max_width = (gesso.typography['responsive-font-size-max-width'] / gesso.typography['base-font-size']) ~ 'rem' %}
+      {% set slope = (((font_size.max / gesso.typography['base-font-size']) - (font_size.min / gesso.typography['base-font-size'])) / (max_width - min_width))|round(9, 'common') %}
+      {% set intersection = (-1 * min_width * slope + (font_size.min / gesso.typography['base-font-size']))|round(9, 'common') %}
+      {% set default_val = intersection ~ 'rem + ' ~ (100 * slope)|round(9, 'common') ~ 'vw' %}
+      {% set rendered_style = 'clamp(' ~
+        (font_size.min / gesso.typography['base-font-size']) ~ 'rem, ' ~
+        default_val ~ ', ' ~
+        (font_size.max / gesso.typography['base-font-size']) ~ 'rem)'
+      %}
+    {% else %}
+      {% set rendered_style = 'clamp(' ~
+        (font_size.min / gesso.typography['base-font-size']) ~ 'rem, ' ~
+        font_size.val ~ ', ' ~
+        (font_size.max / gesso.typography['base-font-size']) ~ 'rem)'
+      %}
+    {% endif %}
+
+    <div class="gesso-storybook-typographic-scale__row">
+      <div class="gesso-storybook-typographic-scale__label">{{ number }}</div>
+      <div class="gesso-storybook-typographic-scale__preview" style="font-size: {{ rendered_style }}">
+        This text goes from {{ font_size.min }} to {{ font_size.max }}.
+      </div>
+    </div>
+  {% endfor %}
+{% endset %}
+
+{% for name, item in gesso.typography['font-family'] %}
+  <div class="gesso-storybook-typographic-scale">
+    <h2 class="gesso-storybook-typographic-scale__heading">{{ item.name }}</h2>
+    <div style='font-family: {{ item.stack }}'>
+      {{ demo_content }}
+    </div>
+  </div>
+{% endfor %}
