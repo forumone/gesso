@@ -103,7 +103,9 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // Ignore /core/ URLs
-              url: url => !url.includes('/core/'),
+              url: {
+                filter: url => !url.includes('/core/'),
+              },
             },
           },
           {
