@@ -31,7 +31,7 @@
     $breakpoint: px($breakpoint) - 1px;
   }
   @if $breakpoints-ems {
-    $breakpoint: em($breakpoint, 16px);
+    $breakpoint: em($breakpoint);
   }
   @media (max-width: #{$breakpoint}) {
     @content;
