@@ -1,4 +1,6 @@
 // Mixins: Breakpoint
+// A 16px base value is passed to em() functions within breakpoint mixins due
+// to browsers not using the Gesso base font size for media query calculations.
 
 @use 'sass:string';
 @use '../config.settings' as *;
@@ -8,7 +10,7 @@
 // @param {Number} $breakpoint - width value.
 @mixin breakpoint-min($breakpoint) {
   @if $breakpoints-ems {
-    $breakpoint: em($breakpoint);
+    $breakpoint: em($breakpoint, 16px);
   }
   @media (min-width: #{$breakpoint}) {
     @content;
@@ -31,7 +33,7 @@
     $breakpoint: px($breakpoint) - 1px;
   }
   @if $breakpoints-ems {
-    $breakpoint: em($breakpoint);
+    $breakpoint: em($breakpoint, 16px);
   }
   @media (max-width: #{$breakpoint}) {
     @content;
@@ -51,8 +53,8 @@
     $breakpoint-max: px($breakpoint-max) - 1px;
   }
   @if $breakpoints-ems {
-    $breakpoint-min: em($breakpoint-min);
-    $breakpoint-max: em($breakpoint-max);
+    $breakpoint-min: em($breakpoint-min, 16px);
+    $breakpoint-max: em($breakpoint-max, 16px);
   }
   @media (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max}) {
     @content;
