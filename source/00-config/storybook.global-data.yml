@@ -51,7 +51,7 @@ minute:
   long: '20'
   short: '20'
 seconds: '31'
-gesso_image_path: '../images'
+gesso_image_path: 'images'
 modifier_classes: ''
 content: |-
   <p>This is WYSIWYG content, which can contain <abbr title="Hyper Text Markup Language">HTML</abbr> markup. There is no limit to how long this content can be. it could have both <a href="#0">internal</a> and <a href="https://example.com">external</a> links.</p>
