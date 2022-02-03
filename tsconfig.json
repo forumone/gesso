@@ -10,16 +10,11 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "source/@types"
-    ],
-    "baseUrl": ".",
     "paths": {
-      "jquery": ["node_modules/jquery/dist/jquery.js"],
-      "drupal": [".storybook/stubs/drupal.js"],
-      "drupalSettings": [".storybook/stubs/drupalSettings.js"],
-      "once": [".storybook/stubs/once.js"]
+      "jquery": ["./node_modules/jquery/dist/jquery.js"],
+      "drupal": ["./.storybook/stubs/drupal.js"],
+      "drupalSettings": ["./.storybook/stubs/drupalSettings.js"],
+      "once": ["./.storybook/stubs/once.js"]
     }
   },
   "exclude": [
