@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "source/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "lib/**",
+  ]
+}
