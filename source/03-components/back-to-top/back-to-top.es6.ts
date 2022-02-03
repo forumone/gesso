@@ -1,3 +1,5 @@
+import Drupal from 'drupal';
+
 Drupal.behaviors.backToTop = {
   attach(context, settings) {
     const threshold = settings?.gesso?.backToTopThreshold ?? 200;

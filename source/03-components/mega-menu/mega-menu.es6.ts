@@ -1,3 +1,4 @@
+import Drupal from 'drupal';
 import MegaMenu from './modules/MegaMenu.es6';
 import MobileMenu from '../mobile-menu/modules/_MobileMenu.es6';
 

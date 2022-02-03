@@ -1,3 +1,4 @@
+import Drupal from 'drupal';
 import SideMenu from './modules/_SideMenu.es6';
 
 Drupal.behaviors.sideMenu = {

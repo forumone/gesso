@@ -1,3 +1,4 @@
+import Drupal from 'drupal';
 import MobileMenu from '../mobile-menu/modules/_MobileMenu.es6';
 import MenuBar from './modules/_MenuBar.es6';
 
