@@ -1,0 +1,19 @@
+{% set demo_content %}
+  {% for name, value in gesso.typography['line-height'] %}
+    <div class="gesso-storybook-line-height__row">
+      <div class="gesso-storybook-line-height__label">{{ name }}</div>
+      <div class="gesso-storybook-line-height__preview" style="line-height: {{ value }}">
+        The line-height for this text is <strong>{{ value }}</strong> times the font-size. It’s worth remembering that line height is affected by the x-height. Much like how different typefaces can appear to be different heights despite being set at the same font size, so too can line height appear to be more open or tighter, depending on each individual font.
+      </div>
+    </div>
+  {% endfor %}
+{% endset %}
+
+{% for name, item in gesso.typography['font-family'] %}
+  <div class="gesso-storybook-line-height">
+    <h2 class="gesso-storybook-line-height__heading">{{ item.name }}</h2>
+    <div style='font-family: {{ item.stack }}'>
+      {{ demo_content }}
+    </div>
+  </div>
+{% endfor %}
