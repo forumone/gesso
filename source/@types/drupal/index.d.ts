@@ -27,9 +27,9 @@ declare module "drupal" {
 
     formatString(str: string, args: object): string;
 
-    stringReplace(str: string, args: object, keys?: any): string;
+    stringReplace(str: string, args: object, keys?: unknown): string;
 
-    t(str: string, args?: any, options?: string): string;
+    t(str: string, args?: unknown, options?: string): string;
 
     formatPlural(
       count: number,
@@ -50,16 +50,16 @@ declare module "drupal" {
     };
 
     theme: {
-      (func: string, options: any): string | HTMLElement;
+      (func: string, options: unknown): string | HTMLElement;
 
       placeholder(str: string): string;
 
-      [key: string]: (...args: any[]) => string | HTMLElement;
+      [key: string]: unknown;
     };
 
     behaviors: Record<string, Behavior>;
 
-    [key: string]: any;
+    [key: string]: unknown;
   }
 
   export default Drupal;
