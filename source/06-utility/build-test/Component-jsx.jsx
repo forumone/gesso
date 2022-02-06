@@ -1,5 +1,5 @@
 import React from 'react';
-import { moduleTS } from './_module-ts.ts';
+import moduleTS from './_module-ts';
 
 function ComponentJsx() {
   return <div>{moduleTS()}</div>;

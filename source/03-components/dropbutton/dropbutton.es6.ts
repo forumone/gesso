@@ -29,8 +29,11 @@ import once from 'once';
    */
   class DropButton {
     $dropbutton: JQuery;
+
     $list: JQuery;
+
     $actions: JQuery;
+
     timerID = 0;
 
     /**
@@ -159,7 +162,6 @@ import once from 'once';
   };
 
   // Expose constructor in the public space.
-  // @ts-ignore
   Drupal.DropButton = DropButton;
 
   /**
