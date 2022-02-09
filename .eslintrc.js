@@ -32,6 +32,9 @@ module.exports = {
         tsx: 'never',
       },
     ],
+
+    'react/function-component-definition': 'off',
+
     'react/jsx-filename-extension': ['warn', {extensions: ['.jsx', '.tsx']}],
 
     'react/no-danger': 'off', // Necessary for Storybook
@@ -46,6 +49,18 @@ module.exports = {
 
     // TS-eslint is smarter about how to implement this rule.
     'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': ['error']
+    '@typescript-eslint/no-use-before-define': ['error'],
+
+    // disable the rule for all files
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
+  'overrides': [
+    {
+      // enable the rule specifically for TypeScript files
+      'files': ['*.ts', '*.tsx'],
+      'rules': {
+        '@typescript-eslint/explicit-module-boundary-types': ['error'],
+      },
+    },
+  ],
 };
