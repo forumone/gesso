@@ -1,11 +1,11 @@
 import parse from 'html-react-parser';
 
-import twigTemplate from './text-styles.twig';
+import twigTemplate from './typographic-scale.twig';
 import data from '../../00-config/config.design-tokens.yml';
-import './text-styles.scss';
+import './typographic-scale.scss';
 
 const settings = {
-  title: 'Global/Typography/Text Styles',
+  title: 'Global/Typography/Typographic Scale',
   argTypes: {
     gesso: {
       table: {
@@ -15,12 +15,12 @@ const settings = {
   }
 };
 
-const TextStyles = args => (
+const TypographicScale = args => (
   parse(twigTemplate({
     ...args,
   }))
 );
-TextStyles.args = { ...data };
+TypographicScale.args = { ...data };
 
 export default settings;
-export { TextStyles };
+export { TypographicScale };
