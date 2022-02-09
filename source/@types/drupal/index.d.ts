@@ -6,7 +6,7 @@ declare module "drupal" {
     };
   }
 
-  type Settings = object & GessoSettings;
+  type Settings = GessoSettings & Record<string, unknown>;
 
   interface Behavior {
     attach?: (context: HTMLElement | Document, settings: Settings) => void;
@@ -25,9 +25,9 @@ declare module "drupal" {
 
     checkPlain(str: string): string;
 
-    formatString(str: string, args: object): string;
+    formatString(str: string, args: Record<string, unknown>): string;
 
-    stringReplace(str: string, args: object, keys?: unknown): string;
+    stringReplace(str: string, args: Record<string, unknown>, keys?: unknown): string;
 
     t(str: string, args?: unknown, options?: string): string;
 
@@ -35,8 +35,8 @@ declare module "drupal" {
       count: number,
       singular: string,
       plural: string,
-      args?: object,
-      options?: object
+      args?: Record<string, unknown>,
+      options?: Record<string, unknown>
     ): string;
 
     encodePath(item: string): string;

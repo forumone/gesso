@@ -32,7 +32,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'react/jsx-filename-extension': ['warn', {extensions: ['.tsx']}],
+    'react/jsx-filename-extension': ['warn', {extensions: ['.jsx', '.tsx']}],
 
     'react/no-danger': 'off', // Necessary for Storybook
 

@@ -1,8 +1,11 @@
 import React from 'react';
 import moduleTS from './_module-ts';
 
-function ComponentJsx() {
+/**
+ * @returns {JSX.Element}
+ */
+const ComponentJsx = () => {
   return <div>{moduleTS()}</div>;
-}
+};
 
 export default ComponentJsx;
