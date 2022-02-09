@@ -5,6 +5,7 @@ global:
       dist/css/styles.css: {}
 
 accordion:
+  header: true
   css:
     theme:
       dist/css/accordion.css: {}
