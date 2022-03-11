@@ -8,7 +8,7 @@
   hyphens: none;
   line-height: gesso-line-height(base);
   margin: 0 0 rem(gesso-spacing(2));
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
 
   @media print {
     orphans: 3;

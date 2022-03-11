@@ -96,7 +96,7 @@ npm run dev
 
 Open [localhost:6006]() to view Storybook. If you’re using Docker (or some other
 container engine) for local development, this might be mapped to a custom domain
-such as [storybook.ddev.site]().
+or a port on a custom domain such as [storybook.ddev.site]() or [site.ddev.site:6006]().
 
 If you add new SCSS and/or JS files, you will need to restart webpack by
 canceling and then re-running `npm run dev`. New files will not be processed
