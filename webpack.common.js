@@ -108,6 +108,7 @@ module.exports = {
               },
             },
           },
+          'postcss-loader',
           {
             loader: 'sass-loader',
             options: {
