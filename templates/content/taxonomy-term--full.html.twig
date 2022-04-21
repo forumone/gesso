@@ -29,7 +29,7 @@
 
 {% set show_admin_info = false %}
 
-{% if admin_info|render|striptags|trim %}
+{% if admin_info|striptags('<drupal-render-placeholder>')|trim %}
   {% set show_admin_info = true %}
 {% endif %}
 

@@ -86,6 +86,7 @@ $form-text-size: gesso-base-font-size() !default;
 .c-form-item__time,
 .c-form-item__url,
 .c-form-item__week {
+  @include focus();
   appearance: none;
   background-color: $form-background-color;
   border: 1px solid $form-border-color;
@@ -105,10 +106,6 @@ $form-text-size: gesso-base-font-size() !default;
   &:focus {
     background-color: $form-background-color-focus;
     border: 1px solid $form-border-color-focus;
-  }
-
-  &:focus {
-    @include focus();
   }
 
   &:disabled {
