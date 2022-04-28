@@ -1,6 +1,6 @@
 {
   "name": "gesso",
-  "version": "5.0.6",
+  "version": "5.0.9",
   "description": "Drupal starter theme",
   "main": "js/scripts.min.js",
   "scripts": {
@@ -41,6 +41,7 @@
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
+    "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.2",
     "concurrently": "^6.2.1",
     "css-loader": "^6.5.1",
@@ -58,6 +59,8 @@
     "file-loader": "^6.2.0",
     "js-yaml-loader": "^1.2.2",
     "nani": "^3.2.1",
+    "postcss": "^8.4.12",
+    "postcss-loader": "^6.2.1",
     "prettier": "^2.4.0",
     "sass-loader": "^12.0.0",
     "style-loader": "^3.2.1",

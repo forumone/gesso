@@ -1,5 +1,6 @@
 // Functions: Gesso
-
+@use 'sass:meta';
+@use 'sass:map';
 @use '../design-tokens.artifact' as *;
 
 // Fetch nested keys
@@ -7,7 +8,7 @@
 // @param {Arglist} $keys - Keys to fetch
 // @return {*}
 @function map-deep-get($map, $keys...) {
-  $arg-type: type-of($map);
+  $arg-type: meta.type-of($map);
 
   @if ($arg-type != map) {
     @error "A valid sass map is required as the first argument. Argument #{$map} is type #{$arg-type}";
@@ -15,7 +16,7 @@
 
   @each $key in $keys {
     @if (map-has-key($map, $key)) {
-      $map: map-get($map, $key);
+      $map: map.get($map, $key);
     } @else {
       @warn "Key `#{$key}` not found in map";
     }
