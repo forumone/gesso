@@ -5,6 +5,7 @@ extends:
 plugins:
   - stylelint-prettier
   - './lib/stylelintLVHFA.js'
+  - stylelint-order
 rules:
   block-no-empty: null
   color-named:
@@ -20,6 +21,7 @@ rules:
       - declarations
     - unspecified: ignore
       disableFix: true
+  order/properties-alphabetical-order: error
   plugin/selector-pseudo-class-lvhfa: true
   prettier/prettier: true
   property-no-vendor-prefix: null
