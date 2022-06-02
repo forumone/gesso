@@ -62,6 +62,7 @@
     "stylelint": "^14.3.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "twig-drupal-filters": "^3.1.2",
     "twig-loader": "https://github.com/fourkitchens/twig-loader/archive/94126e3dafec1c1eba4597d6502fc1707065ae99.tar.gz",
