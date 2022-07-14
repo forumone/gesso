@@ -32,3 +32,15 @@ function gesso_preprocess_breadcrumb(array &$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function gesso_preprocess_menu(array &$variables) {
+  $current_path = \Drupal::request()->getRequestUri();
+  foreach ($variables['items'] as $key => $item) {
+    if ($item['url']->toString() == $current_path) {
+      $variables['items'][$key]['is_active'] = TRUE;
+    }
+  }
+}
