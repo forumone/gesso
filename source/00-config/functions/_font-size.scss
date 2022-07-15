@@ -1,0 +1,12 @@
+@use 'gesso' as *;
+@use 'sass:math';
+@use 'unit-convert' as *;
+
+@function ideal-font-size($min-size, $max-size) {
+  $min-width: rem(gesso-get-map(typography, responsive-font-size-min-width));
+  $max-width: rem(gesso-get-map(typography, responsive-font-size-max-width));
+  $slope: math.div($max-size - $min-size, $max-width - $min-width);
+  $intersection: -1 * $min-width * $slope + $min-size;
+  $ideal-size: $intersection + ' + ' + $slope * 100vw;
+  @return $ideal-size;
+}
