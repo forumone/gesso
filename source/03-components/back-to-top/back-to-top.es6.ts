@@ -24,7 +24,7 @@ Drupal.behaviors.backToTop = {
           backToTop.removeAttribute('tabIndex');
         } else if (
           window.scrollY < threshold &&
-          backToTop.setAttribute('aria-hidden', 'false')
+          backToTop.getAttribute('aria-hidden') === 'false'
         ) {
           backToTop.setAttribute('aria-hidden', 'true');
           backToTop.setAttribute('tabIndex', '-1');
