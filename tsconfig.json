@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "paths": {
+      "jquery": ["./node_modules/jquery/dist/jquery.js"],
+      "drupal": ["./.storybook/stubs/drupal.js"],
+      "drupalSettings": ["./.storybook/stubs/drupalSettings.js"],
+      "once": ["./.storybook/stubs/once.js"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "lib/**"
+  ]
+}

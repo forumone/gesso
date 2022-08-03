@@ -1,17 +1,18 @@
+import "./drupalSettings";
+
 // Simple Drupal.behaviors usage for Storybook
 // via https://github.com/emulsify-ds/emulsify-drupal/
 
 window.Drupal = { behaviors: {} };
-window.drupalSettings = {};
 
 (function (Drupal, drupalSettings) {
-  Drupal.throwError = function (error) {
+  Drupal.throwError = (error) => {
     setTimeout(function () {
       throw error;
     }, 0);
   };
 
-  Drupal.attachBehaviors = function (context, settings) {
+  Drupal.attachBehaviors = (context, settings) => {
     context = context || document;
     settings = settings || drupalSettings;
     const behaviors = Drupal.behaviors;
@@ -29,7 +30,9 @@ window.drupalSettings = {};
 
   Drupal.t = string => string;
 
-  Drupal.theme = function (themeFunction, options) {
+  Drupal.theme = (themeFunction, options) => {
     return Drupal.theme[themeFunction](options);
   };
 })(Drupal, window.drupalSettings);
+
+export default Drupal;
