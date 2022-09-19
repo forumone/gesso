@@ -4,7 +4,7 @@
 @use '../functions' as *;
 
 @mixin custom-responsive-font-size($min-size, $max-size, $ideal-size: 'auto') {
-  $min-size: rem($max-size);
+  $min-size: rem($min-size);
   $max-size: rem($max-size);
   @if $min-size == $max-size {
     font-size: $min-size;
