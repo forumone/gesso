@@ -84,12 +84,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /config\.design-tokens\.yml$/,
-        exclude: /node_modules/,
-        use: [path.resolve(__dirname, './lib/configLoader.js')],
-        type: 'asset/source',
-      },
-      {
         test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
