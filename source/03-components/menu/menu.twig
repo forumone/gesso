@@ -60,7 +60,7 @@
 
       {% set link_attributes = {
         'class': link_classes,
-        'aria-current': item.is_active ? 'page' : null,
+        'aria-current': item.is_active ? 'page' : 'false',
       } %}
 
       <li {{ add_attributes(additional_item_attributes) }}>
