@@ -107,10 +107,10 @@ function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $
   $type = isset($variables['element']['#type']) ? $variables['element']['#type'] : NULL;
 
   if (isset($type)) {
-    $suggestions[] = 'form-element__' . $type;
+    $suggestions[] = 'form_element__' . $type;
   }
 
   if (isset($id)) {
-    $suggestions[] = 'form-element__' . $id;
+    $suggestions[] = 'form_element__' . $id;
   }
 }
