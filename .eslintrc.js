@@ -39,6 +39,8 @@ module.exports = {
 
     'react/no-danger': 'off', // Necessary for Storybook
 
+    'no-underscore-dangle': 'off',
+
     'no-param-reassign': [
       // Allow modifying props, esp. for DOM Nodes
       'error',
@@ -46,6 +48,10 @@ module.exports = {
         props: false,
       },
     ],
+
+    // Ignore variables and arguments that are not used if they start with _.
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', {'varsIgnorePattern': '^_', 'argsIgnorePattern': '^_'}],
 
     // TS-eslint is smarter about how to implement this rule.
     'no-use-before-define': 'off',
