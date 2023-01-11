@@ -8,28 +8,28 @@
 } %}
 
 {# ID #}
-{% if id %}
+{% if id is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'id': id,
+    'id': id ~ '',
   }) %}
 {% endif %}
 
 {# Name #}
-{% if name %}
+{% if name is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'name': name,
+    'name': name ~ '',
   }) %}
 {% endif %}
 
 {# Input Type #}
-{% if type %}
+{% if type is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'type': type,
+    'type': type ~ '',
   }) %}
 {% endif %}
 
 {# Input Size #}
-{% if size %}
+{% if size is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
     'size': size ~ '',
   }) %}
@@ -43,66 +43,72 @@
 {% endif %}
 
 {# Placeholder #}
-{% if placeholder %}
+{% if placeholder is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'placeholder': placeholder,
+    'placeholder': placeholder ~ '',
   }) %}
 {% endif %}
 
 {# Step #}
-{% if step %}
+{% if step is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
     'step': step ~ '',
   }) %}
 {% endif %}
 
 {# Min #}
-{% if min %}
+{% if min is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
     'min': min ~ '',
   }) %}
 {% endif %}
 
 {# Max #}
-{% if max %}
+{% if max is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
     'max': max ~ '',
   }) %}
 {% endif %}
 
 {# Accept #}
-{% if accept %}
+{% if accept is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'accept': accept,
+    'accept': accept ~ '',
   }) %}
 {% endif %}
 
 {# Disabled #}
 {% if disabled or is_disabled %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'disabled': 'disabled',
+    'disabled': 'disabled' ~ '',
   }) %}
 {% endif %}
 
 {# Required #}
 {% if required or is_required %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'required': 'required',
-    'aria-required': 'true',
+    'required': 'required' ~ '',
+    'aria-required': 'true' ~ '',
   }) %}
 {% endif %}
 
 {# Checked #}
 {% if is_checked %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'checked': 'checked',
+    'checked': 'checked' ~ '',
   }) %}
 {% endif %}
 
 {# Described By #}
-{% if described_by %}
+{% if described_by is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'aria-describedby': described_by,
+    'aria-describedby': described_by ~ '',
+  }) %}
+{% endif %}
+
+{% if value is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'value': value ~ '',
   }) %}
 {% endif %}
 
