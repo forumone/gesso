@@ -1,3 +1,7 @@
+{% if required is defined %}
+  {% set is_required = required %}
+{% endif %}
+
 {% set label_classes = [
   'c-form-item__label',
   is_disabled ? 'is-disabled' : '',
