@@ -114,6 +114,9 @@ class MenubarItem extends MenuItem {
       if (this.domNode.getAttribute('aria-expanded') === 'true') {
         this.popupMenu.close(true);
       } else {
+        this.menu.menuItems.forEach(menuItem => {
+          menuItem.popupMenu.close();
+        });
         this.popupMenu.open();
       }
     }
