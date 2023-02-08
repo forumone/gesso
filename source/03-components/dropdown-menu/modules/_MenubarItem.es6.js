@@ -115,7 +115,9 @@ class MenubarItem extends MenuItem {
         this.popupMenu.close(true);
       } else {
         this.menu.menuItems.forEach(menuItem => {
-          menuItem.popupMenu.close();
+          if (menuItem.popupMenu) {
+            menuItem.popupMenu.close();
+          }
         });
         this.popupMenu.open();
       }
