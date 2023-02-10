@@ -2,18 +2,41 @@
 
 @use '00-config' as *;
 
+$button-spacing: rem(gesso-spacing(1));
+
 .c-button,
 %c-button {
   @include button();
-  margin-bottom: rem(gesso-spacing(1));
+  margin-bottom: $button-spacing;
 
   & + & {
-    margin-left: rem(gesso-spacing(1)); // LTR
+    margin-left: $button-spacing; // LTR
+
+    @supports selector(:has(*)) {
+      margin-left: 0;
+    }
 
     @if $support-for-rtl {
       [dir='rtl'] & {
         margin-left: 0;
-        margin-right: rem(gesso-spacing(1));
+        margin-right: $button-spacing;
+
+        @supports selector(:has(*)) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  @supports selector(:has(*)) {
+    &:has(+ #{&}) {
+      margin-right: $button-spacing;
+
+      @if $support-for-rtl {
+        [dir='rtl'] & {
+          margin-left: $button-spacing;
+          margin-right: 0;
+        }
       }
     }
   }
