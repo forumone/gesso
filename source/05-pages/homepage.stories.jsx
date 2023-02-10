@@ -59,7 +59,7 @@ const homepageContent = args => twigTemplate({
   homepage_grid_title: 'You Don’t Vote For Kings',
 });
 
-const Homepage = args => <PageWrapper>{parse(homepageContent(args))}</PageWrapper>;
+const Homepage = args => <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>;
 Homepage.args = {
   ...globalData,
 };
