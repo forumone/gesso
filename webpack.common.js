@@ -158,7 +158,7 @@ module.exports = {
         exclude: [/images\/_sprite-source-files\/.*\.svg$/, '/node_modules/'],
         type: 'asset',
         generator: {
-          filename: 'images/[hash][ext][query]',
+          filename: 'images/backgrounds/[hash][ext][query]',
         },
       },
     ],

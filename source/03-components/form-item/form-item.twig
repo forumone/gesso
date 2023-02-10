@@ -17,15 +17,15 @@
   description_display == 'invisible' ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}
 
-  {% set description_attributes_to_add = {
-    class: description_classes,
-  } %}
+{% set description_attributes_to_add = {
+  class: description_classes,
+} %}
 
-  {% if id %}
-    {% set description_attributes_to_add = description_attributes_to_add|merge({
-      id: id ~ '-description',
-    }) %}
-  {% endif %}
+{% if id %}
+  {% set description_attributes_to_add = description_attributes_to_add|merge({
+    id: id ~ '-description',
+  }) %}
+{% endif %}
 
 <div {{ add_attributes({class: classes}) }}>
   {% if label_display in ['before', 'invisible'] %}
