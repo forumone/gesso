@@ -8,8 +8,6 @@ $details-content-background-color: gesso-color(background, site) !default;
 $details-padding: rem(24px) !default;
 $details-text-color: gesso-color(text, on-light) !default;
 
-// 'details' can appear as a modernizr class on the html tag, so this
-// class is limited to only the details element
 .c-details {
   margin: 0 0 rem(gesso-spacing(4));
 }
