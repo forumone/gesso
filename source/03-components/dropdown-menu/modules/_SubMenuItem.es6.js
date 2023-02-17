@@ -15,6 +15,8 @@ class SubMenuItem extends MenuItem {
     super(domNode, menuObj);
     this.menu = menuObj;
     this.handleClick = this.handleClick.bind(this);
+    this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.handleToggleKeydown = this.handleToggleKeydown.bind(this);
   }
 
   /**
@@ -28,7 +30,19 @@ class SubMenuItem extends MenuItem {
       this.menu.options.submenuSelector
     );
     if (popupMenu) {
-      this.popupMenu = new PopupMenu(popupMenu, this);
+      if (!this.menu.options.displayMenuOnHover) {
+        this.toggleButton = document.createElement('button');
+        this.toggleButton.innerHTML =
+          '<span class="u-visually-hidden">Toggle Subnav</span>';
+        this.toggleButton.classList.add('c-dropdown-menu__subnav-toggle');
+        this.toggleButton.addEventListener('click', this.handleToggleClick);
+        this.toggleButton.addEventListener('keydown', this.handleToggleKeydown);
+        this.domNode.classList.remove('has-subnav');
+        popupMenu.insertAdjacentElement('beforebegin', this.toggleButton);
+      }
+      this.popupMenu = new PopupMenu(popupMenu, this, {
+        displayMenuOnHover: this.menu.options.displayMenuOnHover,
+      });
       this.popupMenu.init();
     }
     this.domNode.addEventListener('click', this.handleClick);
@@ -43,6 +57,14 @@ class SubMenuItem extends MenuItem {
       this.popupMenu.destroy();
     }
     this.domNode.removeEventListener('click', this.handleClick);
+    if (this.toggleButton) {
+      this.toggleButton.removeEventListener('click', this.handleToggleClick);
+      this.toggleButton.removeEventListener(
+        'keydown',
+        this.handleToggleKeydown
+      );
+      this.toggleButton.parentElement.removeChild(this.toggleButton);
+    }
   }
 
   /**
@@ -148,9 +170,12 @@ class SubMenuItem extends MenuItem {
    * Handle unsetting keyboard focus on the menu item.
    * @return {void}
    */
-  handleBlur() {
-    super.handleBlur();
-    setTimeout(this.menu.close.bind(this.menu, false), 300);
+  handleBlur(event) {
+    const { relatedTarget } = event;
+    if (!relatedTarget || !this.domNode.parentElement.contains(relatedTarget)) {
+      super.handleBlur(event);
+      setTimeout(this.menu.close.bind(this.menu, false), 300);
+    }
   }
 
   /**
@@ -174,6 +199,33 @@ class SubMenuItem extends MenuItem {
     this.menu.setHover(false);
     if (this.menu.options.displayMenuOnHover) {
       setTimeout(this.menu.close.bind(this.menu, false), 300);
+    }
+  }
+
+  /**
+   * @inheritDoc
+   */
+  setExpanded(value) {
+    const nodeToUpdate = this.toggleButton ? this.toggleButton : this.domNode;
+    if (value) {
+      nodeToUpdate.setAttribute('aria-expanded', 'true');
+    } else {
+      nodeToUpdate.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  handleToggleClick() {
+    if (this.toggleButton.getAttribute('aria-expanded') === 'true') {
+      this.popupMenu.close();
+    } else {
+      this.popupMenu.open();
+    }
+  }
+
+  handleToggleKeydown(event) {
+    const { key } = event;
+    if (key === 'ArrowLeft' || key === 'ArrowRight') {
+      this.handleToggleClick();
     }
   }
 }

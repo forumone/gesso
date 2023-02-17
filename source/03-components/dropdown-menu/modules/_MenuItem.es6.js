@@ -62,7 +62,7 @@ class MenuItem {
   }
 
   /**
-   * Get whether or not this is a top-level menu item on the menu bar.
+   * Get whether this is a top-level menu item on the menu bar.
    * @return {boolean}
    */
   getIsMenubarItem() {
@@ -87,9 +87,10 @@ class MenuItem {
 
   /**
    * Unset the menu has focused when the menu item no longer has keyboard focus.
+   * @param {FocusEvent} _event - The blur event.
    * @return {void}
    */
-  handleBlur() {
+  handleBlur(_event) {
     this.menu.setFocus(false);
   }
 
