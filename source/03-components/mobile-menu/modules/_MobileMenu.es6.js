@@ -76,6 +76,14 @@ class MobileMenu extends OverlayMenu {
     if (blockClone.id) {
       blockClone.id = `${blockClone.id}-mobile`;
     }
+    const childrenWithId = [...blockClone.querySelectorAll('[id]')];
+    if (blockClone.matches('[id]')) {
+      childrenWithId.push(blockClone);
+    }
+    childrenWithId.forEach((e) => {
+      e.id += '-mobile';
+    });
+
     return blockClone;
   }
 
