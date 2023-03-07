@@ -57,6 +57,7 @@ mega_menu:
   dependencies:
     - gesso/common
     - gesso/mobile_menu
+    - core/once
 
 mobile_menu:
   css:
