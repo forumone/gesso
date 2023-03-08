@@ -1,20 +1,26 @@
+{{ attach_library('core/drupal.dropbutton') }}
+
 {% set classes = [
-  'dropbutton',
+  'c-dropbutton',
   'js-dropbutton',
   'has-multiple',
   modifier_classes ? modifier_classes,
 ]|join(' ')|trim %}
 
-<div class="{{ classes }}">
-  <ul class="dropbutton__list js-dropbutton-list">
-    <li class="dropbutton__item is-action">
-      <a class="button dropbutton__button" href="#">Primary Action</a>
+<div {{ add_attributes({class: classes}) }}>
+  <ul class="c-dropbutton__list js-dropbutton-list">
+    {%- for item in links -%}
+    <li {{ add_attributes({class: "c-dropbutton__item"}, 'item.attributes') }}>
+      {%- if item.link -%}
+        <a {{ add_attributes({class: 'c-button c-dropbutton__button'}, 'item.link.attributes') }}{% if item.href %} href={{ item.href }}{% endif %}>
+          {{ item.text }}
+        </a>
+      {%- elseif item.text_attributes -%}
+        <span{{ item.text_attributes }}>{{ item.text }}</span>
+      {%- else -%}
+        {{ item.text }}
+      {%- endif -%}
     </li>
-    <li class="dropbutton__item is-secondary-action">
-      <a class="button dropbutton__button" href="#">Secondary Action</a>
-    </li>
-    <li class="dropbutton__item is-secondary-action">
-      <a class="button dropbutton__button" href="#">Another Secondary Action</a>
-    </li>
+    {%- endfor -%}
   </ul>
 </div>

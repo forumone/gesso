@@ -1,4 +1,3 @@
-import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './list.twig';
@@ -18,7 +17,7 @@ Default.args = { ...data };
 const Border = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'list--border',
+    modifier_classes: 'c-list--border',
   }))
 );
 Border.args = { ...data };
@@ -26,7 +25,7 @@ Border.args = { ...data };
 const Clean = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'list--clean',
+    modifier_classes: 'c-list--clean',
   }))
 );
 Clean.args = { ...data };
@@ -34,7 +33,7 @@ Clean.args = { ...data };
 const Column = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'list--column',
+    modifier_classes: 'c-list--column',
   }))
 );
 Column.args = { ...data };
@@ -42,7 +41,7 @@ Column.args = { ...data };
 const Inline = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'list--inline',
+    modifier_classes: 'c-list--inline',
   }))
 );
 Inline.args = { ...data };
@@ -50,7 +49,7 @@ Inline.args = { ...data };
 const Pipeline = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'list--pipeline',
+    modifier_classes: 'c-list--pipeline',
   }))
 );
 Pipeline.args = { ...data };

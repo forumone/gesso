@@ -82,7 +82,8 @@ $button-font-size: gesso-base-font-size() !default;
     color: $color-text-hover;
   }
 
-  &:active {
+  &:active,
+  &.is-active {
     background-color: $color-background-active;
     color: $color-text-active;
   }

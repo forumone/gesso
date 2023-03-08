@@ -1,5 +1,8 @@
 ---
-label: 'Checkboxes'
+legend:
+  title: 'Checkboxes'
 is_disabled: false
 is_required: false
-description: 'The description for this form field.'
+description:
+  content: 'The description for this fieldset'
+id: 'checkboxes'

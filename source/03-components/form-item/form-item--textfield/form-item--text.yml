@@ -1,0 +1,16 @@
+---
+title: 'Text'
+label_display: 'before'
+description_display: 'after'
+placeholder: 'Placeholder'
+is_disabled: false
+is_full_width: false
+is_required: false
+prefix: ''
+suffix: ''
+description:
+  content: 'The description for this form field.'
+size: 60
+max_length: 128
+errors: ''
+type: 'text'

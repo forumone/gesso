@@ -17,8 +17,8 @@
 {% endif %}
 
 {% set classes = [
-  view_mode != '' ? ('figure--' ~ view_mode)|clean_class,
-  media_bundle ? ('figure--' ~ media_bundle)|clean_class,
+  view_mode != '' ? ('c-figure--' ~ view_mode)|clean_class,
+  media_bundle ? ('c-figure--' ~ media_bundle)|clean_class,
   align == 'center' ? 'u-align-center',
   align == 'left' ? 'u-align-left',
   align == 'right' ? 'u-align-right',

@@ -1,0 +1,115 @@
+{% set classes = [
+  'c-form-item__' ~ type,
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set attributes_to_add = {
+  class: classes,
+} %}
+
+{# ID #}
+{% if id is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'id': id ~ '',
+  }) %}
+{% endif %}
+
+{# Name #}
+{% if name is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'name': name ~ '',
+  }) %}
+{% endif %}
+
+{# Input Type #}
+{% if type is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'type': type ~ '',
+  }) %}
+{% endif %}
+
+{# Input Size #}
+{% if size is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'size': size ~ '',
+  }) %}
+{% endif %}
+
+{# Max Length #}
+{% if max_length is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'maxlength': max_length ~ '',
+  }) %}
+{% endif %}
+
+{# Placeholder #}
+{% if placeholder is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'placeholder': placeholder ~ '',
+  }) %}
+{% endif %}
+
+{# Step #}
+{% if step is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'step': step ~ '',
+  }) %}
+{% endif %}
+
+{# Min #}
+{% if min is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'min': min ~ '',
+  }) %}
+{% endif %}
+
+{# Max #}
+{% if max is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'max': max ~ '',
+  }) %}
+{% endif %}
+
+{# Accept #}
+{% if accept is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'accept': accept ~ '',
+  }) %}
+{% endif %}
+
+{# Disabled #}
+{% if disabled or is_disabled %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'disabled': 'disabled' ~ '',
+  }) %}
+{% endif %}
+
+{# Required #}
+{% if required or is_required %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'required': 'required' ~ '',
+    'aria-required': 'true' ~ '',
+  }) %}
+{% endif %}
+
+{# Checked #}
+{% if is_checked %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'checked': 'checked' ~ '',
+  }) %}
+{% endif %}
+
+{# Described By #}
+{% if described_by is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'aria-describedby': described_by ~ '',
+  }) %}
+{% endif %}
+
+{% if value is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'value': value ~ '',
+  }) %}
+{% endif %}
+
+<input {{ add_attributes(attributes_to_add)}}>

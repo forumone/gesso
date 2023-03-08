@@ -2,6 +2,6 @@
 
 @use '00-config' as *;
 
-.menu--footer {
+.c-menu--footer {
   @include list-inline();
 }

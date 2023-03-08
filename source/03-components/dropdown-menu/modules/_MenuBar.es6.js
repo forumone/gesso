@@ -10,7 +10,7 @@ class MenuBar extends Menu {
     {
       useArrowKeys = true,
       displayMenuOnHover = true,
-      submenuSelector = '.dropdown-menu__subnav',
+      submenuSelector = '.c-dropdown-menu__subnav',
     } = {}
   ) {
     super(domNode, { useArrowKeys, displayMenuOnHover, submenuSelector });
@@ -28,7 +28,7 @@ class MenuBar extends Menu {
       const menuBarItem = elem.firstElementChild;
       if (elem && menuBarItem && !this.isValidTag(menuBarItem.tagName)) {
         throw new Error(
-          `${msgPrefix} has child elements that are not A or Button elements. If you need to create a non-linked menu item within your menu, use 'route:<button>' instead of '<nolink>' in the link field.`
+          `${msgPrefix} has child elements that are not A or Button elements. If you need to create a non-linked menu item within your menu, use '<button>' instead of '<nolink>' in the link field.`
         );
       }
       elem = elem.nextElementSibling;

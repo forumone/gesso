@@ -1,0 +1,16 @@
+---
+title: 'Email'
+label_display: 'before'
+description_display: 'after'
+placeholder: 'email@example.com'
+is_disabled: false
+is_full_width: false
+is_required: false
+prefix: ''
+suffix: ''
+description:
+  content: 'The description for this form field.'
+size: 60
+max_length: 255
+errors: ''
+type: 'email'

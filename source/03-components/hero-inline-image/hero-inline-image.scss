@@ -4,7 +4,7 @@
 
 $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 
-.hero-inline-image {
+.c-hero-inline-image {
   @include breakpoint($hero-inline-image-bp) {
     color: gesso-color(text, on-dark);
     position: relative;
@@ -22,14 +22,14 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
         z-index: 1;
       }
 
-      .hero-inline-image__content {
+      .c-hero-inline-image__content {
         z-index: 2;
       }
     }
   }
 }
 
-.hero-inline-image__media {
+.c-hero-inline-image__media {
   display: block;
   line-height: 0;
   margin-bottom: rem(gesso-spacing(3));
@@ -44,7 +44,7 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
   }
 }
 
-.hero-inline-image__content {
+.c-hero-inline-image__content {
   @include breakpoint($hero-inline-image-bp) {
     bottom: 5%;
     display: flex;
@@ -57,7 +57,7 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
   }
 }
 
-.hero-inline-image__title {
+.c-hero-inline-image__title {
   @include display-text-style(display);
   margin-bottom: rem(gesso-spacing(3));
 
@@ -67,11 +67,11 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
   }
 
   @include breakpoint-max($hero-inline-image-bp, true) {
-    font-size: rem(gesso-font-size(7));
+    font-size: rem(gesso-font-size(8));
   }
 }
 
-.hero-inline-image__summary {
+.c-hero-inline-image__summary {
   @include display-text-style(body-large);
   margin-bottom: rem(gesso-spacing(3));
 
@@ -81,8 +81,8 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
   }
 }
 
-.hero-inline-image--left {
-  .hero-inline-image__content {
+.c-hero-inline-image--left {
+  .c-hero-inline-image__content {
     @include breakpoint($hero-inline-image-bp) {
       align-items: flex-start;
       left: 10%;
@@ -91,8 +91,8 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
   }
 }
 
-.hero-inline-image--right {
-  .hero-inline-image__content {
+.c-hero-inline-image--right {
+  .c-hero-inline-image__content {
     @include breakpoint($hero-inline-image-bp) {
       align-items: flex-start;
       left: 35%;

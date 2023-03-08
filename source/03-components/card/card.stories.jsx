@@ -1,4 +1,3 @@
-import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './card.twig';
@@ -18,7 +17,7 @@ Default.args = { ...data };
 const FeatureCard = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'card--feature',
+    modifier_classes: 'c-card--feature',
   }))
 );
 FeatureCard.args = { ...data };

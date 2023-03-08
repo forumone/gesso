@@ -1,0 +1,35 @@
+{% if required is defined %}
+  {% set is_required = required %}
+{% endif %}
+
+{% set label_classes = [
+  'c-form-item__label',
+  is_disabled ? 'is-disabled' : '',
+  is_required ? 'is-required' : '',
+  title_display == 'invisible' ? 'u-visually-hidden' : '',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set attributes_to_add = {
+  class: label_classes,
+} %}
+
+{% if id %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    for: id,
+  }) %}
+{% endif %}
+
+<label {{ add_attributes(attributes_to_add) }}>
+  {{- title }}
+
+  {% if is_required %}
+    {%- spaceless %}
+      <span class="c-form-item__required-marker">
+        <span class="u-visually-hidden">
+          {{ 'This field is required.'|t }}
+        </span>
+      </span>
+    {% endspaceless -%}
+  {% endif -%}
+</label>

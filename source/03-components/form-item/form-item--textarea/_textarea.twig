@@ -1,0 +1,60 @@
+{% set classes = [
+  'c-form-item__textarea',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set attributes_to_add = {
+  class: classes,
+} %}
+
+{# ID #}
+{% if id %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    id: id,
+  }) %}
+{% endif %}
+
+{# Cols #}
+{% if cols %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    cols: cols ~ '',
+  }) %}
+{% endif %}
+
+{# Rows #}
+{% if rows %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    rows: rows ~ '',
+  }) %}
+{% endif %}
+
+{# Placeholder #}
+{% if placeholder %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    placeholder: placeholder,
+  }) %}
+{% endif %}
+
+{# Disabled #}
+{% if disabled or is_disabled %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    disabled: 'disabled',
+  }) %}
+{% endif %}
+
+{# Required #}
+{% if required or is_required %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    required: 'required',
+    'aria-required': 'true',
+  }) %}
+{% endif %}
+
+{# Described by #}
+{% if described_by %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'aria-describedby': described_by,
+  }) %}
+{% endif %}
+
+<textarea {{ add_attributes(attributes_to_add) }}>{{ value }}</textarea>

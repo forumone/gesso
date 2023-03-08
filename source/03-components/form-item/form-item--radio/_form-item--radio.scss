@@ -3,12 +3,12 @@
 @use '00-config' as *;
 @use '../form-item' as *;
 
-.form-item--radio {
+.c-form-item--radio {
   & + & {
     margin-top: -1 * gesso-spacing(2);
   }
 
-  .form-item__radio {
+  .c-form-item__radio {
     @include focus();
     appearance: none;
     background-color: gesso-color(form, background-unchecked);
@@ -37,13 +37,13 @@
       opacity: $form-disabled-opacity;
     }
 
-    + .form-item__label {
+    + .c-form-item__label {
       cursor: pointer;
       display: inline;
       font-weight: gesso-font-weight(regular);
     }
 
-    &:disabled + .form-item__label {
+    &:disabled + .c-form-item__label {
       cursor: default;
       opacity: $form-disabled-opacity;
     }

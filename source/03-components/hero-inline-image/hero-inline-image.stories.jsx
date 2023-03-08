@@ -1,4 +1,3 @@
-import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './hero-inline-image.twig';
@@ -19,7 +18,7 @@ Default.args = { ...data };
 const Left = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'hero-inline-image--left',
+    modifier_classes: 'c-hero-inline-image--left',
   }))
 );
 Left.args = { ...data };
@@ -27,7 +26,7 @@ Left.args = { ...data };
 const Right = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'hero-inline-image--right',
+    modifier_classes: 'c-hero-inline-image--right',
   }))
 );
 Right.args = { ...data };

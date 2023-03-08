@@ -1,0 +1,37 @@
+// Mixins: Responsive Font Size
+
+@use '../config.settings' as *;
+@use '../functions' as *;
+
+@mixin custom-responsive-font-size($min-size, $max-size, $ideal-size: 'auto') {
+  $min-size: rem($min-size);
+  $max-size: rem($max-size);
+  @if $min-size == $max-size {
+    font-size: $min-size;
+  } @else {
+    @if $ideal-size == 'auto' {
+      // For more details on how we calculate the ideal size:
+      // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+      $ideal-size: ideal-font-size($min-size, $max-size);
+    } @else {
+      $ideal-size: rem($ideal-size);
+    }
+
+    font-size: clamp(#{$min-size}, #{$ideal-size}, #{$max-size});
+    // stylelint-disable-next-line
+    -webkit-marquee-increment: 0vw; // Needed to get clamp() to work in Safari.
+  }
+}
+
+@mixin responsive-font-size($font-scale) {
+  $min-size: gesso-get-map(typography, responsive-font-size, $font-scale, min);
+  $max-size: gesso-get-map(typography, responsive-font-size, $font-scale, max);
+  $ideal-size: gesso-get-map(
+    typography,
+    responsive-font-size,
+    $font-scale,
+    val
+  );
+
+  @include custom-responsive-font-size($min-size, $max-size, $ideal-size);
+}

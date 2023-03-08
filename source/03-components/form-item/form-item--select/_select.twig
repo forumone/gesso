@@ -1,0 +1,52 @@
+{% set classes = [
+  'c-form-item__select',
+  'c-form-item--select',
+  modifier_classes ? modifier_classes : '',
+  is_required or required ? 'is-required' : '',
+]|join(' ')|trim %}
+
+{% set attributes_to_add = {
+  class: classes,
+} %}
+
+{% if id %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    id: id,
+  }) %}
+{% endif %}
+
+{% if is_disabled or disabled %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    disabled: 'disabled',
+  }) %}
+{% endif %}
+
+{% if is_required or required %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    required: 'required',
+    'aria-required': 'true',
+  }) %}
+{% endif %}
+
+{# Described by #}
+{% if described_by %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'aria-describedby': described_by,
+  }) %}
+{% endif %}
+
+{% apply spaceless %}
+  <select {{ add_attributes(attributes_to_add) }}>
+    {% for option in options %}
+      {% if option.type == 'optgroup' %}
+        <optgroup label="{{ option.label }}">
+          {% for sub_option in option.options %}
+            <option value="{{ sub_option.value }}"{{ sub_option.selected ? ' selected="selected"' }}{{ sub_option.disabled ? ' disabled="disabled"' }}>{{ sub_option.label }}</option>
+          {% endfor %}
+        </optgroup>
+      {% elseif option.type == 'option' %}
+        <option value="{{ option.value }}"{{ option.selected ? ' selected="selected"' }}{{ option.disabled ? ' disabled="disabled"' }}>{{ option.label }}</option>
+      {% endif %}
+    {% endfor %}
+  </select>
+{% endapply %}

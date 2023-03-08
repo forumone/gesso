@@ -1,7 +1,0 @@
----
-fieldset_legend: 'Fieldset'
-fieldset_content: |-
-  <p>Fieldset content goes here&hellip;</p>
-fieldset_description: |-
-  <p>The description for this fieldset.</p>
-is_disabled: false

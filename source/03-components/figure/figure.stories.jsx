@@ -1,4 +1,3 @@
-import React from 'react';
 import parse from 'html-react-parser';
 
 import twigTemplate from './figure.twig';
@@ -43,7 +42,7 @@ FigureRightAligned.args = { ...data };
 const FigureWithVideo = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'figure--iframe',
+    modifier_classes: 'c-figure--iframe',
   }))
 );
 FigureWithVideo.args = { ...videoData };
@@ -51,7 +50,7 @@ FigureWithVideo.args = { ...videoData };
 const FigureWithVideoCentered = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'figure--iframe u-align-center',
+    modifier_classes: 'c-figure--iframe u-align-center',
   }))
 );
 FigureWithVideoCentered.args = { ...videoData };
@@ -59,7 +58,7 @@ FigureWithVideoCentered.args = { ...videoData };
 const FigureWithVideoLeftAligned = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'figure--iframe u-align-left',
+    modifier_classes: 'c-figure--iframe u-align-left',
   }))
 );
 FigureWithVideoLeftAligned.args = { ...videoData };
@@ -67,7 +66,7 @@ FigureWithVideoLeftAligned.args = { ...videoData };
 const FigureWithVideoRightAligned = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'figure--iframe u-align-right',
+    modifier_classes: 'c-figure--iframe u-align-right',
   }))
 );
 FigureWithVideoRightAligned.args = { ...videoData };

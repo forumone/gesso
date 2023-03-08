@@ -1,0 +1,3 @@
+steps:
+  - label: "Mirror push script"
+    command: "bash .buildkite/build.sh"

@@ -2,7 +2,7 @@
 
 @use '00-config' as *;
 
-.figure {
+.c-figure {
   display: table;
   margin-bottom: rem(gesso-spacing(2));
   margin-top: 0;
@@ -25,20 +25,41 @@
       max-width: calc(50% - #{rem(gesso-spacing(2))});
     }
   }
+
+  // Tweak styling in WYSIWYG editor.
+  @if $wysiwyg {
+    // stylelint-disable
+    .cke_widget_wrapper:hover & {
+      outline: 2px solid #ffd25c;
+    }
+
+    .cke_widget_wrapper.cke_widget_focused &,
+    .cke_widget_wrapper.cke_widget_editable_focused & {
+      outline: 2px solid #47a4f5;
+    }
+    // stylelint-enable
+
+    .media-library-item__edit {
+      left: rem(gesso-spacing(1));
+      position: absolute;
+      right: initial;
+      top: rem(gesso-spacing(1));
+    }
+  }
 }
 
-.figure__caption {
+.c-figure__caption {
   caption-side: bottom;
   display: table-caption;
   font-weight: gesso-font-weight(semibold);
   margin-top: rem(gesso-spacing(1));
 }
 
-.figure--iframe {
+.c-figure--iframe {
   display: block;
   width: 100%;
 
-  .figure__caption {
+  .c-figure__caption {
     display: block;
   }
 }

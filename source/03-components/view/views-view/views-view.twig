@@ -1,5 +1,5 @@
 {% set classes = [
-  'view',
+  'c-view',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
@@ -9,13 +9,13 @@
   {{ title_suffix }}
 
   {% if header %}
-    <div class="view__header">
+    <div class="c-view__header">
       {{- header -}}
     </div>
   {% endif %}
 
   {% if exposed %}
-    <div class="view__exposed">
+    <div class="c-view__exposed">
       {{- exposed -}}
     </div>
   {% endif %}
@@ -25,7 +25,7 @@
   {% if rows %}
     {{- rows -}}
   {% elseif empty %}
-    <div class="view__empty">
+    <div class="c-view__empty">
       {{- empty -}}
     </div>
   {% endif %}
@@ -35,7 +35,7 @@
   {{ more }}
 
   {% if footer %}
-    <div class="view__footer">
+    <div class="c-view__footer">
       {{- footer -}}
     </div>
   {% endif %}

@@ -1,7 +1,10 @@
 ---
-fieldset_legend: 'Fieldset'
-fieldset_content: |-
+legend:
+  title: 'Fieldset'
+children: |-
   <p>Fieldset content goes here&hellip;</p>
-fieldset_description: |-
-  <p>The description for this fieldset.</p>
-modifier_classes: ''
+description:
+  content: |-
+    <p>The description for this fieldset.</p>
+modifier_classes: 'c-fieldset--default'
+id: 'fieldset'

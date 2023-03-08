@@ -1,0 +1,17 @@
+---
+title: 'Date'
+label_display: 'before'
+description_display: 'after'
+placeholder: ''
+is_disabled: false
+is_full_width: false
+is_required: false
+prefix: ''
+suffix: ''
+description:
+  content: 'The description for this form field.'
+size: 12
+min: '1900-01-01'
+max: '2050-12-31'
+errors: ''
+type: 'date'

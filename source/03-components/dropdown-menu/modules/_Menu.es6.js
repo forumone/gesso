@@ -14,7 +14,7 @@ class Menu {
     {
       useArrowKeys = true,
       displayMenuOnHover = true,
-      submenuSelector = '.dropdown-menu__subnav',
+      submenuSelector = '.c-dropdown-menu__subnav',
     } = {}
   ) {
     this.domNode = domNode; // DOM node containing the menu.
@@ -57,7 +57,7 @@ class Menu {
   init() {
     // Set up any and all submenu items.
     if (this.domNode.children.length > 0) {
-      const nodesArray = [...this.domNode.children];
+      const nodesArray = Array.from(this.domNode.children);
       nodesArray.forEach(childElement => {
         const menuElement = childElement.firstElementChild;
         if (menuElement && this.isValidTag(menuElement.tagName)) {

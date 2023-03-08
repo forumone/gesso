@@ -1,8 +1,8 @@
 {% set classes = [
-  'skiplinks',
+  'c-skiplinks',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 <div {{ add_attributes({ 'class': classes })}}>
-  <a href="#main" class="skiplinks__link visually-hidden focusable">{{ 'Skip to main content'|t }}</a>
+  <a href="#main" class="c-skiplinks__link u-visually-hidden u-focusable">{{ 'Skip to main content'|t }}</a>
 </div>

@@ -13,6 +13,7 @@ module.exports = {
     },
     '@storybook/addon-a11y',
   ],
+  staticDirs: ['../dist'],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
       test: /\.twig$/,
@@ -57,7 +58,8 @@ module.exports = {
         {
           loader: 'sass-loader',
           options: {
-            implementation: require('sass'),
+            implementation: require('sass-embedded'),
+            webpackImporter: false,
             sassOptions: {
               includePaths: [path.resolve(__dirname, '../source')],
             },

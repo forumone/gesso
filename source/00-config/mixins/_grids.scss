@@ -12,7 +12,11 @@
   $gutter-width: gesso-get-map(gutter-width),
   $item-min-width: false
 ) {
-  $column-percentage: if($columns > 0, percentage(math.div(1, $columns)), 100%);
+  $column-percentage: if(
+    $columns > 0,
+    math.percentage(math.div(1, $columns)),
+    100%
+  );
 
   flex-basis: auto;
   flex-grow: 0;

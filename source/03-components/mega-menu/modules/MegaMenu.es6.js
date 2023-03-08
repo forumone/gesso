@@ -14,13 +14,13 @@ class MegaMenu {
     this.menuSections = [];
     this.openIndex = null;
     this.useArrowKeys = useArrowKeys;
-    this.topLevelItems = [
-      ...this.menu.querySelectorAll('button[aria-expanded][aria-controls]'),
-    ];
+    this.topLevelItems = Array.from(
+      this.menu.querySelectorAll('button[aria-expanded][aria-controls]')
+    );
     if (this.useArrowKeys) {
       this.topLevelItems = [
         ...this.topLevelItems,
-        ...this.menu.querySelectorAll('a.js-top-level'),
+        ...Array.from(this.menu.querySelectorAll('a.js-top-level')),
       ];
     }
     this.handleClickAnywhere = this.handleClickAnywhere.bind(this);
@@ -190,9 +190,9 @@ class MegaMenu {
    * @return {void}
    */
   prepSection(button) {
-    const section = button.parentNode.querySelector('.mega-menu__section');
+    const section = button.parentNode.querySelector('.c-mega-menu__section');
     if (!section) return;
-    const closeButton = section.querySelector('.mega-menu__section-close');
+    const closeButton = section.querySelector('.c-mega-menu__section-close');
     this.menuSections.push(section);
     button.setAttribute('aria-expanded', 'false');
     this.toggleSection(section, true);
@@ -218,7 +218,7 @@ class MegaMenu {
    * @return {void}
    */
   handleClickAnywhere(event) {
-    if (!event.target.closest('.mega-menu')) {
+    if (!event.target.closest('.c-mega-menu')) {
       this.toggleExpand(this.openIndex, false);
       this.closeMenu();
     }

@@ -1,0 +1,74 @@
+{% set class_type = type == 'textfield' ? 'text' : type %}
+
+{% set classes = [
+  'c-form-item',
+  'c-form-item--' ~ class_type,
+  label_display not in ['after', 'before'] ? 'has-no-label' : '',
+  label_display not in ['invisible'] and label_display in ['after'] ? 'has-visible-label-after' : '',
+  errors ? 'has-error' : '',
+  disabled == 'disabled' or is_disabled ? 'is-disabled' : '',
+  required == 'required' or is_required ? 'is-required': '',
+  is_full_width ? 'is-full-width' : '',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set description_classes = [
+  'c-form-item__description',
+  description_display == 'invisible' ? 'u-visually-hidden' : '',
+]|join(' ')|trim %}
+
+{% set description_attributes_to_add = {
+  class: description_classes,
+} %}
+
+{% if id %}
+  {% set description_attributes_to_add = description_attributes_to_add|merge({
+    id: id ~ '-description',
+  }) %}
+{% endif %}
+
+<div {{ add_attributes({class: classes}) }}>
+  {% if label_display in ['before', 'invisible'] %}
+    {{ label }}
+  {% endif %}
+
+  {% if prefix or suffix %}
+  <div class="c-form-item__element">
+    {% endif %}
+
+    {% if prefix %}
+      <span class="c-form-item__prefix">{{ prefix }}</span>
+    {% endif %}
+
+    {% if description_display == 'before' and description.content %}
+      <div {{ add_attributes(description_attributes_to_add, 'description.attributes') }}>
+        {{ description.content }}
+      </div>
+    {% endif %}
+
+    {{ children }}
+
+    {% if suffix %}
+      <span class="c-form-item__suffix">{{ suffix }}</span>
+    {% endif %}
+
+    {% if prefix or suffix %}
+  </div>
+  {% endif %}
+
+  {% if label_display == 'after' %}
+    {{ label }}
+  {% endif %}
+
+  {% if errors %}
+    <div class="c-form-item__error-message">
+      {{ errors }}
+    </div>
+  {% endif %}
+
+  {% if description_display in ['after', 'invisible'] and description.content %}
+    <div {{ add_attributes(description_attributes_to_add, 'description.attributes') }}>
+      {{ description.content }}
+    </div>
+  {% endif %}
+</div>

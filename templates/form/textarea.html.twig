@@ -14,9 +14,7 @@
  */
 #}
 {% set classes = [
-  'form-item__textarea',
   resizable ? 'is-resizable',
-  required ? 'is-required',
 ] %}
 
 {% set remove_classes = [
@@ -24,4 +22,6 @@
   'required',
 ] %}
 
-<textarea{{ attributes.removeClass(remove_classes).addClass(classes) }}>{{ value }}</textarea>
+{% set attributes = attributes.removeClass(remove_classes).addClass(classes) %}
+
+{% include '@components/form-item/form-item--textarea/_textarea.twig' %}

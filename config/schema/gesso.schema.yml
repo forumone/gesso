@@ -1,0 +1,18 @@
+# Schema for the configuration files of the Gesso theme.
+
+gesso.settings:
+  type: theme_settings
+  label: 'Gesso settings'
+  mapping:
+    include_back_to_top:
+      type: integer
+      label: 'Include back to top'
+    threshold:
+      type: string
+      label: 'Back to top scroll threshold'
+    smooth_scroll:
+      type: integer
+      label: 'Enable back to top smooth scroll'
+    include_current_page_in_breadcrumb:
+      type: integer
+      label: 'Include current page in breadcrumb'

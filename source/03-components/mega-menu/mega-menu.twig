@@ -3,44 +3,44 @@
 {% import '@components/mega-menu/_menu-links-macro.twig' as menus %}
 
 {% set classes = [
-  'mega-menu',
+  'c-mega-menu',
   modifier_classes ? modifier_classes : ''
 ] %}
 
 <ul {{ add_attributes({ 'class': classes }) }}>
   {% for item in items %}
     {% set item_classes = [
-      'mega-menu__item',
+      'c-mega-menu__item',
       item.below ? 'has-subnav' : '',
       item.in_active_trail ? 'in-active-trail' : '',
     ] %}
     {% set item_description = item.description %}
-    <li {{ add_attributes({ 'class': item_classes }) }}>
+    <li {{ add_attributes({ 'class': item_classes}) }}>
       {% if item.below %}
-        <button class="js-top-level mega-menu__link" aria-expanded="false" aria-controls="mega-menu-{{ menu_name }}--{{ loop.index }}">
+        <button class="c-mega-menu__link js-top-level" aria-expanded="false" aria-controls="mega-menu-{{ menu_name }}--{{ loop.index }}" aria-current="{{ item.is_active ? 'page' : 'false' }}">
           <span>{{ item.title }}</span>
         </button>
-        <div class="mega-menu__section" id="mega-menu-{{ menu_name }}--{{ loop.index }}" hidden>
-          <div class="mega-menu__section-inner">
-            <div class="mega-menu__overview">
-              <h2 class="mega-menu__section-title">{{ item.title }}</h2>
+        <div class="c-mega-menu__section" id="mega-menu-{{ menu_name }}--{{ loop.index }}" hidden>
+          <div class="c-mega-menu__section-inner">
+            <div class="c-mega-menu__overview">
+              <h2 class="c-mega-menu__section-title">{{ item.title }}</h2>
             </div>
             {{ menus.menu_links(item.below, attributes, 1) }}
             {% block featured %}
               {{ item.featured }}
             {% endblock %}
           </div>
-          <button aria-label="{{ 'Close menu'|t }}" class="mega-menu__section-close menu__section-close">
+          <button aria-label="{{ 'Close menu'|t }}" class="c-mega-menu__section-close c-menu__section-close">
             {% include '@components/icon/icon.twig' with {
               icon_name: 'close',
-              modifier_classes: 'menu__close-icon',
+              modifier_classes: 'c-menu__close-icon',
               is_hidden: true,
               gesso_image_path: gesso_image_path
             } %}
           </button>
         </div>
       {% else %}
-        {{ link(item.title, item.url, {class: ['mega-menu__link js-top-level']}) }}
+        {{ link(item.title, item.url, {class: ['c-mega-menu__link js-top-level']}) }}
       {% endif %}
     </li>
   {% endfor %}
