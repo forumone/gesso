@@ -4,9 +4,9 @@ import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
 
 class MobileMenu extends OverlayMenu {
   /**
-   * @constructor
-   * @param {HTMLElement} domNode - The menu to turn into a mobile menu
-   * @param context
+   * Menu options
+   *
+   * @typedef {Object} MobileMenuOpts
    * @param {string|null} searchBlockClass - Optional selector for the search block.
    *   If included, the search block will be cloned into the mobile menu. Set to
    *   null to omit the search block from the mobile menu.
@@ -16,6 +16,13 @@ class MobileMenu extends OverlayMenu {
    * @param {boolean} toggleSubnav - Whether sub-menus should be hidden initially and toggleable.
    * @param {string} mobileMenuBreakpoint - Breakpoint at which to switch to the mobile menu.
    * @param {string} classPrefix - BEM prefix used for original menu classes, e.g. '.dropdown-menu'
+   */
+
+  /**
+   * @constructor
+   * @param {HTMLElement} domNode - The menu to turn into a mobile menu
+   * @param context
+   * @param {MobileMenuOpts} options - Menu options
    */
   constructor(
     domNode,
@@ -238,7 +245,9 @@ class MobileMenu extends OverlayMenu {
   enableTab(startingPoint) {
     super.enableTab(startingPoint);
     if (this.options.toggleSubnav) {
-      let subSections = startingPoint.querySelectorAll('.c-mobile-menu__section');
+      let subSections = startingPoint.querySelectorAll(
+        '.c-mobile-menu__section'
+      );
       if (!subSections.length) {
         subSections = startingPoint.querySelectorAll('.c-mobile-menu__subnav');
       }

@@ -55,11 +55,12 @@
       {% endif %}
 
       {% set additional_item_attributes = {
-        'class': item_classes
+        'class': item_classes,
       } %}
 
       {% set link_attributes = {
-        'class': link_classes
+        'class': link_classes,
+        'aria-current': item.is_active ? 'page' : 'false',
       } %}
 
       <li {{ add_attributes(additional_item_attributes) }}>

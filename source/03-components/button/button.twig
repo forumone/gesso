@@ -1,15 +1,17 @@
-{% set classes = [
-  'c-button',
-  modifier_classes ? modifier_classes : '',
-]|join(' ')|trim %}
+{% spaceless %}
+  {% set classes = [
+    'c-button',
+    modifier_classes ? modifier_classes : '',
+  ]|join(' ')|trim %}
 
-{% if is_button_tag %}
-  <button {{ add_attributes({ 'class': classes }) }}{% if is_disabled %} disabled{% endif %}{% if button_type %} type="{{ button_type }}"{% endif %}>{{ text }}</button>
-{% else %}
-  {{ link(text, url, {'class': classes}) }}
-{% endif %}
+  {% if is_button_tag %}
+    <button {{ add_attributes({ 'class': classes }) }}{% if is_disabled %} disabled{% endif %}{% if button_type %} type="{{ button_type }}"{% endif %}>{{ text }}</button>
+  {% else %}
+    {{ link(text, url, {'class': classes}) }}
+  {% endif %}
 
-{% if is_demo %}
-  {{ link(text_demo, url, {'class': classes}) }}
-  <button {{ add_attributes({ 'class': classes }) }} disabled>Disabled {{ text }}</button>
-{% endif %}
+  {% if is_demo %}
+    {{ link(text_demo, url, {'class': classes}) }}
+    <button {{ add_attributes({ 'class': classes }) }} disabled>Disabled {{ text }}</button>
+  {% endif %}
+{% endspaceless -%}
