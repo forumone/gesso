@@ -1,5 +1,6 @@
 import Drupal from 'drupal';
 import KEYCODE from '../../00-config/_KEYCODE.es6';
+import { TRANSITIONS } from '../../00-config/_GESSO.es6';
 import { slideExpand, slideCollapse } from '../../06-utility/_slide.es6';
 
 Drupal.behaviors.accordion = {
@@ -7,7 +8,7 @@ Drupal.behaviors.accordion = {
     const ACCORDION_CLASS = 'js-accordion';
     const ACCORDION_TOGGLE_CLASS = 'js-accordion-toggle';
     const ACCORDION_DRAWER_CLASS = 'js-accordion-drawer';
-    const ACCORDION_SPEED = 250;
+    const ACCORDION_SPEED = TRANSITIONS.duration.standard;
 
     const accordions = context.querySelectorAll(
       `.${ACCORDION_CLASS}`
