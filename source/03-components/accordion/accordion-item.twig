@@ -5,11 +5,11 @@
   'c-accordion-item',
   'js-accordion-item',
   modifier_classes ? modifier_classes : '',
-] %}
+]|join(' ')|trim %}
 
-<div {{ add_attributes({ class: classes }) }} {{ accordion_is_open ? 'data-accordion-open="true"' }}>
+<div {{ add_attributes({ class: classes }) }}{{ is_open ? ' data-accordion-open="true"' }}>
   <div class="c-accordion-item__panel">
-    <{{ accordion_title_element ?: 'h3' }} class="c-accordion-item__heading">
+    <{{ title_element ?: 'h3' }} class="c-accordion-item__heading">
       <button
         class="c-accordion-item__toggle js-accordion-toggle"
         id="{{ button_id }}"
@@ -17,10 +17,10 @@
         aria-controls="{{ section_id }}"
         tabindex="-1"
       >
-        {{ accordion_title }}
+        {{ title }}
         <span class="c-accordion-item__icon"></span>
       </button>
-    </{{ accordion_title_element ?: 'h3' }}>
+    </{{ title_element ?: 'h3' }}>
     <div
       class="c-accordion-item__drawer js-accordion-drawer"
       id="{{ section_id }}"
@@ -29,7 +29,7 @@
       aria-expanded="true"
     >
       <div class="c-accordion-item__drawer-inner">
-        {{ accordion_content }}
+        {{ content }}
       </div>
     </div>
   </div>
