@@ -2,6 +2,8 @@
 
 namespace Drupal\gesso_helper\TwigExtension;
 
+use Drupal\Component\Utility\Crypt;
+use Drupal\Component\Utility\Html;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
@@ -11,19 +13,26 @@ use Twig\TwigFilter;
 class UniqueIdTwigExtension extends AbstractExtension {
 
   /**
-   * @inheritdoc
+   * Provide helper name.
    */
   public function getName() {
     return 'gesso_helper_unique_id';
   }
 
   /**
-   * @inheritdoc
+   * Add unique_id Twig filter.
    */
   public function getFilters() {
     $filters = parent::getFilters();
-    $filters[] = new TwigFilter('unique_id', '\Drupal\Component\Utility\Html::getUniqueId');
+    $filters[] = new TwigFilter('unique_id', [$this, 'uniqueId']);
     return $filters;
+  }
+
+  /**
+   * Add random string to an ID.
+   */
+  public function uniqueId($id) {
+    return Html::getId($id) . '--' . Crypt::randomBytesBase64(8);
   }
 
 }
