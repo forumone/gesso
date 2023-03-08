@@ -5,36 +5,56 @@
  * elements.
  */
 
+import { TRANSITIONS } from '../00-config/_GESSO.es6';
+
 /**
- * Slides target element up and out view.
+ * Collapses target element by sliding out of view.
  *
- * @name slideUp
- * @param {HTMLElement} target - The element sliding up.
- * @param {integer} duration - The duration of the animation, with default value 500.
+ * @name slideCollapse
+ * @param {HTMLElement} target - The element collapsing.
+ * @param {integer} duration - The duration of the animation, defaults to gesso token standard.
+ * @param {string} easing - The easing of the animation, defaults to gesso token ease-in-out.
+ * @param {boolean} hideContent - Whether to hide collapsed content from screen readers, defaults to true.
  */
-export const slideUp = (target, duration = 500) => {
+ export const slideCollapse = (
+  target,
+  duration = TRANSITIONS.duration.standard,
+  easing = TRANSITIONS.ease['ease-in-out'],
+  hideContent = true
+) => {
   target.style.height = `${target.offsetHeight}px`;
+
   window.requestAnimationFrame(() => {
     target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = `${duration}ms`;
+    target.style.transitionDuration = duration;
+    target.style.transitionTimingFunction = easing;
     target.style.boxSizing = 'border-box';
     target.style.overflow = 'hidden';
     target.style.paddingTop = '0';
     target.style.paddingBottom = '0';
     target.style.marginTop = '0';
     target.style.marginBottom = '0';
+    target.style.marginHeight = 'auto';
 
     window.requestAnimationFrame(() => {
       function hideTarget() {
-        target.style.display = 'none';
+        if (hideContent) {
+          target.style.display = 'none';
+          target.style.removeProperty('overflow');
+        } else {
+          target.style.maxHeight = 0;
+        }
+
+        target.style.removeProperty('box-sizing');
         target.style.removeProperty('height');
-        target.style.removeProperty('padding-top');
-        target.style.removeProperty('padding-bottom');
-        target.style.removeProperty('margin-top');
         target.style.removeProperty('margin-bottom');
-        target.style.removeProperty('overflow');
+        target.style.removeProperty('margin-top');
+        target.style.removeProperty('padding-bottom');
+        target.style.removeProperty('padding-top');
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
+        target.style.removeProperty('transition-timing-function');
+
         target.removeEventListener('transitionend', hideTarget);
         const event = new CustomEvent('finishslider', { detail: target });
         target.dispatchEvent(event);
@@ -46,21 +66,41 @@ export const slideUp = (target, duration = 500) => {
 };
 
 /**
- * Slides target element down and into view.
+ * Expands target element by sliding into view.
  *
- * @name slideDown
- * @param {HTMLElement} target - The element sliding down.
- * @param {integer} duration - The duration of the animation, with default value 500.
+ * @name slideExpand
+ * @param {HTMLElement} target - The element expanding.
+ * @param {integer} duration - The duration of the animation, defaults to gesso token standard.
+ * @param {string} easing - The easing of the animation, defaults to gesso token ease-in-out.
+ * @param {boolean} hideContent - Whether to hide collapsed content from screen readers, defaults to true.
  */
-export const slideDown = (target, duration = 500) => {
+export const slideExpand = (
+  target,
+  duration = TRANSITIONS.duration.standard,
+  easing = TRANSITIONS.ease['ease-in-out'],
+  hideContent = true
+) => {
   let height;
-  target.style.removeProperty('display');
+
+  if (hideContent) {
+    target.style.removeProperty('display');
+  } else {
+    target.style.removeProperty('max-height');
+    target.style.removeProperty('overflow');
+  }
+
   window.requestAnimationFrame(() => {
-    let {display} = window.getComputedStyle(target);
-    if (display === 'none') {
-      display = 'block';
+    if (hideContent) {
+      let { display } = window.getComputedStyle(target);
+      if (display === 'none') {
+        display = 'block';
+      }
+      target.style.display = display;
+    } else {
+      target.style.removeProperty('max-height');
+      target.style.removeProperty('overflow');
     }
-    target.style.display = display;
+
     height = target.offsetHeight;
     target.style.overflow = 'hidden';
     target.style.height = '0';
@@ -70,18 +110,21 @@ export const slideDown = (target, duration = 500) => {
     target.style.marginBottom = '0';
     target.style.boxSizing = 'border-box';
     target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = `${duration}ms`;
+    target.style.transitionDuration = duration;
+    target.style.transitionTimingFunction = easing;
 
     window.requestAnimationFrame(() => {
       function showTarget() {
-        target.style.removeProperty('padding-top');
-        target.style.removeProperty('padding-bottom');
-        target.style.removeProperty('margin-top');
-        target.style.removeProperty('margin-bottom');
+        target.style.removeProperty('box-sizing');
         target.style.removeProperty('height');
+        target.style.removeProperty('margin-bottom');
+        target.style.removeProperty('margin-top');
         target.style.removeProperty('overflow');
+        target.style.removeProperty('padding-bottom');
+        target.style.removeProperty('padding-top');
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
+        target.style.removeProperty('transition-timing-function');
         target.removeEventListener('transitionend', showTarget);
         const event = new CustomEvent('finishslider', { detail: target });
         target.dispatchEvent(event);
@@ -97,20 +140,31 @@ export const slideDown = (target, duration = 500) => {
  *
  * @name slideToggle
  * @param {HTMLElement} target - The element to toggle.
- * @param {integer} duration - The duration of the animation, with default value 500.
+ * @param {integer} duration - The duration of the animation, defaults to gesso token standard.
+ * @param {string} easing - The easing of the animation, defaults to gesso token ease-in-out.
+ * @param {boolean} hideContent - Whether to hide collapsed content from screen readers, defaults to true.
  */
-export const slideToggle = (target, duration = 500) => {
+export const slideToggle = (
+  target,
+  duration = TRANSITIONS.duration.standard,
+  easing = TRANSITIONS.ease['ease-in-out'],
+  hideContent = true
+) => {
   if (!target.dataset.isSliding) {
     target.addEventListener('finishslider', () => {
       delete target.dataset.isSliding;
       target.removeEventListener('finishslider');
     });
-    if (window.getComputedStyle(target).display === 'none') {
+
+    if (
+      (hideContent && window.getComputedStyle(target).display === 'none') ||
+      (!hideContent && window.getComputedStyle(target).maxHeight === '0px')
+    ) {
       target.dataset.isSliding = 'true';
-      slideDown(target, duration);
+      slideExpand(target, duration, easing, hideContent);
     } else {
       target.dataset.isSliding = 'true';
-      slideUp(target, duration);
+      slideCollapse(target, duration, easing, hideContent);
     }
   }
 };

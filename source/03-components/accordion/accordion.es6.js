@@ -1,6 +1,6 @@
 import Drupal from 'drupal';
 import KEYCODE from '../../00-config/_KEYCODE.es6';
-import { slideDown, slideUp } from '../../06-utility/_slide.es6';
+import { slideExpand, slideCollapse } from '../../06-utility/_slide.es6';
 
 Drupal.behaviors.accordion = {
   attach(context) {
@@ -20,7 +20,7 @@ Drupal.behaviors.accordion = {
           button.getAttribute('aria-controls')
         );
         accordionSection.setAttribute('aria-expanded', 'true');
-        slideDown(accordionSection, ACCORDION_SPEED);
+        slideExpand(accordionSection, ACCORDION_SPEED);
       }
     };
 
@@ -31,7 +31,7 @@ Drupal.behaviors.accordion = {
           button.getAttribute('aria-controls')
         );
         accordionSection.setAttribute('aria-expanded', 'false');
-        slideUp(
+        slideCollapse(
           document.getElementById(button.getAttribute('aria-controls')),
           ACCORDION_SPEED
         );
