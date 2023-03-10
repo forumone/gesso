@@ -164,7 +164,6 @@ module.exports = {
     ],
   },
   externals: {
-    jquery: 'jQuery',
     drupal: 'Drupal',
     drupalSettings: 'drupalSettings',
     once: 'once',
