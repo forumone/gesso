@@ -171,8 +171,12 @@ class SubMenuItem extends MenuItem {
    * @return {void}
    */
   handleBlur(event) {
-    const { relatedTarget } = event;
-    if (!relatedTarget || !this.domNode.parentElement.contains(relatedTarget)) {
+    const { relatedTarget, target } = event;
+    if (
+      !relatedTarget ||
+      !this.domNode.parentElement.contains(relatedTarget) ||
+      relatedTarget?.parentElement?.nextElementSibling === target
+    ) {
       super.handleBlur(event);
       setTimeout(this.menu.close.bind(this.menu, false), 300);
     }

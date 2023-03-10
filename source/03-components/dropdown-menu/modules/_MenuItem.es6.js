@@ -86,7 +86,7 @@ class MenuItem {
   }
 
   /**
-   * Unset the menu has focused when the menu item no longer has keyboard focus.
+   * Unset the menu as focused when the menu item no longer has keyboard focus.
    * @param {FocusEvent} _event - The blur event.
    * @return {void}
    */
