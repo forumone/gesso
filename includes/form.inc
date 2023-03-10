@@ -114,3 +114,22 @@ function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $
     $suggestions[] = 'form_element__' . $id;
   }
 }
+
+/**
+ * Implements hook_preprocess_links__HOOK().
+ */
+function gesso_preprocess_links__dropbutton(array &$vars) {
+  foreach($vars['links'] as $key => $link) {
+    if (!empty($link['link'])) {
+      if (empty($link['link']['#options']['attributes'])) {
+        $link['link']['#options']['attributes'] = [];
+      }
+      if (empty($link['link']['#options']['attributes']['class'])) {
+        $link['link']['#options']['attributes']['class'] = [];
+      }
+      $link['link']['#options']['attributes']['class'][] = 'c-button';
+      $link['link']['#options']['attributes']['class'][] = 'c-dropbutton__button';
+      $vars['links'][$key] = $link;
+    }
+  }
+}

@@ -12,9 +12,7 @@
     {%- for item in links -%}
     <li {{ add_attributes({class: "c-dropbutton__item"}, 'item.attributes') }}>
       {%- if item.link -%}
-        <a {{ add_attributes({class: 'c-button c-dropbutton__button'}, 'item.link.attributes') }}{% if item.href %} href={{ item.href }}{% endif %}>
-          {{ item.text }}
-        </a>
+        {{ item.link }}
       {%- elseif item.text_attributes -%}
         <span{{ item.text_attributes }}>{{ item.text }}</span>
       {%- else -%}
