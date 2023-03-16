@@ -60,6 +60,7 @@ mega_menu:
   js:
     dist/js/mega-menu.es6.js: {}
   dependencies:
+    - core/drupal
     - core/once
     - gesso/common
     - gesso/mobile_menu
