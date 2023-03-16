@@ -18,9 +18,9 @@ dropbutton:
     component:
       dist/css/dropbutton.css: {}
   dependencies:
-    - core/jquery
     - core/drupal
     - core/drupalSettings
+    - core/jquery
     - core/once
 
 dropdown_menu:
@@ -55,9 +55,9 @@ mega_menu:
   js:
     dist/js/mega-menu.es6.js: {}
   dependencies:
+    - core/once
     - gesso/common
     - gesso/mobile_menu
-    - core/once
 
 mobile_menu:
   css:
