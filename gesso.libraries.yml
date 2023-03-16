@@ -91,5 +91,7 @@ side_menu:
   js:
     dist/js/side-menu.es6.js: { }
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/hamburger_button
