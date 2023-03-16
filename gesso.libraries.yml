@@ -79,6 +79,8 @@ overlay_menu:
   js:
     dist/js/overlay-menu.es6.js: {}
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/hamburger_button
 
