@@ -1,4 +1,5 @@
 import Drupal from 'drupal';
+import once from 'once';
 import KEYCODE from '../../00-config/_KEYCODE.es6';
 import { TRANSITIONS } from '../../00-config/_GESSO.es6';
 import { slideExpand, slideCollapse } from '../../06-utility/_slide.es6';
@@ -10,9 +11,7 @@ Drupal.behaviors.accordion = {
     const ACCORDION_DRAWER_CLASS = 'js-accordion-drawer';
     const ACCORDION_SPEED = TRANSITIONS.duration.standard;
 
-    const accordions = context.querySelectorAll(
-      `.${ACCORDION_CLASS}`
-    );
+    const accordions = once('accordion', `.${ACCORDION_CLASS}`, context);
 
     const openAccordion = (accordion, button) => {
       if (button.getAttribute('aria-expanded') === 'false') {

@@ -12,6 +12,8 @@ accordion:
   js:
     dist/js/accordion.es6.js: {}
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
 
 back_to_top:
