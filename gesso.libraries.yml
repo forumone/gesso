@@ -10,6 +10,9 @@ back_to_top:
       dist/css/back-to-top.css: {}
   js:
     dist/js/back-to-top.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 
 dropbutton:
   js:
