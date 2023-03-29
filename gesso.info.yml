@@ -29,6 +29,7 @@ regions:
   breadcrumb: Breadcrumbs
   help: Help
   preface: Preface
+  title: 'Page title'
   status: 'Status messages & Tabs'
   content: Content
   postscript: Postscript
