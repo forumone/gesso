@@ -1,7 +1,7 @@
 // Component: Readmore Link
 
 @use '00-config' as *;
-@use '01-global' as *;
+@use '01-global/extendables' as *;
 
 .c-readmore-link {
   padding-right: 28px;
