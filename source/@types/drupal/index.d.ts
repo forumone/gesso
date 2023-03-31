@@ -64,3 +64,19 @@ declare module "drupal" {
 
   export default Drupal;
 }
+
+declare module '*.scss' {
+  const content: {[className: string]: string};
+  export = content;
+}
+
+type DrupalSettings = {
+  exampleProperty: string;
+  // Add more variables as needed.
+}
+
+// Extend the Window interface to include our Drupal settings.
+interface Window {
+  drupalSettings: DrupalSettings;
+}
+

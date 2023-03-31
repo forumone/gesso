@@ -22,6 +22,12 @@ module.exports = {
     'arrow-body-style': 'off',
     'class-methods-use-this': 'off', // Too many false positives
 
+    "import/no-extraneous-dependencies": [
+      "error", {
+        "devDependencies": true
+      }
+    ],
+
     'import/extensions': [
       'error',
       'ignorePackages',

@@ -84,3 +84,14 @@ side_menu:
   dependencies:
     - gesso/common
     - gesso/hamburger_button
+
+react:
+  js:
+    # Setting preprocess to false is important since we're using
+    # code-spliting (lazy()) in our React code. If Drupal's
+    # JS aggregation is turned on, only the main.js file will
+    # get aggregated. The split code won't and Drupal will
+    # erroneously try to load it from /sites/default/files/js.
+    dist/js/react/main.js: { preprocess: false }
+  dependencies:
+    - core/drupalSettings
