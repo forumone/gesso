@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 
 // Lazy load components so we only load the JS we need.
-const BlockOne = lazy(() => import('./Example/Example'));
+const Example = lazy(() => import('./Example/Example'));
 
 /**
  * Waits for block containers to be rendered in case BigPipe is enabled.
@@ -32,7 +32,7 @@ waitForBlock('some-id-to-hydrate').then(container => {
   if (container) {
     ReactDOM.render(
       <Suspense fallback={<div>Loading...</div>}>
-        <BlockOne />
+        <Example />
       </Suspense>,
       container
     );
