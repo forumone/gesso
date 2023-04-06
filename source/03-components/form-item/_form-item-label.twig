@@ -14,9 +14,9 @@
   class: label_classes,
 } %}
 
-{% if id %}
+{% if id is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    for: id,
+    for: id ~ '',
   }) %}
 {% endif %}
 
