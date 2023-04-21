@@ -48,6 +48,11 @@ hero_inline_image:
     theme:
       dist/css/hero-inline-image.css: {}
 
+icon_link:
+  css:
+    theme:
+      dist/css/icon-link.css: {}
+
 mega_menu:
   css:
     theme:
