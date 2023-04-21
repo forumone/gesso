@@ -80,6 +80,13 @@ overlay_menu:
     - gesso/common
     - gesso/hamburger_button
 
+rss_feed:
+  css:
+    theme:
+      dist/css/rss-feed.css: {}
+  dependencies:
+    - gesso/icon_link
+
 side_menu:
   css:
     theme:
