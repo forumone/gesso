@@ -12,6 +12,7 @@
       'is_hidden': true,
       'icon_name': icon_name,
       'direction': icon_direction,
+      'gesso_image_path': gesso_image_path,
     } -%}
   {%- endif -%}
 
@@ -21,8 +22,10 @@
     {%- include '@components/icon/icon.twig' with {
       'modifier_classes': 'c-icon--link is-spaced-before',
       'is_hidden': true,
+      'label': '',
       'icon_name': icon_name,
       'direction': icon_direction,
+      'gesso_image_path': gesso_image_path,
     } -%}
   {%- endif -%}
 </a>
