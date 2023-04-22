@@ -42,6 +42,7 @@ const settings = {
       options: [
         'before',
         'after',
+        'both',
       ],
       control: { type: 'select' },
     },
