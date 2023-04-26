@@ -5,6 +5,7 @@
 $accordion-item-border-color: gesso-grayscale(gray-2) !default;
 $accordion-item-icon-color: gesso-color(ui, generic, accent) !default;
 $accordion-item-icon-size: 20px !default;
+$accordion-item-icon-weight: 2px !default;
 
 .c-accordion-item {
   border-bottom: solid 1px $accordion-item-border-color;
@@ -97,13 +98,13 @@ $accordion-item-icon-size: 20px !default;
     background-color: $accordion-item-icon-color;
     content: '';
     display: block;
-    height: 2px;
+    height: $accordion-item-icon-weight;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     transform-origin: center;
-    transition-duration: gesso-duration(shortest);
+    transition-duration: gesso-duration(short);
     transition-property: transform;
     transition-timing-function: gesso-easing(ease-out);
     width: 100%;
