@@ -3,7 +3,7 @@ type: theme
 base theme: false
 description: 'Storybook-based starter theme'
 package: Custom
-core_version_requirement: ^8.9 || ^9
+core_version_requirement: ^8.9 || ^9 || ^10
 libraries:
   - gesso/global
 libraries-override:
