@@ -153,9 +153,14 @@ class MobileMenu extends OverlayMenu {
     const menuLinks = menuClone.querySelectorAll(
       `.${this.options.classPrefix}__link`
     );
-    menuLinks.forEach(link => {
+    menuLinks.forEach((link, index) => {
       link.classList.remove(`${this.options.classPrefix}__link`);
       link.classList.add('c-mobile-menu__link');
+      // If
+      if (link.hasAttribute('aria-controls')) {
+        link.setAttribute('aria-controls', `mobile-menu-${index + 1}`);
+        link.nextElementSibling.id = `mobile-menu-${index + 1}`;
+      }
     });
 
     // Swap classes on menu sections, if applicable.
