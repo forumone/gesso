@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './teaser.twig';
 import data from './teaser.yml';
+import './teaser.scss';
 
 const settings = {
   title: 'Components/Teaser',

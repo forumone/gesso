@@ -10,6 +10,29 @@ back_to_top:
       dist/css/back-to-top.css: {}
   js:
     dist/js/back-to-top.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+block:
+  css:
+    theme:
+      dist/css/block.css: {}
+
+breadcrumb:
+  css:
+    theme:
+      dist/css/breadcrumb.css: {}
+
+card:
+  css:
+    theme:
+      dist/css/card.css: {}
+
+details:
+  css:
+    theme:
+      dist/css/details.css: {}
 
 dropbutton:
   js:
@@ -18,9 +41,9 @@ dropbutton:
     component:
       dist/css/dropbutton.css: {}
   dependencies:
-    - core/jquery
     - core/drupal
     - core/drupalSettings
+    - core/jquery
     - core/once
 
 dropdown_menu:
@@ -30,6 +53,8 @@ dropdown_menu:
   js:
     dist/js/dropdown-menu.es6.js: {}
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/mobile_menu
 
@@ -53,6 +78,11 @@ icon_link:
     theme:
       dist/css/icon-link.css: {}
 
+image_teaser:
+  css:
+    theme:
+      dist/css/image-teaser.css: {}
+
 mega_menu:
   css:
     theme:
@@ -60,8 +90,15 @@ mega_menu:
   js:
     dist/js/mega-menu.es6.js: {}
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/mobile_menu
+
+message:
+  css:
+    theme:
+      dist/css/message.css: {}
 
 mobile_menu:
   css:
@@ -77,8 +114,27 @@ overlay_menu:
   js:
     dist/js/overlay-menu.es6.js: {}
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/hamburger_button
+
+pager:
+  css:
+    theme:
+      dist/css/pager.css: {}
+
+pager_mini:
+  css:
+    theme:
+      dist/css/pager--mini.css: {}
+  dependencies:
+    - gesso/pager
+
+progress:
+  css:
+    theme:
+      dist/css/progress.css: {}
 
 read_more_link:
   css:
@@ -101,5 +157,29 @@ side_menu:
   js:
     dist/js/side-menu.es6.js: { }
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/hamburger_button
+
+tag:
+  css:
+    theme:
+      dist/css/tag.css: {}
+
+tag_list:
+  css:
+    theme:
+      dist/css/tag-list.css: {}
+  dependencies:
+    - gesso/tag
+
+teaser:
+  css:
+    theme:
+      dist/css/teaser.css: {}
+
+video:
+  css:
+    theme:
+      dist/css/video.css: {}
