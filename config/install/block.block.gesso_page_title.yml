@@ -5,13 +5,13 @@ dependencies:
     - gesso
 id: gesso_page_title
 theme: gesso
-region: disabled
+region: title
 weight: 0
 provider: null
 plugin: page_title_block
 settings:
   id: page_title_block
   label: 'Page title'
-  provider: core
   label_display: '0'
+  provider: core
 visibility: {  }

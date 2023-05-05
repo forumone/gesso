@@ -1,4 +1,4 @@
-{% spaceless %}
+{% apply spaceless %}
   {% set classes = [
     'c-button',
     modifier_classes ? modifier_classes : '',
@@ -14,4 +14,4 @@
     {{ link(text_demo, url, {'class': classes}) }}
     <button {{ add_attributes({ 'class': classes }) }} disabled>Disabled {{ text }}</button>
   {% endif %}
-{% endspaceless -%}
+{% endapply -%}
