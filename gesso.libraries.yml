@@ -165,6 +165,11 @@ tag_list:
   dependencies:
     - gesso/tag
 
+teaser:
+  css:
+    theme:
+      dist/css/teaser.css: {}
+
 video:
   css:
     theme:
