@@ -18,7 +18,7 @@
         {% set link_label = 'Go to previous page'|t %}
         <li class="c-pager__item c-pager__item--previous">
           <a class="c-pager__link c-pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
-            {%- spaceless %}
+            {%- apply spaceless %}
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
                 'modifier_classes': 'c-icon--pager is-spaced-after',
@@ -26,7 +26,7 @@
               } %}
               <span class="u-visually-hidden">{{ link_label }}</span>
               <span aria-hidden="true">{{ 'Previous'|t }}</span>
-            {% endspaceless -%}
+            {% endapply -%}
           </a>
         </li>
       {% endif %}
@@ -44,7 +44,7 @@
         {% set link_label = 'Go to next page'|t %}
         <li class="c-pager__item c-pager__item--next">
           <a class="c-pager__link c-pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
-            {%- spaceless %}
+            {%- apply spaceless %}
               <span class="u-visually-hidden">{{ link_label }}</span>
               <span aria-hidden="true">{{ 'Next'|t }}</span>
               {% include '@components/icon/icon.twig' with {
@@ -52,7 +52,7 @@
                 'modifier_classes': 'c-icon--pager is-spaced-before',
                 'icon_name': 'angle-right',
               } %}
-            {% endspaceless -%}
+            {% endapply -%}
           </a>
         </li>
       {% endif %}
