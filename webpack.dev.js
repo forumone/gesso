@@ -10,6 +10,7 @@ module.exports = merge(common, {
     new ESLintPlugin({
       overrideConfigFile: path.resolve(__dirname, '.eslintrc-dev.js'),
       useEslintrc: false,
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
   ],
 });

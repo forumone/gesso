@@ -26,5 +26,9 @@ module.exports = merge(common, {
     ],
   },
   devtool: false,
-  plugins: [new ESLintPlugin()],
+  plugins: [
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+    }),
+  ],
 });
