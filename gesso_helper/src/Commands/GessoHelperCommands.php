@@ -132,7 +132,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
         $this->gessoFileStrReplace(
           $file->getPathname(),
           [
-            "/(?<!\[('|\")drupalSettings('|\")\]\[('|\"))gesso(?!_image_path)/",
+            "/(?<!\[('|\")drupalSettings('|\")\]\[('|\"))gesso/",
             '/Gesso/',
           ],
           [$machine_name, $name]

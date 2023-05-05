@@ -37,7 +37,7 @@
     <p>
       <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
         {% if label %}<title>{{ label }}</title>{% endif %}
-        <use href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon }}"></use>
+        <use href="{{ image_path }}/sprite.artifact.svg#{{ icon }}"></use>
       </svg>
       {{ icon }}
     </p>
@@ -46,7 +46,7 @@
   {% apply spaceless %}
     <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
       {% if label %}<title>{{ label }}</title>{% endif %}
-      <use href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
+      <use href="{{ image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
     </svg>
   {% endapply %}
 {%- endif -%}
