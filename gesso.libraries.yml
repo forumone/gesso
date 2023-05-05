@@ -14,6 +14,26 @@ back_to_top:
     - core/drupal
     - core/once
 
+block:
+  css:
+    theme:
+      dist/css/block.css: {}
+
+breadcrumb:
+  css:
+    theme:
+      dist/css/breadcrumb.css: {}
+
+card:
+  css:
+    theme:
+      dist/css/card.css: {}
+
+details:
+  css:
+    theme:
+      dist/css/details.css: {}
+
 dropbutton:
   js:
     dist/js/dropbutton.es6.js: {}
@@ -53,6 +73,11 @@ hero_inline_image:
     theme:
       dist/css/hero-inline-image.css: {}
 
+image_teaser:
+  css:
+    theme:
+      dist/css/image-teaser.css: {}
+
 mega_menu:
   css:
     theme:
@@ -64,6 +89,11 @@ mega_menu:
     - core/once
     - gesso/common
     - gesso/mobile_menu
+
+message:
+  css:
+    theme:
+      dist/css/message.css: {}
 
 mobile_menu:
   css:
@@ -84,6 +114,33 @@ overlay_menu:
     - gesso/common
     - gesso/hamburger_button
 
+pager:
+  css:
+    theme:
+      dist/css/pager.css: {}
+
+pager_mini:
+  css:
+    theme:
+      dist/css/pager--mini.css: {}
+  dependencies:
+    - gesso/pager
+
+progress:
+  css:
+    theme:
+      dist/css/progress.css: {}
+
+read_more_link:
+  css:
+    theme:
+      dist/css/read-more-link.css: {}
+
+rss_feed:
+  css:
+    theme:
+      dist/css/rss-feed.css: {}
+
 side_menu:
   css:
     theme:
@@ -95,3 +152,25 @@ side_menu:
     - core/once
     - gesso/common
     - gesso/hamburger_button
+
+tag:
+  css:
+    theme:
+      dist/css/tag.css: {}
+
+tag_list:
+  css:
+    theme:
+      dist/css/tag-list.css: {}
+  dependencies:
+    - gesso/tag
+
+teaser:
+  css:
+    theme:
+      dist/css/teaser.css: {}
+
+video:
+  css:
+    theme:
+      dist/css/video.css: {}
