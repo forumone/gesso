@@ -73,6 +73,11 @@ hero_inline_image:
     theme:
       dist/css/hero-inline-image.css: {}
 
+icon_link:
+  css:
+    theme:
+      dist/css/icon-link.css: {}
+
 image_teaser:
   css:
     theme:
@@ -134,12 +139,16 @@ progress:
 read_more_link:
   css:
     theme:
-      dist/css/read-more-link.css: {}
+      dist/css/rss-more-link.css: {}
+  dependencies:
+    - gesso/icon_link
 
 rss_feed:
   css:
     theme:
       dist/css/rss-feed.css: {}
+  dependencies:
+    - gesso/icon_link
 
 side_menu:
   css:

@@ -1,15 +1,15 @@
 import parse from 'html-react-parser';
 
-import twigTemplate from './button.twig';
+import twigTemplate from './icon-link.twig';
+import data from './icon-link.yml';
 import globalData from '../../00-config/storybook.global-data.yml';
-import data from './button.yml';
+import './icon-link.scss';
 
 const settings = {
-  title: 'Components/Button',
+  title: 'Components/Icon Link',
   argTypes: {
     icon_name: {
       options: [
-        false,
         'angle',
         'angles',
         'arrow',
@@ -56,71 +56,25 @@ const settings = {
       ],
       control: { type: 'select' },
     },
-    icon_is_hidden: {
-      control: { type: 'boolean' },
-    },
   },
   parameters: {
     controls: {
       include: [
-        'text',
-        'text_demo',
         'icon_name',
         'icon_direction',
         'icon_position',
-        'icon_label',
-        'icon_is_hidden',
+        'link_text',
       ],
     },
   },
 };
 
-const Primary = args => (
+const IconLink = args => (
   parse(twigTemplate({
     ...args,
   }))
 );
-Primary.args = { ...globalData, ...data };
-
-const Secondary = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--secondary',
-  }))
-);
-Secondary.args = { ...globalData, ...data };
-
-const Base = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--base',
-  }))
-);
-Base.args = { ...globalData, ...data };
-
-const Danger = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--danger',
-  }))
-);
-Danger.args = { ...globalData, ...data };
-
-const Small = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--small',
-  }))
-);
-Small.args = { ...globalData, ...data };
-
-const Large = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--large',
-  }))
-);
-Large.args = { ...globalData, ...data };
+IconLink.args = { ...globalData, ...data };
 
 export default settings;
-export { Primary, Secondary, Base, Danger, Large, Small };
+export { IconLink };

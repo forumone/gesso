@@ -7,6 +7,13 @@ import './rss-feed.scss';
 
 const settings = {
   title: 'Components/RSS Feed',
+  parameters: {
+    controls: {
+      include: [
+        'link_text',
+      ],
+    },
+  },
 };
 
 const RSSFeed = args => (

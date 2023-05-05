@@ -21,7 +21,8 @@
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
                 'modifier_classes': 'c-icon--pager is-spaced-after',
-                'icon_name': 'angle-double-left',
+                'icon_name': 'angles',
+                'direction': 'left',
               } %}
               <span class="u-visually-hidden">{{ link_label }}</span>
               <span aria-hidden="true">{{ 'First'|t }}</span>
@@ -39,7 +40,8 @@
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
                 'modifier_classes': 'c-icon--pager is-spaced-after',
-                'icon_name': 'angle-left',
+                'icon_name': 'angle',
+                'direction': 'left',
               } %}
               <span class="u-visually-hidden">{{ link_label }}</span>
               <span aria-hidden="true">{{ 'Previous'|t }}</span>
@@ -89,7 +91,8 @@
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
                 'modifier_classes': 'c-icon--pager is-spaced-before',
-                'icon_name': 'angle-right',
+                'icon_name': 'angle',
+                'direction': 'right',
               } %}
             {% endapply -%}
           </a>
@@ -107,7 +110,8 @@
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
                 'modifier_classes': 'c-icon--pager is-spaced-before',
-                'icon_name': 'angle-double-right',
+                'icon_name': 'angles',
+                'direction': 'right',
               } %}
             {% endapply -%}
           </a>
