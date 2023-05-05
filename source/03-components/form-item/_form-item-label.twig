@@ -11,12 +11,12 @@
 ]|join(' ')|trim %}
 
 {% set attributes_to_add = {
-  class: label_classes,
+  'class': label_classes,
 } %}
 
 {% if id is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    for: id ~ '',
+    'for': id ~ '',
   }) %}
 {% endif %}
 
