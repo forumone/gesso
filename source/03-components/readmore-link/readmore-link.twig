@@ -3,7 +3,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% spaceless %}
+{% apply spaceless %}
   <a href="{{ url }}" {{ add_attributes({ 'class': classes }) }}>
     {{ label|default('Read more') }}
     <span class="c-readmore-link__icon">
@@ -19,4 +19,4 @@
       </span>
     {% endif %}
   </a>
-{% endspaceless %}
+{% endapply %}
