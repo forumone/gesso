@@ -10,6 +10,9 @@ back_to_top:
       dist/css/back-to-top.css: {}
   js:
     dist/js/back-to-top.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 
 dropbutton:
   js:
@@ -18,9 +21,9 @@ dropbutton:
     component:
       dist/css/dropbutton.css: {}
   dependencies:
-    - core/jquery
     - core/drupal
     - core/drupalSettings
+    - core/jquery
     - core/once
 
 dropdown_menu:
@@ -30,6 +33,8 @@ dropdown_menu:
   js:
     dist/js/dropdown-menu.es6.js: {}
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/mobile_menu
 
@@ -55,6 +60,8 @@ mega_menu:
   js:
     dist/js/mega-menu.es6.js: {}
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/mobile_menu
 
@@ -72,6 +79,8 @@ overlay_menu:
   js:
     dist/js/overlay-menu.es6.js: {}
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/hamburger_button
 
@@ -82,5 +91,7 @@ side_menu:
   js:
     dist/js/side-menu.es6.js: { }
   dependencies:
+    - core/drupal
+    - core/once
     - gesso/common
     - gesso/hamburger_button
