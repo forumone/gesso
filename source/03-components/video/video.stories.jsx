@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 import twigTemplate from './video.twig';
 import data from './video.yml';
 import localData from './video--local.yml';
+import './video.scss';
 
 const settings = {
   title: 'Components/Video',

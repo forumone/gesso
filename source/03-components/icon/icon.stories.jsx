@@ -6,6 +6,26 @@ import data from './icon.yml';
 
 const settings = {
   title: 'Components/Icon',
+  argTypes: {
+    direction: {
+      options: [
+        'up',
+        'down',
+        'left',
+        'right',
+      ],
+      control: { type: 'select' },
+    },
+  },
+  parameters: {
+    controls: {
+      include: [
+        'modifier_classes',
+        'direction',
+        'label',
+      ],
+    },
+  },
 };
 
 const Icon = args => (

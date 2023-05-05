@@ -49,4 +49,15 @@ blockquote {
   @media print {
     page-break-inside: avoid;
   }
+
+  @if ($wysiwyg) {
+    border-left: revert;
+    font-style: revert;
+    padding-left: revert;
+    padding-right: revert;
+
+    &::before {
+      display: none;
+    }
+  }
 }
