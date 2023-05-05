@@ -1,8 +1,15 @@
 const { resolve } = require('path');
 const path = require('path');
 
-module.exports = {
+const config = {
   stories: ['../source/**/*.stories.mdx', '../source/**/*.stories.@(js|jsx)'],
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: { fastRefresh: true },
+  },
+  typescript: {
+    check: false,
+  },
   addons: [
     '@storybook/addon-links',
     {
@@ -78,7 +85,5 @@ module.exports = {
 
     return config;
   },
-  core: {
-    builder: 'webpack5',
-  },
 };
+export default config;

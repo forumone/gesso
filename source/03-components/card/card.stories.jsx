@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './card.twig';
 import data from './card.yml';
+import './card.scss';
 
 const settings = {
   title: 'Components/Card',

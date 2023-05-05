@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './block.twig';
 import data from './block.yml';
+import './block.scss';
 
 const settings = {
   title: 'Components/Block',
