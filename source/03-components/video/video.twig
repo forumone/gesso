@@ -1,14 +1,16 @@
+{{ attach_library('gesso/video') }}
+
 {% set classes = [
-  'video',
+  'c-video',
   iframe_src ? 'has-iframe',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 <div {{ add_attributes({ 'class': classes }) }}>
   {% if iframe_src %}
-    <iframe class="video__iframe" src="{{ iframe_src }}" title="{{ iframe_title }}" allowfullscreen frameborder="0"></iframe>
+    <iframe class="c-video__iframe" src="{{ iframe_src }}" title="{{ iframe_title }}" allowfullscreen frameborder="0"></iframe>
   {% elseif files %}
-    <video class="video__video" controls="controls">
+    <video class="c-video__video" controls="controls">
       {% for file in files %}
         <source {{ file.source_attributes }} />
       {% endfor %}

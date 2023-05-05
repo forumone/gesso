@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './card.twig';
 import data from './card.yml';
+import './card.scss';
 
 const settings = {
   title: 'Components/Card',
@@ -17,7 +18,7 @@ Default.args = { ...data };
 const FeatureCard = args => (
   parse(twigTemplate({
     ...args,
-    modifier_classes: 'card--feature',
+    modifier_classes: 'c-card--feature',
   }))
 );
 FeatureCard.args = { ...data };

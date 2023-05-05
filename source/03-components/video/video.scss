@@ -1,0 +1,23 @@
+// Component: Video
+
+@use 'sass:math';
+@use '00-config' as *;
+
+$video-aspect-ratio: math.div(9, 16); // 16:9
+
+.c-video {
+  &.has-iframe {
+    height: 0;
+    max-width: 100%;
+    padding-bottom: $video-aspect-ratio * 100%;
+    position: relative;
+  }
+}
+
+.c-video__iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}

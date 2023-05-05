@@ -11,7 +11,7 @@ $form-box-shadow-focus: gesso-box-shadow(2) !default;
 $form-disabled-opacity: 0.35 !default;
 $form-text-size: gesso-base-font-size() !default;
 
-.form-item {
+.c-form-item {
   margin: 0 0 rem(gesso-spacing(3));
 }
 
@@ -21,13 +21,13 @@ $form-text-size: gesso-base-font-size() !default;
   }
 }
 
-.form-item__label {
+.c-form-item__label {
   @extend %disabled-form-styles;
   display: block;
   font-weight: gesso-font-weight(semibold);
 }
 
-.form-item__element {
+.c-form-item__element {
   align-items: center;
   display: flex;
   gap: 0.25em;
@@ -44,15 +44,15 @@ $form-text-size: gesso-base-font-size() !default;
   }
 }
 
-.form-item__fieldset {
+.c-form-item__fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-// .form-item__legend {}
+// .c-form-item__legend {}
 
-.form-item__description {
+.c-form-item__description {
   @extend %disabled-form-styles;
   color: gesso-color(text, secondary);
   font-size: rem(gesso-font-size(2));
@@ -62,30 +62,31 @@ $form-text-size: gesso-base-font-size() !default;
   }
 }
 
-.form-item__errors {
+.c-form-item__errors {
   @extend %disabled-form-styles;
 }
 
-.form-item__required-marker::before {
+.c-form-item__required-marker::before {
   content: '*';
 }
 
-%form-item__box,
-.form-item__color,
-.form-item__date,
-.form-item__email,
-.form-item__file,
-.form-item__month,
-.form-item__number,
-.form-item__password,
-.form-item__search,
-.form-item__select,
-.form-item__tel,
-.form-item__text,
-.form-item__textarea,
-.form-item__time,
-.form-item__url,
-.form-item__week {
+%c-form-item__box,
+.c-form-item__color,
+.c-form-item__date,
+.c-form-item__email,
+.c-form-item__file,
+.c-form-item__month,
+.c-form-item__number,
+.c-form-item__password,
+.c-form-item__search,
+.c-form-item__select,
+.c-form-item__tel,
+.c-form-item__text,
+.c-form-item__textarea,
+.c-form-item__time,
+.c-form-item__url,
+.c-form-item__week {
+  @include focus();
   appearance: none;
   background-color: $form-background-color;
   border: 1px solid $form-border-color;
@@ -107,10 +108,6 @@ $form-text-size: gesso-base-font-size() !default;
     border: 1px solid $form-border-color-focus;
   }
 
-  &:focus {
-    @include focus();
-  }
-
   &:disabled {
     cursor: default;
     opacity: $form-disabled-opacity;
@@ -127,6 +124,6 @@ $form-text-size: gesso-base-font-size() !default;
   }
 }
 
-.form-item__textarea {
+.c-form-item__textarea {
   height: auto;
 }

@@ -39,7 +39,6 @@
     'region': 'help',
     'content': page.help,
   } %}
-  {{ page.breadcrumb }}
 
   <main id="main" class="main" role="main" tabindex="-1">
     {# We have to manually wrap region content. #}
@@ -50,9 +49,7 @@
 
     {# page.content is missing page title. #}
     {% set content %}
-      {% include '@components/page-title/page-title.twig' with {
-        'page_title': page['#title'],
-      } %}
+      {{ page.title }}
       {{ page.status }}
       {{ page.content }}
     {% endset %}

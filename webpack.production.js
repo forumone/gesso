@@ -7,9 +7,13 @@ module.exports = merge(common, {
   mode: 'production',
   optimization: {
     splitChunks: {
-      chunks: 'all',
-      name: 'js/common',
-      minChunks: 2,
+      cacheGroups: {
+        commons: {
+          chunks: 'all',
+          name: 'js/common',
+          minChunks: 2,
+        },
+      },
     },
     minimizer: [
       new TerserJsPlugin({
@@ -22,5 +26,9 @@ module.exports = merge(common, {
     ],
   },
   devtool: false,
-  plugins: [new ESLintPlugin()],
+  plugins: [
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+    }),
+  ],
 });

@@ -1,9 +1,0 @@
----
-legend:
-  title: 'Fieldset'
-children: |-
-  <p>Fieldset content goes here&hellip;</p>
-description:
-  title: |-
-    <p>The description for this fieldset.</p>
-is_disabled: false

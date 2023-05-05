@@ -1,8 +1,8 @@
 import parse from 'html-react-parser';
 
-// import "./details-element-polyfill.js";
 import twigTemplate from './details.twig';
 import data from './details.yml';
+import './details.scss';
 
 const settings = {
   title: 'Components/Details',

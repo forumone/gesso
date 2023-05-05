@@ -1,0 +1,31 @@
+{{ attach_library('gesso/icon_link') }}
+
+{% set classes = [
+  'c-icon-link',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<a href="{{ url }}" {{ add_attributes({ 'class': classes }) }}>
+  {%- if icon_position != 'after' -%}
+    {%- include '@components/icon/icon.twig' with {
+      'modifier_classes': 'c-icon--link is-spaced-after',
+      'is_hidden': true,
+      'icon_name': icon_name,
+      'direction': icon_direction,
+      'gesso_image_path': gesso_image_path,
+    } -%}
+  {%- endif -%}
+
+  {{- link_text -}}
+
+  {%- if icon_position == 'after' or icon_position == 'both' -%}
+    {%- include '@components/icon/icon.twig' with {
+      'modifier_classes': 'c-icon--link is-spaced-before',
+      'is_hidden': true,
+      'label': '',
+      'icon_name': icon_name,
+      'direction': icon_direction,
+      'gesso_image_path': gesso_image_path,
+    } -%}
+  {%- endif -%}
+</a>

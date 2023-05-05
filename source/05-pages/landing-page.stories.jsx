@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
+import globalData from '../00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/landing-page/landing-page.twig';
 import { Default as Card } from '../03-components/card/card.stories.jsx';
@@ -13,9 +14,11 @@ export default {
   title: 'Pages/Landing Page',
   parameters: {
     controls: {
-      hideNoControlsWarning: true,
-    },
-  },
+      include: [
+        'show_admin_info',
+      ]
+    }
+  }
 };
 
 // You can create a loop to quickly add multiple instances of the same story.
@@ -42,14 +45,17 @@ const mainContent = View({
   rows: gridContent,
 });
 
-const landingPageContent = twigTemplate({
-  landing_page_title: 'Great Scott!',
-  landing_page_content: ReactDOMServer.renderToStaticMarkup(<>{mainContent}</>),
+const landingPageContent = args => twigTemplate({
+  ...args,
+  page_title: 'Great Scott!',
+  content: ReactDOMServer.renderToStaticMarkup(mainContent),
 });
 
-const LandingPage = () => (
-  <PageWrapper>{parse(landingPageContent)}</PageWrapper>
+const LandingPage = args => (
+  <PageWrapper>{parse(landingPageContent(args))}</PageWrapper>
 );
-LandingPage.args = {};
+LandingPage.args = {
+  ...globalData,
+};
 
 export { LandingPage };

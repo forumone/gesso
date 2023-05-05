@@ -181,15 +181,58 @@ gesso:
     base-font-size: 16px
     font-size:
       1: 12px
-      2: 16px
-      3: 20px
-      4: 24px
-      5: 32px
-      6: 40px
-      7: 48px
-      8: 56px
-      9: 64px
-      10: 80px
+      2: 14px
+      3: 16px
+      4: 20px
+      5: 25px
+      6: 31.25px
+      7: 39.06625px
+      8: 48.8281px
+      9: 61.0352px
+      10: 76.2939px
+    responsive-font-size-min-width: 360px
+    responsive-font-size-max-width: 1600px
+    responsive-font-size:
+      1:
+        min: 12px
+        val: auto
+        max: 12px
+      2:
+        min: 14px
+        val: auto
+        max: 14px
+      3:
+        min: 16px
+        val: auto
+        max: 16px
+      4:
+        min: 18px
+        val: auto
+        max: 20px
+      5:
+        min: 20.25px
+        val: auto
+        max: 25px
+      6:
+        min: 22.7813px
+        val: auto
+        max: 31.25px
+      7:
+        min: 25.6289px
+        val: auto
+        max: 39.0625px
+      8:
+        min: 28.8325px
+        val: auto
+        max: 48.8281px
+      9:
+        min: 32.4366px
+        val: auto
+        max: 61.0352px
+      10:
+        min: 36.4912px
+        val: auto
+        max: 76.2939px
     font-weight:
       light: 300
       regular: 400
@@ -203,69 +246,69 @@ gesso:
       display:
         color: text.primary
         font-family: primary.stack
-        font-size: 9
         font-weight: bold
         line-height: tight
+        responsive-font-size: 10
       h1:
         color: text.primary
         font-family: primary.stack
-        font-size: 7
         font-weight: bold
         line-height: tight
+        responsive-font-size: 8
       h2:
         color: text.primary
         font-family: primary.stack
-        font-size: 6
         font-weight: bold
         line-height: tight
+        responsive-font-size: 7
       h3:
         color: text.primary
         font-family: primary.stack
-        font-size: 5
         font-weight: bold
         line-height: tight
+        responsive-font-size: 6
       h4:
         color: text.primary
         font-family: primary.stack
-        font-size: 4
         font-weight: bold
         line-height: base
+        responsive-font-size: 5
       h5:
         color: text.primary
         font-family: primary.stack
-        font-size: 2
         font-weight: bold
         line-height: base
+        responsive-font-size: 3
       h6:
         color: text.primary
         font-family: primary.stack
-        font-size: 1
         font-weight: semibold
         letter-spacing: -0.04em
         line-height: loose
         text-transform: uppercase
+        responsive-font-size: 2
       blockquote:
         color: text.link
         font-family: primary.stack
-        font-size: 4
+        font-size: 5
         font-weight: regular
         line-height: base
       body:
         color: text.primary
         font-family: primary.stack
-        font-size: 2
+        font-size: 3
         font-weight: regular
         line-height: base
       body-large:
         color: text.primary
         font-family: primary.stack
-        font-size: 3
+        font-size: 4
         font-weight: regular
         line-height: base
       cite:
         color: text.secondary
         font-family: primary.stack
-        font-size: 1
+        font-size: 2
         font-style: normal
         font-weight: semibold
         letter-spacing: .02em

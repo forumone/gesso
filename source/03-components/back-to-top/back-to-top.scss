@@ -2,7 +2,7 @@
 
 @use '00-config' as *;
 
-.back-to-top {
+.c-back-to-top {
   display: none;
 
   @include breakpoint(gesso-breakpoint(mobile-lg)) {
@@ -39,6 +39,6 @@
 }
 
 // Ensure that the button is visible in Storybook.
-.back-to-top--storybook-show {
+.c-back-to-top--storybook-show {
   opacity: 1 !important;
 }

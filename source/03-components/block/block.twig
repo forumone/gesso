@@ -1,14 +1,16 @@
+{{ attach_library('gesso/block') }}
+
 {% set classes = [
-  'block',
+  'c-block',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% set title_classes = [
-  'block__title',
+  'c-block__title',
 ]|join(' ')|trim %}
 
 {% set content_classes = [
-  'block__content',
+  'c-block__content',
 ]|join(' ')|trim %}
 
 {% set constrain_classes = [

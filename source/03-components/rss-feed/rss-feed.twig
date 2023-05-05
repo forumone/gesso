@@ -1,13 +1,15 @@
+{{ attach_library('gesso/rss_feed') }}
+
 {% set classes = [
-  'rss-feed',
+  'c-rss-feed',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<a href="{{ url }}" {{ add_attributes({ 'class': classes }) }}>
-  {%- include '@components/icon/icon.twig' with {
-    'modifier_classes': 'icon--rss is-spaced-after',
-    'is_hidden': true,
-    'icon_name': 'rss',
-  } -%}
-  {{- link_text -}}
-</a>
+{% include '@components/icon-link/icon-link.twig' with {
+  'modifier_classes': classes,
+  'url': url,
+  'link_text': link_text,
+  'icon_name': 'rss',
+  'icon_direction': '',
+  'icon_position': 'before',
+} %}

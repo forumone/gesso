@@ -5,7 +5,7 @@ import data from '../../00-config/config.design-tokens.yml';
 import './text-styles.scss';
 
 const settings = {
-  title: 'Global/Text Styles',
+  title: 'Global/Typography/Text Styles',
   argTypes: {
     gesso: {
       table: {

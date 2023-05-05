@@ -1,0 +1,14 @@
+// WYSIWYG styles
+
+@use 'sass:meta';
+@use '00-config' as * with($wysiwyg: true);
+
+// stylelint-disable selector-class-pattern
+div.paragraph--view-mode--preview,
+div.ck-content {
+  @include meta.load-css('01-global', $with: ('wysiwyg': true));
+  @include meta.load-css('02-layouts', $with: ('wysiwyg': true));
+  @include meta.load-css('03-components', $with: ('wysiwyg': true));
+  @include meta.load-css('06-utility', $with: ('wysiwyg': true));
+  @include meta.load-css('shame', $with: ('wysiwyg': true));
+}

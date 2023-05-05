@@ -1,0 +1,90 @@
+// Component: Message
+// Used for Drupal status messages.
+
+@use '00-config' as *;
+
+$message-background-color: gesso-color(ui, generic, background-light) !default;
+$message-border-color: gesso-color(ui, generic, border) !default;
+$message-error-background-color: gesso-color(ui, error, background) !default;
+$message-error-border-color: gesso-color(ui, error, border) !default;
+$message-status-background-color: gesso-color(ui, success, background) !default;
+$message-status-border-color: gesso-color(ui, success, border) !default;
+$message-warning-background-color: gesso-color(
+  ui,
+  warning,
+  background
+) !default;
+$message-warning-border-color: gesso-color(ui, warning, border) !default;
+
+.c-message {
+  background-color: $message-background-color;
+  border: 1px solid $message-border-color;
+  color: gesso-color(text, primary);
+  margin-bottom: rem(gesso-spacing(2));
+  overflow: hidden;
+  padding: rem(gesso-spacing(2));
+  position: relative;
+  word-wrap: break-word;
+
+  &::before {
+    background-repeat: no-repeat;
+    background-size: em(52px);
+    bottom: -0.5em;
+    content: '';
+    display: block;
+    height: em(52px);
+    position: absolute;
+    right: -0.5em;
+    transform: rotate(-20deg);
+    width: em(52px);
+    @media print {
+      display: none !important;
+    }
+  }
+
+  a {
+    color: gesso-color(text, secondary);
+    font-weight: gesso-font-weight(semibold);
+    text-decoration: underline;
+  }
+}
+
+.c-message__content {
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-message--status {
+  background-color: $message-status-background-color;
+  border-color: $message-status-border-color;
+
+  &::before {
+    @include svg-background(messages-status);
+  }
+}
+
+.c-message--error {
+  background-color: $message-error-background-color;
+  border-color: $message-error-border-color;
+
+  &::before {
+    @include svg-background(messages-error);
+  }
+
+  .c-message__item {
+    em:first-child {
+      font-style: normal;
+      font-weight: gesso-font-weight(bold);
+    }
+  }
+}
+
+.c-message--warning {
+  background-color: $message-warning-background-color;
+  border-color: $message-warning-border-color;
+
+  &::before {
+    @include svg-background(messages-warning);
+  }
+}

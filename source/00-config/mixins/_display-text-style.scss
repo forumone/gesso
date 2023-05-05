@@ -1,12 +1,15 @@
 // Mixins: Display Text Style
 
 @use '../functions' as *;
+@use './responsive-font-size' as *;
 
 @mixin display-text-style($keys...) {
   $display: gesso-get-map(typography, display, $keys...);
 
   @each $property, $value in $display {
-    @if ($property == 'font-size') {
+    @if ($property == 'responsive-font-size') {
+      @include responsive-font-size($value);
+    } @else if ($property == 'font-size') {
       // Check for px if not output value.
       #{$property}: #{rem(convert($value))};
     } @else {

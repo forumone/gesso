@@ -4,7 +4,7 @@
 
 $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 
-.hero-bg-image {
+.c-hero-bg-image {
   color: gesso-color(text, on-dark);
   overflow: hidden;
   padding: rem(gesso-spacing(12)) 15%;
@@ -34,34 +34,34 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
   }
 }
 
-.hero-bg-image__content {
+.c-hero-bg-image__content {
   position: relative;
   z-index: 2;
 }
 
-.hero-bg-image__title {
+.c-hero-bg-image__title {
   @include display-text-style(display);
   color: gesso-color(text, on-dark);
   margin-bottom: rem(gesso-spacing(5));
 
   @include breakpoint-max($hero-bg-image-bp, true) {
-    font-size: rem(gesso-font-size(7));
+    font-size: rem(gesso-font-size(8));
     margin-bottom: rem(gesso-spacing(3));
   }
 }
 
-.hero-bg-image__summary {
+.c-hero-bg-image__summary {
   @include display-text-style(body-large);
   color: gesso-color(text, on-dark);
   margin-bottom: rem(gesso-spacing(5));
 
   @include breakpoint-max($hero-bg-image-bp, true) {
-    font-size: rem(gesso-font-size(2));
+    font-size: rem(gesso-font-size(3));
     margin-bottom: rem(gesso-spacing(3));
   }
 }
 
-.hero-bg-image--left {
+.c-hero-bg-image--left {
   text-align: left;
 
   @include breakpoint($hero-bg-image-bp) {
@@ -70,7 +70,7 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
   }
 }
 
-.hero-bg-image--right {
+.c-hero-bg-image--right {
   text-align: left;
 
   @include breakpoint($hero-bg-image-bp) {

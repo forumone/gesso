@@ -4,9 +4,9 @@ import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
 
 class MobileMenu extends OverlayMenu {
   /**
-   * @constructor
-   * @param {HTMLElement} domNode - The menu to turn into a mobile menu
-   * @param context
+   * Menu options
+   *
+   * @typedef {Object} MobileMenuOpts
    * @param {string|null} searchBlockClass - Optional selector for the search block.
    *   If included, the search block will be cloned into the mobile menu. Set to
    *   null to omit the search block from the mobile menu.
@@ -17,12 +17,19 @@ class MobileMenu extends OverlayMenu {
    * @param {string} mobileMenuBreakpoint - Breakpoint at which to switch to the mobile menu.
    * @param {string} classPrefix - BEM prefix used for original menu classes, e.g. '.dropdown-menu'
    */
+
+  /**
+   * @constructor
+   * @param {HTMLElement} domNode - The menu to turn into a mobile menu
+   * @param context
+   * @param {MobileMenuOpts} options - Menu options
+   */
   constructor(
     domNode,
     context,
     {
       searchBlockClass = '.search',
-      utilityNavClass = '.menu--utility',
+      utilityNavClass = '.c-menu--utility',
       toggleSubnav = true,
       mobileMenuBreakpoint = `(max-width: ${BREAKPOINTS['mobile-menu']})`,
       classPrefix = '',
@@ -51,7 +58,7 @@ class MobileMenu extends OverlayMenu {
   createMenuOverlay() {
     const overlay = document.createElement('nav');
     overlay.setAttribute('aria-modal', 'true');
-    overlay.classList.add('mobile-menu');
+    overlay.classList.add('c-mobile-menu');
     return this.menu.insertAdjacentElement('afterend', overlay);
   }
 
@@ -69,6 +76,18 @@ class MobileMenu extends OverlayMenu {
     if (blockClone.id) {
       blockClone.id = `${blockClone.id}-mobile`;
     }
+
+    const childrenWithId = [...blockClone.querySelectorAll('[id]')];
+    childrenWithId.forEach((e) => {
+      e.id = `${e.id}-mobile`;
+    });
+
+    const childrenWithFor = [...blockClone.querySelectorAll('[for]')];
+    childrenWithFor.forEach((e) => {
+      const thisFor = e.getAttribute('for');
+      e.setAttribute('for', `${thisFor}-mobile`);
+    });
+
     return blockClone;
   }
 
@@ -79,10 +98,10 @@ class MobileMenu extends OverlayMenu {
    */
   createToggleButton(subnav) {
     const button = document.createElement('button');
-    button.classList.add('mobile-menu__subnav-arrow');
+    button.classList.add('c-mobile-menu__subnav-arrow');
     button.setAttribute('aria-controls', subnav.id);
     button.setAttribute('aria-expanded', 'false');
-    button.innerHTML = '<span class="visually-hidden">Toggle Subnav</span>';
+    button.innerHTML = '<span class="u-visually-hidden">Toggle Subnav</span>';
     return subnav.insertAdjacentElement('beforebegin', button);
   }
 
@@ -108,7 +127,7 @@ class MobileMenu extends OverlayMenu {
         toggleButton.setAttribute('aria-expanded', 'true');
         subnav.classList.add('is-open');
         subnav.hidden = false;
-        subnav.querySelector('.mobile-menu__link').focus();
+        subnav.querySelector('.c-mobile-menu__link').focus();
         this.enableTab(this.overlay);
       }
     });
@@ -127,8 +146,8 @@ class MobileMenu extends OverlayMenu {
       menuClone.classList.add(menuClass);
     }
     const subNavTypeClass = this.options.toggleSubNav
-      ? 'mobile-menu__menu--toggle-subnav'
-      : 'mobile-menu__menu--show-subnav';
+      ? 'c-mobile-menu__menu--toggle-subnav'
+      : 'c-mobile-menu__menu--show-subnav';
     menuClone.classList.add(subNavTypeClass);
 
     // Swap classes on the mobile menu items.
@@ -138,7 +157,7 @@ class MobileMenu extends OverlayMenu {
     if (menuItems.length) {
       menuItems.forEach(item => {
         item.classList.remove(`${this.options.classPrefix}__item`);
-        item.classList.add('mobile-menu__item');
+        item.classList.add('c-mobile-menu__item');
       });
     }
 
@@ -146,9 +165,14 @@ class MobileMenu extends OverlayMenu {
     const menuLinks = menuClone.querySelectorAll(
       `.${this.options.classPrefix}__link`
     );
-    menuLinks.forEach(link => {
+    menuLinks.forEach((link, index) => {
       link.classList.remove(`${this.options.classPrefix}__link`);
-      link.classList.add('mobile-menu__link');
+      link.classList.add('c-mobile-menu__link');
+      // Create unique ids for link and drawer if applicable
+      if (link.hasAttribute('aria-controls')) {
+        link.setAttribute('aria-controls', `mobile-menu-${index + 1}`);
+        link.nextElementSibling.id = `mobile-menu-${index + 1}`;
+      }
     });
 
     // Swap classes on menu sections, if applicable.
@@ -158,7 +182,7 @@ class MobileMenu extends OverlayMenu {
     if (menuSections.length) {
       menuSections.forEach(section => {
         section.classList.remove(`${this.options.classPrefix}__section`);
-        section.classList.add('mobile-menu__section');
+        section.classList.add('c-mobile-menu__section');
 
         const sectionInner = section.querySelector(
           `.${this.options.classPrefix}__section-inner`
@@ -167,7 +191,7 @@ class MobileMenu extends OverlayMenu {
           sectionInner.classList.remove(
             `${this.options.classPrefix}__section-inner`
           );
-          sectionInner.classList.add('mobile-menu__section-inner');
+          sectionInner.classList.add('c-mobile-menu__section-inner');
         }
 
         const sectionOverview = section.querySelector(
@@ -188,10 +212,10 @@ class MobileMenu extends OverlayMenu {
     if (subMenus.length) {
       subMenus.forEach((submenu, index) => {
         const link = submenu
-          .closest('.mobile-menu__item')
-          .querySelector('.mobile-menu__link');
+          .closest('.c-mobile-menu__item')
+          .querySelector('.c-mobile-menu__link');
         // Swap submenu classes and ID.
-        submenu.classList.add('mobile-menu__subnav');
+        submenu.classList.add('c-mobile-menu__subnav');
         submenu.classList.remove(`${this.options.classPrefix}__subnav`);
         submenu.id = cleanString(
           `mobile-menu-${link.innerText.trim()}${index || ''}`
@@ -238,9 +262,11 @@ class MobileMenu extends OverlayMenu {
   enableTab(startingPoint) {
     super.enableTab(startingPoint);
     if (this.options.toggleSubnav) {
-      let subSections = startingPoint.querySelectorAll('.mobile-menu__section');
+      let subSections = startingPoint.querySelectorAll(
+        '.c-mobile-menu__section'
+      );
       if (!subSections.length) {
-        subSections = startingPoint.querySelectorAll('.mobile-menu__subnav');
+        subSections = startingPoint.querySelectorAll('.c-mobile-menu__subnav');
       }
       subSections.forEach(subSection => {
         if (subSection.hidden || !subSection.classList.contains('is-open')) {
@@ -265,13 +291,13 @@ class MobileMenu extends OverlayMenu {
     super.init();
     if (this.searchBlock) {
       this.overlay.appendChild(
-        this.cloneBlock(this.searchBlock, 'mobile-menu__search')
+        this.cloneBlock(this.searchBlock, 'c-mobile-menu__search')
       );
     }
-    this.overlay.appendChild(this.cloneMenu(this.menu, 'mobile-menu__menu'));
+    this.overlay.appendChild(this.cloneMenu(this.menu, 'c-mobile-menu__menu'));
     if (this.utilityNav) {
       this.overlay.appendChild(
-        this.cloneMenu(this.utilityNav, 'mobile-menu__menu')
+        this.cloneMenu(this.utilityNav, 'c-mobile-menu__menu')
       );
     }
     this.toggleMenuDisplay();

@@ -1,6 +1,6 @@
 {% set classes = [
-  'field',
-  'field--list',
+  'c-field',
+  'c-field--list',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
@@ -11,7 +11,7 @@
 {% endif %}
 
 {% set title_classes = [
-  'field__label',
+  'c-field__label',
   label_display == 'inline' ? 'is-inline' : '',
   label_display == 'visually_hidden' ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}

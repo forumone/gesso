@@ -1,0 +1,12 @@
+// Component: Block
+
+@use '00-config' as *;
+
+.c-block {
+  margin-bottom: rem(gesso-spacing(5));
+}
+
+// Disable margin for admin blocks.
+.c-block--admin {
+  margin-bottom: 0;
+}

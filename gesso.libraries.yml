@@ -3,66 +3,37 @@ global:
     theme:
       //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
       dist/css/styles.css: {}
-hamburger_button:
-  css:
-    theme:
-      dist/css/hamburger-button.css: {}
-mobile_menu:
-  css:
-    theme:
-      dist/css/mobile-menu.css: {}
-  dependencies:
-    - gesso/hamburger_button
-dropdown_menu:
-  css:
-    theme:
-      dist/css/dropdown-menu.css: {}
-  js:
-    dist/js/dropdown-menu.es6.js: {}
-  dependencies:
-    - gesso/common
-    - gesso/mobile_menu
-mega_menu:
-  css:
-    theme:
-      dist/css/mega-menu.css: {}
-  js:
-    dist/js/mega-menu.es6.js: {}
-  dependencies:
-    - gesso/common
-    - gesso/mobile_menu
-overlay_menu:
-  css:
-    theme:
-      dist/css/overlay-menu.css: {}
-  js:
-    dist/js/overlay-menu.es6.js: {}
-  dependencies:
-    - gesso/common
-    - gesso/hamburger_button
-side_menu:
-  css:
-    theme:
-      dist/css/side-menu.css: { }
-  js:
-    dist/js/side-menu.es6.js: { }
-  dependencies:
-    - gesso/common
-    - gesso/hamburger_button
-hero_bg_image:
-  css:
-    theme:
-      dist/css/hero-bg-image.css: {}
-hero_inline_image:
-  css:
-    theme:
-      dist/css/hero-inline-image.css: {}
+
 back_to_top:
   css:
     theme:
       dist/css/back-to-top.css: {}
   js:
     dist/js/back-to-top.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+block:
+  css:
+    theme:
+      dist/css/block.css: {}
+
+breadcrumb:
+  css:
+    theme:
+      dist/css/breadcrumb.css: {}
+
+card:
+  css:
+    theme:
+      dist/css/card.css: {}
+
+details:
+  css:
+    theme:
+      dist/css/details.css: {}
+
 dropbutton:
   js:
     dist/js/dropbutton.es6.js: {}
@@ -70,7 +41,145 @@ dropbutton:
     component:
       dist/css/dropbutton.css: {}
   dependencies:
-    - core/jquery
     - core/drupal
     - core/drupalSettings
+    - core/jquery
     - core/once
+
+dropdown_menu:
+  css:
+    theme:
+      dist/css/dropdown-menu.css: {}
+  js:
+    dist/js/dropdown-menu.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
+    - gesso/mobile_menu
+
+hamburger_button:
+  css:
+    theme:
+      dist/css/hamburger-button.css: {}
+
+hero_bg_image:
+  css:
+    theme:
+      dist/css/hero-bg-image.css: {}
+
+hero_inline_image:
+  css:
+    theme:
+      dist/css/hero-inline-image.css: {}
+
+icon_link:
+  css:
+    theme:
+      dist/css/icon-link.css: {}
+
+image_teaser:
+  css:
+    theme:
+      dist/css/image-teaser.css: {}
+
+mega_menu:
+  css:
+    theme:
+      dist/css/mega-menu.css: {}
+  js:
+    dist/js/mega-menu.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
+    - gesso/mobile_menu
+
+message:
+  css:
+    theme:
+      dist/css/message.css: {}
+
+mobile_menu:
+  css:
+    theme:
+      dist/css/mobile-menu.css: {}
+  dependencies:
+    - gesso/hamburger_button
+
+overlay_menu:
+  css:
+    theme:
+      dist/css/overlay-menu.css: {}
+  js:
+    dist/js/overlay-menu.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
+    - gesso/hamburger_button
+
+pager:
+  css:
+    theme:
+      dist/css/pager.css: {}
+
+pager_mini:
+  css:
+    theme:
+      dist/css/pager--mini.css: {}
+  dependencies:
+    - gesso/pager
+
+progress:
+  css:
+    theme:
+      dist/css/progress.css: {}
+
+read_more_link:
+  css:
+    theme:
+      dist/css/rss-more-link.css: {}
+  dependencies:
+    - gesso/icon_link
+
+rss_feed:
+  css:
+    theme:
+      dist/css/rss-feed.css: {}
+  dependencies:
+    - gesso/icon_link
+
+side_menu:
+  css:
+    theme:
+      dist/css/side-menu.css: { }
+  js:
+    dist/js/side-menu.es6.js: { }
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
+    - gesso/hamburger_button
+
+tag:
+  css:
+    theme:
+      dist/css/tag.css: {}
+
+tag_list:
+  css:
+    theme:
+      dist/css/tag-list.css: {}
+  dependencies:
+    - gesso/tag
+
+teaser:
+  css:
+    theme:
+      dist/css/teaser.css: {}
+
+video:
+  css:
+    theme:
+      dist/css/video.css: {}

@@ -1,0 +1,113 @@
+// Component: Pager
+
+@use '00-config' as *;
+
+$pager-background-color: gesso-color(ui, generic, accent) !default;
+$pager-background-color-hover: gesso-color(ui, generic, accent) !default;
+$pager-background-color-active: gesso-color(ui, generic, accent-dark) !default;
+$pager-link-color: gesso-color(text, on-light) !default;
+$pager-link-color-active: gesso-color(text, on-dark) !default;
+$pager-link-focus-outline-color: gesso-color(ui, generic, border-dark) !default;
+$pager-ellipsis-bp: 800px !default;
+$pager-bp: 600px !default;
+
+.c-pager__items {
+  @include list-clean();
+  clear: both;
+  margin: rem(gesso-spacing(3)) 0;
+  padding: 0;
+  text-align: center;
+}
+
+.c-pager__item {
+  display: inline-block;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: top;
+
+  &:not([class*='pager__item--']) {
+    display: none;
+
+    @include breakpoint($pager-bp) {
+      display: inline-block;
+    }
+  }
+}
+
+%c-pager__link {
+  background-color: transparent;
+  color: $pager-link-color;
+  min-width: rem(gesso-spacing(5));
+  padding: em(gesso-spacing(1));
+  transition: color gesso-duration(short) gesso-easing(ease-out),
+    background-color gesso-duration(standard) gesso-easing(ease-out);
+
+  &:focus {
+    outline: 1px dotted $pager-link-focus-outline-color;
+  }
+}
+
+.c-pager__item--ellipsis {
+  @extend %c-pager__link;
+  display: none;
+  padding-left: 0;
+  padding-right: 0;
+
+  @include breakpoint($pager-ellipsis-bp) {
+    display: inline-block;
+  }
+}
+
+.c-pager__item--current.c-pager__item {
+  @extend %c-pager__link;
+  background-color: $pager-background-color;
+  color: $pager-link-color-active;
+}
+
+.c-pager__link {
+  @extend %c-pager__link;
+  display: inline-block;
+  text-decoration: none;
+
+  &:visited {
+    color: $pager-link-color;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $pager-background-color-hover;
+    color: $pager-link-color-active;
+  }
+
+  &:active {
+    background-color: $pager-background-color-active;
+    color: $pager-link-color-active;
+  }
+}
+
+.c-pager__link--first,
+.c-pager__link--previous,
+.c-pager__link--next,
+.c-pager__link--last {
+  background-color: transparent;
+  color: gesso-color(text, link);
+
+  &:visited {
+    color: gesso-color(text, link);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: gesso-color(text, link-hover);
+    text-decoration: underline;
+  }
+
+  &:active {
+    background-color: transparent;
+    color: gesso-color(text, link-active);
+    text-decoration: underline;
+  }
+}

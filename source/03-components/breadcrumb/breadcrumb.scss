@@ -1,0 +1,68 @@
+// Component: Breadcrumb
+
+@use '00-config' as *;
+
+$breadcrumb-background-color: gesso-color(ui, generic, accent-dark) !default;
+$breadcrumb-divider-color: gesso-color(ui, generic, border-light) !default;
+$breadcrumb-link-color: gesso-color(ui, generic, text-light) !default;
+$breadcrumb-text-color: gesso-color(text, on-dark) !default;
+
+.c-breadcrumb {
+  @include clearfix();
+  background-color: $breadcrumb-background-color;
+  color: $breadcrumb-text-color;
+  font-size: rem(gesso-font-size(2));
+  margin: gesso-spacing(4) 0;
+  min-height: rem(40px);
+  padding-bottom: gesso-spacing(2);
+  padding-top: gesso-spacing(2);
+}
+
+.c-breadcrumb__title {
+  color: $breadcrumb-text-color;
+}
+
+.c-breadcrumb__list {
+  @include list-inline();
+  margin-bottom: 0;
+}
+
+.c-breadcrumb__item {
+  margin-right: 0.75em;
+
+  &::after {
+    color: $breadcrumb-divider-color;
+    content: '/';
+    margin-left: 0.75em;
+  }
+
+  &:last-child::after {
+    content: '';
+    margin-left: 0;
+  }
+}
+
+.c-breadcrumb__list .c-breadcrumb__item {
+  @include breakpoint-max(600px) {
+    display: none;
+
+    &:nth-last-child(2) {
+      display: block;
+
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        color: $breadcrumb-divider-color;
+        content: '<';
+        margin-right: 0.75em;
+      }
+    }
+  }
+}
+
+.c-breadcrumb__link {
+  @include link($breadcrumb-link-color, $breadcrumb-text-color);
+  text-decoration: none;
+}

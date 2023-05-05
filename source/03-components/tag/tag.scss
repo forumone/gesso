@@ -1,0 +1,23 @@
+// Component: Tag
+
+@use '00-config' as *;
+
+.c-tag {
+  @include link(gesso-color(ui, generic, accent-dark));
+  border: 2px solid gesso-color(ui, generic, accent-light);
+  border-radius: 70px;
+  display: inline-block;
+  font-size: rem(gesso-font-size(2));
+  margin: 0 0 rem(gesso-spacing(1));
+  padding: 0.25em 1.65em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: box-shadow gesso-duration(short) gesso-easing(ease-in);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 2px gesso-color(ui, generic, accent-light);
+    outline: 0;
+  }
+}

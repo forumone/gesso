@@ -9,3 +9,9 @@
 .gesso-storybook-text-style__label {
   text-transform: uppercase;
 }
+
+@each $name, $style in gesso-get-map(typography, display) {
+  .gesso-storybook-text-style__preview--#{$name} {
+    @include display-text-style($name);
+  }
+}

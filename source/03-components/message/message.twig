@@ -1,30 +1,35 @@
+{{ attach_library('gesso/message') }}
+
 {% if type == 'error' %}
   {% set classes = [
-    'message',
-    'message--error',
+    'c-message',
+    'c-message--error',
     modifier_classes ? modifier_classes : '',
   ]|join(' ')|trim %}
 {% elseif type == 'warning' %}
   {% set classes = [
-    'message',
-    'message--warning',
+    'c-message',
+    'c-message--warning',
     modifier_classes ? modifier_classes : '',
   ]|join(' ')|trim %}
 {% else %}
   {% set classes = [
-    'message',
-    'message--status',
+    'c-message',
+    'c-message--status',
     modifier_classes ? modifier_classes : '',
   ]|join(' ')|trim %}
 {% endif %}
 
-<div {% if type == 'error' %} role="alert" {% else %} role="contentinfo" {% endif %} {% if heading %}aria-label="{{ heading }}"{% endif %} {{ add_attributes({ 'class': classes })}}>
-  <div class="message__content">
-    <h2 class="visually-hidden">{{ heading }}</h2>
+<div {{ add_attributes({ 'class': classes }) }}{% if type == 'error' %} role="alert"{% endif %}>
+  <div class="c-message__content">
+    {% if heading %}
+      <h2 class="u-visually-hidden">{{ heading }}</h2>
+    {% endif %}
+
     {% if messages|length > 1 %}
-      <ul class="message__list">
+      <ul class="c-message__list">
         {% for message in messages %}
-          <li class="message__item">{{- message -}}</li>
+          <li class="c-message__item">{{- message -}}</li>
         {% endfor %}
       </ul>
     {% else %}

@@ -20,7 +20,14 @@ import { BackToTop } from '../../03-components/back-to-top/back-to-top.stories.j
 
 const PageWrapper = props => {
   // eslint-disable-next-line react/prop-types
-  const { children } = props;
+  const { children, isHomepage } = props;
+  if (isHomepage) {
+    document.body.classList.add('front');
+    document.body.classList.remove('not-front');
+  } else {
+    document.body.classList.add('not-front');
+    document.body.classList.remove('front');
+  }
   return (
     <>
       {parse(SkiplinksTwig())}
@@ -81,7 +88,7 @@ const PageWrapper = props => {
             ),
           })
         )}
-        <main id="main" className="main" role="main" tabIndex="-1">
+        <main id="main" className="c-main" role="main" tabIndex="-1">
           {parse(
             ContentTwig({
               has_constrain: true,

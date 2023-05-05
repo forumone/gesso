@@ -22,7 +22,7 @@ class PopupMenu extends Menu {
     {
       useArrowKeys = true,
       displayMenuOnHover = true,
-      submenuSelector = '.dropdown-menu__subnav',
+      submenuSelector = '.c-dropdown-menu__subnav',
     } = {}
   ) {
     super(domNode, { useArrowKeys, displayMenuOnHover, submenuSelector });

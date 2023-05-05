@@ -1,0 +1,101 @@
+// Component: Card
+
+@use '00-config' as *;
+
+$card-accent-border-color: gesso-color(ui, generic, accent) !default;
+$card-link-color: gesso-color(text, on-light) !default;
+$card-link-color-hover: gesso-color(ui, generic, text-dark) !default;
+$card-meta-color: gesso-color(ui, generic, text-dark) !default;
+$card-padding: rem(gesso-spacing(3)) !default;
+
+.c-card {
+  border-bottom: 4px solid $card-accent-border-color;
+  box-shadow: gesso-box-shadow(1);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow gesso-duration(short) gesso-easing(ease-in-out);
+
+  &:hover,
+  &:focus-within {
+    box-shadow: gesso-box-shadow(3);
+  }
+}
+
+.c-card__title {
+  font-size: rem(gesso-font-size(5));
+  margin: 0;
+
+  a {
+    @include link($card-link-color, $card-link-color-hover);
+  }
+}
+
+.c-card__body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: $card-padding;
+}
+
+.c-card__header {
+  margin-bottom: rem(gesso-spacing(3));
+}
+
+.c-card__date {
+  color: $card-meta-color;
+  font-size: rem(gesso-font-size(2));
+  margin-bottom: rem(gesso-spacing(2));
+}
+
+.c-card__content {
+  margin-bottom: rem(gesso-spacing(3));
+}
+
+.c-card__media {
+  order: -1;
+
+  a {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.c-card__footer {
+  margin-top: auto;
+}
+
+.c-card__tags {
+  margin-bottom: rem(gesso-spacing(2));
+}
+
+.c-card__readmore {
+  text-align: right;
+}
+
+.c-card--feature {
+  .c-card__media {
+    flex-grow: 1;
+  }
+
+  @include breakpoint(gesso-breakpoint(desktop)) {
+    flex-direction: row;
+
+    .c-card__title {
+      font-size: rem(gesso-font-size(6));
+    }
+
+    .c-card__body {
+      max-width: 600px;
+      padding: $card-padding 2vw;
+    }
+
+    .c-card__media {
+      order: initial;
+    }
+  }
+}

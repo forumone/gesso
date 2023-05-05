@@ -1,8 +1,8 @@
 {% set class_type = type == 'textfield' ? 'text' : type %}
 
 {% set classes = [
-  'form-item',
-  'form-item--' ~ class_type,
+  'c-form-item',
+  'c-form-item--' ~ class_type,
   label_display not in ['after', 'before'] ? 'has-no-label' : '',
   label_display not in ['invisible'] and label_display in ['after'] ? 'has-visible-label-after' : '',
   errors ? 'has-error' : '',
@@ -13,55 +13,57 @@
 ]|join(' ')|trim %}
 
 {% set description_classes = [
-  'form-item__description',
+  'c-form-item__description',
   description_display == 'invisible' ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}
 
-  {% set description_attributes_to_add = {
-    class: description_classes,
-  } %}
+{% set description_attributes_to_add = {
+  'class': description_classes,
+} %}
 
-  {% if id %}
-    {% set description_attributes_to_add = description_attributes_to_add|merge({
-      id: id ~ '-description',
-    }) %}
-  {% endif %}
+{% if id %}
+  {% set description_attributes_to_add = description_attributes_to_add|merge({
+    'id': id ~ '-description',
+  }) %}
+{% endif %}
 
 <div {{ add_attributes({class: classes}) }}>
   {% if label_display in ['before', 'invisible'] %}
     {{ label }}
   {% endif %}
 
-  {% if prefix or suffix %}
-  <div class="form-item__element">
+  {% spaceless %}
+    {% if prefix or suffix %}
+      <div class="c-form-item__element">
     {% endif %}
 
-    {% if prefix %}
-      <span class="form-item__prefix">{{ prefix }}</span>
-    {% endif %}
+      {% if prefix %}
+        <span class="c-form-item__prefix">{{ prefix }}</span>
+      {% endif %}
 
-    {% if description_display == 'before' and description.content %}
-      <div {{ add_attributes(description_attributes_to_add, 'description.attributes') }}>
-        {{ description.content }}
-      </div>
-    {% endif %}
+      {% if description_display == 'before' and description.content %}
+        <div {{ add_attributes(description_attributes_to_add, 'description.attributes') }}>
+          {{ description.content }}
+        </div>
+      {% endif %}
 
-    {{ children }}
+      {{ children }}
 
-    {% if suffix %}
-      <span class="form-item__suffix">{{ suffix }}</span>
-    {% endif %}
+      {% if suffix %}
+        <span class="c-form-item__suffix">{{ suffix }}</span>
+      {% endif %}
 
     {% if prefix or suffix %}
-  </div>
-  {% endif %}
+      </div>
+    {% endif %}
+  {% endspaceless %}
 
   {% if label_display == 'after' %}
     {{ label }}
   {% endif %}
 
   {% if errors %}
-    <div class="form-item__error-message">
+    <div class="c-form-item__error-message">
       {{ errors }}
     </div>
   {% endif %}
