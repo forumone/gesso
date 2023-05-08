@@ -58,6 +58,13 @@ dropdown_menu:
     - gesso/common
     - gesso/mobile_menu
 
+file:
+  css:
+    theme:
+      dist/css/file.css: {}
+  dependencies:
+    - gesso/icon_link
+
 hamburger_button:
   css:
     theme:
