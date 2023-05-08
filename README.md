@@ -205,7 +205,7 @@ forget to add it to the `gesso.libraries.yml` file as well.
 ### common.js
 
 Any library you create in `gesso.libraries.yml` that includes an individual
-componentscript must include `gesso/common` as a dependency. (In most cases, you
+component script must include `gesso/common` as a dependency. (In most cases, you
 will also add `core/drupal` as a dependency, if you are using the `Drupal`
 object anywhere in your code.) common.js is generated on **production** builds
 (so you will not notice it missing until you deploy to a staging server) and
