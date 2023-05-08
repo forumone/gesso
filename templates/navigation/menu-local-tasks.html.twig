@@ -15,11 +15,13 @@
   {% set primary_links = [] %}
 
   {% for item in primary %}
-    {% set primary_links = primary_links|merge([{
-      'text': item['#link'].title,
-      'url' : item['#link'].url,
-      'active': item['#active'],
-    }]) %}
+    {% if item|render %}
+      {% set primary_links = primary_links|merge([{
+        'text': item['#link'].title,
+        'url' : item['#link'].url,
+        'active': item['#active'],
+      }]) %}
+    {% endif %}
   {% endfor %}
 
   {% include '@components/button-group/button-group.twig' with {
@@ -34,17 +36,19 @@
   {% set secondary_links = [] %}
 
   {% for item in secondary %}
-    {% set link %}
-      <a href="{{ item['#link'].url }}">
-        {%- if item['#active'] %}<strong>{% endif -%}
-        {{- item['#link'].title -}}
-        {%- if item['#active'] %}<span class="u-visually-hidden"> ({{ 'active tab'|t }})</span></strong>{% endif -%}
-      </a>
-    {% endset %}
+    {% if item|render %}
+      {% set link %}
+        <a href="{{ item['#link'].url }}">
+          {%- if item['#active'] %}<strong>{% endif -%}
+          {{- item['#link'].title -}}
+          {%- if item['#active'] %}<span class="u-visually-hidden"> ({{ 'active tab'|t }})</span></strong>{% endif -%}
+        </a>
+      {% endset %}
 
-    {% set secondary_links = secondary_links|merge([{
-      'content': link,
-    }]) %}
+      {% set secondary_links = secondary_links|merge([{
+        'content': link,
+      }]) %}
+    {% endif %}
   {% endfor %}
 
   <h2 class="u-visually-hidden">{{ 'Secondary tabs'|t }}</h2>

@@ -1,4 +1,4 @@
-{% spaceless %}
+{% apply spaceless %}
   {% set classes = [
     'c-button',
     modifier_classes ? modifier_classes : '',
@@ -26,7 +26,7 @@
         'label': icon_label,
         'icon_name': icon_name,
         'direction': icon_direction,
-        'gesso_image_path': gesso_image_path,
+        'image_path': image_path,
       } -%}
     {% endif -%}
   {% endset %}
@@ -93,4 +93,4 @@
     <a {{ add_attributes({ 'class': classes }) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if storybook %} target="_self"{% endif %}>{{ demo_button_content }}</a>
     <button {{ add_attributes({ 'class': classes }) }} disabled>{{ disabled_button_content }}</button>
   {% endif %}
-{% endspaceless -%}
+{% endapply -%}
