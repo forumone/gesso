@@ -204,23 +204,23 @@ forget to add it to the `gesso.libraries.yml` file as well.
 
 ### common.js
 
-Any library you create in `gesso.libraries.yml` that includes an individual component
-script must include `gesso/common` as a dependency. (In most cases, you will 
-also add `core/drupal` as a dependency, if you are using the `Drupal` object
-anywhere in your code.) common.js is generated on **production** builds (so
-you will not notice it missing until you deploy to a staging server) and contains
-JavaScript that is shared across two or more components, so that it is not
-bundled multiple times on the page. The recommended practice is for each library
-to declare its dependencies, even if some of them are repeated across multiple
-libraries and/or shared with global. This ensures that Drupal will always load
-the dependencies before loading any library that depends on them. See the
-`dropdown_menu` library in `gesso.libraries.yml` as an example.
+Any library you create in `gesso.libraries.yml` that includes an individual
+component script must include `gesso/common` as a dependency. (In most cases, you
+will also add `core/drupal` as a dependency, if you are using the `Drupal`
+object anywhere in your code.) common.js is generated on **production** builds
+(so you will not notice it missing until you deploy to a staging server) and
+contains JavaScript that is shared across two or more components, so that it is
+not bundled multiple times on the page. The recommended practice is for each
+library to declare its dependencies, even if some of them are repeated across
+multiple libraries and/or shared with global. This ensures that Drupal will
+always load the dependencies before loading any library that depends on them.
+See the `dropdown_menu` library in `gesso.libraries.yml` as an example.
 
 The common JS file is created using the [Webpack SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/).
-To change how it behaves, update `webpack.production.js`. You may also need to update
-`gesso_library_info_build` in `libraries.inc` to change what files are included
-in the `gesso/common` library. We recommend using the default setup unless you
-have a specific use case that requires advanced configuration.
+To change how it behaves, update `webpack.production.js`. You may also need to
+update `gesso_library_info_build` in `libraries.inc` to change what files are
+included in the `gesso/common` library. We recommend using the default setup
+unless you have a specific use case that requires advanced configuration.
 
 ### JS Linting
 
