@@ -5,20 +5,20 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% apply spaceless %}
-  <a href="{{ url }}" {{ add_attributes({ 'class': classes }) }}>
-    {{ label|default('Read more') }}
-    <span class="c-read-more-link__icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
-        <path fill="#231f20" d="M14 4.648l9.352 9.352-9.352 9.352-1.641-1.641 6.508-6.563h-14.219v-2.297h14.219l-6.508-6.563z"></path>
-      </svg>
-    </span>
+{% set link_text -%}
+  {{ label|default('Read more') }}
 
-    {% if not hide_description %}
-      <span class="c-read-more-link__accessibility-description">
-        {{ description_prefix|default('about') }}
-        {{ title }}
-      </span>
-    {% endif %}
-  </a>
-{% endapply %}
+  {% if hide_description %}<span class="u-visually-hidden">{% endif %}
+    {{ description_prefix|default('about') }}
+    {{ title }}
+  {% if hide_description %}</span>{% endif %}
+{%- endset %}
+
+{% include '@components/icon-link/icon-link.twig' with {
+  'modifier_classes': classes,
+  'url': url,
+  'link_text': link_text,
+  'icon_name': 'arrow-long',
+  'icon_direction': 'right',
+  'icon_position': 'after',
+} %}
