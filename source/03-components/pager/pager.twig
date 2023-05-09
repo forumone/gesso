@@ -1,5 +1,41 @@
 {{ attach_library('gesso/pager') }}
 
+{% set pager_icon_left_angles %}
+  {% include '@components/icon/icon.twig' with {
+    'is_hidden': true,
+    'modifier_classes': 'c-icon--pager is-spaced-after',
+    'icon_name': 'angles',
+    'direction': 'left',
+  } %}
+{% endset %}
+
+{% set pager_icon_left_angle %}
+  {% include '@components/icon/icon.twig' with {
+    'is_hidden': true,
+    'modifier_classes': 'c-icon--pager is-spaced-after',
+    'icon_name': 'angle',
+    'direction': 'left',
+  } %}
+{% endset %}
+
+{% set pager_icon_right_angles %}
+  {% include '@components/icon/icon.twig' with {
+    'is_hidden': true,
+    'modifier_classes': 'c-icon--pager is-spaced-before',
+    'icon_name': 'angles',
+    'direction': 'right',
+  } %}
+{% endset %}
+
+{% set pager_icon_right_angle %}
+  {% include '@components/icon/icon.twig' with {
+    'is_hidden': true,
+    'modifier_classes': 'c-icon--pager is-spaced-before',
+    'icon_name': 'angle',
+    'direction': 'right',
+  } %}
+{% endset %}
+
 {% set classes = [
   'c-pager',
   modifier_classes ? modifier_classes : '',
@@ -18,12 +54,7 @@
         <li class="c-pager__item c-pager__item--first">
           <a class="c-pager__link c-pager__link--first" href="{{ pager_items.first.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ pager_items.first.attributes|without('aria-label', 'href', 'title') }}>
             {%- apply spaceless %}
-              {% include '@components/icon/icon.twig' with {
-                'is_hidden': true,
-                'modifier_classes': 'c-icon--pager is-spaced-after',
-                'icon_name': 'angles',
-                'direction': 'left',
-              } %}
+              {{ pager_icon_left_angles }}
               <span class="u-visually-hidden">{{ link_label }}</span>
               <span aria-hidden="true">{{ 'First'|t }}</span>
             {% endapply -%}
@@ -37,12 +68,7 @@
         <li class="c-pager__item c-pager__item--previous">
           <a class="c-pager__link c-pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
             {%- apply spaceless %}
-              {% include '@components/icon/icon.twig' with {
-                'is_hidden': true,
-                'modifier_classes': 'c-icon--pager is-spaced-after',
-                'icon_name': 'angle',
-                'direction': 'left',
-              } %}
+              {{ pager_icon_left_angle }}
               <span class="u-visually-hidden">{{ link_label }}</span>
               <span aria-hidden="true">{{ 'Previous'|t }}</span>
             {% endapply -%}
@@ -88,12 +114,7 @@
             {%- apply spaceless %}
               <span class="u-visually-hidden">{{ link_label }}</span>
               <span aria-hidden="true">{{ 'Next'|t }}</span>
-              {% include '@components/icon/icon.twig' with {
-                'is_hidden': true,
-                'modifier_classes': 'c-icon--pager is-spaced-before',
-                'icon_name': 'angle',
-                'direction': 'right',
-              } %}
+              {{ pager_icon_right_angle }}
             {% endapply -%}
           </a>
         </li>
@@ -107,12 +128,7 @@
             {%- apply spaceless %}
               <span class="u-visually-hidden">{{ link_label }}</span>
               <span aria-hidden="true">{{ 'Last'|t }}</span>
-              {% include '@components/icon/icon.twig' with {
-                'is_hidden': true,
-                'modifier_classes': 'c-icon--pager is-spaced-before',
-                'icon_name': 'angles',
-                'direction': 'right',
-              } %}
+              {{ pager_icon_right_angles }}
             {% endapply -%}
           </a>
         </li>
