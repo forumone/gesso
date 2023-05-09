@@ -65,6 +65,7 @@ const settings = {
       include: [
         'text',
         'text_demo',
+        'data_attributes',
         'icon_name',
         'icon_direction',
         'icon_position',

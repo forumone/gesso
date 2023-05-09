@@ -4,6 +4,7 @@ text_demo: 'Link Button'
 is_demo: true
 is_button_tag: true
 is_disabled: false
+data_attributes: ''
 url: '#0'
 button_type: 'submit'
 icon_name: false
