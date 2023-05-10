@@ -12,11 +12,9 @@ show_admin_info: false
 summary: '<p>This is the summary, which can contain <abbr title="Hyper Text Markup Language">HTML</abbr> markup. It should be 600 characters or less.</p>'
 author_name: 'Author Name'
 url: '#0'
-file:
-  icon: 'http://fpoimg.com/16x16?text=icon'
-  mime: 'application/pdf'
-  name: 'file name'
-  size: '115.83 KB'
+file_name: 'File name'
+file_mime: 'application/pdf'
+file_size: '115.83 KB'
 img_thumbnail:
   src: 'http://fpoimg.com/140x105?text=Thumbnail 4:3'
   alt: 'Thumbnail 4:3'
@@ -51,7 +49,7 @@ minute:
   long: '20'
   short: '20'
 seconds: '31'
-gesso_image_path: 'images'
+image_path: 'images'
 modifier_classes: ''
 content: |-
   <p>This is WYSIWYG content, which can contain <abbr title="Hyper Text Markup Language">HTML</abbr> markup. There is no limit to how long this content can be. it could have both <a href="#0">internal</a> and <a href="https://example.com">external</a> links.</p>

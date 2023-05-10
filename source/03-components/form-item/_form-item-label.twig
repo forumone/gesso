@@ -11,12 +11,12 @@
 ]|join(' ')|trim %}
 
 {% set attributes_to_add = {
-  class: label_classes,
+  'class': label_classes,
 } %}
 
-{% if id %}
+{% if id is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    for: id,
+    'for': id ~ '',
   }) %}
 {% endif %}
 
@@ -24,12 +24,12 @@
   {{- title }}
 
   {% if is_required %}
-    {%- spaceless %}
+    {%- apply spaceless %}
       <span class="c-form-item__required-marker">
         <span class="u-visually-hidden">
           {{ 'This field is required.'|t }}
         </span>
       </span>
-    {% endspaceless -%}
+    {% endapply -%}
   {% endif -%}
 </label>

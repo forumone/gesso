@@ -10,7 +10,7 @@
  */
 function gesso_preprocess(array &$variables) {
   if (!empty($variables['directory'])) {
-    $variables['gesso_image_path'] = '/' . $variables['directory'] . '/dist/images';
+    $variables['image_path'] = '/' . $variables['directory'] . '/dist/images';
   }
 }
 

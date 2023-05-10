@@ -1,10 +1,78 @@
 import parse from 'html-react-parser';
 
 import twigTemplate from './button.twig';
+import globalData from '../../00-config/storybook.global-data.yml';
 import data from './button.yml';
 
 const settings = {
   title: 'Components/Button',
+  argTypes: {
+    icon_name: {
+      options: [
+        false,
+        'angle',
+        'angles',
+        'arrow',
+        'arrow-long',
+        'bars',
+        'calendar',
+        'caret',
+        'check',
+        'chevron',
+        'download',
+        'ellipsis',
+        'envelope',
+        'file',
+        'magnifying-glass',
+        'minus',
+        'plus',
+        'rss',
+        'square',
+        'square-check',
+        'square-empty',
+        'xmark',
+        'facebook',
+        'instagram',
+        'linkedin',
+        'twitter',
+        'youtube',
+      ],
+      control: { type: 'select' },
+    },
+    icon_direction: {
+      options: [
+        'up',
+        'right',
+        'down',
+        'left',
+      ],
+      control: { type: 'select' },
+    },
+    icon_position: {
+      options: [
+        'before',
+        'after',
+        'both',
+      ],
+      control: { type: 'select' },
+    },
+    icon_is_hidden: {
+      control: { type: 'boolean' },
+    },
+  },
+  parameters: {
+    controls: {
+      include: [
+        'text',
+        'text_demo',
+        'icon_name',
+        'icon_direction',
+        'icon_position',
+        'icon_label',
+        'icon_is_hidden',
+      ],
+    },
+  },
 };
 
 const Primary = args => (
@@ -12,7 +80,7 @@ const Primary = args => (
     ...args,
   }))
 );
-Primary.args = { ...data };
+Primary.args = { ...globalData, ...data };
 
 const Secondary = args => (
   parse(twigTemplate({
@@ -20,7 +88,7 @@ const Secondary = args => (
     modifier_classes: 'c-button--secondary',
   }))
 );
-Secondary.args = { ...data };
+Secondary.args = { ...globalData, ...data };
 
 const Base = args => (
   parse(twigTemplate({
@@ -28,7 +96,7 @@ const Base = args => (
     modifier_classes: 'c-button--base',
   }))
 );
-Base.args = { ...data };
+Base.args = { ...globalData, ...data };
 
 const Danger = args => (
   parse(twigTemplate({
@@ -36,7 +104,7 @@ const Danger = args => (
     modifier_classes: 'c-button--danger',
   }))
 );
-Danger.args = { ...data };
+Danger.args = { ...globalData, ...data };
 
 const Small = args => (
   parse(twigTemplate({
@@ -44,7 +112,7 @@ const Small = args => (
     modifier_classes: 'c-button--small',
   }))
 );
-Small.args = { ...data };
+Small.args = { ...globalData, ...data };
 
 const Large = args => (
   parse(twigTemplate({
@@ -52,7 +120,7 @@ const Large = args => (
     modifier_classes: 'c-button--large',
   }))
 );
-Large.args = { ...data };
+Large.args = { ...globalData, ...data };
 
 export default settings;
 export { Primary, Secondary, Base, Danger, Large, Small };

@@ -1,9 +1,9 @@
-// Component: Readmore Link
+// Component: Read More Link
 
 @use '00-config' as *;
-@use '01-global' as *;
+@use '01-global/extendables' as *;
 
-.c-readmore-link {
+.c-read-more-link {
   padding-right: 28px;
   text-decoration: none;
 
@@ -15,7 +15,7 @@
   }
 }
 
-.c-readmore-link__icon {
+.c-read-more-link__icon {
   display: inline-block;
   margin-right: -28px;
   position: relative;
@@ -27,6 +27,6 @@
   }
 }
 
-.c-readmore-link__accessibility-description {
+.c-read-more-link__accessibility-description {
   @extend %visually-hidden;
 }
