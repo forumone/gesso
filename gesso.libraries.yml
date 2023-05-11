@@ -13,6 +13,7 @@ back_to_top:
   dependencies:
     - core/drupal
     - core/once
+    - gesso/common
 
 block:
   css:
@@ -45,6 +46,7 @@ dropbutton:
     - core/drupalSettings
     - core/jquery
     - core/once
+    - gesso/common
 
 dropdown_menu:
   css:
