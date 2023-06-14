@@ -11,7 +11,7 @@ use Twig\TwigFilter;
 class KeysortTwigExtension extends AbstractExtension {
 
   /**
-   * @inheritdoc
+   * Provide helper name.
    */
   public function getName() {
     return 'gesso_helper_keysort';

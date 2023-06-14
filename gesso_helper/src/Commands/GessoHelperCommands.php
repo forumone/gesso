@@ -35,6 +35,8 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   protected $themeHandler;
 
   /**
+   * Theme list variable.
+   *
    * @var array
    */
   protected $themeList;
