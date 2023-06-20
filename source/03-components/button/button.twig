@@ -8,6 +8,7 @@
         'label': icon_label,
         'icon_name': icon_name,
         'direction': icon_direction,
+        'image_path': image_path,
       } -%}
     {% endset %}
   {% endif %}
@@ -27,7 +28,7 @@
   {% endif %}
 {% endif %}
 
-{% apply spaceless %}
+{%- apply spaceless %}
   {% set classes = [
     'c-button',
     modifier_classes ? modifier_classes : '',
