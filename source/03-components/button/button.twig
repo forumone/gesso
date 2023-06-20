@@ -64,7 +64,7 @@
   {% endif %}
 
   {% if is_demo %}
-    <a {{ add_attributes(button_attributes) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if data_attributes %} {{ data_attributes }}{% endif %}{% if storybook %} target="_self"{% endif %}>{{ demo_button_content }}</a>
+    <a {{ add_attributes(button_attributes) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if storybook %} target="_self"{% endif %}>{{ demo_button_content }}</a>
     <button {{ add_attributes(button_attributes) }} disabled{% if button_type %} type="{{ button_type }}"{% endif %}>{{ disabled_button_content }}</button>
   {% endif %}
 {% endapply -%}
