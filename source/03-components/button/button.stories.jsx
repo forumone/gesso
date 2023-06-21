@@ -65,6 +65,10 @@ const settings = {
       include: [
         'text',
         'text_demo',
+        'is_disabled',
+        'button_type',
+        'modifier_classes',
+        'extra_attributes',
         'icon_name',
         'icon_direction',
         'icon_position',
