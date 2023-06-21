@@ -27,6 +27,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class GessoButtonFormatter extends LinkFormatter {
 
   /**
+   * The renderer service.
+   *
    * @var \Drupal\Core\Render\RendererInterface
    */
   protected $renderer;
