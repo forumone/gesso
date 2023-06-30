@@ -42,7 +42,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   protected $themeList;
 
   /**
-   * Filesystem variable.
+   * The file system service.
    *
    * @var \Symfony\Component\Filesystem\Filesystem
    */
@@ -113,7 +113,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $this->io()->text(dt('Setting up the theme. This may take a while...'));
     // Get theme paths.
     $drupalRoot = Drush::bootstrapManager()->getRoot();
-    $gesso_path = Path::join($drupalRoot, \Drupal::service('extension.list.theme')->getPath('gesso'));
+    $gesso_path = Path::join($drupalRoot, $this->themeHandler->getPath('gesso'));
     $theme_path = substr($gesso_path, 0, strrpos($gesso_path, '/'));
     $new_path = Path::join($theme_path, $machine_name);
 
