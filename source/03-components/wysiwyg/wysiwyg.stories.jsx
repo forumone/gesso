@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './wysiwyg.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
+import './wysiwyg.es6';
 
 const settings = {
   title: 'Components/WYSIWYG',
