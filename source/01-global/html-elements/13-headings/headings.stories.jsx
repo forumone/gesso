@@ -9,9 +9,7 @@ const settings = {
   },
 };
 
-const Headings = () => (
-  parse(twigTemplate())
-);
+const Headings = () => parse(twigTemplate());
 
 export default settings;
 export { Headings };

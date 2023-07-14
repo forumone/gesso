@@ -8,17 +8,18 @@ const settings = {
   argTypes: {
     is_demo: {
       table: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
 };
 
-const SiteContainer = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const SiteContainer = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 SiteContainer.args = { ...data };
 
 export default settings;

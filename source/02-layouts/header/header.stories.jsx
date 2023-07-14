@@ -8,17 +8,18 @@ const settings = {
   argTypes: {
     is_demo: {
       table: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
 };
 
-const Header = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Header = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Header.args = { ...data };
 
 export default settings;

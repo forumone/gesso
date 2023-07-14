@@ -7,11 +7,12 @@ const settings = {
   title: 'Components/Author',
 };
 
-const Author = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Author = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Author.args = { ...data };
 
 export default settings;

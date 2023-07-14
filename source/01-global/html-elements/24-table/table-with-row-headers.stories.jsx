@@ -9,9 +9,7 @@ const settings = {
   },
 };
 
-const TableWithRowHeaders = () => (
-  parse(twigTemplate())
-);
+const TableWithRowHeaders = () => parse(twigTemplate());
 
 TableWithRowHeaders.storyName = 'Table with Row Headers';
 

@@ -9,13 +9,14 @@ const settings = {
   title: 'Components/Dropbutton',
 };
 
-const Dropbutton = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Dropbutton = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Dropbutton.args = {
-  ...data
+  ...data,
 };
 
 export default settings;

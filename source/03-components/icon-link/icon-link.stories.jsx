@@ -40,40 +40,27 @@ const settings = {
       control: { type: 'select' },
     },
     icon_direction: {
-      options: [
-        'up',
-        'right',
-        'down',
-        'left',
-      ],
+      options: ['up', 'right', 'down', 'left'],
       control: { type: 'select' },
     },
     icon_position: {
-      options: [
-        'before',
-        'after',
-        'both',
-      ],
+      options: ['before', 'after', 'both'],
       control: { type: 'select' },
     },
   },
   parameters: {
     controls: {
-      include: [
-        'icon_name',
-        'icon_direction',
-        'icon_position',
-        'link_text',
-      ],
+      include: ['icon_name', 'icon_direction', 'icon_position', 'link_text'],
     },
   },
 };
 
-const IconLink = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const IconLink = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 IconLink.args = { ...globalData, ...data };
 
 export default settings;

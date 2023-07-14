@@ -7,11 +7,12 @@ const settings = {
   title: 'Components/Menu/Footer Menu',
 };
 
-const FooterMenu = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const FooterMenu = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 FooterMenu.args = { ...data };
 
 export default settings;

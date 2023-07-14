@@ -7,41 +7,42 @@ const settings = {
   title: 'Components/Site Name',
   argTypes: {
     url: {
-      type: "string",
-      description: "The URL of the site homepage",
+      type: 'string',
+      description: 'The URL of the site homepage',
       table: {
         defaultValue: {
-          summary: "#",
+          summary: '#',
         },
       },
     },
     site_name: {
-      type: "string",
-      description: "The site name or title",
+      type: 'string',
+      description: 'The site name or title',
       table: {
         defaultValue: {
-          summary: "Site Title",
+          summary: 'Site Title',
         },
       },
     },
   },
   parameters: {
     controls: {
-      include: ['site_name', 'url', 'modifier_classes']
+      include: ['site_name', 'url', 'modifier_classes'],
     },
     docs: {
       description: {
-        component: "The site title, displayed prominently in the header.",
+        component: 'The site title, displayed prominently in the header.',
       },
     },
   },
 };
 
-const SiteName = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const SiteName = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 SiteName.args = { ...globalData };
 
 export default settings;

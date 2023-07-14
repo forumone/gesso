@@ -7,16 +7,12 @@ const settings = {
   title: 'Components/WYSIWYG',
   parameters: {
     controls: {
-      include: [
-        'content',
-      ]
-    }
-  }
+      include: ['content'],
+    },
+  },
 };
 
-const WYSIWYG = args => (
-  parse(twigTemplate(args))
-);
+const WYSIWYG = args => parse(twigTemplate(args));
 WYSIWYG.args = { ...globalData };
 
 export default settings;

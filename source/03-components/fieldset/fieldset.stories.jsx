@@ -7,11 +7,12 @@ const settings = {
   title: 'Components/Fieldset',
 };
 
-const Fieldset = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Fieldset = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Fieldset.args = { ...data };
 
 export default settings;
