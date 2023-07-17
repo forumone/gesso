@@ -22,6 +22,6 @@
 ] %}
 
 {% include '@components/form-item/_input.twig' with {
-  modifier_classes: attributes.removeClass(remove_classes).addClass(classes).class|join(' ')|trim,
+  'attributes': attributes.removeClass(remove_classes).addClass(classes),
 } %}
 {{- children }}

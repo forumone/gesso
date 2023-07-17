@@ -7,5 +7,6 @@ is_disabled: false
 url: '#0'
 button_type: 'submit'
 icon_name: false
+icon_position: 'before'
 icon_is_hidden: true
 icon_label: ''
