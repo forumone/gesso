@@ -9,17 +9,18 @@ const settings = {
   argTypes: {
     gesso: {
       table: {
-        disable: true
-      }
-    }
-  }
+        disable: true,
+      },
+    },
+  },
 };
 
-const ColorPalette = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const ColorPalette = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 ColorPalette.args = { ...data };
 
 export default settings;

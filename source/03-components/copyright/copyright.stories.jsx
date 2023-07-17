@@ -7,16 +7,17 @@ const settings = {
   title: 'Components/Copyright',
   parameters: {
     controls: {
-      include: ['year', 'site_name', 'modifier_classes']
-    }
-  }
+      include: ['year', 'site_name', 'modifier_classes'],
+    },
+  },
 };
 
-const Copyright = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Copyright = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Copyright.args = { ...globalData };
 
 export default settings;

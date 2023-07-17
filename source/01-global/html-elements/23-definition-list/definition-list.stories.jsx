@@ -9,9 +9,7 @@ const settings = {
   },
 };
 
-const DefinitionList = () => (
-  parse(twigTemplate())
-);
+const DefinitionList = () => parse(twigTemplate());
 
 export default settings;
 export { DefinitionList };

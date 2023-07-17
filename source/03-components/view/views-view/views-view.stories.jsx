@@ -10,15 +10,16 @@ const settings = {
   title: 'Components/Views/View',
 };
 
-const View = args => (
-  parse(twigTemplate({
-    ...args,
-    pager: pagerTemplate({
-      ...globalData,
-      ...pagerData,
-    }),
-  }))
-);
+const View = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      pager: pagerTemplate({
+        ...globalData,
+        ...pagerData,
+      }),
+    })
+  );
 View.args = { ...data };
 
 export default settings;

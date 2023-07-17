@@ -8,17 +8,18 @@ const settings = {
   argTypes: {
     is_demo: {
       table: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
 };
 
-const Region = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Region = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Region.args = { ...data };
 
 export default settings;

@@ -9,17 +9,18 @@ const settings = {
   argTypes: {
     gesso: {
       table: {
-        disable: true
-      }
-    }
-  }
+        disable: true,
+      },
+    },
+  },
 };
 
-const LineHeight = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const LineHeight = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 LineHeight.args = { ...data };
 
 export default settings;
