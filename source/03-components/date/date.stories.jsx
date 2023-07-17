@@ -18,16 +18,17 @@ const settings = {
         'day',
         'hour',
         'minute',
-      ]
-    }
-  }
+      ],
+    },
+  },
 };
 
-const Date = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Date = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Date.args = { ...globalData, ...data };
 
 export default settings;

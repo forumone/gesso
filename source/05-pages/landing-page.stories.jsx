@@ -14,11 +14,9 @@ export default {
   title: 'Pages/Landing Page',
   parameters: {
     controls: {
-      include: [
-        'show_admin_info',
-      ]
-    }
-  }
+      include: ['show_admin_info'],
+    },
+  },
 };
 
 // You can create a loop to quickly add multiple instances of the same story.
@@ -45,11 +43,12 @@ const mainContent = View({
   rows: gridContent,
 });
 
-const landingPageContent = args => twigTemplate({
-  ...args,
-  page_title: 'Great Scott!',
-  content: ReactDOMServer.renderToStaticMarkup(mainContent),
-});
+const landingPageContent = args =>
+  twigTemplate({
+    ...args,
+    page_title: 'Great Scott!',
+    content: ReactDOMServer.renderToStaticMarkup(mainContent),
+  });
 
 const LandingPage = args => (
   <PageWrapper>{parse(landingPageContent(args))}</PageWrapper>

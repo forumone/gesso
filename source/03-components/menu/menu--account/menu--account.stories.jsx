@@ -7,11 +7,12 @@ const settings = {
   title: 'Components/Menu/Account Menu',
 };
 
-const AccountMenu = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const AccountMenu = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 AccountMenu.args = { ...data };
 
 export default settings;

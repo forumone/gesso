@@ -9,9 +9,7 @@ const settings = {
   },
 };
 
-const HorizontalRule = () => (
-  parse(twigTemplate())
-);
+const HorizontalRule = () => parse(twigTemplate());
 
 export default settings;
 export { HorizontalRule };

@@ -1,0 +1,17 @@
+{{ attach_library('gesso/accordion') }}
+
+{% set classes = [
+  'c-accordion',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if accordion_items %}
+  <div {{ add_attributes({ class: classes }) }}>
+    <div
+      class="c-accordion__content js-accordion"
+      {{ allow_multiple ? 'data-allow-multiple' : '' }}
+    >
+      {{ accordion_items }}
+    </div>
+  </div>
+{% endif %}

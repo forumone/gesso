@@ -12,18 +12,17 @@ const settings = {
   title: 'Components/RSS Feed',
   parameters: {
     controls: {
-      include: [
-        'link_text',
-      ],
+      include: ['link_text'],
     },
   },
 };
 
-const RSSFeed = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const RSSFeed = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 RSSFeed.args = { ...globalData, ...data };
 
 export default settings;

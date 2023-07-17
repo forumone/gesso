@@ -9,9 +9,7 @@ const settings = {
   },
 };
 
-const PreformattedText = () => (
-  parse(twigTemplate())
-);
+const PreformattedText = () => parse(twigTemplate());
 
 export default settings;
 export { PreformattedText };

@@ -8,49 +8,54 @@ const settings = {
   argTypes: {
     is_demo: {
       table: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
 };
 
-const Default = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Default = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Default.args = { ...data };
 
-const TwoColumn = args => (
-  parse(twigTemplate({
-    ...args,
-    num_of_cols: '2',
-  }))
-);
+const TwoColumn = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      num_of_cols: '2',
+    })
+  );
 TwoColumn.args = { ...data };
 
-const ThreeColumn = args => (
-  parse(twigTemplate({
-    ...args,
-    num_of_cols: '3',
-  }))
-);
+const ThreeColumn = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      num_of_cols: '3',
+    })
+  );
 ThreeColumn.args = { ...data };
 
-const FourColumn = args => (
-  parse(twigTemplate({
-    ...args,
-    num_of_cols: '4',
-  }))
-);
+const FourColumn = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      num_of_cols: '4',
+    })
+  );
 FourColumn.args = { ...data };
 
-const SixColumn = args => (
-  parse(twigTemplate({
-    ...args,
-    num_of_cols: '6',
-  }))
-);
+const SixColumn = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      num_of_cols: '6',
+    })
+  );
 SixColumn.args = { ...data };
 
 export default settings;

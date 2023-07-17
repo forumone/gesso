@@ -16,14 +16,12 @@ const settings = {
         'hero_button_text',
         'homepage_grid_title',
         'homepage_grid_content',
-      ]
-    }
-  }
+      ],
+    },
+  },
 };
 
-const Homepage = args => (
-  parse(twigTemplate(args))
-);
+const Homepage = args => parse(twigTemplate(args));
 Homepage.args = { ...globalData, ...data };
 
 export default settings;

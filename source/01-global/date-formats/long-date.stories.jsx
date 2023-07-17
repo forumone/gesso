@@ -7,16 +7,17 @@ const settings = {
   title: 'Global/Date/Long Date',
   parameters: {
     controls: {
-      include: ['weekday', 'month', 'day', 'year']
-    }
-  }
+      include: ['weekday', 'month', 'day', 'year'],
+    },
+  },
 };
 
-const LongDate = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const LongDate = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 LongDate.args = { ...globalData };
 
 export default settings;

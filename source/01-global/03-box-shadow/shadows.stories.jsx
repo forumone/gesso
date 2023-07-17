@@ -9,17 +9,18 @@ const settings = {
   argTypes: {
     gesso: {
       table: {
-        disable: true
-      }
-    }
-  }
+        disable: true,
+      },
+    },
+  },
 };
 
-const BoxShadows = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const BoxShadows = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 BoxShadows.args = { ...data };
 
 export default settings;
