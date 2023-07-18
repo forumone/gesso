@@ -9,17 +9,18 @@ const settings = {
   argTypes: {
     gesso: {
       table: {
-        disable: true
-      }
-    }
-  }
+        disable: true,
+      },
+    },
+  },
 };
 
-const Duration = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Duration = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Duration.args = { ...data };
 
 export default settings;

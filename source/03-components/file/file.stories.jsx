@@ -9,19 +9,11 @@ const settings = {
   title: 'Components/File',
   argTypes: {
     icon_name: {
-      options: [
-        'download',
-        'file',
-      ],
+      options: ['download', 'file'],
       control: { type: 'select' },
     },
     file_mime: {
-      options: [
-        'application/pdf',
-        'application/xml',
-        'text/csv',
-        'text/plain',
-      ],
+      options: ['application/pdf', 'application/xml', 'text/csv', 'text/plain'],
       control: { type: 'select' },
     },
   },
@@ -33,16 +25,17 @@ const settings = {
         'file_name',
         'file_mime',
         'file_size',
-      ]
-    }
-  }
+      ],
+    },
+  },
 };
 
-const File = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const File = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 File.args = { ...globalData, ...data };
 
 export default settings;

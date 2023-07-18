@@ -1,9 +1,12 @@
 // HTML Element: Universal
 
+@use '00-config' as *;
+
 // Uncomment to add a set of default transitions to all elements
 // * {
-//   transition-duration: gesso-duration(short) ;
-//   transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+//   transition-duration: gesso-duration(short);
+//   transition-property: background-color, border-color, box-shadow, color,
+//     opacity, text-shadow, transform;
 //   transition-timing-function: gesso-easing(ease-in);
 // }
 

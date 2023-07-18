@@ -8,11 +8,12 @@ const settings = {
   title: 'Components/Teaser',
 };
 
-const Teaser = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Teaser = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Teaser.args = { ...data };
 
 export default settings;

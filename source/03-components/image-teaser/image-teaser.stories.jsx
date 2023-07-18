@@ -8,11 +8,12 @@ const settings = {
   title: 'Components/Image Teaser',
 };
 
-const ImageTeaser = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const ImageTeaser = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 ImageTeaser.args = { ...data };
 
 export default settings;

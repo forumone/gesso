@@ -8,18 +8,12 @@ const settings = {
   title: 'Templates/Landing Page',
   parameters: {
     controls: {
-      include: [
-        'page_title',
-        'show_admin_info',
-        'content',
-      ]
-    }
-  }
+      include: ['page_title', 'show_admin_info', 'content'],
+    },
+  },
 };
 
-const LandingPage = args => (
-  parse(twigTemplate(args))
-);
+const LandingPage = args => parse(twigTemplate(args));
 LandingPage.args = { ...globalData, ...data };
 
 export default settings;

@@ -1,5 +1,6 @@
 ---
 modifier_classes: ''
 icon_name: 'calendar'
+icon_position: 'before'
 link_text: 'Link text'
 url: '#0'

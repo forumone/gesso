@@ -40,20 +40,11 @@ const settings = {
       control: { type: 'select' },
     },
     icon_direction: {
-      options: [
-        'up',
-        'right',
-        'down',
-        'left',
-      ],
+      options: ['up', 'right', 'down', 'left'],
       control: { type: 'select' },
     },
     icon_position: {
-      options: [
-        'before',
-        'after',
-        'both',
-      ],
+      options: ['before', 'after', 'both'],
       control: { type: 'select' },
     },
     icon_is_hidden: {
@@ -65,6 +56,10 @@ const settings = {
       include: [
         'text',
         'text_demo',
+        'is_disabled',
+        'button_type',
+        'modifier_classes',
+        'extra_attributes',
         'icon_name',
         'icon_direction',
         'icon_position',
@@ -75,51 +70,57 @@ const settings = {
   },
 };
 
-const Primary = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Primary = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Primary.args = { ...globalData, ...data };
 
-const Secondary = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--secondary',
-  }))
-);
+const Secondary = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'c-button--secondary',
+    })
+  );
 Secondary.args = { ...globalData, ...data };
 
-const Base = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--base',
-  }))
-);
+const Base = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'c-button--base',
+    })
+  );
 Base.args = { ...globalData, ...data };
 
-const Danger = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--danger',
-  }))
-);
+const Danger = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'c-button--danger',
+    })
+  );
 Danger.args = { ...globalData, ...data };
 
-const Small = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--small',
-  }))
-);
+const Small = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'c-button--small',
+    })
+  );
 Small.args = { ...globalData, ...data };
 
-const Large = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-button--large',
-  }))
-);
+const Large = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'c-button--large',
+    })
+  );
 Large.args = { ...globalData, ...data };
 
 export default settings;

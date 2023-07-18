@@ -1,36 +1,47 @@
-{%- if icon_name and icon_position != 'after' -%}
-  {% set button_icon_before %}
-    {%- include '@components/icon/icon.twig' with {
-      'is_demo': false,
-      'modifier_classes': 'c-button__icon is-spaced-after',
-      'is_hidden': icon_is_hidden,
-      'label': icon_label,
-      'icon_name': icon_name,
-      'direction': icon_direction,
-    } -%}
-  {% endset %}
-{% endif -%}
+{% set classes = [
+  'c-button',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
 
-{%- if icon_name and icon_position == 'after' or icon_position == 'both' -%}
-  {% set button_icon_after %}
-    {%- include '@components/icon/icon.twig' with {
-      'is_demo': false,
-      'modifier_classes': 'c-button__icon is-spaced-before',
-      'is_hidden': icon_is_hidden,
-      'label': icon_label,
-      'icon_name': icon_name,
-      'direction': icon_direction,
-      'image_path': image_path,
-    } -%}
-  {% endset %}
-{% endif -%}
+{% set button_attributes = {
+  'class': classes,
+} %}
 
-{% apply spaceless %}
-  {% set classes = [
-    'c-button',
-    modifier_classes ? modifier_classes : '',
-  ]|join(' ')|trim %}
+{% if extra_attributes %}
+  {% set button_attributes = button_attributes|merge(extra_attributes) %}
+{% endif %}
 
+{% if icon_name is not empty %}
+  {% if icon_position == 'before' or icon_position == 'both' %}
+    {% set button_icon_before %}
+      {%- include '@components/icon/icon.twig' with {
+        'is_demo': false,
+        'modifier_classes': 'c-button__icon is-spaced-after',
+        'is_hidden': icon_is_hidden,
+        'label': icon_label,
+        'icon_name': icon_name,
+        'direction': icon_direction,
+        'image_path': image_path,
+      } -%}
+    {% endset %}
+  {% endif %}
+
+  {% if icon_position == 'after' or icon_position == 'both' %}
+    {% set button_icon_after %}
+      {%- include '@components/icon/icon.twig' with {
+        'is_demo': false,
+        'modifier_classes': 'c-button__icon is-spaced-before',
+        'is_hidden': icon_is_hidden,
+        'label': icon_label,
+        'icon_name': icon_name,
+        'direction': icon_direction,
+        'image_path': image_path,
+      } -%}
+    {% endset %}
+  {% endif %}
+{% endif %}
+
+{%- apply spaceless %}
   {% set button_content %}
     {{ button_icon_before }}
     {{- text -}}
@@ -50,13 +61,13 @@
   {% endset %}
 
   {% if is_button_tag %}
-    <button {{ add_attributes({ 'class': classes }) }}{% if is_disabled %} disabled{% endif %}{% if button_type %} type="{{ button_type }}"{% endif %}>{{ button_content }}</button>
+    <button {{ add_attributes(button_attributes) }}{% if is_disabled %} disabled{% endif %}{% if button_type %} type="{{ button_type }}"{% endif %}>{{ button_content }}</button>
   {% else %}
-    <a {{ add_attributes({ 'class': classes }) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if storybook %} target="_self"{% endif %}>{{ button_content }}</a>
+    <a {{ add_attributes(button_attributes) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if storybook %} target="_self"{% endif %}>{{ button_content }}</a>
   {% endif %}
 
   {% if is_demo %}
-    <a {{ add_attributes({ 'class': classes }) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if storybook %} target="_self"{% endif %}>{{ demo_button_content }}</a>
-    <button {{ add_attributes({ 'class': classes }) }} disabled>{{ disabled_button_content }}</button>
+    <a {{ add_attributes(button_attributes) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if storybook %} target="_self"{% endif %}>{{ demo_button_content }}</a>
+    <button {{ add_attributes(button_attributes) }} disabled{% if button_type %} type="{{ button_type }}"{% endif %}>{{ disabled_button_content }}</button>
   {% endif %}
 {% endapply -%}

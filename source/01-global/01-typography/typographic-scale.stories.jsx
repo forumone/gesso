@@ -9,17 +9,18 @@ const settings = {
   argTypes: {
     gesso: {
       table: {
-        disable: true
-      }
-    }
-  }
+        disable: true,
+      },
+    },
+  },
 };
 
-const TypographicScale = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const TypographicScale = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 TypographicScale.args = { ...data };
 
 export default settings;

@@ -20,14 +20,12 @@ const settings = {
         'hour',
         'minute',
         'content',
-      ]
-    }
-  }
+      ],
+    },
+  },
 };
 
-const Page = args => (
-  parse(twigTemplate(args))
-);
+const Page = args => parse(twigTemplate(args));
 Page.args = { ...globalData, ...data };
 
 export default settings;

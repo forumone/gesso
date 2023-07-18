@@ -9,9 +9,7 @@ const settings = {
   },
 };
 
-const OrderedList = () => (
-  parse(twigTemplate())
-);
+const OrderedList = () => parse(twigTemplate());
 
 export default settings;
 export { OrderedList };
