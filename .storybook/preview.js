@@ -5,6 +5,7 @@ import twigAttributes from 'add-attributes-twig-extension';
 import keysort from '../lib/keysort';
 import uniqueId from '../lib/uniqueId';
 import fieldValue from '../lib/fieldValue';
+import '../dist/js/global.es6';
 import './stubs/drupal';
 import './stubs/once';
 
