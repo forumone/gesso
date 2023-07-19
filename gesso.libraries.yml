@@ -4,6 +4,8 @@ global:
       # If you alter the fonts here, be sure to also update: source/ckeditor4-styles.scss, source/editor-styles.scss and .storybook/preview-head.html.
       //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
       dist/css/styles.css: {}
+  js:
+    dist/js/global.es6.js: {}
 
 accordion:
   header: true
