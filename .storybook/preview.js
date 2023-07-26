@@ -9,6 +9,7 @@ import './stubs/drupal';
 import './stubs/once';
 
 import '../dist/css/styles.css';
+import '../dist/js/universal.es6.js';
 
 function setupTwig(twig) {
   twig.cache();
