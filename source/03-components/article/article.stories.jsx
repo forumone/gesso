@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './article.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './article.yml';
@@ -9,6 +10,7 @@ import { Default as Message } from '../message/message.stories.jsx';
 
 const settings = {
   title: 'Components/Article',
+  decorators: [withGlobalWrapper],
   parameters: {
     controls: {
       include: [

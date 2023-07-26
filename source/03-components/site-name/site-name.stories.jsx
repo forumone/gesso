@@ -1,10 +1,12 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './site-name.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 
 const settings = {
   title: 'Components/Site Name',
+  decorators: [withGlobalWrapper],
   argTypes: {
     url: {
       type: 'string',

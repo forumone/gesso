@@ -1,11 +1,13 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './button.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './button.yml';
 
 const settings = {
   title: 'Components/Button',
+  decorators: [withGlobalWrapper],
   argTypes: {
     icon_name: {
       options: [
