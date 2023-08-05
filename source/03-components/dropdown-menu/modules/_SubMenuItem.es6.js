@@ -37,6 +37,8 @@ class SubMenuItem extends MenuItem {
         this.toggleButton.classList.add('c-dropdown-menu__subnav-toggle');
         this.toggleButton.addEventListener('click', this.handleToggleClick);
         this.toggleButton.addEventListener('keydown', this.handleToggleKeydown);
+        this.toggleButton.addEventListener('focus', this.handleFocus);
+        this.toggleButton.addEventListener('blur', this.handleBlur);
         this.domNode.classList.remove('has-subnav');
         popupMenu.insertAdjacentElement('beforebegin', this.toggleButton);
       }
@@ -174,8 +176,8 @@ class SubMenuItem extends MenuItem {
     const { relatedTarget, target } = event;
     if (
       !relatedTarget ||
-      !this.domNode.parentElement.contains(relatedTarget) ||
-      relatedTarget?.parentElement?.nextElementSibling === target
+      (!this.domNode.parentElement.contains(relatedTarget) &&
+        relatedTarget?.parentElement?.nextElementSibling !== target)
     ) {
       super.handleBlur(event);
       setTimeout(this.menu.close.bind(this.menu, false), 300);
