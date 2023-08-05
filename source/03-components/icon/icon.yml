@@ -2,5 +2,6 @@
 is_demo: true
 is_hidden: false
 modifier_classes: ''
+direction: ''
 label: 'Accessible label'
 icon_name: ''

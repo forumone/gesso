@@ -2,16 +2,18 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './block.twig';
 import data from './block.yml';
+import './block.scss';
 
 const settings = {
   title: 'Components/Block',
 };
 
-const Block = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Block = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Block.args = { ...data };
 
 export default settings;

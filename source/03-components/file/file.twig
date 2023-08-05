@@ -1,10 +1,20 @@
+{{ attach_library('gesso/file') }}
+
 {% set classes = [
   'c-file',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<div {{ add_attributes({ 'class': classes }) }}>
-  <img class="c-file__icon" alt="{{ file.mime }}" src="{{ file.icon }}">
-  <a href="#" class="c-file__link">{{ file.name }}</a>
-  <span class="c-file__size">({{ file.size }})</span>
-</div>
+<span {{ add_attributes({ 'class': classes }) }}>
+  {%- include '@components/icon-link/icon-link.twig' with {
+    'modifier_classes': 'c-file__link',
+    'url': url,
+    'link_text': file_name,
+    'icon_name': icon_name,
+    'icon_direction': '',
+    'icon_position': 'before',
+  } %}
+  {% if file_size %}
+    <span class="c-file__size">({{ file_size }})</span>
+  {% endif -%}
+</span>

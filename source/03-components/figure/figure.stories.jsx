@@ -8,68 +8,85 @@ const settings = {
   title: 'Components/Figure',
 };
 
-const Default = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Default = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Default.args = { ...data };
 
-const FigureCentered = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'u-align-center',
-  }))
-);
+const FigureCentered = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'u-align-center',
+    })
+  );
 FigureCentered.args = { ...data };
 
-const FigureLeftAligned = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'u-align-left',
-  }))
-);
+const FigureLeftAligned = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'u-align-left',
+    })
+  );
 FigureLeftAligned.args = { ...data };
 
-const FigureRightAligned = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'u-align-right',
-  }))
-);
+const FigureRightAligned = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'u-align-right',
+    })
+  );
 FigureRightAligned.args = { ...data };
 
-const FigureWithVideo = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-figure--iframe',
-  }))
-);
+const FigureWithVideo = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'c-figure--iframe',
+    })
+  );
 FigureWithVideo.args = { ...videoData };
 
-const FigureWithVideoCentered = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-figure--iframe u-align-center',
-  }))
-);
+const FigureWithVideoCentered = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'c-figure--iframe u-align-center',
+    })
+  );
 FigureWithVideoCentered.args = { ...videoData };
 
-const FigureWithVideoLeftAligned = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-figure--iframe u-align-left',
-  }))
-);
+const FigureWithVideoLeftAligned = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'c-figure--iframe u-align-left',
+    })
+  );
 FigureWithVideoLeftAligned.args = { ...videoData };
 
-const FigureWithVideoRightAligned = args => (
-  parse(twigTemplate({
-    ...args,
-    modifier_classes: 'c-figure--iframe u-align-right',
-  }))
-);
+const FigureWithVideoRightAligned = args =>
+  parse(
+    twigTemplate({
+      ...args,
+      modifier_classes: 'c-figure--iframe u-align-right',
+    })
+  );
 FigureWithVideoRightAligned.args = { ...videoData };
 
 export default settings;
-export { Default, FigureCentered, FigureLeftAligned, FigureRightAligned, FigureWithVideo, FigureWithVideoCentered, FigureWithVideoLeftAligned, FigureWithVideoRightAligned };
+export {
+  Default,
+  FigureCentered,
+  FigureLeftAligned,
+  FigureRightAligned,
+  FigureWithVideo,
+  FigureWithVideoCentered,
+  FigureWithVideoLeftAligned,
+  FigureWithVideoRightAligned,
+};

@@ -7,16 +7,17 @@ const settings = {
   title: 'Components/Site Logo',
   parameters: {
     controls: {
-      include: ['url', 'site_logo', 'modifier_classes']
-    }
-  }
+      include: ['url', 'site_logo', 'modifier_classes'],
+    },
+  },
 };
 
-const SiteLogo = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const SiteLogo = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 SiteLogo.args = { ...globalData };
 
 export default settings;

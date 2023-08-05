@@ -1,0 +1,24 @@
+{{ attach_library('gesso/read_more_link') }}
+
+{% set classes = [
+  'c-read-more-link',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set link_text -%}
+  {{ label|default('Read more') }}
+
+  {% if hide_description %}<span class="u-visually-hidden">{% endif %}
+    {{ description_prefix|default('about') }}
+    {{ title }}
+  {% if hide_description %}</span>{% endif %}
+{%- endset %}
+
+{% include '@components/icon-link/icon-link.twig' with {
+  'modifier_classes': classes,
+  'url': url,
+  'link_text': link_text,
+  'icon_name': 'arrow-long',
+  'icon_direction': 'right',
+  'icon_position': 'after',
+} %}

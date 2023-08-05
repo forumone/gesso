@@ -203,6 +203,11 @@ class SubMenuItem extends MenuItem {
     this.menu.setHover(false);
     if (this.menu.options.displayMenuOnHover) {
       setTimeout(this.menu.close.bind(this.menu, false), 300);
+      // Close parent menu if it exists and is not a menubar
+      const parent = this.menu.controller.menu;
+      if (parent && !parent.isMenubar) {
+        setTimeout(parent.close.bind(parent, false), 300);
+      }
     }
   }
 

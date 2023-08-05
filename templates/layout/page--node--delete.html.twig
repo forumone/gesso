@@ -33,6 +33,7 @@
  * - page.breadcrumb: Items for the breadcrumb region.
  * - page.help: Dynamic help text, mostly for admin pages.
  * - page.preface: Items for the preface content region.
+ * - page.title: page title .
  * - page.status: Status messages and local tasks.
  * - page.content: The main content of the current page.
  * - page.postscript: Items for the postscript content region.
@@ -43,9 +44,3 @@
  */
 #}
 {% extends "page.html.twig" %}
-
-{% block main_content %}
-  {{ page.preface }}
-  {{ page.content }}
-  {{ page.postscript }}
-{% endblock %}

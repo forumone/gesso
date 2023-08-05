@@ -9,18 +9,17 @@ export default {
   title: 'Pages/Page',
   parameters: {
     controls: {
-      include: [
-        'show_admin_info',
-      ]
-    }
-  }
+      include: ['show_admin_info'],
+    },
+  },
 };
 
 // For an example of customizing the content on a demo page, see Article page.
-const pageContent = args => twigTemplate({
-  ...args,
-  title: 'Page Title',
-});
+const pageContent = args =>
+  twigTemplate({
+    ...args,
+    title: 'Page Title',
+  });
 
 const Page = args => <PageWrapper>{parse(pageContent(args))}</PageWrapper>;
 Page.args = {

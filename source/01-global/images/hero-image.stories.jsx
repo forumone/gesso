@@ -7,16 +7,17 @@ const settings = {
   title: 'Global/Images/Hero Image',
   parameters: {
     controls: {
-      include: ['img_hero', 'modifier_classes']
-    }
-  }
+      include: ['img_hero', 'modifier_classes'],
+    },
+  },
 };
 
-const HeroImage = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const HeroImage = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 HeroImage.args = { ...globalData };
 
 export default settings;

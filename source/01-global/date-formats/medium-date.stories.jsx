@@ -7,16 +7,17 @@ const settings = {
   title: 'Global/Date/Medium Date',
   parameters: {
     controls: {
-      include: ['month', 'day', 'year']
-    }
-  }
+      include: ['month', 'day', 'year'],
+    },
+  },
 };
 
-const MediumDate = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const MediumDate = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 MediumDate.args = { ...globalData };
 
 export default settings;

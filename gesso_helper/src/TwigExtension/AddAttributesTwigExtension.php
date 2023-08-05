@@ -12,14 +12,14 @@ use Twig\TwigFunction;
 class AddAttributesTwigExtension extends AbstractExtension {
 
   /**
-   * @inheritdoc
+   * Provide helper name.
    */
   public function getName() {
     return 'gesso_helper_add_attributes';
   }
 
   /**
-   * @inheritdoc
+   * Add add_attributes Twig function.
    */
   public function getFunctions(): array {
     $functions = parent::getFunctions();

@@ -9,9 +9,7 @@ const settings = {
   },
 };
 
-const Paragraph = () => (
-  parse(twigTemplate())
-);
+const Paragraph = () => parse(twigTemplate());
 
 export default settings;
 export { Paragraph };
