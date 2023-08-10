@@ -40,8 +40,8 @@
 
 <fieldset {{ add_attributes(attributes_to_add) }}>
   {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
-  <legend {{ add_attributes({class: 'c-fieldset__legend'}, 'legend.attributes') }}>
-    <span {{ add_attributes({class: legend_span_classes}, 'legend_span.attributes') }}>{{ legend.title }}</span>
+  <legend {{ add_attributes({class: 'c-fieldset__legend'}, 'legend_attributes') }}>
+    <span {{ add_attributes({class: legend_span_classes}, 'legend_span_attributes') }}>{{ legend.title }}</span>
   </legend>
   <div class="c-fieldset__content">
     {% if errors %}
