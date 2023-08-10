@@ -1,6 +1,5 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './side-menu.twig';
 import data from './side-menu.yml';
 import './side-menu.scss';

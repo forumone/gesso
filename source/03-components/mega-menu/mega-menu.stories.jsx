@@ -2,7 +2,6 @@ import parse from 'html-react-parser';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './mega-menu.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './mega-menu.yml';

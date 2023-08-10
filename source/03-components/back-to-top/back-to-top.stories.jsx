@@ -1,6 +1,5 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './back-to-top.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './back-to-top.yml';

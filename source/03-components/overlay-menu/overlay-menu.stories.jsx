@@ -1,6 +1,5 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './overlay-menu.twig';
 import data from './overlay-menu.yml';
 import './overlay-menu.scss';
