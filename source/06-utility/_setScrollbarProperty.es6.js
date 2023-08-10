@@ -2,7 +2,7 @@
  * Calculate the width of the vertical scrollbar.
  * via https://codepen.io/Mamboleoo/post/scrollbars-and-css-custom-properties
  */
- function calculateScrollbarSize() {
+function calculateScrollbarSize() {
   const containerWithScroll = document.createElement('div');
   containerWithScroll.style.visibility = 'hidden';
   containerWithScroll.style.overflow = 'scroll';

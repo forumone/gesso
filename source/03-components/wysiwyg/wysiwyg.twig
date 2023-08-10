@@ -1,8 +1,13 @@
+{{ attach_library('gesso/wysiwyg') }}
+
 {% set classes = [
   'c-wysiwyg',
+  'u-clearfix',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<div {{ add_attributes({ 'class': classes })}}>
-  {{ content }}
-</div>
+{% if content %}
+  <div {{ add_attributes({ 'class': classes }) }} data-wysiwyg>
+    {{ content }}
+  </div>
+{% endif %}

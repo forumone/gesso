@@ -1,7 +1,7 @@
 {{ attach_library('gesso/side_menu') }}
 {% set classes = [
   'c-side-menu',
-  modifier_classes ? modifier_classes : ''
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% set id = 'side-menu'|unique_id %}

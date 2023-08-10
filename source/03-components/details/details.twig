@@ -7,7 +7,7 @@
 
 {% set summary_classes = [
   'c-details__summary',
-  required ?'is-required' : '',
+  required ? 'is-required' : '',
 ]|join(' ')|trim %}
 
 <details {{ add_attributes({ 'class': classes }) }}>

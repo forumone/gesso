@@ -3,9 +3,10 @@ import parse from 'html-react-parser';
 import twigTemplate from './article.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './article.yml';
-// Importing Message to ensure its assets gets loaded in Storybook when this
-// story is referenced since Drupal loads them as a library.
+// Importing components to ensure their assets get loaded in Storybook when they
+// get referenced since Drupal loads them as a library.
 import { Default as Message } from '../message/message.stories.jsx';
+import { WYSIWYG } from '../wysiwyg/wysiwyg.stories.jsx';
 
 const settings = {
   title: 'Components/Article',
