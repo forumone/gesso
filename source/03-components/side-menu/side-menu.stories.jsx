@@ -9,7 +9,6 @@ import '../hamburger-button/hamburger-button.scss';
 
 const settings = {
   title: 'Components/Menu/Side Menu',
-  decorators: [withGlobalWrapper],
 };
 
 const SideMenu = args =>

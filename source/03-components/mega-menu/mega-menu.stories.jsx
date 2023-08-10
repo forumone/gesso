@@ -14,7 +14,6 @@ import '../hamburger-button/hamburger-button.scss';
 
 const settings = {
   title: 'Components/Menu/Mega Menu',
-  decorators: [withGlobalWrapper],
 };
 
 const menuItems = data.items.map(item => ({

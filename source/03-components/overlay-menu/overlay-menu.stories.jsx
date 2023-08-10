@@ -9,7 +9,6 @@ import '../hamburger-button/hamburger-button.scss';
 
 const settings = {
   title: 'Components/Menu/Overlay Menu',
-  decorators: [withGlobalWrapper],
 };
 
 const OverlayMenu = args =>

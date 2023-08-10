@@ -9,7 +9,6 @@ import './back-to-top.es6';
 
 const settings = {
   title: 'Components/Back To Top',
-  decorators: [withGlobalWrapper],
   parameters: {
     controls: {
       include: ['is_demo', 'text', 'top_element'],
