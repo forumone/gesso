@@ -205,3 +205,11 @@ video:
   css:
     theme:
       dist/css/video.css: {}
+
+wysiwyg:
+  js:
+    dist/js/wysiwyg.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
