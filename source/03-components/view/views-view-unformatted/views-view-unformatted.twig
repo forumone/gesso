@@ -19,7 +19,7 @@
   {% if hide_row_wrapper %}
     {{ row.content }}
   {% else %}
-    <{{ element ?: 'div' }} {{ add_attributes({ 'class': row_classes }, 'row.attributes') }}>
+    <{{ element ?: 'div' }} {{ add_attributes({ 'class': row_classes }, 'row_attributes') }}>
       {{- row.content -}}
     </{{ element ?: 'div' }}>
   {% endif %}

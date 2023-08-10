@@ -2,7 +2,7 @@
 
 {% set classes = [
   'c-video',
-  iframe_src ? 'has-iframe',
+  iframe_src ? 'has-iframe' : '',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 

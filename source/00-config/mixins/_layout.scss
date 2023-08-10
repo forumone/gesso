@@ -33,6 +33,7 @@
   margin-left: auto;
   margin-right: auto;
   max-width: rem($max-width);
+  width: 100%;
 
   @if $margins-mobile {
     padding-left: rem($margins-mobile);
@@ -57,11 +58,11 @@
 // and makes it flush with the edge of the viewport.
 @mixin layout-full-bleed() {
   left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-left: calc(-50vw + var(--scrollbar-width) / 2);
+  margin-right: calc(-50vw + var(--scrollbar-width) / 2);
   position: relative;
   right: 50%;
-  width: 100vw;
+  width: calc(100vw - var(--scrollbar-width));
 }
 
 // Reverses the above.
