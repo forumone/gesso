@@ -1,4 +1,5 @@
 {
+  "sourceType": "unambiguous",
   "presets": [
     "@babel/preset-react",
     [
@@ -9,6 +10,7 @@
         "corejs": 3,
         "loose": true
       }
-    ]
+    ],
+    "@babel/preset-typescript"
   ]
 }

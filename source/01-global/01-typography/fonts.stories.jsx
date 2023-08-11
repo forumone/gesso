@@ -1,25 +1,28 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './fonts.twig';
 import data from '../../00-config/config.design-tokens.yml';
 import './fonts.scss';
 
 const settings = {
   title: 'Global/Typography/Fonts',
+  decorators: [withGlobalWrapper],
   argTypes: {
     gesso: {
       table: {
-        disable: true
-      }
-    }
-  }
+        disable: true,
+      },
+    },
+  },
 };
 
-const Fonts = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Fonts = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Fonts.args = { ...data };
 
 export default settings;

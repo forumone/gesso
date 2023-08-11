@@ -202,6 +202,26 @@ DO NOT prefix the name of your JS file with `_`. Import your JS file at the top
 of your Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t
 forget to add it to the `gesso.libraries.yml` file as well.
 
+### common.js
+
+Any library you create in `gesso.libraries.yml` that includes an individual
+component script must include `gesso/common` as a dependency. (In most cases, you
+will also add `core/drupal` as a dependency, if you are using the `Drupal`
+object anywhere in your code.) common.js is generated on **production** builds
+(so you will not notice it missing until you deploy to a staging server) and
+contains JavaScript that is shared across two or more components, so that it is
+not bundled multiple times on the page. The recommended practice is for each
+library to declare its dependencies, even if some of them are repeated across
+multiple libraries and/or shared with global. This ensures that Drupal will
+always load the dependencies before loading any library that depends on them.
+See the `dropdown_menu` library in `gesso.libraries.yml` as an example.
+
+The common JS file is created using the [Webpack SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/).
+To change how it behaves, update `webpack.production.js`. You may also need to
+update `gesso_library_info_build` in `libraries.inc` to change what files are
+included in the `gesso/common` library. We recommend using the default setup
+unless you have a specific use case that requires advanced configuration.
+
 ### JS Linting
 
 ESLint and Prettier are used to lint JavaScript files. If you have a valid
@@ -477,6 +497,6 @@ such as `5.x-RC`.
 ## Maintainers
 
 The Gesso theme is maintained by
-[Corey Lafferty](https://drupal.org/u/clafferty) ([@coreylafferty](http://twitter.com/coreylafferty)),
+[Corey Lafferty](https://drupal.org/u/clafferty),
 [KJ Monahan](https://www.drupal.org/u/kmonahan), and
-[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](http://twitter.com/dcmouyard)).
+[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](https://fosstodon.org/@dcmouyard)).

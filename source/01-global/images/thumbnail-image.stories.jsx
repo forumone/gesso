@@ -7,16 +7,17 @@ const settings = {
   title: 'Global/Images/Thumbnail Image',
   parameters: {
     controls: {
-      include: ['img_thumbnail', 'modifier_classes']
-    }
-  }
+      include: ['img_thumbnail', 'modifier_classes'],
+    },
+  },
 };
 
-const ThumbnailImage = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const ThumbnailImage = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 ThumbnailImage.args = { ...globalData };
 
 export default settings;

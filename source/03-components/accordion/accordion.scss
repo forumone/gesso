@@ -1,0 +1,122 @@
+// Component: Accordion
+
+@use '00-config' as *;
+
+$accordion-item-border-color: gesso-grayscale(gray-2) !default;
+$accordion-item-icon-color: gesso-color(ui, generic, accent) !default;
+$accordion-item-icon-size: 20px !default;
+$accordion-item-icon-weight: 2px !default;
+
+.c-accordion-item {
+  border-bottom: solid 1px $accordion-item-border-color;
+}
+
+.c-accordion-item__heading {
+  font-weight: gesso-font-weight(bold);
+  margin: 0;
+}
+
+.c-accordion-item__toggle {
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  font-weight: inherit;
+  justify-content: space-between;
+  line-height: inherit;
+  padding: rem(gesso-spacing(2)) rem(gesso-spacing(8)) rem(gesso-spacing(2))
+    rem(gesso-spacing(2));
+  pointer-events: none;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: all gesso-duration(short) gesso-easing(ease-out);
+  width: 100%;
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      padding-left: rem(gesso-spacing(8));
+      padding-right: rem(gesso-spacing(2));
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: inherit;
+  }
+
+  // Allow pointer events if accordion is processed.
+  [accordion-processed] & {
+    pointer-events: visible;
+  }
+}
+
+.c-accordion-item__drawer {
+  background: gesso-grayscale(white);
+}
+
+.c-accordion-item__drawer-inner {
+  padding: 0 rem(gesso-spacing(8)) rem(gesso-spacing(2)) rem(gesso-spacing(2));
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      padding-left: rem(gesso-spacing(8));
+      padding-right: rem(gesso-spacing(2));
+    }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-accordion-item__icon {
+  display: none;
+  height: $accordion-item-icon-size;
+  position: absolute;
+  right: rem(gesso-spacing(3));
+  top: 50%;
+  transform: translateY(-50%);
+  width: $accordion-item-icon-size;
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      left: rem(gesso-spacing(3));
+      right: initial;
+    }
+  }
+
+  // Only show icon if accordion js is processed.
+  [accordion-processed] & {
+    display: block;
+  }
+
+  &::before,
+  &::after {
+    background-color: $accordion-item-icon-color;
+    content: '';
+    display: block;
+    height: $accordion-item-icon-weight;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    transition-duration: gesso-duration(short);
+    transition-property: transform;
+    transition-timing-function: gesso-easing(ease-out);
+    width: 100%;
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  [aria-expanded='true'] & {
+    &::after {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+}

@@ -12,11 +12,9 @@ export default {
   title: 'Pages/Homepage',
   parameters: {
     controls: {
-      include: [
-        'show_admin_info',
-      ]
-    }
-  }
+      include: ['show_admin_info'],
+    },
+  },
 };
 
 // You can override the default arguments, as done here, to demo different
@@ -48,18 +46,21 @@ const homepageGridContent = [
   }),
 ];
 
-const homepageContent = args => twigTemplate({
-  ...args,
-  homepage_hero: ReactDOMServer.renderToStaticMarkup(
-    <>{HeroBgImage(HeroBgImage.args)}</>
-  ),
-  homepage_grid_content: ReactDOMServer.renderToStaticMarkup(
-    <>{homepageGridContent.map(card => card)}</>
-  ),
-  homepage_grid_title: 'You Don’t Vote For Kings',
-});
+const homepageContent = args =>
+  twigTemplate({
+    ...args,
+    homepage_hero: ReactDOMServer.renderToStaticMarkup(
+      <>{HeroBgImage(HeroBgImage.args)}</>
+    ),
+    homepage_grid_content: ReactDOMServer.renderToStaticMarkup(
+      <>{homepageGridContent.map(card => card)}</>
+    ),
+    homepage_grid_title: 'You Don’t Vote For Kings',
+  });
 
-const Homepage = args => <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>;
+const Homepage = args => (
+  <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>
+);
 Homepage.args = {
   ...globalData,
 };

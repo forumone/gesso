@@ -5,6 +5,17 @@
  * Form-related hook implementations.
  */
 
+
+/**
+ * Implements hook_form_alter().
+ */
+function gesso_form_alter(&$form, &$form_state, $form_id) {
+  // Replace button classes with c-button.
+  if (isset($form['actions']['delete']['#attributes']['class'])) {
+    $form['actions']['delete']['#attributes']['class'] = preg_replace('/^button/', 'c-button', $form['actions']['delete']['#attributes']['class']);
+  }
+}
+
 /**
  * Implements hook_preprocess_HOOK().
  */
@@ -21,6 +32,21 @@ function gesso_preprocess_input(array &$variables) {
   if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
     $description_id = $variables['element']['#id'] . '-description';
     $variables['described_by'] = $description_id;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gesso_preprocess_field_multiple_value_form(&$variables) {
+  // Make disabled variable available to the template.
+  $variables['disabled'] = !empty($variables['element']['#disabled']);
+
+  if ($variables['multiple']) {
+    // Make add more button smaller.
+    if (!empty($variables['button'])) {
+      $variables['button']['#attributes']['class'][] = 'c-button--small';
+    }
   }
 }
 

@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
+import { withGlobalWrapper } from '../../../../.storybook/decorators'
 import fieldsetTwigTemplate from '../../fieldset/fieldset.twig';
 import twigTemplate from './form-item--checkboxes.twig';
 import { Checkbox } from '../form-item--checkbox/form-item--checkbox.stories.jsx';
@@ -9,6 +10,7 @@ import data from './form-item--checkboxes.yml';
 
 const settings = {
   title: 'Components/Form Item/Checkboxes',
+  decorators: [withGlobalWrapper],
 };
 
 const checkboxesChildren = ReactDOMServer.renderToStaticMarkup(

@@ -1,5 +1,4 @@
 import Twig from 'twig';
-import { addDecorator } from '@storybook/react';
 import { useEffect } from '@storybook/client-api';
 import twigDrupal from 'twig-drupal-filters';
 import twigAttributes from 'add-attributes-twig-extension';
@@ -10,6 +9,8 @@ import './stubs/drupal';
 import './stubs/once';
 
 import '../dist/css/styles.css';
+import '../dist/js/universal.es6';
+import '../dist/js/html.es6';
 
 function setupTwig(twig) {
   twig.cache();
@@ -23,25 +24,30 @@ function setupTwig(twig) {
 
 setupTwig(Twig);
 
-addDecorator(storyFn => {
-  useEffect(() => Drupal.attachBehaviors(), []);
-  return storyFn();
-});
+export const decorators = [
+  storyFn => {
+    useEffect(() => Drupal.attachBehaviors(), []);
+    return storyFn();
+  },
+];
 
-export const parameters = {
-  layout: 'fullscreen',
-  options: {
-    storySort: {
-      method: 'alphabetical',
-      order: [
-        'Global',
-        ['Color Palette', '*'],
-        'Layouts',
-        'Components',
-        'Templates',
-        'Pages',
-      ],
-      includeName: true,
+const preview = {
+  parameters: {
+    layout: 'fullscreen',
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [
+          'Global',
+          ['Color Palette', '*'],
+          'Layouts',
+          'Components',
+          'Templates',
+          'Pages',
+        ],
+        includeName: true,
+      },
     },
   },
 };
+export default preview;

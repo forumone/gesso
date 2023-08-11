@@ -8,17 +8,18 @@ const settings = {
   argTypes: {
     is_demo: {
       table: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
 };
 
-const Footer = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Footer = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Footer.args = { ...data };
 
 export default settings;

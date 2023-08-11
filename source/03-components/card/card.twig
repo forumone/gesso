@@ -1,3 +1,4 @@
+{{ attach_library('gesso/card') }}
 {% import '@global/gesso.macro.twig' as macros %}
 
 {% set classes = [
@@ -38,7 +39,7 @@
         {% endif %}
         {% if read_more and url %}
           <div class="c-card__readmore">
-            {{ macros.readmore(url, title) }}
+            {{ macros.read_more(url, title) }}
           </div>
         {% endif %}
       </div>
