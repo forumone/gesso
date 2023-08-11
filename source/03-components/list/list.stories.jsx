@@ -1,10 +1,12 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './list.twig';
 import data from './list.yml';
 
 const settings = {
   title: 'Components/List',
+  decorators: [withGlobalWrapper],
 };
 
 const Default = args =>

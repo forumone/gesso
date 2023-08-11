@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './icon-link.twig';
 import data from './icon-link.yml';
 import globalData from '../../00-config/storybook.global-data.yml';
@@ -7,6 +8,7 @@ import './icon-link.scss';
 
 const settings = {
   title: 'Components/Icon Link',
+  decorators: [withGlobalWrapper],
   argTypes: {
     icon_name: {
       options: [

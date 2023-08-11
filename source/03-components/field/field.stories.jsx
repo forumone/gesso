@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './field.twig';
 import data from './field.yml';
 import listTwigTemplate from './field--list/field--list.twig';
@@ -7,6 +8,7 @@ import listData from './field--list/field--list.yml';
 
 const settings = {
   title: 'Components/Field',
+  decorators: [withGlobalWrapper],
 };
 
 const Default = args =>

@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './read-more-link.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './read-more-link.yml';
@@ -10,6 +11,7 @@ import { IconLink } from '../icon-link/icon-link.stories.jsx';
 
 const settings = {
   title: 'Components/Read More Link',
+  decorators: [withGlobalWrapper],
   parameters: {
     controls: {
       include: [
