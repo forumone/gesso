@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './tag-list.twig';
 import data from './tag-list.yml';
 import './tag-list.scss';
@@ -9,6 +10,7 @@ import { Tag } from '../tag/tag.stories.jsx';
 
 const settings = {
   title: 'Components/Tag List',
+  decorators: [withGlobalWrapper],
 };
 
 const TagList = args =>

@@ -2,6 +2,11 @@
 
 @use '00-config' as *;
 
+:root {
+  // stylelint-disable-next-line
+  --scrollbar-width: 0px;
+}
+
 // Uncomment to add a set of default transitions to all elements
 // * {
 //   transition-duration: gesso-duration(short);
@@ -23,6 +28,7 @@
     color: #000 !important;
     text-shadow: none !important;
   }
+
   @page {
     margin: 2cm;
   }

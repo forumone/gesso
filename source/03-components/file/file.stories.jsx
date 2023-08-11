@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './file.twig';
 import data from './file.yml';
 import globalData from '../../00-config/storybook.global-data.yml';
@@ -7,6 +8,7 @@ import './file.scss';
 
 const settings = {
   title: 'Components/File',
+  decorators: [withGlobalWrapper],
   argTypes: {
     icon_name: {
       options: ['download', 'file'],

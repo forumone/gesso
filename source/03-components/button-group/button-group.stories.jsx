@@ -1,10 +1,12 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './button-group.twig';
 import data from './button-group.yml';
 
 const settings = {
   title: 'Components/ButtonGroup',
+  decorators: [withGlobalWrapper],
 };
 
 const Primary = args =>

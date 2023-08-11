@@ -1,11 +1,13 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './message.twig';
 import data from './message.yml';
 import './message.scss';
 
 const settings = {
   title: 'Components/Message',
+  decorators: [withGlobalWrapper],
 };
 
 const Default = args =>
