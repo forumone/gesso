@@ -1,4 +1,3 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
 const path = require('path');
 const { Glob } = require('glob');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');

@@ -1,11 +1,33 @@
 const path = require('path');
 
-module.exports = {
+module.exports = (_env, argv) => ({
   mode: 'production',
   entry: {
     'design-tokens': './source/00-config/config.design-tokens.yml',
   },
   context: __dirname,
+  plugins: [
+    function readyToGoPlugin() {
+      if (argv.mode === 'development') {
+        this.hooks.beforeCompile.tap('ReadyToGoPlugin', () => {
+          console.log(
+            `${new Date().toLocaleTimeString('en-US', {
+              timeZone: 'America/New_York',
+              timeZoneName: 'short',
+            })}: Webpack beginning design tokens compilation.`
+          );
+        });
+        this.hooks.afterCompile.tap('ReadyToGoPlugin', () => {
+          console.log(
+            `${new Date().toLocaleTimeString('en-US', {
+              timeZone: 'America/New_York',
+              timeZoneName: 'short',
+            })}: Design tokens compilation complete. Watching for changes.`
+          );
+        });
+      }
+    },
+  ],
   module: {
     rules: [
       {
@@ -19,4 +41,4 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
   },
-};
+});

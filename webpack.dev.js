@@ -1,3 +1,4 @@
+/* eslint no-console: "off" */
 const { merge } = require('webpack-merge');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
@@ -12,5 +13,23 @@ module.exports = merge(common, {
       useEslintrc: false,
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
+    function readyToGoPlugin() {
+      this.hooks.beforeCompile.tap('ReadyToGoPlugin', () => {
+        console.log(
+          `${new Date().toLocaleTimeString('en-US', {
+            timeZone: 'America/New_York',
+            timeZoneName: 'short',
+          })}: Webpack beginning compilation.`
+        );
+      });
+      this.hooks.afterCompile.tap('ReadyToGoPlugin', () => {
+        console.log(
+          `${new Date().toLocaleTimeString('en-US', {
+            timeZone: 'America/New_York',
+            timeZoneName: 'short',
+          })}: Compilation complete. Watching for changes.`
+        );
+      });
+    },
   ],
 });
