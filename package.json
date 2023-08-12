@@ -49,6 +49,7 @@
     "@typescript-eslint/parser": "^5.42.1",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
+    "chalk": "^4.1.2",
     "concurrently": "^8.2.0",
     "css-loader": "^6.7.3",
     "eslint": "^8.32.0",

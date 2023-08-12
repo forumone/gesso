@@ -1,4 +1,5 @@
 const path = require('path');
+const chalk = require('chalk');
 
 module.exports = (_env, argv) => ({
   mode: 'production',
@@ -14,7 +15,9 @@ module.exports = (_env, argv) => ({
             `${new Date().toLocaleTimeString('en-US', {
               timeZone: 'America/New_York',
               timeZoneName: 'short',
-            })}: Webpack beginning design tokens compilation.`
+            })}: ${chalk.magenta(
+              'Webpack beginning design tokens compilation.'
+            )}`
           );
         });
         this.hooks.afterCompile.tap('ReadyToGoPlugin', () => {
@@ -22,7 +25,9 @@ module.exports = (_env, argv) => ({
             `${new Date().toLocaleTimeString('en-US', {
               timeZone: 'America/New_York',
               timeZoneName: 'short',
-            })}: Design tokens compilation complete. Watching for changes.`
+            })}: ${chalk.greenBright.bold(
+              'Design tokens compilation complete. Watching for changes.'
+            )}`
           );
         });
       }

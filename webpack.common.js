@@ -183,5 +183,5 @@ module.exports = {
       keep: /images/,
     },
   },
-  stats: 'errors-warnings',
+  stats: 'minimal',
 };
