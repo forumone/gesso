@@ -41,4 +41,5 @@ module.exports = (_env, argv) => ({
   output: {
     path: path.resolve(__dirname, 'dist'),
   },
+  stats: 'minimal',
 });

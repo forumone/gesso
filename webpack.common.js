@@ -73,6 +73,9 @@ module.exports = {
             recursive: true,
           },
         ],
+        log: false,
+        logError: true,
+        logWarning: false,
       },
     }),
     new StylelintPlugin({
@@ -180,5 +183,5 @@ module.exports = {
       keep: /images/,
     },
   },
-  stats: 'minimal',
+  stats: 'errors-warnings',
 };

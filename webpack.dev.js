@@ -16,7 +16,7 @@ module.exports = merge(common, {
     function readyToGoPlugin() {
       this.hooks.beforeCompile.tap('ReadyToGoPlugin', () => {
         console.log(
-          `${new Date().toLocaleTimeString('en-US', {
+          `\n${new Date().toLocaleTimeString('en-US', {
             timeZone: 'America/New_York',
             timeZoneName: 'short',
           })}: Webpack beginning compilation.`
@@ -24,7 +24,7 @@ module.exports = merge(common, {
       });
       this.hooks.afterCompile.tap('ReadyToGoPlugin', () => {
         console.log(
-          `${new Date().toLocaleTimeString('en-US', {
+          `\n${new Date().toLocaleTimeString('en-US', {
             timeZone: 'America/New_York',
             timeZoneName: 'short',
           })}: Compilation complete. Watching for changes.`
