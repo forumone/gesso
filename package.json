@@ -102,6 +102,6 @@
     "terser-webpack-plugin": "^5.3.6",
     "twig": "^1.15.4",
     "webpack-merge": "^5.8.0",
-    "yaml": "^1.10.2"
+    "yaml": "^2.3.1"
   }
 }

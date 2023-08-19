@@ -1,12 +1,12 @@
 import * as YAML from 'yaml';
+import { Document, ParsedNode } from 'yaml';
 
 type CodeMap = import('./CodeMap');
 type SassValue = import('./SassValue');
 
-export interface ParsedSource {
-  readonly path: string;
+export interface ParsedSource<Contents, Strict> {
+  readonly ast: Document.Parsed<Contents, Strict>;
   readonly source: string;
-  readonly ast: YAML.ast.Document;
   readonly map: CodeMap;
 }
 
@@ -18,12 +18,12 @@ export type GessoArray = Array<GessoData>;
 
 export type GessoData = GessoScalar | GessoObject | GessoArray;
 
-export interface TransformedSource extends ParsedSource {
+export interface TransformedSource extends ParsedSource<ParsedNode, true> {
   readonly data: GessoData;
 }
 
 export type ScalarTransformer = (
   node: YAML.ast.ScalarNode,
   doc: YAML.ast.Document,
-  map: CodeMap,
+  map: CodeMap
 ) => string | number | boolean | SassValue;

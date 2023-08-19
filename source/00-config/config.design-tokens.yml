@@ -5,7 +5,9 @@ gesso:
     brand:
       blue:
         base: '#0071BC'
-        light: '#4773aa'
+        light: !sass
+          sass: "color.adjust(#0071BC, $lightness: +20%)"
+          fallback: '#ff0'
         light-1: '#8ba6ca'
         light-2: '#dce4ef'
         dark: '#205493'
@@ -75,7 +77,9 @@ gesso:
       site: grayscale.white
     button:
       primary:
-        background: brand.blue.base
+        background: !sass
+          sass: "color.adjust(#0071BC, $lightness: +20%)"
+          fallback: '#ff0'
         background-hover: brand.blue.dark
         background-active: brand.blue.dark-1
         border: brand.blue.base
