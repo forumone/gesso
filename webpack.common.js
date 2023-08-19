@@ -179,9 +179,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    clean: {
-      keep: /images/,
-    },
+    clean: false,
   },
   stats: 'minimal',
 };
