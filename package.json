@@ -88,7 +88,7 @@
     "eslint-webpack-plugin": "^3.2.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
     "glob": "^10.3.3",
-    "html-react-parser": "^1.4.14",
+    "html-react-parser": "^4.2.2",
     "inquirer": "^8.2.5",
     "jquery": "^3.6.3",
     "mini-css-extract-plugin": "^2.7.2",
