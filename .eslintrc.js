@@ -72,8 +72,9 @@ module.exports = {
       },
     },
     {
-      // allow require() in webpack config files, which use CommonJS
-      files: ['webpack.*.js'],
+      // allow require() in webpack config files, which use CommonJS,
+      // and in lib files, which are used by Node.js
+      files: ['webpack.*.js', 'lib/**/*.[j|t]s'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
         'import/no-extraneous-dependencies': [

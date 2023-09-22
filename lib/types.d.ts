@@ -1,5 +1,4 @@
-import * as YAML from 'yaml';
-import { Document, ParsedNode } from 'yaml';
+import { Document, ParsedNode, Scalar } from 'yaml';
 
 type CodeMap = import('./CodeMap');
 type SassValue = import('./SassValue');
@@ -23,7 +22,7 @@ export interface TransformedSource extends ParsedSource<ParsedNode, true> {
 }
 
 export type ScalarTransformer = (
-  node: YAML.ast.ScalarNode,
-  doc: YAML.ast.Document,
+  node: Scalar,
+  doc: Document,
   map: CodeMap
 ) => string | number | boolean | SassValue;
