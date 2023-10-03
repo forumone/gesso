@@ -65,7 +65,7 @@
     "file-loader": "^6.2.0",
     "js-yaml-loader": "^1.2.2",
     "nani": "^3.2.3",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.31",
     "postcss-loader": "^7.0.2",
     "prettier": "^2.8.3",
     "sass-loader": "^13.2.0",
