@@ -1,11 +1,13 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './landing-page.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './landing-page.yml';
 
 const settings = {
   title: 'Templates/Landing Page',
+  decorators: [withGlobalWrapper],
   parameters: {
     controls: {
       include: ['page_title', 'show_admin_info', 'content'],

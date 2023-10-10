@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './card.twig';
 import data from './card.yml';
 import './card.scss';
@@ -11,6 +12,7 @@ import { ReadMoreLink } from '../read-more-link/read-more-link.stories.jsx';
 
 const settings = {
   title: 'Components/Card',
+  decorators: [withGlobalWrapper],
 };
 
 const Default = args =>

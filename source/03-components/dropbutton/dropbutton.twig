@@ -4,15 +4,15 @@
   'c-dropbutton',
   'js-dropbutton',
   'has-multiple',
-  modifier_classes ? modifier_classes,
+  modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 <div {{ add_attributes({class: classes}) }}>
   <ul class="c-dropbutton__list js-dropbutton-list">
     {%- for item in links -%}
-    <li {{ add_attributes({class: "c-dropbutton__item"}, 'item.attributes') }}>
+    <li {{ add_attributes({class: "c-dropbutton__item"}, 'item_attributes') }}>
       {%- if item.link -%}
-        <a {{ add_attributes({class: 'c-button c-dropbutton__button'}, 'item.link.attributes') }}{% if item.href %} href={{ item.href }}{% endif %}>
+        <a {{ add_attributes({class: 'c-button c-dropbutton__button'}, 'item_link_attributes') }}{% if item.href %} href={{ item.href }}{% endif %}>
           {{ item.text }}
         </a>
       {%- elseif item.text_attributes -%}

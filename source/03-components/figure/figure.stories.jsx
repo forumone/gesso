@@ -1,11 +1,13 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './figure.twig';
 import data from './figure.yml';
 import videoData from './figure--iframe.yml';
 
 const settings = {
   title: 'Components/Figure',
+  decorators: [withGlobalWrapper],
 };
 
 const Default = args =>
