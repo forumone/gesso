@@ -158,7 +158,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|gif)$/i,
+        test: /\.(png|svg|jpg|gif|webp)$/i,
         exclude: [/images\/_sprite-source-files\/.*\.svg$/, '/node_modules/'],
         type: 'asset',
         generator: {
