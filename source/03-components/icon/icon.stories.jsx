@@ -9,7 +9,7 @@ const settings = {
   title: 'Components/Icon',
   decorators: [
     (Story, { args }) => {
-      const icons = data.icons.map(icon => (
+      const icons = globalData.icons.map(icon => (
         <p key={icon}>
           <Story args={{ ...args, icon_name: icon }} />
           &nbsp;&nbsp;{ icon }
