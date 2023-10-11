@@ -9,7 +9,6 @@
   }
 
   .c-form-item__radio {
-    @include focus();
     appearance: none;
     background-color: gesso-color(form, background-unchecked);
     border: 1px solid gesso-color(form, border-dark);
@@ -30,6 +29,10 @@
       background-color: gesso-color(form, background-checked);
       border: 2px solid gesso-color(form, background-unchecked);
       box-shadow: 0 0 0 2px gesso-color(form, background-checked);
+    }
+
+    &:focus-visible {
+      @include focus();
     }
 
     &:disabled {
