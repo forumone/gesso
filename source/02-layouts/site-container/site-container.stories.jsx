@@ -8,6 +8,15 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Layouts/Site Container',
+  decorators: [
+    (Story, {args}) =>
+      <Story args={{
+        ...args,
+        site_container_content: ReactDOMServer.renderToStaticMarkup(
+          <ContentPlaceholder>Site Container Layout Content</ContentPlaceholder>
+        )
+      }} />
+  ],
 };
 
 const SiteContainer = args =>
@@ -18,7 +27,6 @@ const SiteContainer = args =>
   );
 SiteContainer.args = {
   ...data,
-  site_container_content: ReactDOMServer.renderToStaticMarkup(<ContentPlaceholder>Site Container Layout Content</ContentPlaceholder>)
 };
 
 export default settings;

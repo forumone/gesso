@@ -8,6 +8,15 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Layouts/Header',
+  decorators: [
+    (Story, {args}) =>
+      <Story args={{
+        ...args,
+        header_content: ReactDOMServer.renderToStaticMarkup(
+          <ContentPlaceholder>Header Layout Content</ContentPlaceholder>
+        )
+      }} />
+  ],
 };
 
 const Header = args =>
@@ -18,7 +27,6 @@ const Header = args =>
   );
 Header.args = {
   ...data,
-  header_content: ReactDOMServer.renderToStaticMarkup(<ContentPlaceholder>Header Layout Content</ContentPlaceholder>)
 };
 
 export default settings;

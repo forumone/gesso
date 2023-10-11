@@ -8,6 +8,15 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Layouts/Region',
+  decorators: [
+    (Story, {args}) =>
+      <Story args={{
+        ...args,
+        region_content: ReactDOMServer.renderToStaticMarkup(
+          <ContentPlaceholder>Region Layout Content</ContentPlaceholder>
+        )
+      }} />
+  ],
 };
 
 const Region = args =>
@@ -18,7 +27,6 @@ const Region = args =>
   );
 Region.args = {
   ...data,
-  region_content: ReactDOMServer.renderToStaticMarkup(<ContentPlaceholder>Region Layout Content</ContentPlaceholder>)
 };
 
 export default settings;

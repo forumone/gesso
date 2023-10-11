@@ -6,10 +6,6 @@ import twigTemplate from './inline-form.twig';
 import data from './inline-form.yml';
 import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
 
-const settings = {
-  title: 'Layouts/Inline Form',
-};
-
 const DemoInlineFormContent = ReactDOMServer.renderToStaticMarkup(
   <>
     <ContentPlaceholder>Form Item 1</ContentPlaceholder>
@@ -19,6 +15,17 @@ const DemoInlineFormContent = ReactDOMServer.renderToStaticMarkup(
   </>
 )
 
+const settings = {
+  title: 'Layouts/Inline Form',
+  decorators: [
+    (Story, {args}) =>
+      <Story args={{
+        ...args,
+        form_content: DemoInlineFormContent
+      }} />
+  ],
+};
+
 const InlineForm = args =>
   parse(
     twigTemplate({
@@ -27,7 +34,6 @@ const InlineForm = args =>
   );
 InlineForm.args = {
   ...data,
-  form_content: DemoInlineFormContent
 };
 
 export default settings;
