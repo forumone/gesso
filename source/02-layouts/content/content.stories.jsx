@@ -25,9 +25,7 @@ const Content = args =>
       ...args,
     })
   );
-Content.args = {
-  ...data,
-};
+Content.args = { ...data };
 
 export default settings;
 export { Content };

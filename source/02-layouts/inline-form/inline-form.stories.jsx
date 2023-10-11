@@ -32,9 +32,7 @@ const InlineForm = args =>
       ...args,
     })
   );
-InlineForm.args = {
-  ...data,
-};
+InlineForm.args = { ...data };
 
 export default settings;
 export { InlineForm };

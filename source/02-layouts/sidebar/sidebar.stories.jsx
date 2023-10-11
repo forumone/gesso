@@ -34,9 +34,7 @@ const Sidebar = args =>
       ...args,
     })
   );
-Sidebar.args = {
-  ...data,
-};
+Sidebar.args = { ...data };
 
 export default settings;
 export { Sidebar };

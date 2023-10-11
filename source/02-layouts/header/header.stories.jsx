@@ -25,9 +25,7 @@ const Header = args =>
       ...args,
     })
   );
-Header.args = {
-  ...data,
-};
+Header.args = { ...data };
 
 export default settings;
 export { Header };

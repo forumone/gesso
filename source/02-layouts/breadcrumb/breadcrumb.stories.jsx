@@ -25,9 +25,7 @@ const Breadcrumb = args =>
       ...args,
     })
   );
-Breadcrumb.args = {
-  ...data,
-};
+Breadcrumb.args = { ...data };
 
 export default settings;
 export { Breadcrumb };

@@ -25,9 +25,7 @@ const SiteContainer = args =>
       ...args,
     })
   );
-SiteContainer.args = {
-  ...data,
-};
+SiteContainer.args = { ...data };
 
 export default settings;
 export { SiteContainer };

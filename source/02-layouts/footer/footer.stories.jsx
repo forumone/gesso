@@ -25,9 +25,7 @@ const Footer = args =>
       ...args,
     })
   );
-Footer.args = {
-  ...data,
-};
+Footer.args = { ...data };
 
 export default settings;
 export { Footer };

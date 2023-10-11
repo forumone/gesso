@@ -28,8 +28,6 @@ const settings = {
   ],
 };
 
-
-
 const Default = args =>
   parse(
     twigTemplate({

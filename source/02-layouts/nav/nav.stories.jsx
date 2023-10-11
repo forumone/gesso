@@ -25,9 +25,7 @@ const Nav = args =>
       ...args,
     })
   );
-Nav.args = {
-  ...data,
-};
+Nav.args = { ...data };
 
 export default settings;
 export { Nav };

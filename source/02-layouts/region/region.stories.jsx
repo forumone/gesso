@@ -25,9 +25,7 @@ const Region = args =>
       ...args,
     })
   );
-Region.args = {
-  ...data,
-};
+Region.args = { ...data };
 
 export default settings;
 export { Region };
