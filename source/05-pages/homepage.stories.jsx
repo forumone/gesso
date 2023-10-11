@@ -61,8 +61,6 @@ const homepageContent = args =>
 const Homepage = args => (
   <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>
 );
-Homepage.args = {
-  ...globalData,
-};
+Homepage.args = { ...globalData };
 
 export { Homepage };

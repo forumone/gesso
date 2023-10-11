@@ -9,7 +9,18 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Templates/Page',
-  decorators: [withGlobalWrapper],
+  decorators: [
+    (Story, {args}) =>
+      <Story args={{
+        ...args,
+        title: 'Page Title',
+        show_footer: true,
+        content: ReactDOMServer.renderToStaticMarkup(
+          <ContentPlaceholder>Page Content</ContentPlaceholder>
+        )
+      }} />,
+    withGlobalWrapper
+  ],
   parameters: {
     controls: {
       include: [
@@ -30,12 +41,7 @@ const settings = {
 };
 
 const Page = args => parse(twigTemplate(args));
-Page.args = {
-  ...globalData,
-  title: 'Page Title',
-  show_footer: true,
-  content: ReactDOMServer.renderToStaticMarkup(<ContentPlaceholder>Page Content</ContentPlaceholder>)
-};
+Page.args = { ...globalData };
 
 export default settings;
 export { Page };

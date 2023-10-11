@@ -6,22 +6,20 @@ import twigTemplate from './inline-form.twig';
 import data from './inline-form.yml';
 import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
 
-const DemoInlineFormContent = ReactDOMServer.renderToStaticMarkup(
-  <>
-    <ContentPlaceholder>Form Item 1</ContentPlaceholder>
-    <ContentPlaceholder>Form Item 2</ContentPlaceholder>
-    <ContentPlaceholder>Form Item 3</ContentPlaceholder>
-    <ContentPlaceholder>Form Item 4</ContentPlaceholder>
-  </>
-)
-
 const settings = {
   title: 'Layouts/Inline Form',
   decorators: [
     (Story, {args}) =>
       <Story args={{
         ...args,
-        form_content: DemoInlineFormContent
+        form_content: ReactDOMServer.renderToStaticMarkup(
+          <>
+            <ContentPlaceholder>Form Item 1</ContentPlaceholder>
+            <ContentPlaceholder>Form Item 2</ContentPlaceholder>
+            <ContentPlaceholder>Form Item 3</ContentPlaceholder>
+            <ContentPlaceholder>Form Item 4</ContentPlaceholder>
+          </>
+        )
       }} />
   ],
 };

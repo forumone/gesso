@@ -6,24 +6,22 @@ import twigTemplate from './grid.twig';
 import data from './grid.yml';
 import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
 
-const DemoGridContent = ReactDOMServer.renderToStaticMarkup(
-  <>
-    <ContentPlaceholder>Grid Item 1</ContentPlaceholder>
-    <ContentPlaceholder>Grid Item 2</ContentPlaceholder>
-    <ContentPlaceholder>Grid Item 3</ContentPlaceholder>
-    <ContentPlaceholder>Grid Item 4</ContentPlaceholder>
-    <ContentPlaceholder>Grid Item 5</ContentPlaceholder>
-    <ContentPlaceholder>Grid Item 6</ContentPlaceholder>
-  </>
-)
-
 const settings = {
   title: 'Layouts/Grid',
   decorators: [
     (Story, {args}) =>
       <Story args={{
         ...args,
-        grid_content: DemoGridContent
+        grid_content: ReactDOMServer.renderToStaticMarkup(
+          <>
+            <ContentPlaceholder>Grid Item 1</ContentPlaceholder>
+            <ContentPlaceholder>Grid Item 2</ContentPlaceholder>
+            <ContentPlaceholder>Grid Item 3</ContentPlaceholder>
+            <ContentPlaceholder>Grid Item 4</ContentPlaceholder>
+            <ContentPlaceholder>Grid Item 5</ContentPlaceholder>
+            <ContentPlaceholder>Grid Item 6</ContentPlaceholder>
+          </>
+        )
       }} />
   ],
 };
