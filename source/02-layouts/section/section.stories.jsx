@@ -5,13 +5,6 @@ import data from './section.yml';
 
 const settings = {
   title: 'Layouts/Section',
-  argTypes: {
-    is_demo: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 };
 
 const Section = args =>

@@ -3,12 +3,10 @@
 {% set classes = [
   'c-back-to-top',
   modifier_classes ? modifier_classes : '',
-  is_demo ? 'c-back-to-top--storybook-show' : '',
 ]|join(' ')|trim %}
 
 <a href="#{{ top_element }}" {{ add_attributes({ 'class': classes }) }} title="{{ text }}" aria-hidden="true" tabindex="-1">
   {% include '@components/icon/icon.twig' with {
-    'is_demo': false,
     'is_hidden': false,
     'label': text,
     'modifier_classes': 'c-icon--back-to-top',

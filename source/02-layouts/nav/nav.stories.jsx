@@ -1,17 +1,13 @@
+import React from 'react'
+import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
 import twigTemplate from './nav.twig';
 import data from './nav.yml';
+import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
 
 const settings = {
   title: 'Layouts/Nav',
-  argTypes: {
-    is_demo: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 };
 
 const Nav = args =>
@@ -20,7 +16,10 @@ const Nav = args =>
       ...args,
     })
   );
-Nav.args = { ...data };
+Nav.args = {
+  ...data,
+  nav_content: ReactDOMServer.renderToStaticMarkup(<ContentPlaceholder>Nav Layout Content</ContentPlaceholder>)
+};
 
 export default settings;
 export { Nav };
