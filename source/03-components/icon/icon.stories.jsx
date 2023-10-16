@@ -8,15 +8,12 @@ import data from './icon.yml';
 const settings = {
   title: 'Components/Icon',
   decorators: [
-    (Story, { args }) => {
-      const icons = globalData.icons.map(icon => (
-        <p key={icon}>
-          <Story args={{ ...args, icon_name: icon }} />
-          &nbsp;&nbsp;{ icon }
-        </p>
-      ));
-      return <>{icons}</>;
-    },
+    (Story, { args }) => globalData.icons.map(icon => (
+      <p key={icon}>
+        <Story args={{ ...args, icon_name: icon }} />
+        &nbsp;&nbsp;{ icon }
+      </p>
+    )),
     withGlobalWrapper,
   ],
   argTypes: {

@@ -9,17 +9,7 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Templates/Landing Page',
-  decorators: [
-    (Story, {args}) =>
-      <Story args={{
-        ...args,
-        page_title: 'Landing Page Title',
-        content: ReactDOMServer.renderToStaticMarkup(
-          <ContentPlaceholder>Landing Page Content</ContentPlaceholder>
-        )
-      }} />,
-    withGlobalWrapper
-  ],
+  decorators: [withGlobalWrapper],
   parameters: {
     controls: {
       include: ['page_title', 'show_admin_info', 'content'],
@@ -28,7 +18,13 @@ const settings = {
 };
 
 const LandingPage = args => parse(twigTemplate(args));
-LandingPage.args = { ...globalData };
+LandingPage.args = {
+  ...globalData,
+  page_title: 'Landing Page Title',
+  content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Landing Page Content</ContentPlaceholder>
+  ),
+};
 
 export default settings;
 export { LandingPage };

@@ -8,15 +8,6 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Layouts/Breadcrumb',
-  decorators: [
-    (Story, {args}) =>
-      <Story args={{
-        ...args,
-        breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
-          <ContentPlaceholder>Breadcrumb Layout Content</ContentPlaceholder>
-        )
-    }} />
-  ],
 };
 
 const Breadcrumb = args =>
@@ -25,7 +16,12 @@ const Breadcrumb = args =>
       ...args,
     })
   );
-Breadcrumb.args = { ...data };
+Breadcrumb.args = {
+  breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
+      <ContentPlaceholder>Breadcrumb Layout Content</ContentPlaceholder>
+    ),
+  ...data,
+}
 
 export default settings;
 export { Breadcrumb };

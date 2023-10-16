@@ -8,20 +8,6 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Layouts/Inline Form',
-  decorators: [
-    (Story, {args}) =>
-      <Story args={{
-        ...args,
-        form_content: ReactDOMServer.renderToStaticMarkup(
-          <>
-            <ContentPlaceholder>Form Item 1</ContentPlaceholder>
-            <ContentPlaceholder>Form Item 2</ContentPlaceholder>
-            <ContentPlaceholder>Form Item 3</ContentPlaceholder>
-            <ContentPlaceholder>Form Item 4</ContentPlaceholder>
-          </>
-        )
-      }} />
-  ],
 };
 
 const InlineForm = args =>
@@ -30,7 +16,17 @@ const InlineForm = args =>
       ...args,
     })
   );
-InlineForm.args = { ...data };
+InlineForm.args = {
+  form_content: ReactDOMServer.renderToStaticMarkup(
+    <>
+      <ContentPlaceholder>Form Item 1</ContentPlaceholder>
+      <ContentPlaceholder>Form Item 2</ContentPlaceholder>
+      <ContentPlaceholder>Form Item 3</ContentPlaceholder>
+      <ContentPlaceholder>Form Item 4</ContentPlaceholder>
+    </>
+  ),
+  ...data
+};
 
 export default settings;
 export { InlineForm };

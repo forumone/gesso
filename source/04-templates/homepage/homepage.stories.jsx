@@ -11,23 +11,7 @@ import '../../03-components/hero-bg-image/hero-bg-image.scss';
 
 const settings = {
   title: 'Templates/Homepage',
-  decorators: [
-    (Story, {args}) =>
-      <Story args={{
-        ...args,
-        hero_image: ReactDOMServer.renderToStaticMarkup(HeroImage(HeroImage.args)),
-        hero_title: 'Homepage Hero Title',
-        hero_summary: '<p>Homepage Hero Summary Text.</p>',
-        hero_button_text: 'Homepage Hero Button Text',
-        hero_button_url: '#0',
-        homepage_grid_title: 'Homepage Grid Area Title',
-        homepage_grid_content: ReactDOMServer.renderToStaticMarkup(<>
-          <ContentPlaceholder>Homepage Grid Content</ContentPlaceholder>
-          <ContentPlaceholder>Homepage Grid Content</ContentPlaceholder>
-        </>)
-      }} />,
-    withGlobalWrapper
-  ],
+  decorators: [withGlobalWrapper],
   parameters: {
     controls: {
       include: [
@@ -44,7 +28,19 @@ const settings = {
 };
 
 const Homepage = args => parse(twigTemplate(args));
-Homepage.args = { ...globalData };
+Homepage.args = {
+  ...globalData,
+  hero_image: ReactDOMServer.renderToStaticMarkup(HeroImage(HeroImage.args)),
+  hero_title: 'Homepage Hero Title',
+  hero_summary: '<p>Homepage Hero Summary Text.</p>',
+  hero_button_text: 'Homepage Hero Button Text',
+  hero_button_url: '#0',
+  homepage_grid_title: 'Homepage Grid Area Title',
+  homepage_grid_content: ReactDOMServer.renderToStaticMarkup(<>
+    <ContentPlaceholder>Homepage Grid Content</ContentPlaceholder>
+    <ContentPlaceholder>Homepage Grid Content</ContentPlaceholder>
+  </>)
+};
 
 export default settings;
 export { Homepage };

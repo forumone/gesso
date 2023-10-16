@@ -8,15 +8,6 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Layouts/Nav',
-  decorators: [
-    (Story, {args}) =>
-      <Story args={{
-        ...args,
-        nav_content: ReactDOMServer.renderToStaticMarkup(
-          <ContentPlaceholder>Nav Layout Content</ContentPlaceholder>
-        )
-      }} />
-  ],
 };
 
 const Nav = args =>
@@ -25,7 +16,12 @@ const Nav = args =>
       ...args,
     })
   );
-Nav.args = { ...data };
+Nav.args = {
+  nav_content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Nav Layout Content</ContentPlaceholder>
+  ),
+  ...data
+};
 
 export default settings;
 export { Nav };

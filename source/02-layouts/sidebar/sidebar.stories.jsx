@@ -8,24 +8,6 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Layouts/Sidebar',
-  decorators: [
-    (Story, {args}) =>
-      <Story args={{
-        ...args,
-        sidebar_header_content: ReactDOMServer.renderToStaticMarkup(
-          <ContentPlaceholder>Header Content</ContentPlaceholder>
-        ),
-        sidebar_first_content: ReactDOMServer.renderToStaticMarkup(
-          <ContentPlaceholder>Optional Sidebar Content</ContentPlaceholder>
-        ),
-        sidebar_main_content: ReactDOMServer.renderToStaticMarkup(
-          <ContentPlaceholder>Main Content</ContentPlaceholder>
-        ),
-        sidebar_second_content: ReactDOMServer.renderToStaticMarkup(
-          <ContentPlaceholder>Optional Sidebar Content</ContentPlaceholder>
-        ),
-      }} />
-  ],
 };
 
 const Sidebar = args =>
@@ -34,7 +16,21 @@ const Sidebar = args =>
       ...args,
     })
   );
-Sidebar.args = { ...data };
+Sidebar.args = {
+  sidebar_header_content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Header Content</ContentPlaceholder>
+  ),
+  sidebar_first_content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Optional Sidebar Content</ContentPlaceholder>
+  ),
+  sidebar_main_content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Main Content</ContentPlaceholder>
+  ),
+  sidebar_second_content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Optional Sidebar Content</ContentPlaceholder>
+  ),
+  ...data
+};
 
 export default settings;
 export { Sidebar };

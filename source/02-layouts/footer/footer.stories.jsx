@@ -8,15 +8,6 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Layouts/Footer',
-  decorators: [
-    (Story, {args}) =>
-      <Story args={{
-        ...args,
-        footer_content: ReactDOMServer.renderToStaticMarkup(
-          <ContentPlaceholder>Footer Layout Content</ContentPlaceholder>
-        )
-      }} />
-  ],
 };
 
 const Footer = args =>
@@ -25,7 +16,12 @@ const Footer = args =>
       ...args,
     })
   );
-Footer.args = { ...data };
+Footer.args = {
+  footer_content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Footer Layout Content</ContentPlaceholder>
+  ),
+  ...data
+};
 
 export default settings;
 export { Footer };
