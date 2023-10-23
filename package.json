@@ -84,7 +84,6 @@
   },
   "dependencies": {
     "@drupal/once": "^1.0.1",
-    "add-attributes-twig-extension": "^0.1.0",
     "eslint-webpack-plugin": "^3.2.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
     "glob": "^10.3.3",
