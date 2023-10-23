@@ -1,11 +1,13 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './page.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './page.yml';
 
 const settings = {
   title: 'Templates/Page',
+  decorators: [withGlobalWrapper],
   parameters: {
     controls: {
       include: [
@@ -20,14 +22,12 @@ const settings = {
         'hour',
         'minute',
         'content',
-      ]
-    }
-  }
+      ],
+    },
+  },
 };
 
-const Page = args => (
-  parse(twigTemplate(args))
-);
+const Page = args => parse(twigTemplate(args));
 Page.args = { ...globalData, ...data };
 
 export default settings;

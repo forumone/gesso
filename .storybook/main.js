@@ -1,8 +1,15 @@
 const { resolve } = require('path');
 const path = require('path');
 
-module.exports = {
+const config = {
   stories: ['../source/**/*.stories.mdx', '../source/**/*.stories.@(js|jsx)'],
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: { fastRefresh: true },
+  },
+  typescript: {
+    check: false,
+  },
   addons: [
     '@storybook/addon-links',
     {
@@ -58,7 +65,8 @@ module.exports = {
         {
           loader: 'sass-loader',
           options: {
-            implementation: require('sass'),
+            implementation: require('sass-embedded'),
+            webpackImporter: false,
             sassOptions: {
               includePaths: [path.resolve(__dirname, '../source')],
             },
@@ -74,10 +82,30 @@ module.exports = {
     };
 
     config.resolve.modules.push(path.resolve(__dirname, '../source'));
+    config.stats = 'errors-warnings';
+
+    if (configType === 'DEVELOPMENT') {
+      config.plugins.push(function readyToGoPlugin() {
+        this.hooks.beforeCompile.tap('ReadyToGoPlugin', () => {
+          console.log(
+            `\n${new Date().toLocaleTimeString('en-US', {
+              timeZone: 'America/New_York',
+              timeZoneName: 'short',
+            })}: Storybook's webpack beginning compilation.`
+          );
+        });
+        this.hooks.afterCompile.tap('ReadyToGoPlugin', () => {
+          console.log(
+            `\n${new Date().toLocaleTimeString('en-US', {
+              timeZone: 'America/New_York',
+              timeZoneName: 'short',
+            })}: Storybook's compilation complete. Watching for changes.`
+          );
+        });
+      });
+    }
 
     return config;
   },
-  core: {
-    builder: 'webpack5',
-  },
 };
+export default config;

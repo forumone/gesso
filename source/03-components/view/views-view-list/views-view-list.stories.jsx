@@ -1,17 +1,20 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from './views-view-list.twig';
 import data from './views-view-list.yml';
 
 const settings = {
   title: 'Components/Views/List',
+  decorators: [withGlobalWrapper],
 };
 
-const List = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const List = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 List.args = { ...data };
 
 export default settings;

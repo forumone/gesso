@@ -8,17 +8,18 @@ const settings = {
   argTypes: {
     is_demo: {
       table: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
 };
 
-const Sidebar = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Sidebar = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Sidebar.args = { ...data };
 
 export default settings;

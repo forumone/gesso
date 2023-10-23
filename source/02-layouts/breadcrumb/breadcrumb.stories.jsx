@@ -8,17 +8,18 @@ const settings = {
   argTypes: {
     is_demo: {
       table: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
 };
 
-const Breadcrumb = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
+const Breadcrumb = args =>
+  parse(
+    twigTemplate({
+      ...args,
+    })
+  );
 Breadcrumb.args = { ...data };
 
 export default settings;

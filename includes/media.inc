@@ -42,6 +42,11 @@ function gesso_preprocess_filter_caption(array &$variables) {
     $variables['caption'] = ' ';
   }
 
+  // Replace alignment classes.
+  if (isset($variables['classes'])) {
+    $variables['classes'] = str_replace('align', 'u-align', $variables['classes']);
+  }
+
   $variables['node'] = FilteredMarkup::create(Html::serialize($dom));
 }
 

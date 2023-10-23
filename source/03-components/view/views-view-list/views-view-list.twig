@@ -18,11 +18,11 @@
   <{{ title_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>{{ title }}</{{ title_element ?: 'h3' }}>
 {% endif %}
 
-  <{{ list.type }} {{ add_attributes({ 'class': list_classes }, 'list.attributes') }}>
+  <{{ list.type }} {{ add_attributes({ 'class': list_classes }, 'list_attributes') }}>
 
 
     {% for row in rows %}
-      <li {{ add_attributes({ 'class': item_classes }, 'row.attributes') }}>
+      <li {{ add_attributes({ 'class': item_classes }, 'row_attributes') }}>
         {{- row.content -}}
       </li>
     {% endfor %}

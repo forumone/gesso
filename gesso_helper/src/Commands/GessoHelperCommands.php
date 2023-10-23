@@ -35,6 +35,8 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   protected $themeHandler;
 
   /**
+   * Theme list variable.
+   *
    * @var array
    */
   protected $themeList;
@@ -111,7 +113,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $this->io()->text(dt('Setting up the theme. This may take a while...'));
     // Get theme paths.
     $drupalRoot = Drush::bootstrapManager()->getRoot();
-    $gesso_path = Path::join($drupalRoot, drupal_get_path('theme', 'gesso'));
+    $gesso_path = Path::join($drupalRoot, $this->themeHandler->getPath('gesso'));
     $theme_path = substr($gesso_path, 0, strrpos($gesso_path, '/'));
     $new_path = Path::join($theme_path, $machine_name);
 
@@ -132,7 +134,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
         $this->gessoFileStrReplace(
           $file->getPathname(),
           [
-            "/(?<!\[('|\")drupalSettings('|\")\]\[('|\"))gesso(?!_image_path)/",
+            "/(?<!\[('|\")drupalSettings('|\")\]\[('|\"))gesso/",
             '/Gesso/',
           ],
           [$machine_name, $name]

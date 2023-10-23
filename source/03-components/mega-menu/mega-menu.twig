@@ -17,7 +17,7 @@
     {% set item_description = item.description %}
     <li {{ add_attributes({ 'class': item_classes}) }}>
       {% if item.below %}
-        <button class="c-mega-menu__link js-top-level" aria-expanded="false" aria-controls="mega-menu-{{ menu_name }}--{{ loop.index }}" aria-current="{{ item.is_active ? 'page' : null  }}">
+        <button class="c-mega-menu__link js-top-level" aria-expanded="false" aria-controls="mega-menu-{{ menu_name }}--{{ loop.index }}" aria-current="{{ item.is_active ? 'page' : 'false' }}">
           <span>{{ item.title }}</span>
         </button>
         <div class="c-mega-menu__section" id="mega-menu-{{ menu_name }}--{{ loop.index }}" hidden>
@@ -32,10 +32,10 @@
           </div>
           <button aria-label="{{ 'Close menu'|t }}" class="c-mega-menu__section-close c-menu__section-close">
             {% include '@components/icon/icon.twig' with {
-              icon_name: 'close',
+              icon_name: 'xmark',
               modifier_classes: 'c-menu__close-icon',
               is_hidden: true,
-              gesso_image_path: gesso_image_path
+              image_path: image_path,
             } %}
           </button>
         </div>

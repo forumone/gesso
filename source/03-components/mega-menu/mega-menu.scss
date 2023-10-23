@@ -155,7 +155,7 @@
   margin-top: 0;
 }
 
-/* stylelint-disable selector-max-compound-selectors */
+// stylelint-disable selector-max-compound-selectors
 .c-mega-menu__subnav .c-mega-menu__subnav {
   margin-top: gesso-spacing(1);
 }
@@ -234,7 +234,7 @@
     display: none;
   }
 }
-/* stylelint-enable selector-max-compound-selectors */
+// stylelint-enable selector-max-compound-selectors
 
 @include breakpoint-max(gesso-breakpoint(mobile-menu)) {
   .c-mega-menu__section {

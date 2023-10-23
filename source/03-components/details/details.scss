@@ -1,0 +1,80 @@
+// Component: Details
+
+@use '00-config' as *;
+
+$details-background-color: gesso-color(ui, generic, background-light) !default;
+$details-background-color-hover: gesso-color(ui, generic, background) !default;
+$details-content-background-color: gesso-color(background, site) !default;
+$details-padding: rem(24px) !default;
+$details-text-color: gesso-color(text, on-light) !default;
+
+.c-details {
+  margin: 0 0 rem(gesso-spacing(4));
+}
+
+.c-details__summary {
+  @include svg-background(plus);
+  background-color: $details-background-color;
+  background-position: right $details-padding center; // LTR
+  background-repeat: no-repeat;
+  background-size: rem(13px);
+  cursor: pointer;
+  display: block;
+  font-weight: gesso-font-weight(bold);
+  line-height: 1;
+  outline: 0;
+  padding: rem(15px) rem(55px) rem(15px) $details-padding; // LTR
+  transition: background gesso-duration(short) gesso-easing(ease-in-out);
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      background-position: left $details-padding center;
+      padding-left: rem(55px);
+      padding-right: $details-padding;
+    }
+  }
+
+  [open] > & {
+    @include svg-background(minus);
+  }
+
+  &:hover {
+    background-color: $details-background-color-hover;
+  }
+
+  &:focus {
+    box-shadow: gesso-box-shadow(2);
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::before {
+    display: none; // remove icon added by polyfill
+  }
+}
+
+.c-details__fallback-link {
+  color: inherit !important;
+  display: block;
+  outline: 0;
+  text-decoration: none;
+}
+
+.c-details__content {
+  background: $details-content-background-color;
+  border: 3px solid $details-background-color;
+  border-top: 0;
+  padding: $details-padding;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-details__description {
+  color: $details-text-color;
+  font-size: rem(gesso-font-size(2));
+  margin-bottom: rem(gesso-spacing(2));
+}

@@ -35,9 +35,11 @@ module.exports = {
 
     'react/function-component-definition': 'off',
 
-    'react/jsx-filename-extension': ['warn', {extensions: ['.jsx', '.tsx']}],
+    'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }],
 
     'react/no-danger': 'off', // Necessary for Storybook
+
+    'no-underscore-dangle': 'off',
 
     'no-param-reassign': [
       // Allow modifying props, esp. for DOM Nodes
@@ -47,6 +49,13 @@ module.exports = {
       },
     ],
 
+    // Ignore variables and arguments that are not used if they start with _.
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
+    ],
+
     // TS-eslint is smarter about how to implement this rule.
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
@@ -54,12 +63,25 @@ module.exports = {
     // disable the rule for all files
     '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
-  'overrides': [
+  overrides: [
     {
       // enable the rule specifically for TypeScript files
-      'files': ['*.ts', '*.tsx'],
-      'rules': {
+      files: ['*.ts', '*.tsx'],
+      rules: {
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
+      },
+    },
+    {
+      // allow require() in webpack config files, which use CommonJS
+      files: ['webpack.*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+        'import/no-extraneous-dependencies': [
+          'error',
+          {
+            devDependencies: true,
+          },
+        ],
       },
     },
   ],
