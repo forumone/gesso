@@ -1,5 +1,5 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
 const path = require('path');
+const embeddedSass = require('sass-embedded');
 
 module.exports = {
   mode: 'production',
@@ -42,7 +42,16 @@ module.exports = {
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: embeddedSass,
+              webpackImporter: false,
+              sassOptions: {
+                includePaths: [path.resolve(__dirname, 'source')],
+              },
+            },
+          },
         ],
       },
     ],
@@ -51,4 +60,6 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
   },
+
+  stats: 'minimal',
 };

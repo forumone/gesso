@@ -11,7 +11,7 @@ async function gatherProjectFiles() {
   const jsFiles = {};
   const scssFiles = {};
   const jsGlob = new Glob('source/**/!(*.stories).[jt]s', {
-    ignore: ['**/_*', 'source/@types/**'],
+    ignore: ['**/_*', 'source/@types/**', 'source/07-react/**'],
   });
   const scssGlob = new Glob('source/**/*.scss', jsGlob);
   // The Airbnb style guide, which we're generally following, does not allow
