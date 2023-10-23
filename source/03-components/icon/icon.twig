@@ -1,36 +1,52 @@
 {% set classes = [
   'c-icon',
+  direction ? 'is-' ~ direction : '',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
 {% if is_demo %}
   {% set icons = [
-    'angle-double-left',
-    'angle-double-right',
-    'angle-down',
-    'angle-left',
-    'angle-right',
-    'angle-up',
+    'angle',
+    'angles',
+    'arrow',
+    'arrow-long',
+    'bars',
+    'calendar',
+    'caret',
+    'check',
+    'chevron',
+    'download',
+    'ellipsis',
+    'envelope',
+    'file',
+    'magnifying-glass',
+    'minus',
+    'plus',
     'rss',
+    'square',
+    'square-check',
+    'square-empty',
+    'xmark',
     'facebook',
+    'instagram',
     'linkedin',
     'twitter',
-    'close'
+    'youtube',
    ] %}
   {% for icon in icons %}
     <p>
       <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
         {% if label %}<title>{{ label }}</title>{% endif %}
-        <use xlink:href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon }}"></use>
+        <use href="{{ image_path }}/sprite.artifact.svg#{{ icon }}"></use>
       </svg>
       {{ icon }}
     </p>
   {% endfor %}
 {%- else -%}
-  {% spaceless %}
+  {% apply spaceless %}
     <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
       {% if label %}<title>{{ label }}</title>{% endif %}
-      <use xlink:href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
+      <use href="{{ image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
     </svg>
-  {% endspaceless %}
+  {% endapply %}
 {%- endif -%}

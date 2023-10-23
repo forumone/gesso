@@ -66,6 +66,10 @@ $form-text-size: gesso-base-font-size() !default;
   @extend %disabled-form-styles;
 }
 
+.c-form-item__actions {
+  margin-top: rem(gesso-spacing(2));
+}
+
 .c-form-item__required-marker::before {
   content: '*';
 }

@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './dropdown-menu.twig';
 import data from './dropdown-menu.yml';
 import buttonData from './dropdown-menu-buttons.yml';
@@ -10,6 +11,7 @@ import '../hamburger-button/hamburger-button.scss';
 
 const settings = {
   title: 'Components/Menu/Dropdown Menu',
+  decorators: [withGlobalWrapper],
 };
 
 const DropdownMenu = args =>

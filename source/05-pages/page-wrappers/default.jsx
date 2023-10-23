@@ -12,7 +12,7 @@ import FooterTwig from '../../02-layouts/footer/footer.twig';
 import { SiteName } from '../../03-components/site-name/site-name.stories.jsx';
 import NavTwig from '../../02-layouts/nav/nav.twig';
 import { AccountMenu } from '../../03-components/menu/menu--account/menu--account.stories.jsx';
-import { DropdownMenu} from "../../03-components/dropdown-menu/dropdown-menu.stories.jsx";
+import { DropdownMenu } from "../../03-components/dropdown-menu/dropdown-menu.stories.jsx";
 import { Breadcrumb } from '../../03-components/breadcrumb/breadcrumb.stories.jsx';
 import { FooterMenu } from '../../03-components/menu/menu--footer/menu--footer.stories.jsx';
 import { Copyright } from '../../03-components/copyright/copyright.stories.jsx';

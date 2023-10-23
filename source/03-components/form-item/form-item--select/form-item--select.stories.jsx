@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../../.storybook/decorators'
 import twigTemplate from '../form-item.twig';
 import selectTemplate from './_select.twig';
 import labelTemplate from '../_form-item-label.twig';
@@ -8,6 +9,7 @@ import withGroupsData from './form-item--select-with-groups.yml';
 
 const settings = {
   title: 'Components/Form Item/Select',
+  decorators: [withGlobalWrapper],
   argTypes: {
     label_display: {
       options: ['before', 'after', 'invisible', 'hidden'],
