@@ -103,7 +103,7 @@
     "svg-transform-loader": "^2.0.13",
     "svgo-loader": "^3.0.3",
     "terser-webpack-plugin": "^5.3.6",
-    "twig": "^1.15.4",
+    "twig": "^1.16.0",
     "webpack-merge": "^5.8.0",
     "yaml": "^1.10.2"
   }
