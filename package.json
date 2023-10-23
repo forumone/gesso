@@ -76,7 +76,7 @@
     "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "ts-loader": "^9.4.2",
-    "twig-drupal-filters": "https://github.com/kmonahan/twig-drupal-filters/archive/f142eaf729ea922372aaed03096ad921dcbc27c0.tar.gz",
+    "twig-drupal-filters": "https://github.com/kmonahan/twig-drupal-filters/archive/d2410657fbee6bde3bc2b60ab0fe5d777d4c98c0.tar.gz",
     "twig-loader": "https://github.com/fourkitchens/twig-loader/archive/94126e3dafec1c1eba4597d6502fc1707065ae99.tar.gz",
     "typescript": "^4.9.4",
     "webpack": "^5.82.0",
