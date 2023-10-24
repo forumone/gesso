@@ -5,9 +5,7 @@ import { EXAMPLE_PROPERTY } from '../constants';
 
 const Example = (): JSX.Element => (
   <div className={styles.blackBox}>
-    <p>
-      {`This is an example block. ${EXAMPLE_PROPERTY}`}
-    </p>
+    <p>{`This is an example block. ${EXAMPLE_PROPERTY}`}</p>
   </div>
 );
 
