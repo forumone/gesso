@@ -20,7 +20,7 @@
   {% if not hide_label -%}
     <{{ label_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes },'title_attributes') }}>{{ label }}</{{ label_element ?: 'h3' }}>
   {%- endif -%}
-  <{{ list_element ?: 'ul' }} class="field__content">
+  <{{ list_element ?: 'ul' }} class="c-field__content">
     {%- for item in field_items -%}
       <li>{{- item.content -}}</li>
     {%- endfor -%}
