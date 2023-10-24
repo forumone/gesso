@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --config ./webpack.theme-config.js --mode=development",
-    "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js  && webpack --config ./webpack.react-config.js",
+    "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js && webpack --config ./webpack.react-config.js",
     "storybook": "storybook dev -p 6006",
     "watch-theme": "webpack watch --config ./webpack.dev.js",
     "watch-design-tokens": "webpack watch --config ./webpack.theme-config.js --mode=development",
