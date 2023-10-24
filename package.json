@@ -76,7 +76,7 @@
     "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "ts-loader": "^9.4.2",
-    "twig-drupal-filters": "^3.2.0",
+    "twig-drupal-filters": "https://github.com/kmonahan/twig-drupal-filters/archive/d2410657fbee6bde3bc2b60ab0fe5d777d4c98c0.tar.gz",
     "twig-loader": "https://github.com/fourkitchens/twig-loader/archive/94126e3dafec1c1eba4597d6502fc1707065ae99.tar.gz",
     "typescript": "^4.9.4",
     "webpack": "^5.82.0",
@@ -84,7 +84,6 @@
   },
   "dependencies": {
     "@drupal/once": "^1.0.1",
-    "add-attributes-twig-extension": "^0.1.0",
     "eslint-webpack-plugin": "^3.2.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
     "glob": "^10.3.3",
@@ -103,7 +102,7 @@
     "svg-transform-loader": "^2.0.13",
     "svgo-loader": "^3.0.3",
     "terser-webpack-plugin": "^5.3.6",
-    "twig": "^1.15.4",
+    "twig": "^1.16.0",
     "webpack-merge": "^5.8.0",
     "yaml": "^1.10.2"
   }
