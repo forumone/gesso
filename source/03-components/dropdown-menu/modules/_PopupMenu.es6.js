@@ -108,11 +108,14 @@ class PopupMenu extends Menu {
   close(force) {
     let controllerHasHover = this.controller.getHover();
     let { hasFocus } = this;
+    // Stash any sub-menus so we can close them too if needed.
+    const submenus = [];
 
     for (let i = 0; i < this.menuItems.length; i += 1) {
       const mi = this.menuItems[i];
       if (mi.popupMenu) {
         hasFocus = hasFocus || mi.popupMenu.hasFocus;
+        submenus.push(mi.popupMenu);
       }
     }
 
@@ -121,6 +124,9 @@ class PopupMenu extends Menu {
     }
 
     if (force || (!hasFocus && !this.hasHover && !controllerHasHover)) {
+      if (submenus.length) {
+        submenus.forEach(s => s.close(true));
+      }
       this.domNode.style.display = 'none';
       this.domNode.style.zIndex = '0';
       this.controller.setExpanded(false);
@@ -132,7 +138,9 @@ class PopupMenu extends Menu {
    * @return {void}
    */
   handleMouseover() {
-    this.hasHover = true;
+    if (this.controller.menu.options.displayMenuOnHover) {
+      this.hasHover = true;
+    }
   }
 
   /**
@@ -140,7 +148,9 @@ class PopupMenu extends Menu {
    * @return {void}
    */
   handleMouseout() {
-    this.hasHover = false;
+    if (this.controller.menu.options.displayMenuOnHover) {
+      this.hasHover = false;
+    }
   }
 }
 
