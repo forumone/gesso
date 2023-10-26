@@ -1,4 +1,4 @@
-declare module "drupal" {
+declare module 'drupal' {
   interface GessoSettings {
     gesso: {
       backToTopThreshold?: number;
@@ -19,7 +19,10 @@ declare module "drupal" {
   }
 
   const Drupal: {
-    attachBehaviors(context?: HTMLElement | Document, settings?: Settings): void;
+    attachBehaviors(
+      context?: HTMLElement | Document,
+      settings?: Settings
+    ): void;
 
     throwError(error: Error | string): void;
 
@@ -27,7 +30,11 @@ declare module "drupal" {
 
     formatString(str: string, args: Record<string, unknown>): string;
 
-    stringReplace(str: string, args: Record<string, unknown>, keys?: unknown): string;
+    stringReplace(
+      str: string,
+      args: Record<string, unknown>,
+      keys?: unknown
+    ): string;
 
     t(str: string, args?: unknown, options?: string): string;
 
@@ -60,7 +67,22 @@ declare module "drupal" {
     behaviors: Record<string, Behavior>;
 
     [key: string]: unknown;
-  }
+  };
 
   export default Drupal;
+}
+
+declare module '*.scss' {
+  const content: { [className: string]: string };
+  export = content;
+}
+
+type DrupalSettings = {
+  exampleProperty: string;
+  // Add more variables as needed.
+};
+
+// Extend the Window interface to include our Drupal settings.
+interface Window {
+  drupalSettings: DrupalSettings;
 }

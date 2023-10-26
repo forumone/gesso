@@ -6,16 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --config ./webpack.theme-config.js --mode=development",
-    "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js",
+    "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js && webpack --config ./webpack.react-config.js",
     "storybook": "storybook dev -p 6006",
     "watch-theme": "webpack watch --config ./webpack.dev.js",
     "watch-design-tokens": "webpack watch --config ./webpack.theme-config.js --mode=development",
-    "watch": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\"",
+    "watch-react": "webpack watch --config ./webpack.react-config.js",
+    "watch": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\"",
     "eslint": "eslint source/**/!\\(*.stories\\).js",
     "stylelint": "stylelint \"source/**/*.scss\"",
     "build-storybook": "npm run build && storybook build -o storybook",
     "deploy-storybook": "storybook-to-ghpages --source-branch=5.x",
-    "dev": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:storybook\"",
+    "dev": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\" \"npm:storybook\"",
     "component": "node lib/component.js"
   },
   "author": "Forum One",
@@ -76,7 +77,7 @@
     "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "ts-loader": "^9.4.2",
-    "twig-drupal-filters": "^3.2.0",
+    "twig-drupal-filters": "https://github.com/kmonahan/twig-drupal-filters/archive/d2410657fbee6bde3bc2b60ab0fe5d777d4c98c0.tar.gz",
     "twig-loader": "https://github.com/fourkitchens/twig-loader/archive/94126e3dafec1c1eba4597d6502fc1707065ae99.tar.gz",
     "typescript": "^4.9.4",
     "webpack": "^5.82.0",
@@ -84,11 +85,10 @@
   },
   "dependencies": {
     "@drupal/once": "^1.0.1",
-    "add-attributes-twig-extension": "^0.1.0",
     "eslint-webpack-plugin": "^3.2.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
     "glob": "^10.3.3",
-    "html-react-parser": "^1.4.14",
+    "html-react-parser": "^4.2.2",
     "inquirer": "^8.2.5",
     "jquery": "^3.6.3",
     "mini-css-extract-plugin": "^2.7.2",
@@ -103,8 +103,8 @@
     "svg-transform-loader": "^2.0.13",
     "svgo-loader": "^3.0.3",
     "terser-webpack-plugin": "^5.3.6",
-    "twig": "^1.15.4",
+    "twig": "^1.16.0",
     "webpack-merge": "^5.8.0",
-    "yaml": "^1.10.2"
+    "yaml": "^2.3.1"
   }
 }
