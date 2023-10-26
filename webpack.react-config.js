@@ -10,6 +10,7 @@ module.exports = {
     filename: '[name].js',
     clean: true,
   },
+  context: __dirname,
   module: {
     rules: [
       {
@@ -59,6 +60,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
+    modules: [path.resolve(__dirname, 'source'), 'node_modules'],
   },
 
   stats: 'minimal',
