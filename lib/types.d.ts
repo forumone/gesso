@@ -1,29 +1,38 @@
-import * as YAML from 'yaml';
+import { Document, ParsedNode, Scalar } from 'yaml';
+import { SassValue } from './SassValue';
 
 type CodeMap = import('./CodeMap');
-type SassValue = import('./SassValue');
 
-export interface ParsedSource {
-  readonly path: string;
+export interface ParsedSource<
+  Contents extends ParsedNode,
+  Strict extends boolean
+> {
+  readonly ast: Document.Parsed<Contents, Strict>;
   readonly source: string;
-  readonly ast: YAML.ast.Document;
   readonly map: CodeMap;
 }
 
-export type GessoScalar = string | number | boolean;
-export interface GessoObject {
-  [key: string]: GessoScalar | GessoObject;
-}
+export type GessoScalar = string | number | boolean | SassValue;
+
 export type GessoArray = Array<GessoData>;
+
+export interface GessoObject {
+  [key: string]: GessoScalar | GessoObject | GessoArray;
+}
 
 export type GessoData = GessoScalar | GessoObject | GessoArray;
 
-export interface TransformedSource extends ParsedSource {
-  readonly data: GessoData;
+export interface TransformedSource extends ParsedSource<ParsedNode, true> {
+  readonly data: {
+    gesso: GessoData;
+  };
 }
 
-export type ScalarTransformer = (
-  node: YAML.ast.ScalarNode,
-  doc: YAML.ast.Document,
-  map: CodeMap,
-) => string | number | boolean | SassValue;
+export type ScalarTransformer<
+  Contents extends ParsedNode = ParsedNode,
+  Strict extends boolean = true
+> = (
+  node: Scalar<GessoScalar>,
+  doc: Document.Parsed<Contents, Strict>,
+  map: CodeMap
+) => GessoScalar;
