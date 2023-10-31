@@ -42,7 +42,6 @@
     "@storybook/react-webpack5": "^7.0.10",
     "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/theming": "^7.0.10",
-    "@types/jquery": "3.2",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
