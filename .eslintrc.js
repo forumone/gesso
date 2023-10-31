@@ -22,6 +22,13 @@ module.exports = {
     'arrow-body-style': 'off',
     'class-methods-use-this': 'off', // Too many false positives
 
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+      },
+    ],
+
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -72,8 +79,9 @@ module.exports = {
       },
     },
     {
-      // allow require() in webpack config files, which use CommonJS
-      files: ['webpack.*.js'],
+      // allow require() in webpack config files, which use CommonJS,
+      // and in lib files, which are used by Node.js
+      files: ['webpack.*.js', 'lib/**/*.[j|t]s'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
         'import/no-extraneous-dependencies': [

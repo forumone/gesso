@@ -5,6 +5,7 @@ const storybookTheme = create({
   appContentBg: '#fff',
   barBg: '#19013A',
   barSelectedColor: '#EE2737',
+  barHoverColor: '#EE2737',
   barTextColor: '#fff',
   base: 'light',
   brandTitle: 'Forum One',

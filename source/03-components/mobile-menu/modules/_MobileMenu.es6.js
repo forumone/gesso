@@ -1,6 +1,7 @@
 import OverlayMenu from '../../overlay-menu/modules/_OverlayMenu.es6';
 import cleanString from '../../../06-utility/_cleanString.es6';
 import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
+import { getNextSibling } from '../../../06-utility/_getClosestSibling.es6';
 
 class MobileMenu extends OverlayMenu {
   /**
@@ -92,17 +93,38 @@ class MobileMenu extends OverlayMenu {
   }
 
   /**
-   * Create a toggle button to hide/show a subnav.
+   * Set classes and attributes on a button used to toggle a submenu.
+   * @param {HTMLButtonElement} button - The button to update.
    * @param {HTMLElement} subnav - The submenu the toggle button will be used to display.
-   * @return {Element}
    */
-  createToggleButton(subnav) {
-    const button = document.createElement('button');
+  setupToggleButton(button, subnav) {
     button.classList.add('c-mobile-menu__subnav-arrow');
     button.setAttribute('aria-controls', subnav.id);
     button.setAttribute('aria-expanded', 'false');
     button.innerHTML = '<span class="u-visually-hidden">Toggle Subnav</span>';
+  }
+
+  /**
+   * Create a toggle button to hide/show a subnav.
+   * @param {HTMLElement} subnav - The submenu the toggle button will be used to display.
+   * @return {HTMLButtonElement}
+   */
+  createToggleButton(subnav) {
+    const button = document.createElement('button');
+    this.setupToggleButton(button, subnav);
     return subnav.insertAdjacentElement('beforebegin', button);
+  }
+
+  /**
+   * Update an existing desktop toggle button for mobile display.
+   * @param {HTMLButtonElement} button - The button to update.
+   * @param {HTMLElement} subnav - The submenu the toggle button will be used to display.
+   * @return {HTMLButtonElement}
+   */
+  updateToggleButton(button, subnav) {
+    button.classList.remove(`${this.options.classPrefix}__subnav-toggle`);
+    this.setupToggleButton(button, subnav);
+    return button;
   }
 
   /**
@@ -110,10 +132,17 @@ class MobileMenu extends OverlayMenu {
    * and using it to hide/show the subnav.
    * @param {HTMLElement} link - The top-level menu link or button.
    * @param {HTMLElement} subnav - The submenu to hide/show.
+   * @param {HTMLButtonElement} nextButton - The existing toggle button, if present
    */
-  setupSubnav(link, subnav) {
-    const toggleButton =
-      link.tagName === 'BUTTON' ? link : this.createToggleButton(subnav);
+  setupSubnav(link, subnav, nextButton) {
+    let toggleButton;
+    if (link.tagName === 'BUTTON') {
+      toggleButton = link;
+    } else {
+      toggleButton = nextButton
+        ? this.updateToggleButton(nextButton, subnav)
+        : this.createToggleButton(subnav);
+    }
     subnav.style.display = 'none';
     toggleButton.addEventListener('click', event => {
       event.preventDefault();
@@ -220,8 +249,17 @@ class MobileMenu extends OverlayMenu {
         submenu.id = cleanString(
           `mobile-menu-${link.innerText.trim()}${index || ''}`
         );
+        const nextButton = getNextSibling(
+          link,
+          `.${this.options.classPrefix}__subnav-toggle`
+        );
         if (this.options.toggleSubnav) {
-          this.setupSubnav(link, link.nextElementSibling);
+          const subnav = getNextSibling(link, 'ul');
+          if (subnav) {
+            this.setupSubnav(link, subnav, nextButton);
+          }
+        } else if (nextButton) {
+          nextButton.parentElement.removeChild(nextButton);
         }
       });
     }

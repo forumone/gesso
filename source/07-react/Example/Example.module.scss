@@ -1,0 +1,7 @@
+// Component: Example
+@use '00-config' as *;
+
+.blackBox {
+  border: 10px solid gesso-color(ui, generic, border);
+  padding: 20px;
+}
