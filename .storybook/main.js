@@ -2,7 +2,10 @@ const { resolve } = require('path');
 const path = require('path');
 
 const config = {
-  stories: ['../source/**/*.stories.mdx', '../source/**/*.stories.@(js|jsx)'],
+  stories: [
+    '../source/**/*.stories.mdx',
+    '../source/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   framework: {
     name: '@storybook/react-webpack5',
     options: { fastRefresh: true },

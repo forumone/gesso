@@ -4,49 +4,9 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% if is_demo %}
-  {% set icons = [
-    'angle',
-    'angles',
-    'arrow',
-    'arrow-long',
-    'bars',
-    'calendar',
-    'caret',
-    'check',
-    'chevron',
-    'download',
-    'ellipsis',
-    'envelope',
-    'file',
-    'magnifying-glass',
-    'minus',
-    'plus',
-    'rss',
-    'square',
-    'square-check',
-    'square-empty',
-    'xmark',
-    'facebook',
-    'instagram',
-    'linkedin',
-    'twitter',
-    'youtube',
-   ] %}
-  {% for icon in icons %}
-    <p>
-      <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
-        {% if label %}<title>{{ label }}</title>{% endif %}
-        <use href="{{ image_path }}/sprite.artifact.svg#{{ icon }}"></use>
-      </svg>
-      {{ icon }}
-    </p>
-  {% endfor %}
-{%- else -%}
-  {% apply spaceless %}
-    <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
-      {% if label %}<title>{{ label }}</title>{% endif %}
-      <use href="{{ image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
-    </svg>
-  {% endapply %}
-{%- endif -%}
+{% apply spaceless %}
+  <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
+    {% if label %}<title>{{ label }}</title>{% endif %}
+    <use href="{{ image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
+  </svg>
+{% endapply %}

@@ -239,6 +239,57 @@ as well.
 
 The Prettier config can be changed in the `.prettierrc` file.
 
+### jQuery
+
+Gesso itself does not include any jQuery dependencies and does not ship with
+jQuery. However, some Drupal modules still rely on jQuery, so you may need to
+add it if, for example, you need to create and trigger a jQuery event.
+
+To add jQuery to Storybook:
+1. Install jQuery with `npm i -D jquery @types/jquery`.
+2. Add jQuery to `config.externals` in lines 78-82 of `.storybook/main.js`
+   ```js
+   config.externals = {
+      drupal: 'Drupal',
+      drupalSettings: 'drupalSettings',
+      once: 'once',
+      jquery: 'jQuery',
+   };
+   ```
+3. Add a jQuery stub similar to `stubs/once.js` and import it in `.storybook/preview.js`
+   ```js
+    import jQuery from 'jquery';
+    window.jQuery = jQuery;
+   ```
+   ```js
+    import './stubs/jquery.js'
+   ```
+
+To add jQuery to Drupal:
+1. Add jQuery to `externals` in lines 170-174 of `webpack.common.js`
+   ```js
+   externals: {
+      drupal: 'Drupal',
+      drupalSettings: 'drupalSettings',
+      once: 'once',
+      jquery: 'jQuery'
+    }
+   ```
+2. Ensure that `core/jquery` is added a dependency of the appropriate library in gesso.libraries.yml
+   ```yaml
+   library_name:
+     js:
+       dist/js/file-that-uses-jquery: {}
+     dependencies:
+       - gesso/common
+       - core/drupal
+       - core/once
+       - core/jquery
+   ```
+
+You can then import jQuery at the top of a file, the same way `Drupal` and `once`
+are typically imported, and use it as needed.
+
 ## Design tokens
 
 Gesso uses the configuration file `source/00-config/config.design-tokens.yml` to

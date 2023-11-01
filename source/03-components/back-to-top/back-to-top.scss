@@ -38,7 +38,7 @@
   }
 }
 
-// Ensure that the button is visible in Storybook.
-.c-back-to-top--storybook-show {
+// Ensure that the button is always visible (e.g., in Storybook).
+.c-back-to-top--always-visible {
   opacity: 1 !important;
 }

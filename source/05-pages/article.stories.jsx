@@ -73,8 +73,6 @@ const articleContent = args =>
 const Article = args => (
   <PageWrapper>{parse(articleContent(args))}</PageWrapper>
 );
-Article.args = {
-  ...globalData,
-};
+Article.args = { ...globalData };
 
 export { Article };

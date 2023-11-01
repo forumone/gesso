@@ -15,7 +15,6 @@
   {% if icon_position == 'before' or icon_position == 'both' %}
     {% set button_icon_before %}
       {%- include '@components/icon/icon.twig' with {
-        'is_demo': false,
         'modifier_classes': 'c-button__icon is-spaced-after',
         'is_hidden': icon_is_hidden,
         'label': icon_label,
@@ -29,7 +28,6 @@
   {% if icon_position == 'after' or icon_position == 'both' %}
     {% set button_icon_after %}
       {%- include '@components/icon/icon.twig' with {
-        'is_demo': false,
         'modifier_classes': 'c-button__icon is-spaced-before',
         'is_hidden': icon_is_hidden,
         'label': icon_label,
@@ -48,26 +46,10 @@
     {{ button_icon_after }}
   {% endset %}
 
-  {% set demo_button_content %}
-    {{ button_icon_before }}
-    {{- text_demo -}}
-    {{ button_icon_after }}
-  {% endset %}
-
-  {% set disabled_button_content %}
-    {{ button_icon_before }}
-    Disabled {{ text -}}
-    {{ button_icon_after }}
-  {% endset %}
-
   {% if is_button_tag %}
     <button {{ add_attributes(button_attributes) }}{% if is_disabled %} disabled{% endif %}{% if button_type %} type="{{ button_type }}"{% endif %}>{{ button_content }}</button>
   {% else %}
     <a {{ add_attributes(button_attributes) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if storybook %} target="_self"{% endif %}>{{ button_content }}</a>
   {% endif %}
 
-  {% if is_demo %}
-    <a {{ add_attributes(button_attributes) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if storybook %} target="_self"{% endif %}>{{ demo_button_content }}</a>
-    <button {{ add_attributes(button_attributes) }} disabled{% if button_type %} type="{{ button_type }}"{% endif %}>{{ disabled_button_content }}</button>
-  {% endif %}
 {% endapply -%}

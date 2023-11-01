@@ -21,11 +21,25 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      # Installs npm dependencies
       - name: Install npm packages
         run: npm ci
-      # Runs a single command using the runners shell
-      - name: Deploy Storybook to Github Pages
-        run: npm run deploy-storybook -- --ci
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+      # Builds Storybook
+      - name: Build Storybook artifact
+        run: npm run build-storybook
+      - name: Rename Storybook directory
+        run: mv storybook github-pages
+      - uses: actions/upload-pages-artifact@v2
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2

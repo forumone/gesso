@@ -1,9 +1,11 @@
+import React from 'react'
+import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
 import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './page.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
-import data from './page.yml';
+import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
 
 const settings = {
   title: 'Templates/Page',
@@ -28,7 +30,14 @@ const settings = {
 };
 
 const Page = args => parse(twigTemplate(args));
-Page.args = { ...globalData, ...data };
+Page.args = {
+  ...globalData,
+  title: 'Page Title',
+  show_footer: true,
+  content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Page Content</ContentPlaceholder>
+  )
+};
 
 export default settings;
 export { Page };

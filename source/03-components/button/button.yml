@@ -1,7 +1,5 @@
 ---
 text: 'Button'
-text_demo: 'Link Button'
-is_demo: true
 is_button_tag: true
 is_disabled: false
 url: '#0'

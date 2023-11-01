@@ -1,17 +1,13 @@
+import React from 'react'
+import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
 import twigTemplate from './breadcrumb.twig';
 import data from './breadcrumb.yml';
+import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
 
 const settings = {
   title: 'Layouts/Breadcrumb',
-  argTypes: {
-    is_demo: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 };
 
 const Breadcrumb = args =>
@@ -20,7 +16,12 @@ const Breadcrumb = args =>
       ...args,
     })
   );
-Breadcrumb.args = { ...data };
+Breadcrumb.args = {
+  breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
+      <ContentPlaceholder>Breadcrumb Layout Content</ContentPlaceholder>
+    ),
+  ...data,
+}
 
 export default settings;
 export { Breadcrumb };

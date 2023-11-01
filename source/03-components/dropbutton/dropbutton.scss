@@ -4,12 +4,14 @@
 @use 'sass:math';
 @use '00-config' as *;
 
-$dropbutton-toggle-height: rem(44px) !default;
+$dropbutton-toggle-height: gesso-line-height(base) * rem(gesso-base-font-size()) +
+  2 * rem(gesso-spacing(1)) !default;
 $dropbutton-toggle-width: 2em !default;
 $dropbutton-toggle-icon-size: rem(12px) !default;
 
 .c-dropbutton {
   display: inline-block;
+  height: $dropbutton-toggle-height;
   margin-bottom: rem(gesso-spacing(1));
   position: relative;
   vertical-align: top;
@@ -27,7 +29,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
 
   &.is-open {
     .c-dropbutton__item {
-      display: block;
+      visibility: visible;
 
       &:first-child .c-dropbutton__button {
         border-bottom-left-radius: 0;
@@ -96,7 +98,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   padding: 0;
 
   &.is-secondary-action {
-    display: none;
+    visibility: hidden;
 
     &:not(:last-child) .c-dropbutton__button {
       border-bottom-left-radius: 0;

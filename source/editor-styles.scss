@@ -8,6 +8,15 @@
 // stylelint-disable selector-class-pattern
 div.paragraph--view-mode--preview,
 div.ck-content {
+  // Ensuring font properties from source/01-global/html-elements/01-html/_html.scss
+  // get applied to CKEditor content. This may need to updated to match any
+  // font customizations made to the HTML or BODY element.
+  font-family: gesso-font-family(primary);
+  line-height: gesso-line-height(base);
+}
+
+div.paragraph--view-mode--preview,
+div.ck-content {
   @include meta.load-css('01-global', $with: ('wysiwyg': true));
   @include meta.load-css('02-layouts', $with: ('wysiwyg': true));
   @include meta.load-css('03-components', $with: ('wysiwyg': true));
