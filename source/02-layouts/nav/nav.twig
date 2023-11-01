@@ -10,11 +10,6 @@
 
 {% set nav_id = nav_id|unique_id %}
 
-{% if is_demo and not nav_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set nav_content = macros.sample_content('Nav Layout Content') %}
-{% endif %}
-
 <nav {{ add_attributes({
   'class': classes,
   'role': 'navigation',

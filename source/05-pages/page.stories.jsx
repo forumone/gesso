@@ -22,8 +22,6 @@ const pageContent = args =>
   });
 
 const Page = args => <PageWrapper>{parse(pageContent(args))}</PageWrapper>;
-Page.args = {
-  ...globalData,
-};
+Page.args = { ...globalData };
 
 export { Page };

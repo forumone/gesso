@@ -8,9 +8,13 @@ import './back-to-top.es6';
 
 const settings = {
   title: 'Components/Back To Top',
+  decorators: [
+    (Story, {args}) =>
+      <Story args={{ ...args, modifier_classes: 'c-back-to-top--always-visible' }} />
+  ],
   parameters: {
     controls: {
-      include: ['is_demo', 'text', 'top_element'],
+      include: ['text', 'top_element'],
     },
   },
 };

@@ -1,17 +1,13 @@
+import React from 'react'
+import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
 import twigTemplate from './site-container.twig';
 import data from './site-container.yml';
+import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
 
 const settings = {
   title: 'Layouts/Site Container',
-  argTypes: {
-    is_demo: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 };
 
 const SiteContainer = args =>
@@ -20,7 +16,12 @@ const SiteContainer = args =>
       ...args,
     })
   );
-SiteContainer.args = { ...data };
+SiteContainer.args = {
+  site_container_content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Site Container Layout Content</ContentPlaceholder>
+  ),
+  ...data
+};
 
 export default settings;
 export { SiteContainer };

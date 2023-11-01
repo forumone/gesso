@@ -1,8 +1,6 @@
 ---
-is_demo: true
 hide_title: true
 title: 'Main navigation'
 nav_id: 'nav-main'
-nav_content: ''
 modifier_classes: ''
 title_modifier_classes: ''

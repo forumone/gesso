@@ -1,17 +1,13 @@
+import React from 'react'
+import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
 import twigTemplate from './region.twig';
 import data from './region.yml';
+import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
 
 const settings = {
   title: 'Layouts/Region',
-  argTypes: {
-    is_demo: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 };
 
 const Region = args =>
@@ -20,7 +16,12 @@ const Region = args =>
       ...args,
     })
   );
-Region.args = { ...data };
+Region.args = {
+  region_content: ReactDOMServer.renderToStaticMarkup(
+    <ContentPlaceholder>Region Layout Content</ContentPlaceholder>
+  ),
+  ...data
+};
 
 export default settings;
 export { Region };

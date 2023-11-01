@@ -53,8 +53,6 @@ const landingPageContent = args =>
 const LandingPage = args => (
   <PageWrapper>{parse(landingPageContent(args))}</PageWrapper>
 );
-LandingPage.args = {
-  ...globalData,
-};
+LandingPage.args = { ...globalData };
 
 export { LandingPage };

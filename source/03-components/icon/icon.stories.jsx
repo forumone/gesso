@@ -7,7 +7,15 @@ import data from './icon.yml';
 
 const settings = {
   title: 'Components/Icon',
-  decorators: [withGlobalWrapper],
+  decorators: [
+    (Story, { args }) => globalData.icons.map(icon => (
+      <p key={icon}>
+        <Story args={{ ...args, icon_name: icon }} />
+        &nbsp;&nbsp;{ icon }
+      </p>
+    )),
+    withGlobalWrapper,
+  ],
   argTypes: {
     direction: {
       options: ['up', 'down', 'left', 'right'],

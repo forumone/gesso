@@ -20,26 +20,6 @@
   'l-sidebar__sidebar',
 ]|join(' ')|trim %}
 
-{% if is_demo and not sidebar_header_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set sidebar_header_content = macros.sample_content('Header Content') %}
-{% endif %}
-
-{% if is_demo and not sidebar_first_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set sidebar_first_content = macros.sample_content('Optional Sidebar Content') %}
-{% endif %}
-
-{% if is_demo and not sidebar_main_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set sidebar_main_content = macros.sample_content('Main Content') %}
-{% endif %}
-
-{% if is_demo and not sidebar_second_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set sidebar_second_content = macros.sample_content('Optional Sidebar Content') %}
-{% endif %}
-
 <div {{ add_attributes({ 'class': classes }) }}>
 
   {% if sidebar_header_content %}
