@@ -8,7 +8,6 @@ on:
   push:
     branches:
       - 5.x
-      - 653-replace-storybook-deployer-2
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
