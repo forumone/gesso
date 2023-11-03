@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -10,17 +10,19 @@ const settings = {
   title: 'Layouts/Nav',
 };
 
-const Nav = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Nav.args = {
-  nav_content: ReactDOMServer.renderToStaticMarkup(
-    <ContentPlaceholder>Nav Layout Content</ContentPlaceholder>
-  ),
-  ...data
+const Nav = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+      })
+    ),
+  args: {
+    nav_content: ReactDOMServer.renderToStaticMarkup(
+      <ContentPlaceholder>Nav Layout Content</ContentPlaceholder>
+    ),
+    ...data,
+  },
 };
 
 export default settings;

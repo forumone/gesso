@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -10,22 +10,24 @@ const settings = {
   title: 'Layouts/Inline Form',
 };
 
-const InlineForm = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-InlineForm.args = {
-  form_content: ReactDOMServer.renderToStaticMarkup(
-    <>
-      <ContentPlaceholder>Form Item 1</ContentPlaceholder>
-      <ContentPlaceholder>Form Item 2</ContentPlaceholder>
-      <ContentPlaceholder>Form Item 3</ContentPlaceholder>
-      <ContentPlaceholder>Form Item 4</ContentPlaceholder>
-    </>
-  ),
-  ...data
+const InlineForm = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+      })
+    ),
+  args: {
+    form_content: ReactDOMServer.renderToStaticMarkup(
+      <>
+        <ContentPlaceholder>Form Item 1</ContentPlaceholder>
+        <ContentPlaceholder>Form Item 2</ContentPlaceholder>
+        <ContentPlaceholder>Form Item 3</ContentPlaceholder>
+        <ContentPlaceholder>Form Item 4</ContentPlaceholder>
+      </>
+    ),
+    ...data,
+  },
 };
 
 export default settings;
