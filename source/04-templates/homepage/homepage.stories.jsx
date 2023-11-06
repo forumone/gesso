@@ -15,6 +15,7 @@ const settings = {
   parameters: {
     controls: {
       include: [
+        'is_published',
         'show_admin_info',
         'hero_image',
         'hero_title',

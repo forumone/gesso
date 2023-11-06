@@ -12,7 +12,12 @@ const settings = {
   decorators: [withGlobalWrapper],
   parameters: {
     controls: {
-      include: ['page_title', 'show_admin_info', 'content'],
+      include: [
+        'is_published',
+        'page_title',
+        'show_admin_info',
+        'content',
+      ],
     },
   },
 };

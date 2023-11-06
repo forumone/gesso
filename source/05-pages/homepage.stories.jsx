@@ -12,7 +12,7 @@ export default {
   title: 'Pages/Homepage',
   parameters: {
     controls: {
-      include: ['show_admin_info'],
+      include: ['is_published', 'show_admin_info'],
     },
   },
 };

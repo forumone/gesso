@@ -14,7 +14,7 @@ export default {
   title: 'Pages/Landing Page',
   parameters: {
     controls: {
-      include: ['show_admin_info'],
+      include: ['is_published', 'show_admin_info'],
     },
   },
 };

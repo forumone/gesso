@@ -12,6 +12,13 @@
   {% endblock %}
   {{ title_suffix }}
 
+  {% if not is_published %}
+    {% include '@components/message/message.twig' with {
+      type: 'warning',
+      messages: ['This page is unpublished.'|t],
+    } %}
+  {% endif %}
+
   {% if show_admin_info %}
     {% if not admin_info %}
       {% set admin_info %}
