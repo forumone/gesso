@@ -10,31 +10,31 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const Default = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Default.args = { ...data };
+const Default = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+      })
+    ),
+  args: { ...data },
+};
 
-const Left = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      modifier_classes: 'c-hero-inline-image--left',
-    })
-  );
-Left.args = { ...data };
+const Left = {
+  ...Default,
+  args: {
+    ...data,
+    modifier_classes: 'c-hero-inline-image--left',
+  },
+};
 
-const Right = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      modifier_classes: 'c-hero-inline-image--right',
-    })
-  );
-Right.args = { ...data };
+const Right = {
+  ...Default,
+  args: {
+    ...data,
+    modifier_classes: 'c-hero-inline-image--right',
+  },
+};
 
 export default settings;
 export { Default, Left, Right };

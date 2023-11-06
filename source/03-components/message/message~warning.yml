@@ -1,5 +1,0 @@
----
-type: 'warning'
-heading: 'Warning message'
-messages:
-  - 'Warning message one'

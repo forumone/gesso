@@ -20,7 +20,7 @@ export default {
 // see Page page.
 const articleDemoContent = `
   ${ReactDOMServer.renderToStaticMarkup(
-    <>{FigureRightAligned(FigureRightAligned.args)}</>
+    FigureRightAligned.render(FigureRightAligned.args)
   )}
   <p>You’re the Dread Pirate Roberts, admit it. How many do you think you could
   handle? You mean you wish to surrender to me? Very well, I accept. But how can

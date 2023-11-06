@@ -23,13 +23,13 @@ export default {
 // See the Homepage story for an example of overriding the args for each example.
 const rowsContent = [];
 for (let i = 1; i <= 12; i += 1) {
-  rowsContent.push(Card(Card.args));
+  rowsContent.push(Card.render(Card.args));
 }
 
 const viewsContent = viewsTwigTemplate({
   has_wrapper: false,
   rows: rowsContent.map(row => ({
-    content: ReactDOMServer.renderToStaticMarkup(<>{row}</>),
+    content: ReactDOMServer.renderToStaticMarkup(row),
   })),
 });
 

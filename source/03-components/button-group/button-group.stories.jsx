@@ -9,58 +9,55 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const Primary = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Primary.args = { ...data };
+const Primary = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+      })
+    ),
+  args: { ...data },
+};
 
-const Secondary = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      button_modifier_classes: 'c-button--secondary',
-    })
-  );
-Secondary.args = { ...data };
+const Secondary = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    button_modifier_classes: 'c-button--secondary',
+  },
+};
 
-const Base = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      button_modifier_classes: 'c-button--base',
-    })
-  );
-Base.args = { ...data };
+const Base = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    button_modifier_classes: 'c-button--base',
+  },
+};
 
-const Danger = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      button_modifier_classes: 'c-button--danger',
-    })
-  );
-Danger.args = { ...data };
+const Danger = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    button_modifier_classes: 'c-button--danger',
+  },
+};
 
-const Small = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      button_modifier_classes: 'c-button--small',
-    })
-  );
-Small.args = { ...data };
+const Small = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    button_modifier_classes: 'c-button--small',
+  },
+};
 
-const Large = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      button_modifier_classes: 'c-button--large',
-    })
-  );
-Large.args = { ...data };
+const Large = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    button_modifier_classes: 'c-button--large',
+  },
+};
 
 export default settings;
 export { Primary, Secondary, Base, Danger, Large, Small };
