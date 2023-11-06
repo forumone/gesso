@@ -17,13 +17,10 @@ const settings = {
   },
 };
 
-const Duration = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Duration.args = { ...data };
+const Duration = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { Duration };

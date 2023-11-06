@@ -17,13 +17,15 @@ const settings = {
   },
 };
 
-const Spacing = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Spacing.args = { ...data };
+const Spacing = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+      })
+    ),
+  args: { ...data },
+};
 
 export default settings;
 export { Spacing };

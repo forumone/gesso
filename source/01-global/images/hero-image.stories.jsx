@@ -12,13 +12,10 @@ const settings = {
   },
 };
 
-const HeroImage = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-HeroImage.args = { ...globalData };
+const HeroImage = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData },
+};
 
 export default settings;
 export { HeroImage };

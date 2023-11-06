@@ -17,13 +17,10 @@ const settings = {
   },
 };
 
-const TextStyles = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-TextStyles.args = { ...data };
+const TextStyles = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { TextStyles };
