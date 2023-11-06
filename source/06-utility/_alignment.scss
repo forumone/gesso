@@ -3,26 +3,48 @@
 @use '00-config' as *;
 
 // Align items
-.u-align-left,
-.align-left {
+.align-left,
+.u-align-left {
   @include breakpoint(gesso-breakpoint(tablet)) {
     float: left;
     margin-right: rem(gesso-get-map(gutter-width));
   }
 }
 
-.u-align-right,
-.align-right {
+.align-right,
+.u-align-right {
   @include breakpoint(gesso-breakpoint(tablet)) {
     float: right;
     margin-left: rem(gesso-get-map(gutter-width));
   }
 }
 
-.u-align-center,
-.align-center {
+.align-center,
+.u-align-center {
+  display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+// Text alignment
+.text-align-left,
+.u-text-align-left {
+  text-align: left;
+}
+
+.text-align-right,
+.u-text-align-right {
+  text-align: right;
+}
+
+.text-align-center,
+.u-text-align-center {
+  text-align: center;
+}
+
+.text-align-justify,
+.u-text-align-justify {
+  text-align: justify;
 }
 
 // Clear floats
