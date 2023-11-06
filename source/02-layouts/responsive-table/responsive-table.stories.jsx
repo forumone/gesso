@@ -7,13 +7,15 @@ const settings = {
   title: 'Layouts/Responsive Table',
 };
 
-const ResponsiveTable = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-ResponsiveTable.args = { ...data };
+const ResponsiveTable = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+      })
+    ),
+  args: { ...data },
+};
 
 export default settings;
 export { ResponsiveTable };

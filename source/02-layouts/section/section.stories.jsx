@@ -7,13 +7,15 @@ const settings = {
   title: 'Layouts/Section',
 };
 
-const Section = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Section.args = { ...data };
+const Section = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+      })
+    ),
+  args: { ...data },
+};
 
 export default settings;
 export { Section };
