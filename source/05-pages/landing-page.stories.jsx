@@ -6,9 +6,9 @@ import globalData from '../00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
 import twigTemplate from '../04-templates/landing-page/landing-page.twig';
 import { Default as Card } from '../03-components/card/card.stories.jsx';
-import viewsTwigTemplate from '../03-components/view/views-view-unformatted/views-view-unformatted.twig';
-import gridTwigTemplate from '../02-layouts/grid/grid.twig';
 import { View } from '../03-components/view/views-view/views-view.stories.jsx';
+import { Unformatted } from '../03-components/view/views-view-unformatted/views-view-unformatted.stories';
+import { ThreeColumn } from '../02-layouts/grid/grid.stories';
 
 export default {
   title: 'Pages/Landing Page',
@@ -26,17 +26,22 @@ for (let i = 1; i <= 12; i += 1) {
   rowsContent.push(Card.render(Card.args));
 }
 
-const viewsContent = viewsTwigTemplate({
-  has_wrapper: false,
-  rows: rowsContent.map(row => ({
-    content: ReactDOMServer.renderToStaticMarkup(row),
-  })),
-});
+const viewsContent = ReactDOMServer.renderToStaticMarkup(
+  Unformatted.render({
+    ...Unformatted.args,
+    has_constrain: false,
+    rows: rowsContent.map(row => ({
+      content: ReactDOMServer.renderToStaticMarkup(row),
+    })),
+  })
+);
 
-const gridContent = gridTwigTemplate({
-  num_of_cols: 3,
-  grid_content: viewsContent,
-});
+const gridContent = ReactDOMServer.renderToStaticMarkup(
+  ThreeColumn.render({
+    ...ThreeColumn.args,
+    grid_content: viewsContent,
+  })
+);
 
 const mainContent = View({
   ...View.args,

@@ -26,13 +26,10 @@ const settings = {
   },
 };
 
-const ReadMoreLink = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-ReadMoreLink.args = { ...globalData, ...data };
+const ReadMoreLink = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData, ...data },
+};
 
 export default settings;
 export { ReadMoreLink };

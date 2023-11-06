@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../../.storybook/decorators'
+import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from '../form-item.twig';
 import selectTemplate from './_select.twig';
 import labelTemplate from '../_form-item-label.twig';
@@ -28,25 +28,24 @@ const select = args =>
     described_by: args.id ? `${args.id}-description` : null,
   });
 const label = args => labelTemplate(args);
-const Default = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: label(args),
-      children: select(args),
-    })
-  );
-Default.args = { ...data };
+const Default = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+        label: label(args),
+        children: select(args),
+      })
+    ),
+  args: { ...data },
+};
 
-const WithGroups = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: label(args),
-      children: select(args),
-    })
-  );
-WithGroups.args = { ...withGroupsData };
+const WithGroups = {
+  ...Default,
+  args: {
+    ...withGroupsData,
+  },
+};
 
 export default settings;
 export { Default, WithGroups };
