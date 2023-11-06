@@ -11,12 +11,7 @@ const settings = {
 };
 
 const InlineForm = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: {
     form_content: ReactDOMServer.renderToStaticMarkup(
       <>

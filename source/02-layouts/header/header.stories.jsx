@@ -11,12 +11,7 @@ const settings = {
 };
 
 const Header = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: {
     header_content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Header Layout Content</ContentPlaceholder>

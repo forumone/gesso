@@ -29,12 +29,7 @@ const placeholderContent = ReactDOMServer.renderToStaticMarkup(
 );
 
 const Default = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: {
     grid_content: placeholderContent,
     ...data,

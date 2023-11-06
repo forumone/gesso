@@ -11,12 +11,7 @@ const settings = {
 };
 
 const Footer = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: {
     footer_content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Footer Layout Content</ContentPlaceholder>

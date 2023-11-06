@@ -11,12 +11,7 @@ const settings = {
 };
 
 const Sidebar = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: {
     sidebar_header_content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Header Content</ContentPlaceholder>

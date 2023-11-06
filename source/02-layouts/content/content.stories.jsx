@@ -11,12 +11,7 @@ const settings = {
 };
 
 const Content = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: {
     content_content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Content Layout Content</ContentPlaceholder>

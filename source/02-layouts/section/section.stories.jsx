@@ -8,12 +8,7 @@ const settings = {
 };
 
 const Section = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: { ...data },
 };
 

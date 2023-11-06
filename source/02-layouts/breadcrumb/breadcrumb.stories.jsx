@@ -11,12 +11,7 @@ const settings = {
 };
 
 const Breadcrumb = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: {
     breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Breadcrumb Layout Content</ContentPlaceholder>

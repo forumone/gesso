@@ -11,12 +11,7 @@ const settings = {
 };
 
 const Nav = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: {
     nav_content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Nav Layout Content</ContentPlaceholder>

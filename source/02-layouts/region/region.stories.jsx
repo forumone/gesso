@@ -11,12 +11,7 @@ const settings = {
 };
 
 const Region = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: {
     region_content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Region Layout Content</ContentPlaceholder>
