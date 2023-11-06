@@ -1,1 +1,8 @@
-{{ children }}
+{# 'form-radios' is a Drupal core class used by some modules (e.g., webform) #}
+{% set classes = [
+  'c-form-item',
+  'c-form-item--radios',
+  'form-radios',
+] %}
+
+<div{{ attributes.addClass(classes) }}>{{ children }}</div>
