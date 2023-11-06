@@ -42,6 +42,7 @@
 {% set attributes = attributes.addClass(classes) %}
 
 {% include '@components/view/views-view/views-view.twig' with {
+  'title': view_title,
   'element': 'div',
   'header': header,
   'exposed': exposed,
