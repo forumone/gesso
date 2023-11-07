@@ -1,0 +1,42 @@
+{% set classes = [
+  'c-external-link',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set allowed_domain = 'allowed-domain.com' %}
+
+<a href="{{ url }}" class="{{ classes }}">{{ text }}</a>
+
+{% if is_demo %}
+  <hr>
+  <h2>Non Links</h2>
+  <div><a>No href attribute</a></div>
+  <div><a href="javascript:">javascript: (JavaScript in href attribute)</a></div>
+  <div><a href="#anchor">#anchor</a></div>
+  <div><a href="mailto:email@example.com">mailto:email@example.com (email link)</a></div>
+  <div><a href="tel:(123) 456-7890">tel:(123) 456-7890 (telephone link)</a></div>
+
+  <h2>Relative Links</h2>
+  <div><a href="/something">/something</a></div>
+  <div><a href="./something">./something</a></div>
+  <div><a href="../something">../something</a></div>
+  <div><a href="something">something</a></div>
+
+  <h2>{{ allowed_domain }} Links</h2>
+  <div><a href="//{{ allowed_domain }}">//{{ allowed_domain }}</a></div>
+  <div><a href="http://{{ allowed_domain }}">http://{{ allowed_domain }}</a></div>
+  <div><a href="https://{{ allowed_domain }}">https://{{ allowed_domain }}</a></div>
+  <div><a href="https://www.{{ allowed_domain }}">https://www.{{ allowed_domain }}</a></div>
+  <div><a href="http://subdomain.{{ allowed_domain }}">http://subdomain.{{ allowed_domain }}</a></div>
+  <div><a href="https://subdomain.{{ allowed_domain }}">https://subdomain.{{ allowed_domain }}</a></div>
+  <div><a href="https://www.{{ allowed_domain }}/something">https://www.{{ allowed_domain }}/something</a></div>
+
+  <h2>External Links</h2>
+  <div><a href="https://example.com">https://example.com</a></div>
+  <div><a href="https://example.com/{{ allowed_domain }}">https://example.com/{{ allowed_domain }}</a></div>
+  <div><a href="https://example.com/something">https://example.com/something</a></div>
+  <div><a href="https://example.com/something#anchor">https://example.com/something#anchor</a></div>
+  <div><a href="https://example.net">https://example.net</a></div>
+  <div><a href="https://example.net/something">https://example.net/something</a></div>
+  <div><a href="https://example.net/something#anchor">https://example.net/something#anchor</a></div>
+{% endif %}
