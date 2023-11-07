@@ -10,4 +10,8 @@
  * @see template_preprocess_radios()
  */
 #}
+
+{# 'form-radios' is a Drupal core class used by some modules (e.g., webform) #}
+{% set attributes = attributes.addClass('form-radios') %}
+
 {% include '@components/form-item/form-item--radios/form-item--radios.twig' %}
