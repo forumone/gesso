@@ -53,11 +53,17 @@ select {
   text-transform: none;
 }
 
+// Styled to look like a link.
 button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+  @include text-button;
+  font-weight: gesso-font-weight(regular);
+  margin: 0;
+  overflow: visible;
+  text-align: left;
+  text-decoration: underline;
 }
 
 button::-moz-focus-inner,
