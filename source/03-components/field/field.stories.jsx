@@ -12,22 +12,12 @@ const settings = {
 };
 
 const Default = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: { ...data },
 };
 
 const List = {
-  render: args =>
-    parse(
-      listTwigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(listTwigTemplate(args)),
   args: { ...listData },
 };
 

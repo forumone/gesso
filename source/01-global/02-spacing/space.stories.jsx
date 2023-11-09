@@ -18,12 +18,7 @@ const settings = {
 };
 
 const Spacing = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: { ...data },
 };
 

@@ -16,12 +16,7 @@ const settings = {
 };
 
 const Default = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: { ...data },
 };
 

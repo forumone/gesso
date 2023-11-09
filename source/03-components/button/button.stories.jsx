@@ -53,12 +53,7 @@ const settings = {
 };
 
 const Primary = {
-  render: args =>
-    parse(
-      twigTemplate({
-        ...args,
-      })
-    ),
+  render: args => parse(twigTemplate(args)),
   args: { ...globalData, ...data },
 };
 
