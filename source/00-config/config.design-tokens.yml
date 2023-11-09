@@ -192,6 +192,8 @@ gesso:
       10: 76.2939px
     responsive-font-size-min-width: 360px
     responsive-font-size-max-width: 1600px
+    # The max value should never be more than 2.5 times the min value.
+    # https://www.smashingmagazine.com/2023/11/addressing-accessibility-concerns-fluid-type/
     responsive-font-size:
       1:
         min: 12px
