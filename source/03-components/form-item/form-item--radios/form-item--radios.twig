@@ -1,6 +1,6 @@
 {% set classes = [
   'c-form-item',
   'c-form-item--radios',
-] %}
+]|join(' ')|trim %}
 
 <div{{ attributes.addClass(classes) }}>{{ children }}</div>
