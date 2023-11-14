@@ -60,3 +60,25 @@ function gesso_helper_validate_buttons(array $element, FormStateInterface $formS
     }
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function gesso_helper_theme($existing, $type, $theme, $path) {
+  return [
+    'gesso_icon' => [
+      'variables' => [
+        'icon' => NULL,
+        'icon_name' => NULL,
+        'icon_title' => NULL,
+      ],
+    ],
+    'gesso_icon_link' => [
+      'render element' => 'gesso_icon_link',
+    ],
+  ];
+}
+
+function gesso_helper_preprocess_gesso_icon_link(&$vars) {
+  dump($vars);
+}

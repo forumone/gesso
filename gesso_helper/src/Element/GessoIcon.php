@@ -63,17 +63,6 @@ class GessoIcon extends RenderElement implements ContainerFactoryPluginInterface
    *   The element.
    */
   public function preRenderIcon(array $element) {
-    $element['#attributes']['class'][] = 'icon';
-    $element['#attributes']['viewBox'] = '0 0 100 100';
-    $element['#attributes']['focusable'] = 'false';
-    if (empty($element['#icon_title'])) {
-      $element['#attributes']['aria-hidden'] = 'true';
-      $element['#attributes']['role'] = 'presentation';
-    }
-    else {
-      $element['#attributes']['aria-label'] = $element['#icon_title'];
-      $element['#attributes']['role'] = 'img';
-    }
     // For now, since this module is called Gesso Helper, we're going to
     // assume that Gesso is the currently active theme. A future enhancement
     // might be to check multiple places or to make the icon path configurable.
@@ -85,6 +74,14 @@ class GessoIcon extends RenderElement implements ContainerFactoryPluginInterface
         'xlink:href' => base_path() . $theme->getPath()
           . '/dist/images/sprite.artifact.svg#' . $element['#icon_name'],
       ],
+    ];
+    if (!empty($element['#icon_title'])) {
+      $element['icon_title'] = [
+        '#markup' => $element['#icon_title'],
+      ];
+    }
+    $element['icon_name'] = [
+      '#plain_text' => $element['#icon_name'],
     ];
     return $element;
   }
