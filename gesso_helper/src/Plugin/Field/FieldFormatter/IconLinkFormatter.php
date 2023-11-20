@@ -19,7 +19,7 @@ use Drupal\link\Plugin\Field\FieldFormatter\LinkFormatter;
  *   }
  * )
  */
-class IconLinkFormatter  extends LinkFormatter {
+class IconLinkFormatter extends LinkFormatter {
 
   /**
    * {@inheritdoc}
@@ -171,7 +171,7 @@ class IconLinkFormatter  extends LinkFormatter {
    * @param string $modifier_classes
    * @return array
    */
-  private function cleanModifierClasses(string $modifier_classes): array {
+  protected function cleanModifierClasses(string $modifier_classes): array {
     $clean_modifier_classes = explode(' ', $modifier_classes);
     foreach ($clean_modifier_classes as $key => $class) {
       $clean_modifier_classes[$key] = strtolower(Html::cleanCssIdentifier($class));

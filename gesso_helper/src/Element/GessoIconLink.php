@@ -50,12 +50,15 @@ class GessoIconLink extends RenderElement {
 
   public static function preRenderLink($element) {
     $link_content = [];
+    $icon_content = [
+      '#type' => 'gesso_icon',
+      '#icon_name' => $element['#icon_name'],
+      '#icon_label' => $element['#icon_label'],
+      '#icon_is_hidden' => $element['#icon_is_hidden'],
+      '#icon_direction' => $element['#icon_direction'],
+    ];
     if ($element['#icon_position'] == 'before' || $element['#icon_position'] == 'both') {
-      $link_content['icon_before'] = [
-        '#type' => 'gesso_icon',
-        '#icon_name' => $element['#icon_name'],
-        '#icon_label' => $element['#icon_label'],
-      ];
+      $link_content['icon_before'] = $icon_content;
     }
     $link_content['link_text'] = [
       '#type' => 'inline_template',
@@ -65,11 +68,7 @@ class GessoIconLink extends RenderElement {
       ],
     ];
     if ($element['#icon_position'] == 'after' || $element['#icon_position'] == 'both') {
-      $link_content['icon_after'] = [
-        '#type' => 'gesso_icon',
-        '#icon_name' => $element['#icon_name'],
-        '#icon_label' => $element['#icon_label'],
-      ];
+      $link_content['icon_after'] = $icon_content;
     }
     $element['#options']['attributes']['class'][] = 'c-icon-link';
     if (!empty($element['#url']) && $element['#url'] instanceof CoreUrl) {
