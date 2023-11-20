@@ -35,6 +35,7 @@ use Drupal\Core\Url as CoreUrl;
  * @RenderElement("gesso_icon_link")
  */
 class GessoIconLink extends RenderElement {
+
   /**
    * {@inheritdoc}
    */
@@ -56,7 +57,13 @@ class GessoIconLink extends RenderElement {
         '#icon_label' => $element['#icon_label'],
       ];
     }
-    $link_content['link_text'] = $element['#title'];
+    $link_content['link_text'] = [
+      '#type' => 'inline_template',
+      '#template' => '{{ value|nl2br }}',
+      '#context' => [
+        'value' => $element['#title'],
+      ],
+    ];
     if ($element['#icon_position'] == 'after' || $element['#icon_position'] == 'both') {
       $link_content['icon_after'] = [
         '#type' => 'gesso_icon',
@@ -64,8 +71,9 @@ class GessoIconLink extends RenderElement {
         '#icon_label' => $element['#icon_label'],
       ];
     }
+    $element['#options']['attributes']['class'][] = 'c-icon-link';
     if (!empty($element['#url']) && $element['#url'] instanceof CoreUrl) {
-      $options = NestedArray::mergeDeep($element['#url']->getOptions(), $element['#options']);
+      $options = !empty($element['#options']) ? NestedArray::mergeDeep($element['#url']->getOptions(), $element['#options']) : $element['#url']->getOptions();
       /** @var \Drupal\Core\Utility\LinkGenerator $link_generator */
       $link_generator = \Drupal::service('link_generator');
       $generated_link = $link_generator->generate($link_content, $element['#url']->setOptions($options));

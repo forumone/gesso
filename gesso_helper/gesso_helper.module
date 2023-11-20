@@ -73,12 +73,5 @@ function gesso_helper_theme($existing, $type, $theme, $path) {
         'icon_title' => NULL,
       ],
     ],
-    'gesso_icon_link' => [
-      'render element' => 'gesso_icon_link',
-    ],
   ];
-}
-
-function gesso_helper_preprocess_gesso_icon_link(&$vars) {
-  dump($vars);
 }

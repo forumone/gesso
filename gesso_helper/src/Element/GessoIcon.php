@@ -94,7 +94,7 @@ class GessoIcon extends RenderElement implements ContainerFactoryPluginInterface
       '#pre_render' => [
         [$this, 'preRenderIcon'],
       ],
-      '#theme' => 'icon',
+      '#theme' => 'gesso_icon',
       '#icon' => [],
       '#icon_name' => '',
       '#icon_title' => '',
