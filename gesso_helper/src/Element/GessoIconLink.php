@@ -56,9 +56,15 @@ class GessoIconLink extends RenderElement {
       '#icon_label' => $element['#icon_label'],
       '#icon_is_hidden' => $element['#icon_is_hidden'],
       '#icon_direction' => $element['#icon_direction'],
+      '#attributes' => [
+        'class' => [
+          'c-icon-link__icon',
+        ],
+      ],
     ];
     if ($element['#icon_position'] == 'before' || $element['#icon_position'] == 'both') {
       $link_content['icon_before'] = $icon_content;
+      $link_content['icon_before']['#attributes']['class'][] = 'is-spaced-after';
     }
     $link_content['link_text'] = [
       '#type' => 'inline_template',
@@ -69,6 +75,7 @@ class GessoIconLink extends RenderElement {
     ];
     if ($element['#icon_position'] == 'after' || $element['#icon_position'] == 'both') {
       $link_content['icon_after'] = $icon_content;
+      $link_content['icon_after']['#attributes']['class'][] = 'is-spaced-before';
     }
     $element['#options']['attributes']['class'][] = 'c-icon-link';
     if (!empty($element['#url']) && $element['#url'] instanceof CoreUrl) {
