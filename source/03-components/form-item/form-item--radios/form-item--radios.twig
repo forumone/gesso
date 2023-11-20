@@ -3,4 +3,4 @@
   'c-form-item--radios',
 ]|join(' ')|trim %}
 
-<div{{ attributes.addClass(classes) }}>{{ children }}</div>
+<div {{ add_attributes({ 'class': classes }) }}>{{ children }}</div>
