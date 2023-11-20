@@ -5,13 +5,15 @@ import twigTemplate from './icon-link.twig';
 import data from './icon-link.yml';
 import globalData from '../../00-config/storybook.global-data.yml';
 import './icon-link.scss';
+import { Icon } from '../icon/icon.stories';
+import ReactDOMServer from 'react-dom/server';
 
 const settings = {
   title: 'Components/Icon Link',
   decorators: [withGlobalWrapper],
   argTypes: {
     icon_name: {
-      options: [ false, ...globalData.icons ],
+      options: [false, ...globalData.icons],
       control: { type: 'select' },
     },
     icon_direction: {
@@ -30,12 +32,37 @@ const settings = {
   },
 };
 
-const IconLink = args =>
-  parse(
+const IconLink = ({ icon_name, icon_direction, icon_position, ...args }) => {
+  const icon_before =
+    icon_position === 'before' || icon_position === 'both'
+      ? ReactDOMServer.renderToStaticMarkup(
+          Icon({
+            ...Icon.args,
+            direction: icon_direction,
+            icon_name,
+            modifier_classes: 'c-icon-link__icon is-spaced-after',
+          })
+        )
+      : null;
+  const icon_after =
+    icon_position === 'after' || icon_position === 'both'
+      ? ReactDOMServer.renderToStaticMarkup(
+          Icon({
+            ...Icon.args,
+            direction: icon_direction,
+            icon_name,
+            modifier_classes: 'c-icon-link__icon is-spaced-before',
+          })
+        )
+      : null;
+  return parse(
     twigTemplate({
+      icon_before,
+      icon_after,
       ...args,
     })
   );
+};
 IconLink.args = { ...globalData, ...data };
 
 export default settings;
