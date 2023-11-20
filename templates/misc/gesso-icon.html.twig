@@ -9,11 +9,11 @@
  *   - id: A valid HTML ID and guaranteed unique.
  * - icon:
  *   - icon_name: name of the icon to display.
- *   - icon_title: screen-reader-friendly title for the icon.
+ *   - icon_label: screen-reader-friendly title for the icon.
  */
 #}
 
 {%- include '@components/icon/icon.twig' with {
   icon_name: icon.icon_name,
-  icon_title: icon.icon_title,
+  label: icon.icon_label,
 } -%}

@@ -26,9 +26,9 @@ class GessoIcon extends RenderElement {
       $element['#attributes']['aria-hidden'] = 'true';
     } else {
       $element['#attributes']['role'] = 'img';
-      if (!empty($element['#icon_title'])) {
-        $element['icon_title'] = [
-          '#markup' => $element['#icon_title'],
+      if (!empty($element['#icon_label'])) {
+        $element['icon_label'] = [
+          '#markup' => $element['#icon_label'],
         ];
       }
     }
