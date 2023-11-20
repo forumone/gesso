@@ -2,6 +2,7 @@
 
 namespace Drupal\gesso_helper\Plugin\Field\FieldFormatter;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -33,6 +34,7 @@ class IconLinkFormatter  extends LinkFormatter {
       'trim_length' => '',
       'rel' => '',
       'target' => '',
+      'modifier_classes' => '',
     ] + parent::defaultSettings();
   }
 
@@ -49,13 +51,11 @@ class IconLinkFormatter  extends LinkFormatter {
       '#required' => TRUE,
       '#description' => $this->t('The name of the icon to display as it appears in the sprite file. Example: <code>magnifying-glass</code>'),
     ];
-    // Add a checkbox field for icon_is_hidden.
     $elements['icon_is_hidden'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Hide icon from screen readers'),
       '#default_value' => $this->getSetting('icon_is_hidden'),
     ];
-    // Add a text field for icon label, and require it if icon_is_hidden is FALSE.
     $elements['icon_label'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Icon Label'),
@@ -70,7 +70,6 @@ class IconLinkFormatter  extends LinkFormatter {
       ],
       '#description' => $this->t('The label for the icon. Example: <code>Search</code>'),
     ];
-    // Add a select field with three options, before, after, or both, for icon_position.
     $elements['icon_position'] = [
       '#type' => 'select',
       '#title' => $this->t('Icon Position'),
@@ -82,7 +81,6 @@ class IconLinkFormatter  extends LinkFormatter {
         'both' => $this->t('Both'),
       ],
     ];
-    // Add an optional select field with three options, down, left, and right, for icon_direction.
     $elements['icon_direction'] = [
       '#type' => 'select',
       '#title' => $this->t('Icon Direction'),
@@ -94,7 +92,13 @@ class IconLinkFormatter  extends LinkFormatter {
         'right' => $this->t('Right'),
       ],
     ];
-
+    // Add an optional text field for modifier CSS classes.
+    $elements['modifier_classes'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Modifier Classes'),
+      '#default_value' => $this->getSetting('modifier_classes'),
+      '#description' => $this->t('One or more modifier classes to add to the link. Example: <code>c-icon-link--small</code>'),
+    ];
     return $elements;
   }
 
@@ -104,6 +108,7 @@ class IconLinkFormatter  extends LinkFormatter {
   public function settingsSummary() {
     $summary = parent::settingsSummary();
     $summary[] = $this->t('Icon: @icon', ['@icon' => $this->getSetting('icon_name')]);
+    $summary[] = $this->t('Modifier classes: @modifier_classes', ['@modifier_classes' => $this->getSetting('modifier_classes')]);
     return $summary;
   }
 
@@ -136,6 +141,7 @@ class IconLinkFormatter  extends LinkFormatter {
         '#type' => 'gesso_icon_link',
         '#title' => $link_title,
         '#url' => $url,
+        '#options' => $url->getOptions(),
         '#icon_is_hidden' => $settings['icon_is_hidden'],
         '#icon_name' => $settings['icon_name'],
         '#icon_label' => $settings['icon_label'],
@@ -143,12 +149,34 @@ class IconLinkFormatter  extends LinkFormatter {
         '#icon_direction' => $settings['icon_direction'],
       ];
 
-//      if (!empty($item->_attributes)) {
-//        $element[$delta]['#attributes'] += $item->_attributes;
-//        unset($item->_attributes);
-//      }
+      if (!empty($item->_attributes)) {
+        $element[$delta]['#options'] += ['attributes' => []];
+        $element[$delta]['#options']['attributes'] += $item->_attributes;
+        // Unset field item attributes since they have been included in the
+        // formatter output and should not be rendered in the field template.
+        unset($item->_attributes);
+      }
+
+      if (!empty($settings['modifier_classes'])) {
+        $element[$delta]['#options'] += ['attributes' => []];
+        $element[$delta]['#options']['attributes'] += ['class' => []];
+        $element[$delta]['#options']['attributes']['class'] += $this->cleanModifierClasses($settings['modifier_classes']);
+      }
     }
     return $element;
+  }
+
+  /**
+   * Ensure all modifier classes are valid CSS identifiers.
+   * @param string $modifier_classes
+   * @return array
+   */
+  private function cleanModifierClasses(string $modifier_classes): array {
+    $clean_modifier_classes = explode(' ', $modifier_classes);
+    foreach ($clean_modifier_classes as $key => $class) {
+      $clean_modifier_classes[$key] = strtolower(Html::cleanCssIdentifier($class));
+    }
+    return $clean_modifier_classes;
   }
 
 }
