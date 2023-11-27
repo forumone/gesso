@@ -71,13 +71,3 @@ function gesso_helper_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
-
-//function gesso_helper_preprocess_gesso_icon(&$variables) {
-//  $variables['icon'] = [
-//    '#theme' => 'gesso_icon',
-//    '#icon_name' => $variables['icon_name'],
-//    '#icon_label' => $variables['icon_label'],
-//    '#icon_is_hidden' => $variables['icon_is_hidden'],
-//    '#icon_direction' => $variables['icon_direction'],
-//  ];
-//}

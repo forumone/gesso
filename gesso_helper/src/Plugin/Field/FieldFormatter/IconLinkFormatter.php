@@ -2,11 +2,14 @@
 
 namespace Drupal\gesso_helper\Plugin\Field\FieldFormatter;
 
-use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Unicode;
+use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Path\PathValidatorInterface;
+use Drupal\Core\Utility\Token;
 use Drupal\link\Plugin\Field\FieldFormatter\LinkFormatter;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Plugin implementation of the 'Icon Link' formatter.
@@ -20,103 +23,87 @@ use Drupal\link\Plugin\Field\FieldFormatter\LinkFormatter;
  * )
  */
 class IconLinkFormatter extends LinkFormatter {
+  use GessoModifierClassesTrait, GessoIconTrait {
+    GessoModifierClassesTrait::cleanModifierClasses as private;
+    GessoModifierClassesTrait::defaultSettings as modifierDefaultSettings;
+    GessoModifierClassesTrait::settingsForm as modifierSettingsForm;
+    GessoModifierClassesTrait::settingsSummary as modifierSettingsSummary;
+    GessoIconTrait::defaultSettings as iconDefaultSettings;
+    GessoIconTrait::settingsForm as iconSettingsForm;
+    GessoIconTrait::settingsSummary as iconSettingsSummary;
+  }
+
+  /**
+  * @var \Drupal\Core\Utility\Token
+   */
+  protected Token $token;
+
+  /**
+   * @param $plugin_id
+   * @param $plugin_definition
+   * @param \Drupal\Core\Field\FieldDefinitionInterface $field_definition
+   * @param array $settings
+   * @param $label
+   * @param $view_mode
+   * @param array $third_party_settings
+   * @param \Drupal\Core\Path\PathValidatorInterface $path_validator
+   * @param \Drupal\Core\Utility\Token $token
+   */
+  public function __construct($plugin_id,$plugin_definition,FieldDefinitionInterface $field_definition,array $settings,$label,$view_mode,array $third_party_settings,PathValidatorInterface $path_validator, $token) {
+    parent::__construct($plugin_id,$plugin_definition,$field_definition,$settings,$label,$view_mode,$third_party_settings,$path_validator);
+    $this->token = $token;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container,array $configuration,$plugin_id,$plugin_definition){
+    return new static(
+      $plugin_id,
+      $plugin_definition,
+      $configuration['field_definition'],
+      $configuration['settings'],
+      $configuration['label'],
+      $configuration['view_mode'],
+      $configuration['third_party_settings'],
+      $container->get('path.validator'),
+      $container->get('token')
+    );
+  }
 
   /**
    * {@inheritdoc}
    */
   public static function defaultSettings() {
     return [
-      'icon_name' => '',
-      'icon_is_hidden' => TRUE,
-      'icon_label' => '',
-      'icon_position' => 'before',
-      'icon_direction' => '',
       'trim_length' => '',
       'rel' => '',
       'target' => '',
-      'modifier_classes' => '',
-    ] + parent::defaultSettings();
+    ] + parent::defaultSettings() +
+      static::modifierDefaultSettings() +
+      static::iconDefaultSettings();
   }
 
   /**
-   * {@inheritdoc}
+  * {@inheritDoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-    $elements = parent::settingsForm($form, $form_state);
-
-    $elements['icon_name'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Icon Name'),
-      '#default_value' => $this->getSetting('icon_name'),
-      '#required' => TRUE,
-      '#description' => $this->t('The name of the icon to display as it appears in the sprite file. Example: <code>magnifying-glass</code>'),
-    ];
-    $elements['icon_is_hidden'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Hide icon from screen readers'),
-      '#default_value' => $this->getSetting('icon_is_hidden'),
-    ];
-    $elements['icon_label'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Icon Label'),
-      '#default_value' => $this->getSetting('icon_label'),
-      '#states' => [
-        'visible' => [
-          ':input[name$="icon_is_hidden]"]' => ['checked' => FALSE],
-        ],
-        'required' => [
-          ':input[name$="icon_is_hidden]"]' => ['checked' => FALSE],
-        ],
-      ],
-      '#description' => $this->t('The label for the icon. Example: <code>Search</code>'),
-    ];
-    $elements['icon_position'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Icon Position'),
-      '#default_value' => $this->getSetting('icon_position'),
-      '#required' => TRUE,
-      '#options' => [
-        'before' => $this->t('Before'),
-        'after' => $this->t('After'),
-        'both' => $this->t('Both'),
-      ],
-    ];
-    $elements['icon_direction'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Icon Direction'),
-      '#default_value' => $this->getSetting('icon_direction'),
-      '#options' => [
-        '' => $this->t('None'),
-        'down' => $this->t('Down'),
-        'left' => $this->t('Left'),
-        'right' => $this->t('Right'),
-      ],
-    ];
-    // Add an optional text field for modifier CSS classes.
-    $elements['modifier_classes'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Modifier Classes'),
-      '#default_value' => $this->getSetting('modifier_classes'),
-      '#description' => $this->t('One or more modifier classes to add to the link. Example: <code>c-icon-link--small</code>'),
-    ];
-    return $elements;
+    return $this->modifierSettingsForm($form, $form_state) +
+      $this->iconSettingsForm($form, $form_state);
   }
 
   /**
    * {@inheritdoc}
    */
   public function settingsSummary() {
-    $summary = parent::settingsSummary();
-    $summary[] = $this->t('Icon: @icon', ['@icon' => $this->getSetting('icon_name')]);
-    $summary[] = $this->t('Modifier classes: @modifier_classes', ['@modifier_classes' => $this->getSetting('modifier_classes')]);
-    return $summary;
+    return $this->modifierSettingsSummary() + $this->iconSettingsSummary();
   }
 
   /**
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    $element = [];
+    $element = parent::viewElements($items, $langcode);
     $entity = $items->getEntity();
     $settings = $this->getSettings();
 
@@ -130,7 +117,7 @@ class IconLinkFormatter extends LinkFormatter {
         // Unsanitized token replacement here because the entire link title
         // gets auto-escaped during link generation in
         // \Drupal\Core\Utility\LinkGenerator::generate().
-        $link_title = \Drupal::token()->replace($item->title, [$entity->getEntityTypeId() => $entity], ['clear' => TRUE]);
+        $link_title = $this->token->replace($item->title, [$entity->getEntityTypeId() => $entity], ['clear' => TRUE]);
       }
 
       // Trim the link text to the desired length.
@@ -160,23 +147,10 @@ class IconLinkFormatter extends LinkFormatter {
       if (!empty($settings['modifier_classes'])) {
         $element[$delta]['#options'] += ['attributes' => []];
         $element[$delta]['#options']['attributes'] += ['class' => []];
-        $element[$delta]['#options']['attributes']['class'] += $this->cleanModifierClasses($settings['modifier_classes']);
+        $element[$delta]['#options']['attributes']['class'] = array_merge($element[$delta]['#options']['attributes']['class'], $this->cleanModifierClasses($settings['modifier_classes']));
       }
     }
     return $element;
-  }
-
-  /**
-   * Ensure all modifier classes are valid CSS identifiers.
-   * @param string $modifier_classes
-   * @return array
-   */
-  protected function cleanModifierClasses(string $modifier_classes): array {
-    $clean_modifier_classes = explode(' ', $modifier_classes);
-    foreach ($clean_modifier_classes as $key => $class) {
-      $clean_modifier_classes[$key] = strtolower(Html::cleanCssIdentifier($class));
-    }
-    return $clean_modifier_classes;
   }
 
 }

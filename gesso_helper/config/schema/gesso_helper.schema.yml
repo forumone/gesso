@@ -8,6 +8,9 @@ field.formatter.settings.gesso_helper_gesso_button:
     button_styles:
       type: string
       label: Button Styles
+    modifier_classes:
+      type: string
+      label: Modifier Classes
 
 field.formatter.settings.gesso_helper_icon_link:
   type: mapping
