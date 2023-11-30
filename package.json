@@ -65,6 +65,7 @@
     "nani": "^3.2.3",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.0.2",
+    "postcss-selector-parser": "^6.0.13",
     "prettier": "^2.8.3",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
