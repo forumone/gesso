@@ -1,0 +1,5 @@
+{% include "@components/accordion/accordion-item.twig" with {
+  title_element: 'h3',
+  title: content.field_accordion_heading|field_value,
+  content: content.field_accordion_body|field_value,
+}%}
