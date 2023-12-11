@@ -14,7 +14,8 @@ use Drupal\Core\Url as CoreUrl;
  * - #title: The link text.
  * - #url: \Drupal\Core\Url object containing URL information pointing to an
  *   internal or external link. See \Drupal\Core\Utility\LinkGeneratorInterface.
- * - #icon_name: The name of the icon to display as it appears in the sprite file.
+ * - #icon_name: The name of the icon to display as it appears in the sprite
+ *   file.
  * - #icon_is_hidden: Whether to hide the icon from screen readers.
  * - #icon_label: The label to use for the icon.
  * - #icon_position: The position of the icon relative to the link text.
@@ -48,6 +49,18 @@ class GessoIconLink extends RenderElement {
     ];
   }
 
+  /**
+   * Pre-render a link element.
+   *
+   * This method is used to pre-render a link element by generating the markup
+   * for the link.
+   *
+   * @param array $element
+   *   The link element.
+   *
+   * @return array
+   *   The pre-rendered link element.
+   */
   public static function preRenderLink($element) {
     $link_content = [];
     $icon_content = [
@@ -81,7 +94,7 @@ class GessoIconLink extends RenderElement {
     if (!empty($element['#url']) && $element['#url'] instanceof CoreUrl) {
       $options = !empty($element['#options']) ? NestedArray::mergeDeep($element['#url']->getOptions(), $element['#options']) : $element['#url']->getOptions();
       /** @var \Drupal\Core\Utility\LinkGenerator $link_generator */
-      $link_generator = \Drupal::service('link_generator');
+      $link_generator = Drupal::service('link_generator');
       $generated_link = $link_generator->generate($link_content, $element['#url']->setOptions($options));
       $element['#markup'] = $generated_link;
       $generated_link->merge(BubbleableMetadata::createFromRenderArray($element))
@@ -89,4 +102,5 @@ class GessoIconLink extends RenderElement {
     }
     return $element;
   }
+
 }

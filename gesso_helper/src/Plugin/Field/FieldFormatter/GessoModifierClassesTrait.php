@@ -5,6 +5,12 @@ namespace Drupal\gesso_helper\Plugin\Field\FieldFormatter;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 
+/**
+ * Trait GessoModifierClassesTrait.
+ *
+ * This trait provides methods for handling modifier classes in
+ * a render element.
+ */
 trait GessoModifierClassesTrait {
 
   /**
@@ -41,9 +47,13 @@ trait GessoModifierClassesTrait {
   }
 
   /**
-   * Ensure all modifier classes are valid CSS identifiers.
+   * Cleans and sanitizes the provided modifier classes.
+   *
    * @param string $modifier_classes
+   *   The modifier classes to be cleaned and sanitized.
+   *
    * @return array
+   *   An array of cleaned and sanitized modifier classes.
    */
   public function cleanModifierClasses(string $modifier_classes): array {
     $clean_modifier_classes = explode(' ', $modifier_classes);
@@ -52,4 +62,5 @@ trait GessoModifierClassesTrait {
     }
     return $clean_modifier_classes;
   }
+
 }

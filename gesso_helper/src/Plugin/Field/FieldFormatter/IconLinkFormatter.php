@@ -34,30 +34,45 @@ class IconLinkFormatter extends LinkFormatter {
   }
 
   /**
-  * @var \Drupal\Core\Utility\Token
+   * The token service.
+   *
+   * @var \Drupal\Core\Utility\Token
    */
   protected Token $token;
 
   /**
-   * @param $plugin_id
-   * @param $plugin_definition
+   * Constructs a new instance of the class.
+   *
+   * @param string $plugin_id
+   *   The plugin ID.
+   * @param mixed $plugin_definition
+   *   The plugin definition.
    * @param \Drupal\Core\Field\FieldDefinitionInterface $field_definition
+   *   The field definition.
    * @param array $settings
-   * @param $label
-   * @param $view_mode
+   *   An array of settings.
+   * @param mixed $label
+   *   The label.
+   * @param mixed $view_mode
+   *   The view mode.
    * @param array $third_party_settings
+   *   An array of third party settings.
    * @param \Drupal\Core\Path\PathValidatorInterface $path_validator
-   * @param \Drupal\Core\Utility\Token $token
+   *   The path validator.
+   * @param mixed $token
+   *   The token.
+   *
+   * @return void
    */
-  public function __construct($plugin_id,$plugin_definition,FieldDefinitionInterface $field_definition,array $settings,$label,$view_mode,array $third_party_settings,PathValidatorInterface $path_validator, $token) {
-    parent::__construct($plugin_id,$plugin_definition,$field_definition,$settings,$label,$view_mode,$third_party_settings,$path_validator);
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, PathValidatorInterface $path_validator, $token) {
+    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings, $path_validator);
     $this->token = $token;
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container,array $configuration,$plugin_id,$plugin_definition){
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
       $plugin_id,
       $plugin_definition,
@@ -85,7 +100,7 @@ class IconLinkFormatter extends LinkFormatter {
   }
 
   /**
-  * {@inheritDoc}
+   * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     return $this->modifierSettingsForm($form, $form_state) +

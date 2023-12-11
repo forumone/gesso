@@ -14,7 +14,8 @@ use Drupal\Core\Url as CoreUrl;
  * - #title: The link text.
  * - #url: \Drupal\Core\Url object containing URL information pointing to an
  *   internal or external link. See \Drupal\Core\Utility\LinkGeneratorInterface.
- * - #icon_name: The name of the icon to display as it appears in the sprite file.
+ * - #icon_name: The name of the icon to display as it appears in the
+ *   sprite file.
  * - #icon_is_hidden: Whether to hide the icon from screen readers.
  * - #icon_label: The label to use for the icon.
  * - #icon_position: The position of the icon relative to the link text.
@@ -48,6 +49,15 @@ class GessoButton extends RenderElement {
     ];
   }
 
+  /**
+   * Pre-renders a link element.
+   *
+   * @param array $element
+   *   The link element array.
+   *
+   * @return array
+   *   The pre-rendered link element array.
+   */
   public static function preRenderLink($element) {
     $link_content = [];
     if (!empty($element['#icon_name'])) {
@@ -91,4 +101,5 @@ class GessoButton extends RenderElement {
     }
     return $element;
   }
+
 }
