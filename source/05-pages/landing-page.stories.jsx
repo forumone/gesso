@@ -55,9 +55,9 @@ const landingPageContent = args =>
     content: ReactDOMServer.renderToStaticMarkup(mainContent),
   });
 
-const LandingPage = args => (
-  <PageWrapper>{parse(landingPageContent(args))}</PageWrapper>
-);
-LandingPage.args = { ...globalData };
+const LandingPage = {
+  render: args => <PageWrapper>{parse(landingPageContent(args))}</PageWrapper>,
+  args: { ...globalData },
+};
 
 export { LandingPage };

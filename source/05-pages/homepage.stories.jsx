@@ -58,9 +58,9 @@ const homepageContent = args =>
     homepage_grid_title: 'You Don’t Vote For Kings',
   });
 
-const Homepage = args => (
-  <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>
-);
-Homepage.args = { ...globalData };
+const Homepage = {
+  render: args => <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>,
+  args: { ...globalData },
+};
 
 export { Homepage };
