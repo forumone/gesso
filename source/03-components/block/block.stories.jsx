@@ -10,13 +10,7 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const Block = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Block.args = { ...data };
+const Block = { render: args => parse(twigTemplate(args)), args: { ...data } };
 
 export default settings;
 export { Block };

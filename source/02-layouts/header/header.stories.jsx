@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -10,17 +10,14 @@ const settings = {
   title: 'Layouts/Header',
 };
 
-const Header = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Header.args = {
-  header_content: ReactDOMServer.renderToStaticMarkup(
-    <ContentPlaceholder>Header Layout Content</ContentPlaceholder>
-  ),
-  ...data
+const Header = {
+  render: args => parse(twigTemplate(args)),
+  args: {
+    header_content: ReactDOMServer.renderToStaticMarkup(
+      <ContentPlaceholder>Header Layout Content</ContentPlaceholder>
+    ),
+    ...data,
+  },
 };
 
 export default settings;

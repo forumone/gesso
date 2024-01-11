@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -29,14 +29,16 @@ const settings = {
   },
 };
 
-const Page = args => parse(twigTemplate(args));
-Page.args = {
-  ...globalData,
-  title: 'Page Title',
-  show_footer: true,
-  content: ReactDOMServer.renderToStaticMarkup(
-    <ContentPlaceholder>Page Content</ContentPlaceholder>
-  )
+const Page = {
+  render: args => parse(twigTemplate(args)),
+  args: {
+    ...globalData,
+    title: 'Page Title',
+    show_footer: true,
+    content: ReactDOMServer.renderToStaticMarkup(
+      <ContentPlaceholder>Page Content</ContentPlaceholder>
+    ),
+  },
 };
 
 export default settings;

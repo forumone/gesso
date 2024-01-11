@@ -11,14 +11,11 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const Dropbutton = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Dropbutton.args = {
-  ...data,
+const Dropbutton = {
+  render: args => parse(twigTemplate(args)),
+  args: {
+    ...data,
+  },
 };
 
 export default settings;

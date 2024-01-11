@@ -31,8 +31,10 @@ const settings = {
   },
 };
 
-const Article = args => parse(twigTemplate(args));
-Article.args = { ...globalData, ...data };
+const Article = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData, ...data },
+};
 
 export default settings;
 export { Article };

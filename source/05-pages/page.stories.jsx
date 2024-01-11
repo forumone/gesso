@@ -21,7 +21,9 @@ const pageContent = args =>
     title: 'Page Title',
   });
 
-const Page = args => <PageWrapper>{parse(pageContent(args))}</PageWrapper>;
-Page.args = { ...globalData };
+const Page = {
+  render: args => <PageWrapper>{parse(pageContent(args))}</PageWrapper>,
+  args: { ...globalData },
+};
 
 export { Page };

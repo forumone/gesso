@@ -10,13 +10,10 @@ const settings = {
   title: 'Components/Menu/Overlay Menu',
 };
 
-const OverlayMenu = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-OverlayMenu.args = { ...data };
+const OverlayMenu = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { OverlayMenu };
