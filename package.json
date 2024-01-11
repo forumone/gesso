@@ -1,6 +1,6 @@
 {
   "name": "gesso",
-  "version": "5.2.5",
+  "version": "5.2.6",
   "description": "Drupal starter theme",
   "main": "js/scripts.min.js",
   "scripts": {
@@ -15,7 +15,6 @@
     "eslint": "eslint source/**/!\\(*.stories\\).js",
     "stylelint": "stylelint \"source/**/*.scss\"",
     "build-storybook": "npm run build && storybook build -o storybook",
-    "deploy-storybook": "storybook-to-ghpages --source-branch=5.x",
     "dev": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\" \"npm:storybook\"",
     "component": "node lib/component.js"
   },
@@ -41,7 +40,6 @@
     "@storybook/preview-api": "^7.5.1",
     "@storybook/react": "^7.5.1",
     "@storybook/react-webpack5": "^7.5.1",
-    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/theming": "^7.5.1",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
@@ -67,6 +65,7 @@
     "nani": "^3.2.3",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.0.2",
+    "postcss-selector-parser": "^6.0.13",
     "prettier": "^2.8.3",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",

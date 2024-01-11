@@ -6,7 +6,8 @@ name: Publish demo site
 on:
   # Triggers the workflow on push or pull request events but only for the 4.x branch
   push:
-    branches: [ 5.x ]
+    branches:
+      - 5.x
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,11 +22,28 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      # Installs npm dependencies
       - name: Install npm packages
         run: npm ci
-      # Runs a single command using the runners shell
-      - name: Deploy Storybook to Github Pages
-        run: npm run deploy-storybook -- --ci
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+      # Builds Storybook
+      - name: Build Storybook artifact
+        run: npm run build-storybook
+      # Uploads the Storybook artifact
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          name: 'github-pages'
+          path: './storybook'
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
