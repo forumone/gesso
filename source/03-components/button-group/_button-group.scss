@@ -26,8 +26,8 @@
     z-index: 1;
   }
 
-  &:focus-within,
-  &:hover {
+  &:hover,
+  &:focus-within {
     z-index: 2;
   }
 
