@@ -9,13 +9,10 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const Fieldset = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Fieldset.args = { ...data };
+const Fieldset = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { Fieldset };

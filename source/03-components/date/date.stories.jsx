@@ -25,13 +25,10 @@ const settings = {
   },
 };
 
-const Date = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Date.args = { ...globalData, ...data };
+const Date = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData, ...data },
+};
 
 export default settings;
 export { Date };

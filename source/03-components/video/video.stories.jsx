@@ -11,21 +11,15 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const RemoteVideo = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-RemoteVideo.args = { ...data };
+const RemoteVideo = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
-const LocalVideo = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-LocalVideo.args = { ...localData };
+const LocalVideo = {
+  ...RemoteVideo,
+  args: { ...localData },
+};
 
 export default settings;
 export { RemoteVideo, LocalVideo };

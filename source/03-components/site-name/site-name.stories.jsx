@@ -39,13 +39,10 @@ const settings = {
   },
 };
 
-const SiteName = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-SiteName.args = { ...globalData };
+const SiteName = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData },
+};
 
 export default settings;
 export { SiteName };

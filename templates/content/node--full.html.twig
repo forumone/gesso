@@ -85,6 +85,7 @@
 {% endif %}
 
 {% include '@templates/page/page.twig' with {
+  'is_published': node.isPublished(),
   'title': label,
   'show_admin_info': show_admin_info,
   'admin_info': admin_info,

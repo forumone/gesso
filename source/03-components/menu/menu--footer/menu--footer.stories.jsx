@@ -9,13 +9,10 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const FooterMenu = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-FooterMenu.args = { ...data };
+const FooterMenu = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { FooterMenu };

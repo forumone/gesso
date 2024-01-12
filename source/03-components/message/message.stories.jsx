@@ -10,31 +10,26 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const Default = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Default.args = { ...data };
+const Default = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
-const ErrorMessage = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      type: 'error',
-    })
-  );
-ErrorMessage.args = { ...data };
+const ErrorMessage = {
+  ...Default,
+  args: {
+    ...data,
+    type: 'error',
+  },
+};
 
-const WarningMessage = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      type: 'warning',
-    })
-  );
-WarningMessage.args = { ...data };
+const WarningMessage = {
+  ...Default,
+  args: {
+    ...data,
+    type: 'warning',
+  },
+};
 
 export default settings;
 export { Default, ErrorMessage, WarningMessage };

@@ -15,8 +15,10 @@ const settings = {
   },
 };
 
-const WYSIWYG = args => parse(twigTemplate(args));
-WYSIWYG.args = { ...globalData };
+const WYSIWYG = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData },
+};
 
 export default settings;
 export { WYSIWYG };

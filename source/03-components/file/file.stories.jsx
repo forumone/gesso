@@ -32,13 +32,10 @@ const settings = {
   },
 };
 
-const File = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-File.args = { ...globalData, ...data };
+const File = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData, ...data },
+};
 
 export default settings;
 export { File };

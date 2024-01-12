@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../../.storybook/decorators'
+import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from './blockquote.twig';
 import data from './blockquote.yml';
 
@@ -12,12 +12,7 @@ const settings = {
   },
 };
 
-const Blockquote = () =>
-  parse(
-    twigTemplate({
-      ...data,
-    })
-  );
+const Blockquote = { render: () => parse(twigTemplate(data)) };
 
 export default settings;
 export { Blockquote };

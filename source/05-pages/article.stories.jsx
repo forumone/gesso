@@ -4,14 +4,14 @@ import parse from 'html-react-parser';
 
 import globalData from '../00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
-import twigTemplate from '../04-templates/page/page.twig';
+import { Page as Template } from '../04-templates/page/page.stories.jsx';
 import { FigureRightAligned } from '../03-components/figure/figure.stories.jsx';
 
 export default {
   title: 'Pages/Article',
   parameters: {
     controls: {
-      include: ['show_admin_info'],
+      include: ['is_published', 'show_admin_info'],
     },
   },
 };
@@ -20,7 +20,7 @@ export default {
 // see Page page.
 const articleDemoContent = `
   ${ReactDOMServer.renderToStaticMarkup(
-    <>{FigureRightAligned(FigureRightAligned.args)}</>
+    FigureRightAligned.render(FigureRightAligned.args)
   )}
   <p>You’re the Dread Pirate Roberts, admit it. How many do you think you could
   handle? You mean you wish to surrender to me? Very well, I accept. But how can
@@ -52,27 +52,29 @@ const articleDemoContent = `
 // For an example of customizing the content block on a demo page,
 // see Page.
 const articleContent = args =>
-  twigTemplate({
-    ...args,
-    title: 'As You Wish',
-    show_footer: true,
-    date_format: 'medium-date',
-    year: {
-      long: '1987',
-    },
-    month: {
-      long: 'October',
-    },
-    day: {
-      short: '9',
-    },
-    author_name: 'William Goldman',
-    content: articleDemoContent,
-  });
+  ReactDOMServer.renderToStaticMarkup(
+    Template.render({
+      ...args,
+      title: 'As You Wish',
+      show_footer: true,
+      date_format: 'medium-date',
+      year: {
+        long: '1987',
+      },
+      month: {
+        long: 'October',
+      },
+      day: {
+        short: '9',
+      },
+      author_name: 'William Goldman',
+      content: articleDemoContent,
+    })
+  );
 
-const Article = args => (
-  <PageWrapper>{parse(articleContent(args))}</PageWrapper>
-);
-Article.args = { ...globalData };
+const Article = {
+  render: args => <PageWrapper>{parse(articleContent(args))}</PageWrapper>,
+  args: { ...globalData },
+};
 
 export { Article };

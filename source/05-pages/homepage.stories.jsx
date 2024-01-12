@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import globalData from '../00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
-import twigTemplate from '../04-templates/homepage/homepage.twig';
+import { Homepage as Template } from '../04-templates/homepage/homepage.stories.jsx';
 import { Default as HeroBgImage } from '../03-components/hero-bg-image/hero-bg-image.stories.jsx';
 import { Default as Card } from '../03-components/card/card.stories.jsx';
 
@@ -12,7 +12,7 @@ export default {
   title: 'Pages/Homepage',
   parameters: {
     controls: {
-      include: ['show_admin_info'],
+      include: ['is_published', 'show_admin_info'],
     },
   },
 };
@@ -21,12 +21,12 @@ export default {
 // cards. See the Landing Page story for an example of a loop using the same
 // card args.
 const homepageGridContent = [
-  Card({
+  Card.render({
     ...Card.args,
     title: 'It’s Only a Model',
     media: '<img src="https://picsum.photos/800/600?image=1069" alt="">',
   }),
-  Card({
+  Card.render({
     ...Card.args,
     title: 'Let Us Ride to Camelot',
     media: '<img src="https://picsum.photos/800/600?image=1025" alt="">',
@@ -34,12 +34,12 @@ const homepageGridContent = [
       '<p>Well, we did do the nose. I don’t want to talk to you no more, you ' +
       'empty-headed animal food trough water!</p>',
   }),
-  Card({
+  Card.render({
     ...Card.args,
     title: 'What a Strange Person',
     media: '<img src="https://picsum.photos/800/600?image=1040" alt="">',
   }),
-  Card({
+  Card.render({
     ...Card.args,
     title: 'The Knights Who Say Ni',
     media: '<img src="https://picsum.photos/800/600?image=870" alt="">',
@@ -47,20 +47,23 @@ const homepageGridContent = [
 ];
 
 const homepageContent = args =>
-  twigTemplate({
-    ...args,
-    homepage_hero: ReactDOMServer.renderToStaticMarkup(
-      <>{HeroBgImage(HeroBgImage.args)}</>
-    ),
-    homepage_grid_content: ReactDOMServer.renderToStaticMarkup(
-      <>{homepageGridContent.map(card => card)}</>
-    ),
-    homepage_grid_title: 'You Don’t Vote For Kings',
-  });
+  ReactDOMServer.renderToStaticMarkup(
+    Template.render({
+      ...args,
+      homepage_hero: ReactDOMServer.renderToStaticMarkup(
+        HeroBgImage.render(HeroBgImage.args)
+      ),
+      homepage_grid_content: ReactDOMServer.renderToStaticMarkup(
+        homepageGridContent.map(card => card)
+      ),
+      homepage_grid_title: 'You Don’t Vote For Kings',
+    })
+  );
 
-const Homepage = args => (
-  <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>
-);
-Homepage.args = { ...globalData };
+
+const Homepage = {
+  render: args => <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>,
+  args: { ...globalData },
+};
 
 export { Homepage };

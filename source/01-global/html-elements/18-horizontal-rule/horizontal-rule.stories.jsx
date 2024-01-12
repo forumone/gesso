@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../../.storybook/decorators'
+import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from './horizontal-rule.twig';
 
 const settings = {
@@ -11,7 +11,7 @@ const settings = {
   },
 };
 
-const HorizontalRule = () => parse(twigTemplate());
+const HorizontalRule = { render: () => parse(twigTemplate()) };
 
 export default settings;
 export { HorizontalRule };
