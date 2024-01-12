@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import globalData from '../00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
-import twigTemplate from '../04-templates/landing-page/landing-page.twig';
+import { LandingPage as Template } from '../04-templates/landing-page/landing-page.stories.jsx';
 import { Default as Card } from '../03-components/card/card.stories.jsx';
 import { View } from '../03-components/view/views-view/views-view.stories.jsx';
 import { Unformatted } from '../03-components/view/views-view-unformatted/views-view-unformatted.stories';
@@ -14,7 +14,7 @@ export default {
   title: 'Pages/Landing Page',
   parameters: {
     controls: {
-      include: ['show_admin_info'],
+      include: ['is_published', 'show_admin_info'],
     },
   },
 };
@@ -49,11 +49,13 @@ const mainContent = View({
 });
 
 const landingPageContent = args =>
-  twigTemplate({
-    ...args,
-    page_title: 'Great Scott!',
-    content: ReactDOMServer.renderToStaticMarkup(mainContent),
-  });
+  ReactDOMServer.renderToStaticMarkup(
+    Template.render({
+      ...args,
+      page_title: 'Great Scott!',
+      content: ReactDOMServer.renderToStaticMarkup(mainContent),
+    })
+  );
 
 const LandingPage = {
   render: args => <PageWrapper>{parse(landingPageContent(args))}</PageWrapper>,

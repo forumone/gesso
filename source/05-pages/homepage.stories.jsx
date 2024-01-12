@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import globalData from '../00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
-import twigTemplate from '../04-templates/homepage/homepage.twig';
+import { Homepage as Template } from '../04-templates/homepage/homepage.stories.jsx';
 import { Default as HeroBgImage } from '../03-components/hero-bg-image/hero-bg-image.stories.jsx';
 import { Default as Card } from '../03-components/card/card.stories.jsx';
 
@@ -12,7 +12,7 @@ export default {
   title: 'Pages/Homepage',
   parameters: {
     controls: {
-      include: ['show_admin_info'],
+      include: ['is_published', 'show_admin_info'],
     },
   },
 };
@@ -47,16 +47,19 @@ const homepageGridContent = [
 ];
 
 const homepageContent = args =>
-  twigTemplate({
-    ...args,
-    homepage_hero: ReactDOMServer.renderToStaticMarkup(
-      HeroBgImage.render(HeroBgImage.args)
-    ),
-    homepage_grid_content: ReactDOMServer.renderToStaticMarkup(
-      homepageGridContent.map(card => card)
-    ),
-    homepage_grid_title: 'You Don’t Vote For Kings',
-  });
+  ReactDOMServer.renderToStaticMarkup(
+    Template.render({
+      ...args,
+      homepage_hero: ReactDOMServer.renderToStaticMarkup(
+        HeroBgImage.render(HeroBgImage.args)
+      ),
+      homepage_grid_content: ReactDOMServer.renderToStaticMarkup(
+        homepageGridContent.map(card => card)
+      ),
+      homepage_grid_title: 'You Don’t Vote For Kings',
+    })
+  );
+
 
 const Homepage = {
   render: args => <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>,

@@ -15,6 +15,7 @@ const settings = {
   parameters: {
     controls: {
       include: [
+        'is_published',
         'title',
         'show_admin_info',
         'show_footer',
