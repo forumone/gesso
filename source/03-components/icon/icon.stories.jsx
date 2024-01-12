@@ -8,12 +8,13 @@ import data from './icon.yml';
 const settings = {
   title: 'Components/Icon',
   decorators: [
-    (Story, { args }) => globalData.icons.map(icon => (
-      <p key={icon}>
-        <Story args={{ ...args, icon_name: icon }} />
-        &nbsp;&nbsp;{ icon }
-      </p>
-    )),
+    (Story, { args }) =>
+      globalData.icons.map(icon => (
+        <p key={icon}>
+          <Story args={{ ...args, icon_name: icon }} />
+          &nbsp;&nbsp;{icon}
+        </p>
+      )),
     withGlobalWrapper,
   ],
   argTypes: {
@@ -29,13 +30,10 @@ const settings = {
   },
 };
 
-const Icon = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Icon.args = { ...globalData, ...data };
+const Icon = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData, ...data },
+};
 
 export default settings;
 export { Icon };

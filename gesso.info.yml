@@ -8,6 +8,12 @@ libraries:
   - gesso/global
 libraries-override:
   core/drupal.dropbutton: gesso/dropbutton
+  system/base:
+    css:
+      component:
+        css/components/align.module.css: false
+        css/components/clearfix.module.css: false
+        css/components/hidden.module.css: false
 ckeditor_stylesheets:
   - dist/css/ckeditor4-styles.css
 ckeditor5-stylesheets:

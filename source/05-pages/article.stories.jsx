@@ -20,7 +20,7 @@ export default {
 // see Page page.
 const articleDemoContent = `
   ${ReactDOMServer.renderToStaticMarkup(
-    <>{FigureRightAligned(FigureRightAligned.args)}</>
+    FigureRightAligned.render(FigureRightAligned.args)
   )}
   <p>You’re the Dread Pirate Roberts, admit it. How many do you think you could
   handle? You mean you wish to surrender to me? Very well, I accept. But how can
@@ -70,9 +70,9 @@ const articleContent = args =>
     content: articleDemoContent,
   });
 
-const Article = args => (
-  <PageWrapper>{parse(articleContent(args))}</PageWrapper>
-);
-Article.args = { ...globalData };
+const Article = {
+  render: args => <PageWrapper>{parse(articleContent(args))}</PageWrapper>,
+  args: { ...globalData },
+};
 
 export { Article };

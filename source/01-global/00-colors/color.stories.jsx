@@ -17,13 +17,10 @@ const settings = {
   },
 };
 
-const ColorPalette = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-ColorPalette.args = { ...data };
+const ColorPalette = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { ColorPalette };

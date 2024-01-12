@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -22,13 +22,15 @@ const settings = {
   },
 };
 
-const LandingPage = args => parse(twigTemplate(args));
-LandingPage.args = {
-  ...globalData,
-  page_title: 'Landing Page Title',
-  content: ReactDOMServer.renderToStaticMarkup(
-    <ContentPlaceholder>Landing Page Content</ContentPlaceholder>
-  ),
+const LandingPage = {
+  render: args => parse(twigTemplate(args)),
+  args: {
+    ...globalData,
+    page_title: 'Landing Page Title',
+    content: ReactDOMServer.renderToStaticMarkup(
+      <ContentPlaceholder>Landing Page Content</ContentPlaceholder>
+    ),
+  },
 };
 
 export default settings;

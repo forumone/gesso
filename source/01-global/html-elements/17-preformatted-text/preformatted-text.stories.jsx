@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../../.storybook/decorators'
+import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from './preformatted-text.twig';
 
 const settings = {
@@ -11,7 +11,7 @@ const settings = {
   },
 };
 
-const PreformattedText = () => parse(twigTemplate());
+const PreformattedText = { render: () => parse(twigTemplate()) };
 
 export default settings;
 export { PreformattedText };

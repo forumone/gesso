@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -10,17 +10,14 @@ const settings = {
   title: 'Layouts/Content',
 };
 
-const Content = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Content.args = {
-  content_content: ReactDOMServer.renderToStaticMarkup(
-    <ContentPlaceholder>Content Layout Content</ContentPlaceholder>
-  ),
-  ...data
+const Content = {
+  render: args => parse(twigTemplate(args)),
+  args: {
+    content_content: ReactDOMServer.renderToStaticMarkup(
+      <ContentPlaceholder>Content Layout Content</ContentPlaceholder>
+    ),
+    ...data,
+  },
 };
 
 export default settings;
