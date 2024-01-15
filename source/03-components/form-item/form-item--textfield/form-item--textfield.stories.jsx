@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../../.storybook/decorators'
+import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from '../form-item.twig';
 import inputTemplate from '../_input.twig';
 import labelTemplate from '../_form-item-label.twig';
@@ -36,197 +36,94 @@ const settings = {
   },
 };
 
-const colorLabel = args => labelTemplate({ ...args });
-const colorChildren = args => inputTemplate({ ...args });
-const Color = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: colorLabel(args),
-      children: colorChildren(args),
-    })
-  );
-Color.args = { ...colorData };
+const label = args => labelTemplate(args);
+const children = args => inputTemplate(args);
+const Text = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+        label: label(args),
+        children: children(args),
+      })
+    ),
+  args: { ...textData },
+};
 
-const dateLabel = args => labelTemplate({ ...args });
-const dateChildren = args => inputTemplate({ ...args });
-const Date = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: dateLabel(args),
-      children: dateChildren(args),
-    })
-  );
-Date.args = { ...dateData };
+const Color = {
+  ...Text,
+  args: { ...colorData },
+};
 
-const emailLabel = args => labelTemplate({ ...args });
-const emailChildren = args => inputTemplate({ ...args });
-const Email = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: emailLabel(args),
-      children: emailChildren(args),
-    })
-  );
-Email.args = { ...emailData };
+const Date = {
+  ...Text,
+  args: { ...dateData },
+};
 
-const fileLabel = args => labelTemplate({ ...args });
-const fileChildren = args => inputTemplate({ ...args });
-const File = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: fileLabel(args),
-      children: fileChildren(args),
-    })
-  );
-File.args = { ...fileData };
+const Email = {
+  ...Text,
+  args: { ...emailData },
+};
 
-const monthLabel = args => labelTemplate({ ...args });
-const monthChildren = args => inputTemplate({ ...args });
-const Month = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: monthLabel(args),
-      children: monthChildren(args),
-    })
-  );
-Month.args = { ...monthData };
+const File = {
+  ...Text,
+  args: { ...fileData },
+};
 
-const numberLabel = args => labelTemplate({ ...args });
-const numberChildren = args => inputTemplate({ ...args });
-const NumberDecimal = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: numberLabel(args),
-      children: numberChildren(args),
-    })
-  );
-NumberDecimal.args = { ...numberDecimalData };
+const Month = {
+  ...Text,
+  args: { ...monthData },
+};
 
-const numberFloatLabel = args => labelTemplate({ ...args });
-const numberFloatChildren = args => inputTemplate({ ...args });
-const NumberFloat = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: numberFloatLabel(args),
-      children: numberFloatChildren(args),
-    })
-  );
-NumberFloat.args = { ...numberFloatData };
+const NumberDecimal = {
+  ...Text,
+  args: { ...numberDecimalData },
+};
 
-const numberIntLabel = args => labelTemplate({ ...args });
-const numberIntChildren = args => inputTemplate({ ...args });
-const NumberInteger = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: numberIntLabel(args),
-      children: numberIntChildren(args),
-    })
-  );
-NumberInteger.args = { ...numberIntegerData };
+const NumberFloat = {
+  ...Text,
+  args: { ...numberFloatData },
+};
 
-const passwordLabel = args => labelTemplate({ ...args });
-const passwordChildren = args => inputTemplate({ ...args });
-const Password = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: passwordLabel(args),
-      children: passwordChildren(args),
-    })
-  );
-Password.args = { ...passwordData };
+const NumberInteger = {
+  ...Text,
+  args: { ...numberIntegerData },
+};
 
-const rangeLabel = args => labelTemplate({ ...args });
-const rangeChildren = args => inputTemplate({ ...args });
-const Range = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: rangeLabel(args),
-      children: rangeChildren(args),
-    })
-  );
-Range.args = { ...rangeData };
+const Password = {
+  ...Text,
+  args: { ...passwordData },
+};
 
-const searchLabel = args => labelTemplate({ ...args });
-const searchChildren = args => inputTemplate({ ...args });
-const Search = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: searchLabel(args),
-      children: searchChildren(args),
-    })
-  );
-Search.args = { ...searchData };
+const Range = {
+  ...Text,
+  args: { ...rangeData },
+};
 
-const telephoneLabel = args => labelTemplate({ ...args });
-const telephoneChildren = args => inputTemplate({ ...args });
-const Telephone = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: telephoneLabel(args),
-      children: telephoneChildren(args),
-    })
-  );
-Telephone.args = { ...telData };
+const Search = {
+  ...Text,
+  args: { ...searchData },
+};
 
-const textLabel = args => labelTemplate({ ...args });
-const textChildren = args => inputTemplate({ ...args });
-const Text = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: textLabel(args),
-      children: textChildren(args),
-    })
-  );
-Text.args = { ...textData };
+const Telephone = {
+  ...Text,
+  args: { ...telData },
+};
 
-const timeLabel = args => labelTemplate({ ...args });
-const timeChildren = args => inputTemplate({ ...args });
-const Time = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: timeLabel(args),
-      children: timeChildren(args),
-    })
-  );
-Time.args = { ...timeData };
+const Time = {
+  ...Text,
+  args: { ...timeData },
+};
 
-const urlLabel = args => labelTemplate({ ...args });
-const urlChildren = args => inputTemplate({ ...args });
-const URL = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: urlLabel(args),
-      children: urlChildren(args),
-    })
-  );
-URL.args = { ...urlData };
+const URL = {
+  ...Text,
+  args: { ...urlData },
+};
 
-const weekLabel = args => labelTemplate({ ...args });
-const weekChildren = args => inputTemplate({ ...args });
-const Week = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: weekLabel(args),
-      children: weekChildren(args),
-    })
-  );
-Week.args = { ...weekData };
+const Week = {
+  ...Text,
+  args: { ...weekData },
+};
 
 export default settings;
 export {

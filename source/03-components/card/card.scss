@@ -22,7 +22,7 @@ $card-padding: rem(gesso-spacing(3)) !default;
 }
 
 .c-card__title {
-  font-size: rem(gesso-font-size(5));
+  font-size: rem(gesso-font-size(7));
   margin: 0;
 
   a {
@@ -86,7 +86,7 @@ $card-padding: rem(gesso-spacing(3)) !default;
     flex-direction: row;
 
     .c-card__title {
-      font-size: rem(gesso-font-size(6));
+      font-size: rem(gesso-font-size(8));
     }
 
     .c-card__body {

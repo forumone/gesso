@@ -28,6 +28,7 @@
 {% endif %}
 
 {% include '@templates/page/page.twig' with {
+  'is_published': user.status.value,
   'title': display_name,
   'show_admin_info': show_admin_info,
   'admin_info': admin_info,

@@ -18,19 +18,21 @@ const settings = {
   },
 };
 
-const Accordion = args => {
-  const accordionItems = (args.accordion_data || data.accordion_data)
-    .map(item => accordionItemTemplate(item, args))
-    .join('');
+const Accordion = {
+  render: args => {
+    const accordionItems = (args.accordion_data || data.accordion_data)
+      .map(item => accordionItemTemplate(item, args))
+      .join('');
 
-  return parse(
-    accordionTemplate({
-      accordion_items: accordionItems,
-      ...args,
-    })
-  );
+    return parse(
+      accordionTemplate({
+        accordion_items: accordionItems,
+        ...args,
+      })
+    );
+  },
+  args: { ...globalData, ...data },
 };
-Accordion.args = { ...globalData, ...data };
 
 export default settings;
 export { Accordion };

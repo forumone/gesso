@@ -9,8 +9,11 @@ import './back-to-top.es6';
 const settings = {
   title: 'Components/Back To Top',
   decorators: [
-    (Story, {args}) =>
-      <Story args={{ ...args, modifier_classes: 'c-back-to-top--always-visible' }} />
+    (Story, { args }) => (
+      <Story
+        args={{ ...args, modifier_classes: 'c-back-to-top--always-visible' }}
+      />
+    ),
   ],
   parameters: {
     controls: {
@@ -19,13 +22,10 @@ const settings = {
   },
 };
 
-const BackToTop = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-BackToTop.args = { ...globalData, ...data };
+const BackToTop = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData, ...data },
+};
 
 export default settings;
 export { BackToTop };
