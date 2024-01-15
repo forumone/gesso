@@ -16,7 +16,7 @@ import { TRANSITIONS } from '../00-config/_GESSO.es6';
  * @param {string} easing - The easing of the animation, defaults to gesso token ease-in-out.
  * @param {boolean} hideContent - Whether to hide collapsed content from screen readers, defaults to true.
  */
- export const slideCollapse = (
+export const slideCollapse = (
   target,
   duration = TRANSITIONS.duration.standard,
   easing = TRANSITIONS.ease['ease-in-out'],
@@ -151,10 +151,15 @@ export const slideToggle = (
   hideContent = true
 ) => {
   if (!target.dataset.isSliding) {
-    target.addEventListener('finishslider', () => {
-      delete target.dataset.isSliding;
-      target.removeEventListener('finishslider');
-    });
+    target.addEventListener(
+      'finishslider',
+      () => {
+        delete target.dataset.isSliding;
+      },
+      {
+        once: true,
+      }
+    );
 
     if (
       (hideContent && window.getComputedStyle(target).display === 'none') ||
