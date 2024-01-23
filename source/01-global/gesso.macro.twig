@@ -17,3 +17,24 @@
     'size': size
   } %}
 {% endmacro %}
+
+{% macro filesize(bytes) %}
+  {% apply spaceless %}
+    {% set kilobyte = 1024 %}
+    {% set megabyte = kilobyte * 1024 %}
+    {% set gigabyte = megabyte * 1024 %}
+    {% set terabyte = gigabyte * 1024 %}
+
+    {% if bytes < kilobyte %}
+      {{ bytes ~ ' B' }}
+    {% elseif bytes < megabyte %}
+      {{ (bytes / kilobyte)|number_format(1, '.') ~ ' KB' }}
+    {% elseif bytes < gigabyte %}
+      {{ (bytes / megabyte)|number_format(1, '.') ~ ' MB' }}
+    {% elseif bytes < terabyte %}
+      {{ (bytes / gigabyte)|number_format(1, '.') ~ ' GB' }}
+    {% else %}
+      {{ (bytes / terabyte)|number_format(1, '.') ~ ' TB' }}
+    {% endif %}
+  {% endapply %}
+{% endmacro %}
