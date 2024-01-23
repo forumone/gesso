@@ -67,7 +67,7 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
   }
 
   @include breakpoint-max($hero-inline-image-bp, true) {
-    font-size: rem(gesso-font-size(8));
+    font-size: rem(gesso-font-size(12));
   }
 }
 

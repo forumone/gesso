@@ -2,7 +2,7 @@ import Drupal from 'drupal';
 import once from 'once';
 import KEYCODE from '../../00-config/_KEYCODE.es6';
 import { TRANSITIONS } from '../../00-config/_GESSO.es6';
-import { slideExpand, slideCollapse } from '../../06-utility/_slide.es6';
+import { slideToggle } from '../../06-utility/_slide.es6';
 
 Drupal.behaviors.accordion = {
   attach(context) {
@@ -13,28 +13,25 @@ Drupal.behaviors.accordion = {
 
     const accordions = once('accordion', `.${ACCORDION_CLASS}`, context);
 
-    const openAccordion = (accordion, button) => {
-      if (button.getAttribute('aria-expanded') === 'false') {
+    const openAccordion = (accordionSection, button) => {
+      if (
+        !accordionSection.dataset.isSliding &&
+        button.getAttribute('aria-expanded') === 'false'
+      ) {
         button.setAttribute('aria-expanded', 'true');
-        const accordionSection = document.getElementById(
-          button.getAttribute('aria-controls')
-        );
         accordionSection.setAttribute('aria-expanded', 'true');
-        slideExpand(accordionSection, ACCORDION_SPEED);
+        slideToggle(accordionSection, ACCORDION_SPEED);
       }
     };
 
-    const closeAccordion = (accordion, button) => {
-      if (button.getAttribute('aria-expanded') === 'true') {
+    const closeAccordion = (accordionSection, button) => {
+      if (
+        !accordionSection.dataset.isSliding &&
+        button.getAttribute('aria-expanded') === 'true'
+      ) {
         button.setAttribute('aria-expanded', 'false');
-        const accordionSection = document.getElementById(
-          button.getAttribute('aria-controls')
-        );
         accordionSection.setAttribute('aria-expanded', 'false');
-        slideCollapse(
-          document.getElementById(button.getAttribute('aria-controls')),
-          ACCORDION_SPEED
-        );
+        slideToggle(accordionSection, ACCORDION_SPEED);
       }
     };
 
@@ -59,9 +56,7 @@ Drupal.behaviors.accordion = {
         // because the <span> inside <button> screws things up
         if (
           event.target.classList.contains(ACCORDION_TOGGLE_CLASS) ||
-          event.target.parentElement.classList.contains(
-            ACCORDION_TOGGLE_CLASS
-          )
+          event.target.parentElement.classList.contains(ACCORDION_TOGGLE_CLASS)
         ) {
           let target;
           // Set target based on click or keydown
@@ -112,19 +107,31 @@ Drupal.behaviors.accordion = {
         if (currentTarget.classList.contains(ACCORDION_TOGGLE_CLASS)) {
           // Up/ Down arrow and Control + Page Up/ Page Down keyboard operations
           // 38 = Up, 40 = Down
-          if (event.keyCode === KEYCODE.UP || event.keyCode === KEYCODE.DOWN || event.keyCode === KEYCODE.PAGEDOWN || event.keyCode === KEYCODE.UP) {
+          if (
+            event.keyCode === KEYCODE.UP ||
+            event.keyCode === KEYCODE.DOWN ||
+            event.keyCode === KEYCODE.PAGEDOWN ||
+            event.keyCode === KEYCODE.UP
+          ) {
             const index = triggers.indexOf(currentTarget);
             let direction;
-            if (event.keyCode === KEYCODE.DOWN || event.keyCode === KEYCODE.PAGEDOWN) {
+            if (
+              event.keyCode === KEYCODE.DOWN ||
+              event.keyCode === KEYCODE.PAGEDOWN
+            ) {
               direction = 1;
             } else {
               direction = -1;
             }
             const triggerLength = triggers.length;
-            const newIndex = (index + triggerLength + direction) % triggerLength;
+            const newIndex =
+              (index + triggerLength + direction) % triggerLength;
             triggers[newIndex].focus();
             event.preventDefault();
-          } else if (event.keyCode === KEYCODE.HOME || event.keyCode === KEYCODE.END) {
+          } else if (
+            event.keyCode === KEYCODE.HOME ||
+            event.keyCode === KEYCODE.END
+          ) {
             // 35 = End, 36 = Home keyboard operations
             switch (event.keyCode) {
               // Go to first accordion

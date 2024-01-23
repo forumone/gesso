@@ -3,6 +3,7 @@ declare module 'drupal' {
     gesso: {
       backToTopThreshold?: number;
       backToTopSmoothScroll?: boolean;
+      imagePath?: string;
     };
   }
 

@@ -9,13 +9,7 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const Author = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Author.args = { ...data };
+const Author = { render: args => parse(twigTemplate(args)), args: { ...data } };
 
 export default settings;
 export { Author };

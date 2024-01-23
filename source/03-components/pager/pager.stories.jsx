@@ -25,21 +25,15 @@ const settings = {
   },
 };
 
-const Default = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Default.args = { ...globalData, ...data };
+const Default = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData, ...data },
+};
 
-const Mini = args =>
-  parse(
-    miniTwigTemplate({
-      ...args,
-    })
-  );
-Mini.args = { ...globalData, ...miniData };
+const Mini = {
+  render: args => parse(miniTwigTemplate(args)),
+  args: { ...globalData, ...miniData },
+};
 
 export default settings;
 export { Default, Mini };

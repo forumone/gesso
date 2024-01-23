@@ -33,6 +33,10 @@ window.Drupal = { behaviors: {} };
   Drupal.theme = (themeFunction, options) => {
     return Drupal.theme[themeFunction](options);
   };
+
+  drupalSettings.gesso = {
+    imagePath: 'images',
+  };
 })(Drupal, window.drupalSettings);
 
 export default Drupal;

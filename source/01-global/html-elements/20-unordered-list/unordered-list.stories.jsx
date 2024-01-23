@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../../.storybook/decorators'
+import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from './unordered-list.twig';
 
 const settings = {
@@ -11,7 +11,7 @@ const settings = {
   },
 };
 
-const UnorderedList = () => parse(twigTemplate());
+const UnorderedList = { render: () => parse(twigTemplate()) };
 
 export default settings;
 export { UnorderedList };

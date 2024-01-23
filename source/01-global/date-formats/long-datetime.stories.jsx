@@ -14,13 +14,10 @@ const settings = {
   },
 };
 
-const LongDatetime = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-LongDatetime.args = { ...globalData };
+const LongDatetime = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData },
+};
 
 export default settings;
 export { LongDatetime };

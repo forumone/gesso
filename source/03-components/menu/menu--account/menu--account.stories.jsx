@@ -9,13 +9,10 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const AccountMenu = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-AccountMenu.args = { ...data };
+const AccountMenu = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { AccountMenu };

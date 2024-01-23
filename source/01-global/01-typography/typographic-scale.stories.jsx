@@ -17,13 +17,10 @@ const settings = {
   },
 };
 
-const TypographicScale = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-TypographicScale.args = { ...data };
+const TypographicScale = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { TypographicScale };

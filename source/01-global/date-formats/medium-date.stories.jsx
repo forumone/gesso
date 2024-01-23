@@ -14,13 +14,10 @@ const settings = {
   },
 };
 
-const MediumDate = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-MediumDate.args = { ...globalData };
+const MediumDate = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData },
+};
 
 export default settings;
 export { MediumDate };

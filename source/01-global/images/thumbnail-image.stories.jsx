@@ -12,13 +12,10 @@ const settings = {
   },
 };
 
-const ThumbnailImage = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-ThumbnailImage.args = { ...globalData };
+const ThumbnailImage = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData },
+};
 
 export default settings;
 export { ThumbnailImage };

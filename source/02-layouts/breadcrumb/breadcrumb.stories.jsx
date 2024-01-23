@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -10,18 +10,15 @@ const settings = {
   title: 'Layouts/Breadcrumb',
 };
 
-const Breadcrumb = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Breadcrumb.args = {
-  breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
+const Breadcrumb = {
+  render: args => parse(twigTemplate(args)),
+  args: {
+    breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Breadcrumb Layout Content</ContentPlaceholder>
     ),
-  ...data,
-}
+    ...data,
+  },
+};
 
 export default settings;
 export { Breadcrumb };

@@ -11,7 +11,7 @@ const settings = {
   decorators: [withGlobalWrapper],
   argTypes: {
     icon_name: {
-      options: [ false, ...globalData.icons ],
+      options: [false, ...globalData.icons],
       control: { type: 'select' },
     },
     icon_direction: {
@@ -30,13 +30,10 @@ const settings = {
   },
 };
 
-const IconLink = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-IconLink.args = { ...globalData, ...data };
+const IconLink = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData, ...data },
+};
 
 export default settings;
 export { IconLink };

@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../../.storybook/decorators'
+import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from './table-with-row-headers.twig';
 
 const settings = {
@@ -11,9 +11,10 @@ const settings = {
   },
 };
 
-const TableWithRowHeaders = () => parse(twigTemplate());
-
-TableWithRowHeaders.storyName = 'Table with Row Headers';
+const TableWithRowHeaders = {
+  render: () => parse(twigTemplate()),
+  storyName: 'Table with Row Headers',
+};
 
 export default settings;
 export { TableWithRowHeaders };

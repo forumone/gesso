@@ -17,13 +17,7 @@ const settings = {
   },
 };
 
-const Fonts = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Fonts.args = { ...data };
+const Fonts = { render: args => parse(twigTemplate(args)), args: { ...data } };
 
 export default settings;
 export { Fonts };

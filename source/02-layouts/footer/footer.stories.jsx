@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -10,17 +10,14 @@ const settings = {
   title: 'Layouts/Footer',
 };
 
-const Footer = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Footer.args = {
-  footer_content: ReactDOMServer.renderToStaticMarkup(
-    <ContentPlaceholder>Footer Layout Content</ContentPlaceholder>
-  ),
-  ...data
+const Footer = {
+  render: args => parse(twigTemplate(args)),
+  args: {
+    footer_content: ReactDOMServer.renderToStaticMarkup(
+      <ContentPlaceholder>Footer Layout Content</ContentPlaceholder>
+    ),
+    ...data,
+  },
 };
 
 export default settings;
