@@ -1,0 +1,6 @@
+{% include '@components/accordion/accordion.twig' with {
+  'modifier_classes': '',
+  'has_constrain': true,
+  'allow_multiple': true,
+  'accordion_items': content.field_accordion_items|field_value is not empty ? content.field_accordion_items|field_value : false,
+}%}

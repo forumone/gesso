@@ -25,7 +25,14 @@ const settings = {
   },
   parameters: {
     controls: {
-      include: ['icon_name', 'icon_direction', 'icon_position', 'link_text'],
+      include: [
+        'icon_name',
+        'icon_direction',
+        'icon_position',
+        'icon_label',
+        'icon_is_hidden',
+        'link_text',
+      ],
     },
   },
 };
