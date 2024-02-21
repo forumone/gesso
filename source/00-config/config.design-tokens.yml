@@ -266,33 +266,33 @@ gesso:
       semibold: 600
       bold: 700
     line-height:
-      tight: 1.1
+      short: 1.1
       base: 1.45
-      loose: 1.7
+      tall: 1.7
     display:
       display:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
+        line-height: short
         responsive-font-size: 15
       h1:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
+        line-height: short
         responsive-font-size: 12
       h2:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
+        line-height: short
         responsive-font-size: 10
       h3:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
+        line-height: short
         responsive-font-size: 8
       h4:
         color: text.primary
@@ -311,7 +311,7 @@ gesso:
         font-family: primary.stack
         font-weight: semibold
         letter-spacing: -0.04em
-        line-height: loose
+        line-height: tall
         text-transform: uppercase
         responsive-font-size: 2
       blockquote:
@@ -339,7 +339,7 @@ gesso:
         font-style: normal
         font-weight: semibold
         letter-spacing: .02em
-        line-height: tight
+        line-height: short
   transitions:
     ease:
       ease-in-out: 'cubic-bezier(0.4, 0, 0.2, 1)'
