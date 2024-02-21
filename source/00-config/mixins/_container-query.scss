@@ -12,13 +12,10 @@
     $breakpoint: rem($breakpoint);
   }
   @if $container-name {
-    // stylelint-disable
     @container #{$container-name} (min-width: #{$breakpoint}) {
       @content;
     }
-    // stylelint-enable
-  }
-  @else {
+  } @else {
     @container (min-width: #{$breakpoint}) {
       @content;
     }
@@ -50,12 +47,10 @@
     $breakpoint: rem($breakpoint);
   }
   @if $container-name {
-    // stylelint-disable-next-line
     @container #{$container-name} (max-width: #{$breakpoint}) {
       @content;
     }
-  }
-  @else {
+  } @else {
     @container (max-width: #{$breakpoint}) {
       @content;
     }
@@ -81,12 +76,10 @@
     $breakpoint-max: rem($breakpoint-max);
   }
   @if $container-name {
-    // stylelint-disable-next-line
     @container #{$container-name} (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max}) {
       @content;
     }
-  }
-  @else {
+  } @else {
     @container (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max}) {
       @content;
     }
