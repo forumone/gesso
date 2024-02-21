@@ -13,9 +13,12 @@ function gesso_preprocess_views_view(array &$variables) {
   $view = $variables['view'];
 
   $variables['path'] = $view->getRequest()->getPathInfo();
-  $variables['view_title'] = [
-    '#markup' => $view->getTitle(),
-  ];
+
+  if (empty($variables['title'])) {
+    $variables['title'] = [
+      '#markup' => $view->getTitle(),
+    ];
+  }
 }
 
 /**
