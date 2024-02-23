@@ -45,14 +45,29 @@
 
 {% set attributes = attributes.addClass(classes) %}
 
+{% if show_separator is null %}
+  {% set show_separator = true %}
+{% endif %}
+
+{% if separator is null %}
+  {% set separator = ', ' %}
+{% endif %}
+
 {% include '@components/field/field.twig' with {
-  'element': 'div',
+  'attributes': attributes,
+  'modifier_classes': modifier_classes,
+  'display_field_tag': display_field_tag,
+  'field_tag': field_tag,
   'label_display': label_display,
-  'hide_label': label_hidden,
-  'label_element': 'div',
+  'label_hidden': label_hidden,
+  'display_label_tag': display_label_tag,
+  'label_tag': label_tag,
   'label': label,
-  'hide_content_wrapper': false,
-  'show_separator': true,
-  'separator': ', ',
+  'display_items_wrapper_tag': display_items_wrapper_tag,
+  'field_items_wrapper_tag': field_items_wrapper_tag,
+  'display_item_tag': display_item_tag,
+  'field_item_tag': field_item_tag,
+  'show_separator': show_separator,
+  'separator': separator,
   'field_items': items,
 } %}
