@@ -26,6 +26,7 @@
 ]|join(' ')|trim %}
 
 {% include '@components/figure/figure.twig' with {
+  'attributes': attributes,
   'modifier_classes': classes,
   'media': node,
   'caption': caption,

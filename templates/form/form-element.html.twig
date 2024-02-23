@@ -53,5 +53,6 @@
 ]|join(' ')|trim %}
 
 {% include '@components/form-item/form-item.twig' with {
-  modifier_classes: classes,
+  'attributes': attributes,
+  'modifier_classes': classes,
 } %}

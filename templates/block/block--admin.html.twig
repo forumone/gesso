@@ -21,6 +21,7 @@
 {% endset %}
 
 {% embed '@components/block/block.twig' with {
+  'attributes': attributes,
   'hide_wrapper': not logged_in,
   'has_constrain': false,
   'hide_content_wrapper': true,
