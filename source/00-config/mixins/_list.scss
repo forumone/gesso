@@ -10,8 +10,21 @@
   margin: 0;
   padding: 0;
 
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   li {
     padding-left: 0;
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        padding-right: 0;
+      }
+    }
 
     &::before {
       display: none;
@@ -24,8 +37,21 @@
   margin-left: 0;
   padding-left: 0;
 
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+
   li {
     padding-left: 0;
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        padding-right: 0;
+      }
+    }
   }
 
   > li {
@@ -38,6 +64,13 @@
   list-style-type: none;
   margin-left: 0;
   padding-left: 0;
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
 
   > li {
     border-right: 1px solid $pipeline-border-color; // LTR
