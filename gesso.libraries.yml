@@ -7,6 +7,7 @@ global:
   js:
     dist/js/universal.es6.js: {}
     dist/js/html.es6.js: {}
+    dist/js/external-link.es6.js: {}
   dependencies:
     - core/drupal
     - gesso/common
