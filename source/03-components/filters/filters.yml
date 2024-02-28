@@ -1,0 +1,9 @@
+modifier_classes: ''
+show_filters: true
+reset_url: '#0'
+filters_data:
+  - value: 'First Filter'
+  - value: 'Second Filter'
+  - value: 'Third Filter'
+  - value: 'Fourth Filter'
+  - value: 'Fifth Filter'

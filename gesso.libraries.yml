@@ -78,12 +78,27 @@ dropdown_menu:
     - gesso/common
     - gesso/mobile_menu
 
+facets:
+  css:
+    theme:
+      dist/css/facet.css: {}
+      dist/css/facet-list.css: {}
+  dependencies:
+    - gesso/common
+
 file:
   css:
     theme:
       dist/css/file.css: {}
   dependencies:
     - gesso/icon_link
+
+filters:
+  css:
+    theme:
+      dist/css/filters.css: {}
+  dependencies:
+    - gesso/common
 
 hamburger_button:
   css:

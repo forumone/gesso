@@ -6,6 +6,7 @@
  */
 
 require_once dirname(__FILE__) . '/includes/block.inc';
+require_once dirname(__FILE__) . '/includes/facets.inc';
 require_once dirname(__FILE__) . '/includes/field.inc';
 require_once dirname(__FILE__) . '/includes/file.inc';
 require_once dirname(__FILE__) . '/includes/form.inc';
