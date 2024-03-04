@@ -13,7 +13,7 @@ const settings = {
 const Primary = {
   render: args => {
     const buttonGroupItems = (args.button_group_data || data.button_group_data)
-      .map(item => buttonGroupItemTemplate(item, args))
+      .map(item => buttonGroupItemTemplate({ ...args, ...item }))
       .join('');
 
     return parse(
