@@ -66,7 +66,7 @@ const Primary = {
     const button_icon_before =
       icon_name && (icon_position === 'before' || icon_position === 'both')
         ? ReactDOMServer.renderToStaticMarkup(
-            Icon({
+            Icon.render({
               ...Icon.args,
               direction: icon_direction,
               icon_name,
@@ -79,13 +79,13 @@ const Primary = {
     const button_icon_after =
       icon_name && (icon_position === 'after' || icon_position === 'both')
         ? ReactDOMServer.renderToStaticMarkup(
-            Icon({
+            Icon.render({
               ...Icon.args,
               direction: icon_direction,
               icon_name,
               label: icon_label,
               is_hidden: icon_is_hidden,
-              modifier_classes: 'c-icon-link__icon is-spaced-before',
+              modifier_classes: 'c-button__icon is-spaced-before',
             })
           )
         : null;

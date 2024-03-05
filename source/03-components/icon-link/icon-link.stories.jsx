@@ -44,7 +44,7 @@ const IconLink = {
     const icon_before =
       icon_position === 'before' || icon_position === 'both'
         ? ReactDOMServer.renderToStaticMarkup(
-            Icon({
+            Icon.render({
               ...Icon.args,
               direction: icon_direction,
               icon_name,
@@ -55,7 +55,7 @@ const IconLink = {
     const icon_after =
       icon_position === 'after' || icon_position === 'both'
         ? ReactDOMServer.renderToStaticMarkup(
-            Icon({
+            Icon.render({
               ...Icon.args,
               direction: icon_direction,
               icon_name,
