@@ -14,13 +14,10 @@ const settings = {
   },
 };
 
-const SiteSlogan = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-SiteSlogan.args = { ...globalData };
+const SiteSlogan = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData },
+};
 
 export default settings;
 export { SiteSlogan };

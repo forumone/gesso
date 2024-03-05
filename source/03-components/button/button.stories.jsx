@@ -54,273 +54,91 @@ const settings = {
   },
 };
 
-const Primary = ({
-  icon_name,
-  icon_direction,
-  icon_position,
-  icon_label,
-  icon_is_hidden,
-  ...args
-}) => {
-  const button_icon_before =
-    icon_name && (icon_position === 'before' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-button__icon is-spaced-after',
-          })
-        )
-      : null;
-  const button_icon_after =
-    icon_name && (icon_position === 'after' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-icon-link__icon is-spaced-before',
-          })
-        )
-      : null;
-  return parse(
-    twigTemplate({
-      button_icon_before,
-      button_icon_after,
-      ...args,
-    })
-  );
-};
-Primary.args = { ...globalData, ...data };
-
-const Secondary = ({
-  icon_name,
-  icon_direction,
-  icon_position,
-  icon_label,
-  icon_is_hidden,
-  ...args
-}) => {
-  const button_icon_before =
-    icon_name && (icon_position === 'before' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-button__icon is-spaced-after',
-          })
-        )
-      : null;
-  const button_icon_after =
-    icon_name && (icon_position === 'after' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-icon-link__icon is-spaced-before',
-          })
-        )
-      : null;
-  return parse(
-    twigTemplate({
-      button_icon_before,
-      button_icon_after,
-      ...args,
-    })
-  );
-};
-Secondary.args = {
-  ...globalData,
-  ...data,
-  modifier_classes: 'c-button--secondary',
+const Primary = {
+  render: ({
+    icon_name,
+    icon_direction,
+    icon_position,
+    icon_label,
+    icon_is_hidden,
+    ...args
+  }) => {
+    const button_icon_before =
+      icon_name && (icon_position === 'before' || icon_position === 'both')
+        ? ReactDOMServer.renderToStaticMarkup(
+            Icon({
+              ...Icon.args,
+              direction: icon_direction,
+              icon_name,
+              label: icon_label,
+              is_hidden: icon_is_hidden,
+              modifier_classes: 'c-button__icon is-spaced-after',
+            })
+          )
+        : null;
+    const button_icon_after =
+      icon_name && (icon_position === 'after' || icon_position === 'both')
+        ? ReactDOMServer.renderToStaticMarkup(
+            Icon({
+              ...Icon.args,
+              direction: icon_direction,
+              icon_name,
+              label: icon_label,
+              is_hidden: icon_is_hidden,
+              modifier_classes: 'c-icon-link__icon is-spaced-before',
+            })
+          )
+        : null;
+    return parse(
+      twigTemplate({
+        button_icon_before,
+        button_icon_after,
+        ...args,
+      })
+    );
+  },
+  args: { ...globalData, ...data },
 };
 
-const Base = ({
-  icon_name,
-  icon_direction,
-  icon_position,
-  icon_label,
-  icon_is_hidden,
-  ...args
-}) => {
-  const button_icon_before =
-    icon_name && (icon_position === 'before' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-button__icon is-spaced-after',
-          })
-        )
-      : null;
-  const button_icon_after =
-    icon_name && (icon_position === 'after' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-icon-link__icon is-spaced-before',
-          })
-        )
-      : null;
-  return parse(
-    twigTemplate({
-      button_icon_before,
-      button_icon_after,
-      ...args,
-    })
-  );
+const Secondary = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    modifier_classes: 'c-button--secondary',
+  },
 };
-Base.args = { ...globalData, ...data, modifier_classes: 'c-button--base' };
 
-const Danger = ({
-  icon_name,
-  icon_direction,
-  icon_position,
-  icon_label,
-  icon_is_hidden,
-  ...args
-}) => {
-  const button_icon_before =
-    icon_name && (icon_position === 'before' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-button__icon is-spaced-after',
-          })
-        )
-      : null;
-  const button_icon_after =
-    icon_name && (icon_position === 'after' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-icon-link__icon is-spaced-before',
-          })
-        )
-      : null;
-  return parse(
-    twigTemplate({
-      button_icon_before,
-      button_icon_after,
-      ...args,
-    })
-  );
+const Base = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    modifier_classes: 'c-button--base',
+  },
 };
-Danger.args = { ...globalData, ...data, modifier_classes: 'c-button--danger' };
 
-const Small = ({
-  icon_name,
-  icon_direction,
-  icon_position,
-  icon_label,
-  icon_is_hidden,
-  ...args
-}) => {
-  const button_icon_before =
-    icon_name && (icon_position === 'before' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-button__icon is-spaced-after',
-          })
-        )
-      : null;
-  const button_icon_after =
-    icon_name && (icon_position === 'after' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-icon-link__icon is-spaced-before',
-          })
-        )
-      : null;
-  return parse(
-    twigTemplate({
-      button_icon_before,
-      button_icon_after,
-      ...args,
-    })
-  );
+const Danger = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    modifier_classes: 'c-button--danger',
+  },
 };
-Small.args = { ...globalData, ...data, modifier_classes: 'c-button--small' };
 
-const Large = ({
-  icon_name,
-  icon_direction,
-  icon_position,
-  icon_label,
-  icon_is_hidden,
-  ...args
-}) => {
-  const button_icon_before =
-    icon_name && (icon_position === 'before' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-button__icon is-spaced-after',
-          })
-        )
-      : null;
-  const button_icon_after =
-    icon_name && (icon_position === 'after' || icon_position === 'both')
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            label: icon_label,
-            is_hidden: icon_is_hidden,
-            modifier_classes: 'c-icon-link__icon is-spaced-before',
-          })
-        )
-      : null;
-  return parse(
-    twigTemplate({
-      button_icon_before,
-      button_icon_after,
-      ...args,
-    })
-  );
+const Small = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    modifier_classes: 'c-button--small',
+  },
 };
-Large.args = { ...globalData, ...data, modifier_classes: 'c-button--large' };
+
+const Large = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    modifier_classes: 'c-button--large',
+  },
+};
 
 export default settings;
 export { Primary, Secondary, Base, Danger, Large, Small };

@@ -14,21 +14,17 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const DropdownMenu = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-DropdownMenu.args = { ...data };
+const DropdownMenu = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
-const DropdownMenuWithButtons = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-DropdownMenuWithButtons.args = { ...buttonData };
+const DropdownMenuWithButtons = {
+  ...DropdownMenu,
+  args: {
+    ...buttonData,
+  },
+};
 
 export default settings;
 export { DropdownMenu, DropdownMenuWithButtons };

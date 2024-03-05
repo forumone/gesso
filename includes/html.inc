@@ -11,6 +11,7 @@
 function gesso_preprocess(array &$variables) {
   if (!empty($variables['directory'])) {
     $variables['image_path'] = '/' . $variables['directory'] . '/dist/images';
+    $variables['#attached']['drupalSettings']['gesso']['imagePath'] = '/' . $variables['directory'] . '/dist/images';
   }
 }
 

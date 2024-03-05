@@ -27,43 +27,52 @@ const settings = {
   },
   parameters: {
     controls: {
-      include: ['icon_name', 'icon_direction', 'icon_position', 'link_text'],
+      include: [
+        'icon_name',
+        'icon_direction',
+        'icon_position',
+        'icon_label',
+        'icon_is_hidden',
+        'link_text',
+      ],
     },
   },
 };
 
-const IconLink = ({ icon_name, icon_direction, icon_position, ...args }) => {
-  const icon_before =
-    icon_position === 'before' || icon_position === 'both'
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            modifier_classes: 'c-icon-link__icon is-spaced-after',
-          })
-        )
-      : null;
-  const icon_after =
-    icon_position === 'after' || icon_position === 'both'
-      ? ReactDOMServer.renderToStaticMarkup(
-          Icon({
-            ...Icon.args,
-            direction: icon_direction,
-            icon_name,
-            modifier_classes: 'c-icon-link__icon is-spaced-before',
-          })
-        )
-      : null;
-  return parse(
-    twigTemplate({
-      icon_before,
-      icon_after,
-      ...args,
-    })
-  );
+const IconLink = {
+  render: ({ icon_name, icon_direction, icon_position, ...args }) => {
+    const icon_before =
+      icon_position === 'before' || icon_position === 'both'
+        ? ReactDOMServer.renderToStaticMarkup(
+            Icon({
+              ...Icon.args,
+              direction: icon_direction,
+              icon_name,
+              modifier_classes: 'c-icon-link__icon is-spaced-after',
+            })
+          )
+        : null;
+    const icon_after =
+      icon_position === 'after' || icon_position === 'both'
+        ? ReactDOMServer.renderToStaticMarkup(
+            Icon({
+              ...Icon.args,
+              direction: icon_direction,
+              icon_name,
+              modifier_classes: 'c-icon-link__icon is-spaced-before',
+            })
+          )
+        : null;
+    return parse(
+      twigTemplate({
+        icon_before,
+        icon_after,
+        ...args,
+      })
+    );
+  },
+  args: { ...globalData, ...data },
 };
-IconLink.args = { ...globalData, ...data };
 
 export default settings;
 export { IconLink };

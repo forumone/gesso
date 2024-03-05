@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../../.storybook/decorators'
+import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from '../form-item.twig';
 import inputTemplate from '../_input.twig';
 import labelTemplate from '../_form-item-label.twig';
@@ -27,15 +27,17 @@ const children = args =>
     ...args,
     described_by: args.id ? `${args.id}-description` : null,
   });
-const Checkbox = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      label: label(args),
-      children: children(args),
-    })
-  );
-Checkbox.args = { ...data };
+const Checkbox = {
+  render: args =>
+    parse(
+      twigTemplate({
+        ...args,
+        label: label(args),
+        children: children(args),
+      })
+    ),
+  args: { ...data },
+};
 
 export default settings;
 export { Checkbox };

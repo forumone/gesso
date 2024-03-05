@@ -17,13 +17,10 @@ const settings = {
   },
 };
 
-const Easing = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Easing.args = { ...data };
+const Easing = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { Easing };

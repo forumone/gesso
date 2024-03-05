@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -8,6 +8,13 @@ import ContentPlaceholder from '../../01-global/content-placeholder/content-plac
 
 const settings = {
   title: 'Layouts/Grid',
+  argTypes: {
+    num_of_cols: {
+      control: 'number',
+      min: 1,
+      max: 6,
+    },
+  },
 };
 
 const placeholderContent = ReactDOMServer.renderToStaticMarkup(
@@ -21,63 +28,49 @@ const placeholderContent = ReactDOMServer.renderToStaticMarkup(
   </>
 );
 
-const Default = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-Default.args = {
-  grid_content: placeholderContent,
-  ...data
+const Default = {
+  render: args => parse(twigTemplate(args)),
+  args: {
+    grid_content: placeholderContent,
+    ...data,
+  },
 };
 
-const TwoColumn = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      num_of_cols: '2',
-    })
-  );
-TwoColumn.args = {
-  grid_content: placeholderContent,
-  ...data
+const TwoColumn = {
+  ...Default,
+  args: {
+    ...Default.args,
+    num_of_cols: 2,
+  },
+  parameters: {
+    controls: {
+      exclude: ['num_of_cols'],
+    },
+  },
 };
 
-const ThreeColumn = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      num_of_cols: '3',
-    })
-  );
-ThreeColumn.args = {
-  grid_content: placeholderContent,
-  ...data
+const ThreeColumn = {
+  ...TwoColumn,
+  args: {
+    ...TwoColumn.args,
+    num_of_cols: 3,
+  },
 };
 
-const FourColumn = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      num_of_cols: '4',
-    })
-  );
-FourColumn.args = {
-  grid_content: placeholderContent,
-  ...data
+const FourColumn = {
+  ...ThreeColumn,
+  args: {
+    ...ThreeColumn.args,
+    num_of_cols: 4,
+  },
 };
 
-const SixColumn = args =>
-  parse(
-    twigTemplate({
-      ...args,
-      num_of_cols: '6',
-    })
-  );
-SixColumn.args = {
-  grid_content: placeholderContent,
-  ...data
+const SixColumn = {
+  ...FourColumn,
+  args: {
+    ...FourColumn.args,
+    num_of_cols: 6,
+  },
 };
 
 export default settings;

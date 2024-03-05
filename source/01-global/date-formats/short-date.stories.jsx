@@ -14,13 +14,10 @@ const settings = {
   },
 };
 
-const ShortDate = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-ShortDate.args = { ...globalData };
+const ShortDate = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData },
+};
 
 export default settings;
 export { ShortDate };

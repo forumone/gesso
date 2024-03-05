@@ -14,13 +14,10 @@ const settings = {
   },
 };
 
-const SiteLogo = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-SiteLogo.args = { ...globalData };
+const SiteLogo = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData },
+};
 
 export default settings;
 export { SiteLogo };
