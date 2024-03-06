@@ -21,6 +21,7 @@ const pageContent = args =>
     Template.render({
       ...args,
       title: 'Page Title',
+      admin_info: Template.args.admin_info,
     })
   );
 

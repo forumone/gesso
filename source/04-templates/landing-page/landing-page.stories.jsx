@@ -6,9 +6,7 @@ import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './landing-page.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
-// Importing components to ensure their assets get loaded in Storybook when they
-// get referenced since Drupal loads them as a library.
-import { Default as Message } from '../../03-components/message/message.stories.jsx';
+import { Article } from '../../03-components/article/article.stories.jsx';
 
 const settings = {
   title: 'Templates/Landing Page',
@@ -30,6 +28,7 @@ const LandingPage = {
   args: {
     ...globalData,
     page_title: 'Landing Page Title',
+    admin_info: Article.args.admin_info,
     content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Landing Page Content</ContentPlaceholder>
     ),

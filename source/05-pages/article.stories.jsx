@@ -56,6 +56,7 @@ const articleContent = args =>
     Template.render({
       ...args,
       title: 'As You Wish',
+      admin_info: Template.args.admin_info,
       show_footer: true,
       date_format: 'medium-date',
       year: {

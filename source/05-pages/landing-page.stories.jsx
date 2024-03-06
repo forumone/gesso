@@ -53,6 +53,7 @@ const landingPageContent = args =>
     Template.render({
       ...args,
       page_title: 'Great Scott!',
+      admin_info: Template.args.admin_info,
       content: ReactDOMServer.renderToStaticMarkup(mainContent),
     })
   );

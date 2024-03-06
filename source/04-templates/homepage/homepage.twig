@@ -9,35 +9,6 @@
 {% endif %}
 
 {% if show_admin_info %}
-  {% if not admin_info %}
-    {% set admin_info %}
-      {% include '@components/message/message.twig' with {
-        'heading': 'Status message',
-        'messages': ['This is a status message about <em class="placeholder">something</em> that has been updated. <a href="#">This is a link</a>.'],
-      } %}
-      {% include '@components/button-group/button-group.twig' with {
-        'heading': 'Primary tabs',
-        'element': 'nav',
-        'button_modifier_classes': 'c-button--base',
-        'button_group_items': [
-          {
-            'text': 'View',
-            'is_active': true,
-          },
-          {
-            'text': 'Edit',
-          },
-          {
-            'text': 'Delete',
-          },
-          {
-            'text': 'Revisions',
-          },
-        ],
-      } %}
-    {% endset %}
-  {% endif %}
-
   {% block admin_info %}
     {{ admin_info }}
   {% endblock %}
