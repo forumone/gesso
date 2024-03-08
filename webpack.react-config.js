@@ -55,6 +55,14 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /fonts\/.*\.(woff2?|ttf|otf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
+        exclude: ['/node_modules/'],
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext][query]',
+        },
+      },
     ],
   },
 
