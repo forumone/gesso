@@ -8,7 +8,7 @@ const config = {
   ],
   framework: {
     name: '@storybook/react-webpack5',
-    options: { fastRefresh: true },
+    options: { fastRefresh: true, builder: { useSWC: true } },
   },
   typescript: {
     check: false,
