@@ -1,3 +1,10 @@
 steps:
   - label: "Mirror push script"
-    command: "bash .buildkite/build.sh"
+    command: | 
+     - "set -exuo pipefail"
+     - "ssh-keyscan git.drupal.org >> ~/.ssh/known_hosts"
+     - "git config remote.drupal.url 'git@git.drupal.org:project/gesso.git'"
+     - "git fetch drupal"
+     - "git checkout $BUILDKITE_BRANCH"
+     - "git pull --ff-only origin $BUILDKITE_BRANCH"
+     - "git push drupal $BUILDKITE_BRANCH"
