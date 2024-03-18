@@ -22,10 +22,16 @@ const SORT_ALL_COLUMNS = true;
 const getCellValue = (
   tr: HTMLTableRowElement,
   index: number
-): string | number | null =>
-  (tr.children[index] as HTMLTableCellElement).getAttribute(SORT_OVERRIDE) ||
-  (tr.children[index] as HTMLTableCellElement).innerText ||
-  (tr.children[index] as HTMLTableCellElement).textContent;
+): string | number | null =>{
+  const item = tr.children[index];
+  if (item instanceof HTMLTableCellElement) {
+    return (
+      item.getAttribute(SORT_OVERRIDE) || item.innerText || item.textContent
+    );
+  }
+  // Item not HTMLTableCellElement.
+  return null;
+}
 
 /**
  * Compares the values of two row array items at the given index, then sorts
@@ -119,8 +125,12 @@ const sortRows = (
     return false;
   }
 
-  const tbody = table.querySelector('tbody') as HTMLTableSectionElement;
-  const siblingHeaders = headerRow.children as HTMLCollection;
+  const tbody = table.querySelector('tbody');
+  const siblingHeaders = headerRow.children;
+
+  if (!tbody) {
+    return false;
+  }
 
   Array.from(tbody.querySelectorAll('tr'))
     .sort(
@@ -142,9 +152,13 @@ const updateLiveRegion = (
   const caption = table.querySelector('caption')?.innerText;
   const sortedAscending = sortedHeader.getAttribute(SORTED) === ASCENDING;
   const headerLabel = sortedHeader.innerText;
-  const liveRegion = table.nextElementSibling as HTMLElement;
+  const liveRegion = table.nextElementSibling;
 
-  if (liveRegion && liveRegion.matches(ANNOUNCEMENT_REGION)) {
+  if (!liveRegion || !(liveRegion instanceof HTMLElement)) {
+    return;
+  }
+
+  if (liveRegion.matches(ANNOUNCEMENT_REGION)) {
     let tableName = '';
     if (caption) {
       tableName = ` named “${caption}”`;
@@ -171,14 +185,15 @@ const toggleSort = (
   header: HTMLTableCellElement,
   isAscending: boolean
 ): void => {
-  const table = header.closest(TABLE) as HTMLTableElement;
+  const table = header.closest(TABLE);
+
   let safeAscending = isAscending;
 
   if (typeof safeAscending !== 'boolean') {
     safeAscending = header.getAttribute(SORTED) === ASCENDING;
   }
 
-  if (!table) {
+  if (!table || !(table instanceof HTMLTableElement)) {
     throw new Error(`${SORTABLE_HEADER} is missing outer ${TABLE}`);
   }
 
@@ -239,7 +254,8 @@ Drupal.behaviors.sortableTable = {
       }
 
       // Add aria-live region for sort announcements.
-      const liveRegion = table.nextElementSibling as HTMLElement;
+      const liveRegion = table.nextElementSibling;
+
       if (!liveRegion || !liveRegion.matches(ANNOUNCEMENT_REGION)) {
         table.insertAdjacentHTML(
           'afterend',
@@ -258,15 +274,15 @@ Drupal.behaviors.sortableTable = {
       sortButtons.forEach(button => {
         button.addEventListener('click', event => {
           const target = event.target as HTMLElement;
-          const targetHeader = target.closest(
-            SORTABLE_HEADER
-          ) as HTMLTableCellElement;
+          const targetHeader = target.closest(SORTABLE_HEADER);
           event.preventDefault();
 
-          toggleSort(
-            targetHeader,
-            targetHeader.getAttribute(SORTED) === ASCENDING
-          );
+          if (targetHeader instanceof HTMLTableCellElement) {
+            toggleSort(
+              targetHeader,
+              targetHeader.getAttribute(SORTED) === ASCENDING,
+            );
+          }
         });
       });
     });
