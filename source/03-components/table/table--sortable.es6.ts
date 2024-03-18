@@ -18,10 +18,6 @@ const SORT_ALL_COLUMNS = true;
  * Gets the data-sort-value attribute value, if provided — otherwise, gets
  * the innerText or textContent of the child element (HTMLTableCellElement)
  * at the specified index of the given table row.
- *
- * @param {number} index
- * @param {HTMLTableRowElement} tr
- * @return {string | number | null}
  */
 const getCellValue = (
   tr: HTMLTableRowElement,
@@ -34,9 +30,6 @@ const getCellValue = (
 /**
  * Compares the values of two row array items at the given index, then sorts
  * by the given direction.
- * @param {number} index
- * @param {boolean} isAscending
- * @return {number}
  */
 const compareFunction =
   (index: number, isAscending: boolean) =>
@@ -68,8 +61,6 @@ const compareFunction =
 /**
  * Get an Array of column headers elements belonging directly to the given
  * table element.
- * @param {HTMLTableElement} table
- * @return {HTMLTableCellElement[]}
  */
 const getColumnHeaders = (table: HTMLTableElement): HTMLTableCellElement[] => {
   const headers = Array.from(
@@ -81,7 +72,6 @@ const getColumnHeaders = (table: HTMLTableElement): HTMLTableCellElement[] => {
 /**
  * Update the button label within the given header element, resetting it
  * to the default state (ready to sort ascending) if it’s no longer sorted.
- * @param {HTMLTableCellElement} header
  */
 const updateSortLabel = (header: HTMLTableCellElement): void => {
   const headerName = header.innerText;
@@ -105,7 +95,6 @@ const updateSortLabel = (header: HTMLTableCellElement): void => {
 /**
  * Remove the aria-sort attribute on the given header element, and reset the
  * label and button icon.
- * @param {HTMLTableCellElement} header
  */
 const unsetSort = (header: HTMLTableCellElement): void => {
   header.removeAttribute(SORTED);
@@ -115,9 +104,6 @@ const unsetSort = (header: HTMLTableCellElement): void => {
 /**
  * Sort rows either ascending or descending, based on a given header’s
  * aria-sort attribute.
- * @param {HTMLTableCellElement} header
- * @param {boolean} isAscending
- * @return {boolean}
  */
 const sortRows = (
   header: HTMLTableCellElement,
@@ -148,8 +134,6 @@ const sortRows = (
 /**
  * Update the live region immediately following the table whenever the sort
  * changes.
- * @param {HTMLTableElement} table
- * @param {HTMLTableCellElement} sortedHeader
  */
 const updateLiveRegion = (
   table: HTMLTableElement,
@@ -182,9 +166,6 @@ const updateLiveRegion = (
  * Toggle a header’s sort state, optionally providing a target state. If no
  * state is provided, the current state will be toggled (from false to true,
  * and vice-versa).
- *
- * @param {HTMLTableCellElement} header
- * @param {boolean?} isAscending
  */
 const toggleSort = (
   header: HTMLTableCellElement,
@@ -215,8 +196,6 @@ const toggleSort = (
 
 /**
  ** Inserts a button with icon inside a sortable header.
- * @param {HTMLTableCellElement} header
- * @param {string} imagePath
  */
 
 const createHeaderButton = (
