@@ -273,7 +273,12 @@ Drupal.behaviors.sortableTable = {
         table.querySelectorAll(SORT_BUTTON);
       sortButtons.forEach(button => {
         button.addEventListener('click', event => {
-          const target = event.target as HTMLElement;
+          const target = event.currentTarget;
+
+          if (!(target instanceof HTMLButtonElement)) {
+            return;
+          }
+
           const targetHeader = target.closest(SORTABLE_HEADER);
           event.preventDefault();
 
