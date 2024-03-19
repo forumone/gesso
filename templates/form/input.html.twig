@@ -10,10 +10,10 @@
  * @see template_preprocess_input()
  */
 #}
-{% set classes = [
+{% set modifier_classes = [
   dropbutton ? 'c-dropbutton__button',
   is_required ? 'is-required',
-] %}
+]|join(' ')|trim %}
 
 {% set remove_classes = [
   'field-add-more-submit',
@@ -22,6 +22,7 @@
 ] %}
 
 {% include '@components/form-item/_input.twig' with {
-  'attributes': attributes.removeClass(remove_classes).addClass(classes),
+  'attributes': attributes.removeClass(remove_classes),
+  'modifier_classes': modifier_classes,
 } %}
 {{- children }}

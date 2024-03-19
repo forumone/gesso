@@ -12,15 +12,13 @@
  * @see template_preprocess_form_element_label()
  */
 #}
-{% set classes = [
+{% set modifier_classes = [
   required ? 'js-form-required',
-] %}
-
-{% set attributes = attributes.addClass(classes) %}
+]|join(' ')|trim %}
 
 {% if title is not empty or required -%}
   {% include '@components/form-item/_form-item-label.twig' with {
     'attributes': attributes,
-    'modifier_classes': attributes.class|join(' ')|trim,
+    'modifier_classes': modifier_classes,
   } %}
 {%- endif %}

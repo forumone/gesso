@@ -45,7 +45,7 @@
  */
 #}
 {% set class_type = type == 'textfield' ? 'text' : type %}
-{% set classes = [
+{% set modifier_classes = [
   'c-form-item--id-' ~ name|clean_class,
   'js-form-item',
   'js-form-type-' ~ type|clean_class,
@@ -54,5 +54,5 @@
 
 {% include '@components/form-item/form-item.twig' with {
   'attributes': attributes,
-  'modifier_classes': classes,
+  'modifier_classes': modifier_classes,
 } %}
