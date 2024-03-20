@@ -1,11 +1,12 @@
-const { resolve } = require('path');
-const path = require('path');
+import path, { resolve } from 'path';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+const isProdBuild = process.env.NODE_ENV === 'production';
 
 const config = {
   stories: ['../source/**/*.mdx', '../source/**/*.stories.@(js|jsx|ts|tsx)'],
   framework: {
     name: '@storybook/react-webpack5',
-    options: { fastRefresh: true, builder: { useSWC: true } },
+    options: {},
   },
   typescript: {
     check: false,
@@ -19,9 +20,47 @@ const config = {
       },
     },
     '@storybook/addon-a11y',
+    '@storybook/addon-webpack5-compiler-swc',
   ],
   staticDirs: ['../dist'],
   webpackFinal: async (config, { configType }) => {
+    // Storybook 8 removes fast-refresh as a framework option and instead
+    // requires manual set-up.
+    // Adapted from https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#frameworkoptionsfastrefresh-for-webpack5-based-projects-removed
+    // and https://github.com/pmmmwh/react-refresh-webpack-plugin?tab=readme-ov-file#usage.
+    const swcLoaderRule = config.module.rules.find(
+      rule =>
+        (rule.loader && rule.loader.toString().includes('swc-loader')) ||
+        (rule.use &&
+          rule.use.some(
+            subRule =>
+              subRule.loader && subRule.loader.toString().includes('swc-loader')
+          ))
+    );
+    if (swcLoaderRule) {
+      let swcLoaderConfig =
+        swcLoaderRule.loader ||
+        swcLoaderRule.use.find(
+          subRule =>
+            subRule.loader && subRule.loader.toString().includes('swc-loader')
+        );
+      if (swcLoaderConfig) {
+        swcLoaderConfig.options = {
+          ...swcLoaderConfig?.options,
+          jsc: {
+            ...swcLoaderConfig?.options?.jsc,
+            transform: {
+              ...swcLoaderConfig?.options?.jsc?.transform,
+              react: {
+                ...swcLoaderConfig?.options?.jsc?.transform?.react,
+                development: !isProdBuild,
+                refresh: !isProdBuild,
+              },
+            },
+          },
+        };
+      }
+    }
     config.module.rules.push({
       test: /\.twig$/,
       use: [
@@ -104,6 +143,16 @@ const config = {
         });
       });
     }
+
+    config.plugins = [
+      !isProdBuild &&
+        new ReactRefreshWebpackPlugin({
+          overlay: {
+            sockIntegration: 'whm',
+          },
+        }),
+      ...config.plugins,
+    ].filter(Boolean);
 
     return config;
   },
