@@ -19,29 +19,29 @@
  * phpcs:enable
  */
 function gesso_form_alter(&$form, &$form_state, $form_id): void {
-    // Replace button classes with c-button.
-    if (isset($form['actions']['delete']['#attributes']['class'])) {
-        $form['actions']['delete']['#attributes']['class'] = preg_replace('/^button/', 'c-button', $form['actions']['delete']['#attributes']['class']);
-    }
+  // Replace button classes with c-button.
+  if (isset($form['actions']['delete']['#attributes']['class'])) {
+    $form['actions']['delete']['#attributes']['class'] = preg_replace('/^button/', 'c-button', $form['actions']['delete']['#attributes']['class']);
+  }
 }
 
 /**
  * Implements hook_preprocess_HOOK().
  */
 function gesso_preprocess_input(array &$variables): void {
-    $variables['is_required'] = $variables['element']['#required'] ?? NULL;
-    $variables['type'] = $variables['element']['#attributes']['type'] ?? NULL;
-    $variables['dropbutton'] = $variables['element']['#dropbutton'] ?? NULL;
+  $variables['is_required'] = $variables['element']['#required'] ?? NULL;
+  $variables['type'] = $variables['element']['#attributes']['type'] ?? NULL;
+  $variables['dropbutton'] = $variables['element']['#dropbutton'] ?? NULL;
 
-    // Replace button classes with c-button.
-    if (isset($variables['attributes']['class'])) {
-        $variables['attributes']['class'] = preg_replace('/^button/', 'c-button', $variables['attributes']['class']);
-    }
+  // Replace button classes with c-button.
+  if (isset($variables['attributes']['class'])) {
+    $variables['attributes']['class'] = preg_replace('/^button/', 'c-button', $variables['attributes']['class']);
+  }
 
-    if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
-        $description_id = $variables['element']['#id'] . '-description';
-        $variables['described_by'] = $description_id;
-    }
+  if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
+    $description_id = $variables['element']['#id'] . '-description';
+    $variables['described_by'] = $description_id;
+  }
 }
 
 /**
@@ -56,18 +56,18 @@ function gesso_preprocess_input(array &$variables): void {
  * phpcs:enable
  */
 function gesso_preprocess_field_multiple_value_form(array &$variables): void {
-    // Make disabled variable available to the template.
-    $variables['disabled'] = !empty($variables['element']['#disabled']);
+  // Make disabled variable available to the template.
+  $variables['disabled'] = !empty($variables['element']['#disabled']);
 
-    if ($variables['multiple']) {
-        // Make add more button smaller.
-        /**
-         * @var array<array<string, array<string>>> $variables ['element']['#field_multiple_value_form'], An associative array containing the variables for the multiple-value form.
-         */
-        if (!empty($variables['element']['#field_multiple_value_form']['add_button'])) {
-            $variables['element']['#field_multiple_value_form']['add_button']['#attributes']['class'][] = 'c-button--small';
-        }
+  if ($variables['multiple']) {
+    // Make add more button smaller.
+    /**
+     * @var array<array<string, array<string>>> $variables ['element']['#field_multiple_value_form'], An associative array containing the variables for the multiple-value form.
+     */
+    if (!empty($variables['element']['#field_multiple_value_form']['add_button'])) {
+      $variables['element']['#field_multiple_value_form']['add_button']['#attributes']['class'][] = 'c-button--small';
     }
+  }
 }
 
 /**
@@ -79,8 +79,8 @@ function gesso_preprocess_field_multiple_value_form(array &$variables): void {
  * phpcs:enable
  */
 function gesso_preprocess_fieldset(array &$variables): void {
-    $variables['type'] = $variables['element']['#type'] ?? 'fieldset';
-    $variables['is_disabled'] = $variables['element']['#disabled'] ?? NULL;
+  $variables['type'] = $variables['element']['#type'] ?? 'fieldset';
+  $variables['is_disabled'] = $variables['element']['#disabled'] ?? NULL;
 }
 
 /**
@@ -92,13 +92,13 @@ function gesso_preprocess_fieldset(array &$variables): void {
  * phpcs:enable
  */
 function gesso_preprocess_form_element(array &$variables): void {
-    $variables['is_required'] = $variables['element']['#required'] ?? NULL;
-    if (
-        !empty($variables['description']['attributes'])
-        && !empty($variables['element']['#id'])
-    ) {
-        $variables['description']['attributes']['id'] = $variables['element']['#id'] . '-description';
-    }
+  $variables['is_required'] = $variables['element']['#required'] ?? NULL;
+  if (
+    !empty($variables['description']['attributes'])
+    && !empty($variables['element']['#id'])
+  ) {
+    $variables['description']['attributes']['id'] = $variables['element']['#id'] . '-description';
+  }
 }
 
 /**
@@ -110,10 +110,10 @@ function gesso_preprocess_form_element(array &$variables): void {
  * phpcs:enable
  */
 function gesso_preprocess_select(array &$variables): void {
-    if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
-        $description_id = $variables['element']['#id'] . '-description';
-        $variables['described_by'] = $description_id;
-    }
+  if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
+    $description_id = $variables['element']['#id'] . '-description';
+    $variables['described_by'] = $description_id;
+  }
 }
 
 /**
@@ -125,38 +125,38 @@ function gesso_preprocess_select(array &$variables): void {
  * phpcs:enable
  */
 function gesso_preprocess_textarea(array &$variables): void {
-    if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
-        $description_id = $variables['element']['#id'] . '-description';
-        $variables['described_by'] = $description_id;
-    }
+  if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
+    $description_id = $variables['element']['#id'] . '-description';
+    $variables['described_by'] = $description_id;
+  }
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function gesso_theme_suggestions_container_alter(array &$suggestions, array $variables) {
-    $array_parents = $variables['element']['#array_parents'] ?? NULL;
+  $array_parents = $variables['element']['#array_parents'] ?? NULL;
 
-    // Add parents as template suggestions.
-    if (isset($array_parents)) {
-        $ancestors = [];
+  // Add parents as template suggestions.
+  if (isset($array_parents)) {
+    $ancestors = [];
 
-        foreach ($array_parents as $value) {
-            if (is_string($value)) {
-                $ancestors[] = $value;
-                $suggestions[] = 'container__' . implode('__', $ancestors);
-            }
-        }
+    foreach ($array_parents as $value) {
+      if (is_string($value)) {
+          $ancestors[] = $value;
+          $suggestions[] = 'container__' . implode('__', $ancestors);
+      }
     }
+  }
 
-    // Add Views-related template suggestions.
-    if (isset($variables['element']['#type']) && $variables['element']['#type'] !== 'container') {
-        $suggestions[] = 'container__' . $variables['element']['#type'];
+  // Add Views-related template suggestions.
+  if (isset($variables['element']['#type']) && $variables['element']['#type'] !== 'container') {
+    $suggestions[] = 'container__' . $variables['element']['#type'];
 
-        if (isset($variables['element']['#name'])) {
-            $suggestions[] = 'container__' . $variables['element']['#type'] . '__' . $variables['element']['#name'];
-        }
+    if (isset($variables['element']['#name'])) {
+      $suggestions[] = 'container__' . $variables['element']['#type'] . '__' . $variables['element']['#name'];
     }
+  }
 }
 
 /**
@@ -170,9 +170,9 @@ function gesso_theme_suggestions_container_alter(array &$suggestions, array $var
  * phpcs:enable
  */
 function gesso_theme_suggestions_form_alter(array &$suggestions, array $variables): void {
-    if (isset($variables['element']['#form_id'])) {
-        $suggestions[] = 'form__' . $variables['element']['#form_id'];
-    }
+  if (isset($variables['element']['#form_id'])) {
+    $suggestions[] = 'form__' . $variables['element']['#form_id'];
+  }
 }
 
 /**
@@ -187,16 +187,16 @@ function gesso_theme_suggestions_form_alter(array &$suggestions, array $variable
  */
 function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $variables): void {
 
-    $id = $variables['element']['#id'] ?? NULL;
-    $type = $variables['element']['#type'] ?? NULL;
+  $id = $variables['element']['#id'] ?? NULL;
+  $type = $variables['element']['#type'] ?? NULL;
 
-    if (isset($type)) {
-        $suggestions[] = 'form_element__' . $type;
-    }
+  if (isset($type)) {
+    $suggestions[] = 'form_element__' . $type;
+  }
 
-    if (isset($id)) {
-        $suggestions[] = 'form_element__' . $id;
-    }
+  if (isset($id)) {
+    $suggestions[] = 'form_element__' . $id;
+  }
 }
 
 /**
@@ -208,22 +208,24 @@ function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $
  *  phpcs:enable
  */
 function gesso_preprocess_links__dropbutton(array &$vars): void {
-    foreach ($vars['links'] as $key => $link) {
-        /**
-         * @var array<string,array<string, array<string, array<string>>>> $link, link variable.
-         */
-        if (!empty($link['link'])) {
-            if (!empty($link['link']['#options'])) {
-                if (empty($link['link']['#options']['attributes'])) {
-                    $link['link']['#options']['attributes'] = [];
-                }
-                if (empty($link['link']['#options']['attributes']['class'])) {
-                    $link['link']['#options']['attributes']['class'] = [];
-                }
-                $link['link']['#options']['attributes']['class'][] = 'c-button';
-                $link['link']['#options']['attributes']['class'][] = 'c-dropbutton__button';
-                $vars['links'][$key] = $link;
-            }
+  foreach ($vars['links'] as $key => $link) {
+    /**
+     * @var array<string,array<string, array<string, array<string>>>> $link, link variable.
+     */
+    if (!empty($link['link'])) {
+      if (!empty($link['link']['#options'])) {
+        if (empty($link['link']['#options']['attributes'])) {
+          $link['link']['#options']['attributes'] = [];
         }
+
+        if (empty($link['link']['#options']['attributes']['class'])) {
+          $link['link']['#options']['attributes']['class'] = [];
+        }
+
+        $link['link']['#options']['attributes']['class'][] = 'c-button';
+        $link['link']['#options']['attributes']['class'][] = 'c-dropbutton__button';
+        $vars['links'][$key] = $link;
+      }
     }
+  }
 }
