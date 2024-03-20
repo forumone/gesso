@@ -4,7 +4,7 @@ extends:
 
 plugins:
   - stylelint-prettier
-  - './lib/stylelintLVHFA.js'
+  - './lib/stylelintLVHFA.cjs'
   - stylelint-order
 rules:
   block-no-empty: null

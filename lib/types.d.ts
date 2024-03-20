@@ -1,7 +1,7 @@
 import { Document, ParsedNode, Scalar } from 'yaml';
-import { SassValue } from './SassValue';
+import { SassValue } from './SassValue.cjs';
 
-type CodeMap = import('./CodeMap');
+type CodeMap = import('./CodeMap.cjs');
 
 export interface ParsedSource<
   Contents extends ParsedNode,

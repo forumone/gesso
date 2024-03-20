@@ -1,11 +1,15 @@
-const path = require('path');
-const { Glob } = require('glob');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const RemovePlugin = require('remove-files-webpack-plugin');
-const StylelintPlugin = require('stylelint-webpack-plugin');
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-const embeddedSass = require('sass-embedded');
+import path, { dirname } from 'node:path';
+import { Glob } from 'glob';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import RemovePlugin from 'remove-files-webpack-plugin';
+import StylelintPlugin from 'stylelint-webpack-plugin';
+import SpriteLoaderPlugin from 'svg-sprite-loader/plugin.js';
+import embeddedSass from 'sass-embedded';
+import { fileURLToPath } from 'node:url';
+
+const __dirname =
+  import.meta.dirname ?? dirname(fileURLToPath(import.meta.url));
 
 async function gatherProjectFiles() {
   const jsFiles = {};
@@ -60,7 +64,7 @@ async function gatherProjectFiles() {
   };
 }
 
-module.exports = {
+const commonConfig = {
   entry: () => gatherProjectFiles(),
   plugins: [
     new MiniCssExtractPlugin(),
@@ -95,11 +99,17 @@ module.exports = {
           // We will check types in fork plugin
           transpileOnly: true,
         },
+        resolve: {
+          fullySpecified: false,
+        },
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+        resolve: {
+          fullySpecified: false,
+        },
       },
       {
         test: /\.scss$/i,
@@ -173,8 +183,12 @@ module.exports = {
     once: 'once',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensionAlias: {
+      '.es6': ['.es6.ts', '.es6.js'],
+    },
     modules: [path.resolve(__dirname, 'source'), 'node_modules'],
+    enforceExtension: false,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -182,3 +196,5 @@ module.exports = {
   },
   stats: 'minimal',
 };
+
+export default commonConfig;

@@ -1,5 +1,5 @@
-module.exports = {
-  moduleJS() {
-    return 'PASS 2/2';
-  }
+function moduleJS() {
+  return 'PASS 2/2';
 }
+
+export default moduleJS;

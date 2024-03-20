@@ -2,6 +2,7 @@
   "name": "gesso",
   "version": "5.2.8",
   "description": "Drupal starter theme",
+  "type": "module",
   "main": "js/scripts.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -46,7 +47,7 @@
     "@typescript-eslint/parser": "^7.3.1",
     "autoprefixer": "^10.4.17",
     "babel-loader": "^8.3.0",
-    "chalk": "^4.1.2",
+    "chalk": "^5.3.0",
     "concurrently": "^8.2.2",
     "css-loader": "^6.9.1",
     "eslint": "^8.56.0",

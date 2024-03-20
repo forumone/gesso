@@ -1,9 +1,9 @@
-const { merge } = require('webpack-merge');
-const TerserJsPlugin = require('terser-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const common = require('./webpack.common');
+import { merge } from 'webpack-merge';
+import TerserJsPlugin from 'terser-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
+import common from './webpack.common.js';
 
-module.exports = merge(common, {
+const prodConfig = merge(common, {
   mode: 'production',
   optimization: {
     splitChunks: {
@@ -32,3 +32,5 @@ module.exports = merge(common, {
     }),
   ],
 });
+
+export default prodConfig;

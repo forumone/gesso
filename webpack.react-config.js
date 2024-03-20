@@ -1,7 +1,11 @@
-const path = require('path');
-const embeddedSass = require('sass-embedded');
+import path, { dirname } from 'node:path';
+import embeddedSass from 'sass-embedded';
+import { fileURLToPath } from 'node:url';
 
-module.exports = {
+const __dirname =
+  import.meta.dirname ?? dirname(fileURLToPath(import.meta.url));
+
+const reactConfig = {
   mode: 'production',
   entry: path.join(__dirname, 'source/07-react', 'index.tsx'),
   output: {
@@ -65,3 +69,5 @@ module.exports = {
 
   stats: 'minimal',
 };
+
+export default reactConfig;
