@@ -41,7 +41,8 @@ $pager-bp: 600px !default;
   color: $pager-link-color;
   min-width: rem(gesso-spacing(5));
   padding: em(gesso-spacing(1));
-  transition: color gesso-duration(short) gesso-easing(ease-out),
+  transition:
+    color gesso-duration(short) gesso-easing(ease-out),
     background-color gesso-duration(standard) gesso-easing(ease-out);
 
   &:focus {
