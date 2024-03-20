@@ -6,7 +6,6 @@ const config = {
   stories: ['../source/**/*.mdx', '../source/**/*.stories.@(js|jsx|ts|tsx)'],
   framework: {
     name: '@storybook/react-webpack5',
-    options: {},
   },
   typescript: {
     check: false,
