@@ -1,7 +1,11 @@
-const path = require('path');
-const chalk = require('chalk');
+import path, { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import chalk from 'chalk';
 
-module.exports = (_env, argv) => ({
+const __dirname =
+  import.meta.dirname ?? dirname(fileURLToPath(import.meta.url));
+
+const themeConfig = (_env, argv) => ({
   mode: 'production',
   entry: {
     'design-tokens': './source/00-config/config.design-tokens.yml',
@@ -38,7 +42,7 @@ module.exports = (_env, argv) => ({
       {
         test: /config\.design-tokens\.yml$/,
         exclude: /node_modules/,
-        use: [path.resolve(__dirname, './lib/configLoader.js')],
+        use: [path.resolve(__dirname, './lib/configLoader.cjs')],
         type: 'asset/source',
       },
     ],
@@ -48,3 +52,5 @@ module.exports = (_env, argv) => ({
   },
   stats: 'minimal',
 });
+
+export default themeConfig;

@@ -15,5 +15,7 @@
     "types": ["node"],
     "useUnknownInCatchVariables": false,
   },
-  "include": ["./configLoader.js"],
+  "include": [
+    "./configLoader.cjs"
+  ],
 }

@@ -50,7 +50,7 @@ const config = {
       exclude: /node_modules/,
       use: [
         'js-yaml-loader',
-        path.resolve(__dirname, '../lib/configLoader.js'),
+        path.resolve(__dirname, '../lib/configLoader.cjs'),
       ],
     });
 

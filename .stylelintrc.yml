@@ -1,6 +1,5 @@
 extends:
   - stylelint-config-sass-guidelines
-  - stylelint-config-prettier
 
 plugins:
   - stylelint-prettier
@@ -13,7 +12,6 @@ rules:
     - ignore:
       - 'inside-function'
   max-nesting-depth: 4
-  no-empty-first-line: true
   order/order:
     - - type: at-rule
         hasBlock: false
@@ -25,7 +23,6 @@ rules:
   plugin/selector-pseudo-class-lvhfa: true
   prettier/prettier: true
   property-no-vendor-prefix: null
-  selector-attribute-brackets-space-inside: never
   selector-class-pattern:
     # "piece" regex:
     # [a-zA-Z0-9]+
@@ -37,7 +34,7 @@ rules:
     - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'
   selector-no-qualifying-type:
   string-no-newline: true
-  scss/at-import-partial-extension-blacklist:
+  scss/at-import-partial-extension-disallowed-list:
     - 'less'
     - 'sass'
   scss/at-mixin-pattern:
