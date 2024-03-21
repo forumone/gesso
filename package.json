@@ -68,7 +68,7 @@
     "mkdirp": "^3.0.1",
     "nani": "^3.2.3",
     "postcss": "^8.4.33",
-    "postcss-loader": "^7.3.4",
+    "postcss-loader": "^8.1.1",
     "postcss-selector-parser": "^6.0.15",
     "prettier": "^3.2.5",
     "sass-loader": "^14.1.1",
