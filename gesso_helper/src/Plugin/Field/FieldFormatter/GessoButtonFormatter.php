@@ -34,11 +34,15 @@ class GessoButtonFormatter extends LinkFormatter {
   protected $renderer;
 
   /**
+   * The config factory.
+   *
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   protected $configFactory;
 
   /**
+   * The theme manager.
+   *
    * @var \Drupal\Core\Theme\ThemeManagerInterface
    */
   protected $themeManager;

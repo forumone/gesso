@@ -20,8 +20,8 @@ function gesso_preprocess_node(&$variables) {
 }
 
 /**
-* Custom function to add page regions to templates.
-*/
+ * Custom function to add page regions to templates.
+ */
 function _add_regions_to_template($allowed_regions, &$variables) {
   // Get active theme.
   $theme = \Drupal::theme()->getActiveTheme()->getName();
@@ -36,11 +36,11 @@ function _add_regions_to_template($allowed_regions, &$variables) {
     // Load blocks from this region and sort them.
     $blocks = \Drupal::entityTypeManager()
       ->getStorage('block')
-      ->loadByProperties(array('theme'  => $theme, 'region' => $region));
+      ->loadByProperties(['theme' => $theme, 'region' => $region]);
     uasort($blocks, 'Drupal\block\Entity\Block::sort');
 
     // Build blocks and assign to template variable.
-    $build = array();
+    $build = [];
     $builder = \Drupal::entityTypeManager()->getViewBuilder('block');
     foreach ($blocks as $key => $block) {
       if ($block->access('view')) {
