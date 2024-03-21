@@ -1,5 +1,5 @@
 import path, { dirname } from 'node:path';
-import embeddedSass from 'sass-embedded';
+import * as embeddedSass from 'sass-embedded';
 import { fileURLToPath } from 'node:url';
 
 const __dirname =

@@ -62,13 +62,14 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-webpack-plugin": "^4.1.0",
     "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "js-yaml-loader": "^1.2.2",
     "nani": "^3.2.3",
     "postcss": "^8.4.33",
     "postcss-loader": "^7.3.4",
     "postcss-selector-parser": "^6.0.15",
     "prettier": "^3.2.5",
-    "sass-loader": "^13.3.3",
+    "sass-loader": "^14.1.1",
     "style-loader": "^3.3.4",
     "stylelint": "^16.2.1",
     "stylelint-config-sass-guidelines": "^11.1.0",
@@ -84,7 +85,6 @@
   },
   "dependencies": {
     "@drupal/once": "^1.0.1",
-    "fork-ts-checker-webpack-plugin": "^7.3.0",
     "glob": "^10.3.10",
     "html-react-parser": "^4.2.10",
     "inquirer": "^8.2.5",
@@ -102,5 +102,8 @@
     "twig": "^1.17.1",
     "webpack-merge": "^5.10.0",
     "yaml": "^2.3.4"
+  },
+  "optionalDependencies": {
+    "sass-embedded-linux-x64": "^1.72.0"
   }
 }
