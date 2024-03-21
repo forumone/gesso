@@ -86,7 +86,7 @@
   "dependencies": {
     "@drupal/once": "^1.0.1",
     "glob": "^10.3.10",
-    "html-react-parser": "^4.2.10",
+    "html-react-parser": "^5.1.9",
     "inquirer": "^8.2.5",
     "mini-css-extract-plugin": "^2.7.7",
     "mkdirp": "^1.0.4",
