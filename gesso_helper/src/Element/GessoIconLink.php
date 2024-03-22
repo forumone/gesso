@@ -94,7 +94,7 @@ class GessoIconLink extends RenderElement {
     if (!empty($element['#url']) && $element['#url'] instanceof CoreUrl) {
       $options = !empty($element['#options']) ? NestedArray::mergeDeep($element['#url']->getOptions(), $element['#options']) : $element['#url']->getOptions();
       /** @var \Drupal\Core\Utility\LinkGenerator $link_generator */
-      $link_generator = Drupal::service('link_generator');
+      $link_generator = \Drupal::service('link_generator');
       $generated_link = $link_generator->generate($link_content, $element['#url']->setOptions($options));
       $element['#markup'] = $generated_link;
       $generated_link->merge(BubbleableMetadata::createFromRenderArray($element))
