@@ -1,6 +1,6 @@
 steps:
   - label: "Mirror push script"
-    command: | 
+    command:
      - "set -exuo pipefail"
      - "ssh-keyscan git.drupal.org >> ~/.ssh/known_hosts"
      - "git config remote.drupal.url 'git@git.drupal.org:project/gesso.git'"
