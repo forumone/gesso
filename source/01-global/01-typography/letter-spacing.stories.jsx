@@ -6,7 +6,7 @@ import data from '../../00-config/config.design-tokens.yml';
 import './letter-spacing.scss';
 
 const settings = {
-  title: 'Global/Typography/LetterSpacing',
+  title: 'Global/Typography/Letterspacing',
   decorators: [withGlobalWrapper],
   argTypes: {
     gesso: {
@@ -17,10 +17,10 @@ const settings = {
   },
 };
 
-const LetterSpacing = {
+const Letterspacing = {
   render: args => parse(twigTemplate(args)),
   args: { ...data },
 };
 
 export default settings;
-export { LetterSpacing };
+export { Letterspacing };
