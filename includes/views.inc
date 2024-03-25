@@ -9,7 +9,16 @@
  * Implements hook_preprocess_HOOK().
  */
 function gesso_preprocess_views_view(array &$variables) {
-  $variables['path'] = $variables['view']->getRequest()->getPathInfo();
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+
+  $variables['path'] = $view->getRequest()->getPathInfo();
+
+  if (empty($variables['title'])) {
+    $variables['title'] = [
+      '#markup' => $view->getTitle(),
+    ];
+  }
 }
 
 /**

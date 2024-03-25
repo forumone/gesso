@@ -1,0 +1,81 @@
+// Component: Table
+
+@use '00-config' as *;
+
+.c-table {
+  &.is-scrollable {
+    thead {
+      display: table;
+      table-layout: fixed;
+      width: calc(100% - var(--scrollbar-width));
+    }
+
+    tbody {
+      display: block;
+      max-height: rem(365px);
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      tr {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+      }
+    }
+  }
+
+  %sorted-header {
+    background-color: gesso-color(table, background-sorted);
+
+    .c-table__sort-icon {
+      display: none;
+    }
+
+    .c-table__sorted-icon {
+      display: inline-block;
+    }
+  }
+
+  &.is-sortable {
+    th[data-sortable] {
+      padding-right: rem(gesso-spacing(5));
+      position: relative;
+
+      &[aria-sort='ascending'] {
+        @extend %sorted-header;
+      }
+
+      &[aria-sort='descending'] {
+        @extend %sorted-header;
+
+        .c-table__sorted-icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+.c-table__header-button {
+  @include text-button();
+  bottom: rem(gesso-spacing(0.5));
+  color: inherit;
+  display: block;
+  outline-offset: 0;
+  position: absolute;
+  right: rem(gesso-spacing(0.5));
+  top: rem(gesso-spacing(0.5));
+  width: rem(gesso-spacing(4));
+
+  &:focus {
+    outline-color: gesso-grayscale(white);
+  }
+}
+
+.c-table__sorted-icon {
+  display: none;
+}
+
+.c-table__announcement-region {
+  @include visually-hidden();
+}

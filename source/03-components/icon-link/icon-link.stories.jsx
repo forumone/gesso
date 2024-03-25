@@ -5,6 +5,8 @@ import twigTemplate from './icon-link.twig';
 import data from './icon-link.yml';
 import globalData from '../../00-config/storybook.global-data.yml';
 import './icon-link.scss';
+import { Icon } from '../icon/icon.stories';
+import ReactDOMServer from 'react-dom/server';
 
 const settings = {
   title: 'Components/Icon Link',
@@ -38,7 +40,37 @@ const settings = {
 };
 
 const IconLink = {
-  render: args => parse(twigTemplate(args)),
+  render: ({ icon_name, icon_direction, icon_position, ...args }) => {
+    const icon_before =
+      icon_position === 'before' || icon_position === 'both'
+        ? ReactDOMServer.renderToStaticMarkup(
+            Icon.render({
+              ...Icon.args,
+              direction: icon_direction,
+              icon_name,
+              modifier_classes: 'c-icon-link__icon is-spaced-after',
+            })
+          )
+        : null;
+    const icon_after =
+      icon_position === 'after' || icon_position === 'both'
+        ? ReactDOMServer.renderToStaticMarkup(
+            Icon.render({
+              ...Icon.args,
+              direction: icon_direction,
+              icon_name,
+              modifier_classes: 'c-icon-link__icon is-spaced-before',
+            })
+          )
+        : null;
+    return parse(
+      twigTemplate({
+        icon_before,
+        icon_after,
+        ...args,
+      })
+    );
+  },
   args: { ...globalData, ...data },
 };
 
