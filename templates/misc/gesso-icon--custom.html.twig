@@ -14,6 +14,7 @@
 #}
 
 {%- include '@components/icon/icon.twig' with {
-  icon_name: icon.icon_name,
-  label: icon.icon_label,
+  'attributes': attributes,
+  'icon_name': icon.icon_name,
+  'label': icon.icon_label,
 } -%}

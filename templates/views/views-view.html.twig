@@ -39,9 +39,8 @@
   dom_id ? 'js-view-dom-id-' ~ dom_id,
 ] %}
 
-{% set attributes = attributes.addClass(classes) %}
-
 {% include '@components/view/views-view/views-view.twig' with {
+  'attributes': attributes.addClass(classes),
   'title': title,
   'title_element': 'h2',
   'hide_title': false,

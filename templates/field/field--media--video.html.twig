@@ -38,6 +38,7 @@
 #}
 {% for item in items %}
   {% include '@components/video/video.twig' with {
+    'attributes': item.attributes,
     'files': item.content['#files'],
   } %}
 {% endfor %}
