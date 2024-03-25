@@ -1,0 +1,53 @@
+{% set classes = [
+  'c-table',
+  modifier_classes ? modifier_classes : '',
+  is_scrollable ? 'is-scrollable' : '',
+  is_sortable ? 'is-sortable' : '',
+]|join(' ')|trim %}
+
+<table class="{{ classes }}">
+  {% if caption %}
+    <caption>{{ caption }}</caption>
+  {% endif %}
+
+  {% if header %}
+    <thead>
+      <tr>
+        {% for cell in header %}
+          <th{{ cell.attributes }}>
+            {{- cell.content -}}
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+  {% endif %}
+
+  {% if footer %}
+    <tfoot>
+      <tr>
+        {% for cell in footer %}
+          <th{{ cell.attributes }}>
+            {{- cell.content -}}
+          </th>
+        {% endfor %}
+      </tr>
+    </tfoot>
+  {% endif %}
+
+  {% if rows %}
+    <tbody>
+      {% for row in rows %}
+        <tr{{ row.attributes }}>
+          {% for cell in row.cells %}
+            <{{ cell.tag }}{{ cell.attributes }}>
+              {{- cell.content -}}
+            </{{ cell.tag }}>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  {% endif %}
+</table>
+{% if is_sortable %}
+  <div class="u-visually-hidden c-table__announcement-region" aria-live="polite"></div>
+{% endif %}

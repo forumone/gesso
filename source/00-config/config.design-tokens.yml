@@ -140,6 +140,7 @@ gesso:
       background: grayscale.white
       background-head: grayscale.gray-1
       background-foot: grayscale.gray-1
+      background-sorted: brand.blue.light-2
     ui:
       generic:
         background: grayscale.gray-3
