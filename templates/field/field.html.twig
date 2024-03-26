@@ -43,9 +43,8 @@
   'c-field--label-' ~ label_display,
 ] %}
 
-{% set attributes = attributes.addClass(classes) %}
-
 {% include '@components/field/field.twig' with {
+  'attributes': attributes.addClass(classes),
   'element': 'div',
   'label_display': label_display,
   'hide_label': label_hidden,

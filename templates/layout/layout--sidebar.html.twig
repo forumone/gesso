@@ -14,6 +14,7 @@
   {% endif %}
 
   {% include '@layouts/sidebar/sidebar.twig' with {
+    'attributes': attributes,
     'has_multiple_sidebar': has_multiple_sidebar,
     'sidebar_header_content': content.header ?: false,
     'sidebar_first_content': content.sidebar_first ?: false,

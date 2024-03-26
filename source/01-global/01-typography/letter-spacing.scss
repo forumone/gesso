@@ -1,0 +1,27 @@
+// Storybook: Line Height
+
+@use '00-config' as *;
+
+.gesso-storybook-letter-spacing {
+  margin: 0 0 3rem;
+}
+
+.gesso-storybook-letter-spacing__heading {
+  font-family: gesso-font-family(system);
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.gesso-storybook-letter-spacing__row {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  line-height: 1;
+  margin: 1rem 0;
+}
+
+.gesso-storybook-letter-spacing__label {
+  font-family: gesso-font-family(system);
+  font-weight: bold;
+}
