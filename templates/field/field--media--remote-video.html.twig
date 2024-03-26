@@ -38,6 +38,7 @@
 #}
 {% for item in items %}
   {% include '@components/video/video.twig' with {
+    'attributes': item.attributes,
     'iframe_src': item.content['#attributes'].src,
     'iframe_title': item.content['#attributes'].title,
   } %}

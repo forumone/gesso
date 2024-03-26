@@ -1,0 +1,87 @@
+// Mixins: Container Query
+
+@use 'sass:string';
+@use '../config.settings' as *;
+@use '../functions' as *;
+
+// Create a min-width container query.
+// @param {Number} $breakpoint - width value.
+// @param {String} $container-name - name of container.
+@mixin container-query-min($breakpoint, $container-name: null) {
+  @if $container-queries-rems {
+    $breakpoint: rem($breakpoint);
+  }
+  @if $container-name {
+    @container #{$container-name} (min-width: #{$breakpoint}) {
+      @content;
+    }
+  } @else {
+    @container (min-width: #{$breakpoint}) {
+      @content;
+    }
+  }
+}
+
+// Assume min-width if shorthand container-query mixin is used.
+// @param {Number} $breakpoint - width value.
+// @param {String} $container-name - name of container.
+@mixin container-query($breakpoint, $container-name: null) {
+  @include container-query-min($breakpoint, $container-name) {
+    @content;
+  }
+}
+
+// Create a max-width container query.
+// @param {Number} $breakpoint - width value.
+// @param {String} $container-name - name of container.
+// @param {Boolean} $subtract_1_from_max - whether to subtract 1px from $breakpoint value.
+@mixin container-query-max(
+  $breakpoint,
+  $container-name: null,
+  $subtract_1_from_max: false
+) {
+  @if $subtract_1_from_max {
+    $breakpoint: px($breakpoint) - 1px;
+  }
+  @if $container-queries-rems {
+    $breakpoint: rem($breakpoint);
+  }
+  @if $container-name {
+    @container #{$container-name} (max-width: #{$breakpoint}) {
+      @content;
+    }
+  } @else {
+    @container (max-width: #{$breakpoint}) {
+      @content;
+    }
+  }
+}
+
+// Create a container query with both min-width and max-width.
+// @param {Number} $breakpoint-min - width value.
+// @param {Number} $breakpoint-max - width value.
+// @param {String} $container-name - name of container.
+// @param {Boolean} $subtract_1_from_max - whether to subtract 1px from $breakpoint-max value.
+@mixin container-query-min-max(
+  $breakpoint-min,
+  $breakpoint-max,
+  $container-name: null,
+  $subtract_1_from_max: false
+) {
+  @if $subtract_1_from_max {
+    $breakpoint-max: px($breakpoint-max) - 1px;
+  }
+  @if $container-queries-rems {
+    $breakpoint-min: rem($breakpoint-min);
+    $breakpoint-max: rem($breakpoint-max);
+  }
+  @if $container-name {
+    @container #{$container-name} (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max}) {
+      @content;
+    }
+  } @else {
+    @container (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max}) {
+      @content;
+    }
+  }
+}
