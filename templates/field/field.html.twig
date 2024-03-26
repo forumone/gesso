@@ -42,9 +42,17 @@
   'c-field--type-' ~ field_type|clean_class,
   'c-field--label-' ~ label_display,
 ] %}
-
 {% if show_separator is null %}
-  {% set show_separator = true %}
+  {# By default, this field template comma separates values in multivalue
+    fields. This may not be desired if the Fences module is used to change
+    the field item wrapper element to a non-inline element. Add or remove
+    elements as needed from the following list to disable separators for
+    particular item wrapper elements. #}
+  {% if field_item_tag in ['li', 'dt', 'dd', 'blockquote', 'details', 'section', 'figure', 'p'] %}
+    {% set show_separator = false %}
+  {% else %}
+    {% set show_separator = true %}
+  {% endif %}
 {% endif %}
 
 {% if separator is null %}
