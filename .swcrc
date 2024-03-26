@@ -1,0 +1,32 @@
+[
+{
+  "test": ".*\\.jsx?$",
+  "env": {
+    "mode": "usage",
+    "loose": true,
+    "corejs": "3"
+  },
+  "jsc": {
+    "loose": true,
+    "parser": {
+      "syntax": "ecmascript",
+      "jsx": true
+    }
+  },
+},
+{
+  "test": ".*\\.tsx?$",
+  "env": {
+    "mode": "usage",
+    "loose": true,
+    "corejs": "3"
+  },
+  "jsc": {
+    "loose": true,
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true
+    }
+  },
+}
+]
