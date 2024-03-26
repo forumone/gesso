@@ -20,3 +20,12 @@ function gesso_library_info_build() {
   }
   return $libraries;
 }
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function gesso_element_info_alter(array &$types) {
+  if (isset($types['gesso_icon_link'])) {
+    $types['gesso_icon_link']['#attached']['library'][] = 'gesso/icon_link';
+  }
+}

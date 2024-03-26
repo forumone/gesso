@@ -42,98 +42,92 @@
 ]|join(' ')|trim %}
 
 {% if pager_items %}
-  <nav {{ add_attributes({
-    'class': classes,
-    'aria-label': heading|default('Pagination'),
-    'role': 'navigation'
-  })}}>
-    <ul class="c-pager__items js-pager__items">
-      {# Print first item if we are not on the first page. #}
-      {% if pager_items.first %}
-        {% set link_label = 'Go to first page'|t %}
-        <li class="c-pager__item c-pager__item--first">
-          <a class="c-pager__link c-pager__link--first" href="{{ pager_items.first.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ pager_items.first.attributes|without('aria-label', 'href', 'title') }}>
-            {%- apply spaceless %}
-              {{ pager_icon_left_angles }}
-              <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'First'|t }}</span>
-            {% endapply -%}
-          </a>
-        </li>
-      {% endif %}
+  {% apply spaceless %}
+    <nav {{ add_attributes({
+      'class': classes,
+      'aria-label': heading|default('Pagination')
+    })}}>
+      <ul class="c-pager__items js-pager__items">
+        {# Print first item if we are not on the first page. #}
+        {% if pager_items.first %}
+          {% set link_label = 'First page'|t %}
+          <li class="c-pager__item c-pager__item--first">
+            <a class="c-pager__link c-pager__link--first" href="{{ pager_items.first.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ pager_items.first.attributes|without('aria-label', 'href', 'title') }}>
+              {%- apply spaceless %}
+                {{ pager_icon_left_angles }}
+                {{ 'First'|t }}
+              {% endapply -%}
+            </a>
+          </li>
+        {% endif %}
 
-      {# Print previous item if we are not on the first page. #}
-      {% if pager_items.previous %}
-        {% set link_label = 'Go to previous page'|t %}
-        <li class="c-pager__item c-pager__item--previous">
-          <a class="c-pager__link c-pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
-            {%- apply spaceless %}
-              {{ pager_icon_left_angle }}
-              <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Previous'|t }}</span>
-            {% endapply -%}
-          </a>
-        </li>
-      {% endif %}
+        {# Print previous item if we are not on the first page. #}
+        {% if pager_items.previous %}
+          {% set link_label = 'Previous page'|t %}
+          <li class="c-pager__item c-pager__item--previous">
+            <a class="c-pager__link c-pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
+              {%- apply spaceless %}
+                {{ pager_icon_left_angle }}
+                {{ 'Previous'|t }}
+              {% endapply -%}
+            </a>
+          </li>
+        {% endif %}
 
-      {# Add an ellipsis if there are further previous pages. #}
-      {% if ellipses.previous %}
-        <li class="c-pager__item c-pager__item--ellipsis" role="presentation">…</li>
-      {% endif %}
+        {# Add an ellipsis if there are further previous pages. #}
+        {% if ellipses.previous %}
+          <li class="c-pager__item c-pager__item--ellipsis" aria-label="{{ 'ellipsis indicating non-visible pages'|t }}">…</li>
+        {% endif %}
 
-      {# Now generate the actual pager piece. #}
-      {% for key, item in pager_items.pages %}
-        <li class="c-pager__item{{ current == key ? ' c-pager__item--current' : '' }}">
-          {% if current == key %}
-            <span class="u-visually-hidden">
-              {{ 'Currently on page'|t }}
-            </span>
-            {{- key -}}
-          {% else %}
-            {% set link_label = 'Go to page @key'|t({'@key': key}) %}
-            <a class="c-pager__link" href="{{ item.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ item.attributes|without('aria-label', 'href', 'title') }}>
+        {# Now generate the actual pager piece. #}
+        {% for key, item in pager_items.pages %}
+          <li class="c-pager__item{{ current == key ? ' c-pager__item--current' : '' }}">
+            {% if current == key %}
               <span class="u-visually-hidden">
-                {{ 'Page'|t }}
+                {{ 'Currently on page'|t }}
               </span>
               {{- key -}}
+            {% else %}
+              {% set link_label = 'Page @key'|t({'@key': key}) %}
+              <a class="c-pager__link" href="{{ item.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ item.attributes|without('aria-label', 'href', 'title') }}>
+                {{- key -}}
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+
+        {# Add an ellipsis if there are further next pages. #}
+        {% if ellipses.next %}
+          <li class="c-pager__item c-pager__item--ellipsis" aria-label="{{ 'ellipsis indicating non-visible pages'|t }}">…</li>
+        {% endif %}
+
+        {# Print next item if we are not on the last page. #}
+        {% if pager_items.next %}
+          {% set link_label = 'Next page'|t %}
+          <li class="c-pager__item c-pager__item--next">
+            <a class="c-pager__link c-pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
+              {%- apply spaceless %}
+                {{ 'Next'|t }}
+                {{ pager_icon_right_angle }}
+              {% endapply -%}
             </a>
-          {% endif %}
-        </li>
-      {% endfor %}
+          </li>
+        {% endif %}
 
-      {# Add an ellipsis if there are further next pages. #}
-      {% if ellipses.next %}
-        <li class="c-pager__item c-pager__item--ellipsis" role="presentation">…</li>
-      {% endif %}
+        {# Print last item if we are not on the last page. #}
+        {% if pager_items.last %}
+          {% set link_label = 'Last page'|t %}
+          <li class="c-pager__item c-pager__item--last">
+            <a class="c-pager__link c-pager__link--last" href="{{ pager_items.last.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ pager_items.last.attributes|without('aria-label', 'href', 'title') }}>
+              {%- apply spaceless %}
+                {{ 'Last'|t }}
+                {{ pager_icon_right_angles }}
+              {% endapply -%}
+            </a>
+          </li>
+        {% endif %}
 
-      {# Print next item if we are not on the last page. #}
-      {% if pager_items.next %}
-        {% set link_label = 'Go to next page'|t %}
-        <li class="c-pager__item c-pager__item--next">
-          <a class="c-pager__link c-pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
-            {%- apply spaceless %}
-              <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Next'|t }}</span>
-              {{ pager_icon_right_angle }}
-            {% endapply -%}
-          </a>
-        </li>
-      {% endif %}
-
-      {# Print last item if we are not on the last page. #}
-      {% if pager_items.last %}
-        {% set link_label = 'Go to last page'|t %}
-        <li class="c-pager__item c-pager__item--last">
-          <a class="c-pager__link c-pager__link--last" href="{{ pager_items.last.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ pager_items.last.attributes|without('aria-label', 'href', 'title') }}>
-            {%- apply spaceless %}
-              <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Last'|t }}</span>
-              {{ pager_icon_right_angles }}
-            {% endapply -%}
-          </a>
-        </li>
-      {% endif %}
-
-    </ul>
-  </nav>
+      </ul>
+    </nav>
+  {% endapply %}
 {% endif %}
