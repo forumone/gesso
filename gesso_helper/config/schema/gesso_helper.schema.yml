@@ -8,3 +8,44 @@ field.formatter.settings.gesso_helper_gesso_button:
     button_styles:
       type: string
       label: Button Styles
+    icon_name:
+      type: string
+      label: Icon Name
+    icon_is_hidden:
+      type: boolean
+      label: Icon is Hidden
+    icon_label:
+      type: string
+      label: Icon Label
+    icon_position:
+      type: string
+      label: Icon Position
+    icon_direction:
+      type: string
+      label: Icon Direction
+    modifier_classes:
+      type: string
+      label: Modifier Classes
+
+field.formatter.settings.gesso_helper_icon_link:
+  type: mapping
+  label: Icon Link formatter settings
+  mapping:
+    icon_name:
+      type: string
+      label: Icon Name
+    icon_is_hidden:
+      type: boolean
+      label: Icon is Hidden
+    icon_label:
+      type: string
+      label: Icon Label
+    icon_position:
+      type: string
+      label: Icon Position
+    icon_direction:
+      type: string
+      label: Icon Direction
+    modifier_classes:
+      type: string
+      label: Modifier Classes

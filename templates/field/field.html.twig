@@ -43,8 +43,6 @@
   'c-field--label-' ~ label_display,
 ] %}
 
-{% set attributes = attributes.addClass(classes) %}
-
 {% if show_separator is null %}
   {% set show_separator = true %}
 {% endif %}
@@ -54,7 +52,7 @@
 {% endif %}
 
 {% include '@components/field/field.twig' with {
-  'attributes': attributes,
+  'attributes': attributes.addClass(classes),
   'modifier_classes': modifier_classes,
   'display_field_tag': display_field_tag,
   'field_tag': field_tag,
