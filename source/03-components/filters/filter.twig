@@ -1,0 +1,22 @@
+{# The following classes need to match what is in `includes/facets.inc` #}
+{% set classes = [
+  'c-button',
+  'c-button--small',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if not hide_link %}
+  <a class="{{ classes }}" href="{{ url }}">
+{% endif %}
+
+  {%- include '@components/icon/icon.twig' with {
+    'modifier_classes': 'c-icon c-button__icon is-spaced-after',
+    'label': 'Remove'|t,
+    'icon_name': 'xmark',
+  } -%}
+
+  {{- value -}}
+
+{% if not hide_link %}
+  </a>
+{% endif %}

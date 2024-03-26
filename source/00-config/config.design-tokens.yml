@@ -119,6 +119,12 @@ gesso:
         background-hover: grayscale.gray-5
         color: grayscale.white
         color-hover: grayscale.white
+    facet:
+      icon: grayscale.gray-3
+      icon-active: brand.blue.dark-1
+      text: brand.blue.base
+      text-hover: brand.blue.dark
+      text-active: brand.blue.dark-1
     form:
       background: grayscale.gray-1
       background-active: grayscale.white

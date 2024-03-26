@@ -1,0 +1,75 @@
+// Component: Facet
+
+@use '00-config' as *;
+
+$facet-icon-color: gesso-color(facet, icon) !default;
+$facet-icon-active-color: gesso-color(facet, icon-active) !default;
+$facet-text-color: gesso-color(facet, text) !default;
+$facet-text-hover-color: gesso-color(facet, text-hover) !default;
+$facet-text-active-color: gesso-color(facet, text-active) !default;
+
+.c-facet {
+  @include responsive-font-size(3);
+  color: $facet-text-color;
+  display: flex;
+  text-decoration: none;
+
+  &:visited {
+    color: $facet-text-color;
+  }
+
+  &:hover {
+    color: $facet-text-hover-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $facet-text-active-color;
+  }
+}
+
+.c-facet__icon {
+  color: $facet-icon-active-color;
+  flex-shrink: 0;
+  margin-right: rem(gesso-spacing(0.5));
+  top: 3px !important;
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      margin-left: rem(gesso-spacing(0.5));
+      margin-right: 0;
+    }
+  }
+}
+
+.c-facet__icon--empty {
+  color: $facet-icon-color;
+
+  .c-facet.is-active > &,
+  .c-facet-list__item a.is-active > & {
+    display: none !important;
+  }
+}
+
+.c-facet__icon--selected {
+  display: none !important;
+
+  .c-facet.is-active > &,
+  .c-facet-list__item a.is-active > & {
+    display: inline-block !important;
+  }
+}
+
+.c-facet__content {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.c-facet__count {
+  margin-left: rem(gesso-spacing(2));
+}
+
+.c-facet--secondary {
+  @include responsive-font-size(2);
+}
