@@ -1,0 +1,44 @@
+{% set classes = [
+  'c-facet',
+  is_active ? 'is-active' : '',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set icon_empty %}
+  {%- include '@components/icon/icon.twig' with {
+    'is_demo': false,
+    'modifier_classes': 'c-facet__icon c-facet__icon--empty',
+    'is_hidden': true,
+    'icon_name': 'square',
+  } -%}
+{% endset %}
+
+{% set icon_selected %}
+  {%- include '@components/icon/icon.twig' with {
+    'is_demo': false,
+    'modifier_classes': 'c-facet__icon c-facet__icon--selected',
+    'is_hidden': false,
+    'label': 'Selected:'|t,
+    'icon_name': 'square-check',
+  } -%}
+{% endset %}
+
+{% apply spaceless %}
+  {% if not hide_link %}
+    <a class="{{ classes }}" href="{{ url }}">
+  {% endif %}
+    {{- icon_empty -}}
+    {{- icon_selected -}}
+    <span class="c-facet__content">
+      {{- title -}}
+      {%- if show_count %}
+        <span class="c-facet__count">
+          {{- count -}}
+          <span class="u-visually-hidden"> items</span>
+        </span>
+      {%- endif -%}
+    </span>
+  {% if not hide_link %}
+    </a>
+  {% endif %}
+{% endapply %}

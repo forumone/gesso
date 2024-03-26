@@ -16,7 +16,7 @@
   {% set media_bundle = 'iframe' %}
 {% endif %}
 
-{% set classes = [
+{% set modifier_classes = [
   view_mode != '' ? ('c-figure--' ~ view_mode)|clean_class,
   media_bundle ? ('c-figure--' ~ media_bundle)|clean_class,
   align == 'center' ? 'u-align-center',
@@ -26,7 +26,8 @@
 ]|join(' ')|trim %}
 
 {% include '@components/figure/figure.twig' with {
-  'modifier_classes': classes,
+  'attributes': attributes,
+  'modifier_classes': modifier_classes,
   'media': node,
   'caption': caption,
 } %}
