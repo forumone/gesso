@@ -1,0 +1,19 @@
+{% set demo_content %}
+  {% for name, value in gesso.typography['letter-spacing'] %}
+    <div class="gesso-storybook-letter-spacing__row">
+      <div class="gesso-storybook-letter-spacing__label">{{ name }}</div>
+      <div class="gesso-storybook-letter-spacing__preview" style="letter-spacing: {{ value }}">
+        The letter-spacing for this text is <strong>{{ value }}.</strong>
+      </div>
+    </div>
+  {% endfor %}
+{% endset %}
+
+{% for name, item in gesso.typography['font-family'] %}
+  <div class="gesso-storybook-letter-spacing">
+    <h2 class="gesso-storybook-letter-spacing__heading">{{ item.name }}</h2>
+    <div style='font-family: {{ item.stack }}'>
+      {{ demo_content }}
+    </div>
+  </div>
+{% endfor %}

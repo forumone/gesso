@@ -7,7 +7,6 @@ $pager-background-color-hover: gesso-color(ui, generic, accent) !default;
 $pager-background-color-active: gesso-color(ui, generic, accent-dark) !default;
 $pager-link-color: gesso-color(text, on-light) !default;
 $pager-link-color-active: gesso-color(text, on-dark) !default;
-$pager-link-focus-outline-color: gesso-color(ui, generic, border-dark) !default;
 $pager-ellipsis-bp: 800px !default;
 $pager-bp: 600px !default;
 
@@ -43,10 +42,6 @@ $pager-bp: 600px !default;
   padding: em(gesso-spacing(1));
   transition: color gesso-duration(short) gesso-easing(ease-out),
     background-color gesso-duration(standard) gesso-easing(ease-out);
-
-  &:focus {
-    outline: 1px dotted $pager-link-focus-outline-color;
-  }
 }
 
 .c-pager__item--ellipsis {

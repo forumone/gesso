@@ -12,6 +12,7 @@
  */
 #}
 {% include '@components/rss-feed/rss-feed.twig' with {
+  'attributes': attributes,
   'url': url,
   'link_text': 'Subscribe to @title'|t({'@title': title}),
 } %}

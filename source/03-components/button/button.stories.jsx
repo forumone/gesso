@@ -4,6 +4,8 @@ import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './button.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './button.yml';
+import ReactDOMServer from 'react-dom/server';
+import { Icon } from '../icon/icon.stories';
 
 const settings = {
   title: 'Components/Button',
@@ -53,7 +55,48 @@ const settings = {
 };
 
 const Primary = {
-  render: args => parse(twigTemplate(args)),
+  render: ({
+    icon_name,
+    icon_direction,
+    icon_position,
+    icon_label,
+    icon_is_hidden,
+    ...args
+  }) => {
+    const button_icon_before =
+      icon_name && (icon_position === 'before' || icon_position === 'both')
+        ? ReactDOMServer.renderToStaticMarkup(
+            Icon.render({
+              ...Icon.args,
+              direction: icon_direction,
+              icon_name,
+              label: icon_label,
+              is_hidden: icon_is_hidden,
+              modifier_classes: 'c-button__icon is-spaced-after',
+            })
+          )
+        : null;
+    const button_icon_after =
+      icon_name && (icon_position === 'after' || icon_position === 'both')
+        ? ReactDOMServer.renderToStaticMarkup(
+            Icon.render({
+              ...Icon.args,
+              direction: icon_direction,
+              icon_name,
+              label: icon_label,
+              is_hidden: icon_is_hidden,
+              modifier_classes: 'c-button__icon is-spaced-before',
+            })
+          )
+        : null;
+    return parse(
+      twigTemplate({
+        button_icon_before,
+        button_icon_after,
+        ...args,
+      })
+    );
+  },
   args: { ...globalData, ...data },
 };
 
