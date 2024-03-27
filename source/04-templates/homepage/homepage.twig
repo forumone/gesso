@@ -1,18 +1,11 @@
+{% include '@templates/template-parts/messages-and-tabs/messages-and-tabs.twig' with {
+  'is_published': is_published,
+  'show_admin_info': show_admin_info,
+  'admin_info': admin_info,
+} %}
+
 {{ title_prefix }}
 {{ title_suffix }}
-
-{% if not is_published %}
-  {% include '@components/message/message.twig' with {
-    type: 'warning',
-    messages: ['This page is unpublished.'|t],
-  } %}
-{% endif %}
-
-{% if show_admin_info %}
-  {% block admin_info %}
-    {{ admin_info }}
-  {% endblock %}
-{% endif %}
 
 {% if not homepage_hero %}
   {% set homepage_hero %}

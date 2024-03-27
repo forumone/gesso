@@ -6,7 +6,7 @@ import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './page.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
-import { Article } from '../../03-components/article/article.stories.jsx';
+import { MessagesandTabs } from '../template-parts/messages-and-tabs/messages-and-tabs.stories.jsx';
 
 const settings = {
   title: 'Templates/Page',
@@ -15,8 +15,8 @@ const settings = {
     controls: {
       include: [
         'is_published',
-        'title',
         'show_admin_info',
+        'title',
         'show_footer',
         'author_name',
         'date_format',
@@ -36,7 +36,7 @@ const Page = {
   args: {
     ...globalData,
     title: 'Page Title',
-    admin_info: Article.args.admin_info,
+    admin_info: MessagesandTabs.args.admin_info,
     show_footer: true,
     content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Page Content</ContentPlaceholder>

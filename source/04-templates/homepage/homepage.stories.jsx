@@ -6,8 +6,8 @@ import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './homepage.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
+import { MessagesandTabs } from '../template-parts/messages-and-tabs/messages-and-tabs.stories.jsx';
 import { HeroImage } from '../../01-global/images/hero-image.stories.jsx';
-import { Article } from '../../03-components/article/article.stories.jsx';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
 import { Default as HeroBGImage } from '../../03-components/hero-bg-image/hero-bg-image.stories.jsx';
@@ -35,7 +35,7 @@ const Homepage = {
   render: args => parse(twigTemplate(args)),
   args: {
     ...globalData,
-    admin_info: Article.args.admin_info,
+    admin_info: MessagesandTabs.args.admin_info,
     hero_image: ReactDOMServer.renderToStaticMarkup(
       HeroImage.render(HeroImage.args)
     ),
