@@ -22,19 +22,20 @@
  */
 #}
 {% if type == 'fieldset' %}
-  {% set classes =[
+  {% set modifier_classes = [
     'c-fieldset--default',
-  ] %}
+  ]|join(' ')|trim %}
 {% else %}
   {% set remove_classes = [
     'fieldgroup',
     'form-composite',
   ] %}
-  {% set classes = [
+  {% set modifier_classes = [
     'c-fieldset--' ~ type|clean_class,
-  ] %}
+  ]|join(' ')|trim %}
 {% endif %}
 
 {% include '@components/fieldset/fieldset.twig' with {
-  modifier_classes: attributes.addClass(classes).removeClass(remove_classes).class|join(' ')|trim,
+  'attributes': attributes.removeClass(remove_classes),
+  'modifier_classes': modifier_classes,
 } %}

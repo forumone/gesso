@@ -1,6 +1,6 @@
 {{ attach_library('gesso/icon_link') }}
 
-{%- if icon_name is not empty %}
+{% if (icon_before is empty and icon_after is empty) and icon_name is not empty %}
   {% if icon_position == 'before' or icon_position == 'both' %}
     {% set icon_before %}
       {%- include '@components/icon/icon.twig' with {

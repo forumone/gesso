@@ -99,7 +99,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['swc-loader'],
       },
       {
         test: /\.scss$/i,
@@ -154,7 +154,7 @@ module.exports = {
         exclude: ['/node_modules/'],
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[hash][ext][query]',
+          filename: 'fonts/[name][ext][query]',
         },
       },
       {

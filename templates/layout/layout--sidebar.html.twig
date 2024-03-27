@@ -9,7 +9,8 @@
  */
 #}
 {% if content %}
-   {% include '@layouts/sidebar/sidebar.twig' with {
+  {% include '@layouts/sidebar/sidebar.twig' with {
+    'attributes': attributes,
     'sidebar_header_content': content.header ?: false,
     'sidebar_first_content': content.sidebar_first ?: false,
     'sidebar_main_content': content.main ?: false,
