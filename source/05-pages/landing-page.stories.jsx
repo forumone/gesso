@@ -52,8 +52,8 @@ const landingPageContent = args =>
   ReactDOMServer.renderToStaticMarkup(
     Template.render({
       ...args,
-      page_title: 'Great Scott!',
       admin_info: Template.args.admin_info,
+      page_title: 'Great Scott!',
       content: ReactDOMServer.renderToStaticMarkup(mainContent),
     })
   );

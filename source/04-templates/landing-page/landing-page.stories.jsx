@@ -27,8 +27,8 @@ const LandingPage = {
   render: args => parse(twigTemplate(args)),
   args: {
     ...globalData,
-    page_title: 'Landing Page Title',
     admin_info: MessagesandTabs.args.admin_info,
+    page_title: 'Landing Page Title',
     content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Landing Page Content</ContentPlaceholder>
     ),

@@ -35,8 +35,8 @@ const Page = {
   render: args => parse(twigTemplate(args)),
   args: {
     ...globalData,
-    title: 'Page Title',
     admin_info: MessagesandTabs.args.admin_info,
+    title: 'Page Title',
     show_footer: true,
     content: ReactDOMServer.renderToStaticMarkup(
       <ContentPlaceholder>Page Content</ContentPlaceholder>

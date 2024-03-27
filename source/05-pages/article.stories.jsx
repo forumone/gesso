@@ -55,8 +55,8 @@ const articleContent = args =>
   ReactDOMServer.renderToStaticMarkup(
     Template.render({
       ...args,
-      title: 'As You Wish',
       admin_info: Template.args.admin_info,
+      title: 'As You Wish',
       show_footer: true,
       date_format: 'medium-date',
       year: {

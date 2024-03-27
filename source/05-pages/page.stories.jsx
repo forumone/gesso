@@ -20,8 +20,8 @@ const pageContent = args =>
   ReactDOMServer.renderToStaticMarkup(
     Template.render({
       ...args,
-      title: 'Page Title',
       admin_info: Template.args.admin_info,
+      title: 'Page Title',
     })
   );
 
