@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a facet result item.
+ *
+ * Available variables:
+ * - value: The item value.
+ * - raw_value: The raw item value.
+ * - show_count: If this facet provides count.
+ * - count: The amount of results.
+ * - is_active: The item is active.
+ * - facet: The facet for this result item.
+ *   - id: the machine name for the facet.
+ *   - label: The facet label.
+ *
+ * @ingroup themeable
+ */
+#}
+{% include '@components/filters/filter.twig' with {
+  'value': value,
+  'hide_link': true,
+} %}
