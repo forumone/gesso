@@ -36,13 +36,16 @@
  * @see template_preprocess_field()
  */
 #}
-{% include '@components/field/field--list/field--list.twig' with {
-  'attributes': attributes,
-  'element': 'div',
-  'label_display': label_display,
-  'hide_label': label_hidden,
-  'label_element': 'div',
-  'label': label,
-  'list_element': 'ul',
-  'field_items': items,
-} %}
+{% extends "field.html.twig" %}
+
+{% set attributes = attributes.addClass('c-field--list') %}
+
+{% set display_items_wrapper_tag = true %}
+
+{% set field_items_wrapper_tag = 'ul' %}
+
+{% set display_item_tag = true %}
+
+{% set field_item_tag = 'li' %}
+
+{% set show_separator = false %}

@@ -42,16 +42,38 @@
   'c-field--type-' ~ field_type|clean_class,
   'c-field--label-' ~ label_display,
 ] %}
+{% if show_separator is null %}
+  {# By default, this field template comma separates values in multivalue
+    fields. This may not be desired if the Fences module is used to change
+    the field item wrapper element to a non-inline element. Add or remove
+    elements as needed from the following list to disable separators for
+    particular item wrapper elements. #}
+  {% if field_item_tag in ['li', 'dt', 'dd', 'blockquote', 'details', 'section', 'figure', 'p'] %}
+    {% set show_separator = false %}
+  {% else %}
+    {% set show_separator = true %}
+  {% endif %}
+{% endif %}
+
+{% if separator is null %}
+  {% set separator = ', ' %}
+{% endif %}
 
 {% include '@components/field/field.twig' with {
   'attributes': attributes.addClass(classes),
-  'element': 'div',
+  'modifier_classes': modifier_classes,
+  'display_field_tag': display_field_tag,
+  'field_tag': field_tag,
   'label_display': label_display,
-  'hide_label': label_hidden,
-  'label_element': 'div',
+  'label_hidden': label_hidden,
+  'display_label_tag': display_label_tag,
+  'label_tag': label_tag,
   'label': label,
-  'hide_content_wrapper': false,
-  'show_separator': true,
-  'separator': ', ',
+  'display_items_wrapper_tag': display_items_wrapper_tag,
+  'field_items_wrapper_tag': field_items_wrapper_tag,
+  'display_item_tag': display_item_tag,
+  'field_item_tag': field_item_tag,
+  'show_separator': show_separator,
+  'separator': separator,
   'field_items': items,
 } %}

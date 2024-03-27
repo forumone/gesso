@@ -15,16 +15,34 @@
   label_display == 'visually_hidden' ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}
 
-<{{ element ?: 'div' }} {{ add_attributes({ 'class': classes }) }}>
-  {% if not hide_label -%}
-    <{{ label_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes },'title_attributes') }}>{{ label }}</{{ label_element ?: 'h3' }}>
+{% if display_field_tag ?? true -%}
+  <{{ field_tag|default('div') }} {{ add_attributes({ 'class': classes }) }}>
+{%- endif %}
+  {% if not label_hidden -%}
+    {%- if display_label_tag ?? true -%}
+      <{{ label_tag|default('h3') }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>
+    {%- endif -%}
+    {{ label }}
+    {%- if display_label_tag ?? true %}</{{ label_tag|default('h3') }}>{% endif -%}
   {%- endif -%}
-  {% if not hide_content_wrapper %}<div class="c-field__content">{% endif %}
+  {% if display_items_wrapper_tag ?? true -%}
+    <{{ field_items_wrapper_tag|default('div') }} {{ add_attributes({ 'class': 'c-field__content' }, 'field_items_wrapper_attributes') }}>
+  {%- endif %}
     {%- for item in field_items -%}
+      {%- if display_item_tag ?? false -%}
+        <{{ field_item_tag|default('span') }} {{ item.attributes.addClass('c-field__item') }}>
+      {%- endif -%}
       {{- item.content -}}
-      {%- if show_separator -%}
-        {{- not loop.last ? separator -}}
+      {%- if display_item_tag ?? false -%}
+        </{{ field_item_tag|default('span') }}>
+      {%- endif -%}
+      {%- if show_separator ?? true -%}
+        {{- not loop.last ? separator|default(', ') -}}
       {%- endif -%}
     {%- endfor -%}
-  {% if not hide_content_wrapper %}</div>{% endif %}
-</{{ element ?: 'div' }}>
+  {% if display_items_wrapper_tag ?? true -%}
+    </{{ field_items_wrapper_tag|default('div') }}>
+  {%- endif %}
+{% if display_field_tag ?? true -%}
+  </{{ field_tag|default('div') }}>
+{%- endif %}
