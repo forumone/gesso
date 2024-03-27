@@ -5,6 +5,8 @@
  * Navigation-related hook implementations.
  */
 
+use Drupal\Core\Render\Element;
+
 /**
  * Implements hook_preprocess_breadcrumb().
  */
@@ -41,6 +43,37 @@ function gesso_preprocess_menu(array &$variables) {
   foreach ($variables['items'] as $key => $item) {
     if ($item['url']->toString() == $current_path) {
       $variables['items'][$key]['is_active'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu_local_tasks().
+ */
+function gesso_preprocess_menu_local_tasks(&$variables) {
+  foreach (Element::children($variables['primary']) as $key) {
+    $variables['primary'][$key]['#level'] = 'primary';
+  }
+
+  foreach (Element::children($variables['secondary']) as $key) {
+    $variables['secondary'][$key]['#level'] = 'secondary';
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function gesso_preprocess_menu_local_task(array &$variables) {
+  $variables['link']['#options']['attributes']['class'][] = 'c-button-group__link';
+  $variables['link']['#options']['attributes']['class'][] = 'c-button';
+  $variables['link']['#options']['attributes']['class'][] = 'c-button--base';
+
+  if (isset($variables['element']['#level'])) {
+    $variables['level'] = $variables['element']['#level'];
+
+    // Additional class for secondary items.
+    if ($variables['level'] == 'secondary') {
+      $variables['link']['#options']['attributes']['class'][] = 'c-button--small';
     }
   }
 }

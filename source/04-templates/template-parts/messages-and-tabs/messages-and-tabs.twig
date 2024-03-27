@@ -1,0 +1,12 @@
+{% if not is_published %}
+  {% include '@components/message/message.twig' with {
+    type: 'warning',
+    messages: ['This page is unpublished.'|t],
+  } %}
+{% endif %}
+
+{% if show_admin_info %}
+  {% block admin_info %}
+    {{ admin_info }}
+  {% endblock %}
+{% endif %}

@@ -6,9 +6,7 @@ import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './page.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
-// Importing components to ensure their assets get loaded in Storybook when they
-// get referenced since Drupal loads them as a library.
-import { Article } from '../../03-components/article/article.stories.jsx';
+import { MessagesandTabs } from '../template-parts/messages-and-tabs/messages-and-tabs.stories.jsx';
 
 const settings = {
   title: 'Templates/Page',
@@ -17,8 +15,8 @@ const settings = {
     controls: {
       include: [
         'is_published',
-        'title',
         'show_admin_info',
+        'title',
         'show_footer',
         'author_name',
         'date_format',
@@ -37,6 +35,7 @@ const Page = {
   render: args => parse(twigTemplate(args)),
   args: {
     ...globalData,
+    admin_info: MessagesandTabs.args.admin_info,
     title: 'Page Title',
     show_footer: true,
     content: ReactDOMServer.renderToStaticMarkup(

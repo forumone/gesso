@@ -12,48 +12,17 @@
  */
 #}
 {% if primary %}
-  {% set primary_links = [] %}
-
-  {% for item in primary %}
-    {% if item|render %}
-      {% set primary_links = primary_links|merge([{
-        'text': item['#link'].title,
-        'url' : item['#link'].url,
-        'active': item['#active'],
-      }]) %}
-    {% endif %}
-  {% endfor %}
-
   {% include '@components/button-group/button-group.twig' with {
     'heading': 'Primary tabs'|t,
     'element': 'nav',
-    'button_modifier_classes': 'c-button--base',
-    'buttons': primary_links,
+    'button_group_items': primary,
   } only %}
 {% endif %}
 
 {% if secondary %}
-  {% set secondary_links = [] %}
-
-  {% for item in secondary %}
-    {% if item|render %}
-      {% set link %}
-        <a href="{{ item['#link'].url }}">
-          {%- if item['#active'] %}<strong>{% endif -%}
-          {{- item['#link'].title -}}
-          {%- if item['#active'] %}<span class="u-visually-hidden"> ({{ 'active tab'|t }})</span></strong>{% endif -%}
-        </a>
-      {% endset %}
-
-      {% set secondary_links = secondary_links|merge([{
-        'content': link,
-      }]) %}
-    {% endif %}
-  {% endfor %}
-
-  <h2 class="u-visually-hidden">{{ 'Secondary tabs'|t }}</h2>
-  {% include '@components/list/list.twig' with {
-    'modifier_classes': 'c-list--pipeline',
-    'list': secondary_links,
+  {% include '@components/button-group/button-group.twig' with {
+    'heading': 'Secondary tabs'|t,
+    'element': 'nav',
+    'button_group_items': secondary,
   } only %}
 {% endif %}

@@ -1,0 +1,19 @@
+{% set button_classes = [
+  'c-button-group__link',
+  'c-button',
+  button_modifier_classes ? button_modifier_classes : '',
+  is_active ? 'is-active' : '',
+]|join(' ')|trim %}
+
+<li class="c-button-group__item{% if is_active %} is-active{% endif %}">
+  {%- if link -%}
+    {{- link -}}
+  {%- else -%}
+    <a href="{{ url|default('#0') }}" class="{{ button_classes }}">
+      {{ text }}
+      {% if is_active %}
+        <span class="u-visually-hidden">{{ (active_label|default('(active)'))|t }}</span>
+      {% endif %}
+    </a>
+  {%- endif -%}
+</li>

@@ -1,9 +1,12 @@
-{% include '@components/article/article.twig' with {
-  'attributes': attributes,
+{% include '@templates/template-parts/messages-and-tabs/messages-and-tabs.twig' with {
   'is_published': is_published,
-  'title': title,
   'show_admin_info': show_admin_info,
   'admin_info': admin_info,
+} %}
+
+{% include '@components/article/article.twig' with {
+  'attributes': attributes,
+  'title': title,
   'show_footer': show_footer,
   'author_name': author_name,
   'content': content,
