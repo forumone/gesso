@@ -7,62 +7,42 @@ $l-sidebar-gutter: rem(gesso-spacing(2));
 
 .l-sidebar {
   @include breakpoint($l-sidebar-bp) {
-    display: flex;
-    flex-wrap: wrap;
-
-    > * {
-      flex-basis: calc(100% - #{$l-sidebar-width} - #{$l-sidebar-gutter * 2});
-      flex-grow: 1;
-      flex-shrink: 1;
-      margin-right: $l-sidebar-gutter;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
+    display: grid;
+    grid-gap: $l-sidebar-gutter;
+    grid-template-columns: 1fr;
 
     .l-sidebar__full {
-      flex-basis: 100%;
-      flex-grow: 1;
-      flex-shrink: 1;
-      margin-right: 0;
-    }
-
-    .l-sidebar__sidebar {
-      flex-basis: #{$l-sidebar-width};
-      flex-grow: 1;
-      flex-shrink: 0;
-    }
-
-    // For Browsers that support CSS Grid
-    @supports (display: grid) {
-      display: grid;
-      grid-gap: $l-sidebar-gutter;
-      grid-template-columns: $l-sidebar-width 1fr;
-
-      .l-sidebar__full {
-        grid-column: span 2;
-      }
+      grid-column: span 1;
     }
   }
 }
 
-.l-sidebar--multi-2 {
+.l-sidebar.has-first-sidebar {
   @include breakpoint($l-sidebar-bp) {
-    > * {
-      flex-basis: calc(
-        100% - #{$l-sidebar-width + $l-sidebar-width} - #{$l-sidebar-gutter * 3}
-      );
-      flex-grow: 1;
-      flex-shrink: 1;
+    grid-template-columns: $l-sidebar-width 1fr;
+
+    .l-sidebar__full {
+      grid-column: span 2;
     }
+  }
+}
 
-    @supports (display: grid) {
-      grid-template-columns: $l-sidebar-width 1fr $l-sidebar-width;
+.l-sidebar.has-second-sidebar {
+  @include breakpoint($l-sidebar-bp) {
+    grid-template-columns: 1fr $l-sidebar-width;
 
-      .l-sidebar__full {
-        grid-column: span 3;
-      }
+    .l-sidebar__full {
+      grid-column: span 2;
+    }
+  }
+}
+
+.l-sidebar.has-both-sidebars {
+  @include breakpoint($l-sidebar-bp) {
+    grid-template-columns: $l-sidebar-width 1fr $l-sidebar-width;
+
+    .l-sidebar__full {
+      grid-column: span 3;
     }
   }
 }

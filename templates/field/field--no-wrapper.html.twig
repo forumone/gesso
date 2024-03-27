@@ -36,7 +36,7 @@
  * @see template_preprocess_field()
  */
 #}
-{%- if logged_in -%}
+{%- if logged_in and title_suffix.contextual_links -%}
   <span {{ attributes }}>
     {{- title_suffix.contextual_links }}
 {%- endif -%}

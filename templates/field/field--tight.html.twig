@@ -36,16 +36,6 @@
  * @see template_preprocess_field()
  */
 #}
-{% include '@components/field/field.twig' with {
-  'attributes': attributes,
-  'modifier_classes': 'field--tight',
-  'element': 'div',
-  'label_display': label_display,
-  'hide_label': label_hidden,
-  'label_element': 'div',
-  'label': label,
-  'hide_content_wrapper': false,
-  'show_separator': true,
-  'separator': ', ',
-  'field_items': items,
-} %}
+{% extends "field.html.twig" %}
+
+{% set attributes = attributes.addClass('c-field--tight') %}

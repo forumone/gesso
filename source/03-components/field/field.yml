@@ -1,10 +1,11 @@
 ---
-element: 'div'
 is_inline: false
+display_field_tag: true
+label_hidden: false
+display_label_tag: true
 label: 'Field Label'
-hide_label: false
-label_element: 'h3'
-hide_content_wrapper: false
+display_items_wrapper_tag: true
+display_item_tag: false
 show_separator: true
 separator: ', '
 field_items:

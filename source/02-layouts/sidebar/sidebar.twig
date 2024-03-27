@@ -1,6 +1,8 @@
 {% set classes = [
   'l-sidebar',
-  has_multiple_sidebar ? ' l-sidebar--multi-2' : '',
+  sidebar_first_content and not sidebar_second_content ? 'has-first-sidebar' : '',
+  sidebar_second_content and not sidebar_first_content ? 'has-second-sidebar' : '',
+  sidebar_first_content and sidebar_second_content ? 'has-both-sidebars' : '',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
