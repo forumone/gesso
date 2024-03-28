@@ -41,6 +41,7 @@ class AddAttributesTwigExtension extends AbstractExtension {
   public function addAttributes($context, $additional_attributes = [], $attribute_type = 'attributes'): Attribute {
     $attributes = new Attribute();
 
+    $context_attribute = [];
     $context_attribute = &$context;
     foreach (explode('.', $attribute_type) as $segment) {
       $context_attribute = &$context_attribute[$segment];
