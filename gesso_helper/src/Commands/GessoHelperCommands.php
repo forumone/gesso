@@ -5,12 +5,12 @@ namespace Drupal\gesso_helper\Commands;
 use Consolidation\SiteAlias\SiteAliasManagerAwareInterface;
 use Consolidation\SiteAlias\SiteAliasManagerAwareTrait;
 use Drupal\Core\Extension\ThemeHandlerInterface;
-use Drush\Drush;
-use Drush\Commands\DrushCommands;
-use Symfony\Component\Filesystem\Filesystem;
-use Webmozart\PathUtil\Path;
 use Drupal\gesso_helper\GessoHelperDirFilterExclude;
 use Drupal\gesso_helper\GessoHelperDirFilterInclude;
+use Drush\Commands\DrushCommands;
+use Drush\Drush;
+use Symfony\Component\Filesystem\Filesystem;
+use Webmozart\PathUtil\Path;
 
 /**
  * A Drush commandfile.
