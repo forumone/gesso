@@ -1,5 +1,5 @@
-module.exports = {
-  extends: '.eslintrc.js',
+const devConfig = {
+  extends: '.eslintrc.cjs',
   rules: {
     'no-console': 'off',
     'no-empty-function': 'off',
@@ -7,3 +7,5 @@ module.exports = {
     'prefer-const': 'off',
   },
 };
+
+module.exports = devConfig;

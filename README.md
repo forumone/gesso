@@ -22,10 +22,10 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
--   [Node](https://nodejs.org/en/) version 14.x.x or greater. Long-term stable
+-   [Node](https://nodejs.org/en/) version 18.12 or greater. Long-term stable
     recommended.
 
--   [npm](https://www.npmjs.com/get-npm) version 7.x.x or greater.
+-   [npm](https://www.npmjs.com/get-npm) version 9.8.1 or greater.
 
 ## Installation
 
@@ -232,7 +232,7 @@ documentation](https://eslint.org/docs/user-guide/configuring#disabling-rules-wi
 Please add a comment about the valid reason to disable the ESLint rule(s) in
 your use case.
 
-The ESLint config can be changed in the `.eslintrc.js` file. Gesso follows the
+The ESLint config can be changed in the `.eslintrc.cjs` file. Gesso follows the
 [Airbnb standards](https://github.com/airbnb/javascript/), which are [followed
 by Drupal](https://www.drupal.org/docs/develop/standards/javascript/javascript-coding-standards)
 as well.

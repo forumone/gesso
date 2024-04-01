@@ -1,16 +1,20 @@
 /* eslint no-console: "off" */
-const { merge } = require('webpack-merge');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const path = require('path');
-const chalk = require('chalk');
-const common = require('./webpack.common');
+import { merge } from 'webpack-merge';
+import ESLintPlugin from 'eslint-webpack-plugin';
+import path, { dirname } from 'node:path';
+import chalk from 'chalk';
+import common from './webpack.common.js';
+import { fileURLToPath } from 'node:url';
 
-module.exports = merge(common, {
+const __dirname =
+  import.meta.dirname ?? dirname(fileURLToPath(import.meta.url));
+
+const devConfig = merge(common, {
   mode: 'development',
   devtool: 'source-map',
   plugins: [
     new ESLintPlugin({
-      overrideConfigFile: path.resolve(__dirname, '.eslintrc-dev.js'),
+      overrideConfigFile: path.resolve(__dirname, '.eslintrc-dev.cjs'),
       useEslintrc: false,
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
@@ -36,3 +40,5 @@ module.exports = merge(common, {
     },
   ],
 });
+
+export default devConfig;
