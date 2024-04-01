@@ -72,8 +72,6 @@
   not node.isPublished() ? 'is-unpublished',
 ] %}
 
-{% set attributes = attributes.addClass(classes) %}
-
 {% set admin_info %}
   {{ region_status }}
 {% endset %}
@@ -85,6 +83,7 @@
 {% endif %}
 
 {% include '@templates/page/page.twig' with {
+  'attributes': attributes.addClass(classes),
   'is_published': node.isPublished(),
   'title': label,
   'show_admin_info': show_admin_info,

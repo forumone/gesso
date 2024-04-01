@@ -3,8 +3,6 @@ import parse from 'html-react-parser';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './field.twig';
 import data from './field.yml';
-import listTwigTemplate from './field--list/field--list.twig';
-import listData from './field--list/field--list.yml';
 
 const settings = {
   title: 'Components/Field',
@@ -17,8 +15,15 @@ const Default = {
 };
 
 const List = {
-  render: args => parse(listTwigTemplate(args)),
-  args: { ...listData },
+  ...Default,
+  args: {
+    ...Default.args,
+    modifier_classes: 'c-field--list',
+    field_items_wrapper_tag: 'ul',
+    display_item_tag: true,
+    field_item_tag: 'li',
+    show_separator: false,
+  },
 };
 
 const Tight = {

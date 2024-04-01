@@ -106,7 +106,7 @@ const commonConfig = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['swc-loader'],
         resolve: {
           fullySpecified: false,
         },
@@ -164,7 +164,7 @@ const commonConfig = {
         exclude: ['/node_modules/'],
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[hash][ext][query]',
+          filename: 'fonts/[name][ext][query]',
         },
       },
       {

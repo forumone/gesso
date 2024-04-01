@@ -10,7 +10,7 @@
   title_modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<article {{ add_attributes({ 'class': classes })}} role="article">
+<article {{ add_attributes({ 'class': classes }) }}>
   {{ title_prefix }}
   <{{ title_element ?: 'h2' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>  <a href="{{ url }}">{{ title }}</a></{{ title_element ?: 'h2' }}>
   {{ title_suffix }}

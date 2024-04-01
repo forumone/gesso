@@ -13,7 +13,7 @@ const settings = {
   decorators: [withGlobalWrapper],
   parameters: {
     controls: {
-      include: ['modifier_classes', 'allow_multiple'],
+      include: ['modifier_classes', 'allow_multiple', 'allow_toggle'],
     },
   },
 };

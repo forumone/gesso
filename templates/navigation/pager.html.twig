@@ -32,6 +32,7 @@
 #}
 {% if items %}
   {% include '@components/pager/pager.twig' with {
+    'attributes': attributes,
     'heading': 'Pagination'|t,
     'pager_items': items,
     'current': current,

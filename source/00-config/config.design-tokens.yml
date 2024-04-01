@@ -119,6 +119,12 @@ gesso:
         background-hover: grayscale.gray-5
         color: grayscale.white
         color-hover: grayscale.white
+    facet:
+      icon: grayscale.gray-3
+      icon-active: brand.blue.dark-1
+      text: brand.blue.base
+      text-hover: brand.blue.dark
+      text-active: brand.blue.dark-1
     form:
       background: grayscale.gray-1
       background-active: grayscale.white
@@ -140,6 +146,7 @@ gesso:
       background: grayscale.white
       background-head: grayscale.gray-1
       background-foot: grayscale.gray-1
+      background-sorted: brand.blue.light-2
     ui:
       generic:
         background: grayscale.gray-3
@@ -265,34 +272,38 @@ gesso:
       regular: 400
       semibold: 600
       bold: 700
+    letter-spacing:
+      tight: -0.04em
+      normal: 0
+      wide: 0.02em
     line-height:
-      tight: 1.1
+      short: 1.1
       base: 1.45
-      loose: 1.7
+      tall: 1.7
     display:
       display:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
+        line-height: short
         responsive-font-size: 15
       h1:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
+        line-height: short
         responsive-font-size: 12
       h2:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
+        line-height: short
         responsive-font-size: 10
       h3:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
+        line-height: short
         responsive-font-size: 8
       h4:
         color: text.primary
@@ -310,8 +321,8 @@ gesso:
         color: text.primary
         font-family: primary.stack
         font-weight: semibold
-        letter-spacing: -0.04em
-        line-height: loose
+        letter-spacing: tight
+        line-height: tall
         text-transform: uppercase
         responsive-font-size: 2
       blockquote:
@@ -338,8 +349,8 @@ gesso:
         font-size: 2
         font-style: normal
         font-weight: semibold
-        letter-spacing: .02em
-        line-height: tight
+        letter-spacing: wide
+        line-height: short
   transitions:
     ease:
       ease-in-out: 'cubic-bezier(0.4, 0, 0.2, 1)'

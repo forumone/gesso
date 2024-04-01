@@ -72,9 +72,8 @@
   not node.isPublished() ? 'is-unpublished',
 ] %}
 
-{% set attributes = attributes.addClass(classes) %}
-
 {% include '@components/teaser/teaser.twig' with {
+  'attributes': attributes.addClass(classes),
   'modifier_classes': '',
   'title_modifier_classes': '',
   'title_element': 'h2',

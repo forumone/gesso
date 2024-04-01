@@ -1,0 +1,18 @@
+// Component: Facet List
+
+@use '00-config' as *;
+
+.c-facet-list {
+  @include list-clean();
+
+  & & {
+    padding: rem(gesso-spacing(1)) 0 0 rem(gesso-spacing(3));
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        padding-left: 0;
+        padding-right: rem(gesso-spacing(3));
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
 import { withGlobalWrapper } from '../../../.storybook/decorators';
@@ -6,7 +7,6 @@ import globalData from '../../00-config/storybook.global-data.yml';
 import data from './article.yml';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
-import { Default as Message } from '../message/message.stories.jsx';
 import { WYSIWYG } from '../wysiwyg/wysiwyg.stories.jsx';
 
 const settings = {
@@ -15,9 +15,7 @@ const settings = {
   parameters: {
     controls: {
       include: [
-        'is_published',
         'title',
-        'show_admin_info',
         'show_footer',
         'author_name',
         'date_format',
@@ -34,7 +32,10 @@ const settings = {
 
 const Article = {
   render: args => parse(twigTemplate(args)),
-  args: { ...globalData, ...data },
+  args: {
+    ...globalData,
+    ...data,
+  },
 };
 
 export default settings;

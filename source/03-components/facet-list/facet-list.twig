@@ -1,0 +1,30 @@
+{{ attach_library('gesso/facets') }}
+
+{% set classes = [
+  'c-facet-list',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set item_classes = [
+  'c-facet-list__item',
+  item_modifier_classes ? item_modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if empty %}
+  {% set classes = classes ~ ' is-empty' %}
+  <div {{ add_attributes({ class: classes }) }}>
+    {{ empty }}
+  </div>
+{% else %}
+  <{{ list_type|default('ul') }} {{ add_attributes({ class: classes }) }}>
+    {% for facet in facets %}
+      {% if facet.is_expanded %}
+        {% set item_classes = item_classes ~ ' is-expanded' %}
+      {% endif %}
+
+      <li {{ add_attributes({ 'class': item_classes }, 'facet.attributes') }}>
+        {{- facet.value -}}
+      </li>
+    {% endfor %}
+  </{{ list_type|default('ul') }}>
+{% endif %}
