@@ -1,13 +1,12 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import ExampleBlock from './Example';
 
 export default {
   title: 'React/Example',
   component: ExampleBlock,
-} as ComponentMeta<typeof ExampleBlock>;
+} as Meta<typeof ExampleBlock>;
 
-const Example: ComponentStory<typeof ExampleBlock> = () => <ExampleBlock />;
+const Example: StoryObj<typeof ExampleBlock> = {};
 
 export { Example };

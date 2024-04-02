@@ -80,8 +80,10 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   @include svg-background(dropbutton-arrow-down);
   background-position: 50%
     (
-      math.div($dropbutton-toggle-height, 2) -
-        math.div($dropbutton-toggle-icon-size, 2)
+      math.div($dropbutton-toggle-height, 2) - math.div(
+          $dropbutton-toggle-icon-size,
+          2
+        )
     );
   background-repeat: no-repeat;
   background-size: $dropbutton-toggle-icon-size;

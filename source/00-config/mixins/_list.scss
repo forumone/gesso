@@ -11,7 +11,7 @@
   padding: 0;
 
   li {
-    padding-left: 0;
+    padding-inline-start: 0;
 
     &::before {
       display: none;
@@ -25,7 +25,7 @@
   padding-left: 0;
 
   li {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   > li {
@@ -40,22 +40,19 @@
   padding-left: 0;
 
   > li {
-    border-right: 1px solid $pipeline-border-color; // LTR
+    border-inline-end: 1px solid $pipeline-border-color;
     display: block;
-    float: left; // LTR
-    margin-right: 0.75em; // LTR
-    padding-left: 0;
-    padding-right: 0.75em; // LTR
+    float: inline-start;
+    margin-inline-end: 0.75em;
+    padding-inline: 0 0.75em;
 
-    @if $support-for-rtl {
-      [dir='rtl'] & {
-        border-left: 1px solid $pipeline-border-color;
-        border-right: 0;
-        float: right;
-        margin-left: 0.75em;
-        margin-right: 0;
-        padding-left: 0.75em;
-        padding-right: 0;
+    @supports not (float: inline-start) {
+      float: left;
+
+      @if $support-for-rtl {
+        [dir='rtl'] & {
+          float: right;
+        }
       }
     }
 
@@ -64,17 +61,9 @@
     }
 
     &:last-child {
-      border-right: 0; // LTR
-      margin-right: 0; // LTR
-      padding-right: 0; // LTR
-
-      @if $support-for-rtl {
-        [dir='rtl'] & {
-          border-left: 0;
-          margin-left: 0;
-          padding-left: 0;
-        }
-      }
+      border-inline-end: 0;
+      margin-inline-end: 0;
+      padding-inline-end: 0;
     }
   }
 }
@@ -84,15 +73,15 @@
   $list-border-color: gesso-color(ui, generic, border)
 ) {
   list-style: none;
-  margin-left: 0;
-  padding-left: 0;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
 
   li {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   > li {
-    border-bottom: 1px solid $list-border-color;
+    border-block-end: 1px solid $list-border-color;
     padding: $list-border-padding;
   }
 }
@@ -103,18 +92,18 @@
   $list-item-padding: 0.25em
 ) {
   list-style: none;
-  margin-left: 0;
-  padding-left: 0;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
 
   li {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   > li {
     break-inside: avoid-column;
     display: table; // break-inside alternative for Firefox
-    margin-bottom: 0;
-    padding-bottom: $list-item-padding; // use padding instead of margin for Safari bug with CSS columns
+    margin-block-end: 0;
+    padding-block-end: $list-item-padding; // use padding instead of margin for Safari bug with CSS columns
   }
 
   @include breakpoint(500px) {

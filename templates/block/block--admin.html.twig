@@ -12,8 +12,6 @@
   'c-block--admin',
 ] %}
 
-{% set attributes = attributes.addClass(classes) %}
-
 {% set block_content %}
   {% block block_content %}
     {{ content }}
@@ -21,6 +19,7 @@
 {% endset %}
 
 {% embed '@components/block/block.twig' with {
+  'attributes': attributes.addClass(classes),
   'hide_wrapper': not logged_in,
   'has_constrain': false,
   'hide_content_wrapper': true,

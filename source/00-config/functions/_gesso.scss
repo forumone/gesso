@@ -75,6 +75,11 @@
   @return gesso-get-map(typography, font-weight, $keys...);
 }
 
+// Get Letter Spacing
+@function gesso-letter-spacing($keys...) {
+  @return gesso-get-map(typography, letter-spacing, $keys...);
+}
+
 // Get Line Height
 @function gesso-line-height($keys...) {
   @return gesso-get-map(typography, line-height, $keys...);

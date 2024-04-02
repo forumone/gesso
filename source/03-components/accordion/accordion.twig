@@ -9,7 +9,8 @@
   <div {{ add_attributes({ class: classes }) }}>
     <div
       class="c-accordion__content js-accordion"
-      {{ allow_multiple ? 'data-allow-multiple' : '' }}
+      {{- allow_multiple ? ' data-allow-multiple' : '' -}}
+      {{- allow_toggle ? ' data-allow-toggle' : '' -}}
     >
       {{ accordion_items }}
     </div>

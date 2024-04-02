@@ -27,48 +27,47 @@
 {% endset %}
 
 {% if pager_items.previous or pager_items.next %}
-  <nav {{ add_attributes({
-    'class': classes,
-    'aria-label': heading|default('Pagination'),
-    'role': 'navigation'
-  })}}>
-    <ul class="c-pager__items js-pager__items">
+  {% apply spaceless %}
+    <nav {{ add_attributes({
+      'class': classes,
+      'aria-label': heading|default('Pagination')
+    })}}>
+      <ul class="c-pager__items js-pager__items">
 
-      {% if pager_items.previous %}
-        {% set link_label = 'Go to previous page'|t %}
-        <li class="c-pager__item c-pager__item--previous">
-          <a class="c-pager__link c-pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
-            {%- apply spaceless %}
-              {{ pager_icon_left }}
-              <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Previous'|t }}</span>
-            {% endapply -%}
-          </a>
-        </li>
-      {% endif %}
+        {% if pager_items.previous %}
+          {% set link_label = 'Previous page'|t %}
+          <li class="c-pager__item c-pager__item--previous">
+            <a class="c-pager__link c-pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
+              {%- apply spaceless %}
+                {{ pager_icon_left }}
+                {{ 'Previous'|t }}
+              {% endapply -%}
+            </a>
+          </li>
+        {% endif %}
 
-      {% if pager_items.current %}
-        <li class="c-pager__item c-pager__item--current">
-          <span class="u-visually-hidden">
-            {{ 'Currently on page'|t }}
-          </span>
-          {{ pager_items.current }}
-        </li>
-      {% endif %}
+        {% if pager_items.current %}
+          <li class="c-pager__item c-pager__item--current">
+            <span class="u-visually-hidden">
+              {{ 'Currently on page'|t }}
+            </span>
+            {{ pager_items.current }}
+          </li>
+        {% endif %}
 
-      {% if pager_items.next %}
-        {% set link_label = 'Go to next page'|t %}
-        <li class="c-pager__item c-pager__item--next">
-          <a class="c-pager__link c-pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
-            {%- apply spaceless %}
-              <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Next'|t }}</span>
-              {{ pager_icon_right }}
-            {% endapply -%}
-          </a>
-        </li>
-      {% endif %}
+        {% if pager_items.next %}
+          {% set link_label = 'Next page'|t %}
+          <li class="c-pager__item c-pager__item--next">
+            <a class="c-pager__link c-pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
+              {%- apply spaceless %}
+                {{ 'Next'|t }}
+                {{ pager_icon_right }}
+              {% endapply -%}
+            </a>
+          </li>
+        {% endif %}
 
-    </ul>
-  </nav>
+      </ul>
+    </nav>
+  {% endapply %}
 {% endif %}

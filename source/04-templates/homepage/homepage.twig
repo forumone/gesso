@@ -1,47 +1,11 @@
+{% include '@templates/template-parts/messages-and-tabs/messages-and-tabs.twig' with {
+  'is_published': is_published,
+  'show_admin_info': show_admin_info,
+  'admin_info': admin_info,
+} %}
+
 {{ title_prefix }}
 {{ title_suffix }}
-
-{% if not is_published %}
-  {% include '@components/message/message.twig' with {
-    type: 'warning',
-    messages: ['This page is unpublished.'|t],
-  } %}
-{% endif %}
-
-{% if show_admin_info %}
-  {% if not admin_info %}
-    {% set admin_info %}
-      {% include '@components/message/message.twig' with {
-        'heading': 'Status message',
-        'messages': ['This is a status message about <em class="placeholder">something</em> that has been updated. <a href="#">This is a link</a>.'],
-      } %}
-      {% include '@components/button-group/button-group.twig' with {
-        'heading': 'Primary tabs',
-        'element': 'nav',
-        'button_modifier_classes': 'c-button--base',
-        'buttons': [
-          {
-            'text': 'View',
-            'active': true,
-          },
-          {
-            'text': 'Edit',
-          },
-          {
-            'text': 'Delete',
-          },
-          {
-            'text': 'Revisions',
-          },
-        ],
-      } %}
-    {% endset %}
-  {% endif %}
-
-  {% block admin_info %}
-    {{ admin_info }}
-  {% endblock %}
-{% endif %}
 
 {% if not homepage_hero %}
   {% set homepage_hero %}

@@ -15,6 +15,6 @@
   'required',
 ] %}
 
-{% set attributes = attributes.removeClass(remove_classes) %}
-
-{% include '@components/form-item/form-item--select/_select.twig' %}
+{% include '@components/form-item/form-item--select/_select.twig' with {
+  'attributes': attributes.removeClass(remove_classes),
+} %}
