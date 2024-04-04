@@ -2,7 +2,6 @@
 // webpack.
 function importAll(r) {
   r.keys().forEach(key => {
-    console.log(key);
     r(key);
   });
 }
