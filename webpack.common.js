@@ -14,7 +14,7 @@ const __dirname =
 async function gatherProjectFiles() {
   const jsFiles = {};
   const scssFiles = {};
-  const jsGlob = new Glob('source/**/!(*.stories).[jt]s', {
+  const jsGlob = new Glob('source/**/!(*.stories).{cjs,js,ts}', {
     ignore: ['**/_*', 'source/@types/**', 'source/07-react/**'],
   });
   const scssGlob = new Glob('source/**/*.scss', jsGlob);
@@ -30,7 +30,7 @@ async function gatherProjectFiles() {
     const filePaths = currentFile.split(path.sep);
     const sourceDirIndex = filePaths.indexOf('source');
     if (sourceDirIndex >= 0) {
-      const fileName = path.basename(currentFile).replace(/\.[jt]s$/, '');
+      const fileName = path.basename(currentFile).replace(/\.c?[jt]s$/, '');
       const newFilePath = `js/${fileName}`;
       // Throw an error if duplicate files detected.
       if (jsFiles[newFilePath]) {
