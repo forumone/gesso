@@ -9,7 +9,7 @@ $l-sidebar-gutter: rem(gesso-spacing(2));
   @include breakpoint($l-sidebar-bp) {
     display: grid;
     grid-gap: $l-sidebar-gutter;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
 
     .l-sidebar__full {
       grid-column: span 1;
@@ -19,7 +19,7 @@ $l-sidebar-gutter: rem(gesso-spacing(2));
 
 .l-sidebar.has-first-sidebar {
   @include breakpoint($l-sidebar-bp) {
-    grid-template-columns: $l-sidebar-width 1fr;
+    grid-template-columns: $l-sidebar-width minmax(0, 1fr);
 
     .l-sidebar__full {
       grid-column: span 2;
@@ -39,7 +39,7 @@ $l-sidebar-gutter: rem(gesso-spacing(2));
 
 .l-sidebar.has-both-sidebars {
   @include breakpoint($l-sidebar-bp) {
-    grid-template-columns: $l-sidebar-width 1fr $l-sidebar-width;
+    grid-template-columns: $l-sidebar-width minmax(0, 1fr) $l-sidebar-width;
 
     .l-sidebar__full {
       grid-column: span 3;
