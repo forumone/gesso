@@ -29,7 +29,7 @@ $l-sidebar-gutter: rem(gesso-spacing(2));
 
 .l-sidebar.has-second-sidebar {
   @include breakpoint($l-sidebar-bp) {
-    grid-template-columns: 1fr $l-sidebar-width;
+    grid-template-columns: minmax(0, 1fr) $l-sidebar-width;
 
     .l-sidebar__full {
       grid-column: span 2;
