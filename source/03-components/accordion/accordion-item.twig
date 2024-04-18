@@ -20,7 +20,8 @@
         aria-controls="{{ section_id }}"
         tabindex="-1"
       >
-        {{ title }}
+        <span class="c-accordion-item__number"></span>
+        <span class="c-accordion-item__title">{{ title }}</span>
         <span class="c-accordion-item__icon"></span>
       </button>
     </{{ title_element ?: 'h3' }}>
