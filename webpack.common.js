@@ -124,6 +124,7 @@ const commonConfig = {
           {
             loader: 'css-loader',
             options: {
+              esModule: false,
               // Ignore /core/ URLs
               url: {
                 filter: url => !url.includes('/core/'),
