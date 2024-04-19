@@ -54,6 +54,7 @@ const config = {
                 ...swcLoaderConfig?.options?.jsc?.transform?.react,
                 development: !isProdBuild,
                 refresh: !isProdBuild,
+                runtime: 'automatic',
               },
             },
           },
