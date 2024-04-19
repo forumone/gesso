@@ -78,16 +78,20 @@ class MobileMenu extends OverlayMenu {
       blockClone.id = `${blockClone.id}-mobile`;
     }
 
-    const childrenWithId = [...blockClone.querySelectorAll('[id]')];
-    childrenWithId.forEach((e) => {
-      e.id = `${e.id}-mobile`;
-    });
+    const childrenWithId = blockClone.querySelectorAll('[id]');
+    if (childrenWithId.length) {
+      childrenWithId.forEach(e => {
+        e.id = `${e.id}-mobile`;
+      });
+    }
 
-    const childrenWithFor = [...blockClone.querySelectorAll('[for]')];
-    childrenWithFor.forEach((e) => {
+    const childrenWithFor = blockClone.querySelectorAll('[for]');
+    if (childrenWithFor.length) {
+    childrenWithFor.forEach(e => {
       const thisFor = e.getAttribute('for');
       e.setAttribute('for', `${thisFor}-mobile`);
-    });
+      });
+    }
 
     return blockClone;
   }
