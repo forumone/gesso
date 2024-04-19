@@ -37,6 +37,7 @@ const config = {
           ))
     );
     if (swcLoaderRule) {
+      swcLoaderRule.sideEffects = true;
       let swcLoaderConfig =
         swcLoaderRule.loader ||
         swcLoaderRule.use.find(
