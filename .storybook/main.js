@@ -100,7 +100,12 @@ const config = {
       test: /\.scss$/,
       use: [
         'style-loader',
-        'css-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            esModule: false,
+          },
+        },
         {
           loader: 'sass-loader',
           options: {
