@@ -26,10 +26,6 @@
     ">= 1%",
     ">= 1% in US"
   ],
-  "sideEffects": [
-    "*.stories.jsx",
-    "*.scss"
-  ],
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@storybook/addon-a11y": "^8.0.2",
