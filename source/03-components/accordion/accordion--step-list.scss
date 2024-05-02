@@ -1,0 +1,28 @@
+// Component: Accordion (Step List)
+
+@use '00-config' as *;
+
+.c-accordion--step-list {
+  counter-reset: step;
+
+  .c-accordion-item__number {
+    background-color: gesso-grayscale(gray-2);
+    border-radius: 100%;
+    display: inline-block;
+    font-size: rem(gesso-font-size(4));
+    height: rem(gesso-spacing(4));
+    margin-right: rem(gesso-spacing(2));
+    position: relative;
+    width: rem(gesso-spacing(4));
+
+    &::before {
+      content: counter(step);
+      counter-increment: step;
+      display: inline-block;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
