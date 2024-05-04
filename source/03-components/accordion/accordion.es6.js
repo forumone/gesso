@@ -19,7 +19,6 @@ Drupal.behaviors.accordion = {
         button.getAttribute('aria-expanded') === 'false'
       ) {
         button.setAttribute('aria-expanded', 'true');
-        accordionSection.setAttribute('aria-expanded', 'true');
         slideToggle(accordionSection, ACCORDION_SPEED);
       }
     };
@@ -30,7 +29,6 @@ Drupal.behaviors.accordion = {
         button.getAttribute('aria-expanded') === 'true'
       ) {
         button.setAttribute('aria-expanded', 'false');
-        accordionSection.setAttribute('aria-expanded', 'false');
         slideToggle(accordionSection, ACCORDION_SPEED);
       }
     };
