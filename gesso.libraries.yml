@@ -7,7 +7,6 @@ global:
   js:
     dist/js/universal.es6.js: {}
     dist/js/html.es6.js: {}
-    dist/js/external-link.es6.js: {}
     dist/js/table--sortable.es6.js: {}
   dependencies:
     - core/drupal
@@ -79,6 +78,14 @@ dropdown_menu:
     - core/once
     - gesso/common
     - gesso/mobile_menu
+
+external-link:
+  js:
+    dist/js/external-link.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
 
 facets:
   css:

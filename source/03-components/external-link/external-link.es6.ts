@@ -4,24 +4,19 @@ import once from 'once';
 Drupal.behaviors.externalLink = {
   attach(context, settings) {
     const { imagePath } = settings.gesso;
+    const exitDisclaimer = settings?.gesso?.externalLinkExitDisclaimer ?? 'Exit this website';
+    const allowedDomains = settings?.gesso?.externalLinkAllowedDomains ?? [];
+    const allowedLinks = settings?.gesso?.externalLinkAllowedLinks ?? [];
     const externalLinks: NodeListOf<HTMLAnchorElement> = once(
       'external-link',
       "a:not([data-not-external-link], [href=''], [href^='#'], [href^='?'], [href^='/'], [href^='.'], [href^='javascript:'], [href^='mailto:'], [href^='tel:'])",
       context
     );
-    const allowedDomains = [
-      'example-allowed-domain.com',
-    ];
-    const allowedLinks = [
-      'https://www.youtube.com/example-allowed-link',
-    ];
 
     function linkIsExternal(link: HTMLAnchorElement) {
       let external = true;
 
       if (
-        link.host === 'forumone.github.io' ||
-        link.host.endsWith('.forumone.github.io') ||
         link.host === window.location.host
       ) {
         external = false;
@@ -45,7 +40,7 @@ Drupal.behaviors.externalLink = {
 
     externalLinks.forEach(link => {
       if (link.hasAttribute('href') && linkIsExternal(link)) {
-        const accessibleLabel = Drupal.t('Exit this website');
+        const accessibleLabel = Drupal.t(exitDisclaimer);
 
         link.insertAdjacentHTML(
           'beforeend',
