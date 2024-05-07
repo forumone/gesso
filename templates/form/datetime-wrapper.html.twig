@@ -18,11 +18,9 @@
     required ? 'is-required',
   ] %}
 
-  {% set title_attributes = title_attributes.addClass(title_classes) %}
-
   {% set legend = {
     'title': title,
-    'attributes': title_attributes,
+    'attributes': title_attributes.addClass(title_classes),
   } %}
 
   {% include 'fieldset.html.twig' with {

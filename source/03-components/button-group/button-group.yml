@@ -2,13 +2,12 @@
 heading: 'Heading'
 element: 'div'
 modifier_classes: ''
-button_modifier_classes: ''
-buttons:
+button_group_data:
   -
     text: 'First button'
   -
     text: 'Active middle button'
-    active: true
+    is_active: true
   -
     text: 'Middle button'
   -

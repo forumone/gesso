@@ -45,8 +45,6 @@
     view_mode ? 'c-paragraph--view-mode-' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'is-unpublished',
   ] %}
-
-  {% set attributes = attributes.addClass(classes) %}
 {% endblock %}
 
 {% set paragraph_modifier_classes %}
@@ -83,6 +81,7 @@
 {% endset %}
 
 {% embed '@layouts/section/section.twig' with {
+  'attributes': attributes.addClass(classes),
   'modifier_classes': paragraph_modifier_classes,
   'constrain_modifier_classes': paragraph_constrain_modifier_classes,
   'has_constrain': paragraph_has_constrain,

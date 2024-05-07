@@ -71,6 +71,8 @@ icons:
   - 'minus'
   - 'plus'
   - 'rss'
+  - 'sort'
+  - 'sorted'
   - 'square'
   - 'square-check'
   - 'square-empty'

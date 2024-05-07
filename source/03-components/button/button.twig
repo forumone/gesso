@@ -11,7 +11,7 @@
   {% set button_attributes = button_attributes|merge(extra_attributes) %}
 {% endif %}
 
-{% if icon_name is not empty %}
+{% if (button_icon_before is empty and button_icon_after is empty) and icon_name is not empty %}
   {% if icon_position == 'before' or icon_position == 'both' %}
     {% set button_icon_before %}
       {%- include '@components/icon/icon.twig' with {

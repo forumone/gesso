@@ -1,0 +1,28 @@
+{{ attach_library('gesso/filters') }}
+
+{% set classes = [
+  'c-filters',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if show_filters %}
+  {% apply spaceless %}
+    <div class="{{ classes }}" aria-live="polite" aria-atomic="true">
+      <h2 class="u-visually-hidden">Active filters:</h2>
+      <{{ list_type|default('ul') }} class="c-filters__list">
+
+        {% for item in items %}
+          <li class="c-filters__item">
+            {{- item.value -}}
+          </li>
+        {% endfor %}
+
+      </{{ list_type|default('ul') }}>
+
+      {% if reset_url %}
+        <a class="c-filters__remove" href="{{ reset_url }}" rel="nofollow">{{ 'Remove all filters'|t }}</a>
+      {% endif %}
+
+    </div>
+  {% endapply %}
+{% endif %}

@@ -1,0 +1,29 @@
+---
+modifier_classes: ''
+list_type: 'ul'
+show_count: true
+empty: ''
+facets_data:
+  -
+    title: 'First Facet'
+    count: '7'
+  -
+    title: 'Second Active Facet'
+    is_active: true
+    count: '123'
+    children:
+      -
+        title: 'First Nested Facet'
+        count: '86'
+      -
+        title: 'Second Nested Facet'
+        count: '9'
+      -
+        title: 'Third Nested Facet'
+        count: '28'
+  -
+    title: 'Third Facet'
+    count: '90'
+  -
+    title: 'Fourth Facet'
+    count: '11'

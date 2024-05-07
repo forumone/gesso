@@ -1,0 +1,31 @@
+// Component: Filters
+
+@use '00-config' as *;
+
+.c-filters {
+  margin-bottom: rem(gesso-spacing(2));
+}
+
+.c-filters__list {
+  @include list-clean();
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: rem(gesso-spacing(1.5));
+  margin: 0 rem(gesso-spacing(2)) rem(gesso-spacing(1)) 0;
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      margin-left: rem(gesso-spacing(2));
+      margin-right: 0;
+    }
+  }
+}
+
+.c-filters__item {
+  margin: 0;
+}
+
+.c-filters__remove {
+  @include responsive-font-size(2);
+  display: inline-block;
+}

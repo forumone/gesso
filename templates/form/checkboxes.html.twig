@@ -12,6 +12,6 @@
 #}
 
 {# 'form-checkboxes' is a Drupal core class used by some modules (e.g., webform) #}
-{% set attributes = attributes.addClass('form-checkboxes') %}
-
-{% include '@components/form-item/form-item--checkboxes/form-item--checkboxes.twig' %}
+{% include '@components/form-item/form-item--checkboxes/form-item--checkboxes.twig' with {
+  'attributes': attributes.addClass('form-checkboxes'),
+} %}

@@ -1,4 +1,5 @@
 {% include '@components/accordion/accordion-item.twig' with {
+  'attributes': attributes,
   'modifier_classes': '',
   'title_element': 'h3',
   'title': content.field_accordion_heading|field_value is not empty ? content.field_accordion_heading|field_value : false,

@@ -4,7 +4,7 @@ name: Publish demo site
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the 4.x branch
+  # Triggers the workflow on push or pull request events but only for the 5.x branch
   push:
     branches:
       - 5.x
@@ -30,7 +30,7 @@ jobs:
       - name: Build Storybook artifact
         run: npm run build-storybook
       # Uploads the Storybook artifact
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v3
         with:
           name: 'github-pages'
           path: './storybook'
@@ -46,4 +46,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4

@@ -14,6 +14,7 @@
  */
 #}
 {% include '@components/file/file.twig' with {
+  'attributes': attributes,
   'url': link['#url'],
   'file_name': link['#title'],
   'file_mime': file.filemime.value,

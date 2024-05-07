@@ -48,6 +48,7 @@
 {% endif %}
 
 {% include '@templates/page/page.twig' with {
+  'attributes': attributes,
   'is_published': media.status.value,
   'title': page_title,
   'show_admin_info': show_admin_info,
