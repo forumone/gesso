@@ -5,7 +5,7 @@
   'c-accordion-item',
   'js-accordion-item',
   modifier_classes ? modifier_classes : '',
-]|join(' ')|trim %}
+]|join(' ')|trim %} 
 
 <div
   {{ add_attributes({ class: classes }) -}}
@@ -29,7 +29,6 @@
       id="{{ section_id }}"
       role="region"
       aria-labelledby="{{ button_id }}"
-      aria-expanded="true"
     >
       <div class="c-accordion-item__drawer-inner">
         {{ content }}
