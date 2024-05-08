@@ -41,9 +41,9 @@
 
 {%- apply spaceless %}
   {% set button_content %}
-    {{ button_icon_before }}
+    {{- button_icon_before -}}
     {{- text -}}
-    {{ button_icon_after }}
+    {{- button_icon_after -}}
   {% endset %}
 
   {% if is_button_tag %}
