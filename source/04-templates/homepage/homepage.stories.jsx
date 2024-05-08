@@ -10,7 +10,7 @@ import { MessagesandTabs } from '../template-parts/messages-and-tabs/messages-an
 import { HeroImage } from '../../01-global/images/hero-image.stories.jsx';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
-import { Default as HeroBGImage } from '../../03-components/hero-bg-image/hero-bg-image.stories.jsx';
+import '../../03-components/hero-bg-image/hero-bg-image.stories.jsx';
 
 const settings = {
   title: 'Templates/Homepage',
