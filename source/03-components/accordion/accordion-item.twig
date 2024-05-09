@@ -5,7 +5,7 @@
   'c-accordion-item',
   'js-accordion-item',
   modifier_classes ? modifier_classes : '',
-]|join(' ')|trim %} 
+]|join(' ')|trim %}
 
 <div
   {{ add_attributes({ class: classes }) -}}
@@ -20,7 +20,10 @@
         aria-controls="{{ section_id }}"
         tabindex="-1"
       >
-        <span class="c-accordion-item__number"></span>
+        {% if is_step_list %}
+          <span class="c-accordion-item__number"></span>
+        {% endif %}
+
         <span class="c-accordion-item__title">{{ title }}</span>
         <span class="c-accordion-item__icon"></span>
       </button>
