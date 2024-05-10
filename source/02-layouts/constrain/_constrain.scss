@@ -7,6 +7,10 @@
   @include layout-constrain();
 }
 
+.l-constrain--small {
+  max-width: rem(gesso-constrain(sm));
+}
+
 .l-constrain--large {
   max-width: rem(gesso-constrain(lg));
 }
