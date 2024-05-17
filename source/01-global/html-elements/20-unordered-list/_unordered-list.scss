@@ -16,6 +16,6 @@ ul {
 
   ol,
   ul {
-    margin-top: rem(math.div(gesso-spacing(2), 2));
+    margin-block-start: rem(math.div(gesso-spacing(2), 2));
   }
 }

@@ -21,7 +21,7 @@
   flex-basis: auto;
   flex-grow: 0;
   flex-shrink: 0;
-  margin-bottom: rem($gutter-width);
+  margin-block-end: rem($gutter-width);
   margin-left: rem(math.div($gutter-width, 2));
   margin-right: rem(math.div($gutter-width, 2));
   width: calc(#{$column-percentage} - #{rem($gutter-width)});

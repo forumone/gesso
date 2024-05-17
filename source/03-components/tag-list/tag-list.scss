@@ -8,6 +8,6 @@
 
 .c-tag-list__item {
   display: inline-block;
-  margin-bottom: rem(gesso-spacing(1));
-  margin-right: rem(gesso-spacing(1));
+  margin-block-end: rem(gesso-spacing(1));
+  margin-inline-end: rem(gesso-spacing(1));
 }

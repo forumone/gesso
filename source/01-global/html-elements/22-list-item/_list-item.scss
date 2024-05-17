@@ -3,10 +3,10 @@
 @use '00-config' as *;
 
 li {
-  margin-bottom: rem(gesso-spacing(1));
+  margin-block-end: rem(gesso-spacing(1));
 
   &:last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   @media print {

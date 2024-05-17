@@ -11,15 +11,13 @@ $form-select-arrow-size: 20px !default;
     background-position: right rem(math.div($form-select-arrow-size, 2)) center; // LTR
     background-repeat: no-repeat;
     background-size: rem($form-select-arrow-size);
-    padding-right: rem($form-select-arrow-size * 2); // LTR
+    padding-inline-end: rem($form-select-arrow-size * 2);
 
     @if $support-for-rtl {
       [dir='rtl'] & {
         background-position: left
           rem(math.div($form-select-arrow-size, 2))
           center;
-        padding-left: rem($form-select-arrow-size * 2);
-        padding-right: 0;
       }
     }
 

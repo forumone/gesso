@@ -4,14 +4,14 @@
 
 .c-figure {
   display: table;
-  margin-bottom: rem(gesso-spacing(2));
-  margin-top: 0;
+  margin-block-end: rem(gesso-spacing(2));
+  margin-block-start: 0;
 
   &.align-center,
   &.u-align-center {
     clear: both;
     display: table;
-    margin-top: rem(gesso-spacing(2));
+    margin-block-start: rem(gesso-spacing(2));
   }
 
   &.align-left,
@@ -44,10 +44,10 @@
     // stylelint-enable
 
     .media-library-item__edit {
-      left: rem(gesso-spacing(1));
+      inset-block-start: rem(gesso-spacing(1));
+      inset-inline-end: initial;
+      inset-inline-start: rem(gesso-spacing(1));
       position: absolute;
-      right: initial;
-      top: rem(gesso-spacing(1));
     }
   }
 }
@@ -56,7 +56,7 @@
   caption-side: bottom;
   display: table-caption;
   font-weight: gesso-font-weight(semibold);
-  margin-top: rem(gesso-spacing(1));
+  margin-block-start: rem(gesso-spacing(1));
 }
 
 .c-figure--iframe {

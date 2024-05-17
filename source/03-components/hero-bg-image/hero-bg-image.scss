@@ -13,22 +13,22 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 
   > img {
     height: 100%;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     object-fit: cover;
     position: absolute;
-    top: 0;
     width: 100%;
   }
 
   &.has-overlay {
     &::after {
       background: rgba(0, 0, 0, 0.5);
-      bottom: 0;
       content: '';
-      left: 0;
+      inset-block-end: 0;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      inset-inline-start: 0;
       position: absolute;
-      right: 0;
-      top: 0;
       z-index: 1;
     }
   }
@@ -42,39 +42,39 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 .c-hero-bg-image__title {
   @include display-text-style(display);
   color: gesso-color(text, on-dark);
-  margin-bottom: rem(gesso-spacing(5));
+  margin-block-end: rem(gesso-spacing(5));
 
   @include breakpoint-max($hero-bg-image-bp, true) {
     font-size: rem(gesso-font-size(12));
-    margin-bottom: rem(gesso-spacing(3));
+    margin-block-end: rem(gesso-spacing(3));
   }
 }
 
 .c-hero-bg-image__summary {
   @include display-text-style(body-large);
   color: gesso-color(text, on-dark);
-  margin-bottom: rem(gesso-spacing(5));
+  margin-block-end: rem(gesso-spacing(5));
 
   @include breakpoint-max($hero-bg-image-bp, true) {
     font-size: rem(gesso-font-size(3));
-    margin-bottom: rem(gesso-spacing(3));
+    margin-block-end: rem(gesso-spacing(3));
   }
 }
 
 .c-hero-bg-image--left {
-  text-align: left;
+  text-align: start;
 
   @include breakpoint($hero-bg-image-bp) {
-    padding-left: 10%;
-    padding-right: 35%;
+    padding-inline-end: 35%;
+    padding-inline-start: 10%;
   }
 }
 
 .c-hero-bg-image--right {
-  text-align: left;
+  text-align: start;
 
   @include breakpoint($hero-bg-image-bp) {
-    padding-left: 35%;
-    padding-right: 10%;
+    padding-inline-end: 10%;
+    padding-inline-start: 35%;
   }
 }

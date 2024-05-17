@@ -22,19 +22,20 @@
 .align-center,
 .u-align-center {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 // Text alignment
 .text-align-left,
-.u-text-align-left {
-  text-align: left;
+.u-text-align-left,
+.u-text-align-start {
+  text-align: start;
 }
 
 .text-align-right,
-.u-text-align-right {
-  text-align: right;
+.u-text-align-right,
+.u-text-align-end {
+  text-align: end;
 }
 
 .text-align-center,

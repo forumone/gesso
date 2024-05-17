@@ -3,17 +3,17 @@
 @use '00-config' as *;
 
 .gesso-storybook-font {
-  margin-bottom: rem(45px);
+  margin-block-end: rem(45px);
 }
 
 .gesso-storybook-font__family {
   font-size: rem(20px);
   font-weight: 700;
-  margin-bottom: rem(5px);
+  margin-block-end: rem(5px);
   text-align: center;
 
   @include breakpoint(800px) {
-    text-align: left;
+    text-align: start;
   }
 }
 
@@ -38,10 +38,10 @@
 
   @include breakpoint(800px) {
     border-bottom: 0;
-    border-right: 2px solid #eee;
+    border-inline-end: 2px solid #eee;
     margin: rem(5px) rem(30px) 0 0;
     padding: 0 rem(20px);
-    text-align: left;
+    text-align: start;
     width: 65%;
   }
 }
@@ -55,7 +55,7 @@
 
   @include breakpoint(800px) {
     flex-shrink: 0;
-    text-align: left;
+    text-align: start;
     width: 35%;
   }
 }
@@ -65,7 +65,7 @@
   width: 100%;
 
   @include breakpoint(800px) {
-    text-align: left;
+    text-align: start;
   }
 }
 
@@ -83,11 +83,11 @@
 .gesso-storybook-font__weight {
   color: #000;
   font-size: rem(13px);
-  margin-bottom: rem(5px);
+  margin-block-end: rem(5px);
 }
 
 .gesso-storybook-font__style {
   color: #000;
   font-size: rem(13px);
-  margin-bottom: rem(5px);
+  margin-block-end: rem(5px);
 }

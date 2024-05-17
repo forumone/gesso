@@ -3,6 +3,6 @@
 @use '00-config' as *;
 
 .c-form-item--checkboxes {
-  margin-bottom: rem(gesso-spacing(0.5));
-  margin-top: rem(gesso-spacing(0.5));
+  margin-block-end: rem(gesso-spacing(0.5));
+  margin-block-start: rem(gesso-spacing(0.5));
 }

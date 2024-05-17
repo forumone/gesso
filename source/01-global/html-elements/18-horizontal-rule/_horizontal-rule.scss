@@ -14,6 +14,6 @@ hr {
 
   // Add top margin when preceded by another element.
   * + & {
-    margin-top: rem(gesso-spacing(3));
+    margin-block-start: rem(gesso-spacing(3));
   }
 }

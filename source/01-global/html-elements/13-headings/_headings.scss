@@ -22,7 +22,7 @@
 
   // Add top margin when headers are preceded by other elements (p, ul, etc.)
   * + & {
-    margin-top: 1em;
+    margin-block-start: 1em;
   }
 }
 
@@ -70,6 +70,6 @@ h5,
 h6 {
   // Remove top margin for adjacent subheadings.
   & + & {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 }
