@@ -1,8 +1,7 @@
 import Drupal from 'drupal';
 import once from 'once';
-import KEYCODE from '../../00-config/_KEYCODE.es6';
 
-Drupal.behaviors.accordion = {
+Drupal.behaviors.gessoModal = {
   attach(context) {
     const MODAL_CLASS = 'js-modal';
     const MODAL_INNER_CLASS = 'js-modal-inner';
@@ -21,28 +20,27 @@ Drupal.behaviors.accordion = {
       context
     );
 
+    // Close modal on overlay click
+    const handleOverlayClick = event => {
+      if (event.target.closest(`.${MODAL_INNER_CLASS}`)) return;
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
+      closeModal(event.currentTarget);
+    };
+
     // Function to show modal
     const openModal = modal => {
       modal.showModal();
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       modal.addEventListener('click', handleOverlayClick);
       // Turn off scrolling on the body
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('has-open-modal');
     };
 
     // Function to close modal
     const closeModal = modal => {
       modal.close();
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       modal.removeEventListener('click', handleOverlayClick);
       // Turn on scrolling on the body
-      document.body.style.overflow = '';
-    };
-
-    // Close modal on overlay click
-    const handleOverlayClick = event => {
-      if (event.target.closest(`.${MODAL_INNER_CLASS}`)) return;
-      closeModal(event.currentTarget);
+      document.body.classList.remove('has-open-modal');
     };
 
     // Function to handle key downs while modal is open
@@ -55,7 +53,7 @@ Drupal.behaviors.accordion = {
         focusableElements[focusableElements.length - 1];
 
       element.addEventListener('keydown', e => {
-        if (e.key === 'Tab' || e.keyCode === KEYCODE.TAB) {
+        if (e.key === 'Tab') {
           // If shift key pressed for shift + tab combination
           if (e.shiftKey) {
             if (document.activeElement === firstFocusableElement) {
@@ -70,10 +68,9 @@ Drupal.behaviors.accordion = {
             firstFocusableElement.focus();
             e.preventDefault();
           }
-        } else if (e.key === 'Escape' || e.keyCode === KEYCODE.ESCAPE) {
+        } else if (e.key === 'Escape') {
           // Close modal on escape key press
           e.preventDefault();
-          // eslint-disable-next-line @typescript-eslint/no-use-before-define
           closeModal(element);
         }
       });
