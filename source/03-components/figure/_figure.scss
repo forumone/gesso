@@ -2,6 +2,9 @@
 
 @use '00-config' as *;
 
+$align-margin: rem(gesso-spacing(4));
+$align-max-width: calc(50% - #{rem(gesso-spacing(2))});
+
 .c-figure {
   display: table;
   margin-block-end: rem(gesso-spacing(2));
@@ -14,19 +17,33 @@
     margin-block-start: rem(gesso-spacing(2));
   }
 
+  &.u-align-inline-end {
+    @include breakpoint(gesso-breakpoint(tablet)) {
+      margin-inline-start: $align-margin;
+      max-width: $align-max-width;
+    }
+  }
+
+  &.u-align-inline-start {
+    @include breakpoint(gesso-breakpoint(tablet)) {
+      margin-inline-end: $align-margin;
+      max-width: $align-max-width;
+    }
+  }
+
   &.align-left,
   &.u-align-left {
     @include breakpoint(gesso-breakpoint(tablet)) {
-      margin-right: rem(gesso-spacing(4));
-      max-width: calc(50% - #{rem(gesso-spacing(2))});
+      margin-right: $align-margin;
+      max-width: $align-max-width;
     }
   }
 
   &.align-right,
   &.u-align-right {
     @include breakpoint(gesso-breakpoint(tablet)) {
-      margin-left: rem(gesso-spacing(4));
-      max-width: calc(50% - #{rem(gesso-spacing(2))});
+      margin-left: $align-margin;
+      max-width: $align-max-width;
     }
   }
 

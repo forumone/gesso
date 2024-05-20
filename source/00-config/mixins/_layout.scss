@@ -3,6 +3,22 @@
 @use '../functions' as *;
 @use 'breakpoint' as *;
 
+@mixin layout-align-inline-end($margin) {
+  float: inline-end;
+
+  @if $margin {
+    margin-inline-start: $margin;
+  }
+}
+
+@mixin layout-align-inline-start($margin) {
+  float: inline-start;
+
+  @if $margin {
+    margin-inline-end: $margin;
+  }
+}
+
 @mixin layout-align-left($margin) {
   float: left;
 
