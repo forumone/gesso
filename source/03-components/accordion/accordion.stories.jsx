@@ -6,6 +6,7 @@ import accordionItemTemplate from './accordion-item.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './accordion.yml';
 import './accordion.scss';
+import './accordion--step-list.scss';
 import './accordion.es6';
 
 const settings = {
@@ -18,7 +19,7 @@ const settings = {
   },
 };
 
-const Accordion = {
+const Default = {
   render: args => {
     const accordionItems = (args.accordion_data || data.accordion_data)
       .map(item => accordionItemTemplate(item, args))
@@ -34,5 +35,14 @@ const Accordion = {
   args: { ...globalData, ...data },
 };
 
+const StepList = {
+  ...Default,
+  args: {
+    ...Default.args,
+    step_list: true,
+  },
+};
+
 export default settings;
-export { Accordion };
+export { Default, StepList };
+
