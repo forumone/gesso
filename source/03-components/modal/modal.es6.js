@@ -33,6 +33,9 @@ Drupal.behaviors.gessoModal = {
       modal.addEventListener('click', handleOverlayClick);
       // Turn off scrolling on the body
       document.body.classList.add('has-open-modal');
+
+      const event = new CustomEvent('openmodal');
+      modal.dispatchEvent(event);
     };
 
     // Function to close modal
@@ -41,6 +44,9 @@ Drupal.behaviors.gessoModal = {
       modal.removeEventListener('click', handleOverlayClick);
       // Turn on scrolling on the body
       document.body.classList.remove('has-open-modal');
+
+      const event = new CustomEvent('closemodal');
+      modal.dispatchEvent(event);
     };
 
     // Function to handle key downs while modal is open
