@@ -22,10 +22,10 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
--   [Node](https://nodejs.org/en/) version 18.12 or greater. Long-term stable
+-   [Node](https://nodejs.org/en/) version 20. Long-term stable
     recommended.
 
--   [npm](https://www.npmjs.com/get-npm) version 9.8.1 or greater.
+-   [npm](https://www.npmjs.com/get-npm) version 10.7.0 or greater.
 
 ## Installation
 
