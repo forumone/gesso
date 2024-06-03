@@ -98,7 +98,6 @@
     "remove-files-webpack-plugin": "^1.5.0",
     "sass-embedded": "^1.72.0",
     "storybook": "^8.0.2",
-    "stylelint-webpack-plugin": "^3.3.0",
     "svg-sprite-loader": "^6.0.11",
     "svg-transform-loader": "^2.0.13",
     "terser-webpack-plugin": "^5.3.10",
