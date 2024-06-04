@@ -17,7 +17,7 @@ function setupTwig(twig) {
   twigDrupal(twig);
   twigAttributes(twig);
   keysort(twig);
-  uniqueId(twig);
+  cleanUniqueId(twig);
   fieldValue(twig);
   return twig;
 }
