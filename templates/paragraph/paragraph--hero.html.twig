@@ -2,12 +2,16 @@
 /**
  * @file
  * Theme implementation to display a paragraph.
+ *
+ * This paragraph can use either of the following hero components:
+ * - @components/hero-bg-image/hero-bg-image.twig
+ * - @components/hero-inline-image/hero-inline-image.twig
  */
 #}
 {% include '@components/hero-inline-image/hero-inline-image.twig' with {
   'attributes': attributes,
-  'modifier_classes': paragraph.field_hero_alignment.value ? 'c-hero-inline-image--' ~ paragraph.field_hero_alignment.value : '',
-  'hero_media': content.field_hero_image|field_value,
+  'modifier_classes': paragraph.field_hero_alignment.value ? 'has-content-' ~ paragraph.field_hero_alignment.value : '',
+  'hero_image': content.field_hero_image|field_value,
   'has_overlay': paragraph.field_hero_has_overlay is not empty ? paragraph.field_hero_has_overlay.value : false,
   'hero_title': content.field_hero_heading|field_value is not empty ? content.field_hero_heading|field_value : false,
   'hero_summary': content.field_hero_body|field_value is not empty ? content.field_hero_body|field_value : false,
