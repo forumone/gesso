@@ -22,7 +22,7 @@ const settings = {
 const Default = {
   render: args => {
     const accordionItems = (args.accordion_data || data.accordion_data)
-      .map(item => accordionItemTemplate(item, args))
+      .map(item => accordionItemTemplate({ ...args, ...item }))
       .join('');
 
     return parse(
@@ -39,10 +39,9 @@ const StepList = {
   ...Default,
   args: {
     ...Default.args,
-    step_list: true,
+    is_step_list: true,
   },
 };
 
 export default settings;
 export { Default, StepList };
-

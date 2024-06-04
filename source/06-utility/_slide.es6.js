@@ -22,11 +22,15 @@ export const slideCollapse = (
   easing = TRANSITIONS.ease['ease-in-out'],
   hideContent = true
 ) => {
+  // Change duration if user prefers reduced motion.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const slideDuration = prefersReducedMotion.matches ? '1ms' : duration;
+
   target.style.height = `${target.offsetHeight}px`;
 
   window.requestAnimationFrame(() => {
     target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = duration;
+    target.style.transitionDuration = slideDuration;
     target.style.transitionTimingFunction = easing;
     target.style.boxSizing = 'border-box';
     target.style.overflow = 'hidden';
@@ -80,6 +84,9 @@ export const slideExpand = (
   easing = TRANSITIONS.ease['ease-in-out'],
   hideContent = true
 ) => {
+  // Change duration if user prefers reduced motion.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const slideDuration = prefersReducedMotion.matches ? '1ms' : duration;
   let height;
 
   if (hideContent) {
@@ -110,7 +117,7 @@ export const slideExpand = (
     target.style.marginBottom = '0';
     target.style.boxSizing = 'border-box';
     target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = duration;
+    target.style.transitionDuration = slideDuration;
     target.style.transitionTimingFunction = easing;
 
     window.requestAnimationFrame(() => {
