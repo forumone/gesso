@@ -1,0 +1,8 @@
+// Mixins: SVG Mask Image
+// Can be use similarly to svg-background-image mixin, but allows color change of
+// icon using background-color property.
+
+@mixin svg-mask-image($image-name, $image-location: 'images/backgrounds/') {
+  $url: $image-location + $image-name + '.svg';
+  mask-image: url($url);
+}
