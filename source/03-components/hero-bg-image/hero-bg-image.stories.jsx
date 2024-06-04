@@ -19,7 +19,7 @@ const Left = {
   ...Default,
   args: {
     ...data,
-    modifier_classes: 'c-hero-bg-image--left',
+    modifier_classes: 'has-content-left',
   },
 };
 
@@ -27,7 +27,7 @@ const Right = {
   ...Default,
   args: {
     ...data,
-    modifier_classes: 'c-hero-bg-image--right',
+    modifier_classes: 'has-content-right',
   },
 };
 
