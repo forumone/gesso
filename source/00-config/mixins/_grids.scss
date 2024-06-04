@@ -74,7 +74,7 @@
 ) {
   grid-template-columns: repeat(auto-fit, minmax(#{$item-min-width}, 1fr));
 
-  @if $gutter {
+  @if $gutter-width {
     grid-gap: rem($gutter-width);
   }
 
