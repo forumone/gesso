@@ -12,7 +12,14 @@
 
 <details {{ add_attributes({ 'class': classes }) }}>
   {% if details_summary %}
-    <summary {{ add_attributes({ 'class': summary_classes, 'role': 'button' }) }}>{{ details_summary }}</summary>
+    <summary {{ add_attributes({ 'class': summary_classes, 'role': 'button' }) }}>
+      {{ details_summary }}
+      {% include '@components/icon/icon.twig' with {
+        'is_hidden': true,
+        'icon_name': 'plus',
+        'direction': 'left',
+      } %}
+    </summary>
   {% endif %}
   <div class="c-details__content">
     {% if details_description %}

@@ -13,29 +13,24 @@ $details-text-color: gesso-color(text, on-light) !default;
 }
 
 .c-details__summary {
-  @include svg-background(plus);
   background-color: $details-background-color;
-  background-position: right $details-padding center; // LTR
-  background-repeat: no-repeat;
-  background-size: rem(13px);
   cursor: pointer;
-  display: block;
+  display: flex;
   font-weight: gesso-font-weight(bold);
+  justify-content: space-between;
   line-height: 1;
   outline: 0;
-  padding: rem(15px) rem(55px) rem(15px) $details-padding; // LTR
+  padding: rem(15px) $details-padding; // LTR
   transition: background gesso-duration(short) gesso-easing(ease-in-out);
 
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      background-position: left $details-padding center;
-      padding-left: rem(55px);
-      padding-right: $details-padding;
-    }
+  .c-icon {
+    transition: transform gesso-duration(short) gesso-easing(ease-in-out);
   }
 
   [open] > & {
-    @include svg-background(minus);
+    .c-icon {
+      transform: rotate(45deg);
+    }
   }
 
   &:hover {
@@ -48,10 +43,6 @@ $details-text-color: gesso-color(text, on-light) !default;
 
   &::-webkit-details-marker {
     display: none;
-  }
-
-  &::before {
-    display: none; // remove icon added by polyfill
   }
 }
 
