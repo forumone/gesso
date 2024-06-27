@@ -1,7 +1,7 @@
 ---
 allow_multiple: true
 allow_toggle: true
-step_list: false
+is_step_list: false
 accordion_data:
   - title: 'First Accordion Heading'
     is_open: true

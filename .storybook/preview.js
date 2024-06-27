@@ -3,7 +3,7 @@ import { useEffect } from '@storybook/preview-api';
 import twigDrupal from 'twig-drupal-filters';
 import twigAttributes from '../lib/addAttributesTwigExtension';
 import keysort from '../lib/keysort';
-import uniqueId from '../lib/uniqueId';
+import cleanUniqueId from '../lib/cleanUniqueId';
 import fieldValue from '../lib/fieldValue';
 import './stubs/drupal';
 import './stubs/once';
@@ -17,7 +17,7 @@ function setupTwig(twig) {
   twigDrupal(twig);
   twigAttributes(twig);
   keysort(twig);
-  uniqueId(twig);
+  cleanUniqueId(twig);
   fieldValue(twig);
   return twig;
 }

@@ -11,7 +11,7 @@
   hide_title ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}
 
-{% set breadcrumb_id = 'breadcrumb-label'|unique_id %}
+{% set breadcrumb_id = 'breadcrumb-label'|clean_unique_id %}
 
 <nav {{ add_attributes({
   'aria-labelledby': breadcrumb_id,

@@ -10,6 +10,6 @@
  * @see template_preprocess_form()
  */
 #}
-<form{{ attributes.setAttribute('id', attributes.id|unique_id) }}>
+<form{{ attributes.setAttribute('id', attributes.id|clean_unique_id) }}>
   {{ children }}
 </form>
