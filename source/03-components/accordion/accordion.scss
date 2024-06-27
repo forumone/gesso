@@ -10,7 +10,7 @@ $accordion-item-icon-weight: 2px !default;
 // .c-accordion {}
 
 .c-accordion-item {
-  border-bottom: solid 1px $accordion-item-border-color;
+  border-block-end: solid 1px $accordion-item-border-color;
 }
 
 .c-accordion-item__heading {

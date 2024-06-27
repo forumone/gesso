@@ -65,7 +65,7 @@ $details-text-color: gesso-color(text, on-light) !default;
 .c-details__content {
   background: $details-content-background-color;
   border: 3px solid $details-background-color;
-  border-top: 0;
+  border-block-start: 0;
   padding: $details-padding;
 
   > :last-child {

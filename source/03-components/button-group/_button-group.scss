@@ -32,20 +32,20 @@
   }
 
   .c-button-group__link {
+    border-block-start-width: 0;
     border-radius: 0;
-    border-top-width: 0;
 
     @include breakpoint(gesso-breakpoint(tablet)) {
+      border-block-start-width: $button-border-width;
       border-inline-start-width: 0;
-      border-top-width: $button-border-width;
     }
   }
 
   &:first-child {
     .c-button-group__link {
+      border-block-start-width: $button-border-width;
       border-start-end-radius: $button-border-radius;
       border-start-start-radius: $button-border-radius;
-      border-top-width: $button-border-width;
 
       @include breakpoint(gesso-breakpoint(tablet)) {
         border-end-start-radius: $button-border-radius;

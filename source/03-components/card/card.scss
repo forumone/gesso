@@ -9,7 +9,7 @@ $card-meta-color: gesso-color(ui, generic, text-dark) !default;
 $card-padding: rem(gesso-spacing(3)) !default;
 
 .c-card {
-  border-bottom: 4px solid $card-accent-border-color;
+  border-block-end: 4px solid $card-accent-border-color;
   box-shadow: gesso-box-shadow(1);
   display: flex;
   flex-direction: column;

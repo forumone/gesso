@@ -7,7 +7,7 @@ $swatch-size: rem(150px);
 $swatch-padding: 1rem;
 
 .gesso-storybook-color__group {
-  border-bottom: 1px solid #eee;
+  border-block-end: 1px solid #eee;
   display: flex;
   flex-wrap: wrap;
   margin-block-end: $swatch-padding;
