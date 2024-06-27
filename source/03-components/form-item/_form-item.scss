@@ -12,7 +12,8 @@ $form-disabled-opacity: 0.35 !default;
 $form-text-size: gesso-base-font-size() !default;
 
 .c-form-item {
-  margin: 0 0 rem(gesso-spacing(3));
+  margin-block: 0 rem(gesso-spacing(3));
+  margin-inline: 0;
 }
 
 %disabled-form-styles {

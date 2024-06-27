@@ -6,7 +6,8 @@ $blockquote-cite-divider-color: gesso-color(ui, generic, border);
 
 blockquote {
   @include display-text-style(blockquote);
-  margin: 0 0 rem(gesso-spacing(5));
+  margin-block: 0 rem(gesso-spacing(5));
+  margin-inline: 0;
 
   // Add top margin when blockquote is preceded by other elements
   * + & {

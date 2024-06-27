@@ -24,10 +24,8 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
     &::after {
       background: rgba(0, 0, 0, 0.5);
       content: '';
-      inset-block-end: 0;
-      inset-block-start: 0;
-      inset-inline-end: 0;
-      inset-inline-start: 0;
+      inset-block: 0;
+      inset-inline: 0;
       position: absolute;
       z-index: 1;
     }
@@ -65,8 +63,7 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
   text-align: start;
 
   @include breakpoint($hero-bg-image-bp) {
-    padding-inline-end: 35%;
-    padding-inline-start: 10%;
+    padding-inline: 10% 35%;
   }
 }
 
@@ -74,7 +71,6 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
   text-align: start;
 
   @include breakpoint($hero-bg-image-bp) {
-    padding-inline-end: 10%;
-    padding-inline-start: 35%;
+    padding-inline: 35% 10%;
   }
 }

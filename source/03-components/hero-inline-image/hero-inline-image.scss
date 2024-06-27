@@ -14,10 +14,8 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
       &::after {
         background: rgba(0, 0, 0, 0.5);
         content: '';
-        inset-block-end: 0;
-        inset-block-start: 0;
-        inset-inline-end: 0;
-        inset-inline-start: 0;
+        inset-block: 0;
+        inset-inline: 0;
         position: absolute;
         z-index: 1;
       }
@@ -48,10 +46,8 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
   @include breakpoint($hero-inline-image-bp) {
     display: flex;
     flex-direction: column;
-    inset-block-end: 5%;
-    inset-block-start: 5%;
-    inset-inline-end: 15%;
-    inset-inline-start: 15%;
+    inset-block: 5%;
+    inset-inline: 15%;
     justify-content: center;
     position: absolute;
   }
@@ -85,8 +81,7 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
   .c-hero-inline-image__content {
     @include breakpoint($hero-inline-image-bp) {
       align-items: flex-start;
-      inset-inline-end: 35%;
-      inset-inline-start: 10%;
+      inset-inline: 10% 35%;
     }
   }
 }
@@ -95,8 +90,7 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
   .c-hero-inline-image__content {
     @include breakpoint($hero-inline-image-bp) {
       align-items: flex-start;
-      inset-inline-end: 10%;
-      inset-inline-start: 35%;
+      inset-inline: 35% 10%;
     }
   }
 }

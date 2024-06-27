@@ -60,8 +60,7 @@
   @include text-button();
   color: inherit;
   display: block;
-  inset-block-end: rem(gesso-spacing(0.5));
-  inset-block-start: rem(gesso-spacing(0.5));
+  inset-block: rem(gesso-spacing(0.5));
   inset-inline-end: rem(gesso-spacing(0.5));
   outline-offset: 0;
   position: absolute;

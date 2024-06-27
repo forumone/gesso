@@ -9,7 +9,8 @@ $details-padding: rem(24px) !default;
 $details-text-color: gesso-color(text, on-light) !default;
 
 .c-details {
-  margin: 0 0 rem(gesso-spacing(4));
+  margin-block: 0 rem(gesso-spacing(4));
+  margin-inline: 0;
 }
 
 .c-details__summary {
@@ -23,9 +24,8 @@ $details-text-color: gesso-color(text, on-light) !default;
   font-weight: gesso-font-weight(bold);
   line-height: 1;
   outline: 0;
-  padding: rem(15px);
-  padding-inline-end: rem(55px);
-  padding-inline-start: $details-padding;
+  padding-block: rem(15px);
+  padding-inline: $details-padding rem(55px);
   transition: background gesso-duration(short) gesso-easing(ease-in-out);
 
   @if $support-for-rtl {

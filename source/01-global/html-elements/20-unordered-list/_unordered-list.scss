@@ -5,8 +5,8 @@
 
 ul {
   list-style-type: disc;
-  margin: 0;
-  margin-block-end: rem(gesso-spacing(2));
+  margin-block: 0 rem(gesso-spacing(2));
+  margin-inline: 0;
   padding: 0;
   padding-inline-start: rem(gesso-spacing(3));
 

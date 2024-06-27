@@ -3,7 +3,8 @@
 @use '00-config' as *;
 
 .gesso-storybook-line-height {
-  margin: 0 0 3rem;
+  margin-block: 0 3rem;
+  margin-inline: 0;
 }
 
 .gesso-storybook-line-height__heading {
