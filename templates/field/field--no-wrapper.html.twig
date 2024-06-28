@@ -16,4 +16,4 @@
   {{- item.content -}}
 {%- endfor -%}
 
-{%- if logged_in %}</span>{% endif -%}
+{%- if logged_in and title_suffix.contextual_links %}</span>{% endif -%}

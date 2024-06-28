@@ -11,6 +11,8 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
   position: relative;
   text-align: center;
 
+  > figure,
+  > figure img,
   > img {
     height: 100%;
     left: 0;
@@ -18,6 +20,24 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
     position: absolute;
     top: 0;
     width: 100%;
+  }
+
+  &.has-content-left {
+    text-align: left;
+
+    @include breakpoint($hero-bg-image-bp) {
+      padding-left: 10%;
+      padding-right: 35%;
+    }
+  }
+
+  &.has-content-right {
+    text-align: left;
+
+    @include breakpoint($hero-bg-image-bp) {
+      padding-left: 35%;
+      padding-right: 10%;
+    }
   }
 
   &.has-overlay {
@@ -58,23 +78,5 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
   @include breakpoint-max($hero-bg-image-bp, true) {
     font-size: rem(gesso-font-size(3));
     margin-bottom: rem(gesso-spacing(3));
-  }
-}
-
-.c-hero-bg-image--left {
-  text-align: left;
-
-  @include breakpoint($hero-bg-image-bp) {
-    padding-left: 10%;
-    padding-right: 35%;
-  }
-}
-
-.c-hero-bg-image--right {
-  text-align: left;
-
-  @include breakpoint($hero-bg-image-bp) {
-    padding-left: 35%;
-    padding-right: 10%;
   }
 }

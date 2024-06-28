@@ -29,11 +29,11 @@
  * @see template_preprocess_media()
  */
 #}
-{% if logged_in -%}
+{% if logged_in and title_suffix.contextual_links -%}
   <span class="contextual-region">
     {{- title_suffix.contextual_links }}
 {% endif %}
 
 {{ content }}
 
-{% if logged_in %}</span>{% endif %}
+{% if logged_in and title_suffix.contextual_links %}</span>{% endif %}

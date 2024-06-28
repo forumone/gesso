@@ -24,6 +24,17 @@ accordion:
     - core/once
     - gesso/common
 
+accordion_step_list:
+  header: true
+  css:
+    theme:
+      dist/css/accordion--step-list.css: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
+    - gesso/accordion
+
 back_to_top:
   css:
     theme:

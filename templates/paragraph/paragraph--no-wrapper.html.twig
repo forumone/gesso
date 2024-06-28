@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Theme override to display a paragraph.
+ */
+#}
+{%- if logged_in and title_suffix.contextual_links -%}
+  <div{{ attributes }}>
+    {{- title_suffix.contextual_links }}
+{%- endif -%}
+
+{{ content }}
+
+{%- if logged_in and title_suffix.contextual_links %}</div>{% endif -%}

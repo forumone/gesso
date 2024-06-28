@@ -13,7 +13,7 @@
     'title_element': 'h2',
     'hide_title': (configuration.label_display == '0'),
     'title': configuration.label,
-    'nav_id': 'nav-' ~ derivative_plugin_id|clean_id|unique_id,
+    'nav_id': 'nav-' ~ derivative_plugin_id|clean_id|clean_unique_id,
   } %}
 
     {% block content %}
