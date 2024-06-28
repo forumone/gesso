@@ -161,6 +161,17 @@ mobile_menu:
   dependencies:
     - gesso/hamburger_button
 
+modal:
+  css:
+    theme:
+      dist/css/modal.css: {}
+  js:
+    dist/js/modal.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
+
 overlay_menu:
   css:
     theme:

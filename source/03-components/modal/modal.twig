@@ -1,0 +1,23 @@
+{% set classes = [
+  'c-modal',
+  'js-modal',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<dialog
+  id="modal-{{ id }}"
+  {{ add_attributes({ 'class': classes })}}
+  {{ default_open ? 'data-default-open' : '' }}
+  aria-labelledby="modal-title-{{ id }}"
+  aria-describedby="modal-content-{{ id }}"
+>
+  <div class="c-modal__inner js-modal-inner">
+    <button class="c-modal__close-button js-modal-close" aria-label="Close modal" aria-controls="modal-{{ id }}" autofocus></button>
+    <div class="c-modal__content" id="modal-content-{{ id }}">
+      {% if title %}
+        <h2 class="c-modal__title" id="modal-title-{{ id }}">{{ title }}</h2>
+      {% endif %}
+      {{ content }}
+    </div>
+  </div>
+</dialog>
