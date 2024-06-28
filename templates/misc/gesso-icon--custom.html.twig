@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Template to display a SVG icon.
+ * Theme implementation for an SVG icon.
  *
  * Available variables:
  * - attributes: array of HTML attributes populated by modules, intended to
@@ -12,7 +12,6 @@
  *   - icon_label: screen-reader-friendly title for the icon.
  */
 #}
-
 {%- include '@components/icon/icon.twig' with {
   'attributes': attributes,
   'icon_name': icon.icon_name,
