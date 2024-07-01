@@ -30,7 +30,7 @@
   {%- endif %}
     {%- for item in field_items -%}
       {%- if display_item_tag ?? false -%}
-        <{{ field_item_tag|default('span') }} {{ item.attributes.addClass('c-field__item') }}>
+        <{{ field_item_tag|default('span') }} {{ add_attributes({ 'class': 'c-field__item' }, 'item.attributes') }}>
       {%- endif -%}
       {{- item.content -}}
       {%- if display_item_tag ?? false -%}
