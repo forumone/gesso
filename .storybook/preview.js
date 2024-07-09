@@ -5,6 +5,7 @@ import twigAttributes from '../lib/addAttributesTwigExtension';
 import keysort from '../lib/keysort';
 import cleanUniqueId from '../lib/cleanUniqueId';
 import fieldValue from '../lib/fieldValue';
+import subheadingLevel from '../lib/subheadingLevelTwigExtension.js';
 import './stubs/drupal';
 import './stubs/once';
 
@@ -19,6 +20,7 @@ function setupTwig(twig) {
   keysort(twig);
   cleanUniqueId(twig);
   fieldValue(twig);
+  subheadingLevel(twig);
   return twig;
 }
 
