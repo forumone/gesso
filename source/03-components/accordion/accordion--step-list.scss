@@ -11,7 +11,7 @@
     display: inline-block;
     font-size: rem(gesso-font-size(4));
     height: rem(gesso-spacing(4));
-    margin-right: rem(gesso-spacing(2));
+    margin-inline-end: rem(gesso-spacing(2));
     position: relative;
     width: rem(gesso-spacing(4));
 
@@ -19,9 +19,9 @@
       content: counter(step);
       counter-increment: step;
       display: inline-block;
-      left: 50%;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
       position: absolute;
-      top: 50%;
       transform: translate(-50%, -50%);
     }
   }

@@ -5,7 +5,7 @@
 
 .c-form-item--radio {
   & + & {
-    margin-top: -1 * gesso-spacing(2);
+    margin-block-start: -1 * gesso-spacing(2);
   }
 
   .c-form-item__radio {
@@ -17,9 +17,9 @@
     box-shadow: 0 0 0 2px transparent;
     cursor: pointer;
     height: 18px;
-    margin-right: 3px;
+    inset-block-start: 2px;
+    margin-inline-end: 3px;
     position: relative;
-    top: 2px;
     transition-duration: gesso-duration(short);
     transition-property: background-color, border-color, border-radius;
     transition-timing-function: gesso-easing(ease-in-out);

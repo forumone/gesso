@@ -48,8 +48,7 @@ $pager-bp: 600px !default;
 .c-pager__item--ellipsis {
   @extend %c-pager__link;
   display: none;
-  padding-left: 0;
-  padding-right: 0;
+  padding-inline: 0;
 
   @include breakpoint($pager-ellipsis-bp) {
     display: inline-block;

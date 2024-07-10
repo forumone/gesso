@@ -10,15 +10,15 @@ $easing-swatch: rem(75px);
 }
 
 .gesso-storybook-easing__help-text {
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .gesso-storybook-easing__indicator {
   background-color: #666;
   border-radius: 10%;
   height: $easing-swatch;
-  left: 0;
-  margin-bottom: 0.5rem;
+  inset-inline-start: 0;
+  margin-block-end: 0.5rem;
   position: relative;
   transition-duration: 1s;
   transition-property: left;
@@ -26,7 +26,7 @@ $easing-swatch: rem(75px);
 }
 
 .gesso-storybook-easing__item {
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .gesso-storybook-easing__group {
@@ -34,7 +34,7 @@ $easing-swatch: rem(75px);
 
   &:hover {
     .gesso-storybook-easing__indicator {
-      left: 100%;
+      inset-inline-start: 100%;
     }
   }
 }

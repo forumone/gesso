@@ -8,5 +8,5 @@
 
 .c-site-name__text {
   @include display-text-style(h1);
-  margin-bottom: rem(gesso-spacing(2));
+  margin-block-end: rem(gesso-spacing(2));
 }

@@ -3,6 +3,5 @@
 @use '00-config' as *;
 
 .c-form-item--radios {
-  margin-bottom: 0;
-  margin-top: rem(gesso-spacing(0.5));
+  margin-block: rem(gesso-spacing(0.5)) 0;
 }
