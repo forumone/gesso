@@ -10,7 +10,7 @@ $accordion-item-icon-weight: 2px !default;
 // .c-accordion {}
 
 .c-accordion-item {
-  border-bottom: solid 1px $accordion-item-border-color;
+  border-block-end: solid 1px $accordion-item-border-color;
 }
 
 .c-accordion-item__heading {
@@ -27,21 +27,14 @@ $accordion-item-icon-weight: 2px !default;
   font-weight: inherit;
   justify-content: space-between;
   line-height: inherit;
-  padding: rem(gesso-spacing(2)) rem(gesso-spacing(8)) rem(gesso-spacing(2))
-    rem(gesso-spacing(2));
+  padding-block: rem(gesso-spacing(2));
+  padding-inline: rem(gesso-spacing(2)) rem(gesso-spacing(8));
   pointer-events: none;
   position: relative;
-  text-align: left;
+  text-align: start;
   text-decoration: none;
   transition: all gesso-duration(short) gesso-easing(ease-out);
   width: 100%;
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      padding-left: rem(gesso-spacing(8));
-      padding-right: rem(gesso-spacing(2));
-    }
-  }
 
   &:hover,
   &:focus,
@@ -62,18 +55,11 @@ $accordion-item-icon-weight: 2px !default;
 .c-accordion-item__icon {
   display: none;
   height: $accordion-item-icon-size;
+  inset-block-start: 50%;
+  inset-inline-end: rem(gesso-spacing(3));
   position: absolute;
-  right: rem(gesso-spacing(3));
-  top: 50%;
   transform: translateY(-50%);
   width: $accordion-item-icon-size;
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      left: rem(gesso-spacing(3));
-      right: initial;
-    }
-  }
 
   // Only show icon if accordion js is processed.
   [accordion-processed] & {
@@ -86,9 +72,9 @@ $accordion-item-icon-weight: 2px !default;
     content: '';
     display: block;
     height: $accordion-item-icon-weight;
-    left: 50%;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
     position: absolute;
-    top: 50%;
     transform: translate(-50%, -50%);
     transform-origin: center;
     transition-duration: gesso-duration(short);
@@ -113,16 +99,11 @@ $accordion-item-icon-weight: 2px !default;
 }
 
 .c-accordion-item__drawer-inner {
-  padding: 0 rem(gesso-spacing(8)) rem(gesso-spacing(2)) rem(gesso-spacing(2));
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      padding-left: rem(gesso-spacing(8));
-      padding-right: rem(gesso-spacing(2));
-    }
-  }
+  padding: rem(gesso-spacing(2));
+  padding-block-start: 0;
+  padding-inline-end: rem(gesso-spacing(8));
 
   > :last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 }

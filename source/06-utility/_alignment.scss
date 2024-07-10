@@ -3,38 +3,49 @@
 @use '00-config' as *;
 
 // Align items
+.u-align-inline-end {
+  @include breakpoint(gesso-breakpoint(tablet)) {
+    @include layout-align-inline-end(rem(gesso-get-map(gutter-width)));
+  }
+}
+
+.u-align-inline-start {
+  @include breakpoint(gesso-breakpoint(tablet)) {
+    @include layout-align-inline-start(rem(gesso-get-map(gutter-width)));
+  }
+}
+
 .align-left,
 .u-align-left {
   @include breakpoint(gesso-breakpoint(tablet)) {
-    float: left;
-    margin-right: rem(gesso-get-map(gutter-width));
+    @include layout-align-left(rem(gesso-get-map(gutter-width)));
   }
 }
 
 .align-right,
 .u-align-right {
   @include breakpoint(gesso-breakpoint(tablet)) {
-    float: right;
-    margin-left: rem(gesso-get-map(gutter-width));
+    @include layout-align-right(rem(gesso-get-map(gutter-width)));
   }
 }
 
 .align-center,
 .u-align-center {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 // Text alignment
 .text-align-left,
-.u-text-align-left {
-  text-align: left;
+.u-text-align-left,
+.u-text-align-start {
+  text-align: start;
 }
 
 .text-align-right,
-.u-text-align-right {
-  text-align: right;
+.u-text-align-right,
+.u-text-align-end {
+  text-align: end;
 }
 
 .text-align-center,
@@ -50,6 +61,14 @@
 // Clear floats
 .u-clear-both {
   clear: both;
+}
+
+.u-clear-inline-end {
+  clear: inline-end;
+}
+
+.u-clear-inline-start {
+  clear: inline-start;
 }
 
 .u-clear-left {

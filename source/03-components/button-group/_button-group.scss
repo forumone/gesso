@@ -32,37 +32,37 @@
   }
 
   .c-button-group__link {
+    border-block-start-width: 0;
     border-radius: 0;
-    border-top-width: 0;
 
     @include breakpoint(gesso-breakpoint(tablet)) {
-      border-left-width: 0;
-      border-top-width: $button-border-width;
+      border-block-start-width: $button-border-width;
+      border-inline-start-width: 0;
     }
   }
 
   &:first-child {
     .c-button-group__link {
-      border-top-left-radius: $button-border-radius;
-      border-top-right-radius: $button-border-radius;
-      border-top-width: $button-border-width;
+      border-block-start-width: $button-border-width;
+      border-start-end-radius: $button-border-radius;
+      border-start-start-radius: $button-border-radius;
 
       @include breakpoint(gesso-breakpoint(tablet)) {
-        border-bottom-left-radius: $button-border-radius;
-        border-left-width: $button-border-width;
-        border-top-right-radius: 0;
+        border-end-start-radius: $button-border-radius;
+        border-inline-start-width: $button-border-width;
+        border-start-end-radius: 0;
       }
     }
   }
 
   &:last-child {
     .c-button-group__link {
-      border-bottom-left-radius: $button-border-radius;
-      border-bottom-right-radius: $button-border-radius;
+      border-end-end-radius: $button-border-radius;
+      border-end-start-radius: $button-border-radius;
 
       @include breakpoint(gesso-breakpoint(tablet)) {
-        border-bottom-left-radius: 0;
-        border-top-right-radius: $button-border-radius;
+        border-end-start-radius: 0;
+        border-start-end-radius: $button-border-radius;
       }
     }
   }

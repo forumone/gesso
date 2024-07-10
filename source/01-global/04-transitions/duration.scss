@@ -6,11 +6,11 @@
 $duration-swatch: rem(40px);
 
 .gesso-storybook-duration {
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .gesso-storybook-duration__help-text {
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .gesso-storybook-duration__indicator {
@@ -18,7 +18,7 @@ $duration-swatch: rem(40px);
   border-radius: 50%;
   display: inline-block;
   height: $duration-swatch;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
   position: relative;
   transition: all 2s ease-out;
   width: $duration-swatch;

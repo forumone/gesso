@@ -3,14 +3,15 @@
 @use '00-config' as *;
 
 .gesso-storybook-line-height {
-  margin: 0 0 3rem;
+  margin-block: 0 3rem;
+  margin-inline: 0;
 }
 
 .gesso-storybook-line-height__heading {
   font-family: gesso-font-family(system);
   font-size: 1.25rem;
   line-height: 1.25;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .gesso-storybook-line-height__row {
