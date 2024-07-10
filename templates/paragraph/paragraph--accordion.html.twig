@@ -1,7 +1,14 @@
+{#
+/**
+ * @file
+ * Theme implementation to display a paragraph.
+ */
+#}
 {% include '@components/accordion/accordion.twig' with {
   'attributes': attributes,
   'modifier_classes': '',
   'has_constrain': true,
   'allow_multiple': true,
+  'step_list': false,
   'accordion_items': content.field_accordion_items|field_value is not empty ? content.field_accordion_items|field_value : false,
 }%}

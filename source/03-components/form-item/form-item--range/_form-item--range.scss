@@ -84,7 +84,7 @@ $form-range-track-height: 10px !default;
 
     &::-ms-thumb {
       @include c-form-item__range-thumb();
-      margin-top: 0 !important; // Removes webkit-specific margin since IE uses webkit prefixes.
+      margin-block-start: 0 !important; // Removes webkit-specific margin since IE uses webkit prefixes.
     }
 
     &::-ms-track {
@@ -104,7 +104,7 @@ $form-range-track-height: 10px !default;
     &::-webkit-slider-thumb {
       @include c-form-item__range-thumb;
       -webkit-appearance: none;
-      margin-top: rem(
+      margin-block-start: rem(
           math.div(
             (-$form-range-track-border-width * 2) + $form-range-track-height,
             2

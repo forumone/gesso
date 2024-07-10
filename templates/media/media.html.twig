@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to present a media item.
+ * Theme implementation for a media item.
  *
  * Available variables:
  * - media: The media item, with limited access to object properties and
@@ -27,15 +27,13 @@
  *   tag that appears in the template.
  *
  * @see template_preprocess_media()
- *
- * @ingroup themeable
  */
 #}
-{% if logged_in -%}
+{% if logged_in and title_suffix.contextual_links -%}
   <span class="contextual-region">
     {{- title_suffix.contextual_links }}
 {% endif %}
 
 {{ content }}
 
-{% if logged_in %}</span>{% endif %}
+{% if logged_in and title_suffix.contextual_links %}</span>{% endif %}

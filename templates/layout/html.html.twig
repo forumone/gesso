@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override for the basic structure of a single Drupal page.
+ * Theme implementation for a single Drupal page.
  *
  * Variables:
  * - logged_in: A flag indicating if user is logged in.
@@ -31,7 +31,7 @@
   db_offline ? 'db-offline',
 ] %}
 
-{% set body_id = 'top'|unique_id %}
+{% set body_id = 'top'|clean_unique_id %}
 
 <!DOCTYPE html>
 <html{{ html_attributes }} class="no-js">

@@ -5,17 +5,13 @@
 
 ul {
   list-style-type: disc;
-  margin: 0 0 rem(gesso-spacing(2));
-  padding: 0 0 0 rem(gesso-spacing(3)); // LTR
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      padding: 0 rem(gesso-spacing(3)) 0 0;
-    }
-  }
+  margin-block: 0 rem(gesso-spacing(2));
+  margin-inline: 0;
+  padding: 0;
+  padding-inline-start: rem(gesso-spacing(3));
 
   ol,
   ul {
-    margin-top: rem(math.div(gesso-spacing(2), 2));
+    margin-block-start: rem(math.div(gesso-spacing(2), 2));
   }
 }

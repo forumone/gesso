@@ -22,10 +22,10 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
--   [Node](https://nodejs.org/en/) version 18.12 or greater. Long-term stable
+-   [Node](https://nodejs.org/en/) version 20. Long-term stable
     recommended.
 
--   [npm](https://www.npmjs.com/get-npm) version 9.8.1 or greater.
+-   [npm](https://www.npmjs.com/get-npm) version 10.7.0 or greater.
 
 ## Installation
 
@@ -589,6 +589,43 @@ set to `true` (default: `false`).
 ) {
   display: block;
 }
+```
+
+## Twig Filters and Functions
+Gesso includes some additional filters and functions that can be used in Twig templates.
+
+#### add_attributes
+Fork of [Drupal Pattern Lab's `add_attribute` Twig function](https://github.com/drupal-pattern-lab/add-attributes-twig-extension).
+Allows Twig templates to add attributes that, in Drupal, will be merged with the Drupal attributes object
+while also rendering in Storybook.
+
+```twig
+<div {{ add_attributes(
+  {
+    class: 'your-class-one your-class-two',
+    'data-foo': 'bar'
+  }
+) }}>...</div>    
+```
+
+#### keysort
+Twig filter to sort an object by key alphabetically.
+
+```twig
+{% for key, value in your_object|keysort %}
+...
+{% endfor %}
+```
+
+### subheading_level
+Twig filter to transform a heading tag to the next level down (h2 -> h3, h3 -> h4, etc.)
+Used when the parent heading level can vary but, to maintain accessibility, the component's
+heading or subheading should change accordingly.
+
+```twig
+{% set subheading_element = title_element|subheading_level %}
+
+<{{ subheading_element|default('h3') }}>...</{{ subheading_element|default('h3') }}>
 ```
 
 ## Building Storybook

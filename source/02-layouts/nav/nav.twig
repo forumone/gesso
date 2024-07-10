@@ -8,7 +8,7 @@
   hide_title ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}
 
-{% set nav_id = nav_id|unique_id %}
+{% set nav_id = nav_id|clean_unique_id %}
 
 <nav {{ add_attributes({
   'class': classes,

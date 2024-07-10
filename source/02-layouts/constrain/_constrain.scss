@@ -7,11 +7,14 @@
   @include layout-constrain();
 }
 
+.l-constrain--small {
+  max-width: rem(gesso-constrain(sm));
+}
+
 .l-constrain--large {
   max-width: rem(gesso-constrain(lg));
 }
 
 .l-constrain--no-padding {
-  padding-left: 0;
-  padding-right: 0;
+  padding-inline: 0;
 }
