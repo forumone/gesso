@@ -3,5 +3,5 @@
 @use '00-config' as *;
 
 .c-rss-feed {
-  margin-top: rem(gesso-spacing(3));
+  margin-block-start: rem(gesso-spacing(3));
 }

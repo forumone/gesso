@@ -8,28 +8,21 @@ $fieldset-legend-offset: rem(
 ) !default;
 
 .c-fieldset {
-  margin-bottom: rem(gesso-spacing(3)) + $fieldset-legend-offset;
+  inset-block-start: $fieldset-legend-offset; // Offsets the negative margin of legends.
+  margin-block-end: rem(gesso-spacing(3)) + $fieldset-legend-offset;
   padding: 0;
   position: relative;
-  top: $fieldset-legend-offset; // Offsets the negative margin of legends.
 }
 
 .c-fieldset__legend {
   box-sizing: content-box;
   display: block;
   font-weight: gesso-font-weight(semibold);
-  left: -1px; // LTR
+  inset-block-start: -$fieldset-legend-offset;
+  inset-inline-start: -1px;
   position: absolute;
   text-indent: 0;
-  top: -$fieldset-legend-offset;
   width: 100%;
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      left: auto;
-      right: -1px;
-    }
-  }
 }
 
 .c-fieldset__legend-text {
@@ -47,7 +40,7 @@ $fieldset-legend-offset: rem(
   font-size: rem(gesso-font-size(2));
 
   > :last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 }
 
@@ -61,7 +54,7 @@ $fieldset-legend-offset: rem(
   .c-fieldset__legend {
     background: gesso-color(form, border);
     border: 1px solid gesso-color(form, border);
-    border-bottom: 0;
+    border-block-end: 0;
     color: #212121;
     height: 2em;
     line-height: 2;
@@ -74,21 +67,14 @@ $fieldset-legend-offset: rem(
   }
 
   .c-fieldset__legend-text {
-    padding-left: 1em; // LTR
-
-    @if $support-for-rtl {
-      [dir='rtl'] & {
-        padding-left: 0;
-        padding-right: 1em;
-      }
-    }
+    padding-inline-start: 1em;
   }
 
   .c-fieldset__content {
     padding: rem(gesso-spacing(3)) 0 rem(gesso-spacing(2));
 
     > :last-child {
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
   }
 
@@ -99,10 +85,10 @@ $fieldset-legend-offset: rem(
 }
 
 %fieldset--form-item {
-  margin-bottom: rem(gesso-spacing(3)) + $fieldset-legend-offset;
+  margin-block-end: rem(gesso-spacing(3)) + $fieldset-legend-offset;
 
   .c-fieldset__content {
-    margin-top: rem(gesso-spacing(0.5));
+    margin-block-start: rem(gesso-spacing(0.5));
   }
 
   &.is-disabled {
@@ -113,7 +99,7 @@ $fieldset-legend-offset: rem(
   }
 
   .c-fieldset__description {
-    margin-top: -1 * gesso-spacing(2);
+    margin-block-start: -1 * gesso-spacing(2);
   }
 }
 

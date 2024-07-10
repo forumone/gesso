@@ -12,19 +12,12 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
 .c-dropbutton {
   display: inline-block;
   height: $dropbutton-toggle-height;
-  margin-bottom: rem(gesso-spacing(1));
+  margin-block-end: rem(gesso-spacing(1));
   position: relative;
   vertical-align: top;
 
   &.has-multiple {
-    padding-right: $dropbutton-toggle-width; // LTR
-
-    @if $support-for-rtl {
-      [dir='rtl'] & {
-        padding-left: $dropbutton-toggle-width;
-        padding-right: 0;
-      }
-    }
+    padding-inline-end: $dropbutton-toggle-width;
   }
 
   &.is-open {
@@ -32,7 +25,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
       visibility: visible;
 
       &:first-child .c-dropbutton__button {
-        border-bottom-left-radius: 0;
+        border-end-start-radius: 0;
       }
     }
 
@@ -44,14 +37,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   & + &,
   + .c-button,
   .c-button + & {
-    margin-left: 0.5em; // LTR
-
-    @if $support-for-rtl {
-      [dir='rtl'] & {
-        margin-left: 0;
-        margin-right: 0.5em;
-      }
-    }
+    margin-inline-start: 0.5em;
   }
 }
 
@@ -66,12 +52,11 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
 }
 
 .c-dropbutton__toggle {
-  bottom: 0;
+  inset-block: 0;
+  inset-inline-end: 0;
   margin: 0;
   padding: 0;
   position: absolute;
-  right: 0;
-  top: 0;
   width: $dropbutton-toggle-width;
 }
 
@@ -87,8 +72,8 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
     );
   background-repeat: no-repeat;
   background-size: $dropbutton-toggle-icon-size;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
+  border-end-start-radius: 0;
+  border-start-start-radius: 0;
   height: 100%;
   padding: 0;
   white-space: nowrap;
@@ -103,21 +88,21 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
     visibility: hidden;
 
     &:not(:last-child) .c-dropbutton__button {
-      border-bottom-left-radius: 0;
+      border-end-start-radius: 0;
     }
   }
 
   &:not(:first-child) .c-dropbutton__button {
-    border-top-left-radius: 0;
+    border-start-start-radius: 0;
   }
 }
 
 // Nested to override default button styles.
 .c-dropbutton .c-dropbutton__button {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
+  border-end-end-radius: 0;
+  border-start-end-radius: 0;
   display: block;
   margin: 0;
-  text-align: left;
+  text-align: start;
   width: 100%;
 }
