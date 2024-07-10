@@ -1,0 +1,63 @@
+// Component: Modal
+
+@use '00-config' as *;
+
+.c-modal {
+  inset: rem(gesso-site-margins(mobile));
+  max-inline-size: rem(gesso-constrain(sm));
+  padding: 0;
+
+  // Modal overlay styling
+  &::backdrop {
+    background-color: rgba(gesso-grayscale(black), 0.75);
+  }
+
+  &[open] {
+    animation: show gesso-duration(long) gesso-easing(ease-in-out);
+  }
+}
+
+// Open animation
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.c-modal__close-button {
+  @include image-replace(28px, 28px);
+  @include svg-background(mobile-close);
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  inset-block-start: rem(gesso-spacing(3));
+  inset-inline-end: rem(gesso-spacing(3));
+  position: absolute;
+  transition: opacity gesso-duration(standard) gesso-easing(ease-in-out);
+
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+  }
+}
+
+.c-modal__inner {
+  padding-block: rem(gesso-spacing(5));
+  padding-inline: rem(gesso-spacing(5));
+}
+
+.c-modal__content {
+  > :last-child {
+    margin-block-end: 0;
+  }
+}
