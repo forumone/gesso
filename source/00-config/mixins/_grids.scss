@@ -3,24 +3,6 @@
 @use 'sass:math';
 @use '../functions' as *;
 
-// Set flex grid layout
-// @param {Number} $columns Number of columns. 1 or 0 result in a single column.
-// @param {String} $gutter-width Pixel value for width of column gutters.
-// @param {String} $item-min-width Pixel value to set a minimum column width.
-@mixin flex-grid(
-  $columns: 1,
-  $gutter-width: gesso-get-map(gutter-width),
-  $item-min-width: 300px
-) {
-  display: flex;
-  flex-wrap: wrap;
-  margin-inline: rem(math.div(-$gutter-width, 2));
-
-  > * {
-    @include set-flex-column($columns, $gutter-width, $item-min-width);
-  }
-}
-
 // Set auto fit grid template.
 // @param {String} $item-min-width Pixel value to set a minimum column width.
 // @param {String} $gutter-width Pixel value for width of column gutters.
