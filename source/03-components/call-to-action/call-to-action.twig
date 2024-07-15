@@ -1,0 +1,28 @@
+{% set classes = [
+  'c-call-to-action',
+  modifier_classes ? modifier_classes : ''
+] %}
+
+{% set cta_content %}
+  <div class="c-call-to-action__media">
+    {{ media }}
+  </div>
+  <div class="c-call-to-action__copy">
+    {% if heading %}
+      <h2>{{ heading }}</h2>
+    {% endif %}
+    {{ body }}
+    {% if link.url and link.text %}
+      <div>
+        <a href="{{ link.url }}" class="c-button">{{ link.text }}</a>
+      </div>
+    {% endif %}
+  </div>
+{% endset %}
+
+<div {{ add_attributes({ class: classes }) }}>
+  {% include '@layouts/grid/grid.twig' with {
+    'num_of_cols': '2',
+    'grid_content': cta_content,
+  } %}
+</div>
