@@ -3,10 +3,8 @@
 
 @use '00-config' as *;
 
-.c-call-to-action {
-  .l-grid {
-    align-items: center;
-  }
+.c-call-to-action__grid {
+  align-items: center;
 }
 
 .c-call-to-action__media {
