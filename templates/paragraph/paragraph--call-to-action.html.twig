@@ -2,6 +2,6 @@
   'media': content.field_cta_media|field_value is not empty ? content.field_cta_media|field_value : false,
   'heading': content.field_cta_heading|field_value is not empty ? content.field_cta_heading|field_value : false,
   'body': content.field_cta_body|field_value is not empty ? content.field_cta_body|field_value : false,
-  'url': content.field_cta_link|field_value[0]['#url'] is not empty ? content.field_cta_link|field_value[0]['#url'] : false,
-  'text': content.field_cta_link|field_value[0]['#title'] is not empty ? content.field_cta_link|field_value[0]['#title'] : false,
+  'url': paragraph.field_cta_link.url is not empty ? paragraph.field_cta_link.url : false,
+  'text': paragraph.field_cta_link.title is not empty ? paragraph.field_cta_link.title : false,
 } %}
