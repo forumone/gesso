@@ -14,9 +14,9 @@
       <h2>{{ heading }}</h2>
     {% endif %}
     {{ body }}
-    {% if link.url and link.text %}
+    {% if url and title %}
       <div>
-        <a href="{{ link.url }}" class="c-button">{{ link.text }}</a>
+        <a href="{{ url }}" class="c-button">{{ title }}</a>
       </div>
     {% endif %}
   </div>
