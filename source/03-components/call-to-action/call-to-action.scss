@@ -14,7 +14,7 @@
   }
 }
 
-.c-call-to-action__copy {
+.c-call-to-action__text {
   @include breakpoint(gesso-breakpoint('tablet')) {
     grid-row-start: 1;
     order: 1;
