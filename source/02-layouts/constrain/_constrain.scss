@@ -11,6 +11,10 @@
   max-width: rem(gesso-constrain(sm));
 }
 
+.l-constrain--medium {
+  max-width: rem(gesso-constrain(md));
+}
+
 .l-constrain--large {
   max-width: rem(gesso-constrain(lg));
 }
