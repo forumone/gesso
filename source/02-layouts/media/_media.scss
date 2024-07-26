@@ -31,7 +31,7 @@ $media-gutter: rem(gesso-spacing(2));
 
 .l-media--reversed {
   > .l-media__object {
-    margin-block: 0 0 $media-gutter;
+    margin-block: 0 $media-gutter;
     margin-inline: 0;
     order: 1;
   }
