@@ -17,7 +17,7 @@
   'hero_summary': content.field_hero_body|field_value is not empty ? content.field_hero_body|field_value : false,
   'hero_button_text': content.field_hero_link|field_value is not empty ? content.field_hero_link.0['#title'] : false,
   'hero_button_url': content.field_hero_link|field_value is not empty ? content.field_hero_link.0['#url'] : false,
-  'hero_button_attributes': content.field_hero_link|field_value is not empty ? content.field_hero_link.0['#url'].getOption('attributes') : false,
+  'hero_button_attributes': content.field_hero_link|field_value is not empty ? create_attribute(content.field_hero_link.0['#url'].getOption('attributes')|default([])) : false,
 } %}
 
 {#
