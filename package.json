@@ -73,7 +73,7 @@
     "postcss-selector-parser": "^6.0.15",
     "prettier": "^3.2.5",
     "react-refresh": "^0.14.0",
-    "sass-loader": "^14.1.1",
+    "sass-loader": "^16.0.0",
     "style-loader": "^4.0.0",
     "stylelint": "^16.2.1",
     "stylelint-config-sass-guidelines": "^11.1.0",

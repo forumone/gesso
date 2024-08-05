@@ -9,12 +9,15 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
 
 .c-breadcrumb {
   @include clearfix();
-  background-color: $breadcrumb-background-color;
-  color: $breadcrumb-text-color;
-  font-size: rem(gesso-font-size(2));
-  margin: gesso-spacing(4) 0;
-  min-height: rem(40px);
-  padding-block: gesso-spacing(2);
+
+  & {
+    background-color: $breadcrumb-background-color;
+    color: $breadcrumb-text-color;
+    font-size: rem(gesso-font-size(2));
+    margin: gesso-spacing(4) 0;
+    min-height: rem(40px);
+    padding-block: gesso-spacing(2);
+  }
 }
 
 .c-breadcrumb__title {
@@ -23,7 +26,10 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
 
 .c-breadcrumb__list {
   @include list-inline();
-  margin-block-end: 0;
+
+  & {
+    margin-block-end: 0;
+  }
 }
 
 .c-breadcrumb__item {
@@ -63,5 +69,8 @@ $breadcrumb-text-color: gesso-color(text, on-dark) !default;
 
 .c-breadcrumb__link {
   @include link($breadcrumb-link-color, $breadcrumb-text-color);
-  text-decoration: none;
+
+  & {
+    text-decoration: none;
+  }
 }

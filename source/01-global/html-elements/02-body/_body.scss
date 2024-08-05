@@ -13,14 +13,14 @@ body {
   width: 100%;
   word-wrap: break-word;
 
+  // Tweak styling in WYSIWYG editor.
+  @if $wysiwyg {
+    padding: 0 rem(gesso-site-margins(desktop));
+  }
+
   &.has-open-menu,
   &.has-open-modal {
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
-  }
-
-  // Tweak styling in WYSIWYG editor.
-  @if $wysiwyg {
-    padding: 0 rem(gesso-site-margins(desktop));
   }
 }

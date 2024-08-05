@@ -138,7 +138,7 @@ const commonConfig = {
               implementation: embeddedSass,
               webpackImporter: false,
               sassOptions: {
-                includePaths: [path.resolve(__dirname, 'source')],
+                loadPaths: [path.resolve(__dirname, 'source')],
               },
             },
           },

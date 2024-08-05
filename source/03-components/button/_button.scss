@@ -7,19 +7,22 @@ $button-spacing: rem(gesso-spacing(1));
 .c-button,
 %c-button {
   @include button();
-  margin-block-end: $button-spacing;
 
-  & + & {
-    margin-inline-start: $button-spacing;
+  & {
+    margin-block-end: $button-spacing;
+
+    & + & {
+      margin-inline-start: $button-spacing;
+
+      @supports selector(:has(*)) {
+        margin-inline-start: 0;
+      }
+    }
 
     @supports selector(:has(*)) {
-      margin-inline-start: 0;
-    }
-  }
-
-  @supports selector(:has(*)) {
-    &:has(+ #{&}) {
-      margin-inline-end: $button-spacing;
+      &:has(+ #{&}) {
+        margin-inline-end: $button-spacing;
+      }
     }
   }
 }

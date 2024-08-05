@@ -6,8 +6,21 @@ $blockquote-cite-divider-color: gesso-color(ui, generic, border);
 
 blockquote {
   @include display-text-style(blockquote);
-  margin-block: 0 rem(gesso-spacing(5));
-  margin-inline: 0;
+
+  & {
+    margin-block: 0 rem(gesso-spacing(5));
+    margin-inline: 0;
+
+    @if ($wysiwyg) {
+      border-inline-start: revert;
+      font-style: revert;
+      padding-inline: revert;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
 
   // Add top margin when blockquote is preceded by other elements
   * + & {
@@ -49,15 +62,5 @@ blockquote {
 
   @media print {
     page-break-inside: avoid;
-  }
-
-  @if ($wysiwyg) {
-    border-inline-start: revert;
-    font-style: revert;
-    padding-inline: revert;
-
-    &::before {
-      display: none;
-    }
   }
 }

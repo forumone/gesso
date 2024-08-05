@@ -9,9 +9,12 @@
 
 .c-button-group__list {
   @include list-clean();
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+
+  & {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 
   @include breakpoint(gesso-breakpoint(tablet)) {
     flex-direction: row;

@@ -32,22 +32,25 @@
 
 .c-modal__close-button {
   @include image-replace(28px, 28px);
-  @include svg-background(mobile-close);
-  background-color: transparent;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  border: 0;
-  cursor: pointer;
-  display: inline-block;
-  inset-block-start: rem(gesso-spacing(3));
-  inset-inline-end: rem(gesso-spacing(3));
-  position: absolute;
-  transition: opacity gesso-duration(standard) gesso-easing(ease-in-out);
 
-  &:hover,
-  &:focus {
-    opacity: 0.75;
+  & {
+    @include svg-background(mobile-close);
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    inset-block-start: rem(gesso-spacing(3));
+    inset-inline-end: rem(gesso-spacing(3));
+    position: absolute;
+    transition: opacity gesso-duration(standard) gesso-easing(ease-in-out);
+
+    &:hover,
+    &:focus {
+      opacity: 0.75;
+    }
   }
 }
 

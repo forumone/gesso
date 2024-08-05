@@ -49,7 +49,10 @@ $mobile-menu-line-height: gesso-line-height(base);
 
 .c-mobile-menu__menu {
   @include list-clean();
-  margin: 0.75em 0 0;
+
+  & {
+    margin: 0.75em 0 0;
+  }
 }
 
 .c-mobile-menu__item {
@@ -100,26 +103,35 @@ button.c-mobile-menu__link {
 
 .c-mobile-menu__subnav-arrow {
   @include focus();
-  @include image-replace($mobile-menu-button-width, $mobile-menu-button-height);
-  @include svg-background(mobile-arrow-down);
-  background-attachment: initial;
-  background-color: initial;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: 19px 12px;
-  border: 0;
-  box-shadow: none;
-  cursor: pointer;
-  display: inline-block;
-  inset-block-start: 0;
-  inset-inline-end: 0;
-  outline-offset: 0;
-  position: absolute;
-  vertical-align: top;
-  z-index: 2;
 
-  &[aria-expanded='true'] {
-    @include svg-background(mobile-arrow-up);
+  & {
+    @include image-replace(
+      $mobile-menu-button-width,
+      $mobile-menu-button-height
+    );
+  }
+
+  & {
+    @include svg-background(mobile-arrow-down);
+    background-attachment: initial;
+    background-color: initial;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 19px 12px;
+    border: 0;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    outline-offset: 0;
+    position: absolute;
+    vertical-align: top;
+    z-index: 2;
+
+    &[aria-expanded='true'] {
+      @include svg-background(mobile-arrow-up);
+    }
   }
 }
 
@@ -143,5 +155,8 @@ button.c-mobile-menu__link {
 
 .c-mobile-menu__section-inner {
   @include layout-constrain();
-  background-color: $mobile-menu-submenu-bg-color;
+
+  & {
+    background-color: $mobile-menu-submenu-bg-color;
+  }
 }
