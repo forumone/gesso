@@ -47,11 +47,6 @@ $button-font-size: gesso-base-font-size() !default;
   $font-size: $button-font-size
 ) {
   background-color: $color-background;
-  @if $border-width != 0 {
-    border: $border-width solid $color-border;
-  } @else {
-    border: 0;
-  }
   border-radius: $border-radius;
   color: $color-text;
   cursor: pointer;
@@ -68,6 +63,11 @@ $button-font-size: gesso-base-font-size() !default;
   transition: background gesso-duration(short) gesso-easing(ease-in);
   vertical-align: top;
   white-space: normal;
+  @if $border-width != 0 {
+    border: $border-width solid $color-border;
+  } @else {
+    border: 0;
+  }
 
   &:visited {
     color: $color-text;
@@ -76,10 +76,10 @@ $button-font-size: gesso-base-font-size() !default;
   &:hover,
   &:focus {
     background-color: $color-background-hover;
+    color: $color-text-hover;
     @if $border-width != 0 {
       border-color: $color-border-hover;
     }
-    color: $color-text-hover;
   }
 
   &:active,
@@ -90,12 +90,12 @@ $button-font-size: gesso-base-font-size() !default;
 
   &[disabled] {
     background-color: $color-background-disabled;
-    @if $border-width != 0 {
-      border-color: $color-border-disabled;
-    }
     color: $color-text-disabled;
     cursor: default;
     pointer-events: none;
+    @if $border-width != 0 {
+      border-color: $color-border-disabled;
+    }
   }
 }
 
