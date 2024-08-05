@@ -63,6 +63,7 @@
     "eslint-webpack-plugin": "^4.1.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "glob": "^11.0.0",
     "inquirer": "^9.2.16",
     "js-yaml-loader": "^1.2.2",
     "mkdirp": "^3.0.1",
@@ -90,7 +91,6 @@
   },
   "dependencies": {
     "@drupal/once": "^1.0.1",
-    "glob": "^10.3.10",
     "html-react-parser": "^5.1.9",
     "mini-css-extract-plugin": "^2.7.7",
     "react": "^18.2.0",
