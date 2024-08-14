@@ -60,9 +60,6 @@ call_to_action:
   css:
     theme:
       dist/css/call-to-action.css: {}
-  dependencies:
-    - core/drupal
-    - gesso/common
 
 card:
   css:
