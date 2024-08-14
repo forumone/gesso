@@ -16,7 +16,12 @@
     {{ body }}
     {% if url and title %}
       <div>
-        <a href="{{ url }}" class="c-button">{{ title }}</a>
+        {% include '@components/button/button.twig' with {
+          url,
+          text: title,
+          attributes: link_attributes,
+          is_button_tag: false
+        } %}
       </div>
     {% endif %}
   </div>
