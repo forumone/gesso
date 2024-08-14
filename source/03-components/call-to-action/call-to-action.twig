@@ -5,32 +5,30 @@
   modifier_classes ? modifier_classes : ''
 ] %}
 
-{% set cta_content %}
-  <div class="c-call-to-action__media">
-    {{ media }}
-  </div>
-  <div class="c-call-to-action__text">
-    {% if heading %}
-      <h2>{{ heading }}</h2>
-    {% endif %}
-    {{ body }}
-    {% if url and title %}
-      <div>
-        {% include '@components/button/button.twig' with {
-          attributes: link_attributes,
-          url,
-          text: title,
-          is_button_tag: false
-        } %}
-      </div>
-    {% endif %}
-  </div>
-{% endset %}
-
 <div {{ add_attributes({ class: classes }) }}>
-  {% include '@layouts/grid/grid.twig' with {
-    'num_of_cols': '2',
-    'modifier_classes': 'c-call-to-action__grid',
-    'grid_content': cta_content,
-  } %}
+  <div class="c-call-to-action__layout">
+    <div class="c-call-to-action__media">
+      {{ media }}
+    </div>
+    <div class="c-call-to-action__content">
+      {% if heading %}
+        <h2 class="c-call-to-action__title">{{ heading }}</h2>
+      {% endif %}
+      {% if body %}
+        <div class="c-call-to-action__text">
+          {{ body }}
+        </div>
+      {% endif %}
+      {% if url and title %}
+        <div class="c-call-to-action__links">
+          {% include '@components/button/button.twig' with {
+            attributes: link_attributes,
+            url,
+            text: title,
+            is_button_tag: false
+          } %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
 </div>

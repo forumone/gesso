@@ -3,8 +3,14 @@
 
 @use '00-config' as *;
 
-.c-call-to-action__grid {
+.c-call-to-action__layout {
   align-items: center;
+  display: grid;
+  grid-gap: rem(gesso-spacing(5));
+
+  @include breakpoint(gesso-breakpoint('tablet')) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .c-call-to-action__media {
@@ -14,7 +20,7 @@
   }
 }
 
-.c-call-to-action__text {
+.c-call-to-action__content {
   @include breakpoint(gesso-breakpoint('tablet')) {
     grid-row-start: 1;
     order: 1;
