@@ -1,0 +1,33 @@
+{{ attach_library('gesso/call_to_action') }}
+
+{% set classes = [
+  'c-call-to-action',
+  modifier_classes ? modifier_classes : ''
+] %}
+
+<div {{ add_attributes({ class: classes }) }}>
+  <div class="c-call-to-action__layout">
+    <div class="c-call-to-action__media">
+      {{ media }}
+    </div>
+    <div class="c-call-to-action__content">
+      {% if heading %}
+        <h2 class="c-call-to-action__title">{{ heading }}</h2>
+      {% endif %}
+      {% if body %}
+        <div class="c-call-to-action__text">
+          {{ body }}
+        </div>
+      {% endif %}
+      {% if url and title %}
+        <div class="c-call-to-action__links">
+          {% include '@components/button/button.twig' with {
+            attributes: link_attributes,
+            url,
+            text: title,
+          } %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
