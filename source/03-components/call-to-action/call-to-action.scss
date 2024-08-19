@@ -6,7 +6,7 @@
 .c-call-to-action__layout {
   align-items: center;
   display: grid;
-  grid-gap: rem(gesso-spacing(5));
+  gap: rem(gesso-spacing(5));
 
   @include breakpoint(gesso-breakpoint('tablet')) {
     grid-template-columns: repeat(2, 1fr);
