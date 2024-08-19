@@ -5,8 +5,7 @@ import MenuBar from './modules/_MenuBar.es6';
 
 Drupal.behaviors.dropdownMenu = {
   attach(context) {
-    const menus: NodeListOf<HTMLElement> =
-      once('dropdown-menu', '.c-dropdown-menu', context);
+    const menus: Element[] = once('dropdown-menu', '.c-dropdown-menu', context);
 
     menus.forEach(menu => {
       const dropdownMenu = new MenuBar(menu);

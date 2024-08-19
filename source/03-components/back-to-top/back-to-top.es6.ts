@@ -5,8 +5,11 @@ Drupal.behaviors.backToTop = {
   attach(context, settings) {
     const threshold = settings?.gesso?.backToTopThreshold ?? 200;
     const smoothScroll = settings?.gesso?.backToTopSmoothScroll ?? true;
-    const [backToTop]: HTMLAnchorElement[] =
-     once('back-to-top', '.c-back-to-top', context);
+    const [backToTop]: Element[] = once(
+      'back-to-top',
+      '.c-back-to-top',
+      context
+    );
 
     if (!backToTop) {
       return;

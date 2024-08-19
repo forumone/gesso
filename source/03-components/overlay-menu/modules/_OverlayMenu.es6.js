@@ -1,7 +1,7 @@
 class OverlayMenu {
   /**
    * @constructor
-   * @param {HTMLElement} domNode - The top-level menu node
+   * @param {Element} domNode - The top-level menu node
    * @param {HTMLElement|null} menuButton - The open menu button
    * @param {HTMLElement|null} closeButton - The close button toggle
    */
@@ -30,7 +30,8 @@ class OverlayMenu {
     menuButton.classList.add('c-hamburger-button', 'c-hamburger-button--close');
     menuButton.setAttribute('aria-controls', this.overlay.id);
     menuButton.setAttribute('aria-expanded', 'true');
-    menuButton.innerHTML = '<span class="c-hamburger-button__icon">Close</span>';
+    menuButton.innerHTML =
+      '<span class="c-hamburger-button__icon">Close</span>';
     menuButton.hidden = true;
     return this.overlay.insertAdjacentElement('afterbegin', menuButton);
   }
