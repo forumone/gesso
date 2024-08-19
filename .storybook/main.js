@@ -114,6 +114,7 @@ const config = {
             webpackImporter: false,
             sassOptions: {
               loadPaths: [path.resolve(__dirname, '../source')],
+              silenceDeprecations: ['mixed-decls'],
             },
           },
         },
