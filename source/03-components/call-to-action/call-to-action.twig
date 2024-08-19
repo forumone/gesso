@@ -23,8 +23,8 @@
         <div class="c-call-to-action__links">
           {% include '@components/button/button.twig' with {
             attributes: link_attributes,
-            url,
-            text: title,
+            url: link_url,
+            text: link_title,
           } %}
         </div>
       {% endif %}
