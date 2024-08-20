@@ -39,12 +39,12 @@
     "@storybook/react": "^8.1.6",
     "@storybook/react-webpack5": "^8.1.6",
     "@storybook/theming": "^8.1.6",
-    "@swc/cli": "^0.3.10",
+    "@swc/cli": "^0.4.0",
     "@swc/core": "^1.4.6",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
     "autoprefixer": "^10.4.17",
     "chalk": "^5.3.0",
     "concurrently": "^8.2.2",
@@ -63,6 +63,7 @@
     "eslint-webpack-plugin": "^4.1.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "glob": "^11.0.0",
     "inquirer": "^9.2.16",
     "js-yaml-loader": "^1.2.2",
     "mkdirp": "^3.0.1",
@@ -72,10 +73,10 @@
     "postcss-selector-parser": "^6.0.15",
     "prettier": "^3.2.5",
     "react-refresh": "^0.14.0",
-    "sass-loader": "^14.1.1",
+    "sass-loader": "^16.0.0",
     "style-loader": "^4.0.0",
     "stylelint": "^16.2.1",
-    "stylelint-config-sass-guidelines": "^11.1.0",
+    "stylelint-config-sass-guidelines": "^12.0.0",
     "stylelint-order": "^6.0.4",
     "stylelint-prettier": "^5.0.0",
     "stylelint-webpack-plugin": "^5.0.0",
@@ -86,11 +87,11 @@
     "twig-loader": "https://github.com/fourkitchens/twig-loader/archive/6f04fedf24f13b69b62c457f971d80b06522ed34.tar.gz",
     "typescript": "^5.4.2",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^6.0.1"
   },
   "dependencies": {
     "@drupal/once": "^1.0.1",
-    "glob": "^10.3.10",
     "html-react-parser": "^5.1.9",
     "mini-css-extract-plugin": "^2.7.7",
     "react": "^18.2.0",
@@ -102,10 +103,6 @@
     "svg-transform-loader": "^2.0.13",
     "terser-webpack-plugin": "^5.3.10",
     "twig": "^1.17.1",
-    "webpack-merge": "^5.10.0",
     "yaml": "^2.3.4"
-  },
-  "optionalDependencies": {
-    "sass-embedded-linux-x64": "^1.72.0"
   }
 }

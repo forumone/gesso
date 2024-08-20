@@ -21,7 +21,7 @@ class MobileMenu extends OverlayMenu {
 
   /**
    * @constructor
-   * @param {HTMLElement} domNode - The menu to turn into a mobile menu
+   * @param {Element} domNode - The menu to turn into a mobile menu
    * @param context
    * @param {MobileMenuOpts} options - Menu options
    */
@@ -87,9 +87,9 @@ class MobileMenu extends OverlayMenu {
 
     const childrenWithFor = blockClone.querySelectorAll('[for]');
     if (childrenWithFor.length) {
-    childrenWithFor.forEach(e => {
-      const thisFor = e.getAttribute('for');
-      e.setAttribute('for', `${thisFor}-mobile`);
+      childrenWithFor.forEach(e => {
+        const thisFor = e.getAttribute('for');
+        e.setAttribute('for', `${thisFor}-mobile`);
       });
     }
 

@@ -3,7 +3,7 @@ import OverlayMenu from '../../overlay-menu/modules/_OverlayMenu.es6';
 class SideMenu extends OverlayMenu {
   /**
    * @override
-   * @param {HTMLElement} domNode - The top-level menu node
+   * @param {Element} domNode - The top-level menu node
    * @param {HTMLElement|null} menuButton - The open menu button
    * @param {HTMLElement|null} closeButton - The close button toggle
    * @param {boolean} useArrowKeys - Whether to enable navigation by arrow keys

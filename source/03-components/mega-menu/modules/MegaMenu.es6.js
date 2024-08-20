@@ -5,7 +5,7 @@
 class MegaMenu {
   /**
    * @constructor
-   * @param {HTMLElement} domNode - The menu DOM element
+   * @param {Element} domNode - The menu DOM element
    * @param {boolean} useArrowKeys - Whether to enable navigating by arrow keys
    * @return {void}
    */

@@ -22,7 +22,7 @@ const SORT_ALL_COLUMNS = true;
 const getCellValue = (
   tr: HTMLTableRowElement,
   index: number
-): string | number | null =>{
+): string | number | null => {
   const item = tr.children[index];
   if (item instanceof HTMLTableCellElement) {
     return (
@@ -31,7 +31,7 @@ const getCellValue = (
   }
   // Item not HTMLTableCellElement.
   return null;
-}
+};
 
 /**
  * Compares the values of two row array items at the given index, then sorts
@@ -239,11 +239,11 @@ Drupal.behaviors.sortableTable = {
   attach(context, settings) {
     const { imagePath } = settings.gesso;
 
-    const tables = once(
+    const tables: Element[] = once(
       'sort-buttons',
       '.c-table.is-sortable',
       context
-    ) as NodeListOf<HTMLElement>;
+    );
 
     tables.forEach(table => {
       // Add sortable attribute to all column headers if wanted.
@@ -285,7 +285,7 @@ Drupal.behaviors.sortableTable = {
           if (targetHeader instanceof HTMLTableCellElement) {
             toggleSort(
               targetHeader,
-              targetHeader.getAttribute(SORTED) === ASCENDING,
+              targetHeader.getAttribute(SORTED) === ASCENDING
             );
           }
         });

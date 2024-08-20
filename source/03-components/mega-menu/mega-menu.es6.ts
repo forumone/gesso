@@ -5,8 +5,7 @@ import MobileMenu from '../mobile-menu/modules/_MobileMenu.es6';
 
 Drupal.behaviors.megaMenu = {
   attach(context) {
-    const menus: NodeListOf<HTMLElement> =
-      once('mega-menu', '.c-mega-menu', context);
+    const menus: Element[] = once('mega-menu', '.c-mega-menu', context);
 
     menus.forEach(menu => {
       const megaMenu = new MegaMenu(menu);
