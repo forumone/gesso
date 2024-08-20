@@ -139,6 +139,8 @@ const commonConfig = {
               webpackImporter: false,
               sassOptions: {
                 loadPaths: [path.resolve(__dirname, 'source')],
+                // Hiding mixed declaration warnings for now.
+                // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
                 silenceDeprecations: ['mixed-decls'],
               },
             },
