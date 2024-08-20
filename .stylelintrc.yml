@@ -55,3 +55,9 @@ rules:
     #   Block                                              Element (optional)                                   Modifier (also optional)
     #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
     - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'
+  # Rule clashes with new syntax needed to handle mixed nesting declarations
+  scss/selector-no-redundant-nesting-selector: null
+  # Conflicts with prettier
+  '@stylistic/function-parentheses-space-inside': null
+  # Conflicts with prettier
+  '@stylistic/indentation': null

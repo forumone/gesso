@@ -1,0 +1,28 @@
+// @file
+// Component: c-call-to-action
+
+@use '00-config' as *;
+
+.c-call-to-action__layout {
+  align-items: center;
+  display: grid;
+  gap: rem(gesso-spacing(5));
+
+  @include breakpoint(gesso-breakpoint('tablet')) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.c-call-to-action__media {
+  @include breakpoint(gesso-breakpoint('tablet')) {
+    grid-column-start: 2;
+    order: 2;
+  }
+}
+
+.c-call-to-action__content {
+  @include breakpoint(gesso-breakpoint('tablet')) {
+    grid-row-start: 1;
+    order: 1;
+  }
+}

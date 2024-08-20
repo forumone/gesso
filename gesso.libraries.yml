@@ -56,6 +56,11 @@ breadcrumb:
     theme:
       dist/css/breadcrumb.css: {}
 
+call_to_action:
+  css:
+    theme:
+      dist/css/call-to-action.css: {}
+
 card:
   css:
     theme:

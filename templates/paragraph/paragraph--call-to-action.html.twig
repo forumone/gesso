@@ -1,0 +1,14 @@
+{% include '@components/call-to-action/call-to-action.twig' with {
+  'media': content.field_cta_media|field_value is not empty ? content.field_cta_media|field_value : false,
+  'heading': content.field_cta_heading|field_value is not empty ? content.field_cta_heading|field_value : false,
+  'body': content.field_cta_body|field_value is not empty ? content.field_cta_body|field_value : false,
+  'link_attributes': content.field_cta_link|field_value is not empty ? create_attribute(content.field_cta_link.0.getOption('attributes')|default([])),
+  'link_url': content.field_cta_link|field_value is not empty ? content.field_cta_link.0['#url'] : false,
+  'link_title': content.field_cta_link|field_value is not empty ? content.field_cta_link.0['#title'] : false,
+} %}
+
+{#
+  field_cta_link is intentionally omitted from the |without list because specific values are
+  extracted from it, bypassing the normal render process.
+#}
+{% set catch_cache = content|without('field_cta_media', 'field_cta_heading', 'field_cta_body') %}
