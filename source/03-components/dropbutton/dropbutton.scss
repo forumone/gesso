@@ -62,25 +62,22 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
 
 .c-dropbutton__toggle-button {
   @include button();
-
-  & {
-    @include svg-background(dropbutton-arrow-down);
-    background-position: 50%
-      (
-        math.div($dropbutton-toggle-height, 2) - math.div(
-            $dropbutton-toggle-icon-size,
-            2
-          )
-      );
-    background-repeat: no-repeat;
-    background-size: $dropbutton-toggle-icon-size;
-    border-end-start-radius: 0;
-    border-start-start-radius: 0;
-    height: 100%;
-    padding: 0;
-    white-space: nowrap;
-    width: 100%;
-  }
+  @include svg-background(dropbutton-arrow-down);
+  background-position: 50%
+    (
+      math.div($dropbutton-toggle-height, 2) - math.div(
+          $dropbutton-toggle-icon-size,
+          2
+        )
+    );
+  background-repeat: no-repeat;
+  background-size: $dropbutton-toggle-icon-size;
+  border-end-start-radius: 0;
+  border-start-start-radius: 0;
+  height: 100%;
+  padding: 0;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .c-dropbutton__item {

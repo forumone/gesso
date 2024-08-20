@@ -35,12 +35,9 @@
 
 @mixin list-pipeline($pipeline-border-color: gesso-color(ui, generic, border)) {
   @include clearfix();
-
-  & {
-    list-style-type: none;
-    margin-inline-start: 0;
-    padding-inline-start: 0;
-  }
+  list-style-type: none;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
 
   > li {
     border-inline-end: 1px solid $pipeline-border-color;

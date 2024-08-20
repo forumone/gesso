@@ -42,29 +42,23 @@
 
     > .c-mega-menu__link {
       @include link(gesso-color(text, link), gesso-color(text, link-hover));
-
-      & {
-        border-block-end: rem(2px) solid transparent;
-        border-radius: rem(1px);
-        display: block;
-        font-size: rem(gesso-font-size(5));
-        font-weight: gesso-font-weight(regular);
-        padding-block: rem(4.8px);
-        padding-inline: 0;
-        position: relative;
-        text-align: start;
-        transition: all 0.4s ease;
-        width: auto;
-        z-index: gesso-z-index(drawer) + 1;
-      }
+      border-block-end: rem(2px) solid transparent;
+      border-radius: rem(1px);
+      display: block;
+      font-size: rem(gesso-font-size(5));
+      font-weight: gesso-font-weight(regular);
+      padding-block: rem(4.8px);
+      padding-inline: 0;
+      position: relative;
+      text-align: start;
+      transition: all 0.4s ease;
+      width: auto;
+      z-index: gesso-z-index(drawer) + 1;
     }
 
     button.c-mega-menu__link {
       @include text-button;
-
-      & {
-        font-size: rem(gesso-font-size(5));
-      }
+      font-size: rem(gesso-font-size(5));
     }
   }
 
@@ -111,30 +105,24 @@
 
 .c-mega-menu__section-inner {
   @include layout-constrain();
-
-  & {
-    align-items: flex-start;
-    display: grid;
-    gap: rem(gesso-spacing(10));
-    grid-template-columns: rem(250px) 1fr 1fr;
-    margin-block-start: rem(gesso-spacing(2));
-    padding-inline: rem(gesso-site-margins(desktop));
-  }
+  align-items: flex-start;
+  display: grid;
+  gap: rem(gesso-spacing(10));
+  grid-template-columns: rem(250px) 1fr 1fr;
+  margin-block-start: rem(gesso-spacing(2));
+  padding-inline: rem(gesso-site-margins(desktop));
 }
 
 .c-mega-menu__section-close {
   @include text-button;
-
-  & {
-    color: gesso-color(text, on-dark);
-    height: rem(50px);
-    inset-block-start: rem(10px);
-    inset-inline-end: rem(10px);
-    position: absolute;
-    text-align: center;
-    transition: opacity gesso-duration(short) gesso-easing(ease-in);
-    width: rem(50px);
-  }
+  color: gesso-color(text, on-dark);
+  height: rem(50px);
+  inset-block-start: rem(10px);
+  inset-inline-end: rem(10px);
+  position: absolute;
+  text-align: center;
+  transition: opacity gesso-duration(short) gesso-easing(ease-in);
+  width: rem(50px);
 
   .c-mega-menu__close-icon {
     height: rem(22px);

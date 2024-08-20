@@ -5,24 +5,21 @@
 
 .c-hamburger-button {
   @include focus();
-
-  & {
-    background-color: transparent;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    cursor: pointer;
-    display: inline-block;
-    font-family: gesso-font-family(system);
-    font-size: rem(gesso-font-size(3));
-    font-weight: gesso-font-weight(bold);
-    height: 55px;
-    line-height: 55px;
-    margin: 0;
-    padding: 0 gesso-spacing(2);
-    position: relative;
-    text-decoration: none;
-  }
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: gesso-font-family(system);
+  font-size: rem(gesso-font-size(3));
+  font-weight: gesso-font-weight(bold);
+  height: 55px;
+  line-height: 55px;
+  margin: 0;
+  padding: 0 gesso-spacing(2);
+  position: relative;
+  text-decoration: none;
 
   &[hidden] {
     display: none;
@@ -31,14 +28,11 @@
 
 .c-hamburger-button__icon {
   @include image-replace(22px, 22px);
-
-  & {
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 22px 22px;
-    display: inline-block;
-    margin-block-start: gesso-spacing(2);
-  }
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  display: inline-block;
+  margin-block-start: gesso-spacing(2);
 }
 
 .c-hamburger-button--close {

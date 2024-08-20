@@ -8,14 +8,11 @@
 
 .c-filters__list {
   @include list-clean();
-
-  & {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: rem(gesso-spacing(1.5));
-    margin-block: 0 rem(gesso-spacing(1));
-    margin-inline: 0 rem(gesso-spacing(2));
-  }
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: rem(gesso-spacing(1.5));
+  margin-block: 0 rem(gesso-spacing(1));
+  margin-inline: 0 rem(gesso-spacing(2));
 }
 
 .c-filters__item {

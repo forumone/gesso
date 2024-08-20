@@ -42,10 +42,7 @@
 
     > button.c-dropdown-menu__link {
       @include text-button;
-
-      & {
-        @include link(gesso-color(text, link), gesso-color(text, link-hover));
-      }
+      @include link(gesso-color(text, link), gesso-color(text, link-hover));
     }
   }
 }
@@ -60,19 +57,13 @@
 
 .c-dropdown-menu__toggle {
   @include text-button;
-
-  & {
-    @include image-replace(16px, 16px);
-  }
-
-  & {
-    @include svg-background(menu-arrow-down);
-    display: block;
-    inset-block-start: 50%;
-    inset-inline-end: 5px;
-    position: absolute;
-    transform: translateY(-40%);
-  }
+  @include image-replace(16px, 16px);
+  @include svg-background(menu-arrow-down);
+  display: block;
+  inset-block-start: 50%;
+  inset-inline-end: 5px;
+  position: absolute;
+  transform: translateY(-40%);
 
   svg {
     pointer-events: none;
@@ -81,17 +72,14 @@
 
 .c-dropdown-menu__subnav {
   @include list-clean;
-
-  & {
-    background-color: gesso-color(ui, generic, background-dark);
-    color: gesso-color(ui, generic, text-lighter);
-    display: none;
-    inset-block-start: 0;
-    inset-inline-start: 0;
-    margin: rem(gesso-spacing(1)) 0 0;
-    padding: 0;
-    position: absolute;
-  }
+  background-color: gesso-color(ui, generic, background-dark);
+  color: gesso-color(ui, generic, text-lighter);
+  display: none;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  margin: rem(gesso-spacing(1)) 0 0;
+  padding: 0;
+  position: absolute;
 
   .c-dropdown-menu__item.has-subnav {
     position: relative;
@@ -114,41 +102,32 @@
 
     &.has-subnav::after {
       @include image-replace(16px, 16px);
-
-      & {
-        @include svg-background(menu-arrow-right);
-        background-size: 16px 16px;
-        content: '';
-        display: block;
-        inset-block-start: 50%;
-        inset-inline-end: 5px;
-        position: absolute;
-        transform: translateY(-50%);
-      }
-    }
-  }
-
-  .c-dropdown-menu__subnav-toggle {
-    @include text-button;
-
-    & {
-      @include image-replace(
-        rem(gesso-spacing(3) + 2px),
-        rem(gesso-spacing(3) + 2px)
-      );
-    }
-
-    & {
       @include svg-background(menu-arrow-right);
-      background-size: rem(gesso-spacing(3)) rem(gesso-spacing(3));
-      border: 1px solid currentColor;
-      color: inherit;
+      background-size: 16px 16px;
+      content: '';
       display: block;
       inset-block-start: 50%;
       inset-inline-end: 5px;
       position: absolute;
       transform: translateY(-50%);
     }
+  }
+
+  .c-dropdown-menu__subnav-toggle {
+    @include text-button;
+    @include image-replace(
+      rem(gesso-spacing(3) + 2px),
+      rem(gesso-spacing(3) + 2px)
+    );
+    @include svg-background(menu-arrow-right);
+    background-size: rem(gesso-spacing(3)) rem(gesso-spacing(3));
+    border: 1px solid currentColor;
+    color: inherit;
+    display: block;
+    inset-block-start: 50%;
+    inset-inline-end: 5px;
+    position: absolute;
+    transform: translateY(-50%);
 
     &:hover,
     &:focus-visible {

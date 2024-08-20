@@ -13,17 +13,14 @@ $form-range-track-height: 10px !default;
 
 @mixin c-form-item__range-thumb {
   @include focus();
-
-  & {
-    background: gesso-color(form, thumb);
-    border: $form-range-thumb-border-width solid gesso-color(form, border-light);
-    border-radius: $form-range-thumb-border-radius;
-    cursor: pointer;
-    height: rem($form-range-thumb-height);
-    outline: 0;
-    transition: box-shadow gesso-duration(short) gesso-easing(ease-in-out);
-    width: rem($form-range-thumb-width);
-  }
+  background: gesso-color(form, thumb);
+  border: $form-range-thumb-border-width solid gesso-color(form, border-light);
+  border-radius: $form-range-thumb-border-radius;
+  cursor: pointer;
+  height: rem($form-range-thumb-height);
+  outline: 0;
+  transition: box-shadow gesso-duration(short) gesso-easing(ease-in-out);
+  width: rem($form-range-thumb-width);
 }
 
 @mixin c-form-item__range-thumb-focus {
@@ -87,20 +84,14 @@ $form-range-track-height: 10px !default;
 
     &::-ms-thumb {
       @include c-form-item__range-thumb();
-
-      & {
-        margin-block-start: 0 !important; // Removes webkit-specific margin since IE uses webkit prefixes.
-      }
+      margin-block-start: 0 !important; // Removes webkit-specific margin since IE uses webkit prefixes.
     }
 
     &::-ms-track {
       @include c-form-item__range-track();
-
-      & {
-        background: transparent;
-        border: 0;
-        color: transparent;
-      }
+      background: transparent;
+      border: 0;
+      color: transparent;
     }
 
     &::-ms-fill-lower,
@@ -112,16 +103,13 @@ $form-range-track-height: 10px !default;
 
     &::-webkit-slider-thumb {
       @include c-form-item__range-thumb;
-
-      & {
-        -webkit-appearance: none;
-        margin-block-start: rem(
-            math.div(
-              (-$form-range-track-border-width * 2) + $form-range-track-height,
-              2
-            )
-          ) - rem(math.div($form-range-thumb-height, 2));
-      }
+      -webkit-appearance: none;
+      margin-block-start: rem(
+          math.div(
+            (-$form-range-track-border-width * 2) + $form-range-track-height,
+            2
+          )
+        ) - rem(math.div($form-range-thumb-height, 2));
     }
 
     &::-webkit-slider-runnable-track {

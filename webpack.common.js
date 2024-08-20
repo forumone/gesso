@@ -4,7 +4,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import RemovePlugin from 'remove-files-webpack-plugin';
 import StylelintPlugin from 'stylelint-webpack-plugin';
-import SpriteLoaderPlugin from 'svg-sprite-loader/plugin';
+import SpriteLoaderPlugin from 'svg-sprite-loader/plugin.js';
 import * as embeddedSass from 'sass-embedded';
 import { fileURLToPath } from 'node:url';
 

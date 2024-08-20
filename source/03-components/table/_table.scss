@@ -58,16 +58,13 @@
 
 .c-table__header-button {
   @include text-button();
-
-  & {
-    color: inherit;
-    display: block;
-    inset-block: rem(gesso-spacing(0.5));
-    inset-inline-end: rem(gesso-spacing(0.5));
-    outline-offset: 0;
-    position: absolute;
-    width: rem(gesso-spacing(4));
-  }
+  color: inherit;
+  display: block;
+  inset-block: rem(gesso-spacing(0.5));
+  inset-inline-end: rem(gesso-spacing(0.5));
+  outline-offset: 0;
+  position: absolute;
+  width: rem(gesso-spacing(4));
 
   &:focus {
     outline-color: gesso-grayscale(white);

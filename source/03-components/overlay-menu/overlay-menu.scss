@@ -30,16 +30,13 @@ $overlay-menu-bg-color: rgba(
 
 .c-overlay-menu__menu {
   @include list-clean;
-
-  & {
-    align-items: center;
-    display: flex;
-    flex-flow: column nowrap;
-    font-size: rem(gesso-font-size(8));
-    height: calc(100% - 55px);
-    justify-content: center;
-    width: 100%;
-  }
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: rem(gesso-font-size(8));
+  height: calc(100% - 55px);
+  justify-content: center;
+  width: 100%;
 }
 
 .c-overlay-menu__link {
