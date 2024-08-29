@@ -10,13 +10,10 @@ const settings = {
   decorators: [withGlobalWrapper],
 };
 
-const CallToAction = args =>
-  parse(
-    twigTemplate({
-      ...args,
-    })
-  );
-CallToAction.args = { ...data };
+const CallToAction = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { CallToAction };
