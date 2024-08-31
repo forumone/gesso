@@ -86,7 +86,7 @@
     "twig-drupal-filters": "https://github.com/kmonahan/twig-drupal-filters/archive/d2410657fbee6bde3bc2b60ab0fe5d777d4c98c0.tar.gz",
     "twig-loader": "https://github.com/fourkitchens/twig-loader/archive/6f04fedf24f13b69b62c457f971d80b06522ed34.tar.gz",
     "typescript": "^5.4.2",
-    "webpack": "^5.89.0",
+    "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-merge": "^6.0.1"
   },
