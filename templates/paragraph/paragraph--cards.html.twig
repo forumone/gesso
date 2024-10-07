@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present multiple card paragraphs. Simple wrapper around the card paragraph content.
+ * Update this template in the Gesso template's directory.
+ *
+ * Available variables:
+ * - content: List of card paragraphs.
+ *
+ * Update this template in the Gesso template's directory
+ *
+ */
+#}
+{% if content %}
+  <div{{ attributes.addClass('c-paragraph c-paragraph--type-cards') }}>
+    {{ content }}
+  </div>
+{% endif %}

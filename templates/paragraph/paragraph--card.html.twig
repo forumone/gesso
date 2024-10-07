@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a card. Update this template in the Gesso template's directory.
+ *
+ * Available variables:
+ *   Each card type contains the following:
+ *   - field_card_image: An image
+ *   - field_card_link: A link to link image, card, or title
+ *   - field_card_title: title
+ *   - field_card_subtitle: subtitle
+ *
+ */
+#}
+<div class="card">
+  {% if field_card_media %}
+    <div class="c-card_image">
+      {{ field_card_media }}
+    </div>
+  {% endif %}
+  <div class="c-card_content">
+    {% if field_card_title %}
+      <h3 class="c-card_title">{{ field_card_title }}</h3>
+    {% endif %}
+    {% if field_card_subtitle %}
+      <p class="c-card_subtitle">{{ field_card_subtitle }}</p>
+    {% endif %}
+    {% if field_card_link %}
+      <a href="{{ field_card_link }}" class="c-card_link visually-hidden">Read more...</a>
+    {% endif %}
+  </div>
+</div>
