@@ -1,6 +1,7 @@
 $wysiwyg: false !default;
 
 @use '00-cms-styles/toolbar-menu/toolbar-menu';
+@use '00-module-overrides/extlink/extlink';
 @use 'article/article';
 @use 'author/author';
 @use 'button/button';
