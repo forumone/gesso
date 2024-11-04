@@ -70,7 +70,7 @@
     "nani": "^3.2.3",
     "postcss": "^8.4.33",
     "postcss-loader": "^8.1.1",
-    "postcss-selector-parser": "^6.0.15",
+    "postcss-selector-parser": "^7.0.0",
     "prettier": "^3.2.5",
     "react-refresh": "^0.14.0",
     "sass-loader": "^16.0.0",
