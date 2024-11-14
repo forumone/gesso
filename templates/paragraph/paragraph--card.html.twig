@@ -1,32 +1,16 @@
 {#
 /**
  * @file
- * Default theme implementation to present a card. Update this template in the Gesso template's directory.
- *
- * Available variables:
- *   Each card type contains the following:
- *   - field_card_image: An image
- *   - field_card_link: A link to link image, card, or title
- *   - field_card_title: title
- *   - field_card_subtitle: subtitle
- *
+ * Theme implementation to display a paragraph.
  */
 #}
-<div class="card">
-  {% if field_card_media %}
-    <div class="c-card_image">
-      {{ field_card_media }}
-    </div>
-  {% endif %}
-  <div class="c-card_content">
-    {% if field_card_title %}
-      <h3 class="c-card_title">{{ field_card_title }}</h3>
-    {% endif %}
-    {% if field_card_subtitle %}
-      <p class="c-card_subtitle">{{ field_card_subtitle }}</p>
-    {% endif %}
-    {% if field_card_link %}
-      <a href="{{ field_card_link }}" class="c-card_link visually-hidden">Read more...</a>
-    {% endif %}
-  </div>
-</div>
+
+{% include '@components/card/card.twig' with {
+  'media': content.field_card_media|field_value is not empty ? content.field_card_media|field_value : false,
+  'title': content.field_card_title|field_value is not empty ? content.field_card_title|field_value : false,
+  'url': content.field_card_link.0['#url'] is not empty ? content.field_card_link.0['#url'] : false,
+  'card_content': content.field_card_subtitle|field_value is not empty ? content.field_card_subtitle|field_value : false,
+  'card_link_text': content.field_card_link.0['#title'] is not empty ? content.field_card_link.0['#title'] : false,
+} %}
+
+{% set catch_cache = content|without('field_card_media', 'field_card_title', 'field_card_link', 'field_card_subtitle')|render %}
