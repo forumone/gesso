@@ -4,7 +4,7 @@ import once from 'once';
 Drupal.behaviors.externalLink = {
   attach(context, settings) {
     const { imagePath } = settings.gesso;
-    const exitDisclaimer = settings?.gesso?.externalLinkExitDisclaimer ?? 'Exit this website';
+    const exitDisclaimer = settings?.gesso?.externalLinkExitDisclaimer ?? Drupal.t('Exit this website');
     const allowedDomains = settings?.gesso?.externalLinkAllowedDomains ?? [];
     const allowedLinks = settings?.gesso?.externalLinkAllowedLinks ?? [];
     const externalLinks: NodeListOf<HTMLAnchorElement> = once(
@@ -40,7 +40,7 @@ Drupal.behaviors.externalLink = {
 
     externalLinks.forEach(link => {
       if (link.hasAttribute('href') && linkIsExternal(link)) {
-        const accessibleLabel = Drupal.t(exitDisclaimer);
+        const accessibleLabel = exitDisclaimer;
 
         link.insertAdjacentHTML(
           'beforeend',
