@@ -1,0 +1,13 @@
+{% set classes = [
+  'c-tabs-panel',
+  modifier_classes ? modifier_classes : '',
+]|join(' ') %}
+
+<div
+  class="{{ classes }}"
+  role="tabpanel"
+  aria-hidden={{ loop.first ? 'false' : 'true'}}
+  id="{{ unique_id ~ '-panel-' ~ loop.index }}"
+>
+  {{ content }}
+</div>

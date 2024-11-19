@@ -1,0 +1,13 @@
+{% set classes = [
+  'c-tabs-button',
+  modifier_classes ? modifier_classes : '',
+]|join(' ') %}
+
+<button
+  class="{{ classes }}"
+  role="tab"
+  aria-expanded={{ loop.first ? 'true' : 'false'}}
+  aria-controls="{{ unique_id ~ '-panel-' ~ loop.index }}"
+>
+  {{ label }}
+</button>

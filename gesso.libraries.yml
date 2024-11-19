@@ -243,6 +243,17 @@ side_menu:
     - gesso/common
     - gesso/hamburger_button
 
+tabs:
+  css:
+    theme:
+      dist/css/tabs.css: {}
+  js:
+    dist/js/tabs.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
+
 tag:
   css:
     theme:

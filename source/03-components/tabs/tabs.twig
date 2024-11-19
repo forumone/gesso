@@ -1,0 +1,29 @@
+{{ attach_library('gesso/tabs') }}
+{% set unique_id = 'tabs'|clean_unique_id %}
+
+{% set classes = [
+  'c-tabs',
+  modifier_classes ? modifier_classes : '',
+] %}
+
+<div {{ add_attributes({ class: classes }) }}>
+  <div class="c-tabs__buttons" role="tablist">
+    {% block tabs_buttons %}
+      {% for tab in tabs %}
+        {% include "@components/tabs/tabs-button.twig" with {
+          label: tab.label
+        }%}
+      {% endfor %}
+    {% endblock tabs_buttons %}
+    <span class="c-tabs__magic-line"></span>
+  </div>
+  <div class="c-tabs__panels">
+    {% block tabs_panels %}
+      {% for tab in tabs %}
+        {% include "@components/tabs/tabs-panel.twig" with {
+          content: tab.content
+        }%}
+      {% endfor %}
+    {% endblock tabs_panels %}
+  </div>
+</div>
