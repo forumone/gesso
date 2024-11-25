@@ -1,3 +1,4 @@
+display: 'horizontal'
 tabs:
   - label: 'Curabitur Arcu'
     content: |-
@@ -8,3 +9,6 @@ tabs:
   - label: 'Nulla a Quis'
     content: |-
       <p>Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sollicitudin molestie malesuada. Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+  - label: 'Sollicitudin en Molestie a Malesuada'
+    content: |-
+      <p>Nullam quis ante. Vivamus laoreet. Etiam ut purus mattis mauris sodales aliquam. In ut quam vitae odio lacinia tincidunt. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Phasellus nec sem in justo pellentesque facilisis. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Nullam dictum felis eu pede mollis pretium. Sed hendrerit.</p>

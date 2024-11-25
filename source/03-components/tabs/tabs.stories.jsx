@@ -1,6 +1,5 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './tabs.twig';
 import data from './tabs.yml';
 import './tabs.es6';
@@ -8,11 +7,19 @@ import './tabs.scss';
 
 const settings = {
   title: 'Components/Tabs',
-  decorators: [withGlobalWrapper],
+  argTypes: {
+    display: {
+      control: 'select',
+      options: ['horizontal', 'vertical'],
+    },
+  },
 };
 
 const Tabs = args =>
   parse(
+    twigTemplate({
+      ...args,
+    }),
     twigTemplate({
       ...args,
     })
