@@ -1,12 +1,12 @@
-import "./drupalSettings";
+import './drupalSettings';
 
 // Simple Drupal.behaviors usage for Storybook
 // via https://github.com/emulsify-ds/emulsify-drupal/
 
-window.Drupal = { behaviors: {} };
+const Drupal = { behaviors: {} };
 
 (function (Drupal, drupalSettings) {
-  Drupal.throwError = (error) => {
+  Drupal.throwError = error => {
     setTimeout(function () {
       throw error;
     }, 0);
@@ -39,4 +39,5 @@ window.Drupal = { behaviors: {} };
   };
 })(Drupal, window.drupalSettings);
 
+window.Drupal = Drupal;
 export default Drupal;

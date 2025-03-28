@@ -1,3 +1,4 @@
-window.drupalSettings = {};
+const drupalSettings = {};
+window.drupalSettings = drupalSettings;
 
-export default window.drupalSettings;
+export default drupalSettings;

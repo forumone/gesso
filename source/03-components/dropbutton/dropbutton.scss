@@ -4,8 +4,8 @@
 @use 'sass:math';
 @use '00-config' as *;
 
-$dropbutton-toggle-height: gesso-line-height(base) * rem(gesso-base-font-size()) +
-  2 * rem(gesso-spacing(1)) !default;
+$dropbutton-toggle-height: gesso-line-height(base) *
+  rem(gesso-base-font-size()) + 2 * rem(gesso-spacing(1)) !default;
 $dropbutton-toggle-width: 2em !default;
 $dropbutton-toggle-icon-size: rem(12px) !default;
 
