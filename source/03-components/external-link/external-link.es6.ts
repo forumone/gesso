@@ -7,7 +7,7 @@ Drupal.behaviors.externalLink = {
     const exitDisclaimer = settings?.gesso?.externalLinkExitDisclaimer ?? Drupal.t('Exit this website');
     const allowedDomains = settings?.gesso?.externalLinkAllowedDomains ?? [];
     const allowedLinks = settings?.gesso?.externalLinkAllowedLinks ?? [];
-    const externalLinks: NodeListOf<HTMLAnchorElement> = once(
+    const externalLinks: Element[] = once(
       'external-link',
       "a:not([data-not-external-link], [href=''], [href^='#'], [href^='?'], [href^='/'], [href^='.'], [href^='javascript:'], [href^='mailto:'], [href^='tel:'])",
       context
@@ -39,7 +39,10 @@ Drupal.behaviors.externalLink = {
     }
 
     externalLinks.forEach(link => {
-      if (link.hasAttribute('href') && linkIsExternal(link)) {
+      if (
+        link.hasAttribute('href') &&
+        linkIsExternal(link as HTMLAnchorElement)
+      ) {
         const accessibleLabel = exitDisclaimer;
 
         link.insertAdjacentHTML(
