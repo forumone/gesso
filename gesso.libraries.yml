@@ -24,6 +24,17 @@ accordion:
     - core/once
     - gesso/common
 
+accordion_step_list:
+  header: true
+  css:
+    theme:
+      dist/css/accordion--step-list.css: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
+    - gesso/accordion
+
 back_to_top:
   css:
     theme:
@@ -44,6 +55,11 @@ breadcrumb:
   css:
     theme:
       dist/css/breadcrumb.css: {}
+
+call_to_action:
+  css:
+    theme:
+      dist/css/call-to-action.css: {}
 
 card:
   css:
@@ -157,6 +173,17 @@ mobile_menu:
       dist/css/mobile-menu.css: {}
   dependencies:
     - gesso/hamburger_button
+
+modal:
+  css:
+    theme:
+      dist/css/modal.css: {}
+  js:
+    dist/js/modal.es6.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/common
 
 overlay_menu:
   css:

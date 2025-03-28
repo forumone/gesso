@@ -4,7 +4,7 @@
 
 %caption,
 caption {
-  margin-bottom: rem(gesso-spacing(0.5));
+  margin-block-end: rem(gesso-spacing(0.5));
 }
 
 // col {}
@@ -15,7 +15,7 @@ caption {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin-bottom: rem(gesso-spacing(2));
+  margin-block-end: rem(gesso-spacing(2));
   min-width: 100%;
 }
 
@@ -43,7 +43,7 @@ th {
   background-color: gesso-color(table, background);
   border: 1px solid gesso-color(table, border);
   padding: rem(gesso-spacing(2));
-  text-align: left;
+  text-align: start;
 }
 
 thead {
@@ -72,7 +72,7 @@ tr {
 
     table {
       @extend %table;
-      margin-top: 0;
+      margin-block-start: 0;
     }
 
     td {

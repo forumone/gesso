@@ -1,13 +1,14 @@
 // Functions: Numbers
 
 @use 'sass:math';
+@use 'sass:meta';
 
 // Remove the unit of a length
 // @param {Number} $number - Number to remove unit from
 // @return {Number} - Unitless number
 
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
     @return math.div($number, ($number * 0 + 1));
   }
   @return $number;
@@ -30,15 +31,15 @@
 @function decimal-round($number, $digits: 0, $mode: round) {
   $n: 1;
   // $number must be a number
-  @if type-of($number) != number {
+  @if meta.type-of($number) != number {
     @warn '#{ $number } is not a number.';
     @return $number;
   }
   // $digits must be a unitless number
-  @if type-of($digits) != number {
+  @if meta.type-of($digits) != number {
     @warn '#{ $digits } is not a number.';
     @return $number;
-  } @else if not unitless($digits) {
+  } @else if not math.is-unitless($digits) {
     @warn '#{ $digits } has a unit.';
     @return $number;
   }
@@ -46,11 +47,11 @@
     $n: $n * 10;
   }
   @if $mode == round {
-    @return round($number * $n) / $n;
+    @return math.round($number * $n) / $n;
   } @else if $mode == ceil {
-    @return ceil($number * $n) / $n;
+    @return math.ceil($number * $n) / $n;
   } @else if $mode == floor {
-    @return floor($number * $n) / $n;
+    @return math.floor($number * $n) / $n;
   } @else {
     @warn '#{ $mode } is undefined keyword.';
     @return $number;
@@ -90,12 +91,12 @@
 }
 
 @function is-number($value) {
-  @return type-of($value) == 'number';
+  @return meta.type-of($value) == 'number';
 }
 
 // Escape a decimal number (replaces . with -)
 @function escape-number($value) {
-  @if type-of($value) != 'number' {
+  @if meta.type-of($value) != 'number' {
     @return $value;
   }
   $integer: math.floor(strip-unit($value));
@@ -103,7 +104,7 @@
   @if ($fraction == 0) {
     @return $integer;
   }
-  @while ($fraction != floor($fraction)) {
+  @while ($fraction != math.floor($fraction)) {
     $fraction: $fraction * 10;
   }
   @return $integer + '-' + $fraction;

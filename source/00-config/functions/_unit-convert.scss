@@ -1,6 +1,7 @@
 // Functions: Unit Convert
 
 @use 'sass:math';
+@use 'sass:meta';
 @use 'gesso' as *;
 @use 'numbers' as *;
 
@@ -8,7 +9,7 @@
 // @param {Number} $value - unitless number
 // @return {String} - unit type
 @function convert($value, $unit: px) {
-  @if unitless($value) {
+  @if math.is-unitless($value) {
     @if $unit == px {
       @return $value * 1px;
     }
@@ -26,13 +27,13 @@
 // @param {Number} $base - Base font size in pixels.
 // @return {Number} - Value in pixels.
 @function px($value, $base: gesso-get-map(typography, base-font-size)) {
-  @if unitless($value) {
+  @if math.is-unitless($value) {
     @return convert($value, px);
   }
-  @if (type-of($base) != 'number' or unit($base) != 'px') {
-    @error "Base font size must be in pixels.";
+  @if (meta.type-of($base) != 'number' or math.unit($base) != 'px') {
+    @error 'Base font size must be in pixels.';
   }
-  @if (unit($value) != 'px') {
+  @if (math.unit($value) != 'px') {
     @return strip-unit($value) * $base;
   } @else {
     @return $value;
@@ -45,11 +46,11 @@
 // @param {Number} $base - Base font size in pixels.
 // @return {Number} - Value in ems.
 @function em($value, $base: gesso-get-map(typography, base-font-size)) {
-  @if (type-of($base) != 'number' or unit($base) != 'px') {
-    @error "Base font size must be in pixels.";
+  @if (meta.type-of($base) != 'number' or math.unit($base) != 'px') {
+    @error 'Base font size must be in pixels.';
   }
-  @if (type-of($value) == 'number' and unit($value) != 'em') {
-    @if (unit($value) != 'px') {
+  @if (meta.type-of($value) == 'number' and math.unit($value) != 'em') {
+    @if (math.unit($value) != 'px') {
       $value: px($value, $base);
     }
     @return (math.div($value, $base)) * 1em;
@@ -65,11 +66,11 @@
 // @param {Number} $base - Base font size in pixels.
 // @return {Number} - Value in rems.
 @function rem($value, $base: gesso-get-map(typography, base-font-size)) {
-  @if (type-of($base) != 'number' or unit($base) != 'px') {
-    @error "Base font size must be in pixels.";
+  @if (meta.type-of($base) != 'number' or math.unit($base) != 'px') {
+    @error 'Base font size must be in pixels.';
   }
-  @if (type-of($value) == 'number' and unit($value) != 'rem') {
-    @if (unit($value) != 'px') {
+  @if (meta.type-of($value) == 'number' and math.unit($value) != 'rem') {
+    @if (math.unit($value) != 'px') {
       $value: px($value, $base);
     }
     @return (math.div($value, $base)) * 1rem;

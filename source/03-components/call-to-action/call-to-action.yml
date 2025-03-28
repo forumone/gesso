@@ -1,0 +1,6 @@
+---
+body: '<p>CTA content goes here…</p>'
+heading: 'Heading Text'
+media: '<img src="https://picsum.photos/600/400" alt="placeholder image" />'
+link_url: 'https://www.example.com'
+link_title: 'Link Text'

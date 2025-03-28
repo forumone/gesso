@@ -1,7 +1,11 @@
 {{ attach_library('gesso/accordion') }}
+{% if step_list %}
+  {{ attach_library('gesso/accordion_step_list') }}
+{% endif %}
 
 {% set classes = [
   'c-accordion',
+  is_step_list ? 'c-accordion--step-list' : '',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 

@@ -3,6 +3,22 @@
 @use '../functions' as *;
 @use 'breakpoint' as *;
 
+@mixin layout-align-inline-end($margin) {
+  float: inline-end;
+
+  @if $margin {
+    margin-inline-start: $margin;
+  }
+}
+
+@mixin layout-align-inline-start($margin) {
+  float: inline-start;
+
+  @if $margin {
+    margin-inline-end: $margin;
+  }
+}
+
 @mixin layout-align-left($margin) {
   float: left;
 
@@ -21,8 +37,7 @@
 
 @mixin layout-align-none {
   float: none;
-  margin-left: 0;
-  margin-right: 0;
+  margin-inline: 0;
 }
 
 @mixin layout-constrain(
@@ -30,47 +45,39 @@
   $margins-mobile: gesso-site-margins(mobile),
   $margins: gesso-site-margins(desktop)
 ) {
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   max-width: rem($max-width);
   width: 100%;
 
   @if $margins-mobile {
-    padding-left: rem($margins-mobile);
-    padding-right: rem($margins-mobile);
+    padding-inline: rem($margins-mobile);
   }
 
   @if $margins {
     @include breakpoint(gesso-breakpoint(desktop)) {
-      padding-left: rem($margins);
-      padding-right: rem($margins);
+      padding-inline: rem($margins);
     }
   }
 
   // Just in case .l-constrain is nested within another .l-constrain.
   & & {
-    padding-left: 0;
-    padding-right: 0;
+    padding-inline: 0;
   }
 }
 
 // Breaks something outside its parent l-constrain or other centered container
 // and makes it flush with the edge of the viewport.
 @mixin layout-full-bleed() {
-  left: 50%;
-  margin-left: calc(-50vw + var(--scrollbar-width) / 2);
-  margin-right: calc(-50vw + var(--scrollbar-width) / 2);
+  inset-inline: 50%;
+  margin-inline: calc(-50vw + var(--scrollbar-width) / 2);
   position: relative;
-  right: 50%;
   width: calc(100vw - var(--scrollbar-width));
 }
 
 // Reverses the above.
 @mixin layout-undo-full-bleed() {
-  left: auto;
-  margin-left: 0;
-  margin-right: 0;
+  inset-inline: auto;
+  margin-inline: 0;
   position: static;
-  right: auto;
   width: auto;
 }

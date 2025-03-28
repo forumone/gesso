@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override for a 'form' element.
+ * Theme implementation for a form.
  *
  * Available variables
  * - attributes: A list of HTML attributes for the wrapper element.
@@ -10,6 +10,6 @@
  * @see template_preprocess_form()
  */
 #}
-<form{{ attributes.setAttribute('id', attributes.id|unique_id) }}>
+<form{{ attributes.setAttribute('id', attributes.id|clean_unique_id) }}>
   {{ children }}
 </form>

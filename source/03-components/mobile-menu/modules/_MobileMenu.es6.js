@@ -21,7 +21,7 @@ class MobileMenu extends OverlayMenu {
 
   /**
    * @constructor
-   * @param {HTMLElement} domNode - The menu to turn into a mobile menu
+   * @param {Element} domNode - The menu to turn into a mobile menu
    * @param context
    * @param {MobileMenuOpts} options - Menu options
    */
@@ -78,16 +78,20 @@ class MobileMenu extends OverlayMenu {
       blockClone.id = `${blockClone.id}-mobile`;
     }
 
-    const childrenWithId = [...blockClone.querySelectorAll('[id]')];
-    childrenWithId.forEach((e) => {
-      e.id = `${e.id}-mobile`;
-    });
+    const childrenWithId = blockClone.querySelectorAll('[id]');
+    if (childrenWithId.length) {
+      childrenWithId.forEach(e => {
+        e.id = `${e.id}-mobile`;
+      });
+    }
 
-    const childrenWithFor = [...blockClone.querySelectorAll('[for]')];
-    childrenWithFor.forEach((e) => {
-      const thisFor = e.getAttribute('for');
-      e.setAttribute('for', `${thisFor}-mobile`);
-    });
+    const childrenWithFor = blockClone.querySelectorAll('[for]');
+    if (childrenWithFor.length) {
+      childrenWithFor.forEach(e => {
+        const thisFor = e.getAttribute('for');
+        e.setAttribute('for', `${thisFor}-mobile`);
+      });
+    }
 
     return blockClone;
   }
@@ -254,7 +258,7 @@ class MobileMenu extends OverlayMenu {
           `.${this.options.classPrefix}__subnav-toggle`
         );
         if (this.options.toggleSubnav) {
-          const subnav = getNextSibling(link, 'ul');
+          const subnav = getNextSibling(link);
           if (subnav) {
             this.setupSubnav(link, subnav, nextButton);
           }

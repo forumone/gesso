@@ -179,7 +179,9 @@ import once from 'once';
   Drupal.behaviors.dropButton = {
     attach(context, settings) {
       const options = { ...{ dropbutton: {} }, ...settings };
-      const dropbuttons = once('dropbutton', '.js-dropbutton', context);
+      const dropbuttons = once('dropbutton', '.js-dropbutton', context).filter(
+        (elem): elem is HTMLElement => elem instanceof HTMLElement
+      );
       if (dropbuttons.length) {
         // Initialize all buttons.
         const il = dropbuttons.length;

@@ -22,11 +22,15 @@ export const slideCollapse = (
   easing = TRANSITIONS.ease['ease-in-out'],
   hideContent = true
 ) => {
+  // Change duration if user prefers reduced motion.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const slideDuration = prefersReducedMotion.matches ? '1ms' : duration;
+
   target.style.height = `${target.offsetHeight}px`;
 
   window.requestAnimationFrame(() => {
     target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = duration;
+    target.style.transitionDuration = slideDuration;
     target.style.transitionTimingFunction = easing;
     target.style.boxSizing = 'border-box';
     target.style.overflow = 'hidden';
@@ -47,10 +51,10 @@ export const slideCollapse = (
 
         target.style.removeProperty('box-sizing');
         target.style.removeProperty('height');
-        target.style.removeProperty('margin-bottom');
-        target.style.removeProperty('margin-top');
-        target.style.removeProperty('padding-bottom');
-        target.style.removeProperty('padding-top');
+        target.style.removeProperty('margin-block-end');
+        target.style.removeProperty('margin-block-start');
+        target.style.removeProperty('padding-block-end');
+        target.style.removeProperty('padding-block-start');
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
         target.style.removeProperty('transition-timing-function');
@@ -80,6 +84,9 @@ export const slideExpand = (
   easing = TRANSITIONS.ease['ease-in-out'],
   hideContent = true
 ) => {
+  // Change duration if user prefers reduced motion.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const slideDuration = prefersReducedMotion.matches ? '1ms' : duration;
   let height;
 
   if (hideContent) {
@@ -110,18 +117,18 @@ export const slideExpand = (
     target.style.marginBottom = '0';
     target.style.boxSizing = 'border-box';
     target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = duration;
+    target.style.transitionDuration = slideDuration;
     target.style.transitionTimingFunction = easing;
 
     window.requestAnimationFrame(() => {
       function showTarget() {
         target.style.removeProperty('box-sizing');
         target.style.removeProperty('height');
-        target.style.removeProperty('margin-bottom');
-        target.style.removeProperty('margin-top');
+        target.style.removeProperty('margin-block-end');
+        target.style.removeProperty('margin-block-start');
         target.style.removeProperty('overflow');
-        target.style.removeProperty('padding-bottom');
-        target.style.removeProperty('padding-top');
+        target.style.removeProperty('padding-block-end');
+        target.style.removeProperty('padding-block-start');
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
         target.style.removeProperty('transition-timing-function');

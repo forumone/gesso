@@ -124,6 +124,7 @@ const commonConfig = {
           {
             loader: 'css-loader',
             options: {
+              esModule: false,
               // Ignore /core/ URLs
               url: {
                 filter: url => !url.includes('/core/'),
@@ -137,7 +138,10 @@ const commonConfig = {
               implementation: embeddedSass,
               webpackImporter: false,
               sassOptions: {
-                includePaths: [path.resolve(__dirname, 'source')],
+                loadPaths: [path.resolve(__dirname, 'source')],
+                // Hiding mixed declaration warnings for now.
+                // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
+                silenceDeprecations: ['mixed-decls'],
               },
             },
           },

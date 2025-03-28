@@ -37,6 +37,7 @@ const config = {
           ))
     );
     if (swcLoaderRule) {
+      swcLoaderRule.sideEffects = true;
       let swcLoaderConfig =
         swcLoaderRule.loader ||
         swcLoaderRule.use.find(
@@ -54,6 +55,7 @@ const config = {
                 ...swcLoaderConfig?.options?.jsc?.transform?.react,
                 development: !isProdBuild,
                 refresh: !isProdBuild,
+                runtime: 'automatic',
               },
             },
           },
@@ -99,14 +101,22 @@ const config = {
       test: /\.scss$/,
       use: [
         'style-loader',
-        'css-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            esModule: false,
+          },
+        },
         {
           loader: 'sass-loader',
           options: {
             implementation: require('sass-embedded'),
             webpackImporter: false,
             sassOptions: {
-              includePaths: [path.resolve(__dirname, '../source')],
+              loadPaths: [path.resolve(__dirname, '../source')],
+              // Hiding mixed declaration warnings for now.
+              // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
+              silenceDeprecations: ['mixed-decls'],
             },
           },
         },

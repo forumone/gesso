@@ -6,13 +6,6 @@
   display: inline-block;
 
   & + & {
-    margin-left: rem(gesso-spacing(2));
-
-    @if $support-for-rtl {
-      [dir='rtl'] & {
-        margin-left: 0;
-        margin-right: rem(gesso-spacing(2));
-      }
-    }
+    margin-inline-start: rem(gesso-spacing(2));
   }
 }

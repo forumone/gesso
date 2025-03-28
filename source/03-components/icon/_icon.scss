@@ -6,8 +6,8 @@
   display: inline-block;
   fill: currentColor;
   height: 1em;
+  inset-block-start: -2px;
   position: relative;
-  top: -2px;
   transition: none;
   vertical-align: middle;
   width: 1em;
@@ -18,25 +18,11 @@
   }
 
   &.is-spaced-before {
-    margin-left: 0.25em;
-
-    @if $support-for-rtl {
-      [dir='rtl'] & {
-        margin-left: 0;
-        margin-right: 0.25em;
-      }
-    }
+    margin-inline-start: 0.25em;
   }
 
   &.is-spaced-after {
-    margin-right: 0.25em;
-
-    @if $support-for-rtl {
-      [dir='rtl'] & {
-        margin-left: 0.25em;
-        margin-right: 0;
-      }
-    }
+    margin-inline-end: 0.25em;
   }
 
   &.is-down {

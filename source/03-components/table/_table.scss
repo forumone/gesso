@@ -38,7 +38,7 @@
 
   &.is-sortable {
     th[data-sortable] {
-      padding-right: rem(gesso-spacing(5));
+      padding-inline-end: rem(gesso-spacing(5));
       position: relative;
 
       &[aria-sort='ascending'] {
@@ -58,13 +58,12 @@
 
 .c-table__header-button {
   @include text-button();
-  bottom: rem(gesso-spacing(0.5));
   color: inherit;
   display: block;
+  inset-block: rem(gesso-spacing(0.5));
+  inset-inline-end: rem(gesso-spacing(0.5));
   outline-offset: 0;
   position: absolute;
-  right: rem(gesso-spacing(0.5));
-  top: rem(gesso-spacing(0.5));
   width: rem(gesso-spacing(4));
 
   &:focus {
