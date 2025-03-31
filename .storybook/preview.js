@@ -1,6 +1,6 @@
 import Twig from 'twig';
 import { useEffect } from '@storybook/preview-api';
-import twigDrupal from 'twig-drupal-filters';
+import twigDrupal from '@forumone/twig-drupal-filters';
 import twigAttributes from '../lib/addAttributesTwigExtension';
 import keysort from '../lib/keysort';
 import cleanUniqueId from '../lib/cleanUniqueId';

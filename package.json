@@ -27,6 +27,7 @@
     ">= 1% in US"
   ],
   "devDependencies": {
+    "@forumone/twig-drupal-filters": "^3.2.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@storybook/addon-a11y": "^8.6.6",
     "@storybook/addon-actions": "^8.1.6",
@@ -83,7 +84,6 @@
     "svgo-loader": "^4.0.0",
     "swc-loader": "^0.2.6",
     "ts-loader": "^9.5.2",
-    "twig-drupal-filters": "https://github.com/kmonahan/twig-drupal-filters/archive/d2410657fbee6bde3bc2b60ab0fe5d777d4c98c0.tar.gz",
     "twig-loader": "https://github.com/fourkitchens/twig-loader/archive/6f04fedf24f13b69b62c457f971d80b06522ed34.tar.gz",
     "typescript": "^5.8.2",
     "webpack": "^5.98.0",
