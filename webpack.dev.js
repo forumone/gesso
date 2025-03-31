@@ -14,7 +14,7 @@ const devConfig = merge(common, {
   devtool: 'source-map',
   plugins: [
     new ESLintPlugin({
-      overrideConfigFile: path.resolve(__dirname, '.eslintrc-dev.cjs'),
+      overrideConfigFile: path.resolve(__dirname, 'eslint.dev.config.js'),
       useEslintrc: false,
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
