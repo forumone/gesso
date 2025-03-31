@@ -1,8 +1,9 @@
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import f1BaseConfig from '@forumone/eslint-config-es5';
 import f1ReactConfig from '@forumone/eslint-config-react';
 
 const config = defineConfig([
+  globalIgnores(['**/_GESSO.es6.js']),
   f1BaseConfig,
   {
     files: ['*.tsx', '.jsx'],
