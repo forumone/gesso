@@ -4,29 +4,26 @@ import once from 'once';
 Drupal.behaviors.externalLink = {
   attach(context, settings) {
     const { imagePath } = settings.gesso;
-    const exitDisclaimer = settings?.gesso?.externalLinkExitDisclaimer ?? Drupal.t('Exit this website');
+    const exitDisclaimer =
+      settings?.gesso?.externalLinkExitDisclaimer ??
+      Drupal.t('Exit this website');
     const allowedDomains = settings?.gesso?.externalLinkAllowedDomains ?? [];
     const allowedLinks = settings?.gesso?.externalLinkAllowedLinks ?? [];
-    const externalLinks: Element[] = once(
+    const externalLinks = once(
       'external-link',
       "a:not([data-not-external-link], [href=''], [href^='#'], [href^='?'], [href^='/'], [href^='.'], [href^='javascript:'], [href^='mailto:'], [href^='tel:'])",
       context
-    );
+    ).filter(elem => elem instanceof HTMLAnchorElement);
 
     function linkIsExternal(link: HTMLAnchorElement) {
       let external = true;
 
-      if (
-        link.host === window.location.host
-      ) {
+      if (link.host === window.location.host) {
         external = false;
       }
 
       allowedDomains.forEach(domain => {
-        if (
-          link.host === domain ||
-          link.host.endsWith(`.${domain}`)
-        ) {
+        if (link.host === domain || link.host.endsWith(`.${domain}`)) {
           external = false;
         }
       });
@@ -39,10 +36,7 @@ Drupal.behaviors.externalLink = {
     }
 
     externalLinks.forEach(link => {
-      if (
-        link.hasAttribute('href') &&
-        linkIsExternal(link as HTMLAnchorElement)
-      ) {
+      if (link.hasAttribute('href') && linkIsExternal(link)) {
         const accessibleLabel = exitDisclaimer;
 
         link.insertAdjacentHTML(
