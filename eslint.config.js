@@ -6,7 +6,7 @@ const config = defineConfig([
   globalIgnores(['**/_GESSO.es6.js']),
   f1BaseConfig,
   {
-    files: ['*.tsx', '.jsx'],
+    files: ['*.tsx', '*.jsx'],
     extends: [f1ReactConfig],
   },
   {
