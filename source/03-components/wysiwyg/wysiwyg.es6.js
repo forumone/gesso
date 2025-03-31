@@ -4,7 +4,6 @@ import once from 'once';
 Drupal.behaviors.wysiwyg = {
   attach(context) {
     once('wysiwyg', '[data-wysiwyg]', context).forEach(wysiwyg => {
-
       // Wrap all tables output via WYSIWYG with a responsive table layout.
       const tables = wysiwyg.querySelectorAll('[data-wysiwyg] table');
       tables.forEach((table, i) => {

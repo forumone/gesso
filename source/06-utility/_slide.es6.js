@@ -23,7 +23,9 @@ export const slideCollapse = (
   hideContent = true
 ) => {
   // Change duration if user prefers reduced motion.
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  );
   const slideDuration = prefersReducedMotion.matches ? '1ms' : duration;
 
   target.style.height = `${target.offsetHeight}px`;
@@ -85,7 +87,9 @@ export const slideExpand = (
   hideContent = true
 ) => {
   // Change duration if user prefers reduced motion.
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  );
   const slideDuration = prefersReducedMotion.matches ? '1ms' : duration;
   let height;
 

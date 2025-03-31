@@ -169,7 +169,6 @@ const updateLiveRegion = (
     } order.`;
     liveRegion.innerText = sortAnnouncement;
   } else {
-    // eslint-disable-next-line no-console
     console.error(
       'Table containing a sortable column header is not followed by an aria-live region.'
     );
@@ -187,17 +186,11 @@ const toggleSort = (
 ): void => {
   const table = header.closest(TABLE);
 
-  let safeAscending = isAscending;
-
-  if (typeof safeAscending !== 'boolean') {
-    safeAscending = header.getAttribute(SORTED) === ASCENDING;
-  }
-
   if (!table || !(table instanceof HTMLTableElement)) {
     throw new Error(`${SORTABLE_HEADER} is missing outer ${TABLE}`);
   }
 
-  safeAscending = sortRows(header, isAscending);
+  const safeAscending = sortRows(header, isAscending);
 
   if (safeAscending) {
     getColumnHeaders(table).forEach((otherHeader: HTMLTableCellElement) => {

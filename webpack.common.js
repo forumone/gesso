@@ -18,14 +18,6 @@ async function gatherProjectFiles() {
     ignore: ['**/_*', 'source/@types/**', 'source/07-react/**'],
   });
   const scssGlob = new Glob('source/**/*.scss', jsGlob);
-  // The Airbnb style guide, which we're generally following, does not allow
-  // for for...of statements. There's a long debate about this rule at
-  // https://github.com/airbnb/javascript/issues/1271, but the gist seems to be
-  // that the intention is to disable loops for arrays in favor of array iteration.
-  // I don't think that applies here, since we're using it with an AsyncGenerator,
-  // and the code here follows the examples of the documentation for Glob and
-  // the MDN example of an AsyncGenerator.
-  // eslint-disable-next-line no-restricted-syntax
   for await (const currentFile of jsGlob.iterate()) {
     const filePaths = currentFile.split(path.sep);
     const sourceDirIndex = filePaths.indexOf('source');
@@ -41,8 +33,7 @@ async function gatherProjectFiles() {
       };
     }
   }
-  // See comment above for why this is disabled.
-  // eslint-disable-next-line no-restricted-syntax
+
   for await (const currentFile of scssGlob.iterate()) {
     const filePaths = currentFile.split(path.sep);
     const sourceDirIndex = filePaths.indexOf('source');
