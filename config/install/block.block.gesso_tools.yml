@@ -17,7 +17,7 @@ settings:
   id: 'system_menu_block:tools'
   label: Tools
   provider: system
-  label_display: visible
+  label_display: '0'
   level: 1
   depth: 0
   expand_all_items: false

@@ -1,8 +1,9 @@
-import ReactDom from 'react-dom';
+import ReactDom from 'react-dom/client';
 import React from 'react';
 import ComponentJsx from './Component-jsx';
 
-ReactDom.render(
-  React.createElement(ComponentJsx),
-  document.getElementById('root-ts')
+const root = ReactDom.createRoot(
+  document.getElementById('root-ts') as HTMLElement
 );
+
+root.render(React.createElement(ComponentJsx));

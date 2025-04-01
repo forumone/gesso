@@ -1,3 +1,10 @@
+{#
+/**
+ * @file
+ * Theme implementation to display a paragraph.
+ */
+#}
+
 {% include '@components/call-to-action/call-to-action.twig' with {
   'media': content.field_cta_media|field_value is not empty ? content.field_cta_media|field_value : false,
   'heading': content.field_cta_heading|field_value is not empty ? content.field_cta_heading|field_value : false,
