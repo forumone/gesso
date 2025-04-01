@@ -35,6 +35,15 @@ const Drupal = { behaviors: {} };
   };
 
   drupalSettings.gesso = {
+    externalLinkExitDisclaimer: 'Exit this website',
+    externalLinkAllowedDomains: [
+      'example-allowed-domain.com',
+      'forumone.github.io',
+    ],
+    externalLinkAllowedLinks: [
+      'https:\/\/www.vimeo.com\/example-allowed-link',
+      'https:\/\/www.youtube.com\/example-allowed-link',
+    ],
     imagePath: 'images',
   };
 })(Drupal, window.drupalSettings);

@@ -3,6 +3,9 @@ declare module 'drupal' {
     gesso: {
       backToTopThreshold?: number;
       backToTopSmoothScroll?: boolean;
+      externalLinkExitDisclaimer?: string;
+      externalLinkAllowedDomains?: string[];
+      externalLinkAllowedLinks?: string[];
       imagePath?: string;
     };
   }
