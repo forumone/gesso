@@ -8,7 +8,7 @@
 /**
  * Implements hook_preprocess().
  */
-function gesso_preprocess(array &$variables) {
+function gesso_preprocess(array &$variables): void {
   if (!empty($variables['directory'])) {
     $variables['image_path'] = '/' . $variables['directory'] . '/dist/images';
     $variables['#attached']['drupalSettings']['gesso']['imagePath'] = '/' . $variables['directory'] . '/dist/images';
@@ -18,7 +18,7 @@ function gesso_preprocess(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_html(array &$variables) {
+function gesso_preprocess_html(array &$variables): void {
   $variables['include_back_to_top']
     = theme_get_setting('include_back_to_top') ?? TRUE;
   /** @var \Drupal\Core\Render\Renderer $renderer */
@@ -30,7 +30,7 @@ function gesso_preprocess_html(array &$variables) {
 /**
  * Implements hook_page_attachments_alter().
  */
-function gesso_page_attachments_alter(array &$attachments) {
+function gesso_page_attachments_alter(array &$attachments): void {
   $include_back_to_top = theme_get_setting('include_back_to_top') ?? TRUE;
   $add_external_link_icons = theme_get_setting('add_external_link_icons') ?? FALSE;
 

@@ -14,7 +14,7 @@ class AddAttributesTwigExtension extends AbstractExtension {
   /**
    * Provide helper name.
    */
-  public function getName() {
+  public function getName(): string {
     return 'gesso_helper_add_attributes';
   }
 
@@ -38,7 +38,7 @@ class AddAttributesTwigExtension extends AbstractExtension {
    * down through includes. Based on
    * https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
    */
-  public function addAttributes($context, $additional_attributes = [], $attribute_type = 'attributes'): Attribute {
+  public function addAttributes(array $context, array $additional_attributes = [], string $attribute_type = 'attributes'): Attribute {
     $attributes = new Attribute();
 
     $context_attribute = [];

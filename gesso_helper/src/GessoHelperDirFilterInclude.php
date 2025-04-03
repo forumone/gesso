@@ -32,7 +32,7 @@ class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
   /**
    * Whether this directory or file should be included.
    */
-  public function accept() {
+  public function accept(): bool {
     return ($this->isDir() && in_array($this->getFilename(), $this->includeDirs) ||
       !$this->isDir() && in_array($this->getFilename(), $this->includeFiles));
   }
@@ -40,7 +40,7 @@ class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
   /**
    * Get children.
    */
-  public function getChildren() {
+  public function getChildren(): ?GessoHelperDirFilterExclude {
     return new GessoHelperDirFilterExclude($this->getInnerIterator()->getChildren());
   }
 

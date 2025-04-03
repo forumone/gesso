@@ -22,14 +22,14 @@ class GessoHelperDirFilterExclude extends \RecursiveFilterIterator {
   /**
    * Whether this directory or file should be excluded.
    */
-  public function accept() {
+  public function accept(): bool {
     return !($this->isDir() && in_array($this->getFilename(), $this->exclude));
   }
 
   /**
    * Get children.
    */
-  public function getChildren() {
+  public function getChildren(): ?GessoHelperDirFilterExclude {
     return new GessoHelperDirFilterExclude($this->getInnerIterator()->getChildren());
   }
 

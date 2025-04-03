@@ -8,7 +8,7 @@
 /**
  * Implements hook_preprocess_node().
  */
-function gesso_preprocess_node(&$variables) {
+function gesso_preprocess_node(array &$variables): void {
   // Array of view modes to add regions to.
   $allowed_view_modes = ['full'];
 
@@ -22,7 +22,7 @@ function gesso_preprocess_node(&$variables) {
 /**
  * Custom function to add page regions to templates.
  */
-function _add_regions_to_template($allowed_regions, &$variables) {
+function _add_regions_to_template(array $allowed_regions, array &$variables): void {
   // Get active theme.
   $theme = \Drupal::theme()->getActiveTheme()->getName();
 

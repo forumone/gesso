@@ -88,7 +88,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   public function gesso(
     $name,
     array $options = ['description' => NULL, 'machine-name' => NULL],
-  ) {
+  ): void {
     // Get new theme options.
     if (!isset($name)) {
       $name = $options['name'];
@@ -229,7 +229,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   /**
    * Converts $name to a machine-readable format.
    */
-  private function gessoMachineName($name) {
+  private function gessoMachineName(string $name): string {
     $name = str_replace(' ', '_', strtolower($name));
     $search = [
       // Remove characters not valid in function names.
@@ -247,7 +247,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   /**
    * Checks if $theme_name already exists in Drupal.
    */
-  private function gessoThemeExists($theme_name) {
+  private function gessoThemeExists(string $theme_name): bool {
     if (empty($this->themeList)) {
       $this->themeList = $this->themeHandler->rebuildThemeData();
     }
@@ -258,7 +258,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   /**
    * Replace strings in a file.
    */
-  private function gessoFileStrReplace($file_path, $find, $replace) {
+  private function gessoFileStrReplace(string $file_path, string|array $find, string|array $replace): void {
     $file_path = Path::normalize($file_path);
     $file_contents = file_get_contents($file_path);
     $file_contents = preg_replace($find, $replace, $file_contents);
@@ -273,7 +273,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    * @param string $path
    *   Path to the top-level directory.
    */
-  private function gessoRecursiveRm($path) {
+  private function gessoRecursiveRm(string $path): void {
     if (is_dir($path)) {
       $dir_contents = scandir($path);
       foreach ($dir_contents as $item) {

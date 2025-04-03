@@ -13,14 +13,14 @@ class SubheadingLevelTwigExtension extends AbstractExtension {
   /**
    * Provide helper name.
    */
-  public function getName() {
+  public function getName(): string {
     return 'gesso_helper_subheading_level';
   }
 
   /**
    * Add subheading_level Twig filter.
    */
-  public function getFilters() {
+  public function getFilters(): array {
     $filters = parent::getFilters();
     $filters[] = new TwigFilter('subheading_level', [$this, 'subheadingLevel']);
     return $filters;
@@ -29,7 +29,7 @@ class SubheadingLevelTwigExtension extends AbstractExtension {
   /**
    * Return next subheading level.
    */
-  public function subheadingLevel($level) {
+  public function subheadingLevel(string $level): string {
     $level = strtolower($level);
     $matches = [];
     if (preg_match('/^h(\\d)$/', $level, $matches)) {
