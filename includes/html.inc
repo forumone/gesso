@@ -56,14 +56,14 @@ function gesso_page_attachments_alter(array &$attachments) {
           )
         );
       $attachments['#attached']['drupalSettings']['gesso']['externalLinkAllowedLinks']
-      = explode(
-        "\n",
-        str_replace(
-          ["\r\n", "\r"],
+        = explode(
           "\n",
-          trim(theme_get_setting('allowed_links'))
-        )
-      );
+          str_replace(
+            ["\r\n", "\r"],
+            "\n",
+            trim(theme_get_setting('allowed_links'))
+          )
+        );
     }
 
     /** @var \Drupal\Core\Render\Renderer $renderer */

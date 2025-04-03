@@ -31,7 +31,7 @@ function gesso_preprocess_facets_item_list(array &$variables) {
  */
 function gesso_preprocess_facets_summary_item_list(array &$variables) {
   // Add class to item links.
-  foreach ($variables['items'] as $key => &$item) {
+  foreach ($variables['items'] as &$item) {
     $item['value']['#url']->setOption('attributes', [
       'class' => ['c-button', 'c-button--small'],
       'rel' => 'no-follow',

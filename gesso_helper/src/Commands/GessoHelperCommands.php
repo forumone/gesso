@@ -87,7 +87,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    */
   public function gesso(
     $name,
-    array $options = ['description' => NULL, 'machine-name' => NULL]
+    array $options = ['description' => NULL, 'machine-name' => NULL],
   ) {
     // Get new theme options.
     if (!isset($name)) {
