@@ -18,7 +18,7 @@ function gesso_preprocess_user(array &$variables) {
   if (in_array($variables['view_mode'], $allowed_view_modes)) {
     // Array of regions to add to user template.
     $allowed_regions = ['status'];
-    _add_regions_to_template($allowed_regions, $variables);
+    _gesso_add_regions_to_template($allowed_regions, $variables);
   }
 }
 
