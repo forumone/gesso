@@ -20,8 +20,8 @@
 
       &::before {
         @include focus();
-        background: gesso-color(form, background-unchecked);
-        border: 1px solid gesso-color(form, border-dark);
+        background: var(--form-background-unchecked-color);
+        border: 1px solid var(--form-border-dark-color);
         content: '\a0';
         display: inline-block;
         height: rem(20px);
@@ -40,14 +40,14 @@
 
     &:checked + .c-form-item__label::before {
       @include svg-background(correct);
-      background-color: gesso-color(form, background-checked);
+      background-color: var(--form-background-checked-color);
       background-position: 50%;
       background-repeat: no-repeat;
       background-size: rem(20px);
     }
 
     &:focus + .c-form-item__label::before {
-      outline-color: gesso-color(ui, generic, focus);
+      outline-color: var(--focus-color);
     }
 
     &:disabled + .c-form-item__label {

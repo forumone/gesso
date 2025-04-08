@@ -3,10 +3,10 @@
 @use 'sass:math';
 @use '00-config' as *;
 
-$form-background-color: gesso-color(form, background) !default;
-$form-background-color-focus: gesso-color(form, background-active) !default;
-$form-border-color: gesso-color(form, border) !default;
-$form-border-color-focus: gesso-color(form, border-dark) !default;
+$form-background-color: var(--form-background-color) !default;
+$form-background-color-focus: var(--form-background-active-color) !default;
+$form-border-color: var(--form-border-color) !default;
+$form-border-color-focus: var(--form-border-dark-color) !default;
 $form-box-shadow-focus: gesso-box-shadow(2) !default;
 $form-disabled-opacity: 0.35 !default;
 $form-text-size: gesso-base-font-size() !default;
@@ -126,6 +126,22 @@ $form-text-size: gesso-base-font-size() !default;
 
   .is-full-width > & {
     width: 100%;
+  }
+}
+
+.c-form-item__file {
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
+
+  &:disabled {
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
   }
 }
 

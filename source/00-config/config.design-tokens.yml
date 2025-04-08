@@ -119,16 +119,6 @@ gesso:
         background-hover: grayscale.gray-5
         color: grayscale.white
         color-hover: grayscale.white
-    form:
-      background: grayscale.gray-1
-      background-active: grayscale.white
-      background-checked: brand.blue.base
-      background-unchecked: grayscale.white
-      border: grayscale.gray-2
-      border-dark: grayscale.gray-5
-      border-light: grayscale.gray-1
-      thumb: grayscale.gray-5
-      track: grayscale.gray-3
     table:
       border: grayscale.gray-5
       background: grayscale.white
@@ -211,6 +201,15 @@ gesso:
         facet-text: brand.blue.base
         facet-text-hover: brand.blue.dark
         facet-text-active: brand.blue.dark-1
+        form-background: grayscale.gray-1
+        form-background-active: grayscale.white
+        form-background-checked: brand.blue.base
+        form-background-unchecked: grayscale.white
+        form-border: grayscale.gray-2
+        form-border-dark: grayscale.gray-5
+        form-border-light: grayscale.gray-1
+        form-thumb: grayscale.gray-5
+        form-track: grayscale.gray-3
         tag-text: brand.blue.dark-1
         tag-border: brand.blue.light
         tag-box-shadow: brand.blue.light
@@ -261,6 +260,15 @@ gesso:
         facet-text: brand.ocean-blue.light
         facet-text-hover: brand.ocean-blue.base
         facet-text-active: brand.ocean-blue.base
+        form-background: grayscale.gray-1
+        form-background-active: grayscale.white
+        form-background-checked: brand.blue.base
+        form-background-unchecked: grayscale.gray-6
+        form-border: grayscale.gray-4
+        form-border-dark: grayscale.gray-2
+        form-border-light: grayscale.gray-5
+        form-thumb: grayscale.gray-2
+        form-track: grayscale.gray-3
         tag-text: brand.ocean-blue.light
         tag-border: brand.ocean-blue.light-1
         tag-box-shadow: brand.ocean-blue.light-1
