@@ -4,4 +4,10 @@
 
 .l-section {
   margin-block-end: rem(gesso-spacing(5));
+
+  &.has-theme {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding-block: rem(gesso-spacing(2));
+  }
 }

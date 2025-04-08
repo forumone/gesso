@@ -1,5 +1,7 @@
 {% set classes = [
   'l-section',
+  theme ? 'theme-' ~ theme : '',
+  theme ? 'has-theme' : '',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 

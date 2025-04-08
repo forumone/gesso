@@ -1,4 +1,5 @@
 ---
+theme: false
 section_title_element: 'h2'
 section_title: 'Section title'
 section_content: |-

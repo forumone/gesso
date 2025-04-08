@@ -1,5 +1,6 @@
 ---
 storybook: true
+theme: false
 body_class: ''
 html_class: ''
 site_name: 'Site Name'
