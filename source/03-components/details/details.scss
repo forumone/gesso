@@ -2,71 +2,55 @@
 
 @use '00-config' as *;
 
-$details-background-color: gesso-color(ui, generic, background-light) !default;
-$details-background-color-hover: gesso-color(ui, generic, background) !default;
-$details-content-background-color: gesso-color(background, site) !default;
-$details-padding: rem(24px) !default;
-$details-text-color: gesso-color(text, on-light) !default;
+$details-border-color: var(--secondary-background-color) !default;
+$details-icon-color: var(--link-color) !default;
+$details-icon-size: 24px !default;
+$details-padding: rem(gesso-spacing(2));
 
 .c-details {
+  border-block-end: solid 1px $details-border-color;
   margin-block: 0 rem(gesso-spacing(4));
   margin-inline: 0;
 }
 
 .c-details__summary {
-  @include svg-background(plus);
-  background-color: $details-background-color;
-  background-position: right $details-padding center; // LTR
-  background-repeat: no-repeat;
-  background-size: rem(13px);
+  background: var(--background-color);
+  color: var(--text-color);
   cursor: pointer;
-  display: block;
+  display: flex;
   font-weight: gesso-font-weight(bold);
-  line-height: 1;
-  outline: 0;
-  padding-block: rem(15px);
-  padding-inline: $details-padding rem(55px);
-  transition: background gesso-duration(short) gesso-easing(ease-in-out);
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      background-position: left $details-padding center;
-    }
-  }
-
-  [open] > & {
-    @include svg-background(minus);
-  }
-
-  &:hover {
-    background-color: $details-background-color-hover;
-  }
-
-  &:focus {
-    box-shadow: gesso-box-shadow(2);
-  }
+  gap: 1em;
+  justify-content: space-between;
+  line-height: 1.5;
+  list-style: none;
+  margin: 0;
+  padding: $details-padding;
+  transition: all gesso-duration(short) gesso-easing(ease-out);
 
   &::-webkit-details-marker {
     display: none;
   }
 
-  &::before {
-    display: none; // remove icon added by polyfill
+  &::after {
+    color: $details-icon-color;
+    content: '+';
+    font-family: gesso-font-family(monospace);
+    font-size: $details-icon-size;
+    line-height: 1;
+    text-align: center;
+    width: $details-icon-size;
+  }
+
+  [open] > &::after {
+    content: '-';
   }
 }
 
-.c-details__fallback-link {
-  color: inherit !important;
-  display: block;
-  outline: 0;
-  text-decoration: none;
-}
-
 .c-details__content {
-  background: $details-content-background-color;
-  border: 3px solid $details-background-color;
-  border-block-start: 0;
+  background: var(--background-color);
+  color: var(--text-color);
   padding: $details-padding;
+  padding-block-start: 0;
 
   > :last-child {
     margin-block-end: 0;
@@ -74,7 +58,6 @@ $details-text-color: gesso-color(text, on-light) !default;
 }
 
 .c-details__description {
-  color: $details-text-color;
   font-size: rem(gesso-font-size(2));
   margin-block-end: rem(gesso-spacing(2));
 }
