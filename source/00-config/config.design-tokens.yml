@@ -119,12 +119,6 @@ gesso:
         background-hover: grayscale.gray-5
         color: grayscale.white
         color-hover: grayscale.white
-    facet:
-      icon: grayscale.gray-3
-      icon-active: brand.blue.dark-1
-      text: brand.blue.base
-      text-hover: brand.blue.dark
-      text-active: brand.blue.dark-1
     form:
       background: grayscale.gray-1
       background-active: grayscale.white
@@ -212,6 +206,11 @@ gesso:
         button-secondary-text-hover: brand.ocean-blue.dark-1
         button-secondary-text-active: grayscale.gray-7
         button-secondary-text-disabled: grayscale.gray-3
+        facet-icon: grayscale.gray-3
+        facet-icon-active: brand.blue.dark-1
+        facet-text: brand.blue.base
+        facet-text-hover: brand.blue.dark
+        facet-text-active: brand.blue.dark-1
       gray-6:
         # generic
         background: grayscale.gray-6
@@ -254,6 +253,11 @@ gesso:
         button-secondary-text-hover: brand.ocean-blue.dark-1
         button-secondary-text-active: grayscale.gray-7
         button-secondary-text-disabled: grayscale.gray-3
+        facet-icon: grayscale.gray-3
+        facet-icon-active: brand.ocean-blue.base
+        facet-text: brand.ocean-blue.light
+        facet-text-hover: brand.ocean-blue.base
+        facet-text-active: brand.ocean-blue.base
   typography:
     font-family:
       primary:
