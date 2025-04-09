@@ -1,0 +1,27 @@
+// Global: Color Themes
+
+@use '00-config' as *;
+
+$themes: gesso-get-map(colors, theme);
+
+@each $theme, $properties in $themes {
+  @if $theme == 'default' {
+    :root {
+      @include color-theme(default, false);
+    }
+  } @else {
+    .theme-#{'' + $theme} {
+      @include color-theme($theme);
+
+      @media print {
+        @include color-theme(default);
+      }
+    }
+  }
+}
+
+// Output default theme last so it can override the others.
+%theme-default,
+.theme-default {
+  @include color-theme(default);
+}

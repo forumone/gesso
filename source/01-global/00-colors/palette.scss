@@ -1,0 +1,61 @@
+// Storybook: Color Swatches
+
+@use 'sass:math';
+@use '00-config' as *;
+
+$swatch-size: rem(150px);
+$swatch-padding: 1rem;
+
+.gesso-storybook-color-palette__heading {
+  font-family: gesso-font-family(system);
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin-block-end: 1rem;
+}
+
+.gesso-storybook-color-palette__group {
+  border-block-end: 1px solid var(--border-color);
+  column-gap: $swatch-padding;
+  display: flex;
+  flex-wrap: wrap;
+  margin-block-end: $swatch-padding;
+}
+
+.gesso-storybook-color-swatch {
+  border: 1px solid var(--border-color);
+  flex: 0 0 ($swatch-size + 2 * $swatch-padding);
+  margin-block-end: $swatch-padding;
+  max-width: ($swatch-size + 2 * $swatch-padding);
+  padding: $swatch-padding;
+}
+
+.gesso-storybook-color-swatch__indicator {
+  height: $swatch-size;
+  margin-block-end: $swatch-padding;
+  width: $swatch-size;
+}
+
+.gesso-storybook-color-swatch__meta {
+  line-height: 1.2;
+}
+
+.gesso-storybook-color-swatch__name {
+  margin-block-end: rem(8px);
+}
+
+.gesso-storybook-color-swatch__hex {
+  font-family: gesso-font-family(monospace);
+  font-size: rem(14px);
+}
+
+.gesso-storybook-color-swatch__sass-code {
+  display: block;
+  font-size: rem(12px);
+  margin-block-start: rem(4px);
+}
+
+.gesso-storybook-color-swatch--small {
+  .gesso-storybook-color-swatch__indicator {
+    height: math.div($swatch-size, 2);
+  }
+}

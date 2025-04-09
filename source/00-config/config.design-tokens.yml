@@ -135,18 +135,13 @@ gesso:
       border-light: grayscale.gray-1
       thumb: grayscale.gray-5
       track: grayscale.gray-3
-    mark:
-      background: other.yellow-neon.base
-      text: grayscale.gray-7
-    selection:
-      background: brand.blue.base
-      text: grayscale.white
     table:
       border: grayscale.gray-5
       background: grayscale.white
       background-head: grayscale.gray-1
       background-foot: grayscale.gray-1
       background-sorted: brand.blue.light-2
+      text: grayscale.gray-7
     ui:
       generic:
         background: grayscale.gray-3
@@ -174,6 +169,91 @@ gesso:
       warning:
         background: other.yellow.light
         border: other.yellow.base
+    theme:
+      default:
+        # generic
+        background: grayscale.white
+        secondary-background: grayscale.gray-2
+        text: grayscale.gray-7
+        secondary-text: grayscale.gray-5
+        accent: brand.blue.base
+        border: grayscale.gray-3
+        focus: brand.blue.light
+        link: brand.blue.base
+        link-hover: brand.blue.dark
+        link-active: brand.blue.dark
+        link-visited: brand.blue.dark
+        mark-background: other.yellow-neon.base
+        mark-text: grayscale.gray-7
+        selection-background: brand.blue.base
+        selection-text: grayscale.white
+        # component-specific
+        button-primary-background: brand.blue.base
+        button-primary-background-hover: brand.blue.dark
+        button-primary-background-active: brand.blue.dark-1
+        button-primary-background-disabled: grayscale.gray-1
+        button-primary-border: brand.blue.base
+        button-primary-border-hover: brand.blue.dark
+        button-primary-border-active: brand.blue.dark-1
+        button-primary-border-disabled: grayscale.gray-1
+        button-primary-text: grayscale.white
+        button-primary-text-hover: grayscale.white
+        button-primary-text-active: grayscale.white
+        button-primary-text-disabled: grayscale.gray-3
+        button-secondary-background: brand.ocean-blue.light-1
+        button-secondary-background-hover: brand.ocean-blue.light
+        button-secondary-background-active: brand.ocean-blue.base
+        button-secondary-background-disabled: grayscale.gray-1
+        button-secondary-border: brand.ocean-blue.light-1
+        button-secondary-border-hover: brand.ocean-blue.light
+        button-secondary-border-active: brand.ocean-blue.base
+        button-secondary-border-disabled: grayscale.gray-1
+        button-secondary-text: brand.ocean-blue.dark-1
+        button-secondary-text-hover: brand.ocean-blue.dark-1
+        button-secondary-text-active: grayscale.gray-7
+        button-secondary-text-disabled: grayscale.gray-3
+      gray-6:
+        # generic
+        background: grayscale.gray-6
+        secondary-background: grayscale.gray-4
+        text: grayscale.white
+        secondary-text: grayscale.gray-2
+        accent: brand.blue.light-1
+        border: grayscale.gray-3
+        focus: brand.ocean-blue.light-1
+        link: brand.ocean-blue.light
+        link-hover: brand.ocean-blue.base
+        link-active: brand.ocean-blue.base
+        link-visited: brand.ocean-blue.base
+        mark-background: other.yellow-neon.base
+        mark-text: grayscale.gray-7
+        selection-background: brand.blue.base
+        selection-text: grayscale.white
+        # component-specific
+        button-primary-background: brand.blue.base
+        button-primary-background-hover: brand.blue.dark
+        button-primary-background-active: brand.blue.dark-1
+        button-primary-background-disabled: grayscale.gray-5
+        button-primary-border: brand.blue.base
+        button-primary-border-hover: brand.blue.dark
+        button-primary-border-active: brand.blue.dark-1
+        button-primary-border-disabled: grayscale.gray-5
+        button-primary-text: grayscale.white
+        button-primary-text-hover: grayscale.white
+        button-primary-text-active: grayscale.white
+        button-primary-text-disabled: grayscale.gray-3
+        button-secondary-background: brand.ocean-blue.light-1
+        button-secondary-background-hover: brand.ocean-blue.light
+        button-secondary-background-active: brand.ocean-blue.base
+        button-secondary-background-disabled: grayscale.gray-5
+        button-secondary-border: brand.ocean-blue.light-1
+        button-secondary-border-hover: brand.ocean-blue.light
+        button-secondary-border-active: brand.ocean-blue.base
+        button-secondary-border-disabled: grayscale.gray-5
+        button-secondary-text: brand.ocean-blue.dark-1
+        button-secondary-text-hover: brand.ocean-blue.dark-1
+        button-secondary-text-active: grayscale.gray-7
+        button-secondary-text-disabled: grayscale.gray-3
   typography:
     font-family:
       primary:
@@ -285,43 +365,43 @@ gesso:
       tallest: 2
     display:
       display:
-        color: text.primary
+        color: 'var(--text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 15
       h1:
-        color: text.primary
+        color: 'var(--text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 12
       h2:
-        color: text.primary
+        color: 'var(--text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 10
       h3:
-        color: text.primary
+        color: 'var(--text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 8
       h4:
-        color: text.primary
+        color: 'var(--text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: base
         responsive-font-size: 7
       h5:
-        color: text.primary
+        color: 'var(--text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: base
         responsive-font-size: 3
       h6:
-        color: text.primary
+        color: 'var(--text-color)'
         font-family: primary.stack
         font-weight: semibold
         letter-spacing: tight
@@ -329,25 +409,25 @@ gesso:
         text-transform: uppercase
         responsive-font-size: 2
       blockquote:
-        color: text.link
+        color: 'var(--link-color)'
         font-family: primary.stack
         font-size: 7
         font-weight: regular
         line-height: base
       body:
-        color: text.primary
+        color: 'var(--text-color)'
         font-family: primary.stack
         font-size: 3
         font-weight: regular
         line-height: base
       body-large:
-        color: text.primary
+        color: 'var(--text-color)'
         font-family: primary.stack
         font-size: 5
         font-weight: regular
         line-height: base
       cite:
-        color: text.secondary
+        color: 'var(--secondary-text-color)'
         font-family: primary.stack
         font-size: 2
         font-style: normal

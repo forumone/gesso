@@ -148,13 +148,13 @@ var {
 
 // stylelint-disable-next-line selector-no-vendor-prefix
 ::-moz-selection {
-  background: gesso-color(selection, background);
-  color: gesso-color(selection, text);
+  background: var(--selection-background-color);
+  color: var(--selection-text-color);
   text-shadow: none;
 }
 
 ::selection {
-  background: gesso-color(selection, background);
-  color: gesso-color(selection, text);
+  background: var(--selection-background-color);
+  color: var(--selection-text-color);
   text-shadow: none;
 }

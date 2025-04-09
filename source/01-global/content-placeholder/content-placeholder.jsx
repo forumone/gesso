@@ -6,9 +6,9 @@ export default function ContentPlaceholder({ children }) {
   return (
     <div
       style={{
-        background: '#333',
-        border: '1px solid #fff',
-        color: '#fff',
+        background: 'var(--secondary-text-color)',
+        border: '1px solid var(--background-color)',
+        color: 'var(--background-color)',
         padding: '1em',
       }}
     >

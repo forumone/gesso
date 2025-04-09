@@ -1,0 +1,18 @@
+// Mixins: Color Theme
+
+@use '../design-tokens.artifact' as *;
+@use '../functions' as *;
+
+@mixin color-theme($theme, $include_fix: true) {
+  $properties: gesso-get-map(colors, theme, $theme);
+
+  @each $property, $value in $properties {
+    --#{$property}-color: #{'' + gesso-color(theme, $theme, $property)};
+  }
+
+  @if ($include_fix) {
+    // Needed for elements using z-index: -1 to be visible. (ex: button focus)
+    position: relative;
+    z-index: 0;
+  }
+}

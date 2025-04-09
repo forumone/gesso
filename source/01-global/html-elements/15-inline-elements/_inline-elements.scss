@@ -5,23 +5,23 @@
 a {
   @include focus();
   background-color: transparent;
-  color: gesso-color(text, link);
+  color: var(--link-color);
   -webkit-text-decoration-skip: objects;
   transition-duration: gesso-duration(short);
   transition-property: background-color, border-color, color, outline-color;
   transition-timing-function: gesso-easing(ease-in);
 
   &:visited {
-    color: gesso-color(text, link-visited);
+    color: var(--link-visited-color);
   }
 
   &:hover,
   &:focus {
-    color: gesso-color(text, link-hover);
+    color: var(--link-hover-color);
   }
 
   &:active {
-    color: gesso-color(text, link-active);
+    color: var(--link-active-color);
   }
 
   @media print {
@@ -94,8 +94,8 @@ dfn {
 // kbd {}
 
 mark {
-  background: gesso-color(mark, background);
-  color: gesso-color(mark, text);
+  background: var(--mark-background-color);
+  color: var(--mark-text-color);
 }
 
 // q {}
