@@ -3,9 +3,8 @@
 
 @use '00-config' as *;
 
-$overlay-menu-bg-color: rgba(
-  gesso-color(ui, generic, background-light),
-  0.98
+$overlay-menu-bg-color: rgb(
+  from var(--secondary-background-color) r g b / 0.98
 ) !default;
 
 .c-overlay-menu {
@@ -20,7 +19,9 @@ $overlay-menu-bg-color: rgba(
   z-index: -1;
 
   &.is-open {
+    @include color-theme(default);
     background-color: $overlay-menu-bg-color;
+    color: var(--text-color);
     height: 100vh;
     overflow-y: auto;
     width: 100%;

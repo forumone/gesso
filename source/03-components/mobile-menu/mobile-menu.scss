@@ -4,34 +4,23 @@
 @use 'sass:math';
 @use '00-config' as *;
 
-$mobile-menu-bg-color: rgba(
-  gesso-color(ui, generic, background-light),
-  0.98
+$mobile-menu-bg-color: rgb(
+  from var(--secondary-background-color) r g b / 0.98
 ) !default;
-$mobile-menu-link-color: gesso-color(ui, generic, text-dark) !default;
-$mobile-menu-link-hover-color: gesso-color(ui, generic, text-darker) !default;
-$mobile-menu-submenu-fallback-bg-color: gesso-color(
-  ui,
-  generic,
-  background-lighter
-) !default;
-$mobile-menu-submenu-bg-color: rgba(
-  gesso-color(ui, generic, background-lighter),
-  0.98
-) !default;
-$mobile-menu-submenu-link-color: gesso-color(ui, generic, text-dark) !default;
-$mobile-menu-submenu-link-hover-color: gesso-color(
-  ui,
-  generic,
-  text-darker
-) !default;
+$mobile-menu-link-color: var(--secondary-text-color) !default;
+$mobile-menu-link-hover-color: var(--text-color) !default;
+$mobile-menu-submenu-bg-color: $mobile-menu-bg-color !default;
+$mobile-menu-submenu-link-color: var(--secondary-text-color) !default;
+$mobile-menu-submenu-link-hover-color: var(--text-color) !default;
 $mobile-menu-button-height: 54px;
 $mobile-menu-button-width: 44px;
 $mobile-menu-font-size: gesso-font-size(5);
 $mobile-menu-line-height: gesso-line-height(base);
 
 .c-mobile-menu {
+  @include color-theme(default);
   background-color: $mobile-menu-bg-color;
+  color: var(--text-color);
   display: none;
   inset-block-start: 0;
   inset-inline-start: 0;

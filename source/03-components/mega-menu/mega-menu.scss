@@ -7,14 +7,14 @@
 // the element(s) above it need a background color and
 // z-index in order to cover the mega menu.
 .l-header {
-  background: gesso-color('background', 'site');
+  background: var(--background-color);
   position: relative;
   z-index: 2;
 }
 
 .c-mega-menu {
   align-items: center;
-  background: gesso-color('background', 'site');
+  background: var(--background-color);
   display: flex;
   margin-block: 0 rem(gesso-spacing(2.5));
   margin-inline: 0;
@@ -23,7 +23,7 @@
   z-index: 1;
 
   &::after {
-    background-color: gesso-color(background, site);
+    background-color: var(--background-color);
     content: '';
     display: block;
     height: 100%;
@@ -35,13 +35,16 @@
   }
 
   > .c-mega-menu__item {
-    border-block-end: 1px solid gesso-grayscale(white);
     list-style-type: none;
     padding-block: 1.25rem;
     padding-inline: 0.8125rem 1.8125rem;
 
     > .c-mega-menu__link {
-      @include link(gesso-color(text, link), gesso-color(text, link-hover));
+      @include link(
+        var(--link-color),
+        var(--link-hover-color),
+        var(--link-active-color)
+      );
       border-block-end: rem(2px) solid transparent;
       border-radius: rem(1px);
       display: block;
@@ -51,6 +54,7 @@
       padding-inline: 0;
       position: relative;
       text-align: start;
+      text-decoration: none;
       transition: all 0.4s ease;
       width: auto;
       z-index: gesso-z-index(drawer) + 1;
@@ -72,8 +76,9 @@
 }
 
 .c-mega-menu__section {
-  background-color: gesso-color(ui, generic, background-dark);
-  color: gesso-color(text, on-dark);
+  @include color-theme(gray-6);
+  background-color: var(--background-color);
+  color: var(--text-color);
   inset-block-start: 100%;
   inset-inline-start: 0;
   margin-block: 0;
@@ -84,13 +89,6 @@
   transition: transform gesso-duration(long) gesso-easing(ease-in-out);
   width: 100%;
   z-index: 0;
-
-  a,
-  button {
-    &:focus {
-      @include focus(gesso-color(text, on-dark));
-    }
-  }
 
   &[hidden] {
     display: block;
@@ -115,7 +113,6 @@
 
 .c-mega-menu__section-close {
   @include text-button;
-  color: gesso-color(text, on-dark);
   height: rem(50px);
   inset-block-start: rem(10px);
   inset-inline-end: rem(10px);
@@ -135,7 +132,6 @@
 }
 
 .c-mega-menu__section-title {
-  color: gesso-color(text, on-dark);
   display: block;
   font-size: rem(gesso-font-size(13));
 }
@@ -209,19 +205,16 @@
 }
 
 .c-mega-menu__subnav .c-mega-menu__subnav .c-mega-menu__link {
-  color: gesso-brand(blue, light-1);
   font-size: rem(gesso-font-size(2));
   font-weight: gesso-font-weight(semibold);
   line-height: gesso-line-height(short);
   text-transform: none;
 
   &:hover {
-    color: gesso-grayscale(white);
     opacity: 1;
   }
 
   &:focus-visible {
-    color: gesso-grayscale(white);
     opacity: 1;
   }
 }
@@ -235,10 +228,6 @@
 // stylelint-enable selector-max-compound-selectors
 
 @include breakpoint-max(gesso-breakpoint(mobile-menu)) {
-  .c-mega-menu__section {
-    background-color: rgba(gesso-color(ui, generic, background-lighter), 0.98);
-  }
-
   .c-mega-menu__section-title,
   .c-mega-menu__section-close {
     display: none;

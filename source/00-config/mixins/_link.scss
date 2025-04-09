@@ -1,6 +1,11 @@
 // Mixins: Link
 
-@mixin link($link, $hover: $link, $active: $hover, $visit: $link) {
+@mixin link(
+  $link: var(--link-color),
+  $hover: $link,
+  $active: $hover,
+  $visit: $link
+) {
   color: $link;
 
   &:visited {
