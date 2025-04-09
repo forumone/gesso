@@ -58,11 +58,6 @@
       padding-inline: rem($margins);
     }
   }
-
-  // Just in case .l-constrain is nested within another .l-constrain.
-  & & {
-    padding-inline: 0;
-  }
 }
 
 // Breaks something outside its parent l-constrain or other centered container
