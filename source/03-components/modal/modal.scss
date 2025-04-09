@@ -52,6 +52,9 @@
 }
 
 .c-modal__inner {
+  @include color-theme(default);
+  background-color: var(--background-color);
+  color: var(--text-color);
   padding-block: rem(gesso-spacing(5));
   padding-inline: rem(gesso-spacing(5));
 }
