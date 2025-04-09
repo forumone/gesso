@@ -62,19 +62,32 @@ $button-spacing: rem(gesso-spacing(1));
 
 // This custom button class, included as an example, is not output by Drupal by default.
 .c-button--secondary {
-  background-color: gesso-color(button, secondary, background);
-  color: gesso-color(button, secondary, text);
+  background-color: var(--button-secondary-background-color);
+  border-color: var(--button-secondary-border-color);
+  color: var(--button-secondary-text-color);
+
+  &:visited {
+    color: var(--button-secondary-text-color);
+  }
 
   &:hover,
   &:focus {
-    background-color: gesso-color(button, secondary, background-hover);
-    color: gesso-color(button, secondary, text-hover);
+    background-color: var(--button-secondary-background-hover-color);
+    border-color: var(--button-secondary-border-hover-color);
+    color: var(--button-secondary-text-hover-color);
   }
 
   &:active,
   &.is-active {
-    background-color: gesso-color(button, secondary, background-active);
-    color: gesso-color(button, secondary, text-active);
+    background-color: var(--button-secondary-background-active-color);
+    border-color: var(--button-secondary-border-active-color);
+    color: var(--button-secondary-text-active-color);
+  }
+
+  &[disabled] {
+    background-color: var(--button-secondary-background-disabled-color);
+    border-color: var(--button-secondary-border-disabled-color);
+    color: var(--button-secondary-text-disabled-color);
   }
 }
 

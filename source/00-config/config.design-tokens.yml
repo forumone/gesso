@@ -74,24 +74,6 @@ gesso:
     background:
       site: grayscale.white
     button:
-      primary:
-        background: brand.blue.base
-        background-hover: brand.blue.dark
-        background-active: brand.blue.dark-1
-        border: brand.blue.base
-        border-hover: brand.blue.dark
-        text: grayscale.white
-        text-hover: grayscale.white
-        text-active: grayscale.white
-      secondary:
-        background: brand.ocean-blue.light-1
-        background-hover: brand.ocean-blue.light
-        background-active: brand.ocean-blue.base
-        border: brand.ocean-blue.light-1
-        border-hover: brand.ocean-blue.light
-        text: brand.ocean-blue.dark-1
-        text-hover: brand.ocean-blue.dark-1
-        text-active: grayscale.gray-7
       base:
         background: grayscale.gray-4
         background-hover: grayscale.gray-5
@@ -101,10 +83,6 @@ gesso:
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
-      disabled:
-        background: grayscale.gray-1
-        border: grayscale.gray-1
-        text: grayscale.gray-3
       danger:
         background: other.red.base
         background-hover: other.red.dark
