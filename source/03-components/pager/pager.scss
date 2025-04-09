@@ -2,11 +2,11 @@
 
 @use '00-config' as *;
 
-$pager-background-color: gesso-color(ui, generic, accent) !default;
-$pager-background-color-hover: gesso-color(ui, generic, accent) !default;
-$pager-background-color-active: gesso-color(ui, generic, accent-dark) !default;
-$pager-link-color: gesso-color(text, on-light) !default;
-$pager-link-color-active: gesso-color(text, on-dark) !default;
+$pager-background-color: var(--secondary-link-color) !default;
+$pager-background-color-hover: var(--secondary-link-color) !default;
+$pager-background-color-active: var(--secondary-link-color) !default;
+$pager-link-color: var(--secondary-link-color) !default;
+$pager-link-color-active: var(--background-color) !default;
 $pager-ellipsis-bp: 800px !default;
 $pager-bp: 600px !default;
 
@@ -87,22 +87,22 @@ $pager-bp: 600px !default;
 .c-pager__link--next,
 .c-pager__link--last {
   background-color: transparent;
-  color: gesso-color(text, link);
+  color: var(--link-color);
 
   &:visited {
-    color: gesso-color(text, link);
+    color: var(--link-color);
   }
 
   &:hover,
   &:focus {
     background-color: transparent;
-    color: gesso-color(text, link-hover);
+    color: var(--link-hover-color);
     text-decoration: underline;
   }
 
   &:active {
     background-color: transparent;
-    color: gesso-color(text, link-active);
+    color: var(--link-active-color);
     text-decoration: underline;
   }
 }

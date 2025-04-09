@@ -167,6 +167,10 @@ gesso:
         link-hover: brand.blue.dark
         link-active: brand.blue.dark
         link-visited: brand.blue.dark
+        secondary-link: brand.blue.dark
+        secondary-link-hover: brand.blue.base
+        secondary-link-active: brand.blue.dark-1
+        secondary-link-visited: brand.blue.dark
         mark-background: other.yellow-neon.base
         mark-text: grayscale.gray-7
         selection-background: brand.blue.base
@@ -226,6 +230,10 @@ gesso:
         link-hover: brand.ocean-blue.base
         link-active: brand.ocean-blue.base
         link-visited: brand.ocean-blue.base
+        secondary-link: brand.ocean-blue.light
+        secondary-link-hover: brand.ocean-blue.base
+        secondary-link-active: brand.ocean-blue.base
+        secondary-link-visited: brand.ocean-blue.base
         mark-background: other.yellow-neon.base
         mark-text: grayscale.gray-7
         selection-background: brand.blue.base

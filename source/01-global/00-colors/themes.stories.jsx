@@ -15,6 +15,7 @@ import {
 import { FacetList } from '../../03-components/facet-list/facet-list.stories';
 import { Text as FormItem } from '../../03-components/form-item/form-item--textfield/form-item--textfield.stories';
 import { PageTitle } from '../../03-components/page-title/page-title.stories';
+import { Default as Pager } from '../../03-components/pager/pager.stories';
 import { TagList } from '../../03-components/tag-list/tag-list.stories';
 import { WYSIWYG } from '../../03-components/wysiwyg/wysiwyg.stories';
 
@@ -92,6 +93,7 @@ const demoContent = `
   </p>
 
   ${ReactDOMServer.renderToStaticMarkup(FacetList.render(FacetList.args))}
+  ${ReactDOMServer.renderToStaticMarkup(Pager.render(Pager.args))}
 
   <hr>
 
