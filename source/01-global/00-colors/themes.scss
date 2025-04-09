@@ -27,9 +27,9 @@
 }
 
 .gesso-storybook-color-theme__content {
-  background: var(--background-color);
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
+  background: var(--gesso-background-color);
+  border: 1px solid var(--gesso-border-color);
+  color: var(--gesso-text-color);
   margin-block-end: 2rem;
   padding: 1rem 0;
 
@@ -39,5 +39,5 @@
 }
 
 .gesso-storybook-color-theme__icons {
-  color: var(--accent-color);
+  color: var(--gesso-accent-color);
 }

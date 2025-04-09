@@ -7,7 +7,7 @@
   $properties: gesso-get-map(colors, theme, $theme);
 
   @each $property, $value in $properties {
-    --#{$property}-color: #{'' + gesso-color(theme, $theme, $property)};
+    --gesso-#{$property}-color: #{'' + gesso-color(theme, $theme, $property)};
   }
 
   @if ($include_fix) {

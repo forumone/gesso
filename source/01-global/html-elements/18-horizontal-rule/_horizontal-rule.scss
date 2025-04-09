@@ -2,7 +2,7 @@
 
 @use '00-config' as *;
 
-$horizontal-rule-color: var(--border-color);
+$horizontal-rule-color: var(--gesso-border-color);
 
 hr {
   border: 1px solid $horizontal-rule-color;

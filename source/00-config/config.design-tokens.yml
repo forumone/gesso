@@ -135,9 +135,9 @@ gesso:
       default:
         # generic
         background: grayscale.white
-        secondary-background: grayscale.gray-2
+        background-secondary: grayscale.gray-2
         text: grayscale.gray-7
-        secondary-text: grayscale.gray-5
+        text-secondary: grayscale.gray-5
         accent: brand.blue.base
         border: grayscale.gray-3
         focus: brand.blue.light
@@ -145,10 +145,10 @@ gesso:
         link-hover: brand.blue.dark
         link-active: brand.blue.dark
         link-visited: brand.blue.dark
-        secondary-link: brand.blue.dark
-        secondary-link-hover: brand.blue.base
-        secondary-link-active: brand.blue.dark-1
-        secondary-link-visited: brand.blue.dark
+        link-secondary: brand.blue.dark
+        link-secondary-hover: brand.blue.base
+        link-secondary-active: brand.blue.dark-1
+        link-secondary-visited: brand.blue.dark
         mark-background: other.yellow-neon.base
         mark-text: grayscale.gray-7
         selection-background: brand.blue.base
@@ -198,9 +198,9 @@ gesso:
       gray-6:
         # generic
         background: grayscale.gray-6
-        secondary-background: grayscale.gray-4
+        background-secondary: grayscale.gray-4
         text: grayscale.white
-        secondary-text: grayscale.gray-2
+        text-secondary: grayscale.gray-2
         accent: brand.blue.light-1
         border: grayscale.gray-3
         focus: brand.ocean-blue.light-1
@@ -208,10 +208,10 @@ gesso:
         link-hover: brand.ocean-blue.base
         link-active: brand.ocean-blue.base
         link-visited: brand.ocean-blue.base
-        secondary-link: brand.ocean-blue.light
-        secondary-link-hover: brand.ocean-blue.base
-        secondary-link-active: brand.ocean-blue.base
-        secondary-link-visited: brand.ocean-blue.base
+        link-secondary: brand.ocean-blue.light
+        link-secondary-hover: brand.ocean-blue.base
+        link-secondary-active: brand.ocean-blue.base
+        link-secondary-visited: brand.ocean-blue.base
         mark-background: other.yellow-neon.base
         mark-text: grayscale.gray-7
         selection-background: brand.blue.base
@@ -369,43 +369,43 @@ gesso:
       tallest: 2
     display:
       display:
-        color: 'var(--text-color)'
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 15
       h1:
-        color: 'var(--text-color)'
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 12
       h2:
-        color: 'var(--text-color)'
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 10
       h3:
-        color: 'var(--text-color)'
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 8
       h4:
-        color: 'var(--text-color)'
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: base
         responsive-font-size: 7
       h5:
-        color: 'var(--text-color)'
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: base
         responsive-font-size: 3
       h6:
-        color: 'var(--text-color)'
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: semibold
         letter-spacing: tight
@@ -413,25 +413,25 @@ gesso:
         text-transform: uppercase
         responsive-font-size: 2
       blockquote:
-        color: 'var(--link-color)'
+        color: 'var(--gesso-link-color)'
         font-family: primary.stack
         font-size: 7
         font-weight: regular
         line-height: base
       body:
-        color: 'var(--text-color)'
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-size: 3
         font-weight: regular
         line-height: base
       body-large:
-        color: 'var(--text-color)'
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-size: 5
         font-weight: regular
         line-height: base
       cite:
-        color: 'var(--secondary-text-color)'
+        color: 'var(--gesso-text-secondary-color)'
         font-family: primary.stack
         font-size: 2
         font-style: normal

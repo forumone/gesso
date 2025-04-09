@@ -2,8 +2,8 @@
 
 @use '00-config' as *;
 
-$details-border-color: var(--secondary-background-color) !default;
-$details-icon-color: var(--link-color) !default;
+$details-border-color: var(--gesso-background-secondary-color) !default;
+$details-icon-color: var(--gesso-link-color) !default;
 $details-icon-size: 24px !default;
 $details-padding: rem(gesso-spacing(2));
 
@@ -14,8 +14,8 @@ $details-padding: rem(gesso-spacing(2));
 }
 
 .c-details__summary {
-  background: var(--background-color);
-  color: var(--text-color);
+  background: var(--gesso-background-color);
+  color: var(--gesso-text-color);
   cursor: pointer;
   display: flex;
   font-weight: gesso-font-weight(bold);
@@ -47,8 +47,8 @@ $details-padding: rem(gesso-spacing(2));
 }
 
 .c-details__content {
-  background: var(--background-color);
-  color: var(--text-color);
+  background: var(--gesso-background-color);
+  color: var(--gesso-text-color);
   padding: $details-padding;
   padding-block-start: 0;
 

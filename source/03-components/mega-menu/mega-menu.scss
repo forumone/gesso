@@ -7,14 +7,14 @@
 // the element(s) above it need a background color and
 // z-index in order to cover the mega menu.
 .l-header {
-  background: var(--background-color);
+  background: var(--gesso-background-color);
   position: relative;
   z-index: 2;
 }
 
 .c-mega-menu {
   align-items: center;
-  background: var(--background-color);
+  background: var(--gesso-background-color);
   display: flex;
   margin-block: 0 rem(gesso-spacing(2.5));
   margin-inline: 0;
@@ -23,7 +23,7 @@
   z-index: 1;
 
   &::after {
-    background-color: var(--background-color);
+    background-color: var(--gesso-background-color);
     content: '';
     display: block;
     height: 100%;
@@ -41,9 +41,9 @@
 
     > .c-mega-menu__link {
       @include link(
-        var(--link-color),
-        var(--link-hover-color),
-        var(--link-active-color)
+        var(--gesso-link-color),
+        var(--gesso-link-hover-color),
+        var(--gesso-link-active-color)
       );
       border-block-end: rem(2px) solid transparent;
       border-radius: rem(1px);
@@ -77,8 +77,8 @@
 
 .c-mega-menu__section {
   @include color-theme(gray-6);
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--gesso-background-color);
+  color: var(--gesso-text-color);
   inset-block-start: 100%;
   inset-inline-start: 0;
   margin-block: 0;

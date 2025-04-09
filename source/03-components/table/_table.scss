@@ -7,7 +7,7 @@
     thead {
       display: table;
       table-layout: fixed;
-      width: calc(100% - var(--scrollbar-width));
+      width: calc(100% - var(--gesso-scrollbar-width));
     }
 
     tbody {

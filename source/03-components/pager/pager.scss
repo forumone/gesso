@@ -2,11 +2,11 @@
 
 @use '00-config' as *;
 
-$pager-background-color: var(--secondary-link-color) !default;
-$pager-background-color-hover: var(--secondary-link-color) !default;
-$pager-background-color-active: var(--secondary-link-color) !default;
-$pager-link-color: var(--secondary-link-color) !default;
-$pager-link-color-active: var(--background-color) !default;
+$pager-background-color: var(--gesso-link-secondary-color) !default;
+$pager-background-color-hover: var(--gesso-link-secondary-color) !default;
+$pager-background-color-active: var(--gesso-link-secondary-color) !default;
+$pager-link-color: var(--gesso-link-secondary-color) !default;
+$pager-link-color-active: var(--gesso-background-color) !default;
 $pager-ellipsis-bp: 800px !default;
 $pager-bp: 600px !default;
 
@@ -87,22 +87,22 @@ $pager-bp: 600px !default;
 .c-pager__link--next,
 .c-pager__link--last {
   background-color: transparent;
-  color: var(--link-color);
+  color: var(--gesso-link-color);
 
   &:visited {
-    color: var(--link-color);
+    color: var(--gesso-link-color);
   }
 
   &:hover,
   &:focus {
     background-color: transparent;
-    color: var(--link-hover-color);
+    color: var(--gesso-link-hover-color);
     text-decoration: underline;
   }
 
   &:active {
     background-color: transparent;
-    color: var(--link-active-color);
+    color: var(--gesso-link-active-color);
     text-decoration: underline;
   }
 }

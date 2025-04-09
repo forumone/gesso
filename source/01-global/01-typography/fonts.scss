@@ -28,7 +28,7 @@
 }
 
 .gesso-storybook-font__preview {
-  border-block-end: 2px solid var(--border-color);
+  border-block-end: 2px solid var(--gesso-border-color);
   font-size: rem(18px);
   font-style: normal;
   font-weight: 400;
@@ -38,7 +38,7 @@
 
   @include breakpoint(800px) {
     border-block-end: 0;
-    border-inline-end: 2px solid var(--border-color);
+    border-inline-end: 2px solid var(--gesso-border-color);
     margin: rem(5px) rem(30px) 0 0;
     padding: 0 rem(20px);
     text-align: start;
@@ -70,11 +70,11 @@
 }
 
 .gesso-storybook-font__label {
-  color: var(--accent-color);
+  color: var(--gesso-accent-color);
 }
 
 .gesso-storybook-font__name {
-  color: var(--accent-color);
+  color: var(--gesso-accent-color);
   font-size: 0.9rem;
   line-height: 1.5;
   margin: rem(5px) 0;

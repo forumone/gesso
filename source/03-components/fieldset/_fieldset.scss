@@ -3,11 +3,11 @@
 @use '00-config' as *;
 @use '../form-item/form-item' as *;
 
-$fieldset-border-color: var(--secondary-background-color);
+$fieldset-border-color: var(--gesso-background-secondary-color);
 $fieldset-legend-offset: rem(
   gesso-line-height(base) * gesso-base-font-size()
 ) !default;
-$fieldset-legend-text-color: var(--text-color);
+$fieldset-legend-text-color: var(--gesso-text-color);
 
 .c-fieldset {
   inset-block-start: $fieldset-legend-offset; // Offsets the negative margin of legends.
@@ -38,7 +38,7 @@ $fieldset-legend-text-color: var(--text-color);
 // .c-fieldset__content {}
 
 .c-fieldset__description {
-  color: var(--secondary-text-color);
+  color: var(--gesso-text-secondary-color);
   font-size: rem(gesso-font-size(2));
 
   > :last-child {
@@ -47,7 +47,7 @@ $fieldset-legend-text-color: var(--text-color);
 }
 
 .c-fieldset--default {
-  background: var(--background-color);
+  background: var(--gesso-background-color);
   border: 1px solid $fieldset-border-color;
   margin: rem(gesso-spacing(2)) 0 rem(gesso-spacing(3)) +
     $fieldset-legend-offset;
@@ -61,7 +61,7 @@ $fieldset-legend-text-color: var(--text-color);
     height: 2em;
     line-height: 2;
     padding: 0;
-    text-shadow: 0 1px 0 var(--background-color);
+    text-shadow: 0 1px 0 var(--gesso-background-color);
 
     &.is-disabled {
       opacity: $form-disabled-opacity;

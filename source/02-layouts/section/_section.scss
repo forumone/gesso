@@ -6,8 +6,8 @@
   margin-block-end: rem(gesso-spacing(5));
 
   &.has-theme {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--gesso-background-color);
+    color: var(--gesso-text-color);
     padding-block: rem(gesso-spacing(2));
   }
 }

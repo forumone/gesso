@@ -9,7 +9,7 @@ $easing-swatch: rem(75px);
 }
 
 .gesso-storybook-easing__indicator {
-  background-color: var(--secondary-text-color);
+  background-color: var(--gesso-text-secondary-color);
   border-radius: 10%;
   height: $easing-swatch;
   inset-inline-start: 0;

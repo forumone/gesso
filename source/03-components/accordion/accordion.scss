@@ -2,8 +2,8 @@
 
 @use '00-config' as *;
 
-$accordion-item-border-color: var(--secondary-background-color) !default;
-$accordion-item-icon-color: var(--link-color) !default;
+$accordion-item-border-color: var(--gesso-background-secondary-color) !default;
+$accordion-item-icon-color: var(--gesso-link-color) !default;
 $accordion-item-icon-size: 20px !default;
 $accordion-item-icon-weight: 2px !default;
 
@@ -14,8 +14,8 @@ $accordion-item-icon-weight: 2px !default;
 }
 
 .c-accordion-item__heading {
-  background: var(--background-color);
-  color: var(--text-color);
+  background: var(--gesso-background-color);
+  color: var(--gesso-text-color);
   font-weight: gesso-font-weight(bold);
   margin: 0;
 }
@@ -97,7 +97,7 @@ $accordion-item-icon-weight: 2px !default;
 }
 
 .c-accordion-item__drawer {
-  background: var(--background-color);
+  background: var(--gesso-background-color);
 }
 
 .c-accordion-item__drawer-inner {

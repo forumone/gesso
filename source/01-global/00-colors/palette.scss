@@ -14,7 +14,7 @@ $swatch-padding: 1rem;
 }
 
 .gesso-storybook-color-palette__group {
-  border-block-end: 1px solid var(--border-color);
+  border-block-end: 1px solid var(--gesso-border-color);
   column-gap: $swatch-padding;
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +22,7 @@ $swatch-padding: 1rem;
 }
 
 .gesso-storybook-color-swatch {
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--gesso-border-color);
   flex: 0 0 ($swatch-size + 2 * $swatch-padding);
   margin-block-end: $swatch-padding;
   max-width: ($swatch-size + 2 * $swatch-padding);

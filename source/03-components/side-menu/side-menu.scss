@@ -3,12 +3,12 @@
 
 @use '00-config' as *;
 
-$side-menu-bg-color: var(--secondary-background-color);
+$side-menu-bg-color: var(--gesso-background-secondary-color);
 
 .c-side-menu {
   @include color-theme(default);
   background-color: $side-menu-bg-color;
-  color: var(--text-color);
+  color: var(--gesso-text-color);
   font-size: rem(gesso-font-size(5));
   height: 100vh;
   inset-block-start: 0;
@@ -85,7 +85,7 @@ $side-menu-bg-color: var(--secondary-background-color);
 
 .c-side-menu__back {
   @include text-button;
-  color: var(--link-color);
+  color: var(--gesso-link-color);
 
   &::before {
     @include svg-background(mobile-arrow-down);
@@ -102,7 +102,7 @@ $side-menu-bg-color: var(--secondary-background-color);
 
   &:hover,
   &:focus {
-    color: var(--link-hover-color);
+    color: var(--gesso-link-hover-color);
   }
 }
 

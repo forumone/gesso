@@ -21,7 +21,7 @@ function setScrollbarProperty() {
   const scrollbarWidth = calculateScrollbarSize();
   if (!Number.isNaN(scrollbarWidth)) {
     document.documentElement.style.setProperty(
-      '--scrollbar-width',
+      '--gesso-scrollbar-width',
       `${scrollbarWidth}px`
     );
   }

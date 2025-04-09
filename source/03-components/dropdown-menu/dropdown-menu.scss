@@ -43,9 +43,9 @@
     > button.c-dropdown-menu__link {
       @include text-button;
       @include link(
-        var(--link-color),
-        var(--link-hover-color),
-        var(--link-active-color)
+        var(--gesso-link-color),
+        var(--gesso-link-hover-color),
+        var(--gesso-link-active-color)
       );
     }
   }

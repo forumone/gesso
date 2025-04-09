@@ -3,8 +3,8 @@
 @use '00-config' as *;
 
 .c-tag {
-  @include link(var(--tag-text-color));
-  border: 2px solid var(--tag-border-color);
+  @include link(var(--gesso-tag-text-color));
+  border: 2px solid var(--gesso-tag-border-color);
   border-radius: 70px;
   display: inline-block;
   font-size: rem(gesso-font-size(2));
@@ -18,7 +18,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 2px var(--tag-box-shadow-color);
+    box-shadow: 0 0 0 2px var(--gesso-tag-box-shadow-color);
     outline: 0;
   }
 }

@@ -14,7 +14,7 @@ $duration-swatch: rem(40px);
 }
 
 .gesso-storybook-duration__indicator {
-  background-color: var(--secondary-text-color);
+  background-color: var(--gesso-text-secondary-color);
   border-radius: 50%;
   display: inline-block;
   height: $duration-swatch;

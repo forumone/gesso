@@ -33,7 +33,7 @@
   }
 }
 
-@mixin list-pipeline($pipeline-border-color: var(--border-color)) {
+@mixin list-pipeline($pipeline-border-color: var(--gesso-border-color)) {
   @include clearfix();
   list-style-type: none;
   margin-inline-start: 0;
@@ -70,7 +70,7 @@
 
 @mixin list-border(
   $list-border-padding: 0.25rem,
-  $list-border-color: var(--border-color)
+  $list-border-color: var(--gesso-border-color)
 ) {
   list-style: none;
   margin-inline-start: 0;
