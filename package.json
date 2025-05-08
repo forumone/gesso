@@ -30,7 +30,7 @@
     "@forumone/eslint-config-es5": "^3.0.0",
     "@forumone/eslint-config-react": "^3.0.0",
     "@forumone/twig-drupal-filters": "^3.2.0",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.16",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.6.0",
     "@storybook/addon-a11y": "^8.6.12",
     "@storybook/addon-actions": "^8.1.6",
     "@storybook/addon-docs": "^8.1.6",
