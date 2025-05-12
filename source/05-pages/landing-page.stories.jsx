@@ -23,7 +23,42 @@ export default {
 // See the Homepage story for an example of overriding the args for each example.
 const rowsContent = [];
 for (let i = 1; i <= 12; i += 1) {
-  rowsContent.push(Card.render(Card.args));
+  const photoID = 26 + i;
+  rowsContent.push(Card.render({
+    ...Card.args,
+    img_large_4x3: {
+      src: `https://picsum.photos/id/${photoID}/768/576`,
+      alt: `Sample photo ${photoID}`,
+      height: '576',
+      width: '768',
+      responsive: {
+        1: {
+          src: `https://picsum.photos/id/${photoID}/288/216`,
+          width: '288',
+        },
+        2: {
+          src: `https://picsum.photos/id/${photoID}/384/288`,
+          width: '384',
+        },
+        3: {
+          src: `https://picsum.photos/id/${photoID}/576/432`,
+          width: '576',
+        },
+        4: {
+          src: `https://picsum.photos/id/${photoID}/1152/864`,
+          width: '1152',
+        },
+        5: {
+          src: `https://picsum.photos/id/${photoID}/1536/1152`,
+          width: '1536',
+        },
+        6: {
+          src: `https://picsum.photos/id/${photoID}/2304/1728`,
+          width: '2304',
+        },
+      },
+    },
+  }));
 }
 
 const viewsContent = ReactDOMServer.renderToStaticMarkup(

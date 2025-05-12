@@ -20,7 +20,33 @@ export default {
 // see Page page.
 const articleDemoContent = `
   ${ReactDOMServer.renderToStaticMarkup(
-    FigureRightAligned.render(FigureRightAligned.args)
+    FigureRightAligned.render({
+      ...FigureRightAligned.args,
+      img_medium_4x3: {
+        src: 'https://picsum.photos/id/237/384/288',
+        alt: 'Sample photo',
+        height: '288',
+        width: '384',
+        responsive: {
+          1: {
+            src: 'https://picsum.photos/id/237/288/216',
+            width: '288',
+          },
+          2: {
+            src: 'https://picsum.photos/id/237/576/432',
+            width: '576',
+          },
+          3: {
+            src: 'https://picsum.photos/id/237/768/576',
+            width: '768',
+          },
+          4: {
+            src: 'https://picsum.photos/id/237/1152/864',
+            width: '1152',
+          },
+        },
+      },
+    })
   )}
   <p>You’re the Dread Pirate Roberts, admit it. How many do you think you could
   handle? You mean you wish to surrender to me? Very well, I accept. But how can
