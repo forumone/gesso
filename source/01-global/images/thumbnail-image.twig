@@ -1,1 +1,31 @@
-<img {% if modifier_classes %}class="{{ modifier_classes }}" {% endif %}src="{{ img_thumbnail.src }}" alt="{{ img_thumbnail.alt }}"{% if img_thumbnail.height %} height="{{ img_thumbnail.height }}"{% endif %}{% if img_thumbnail.width %} width="{{ img_thumbnail.width }}"{% endif %}>
+{% extends "@global/images/_responsive-image.twig" %}
+
+{% if image_src is empty %}
+  {% set image_src = img_thumbnail.src %}
+{% endif %}
+
+{% if image_alt is empty %}
+  {% set image_alt = img_thumbnail.alt %}
+{% endif %}
+
+{% if image_height is empty %}
+  {% set image_height = img_thumbnail.height %}
+{% endif %}
+
+{% if image_width is empty %}
+  {% set image_width = img_thumbnail.width %}
+{% endif %}
+
+{% if image_sizes is empty %}
+  {% set image_sizes -%}
+    min(calc(100vw - {{ responsive_image_gutters }}), {{ img_thumbnail.width }}px)
+  {%- endset %}
+{% endif %}
+
+{% if image_srcset is empty %}
+  {% set image_srcset -%}
+    {{ img_thumbnail.src }} {{ img_thumbnail.width }}w,
+    {{ img_thumbnail.responsive.1.src }} {{ img_thumbnail.responsive.1.width }}w,
+    {{ img_thumbnail.responsive.2.src }} {{ img_thumbnail.responsive.2.width }}w
+  {%- endset %}
+{% endif %}

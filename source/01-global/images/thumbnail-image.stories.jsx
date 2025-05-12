@@ -1,21 +1,41 @@
 import parse from 'html-react-parser';
 
-import twigTemplate from './thumbnail-image.twig';
+import { withGlobalWrapper } from '../../../.storybook/decorators';
+import defaultTemplate from './thumbnail-image.twig';
+import ratio16x9Template from './thumbnail-image-16x9.twig';
+import ratio4x3Template from './thumbnail-image-4x3.twig';
+import ratio3x4Template from './thumbnail-image-3x4.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 
 const settings = {
-  title: 'Global/Images/Thumbnail Image',
+  title: 'Global/Responsive Images/Thumbnail Image',
+  decorators: [withGlobalWrapper],
   parameters: {
     controls: {
-      include: ['img_thumbnail', 'modifier_classes'],
+      include: ['modifier_classes'],
     },
   },
 };
 
-const ThumbnailImage = {
-  render: args => parse(twigTemplate(args)),
+const Default = {
+  render: args => parse(defaultTemplate(args)),
+  args: { ...globalData },
+};
+
+const Ratio16x9 = {
+  render: args => parse(ratio16x9Template(args)),
+  args: { ...globalData },
+};
+
+const Ratio4x3 = {
+  render: args => parse(ratio4x3Template(args)),
+  args: { ...globalData },
+};
+
+const Ratio3x4 = {
+  render: args => parse(ratio3x4Template(args)),
   args: { ...globalData },
 };
 
 export default settings;
-export { ThumbnailImage };
+export { Default, Ratio16x9, Ratio4x3, Ratio3x4 };

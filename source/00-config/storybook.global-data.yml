@@ -16,11 +16,55 @@ url: '#0'
 file_name: 'File name'
 file_mime: 'application/pdf'
 file_size: '115.83 KB'
+responsive_image_gutters: '2.22222rem'
 img_thumbnail:
-  src: 'http://fpoimg.com/140x105?text=Thumbnail 4:3'
-  alt: 'Thumbnail 4:3'
-  height: '105'
-  width: '140'
+  src: 'http://fpoimg.com/96x96?text=Thumbnail'
+  alt: 'Thumbnail'
+  height: '96'
+  width: '96'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/192x192?text=Thumbnail'
+      width: '192'
+    2:
+      src: 'https://fpoimg.com/288x288?text=Thumbnail'
+      width: '288'
+img_thumbnail_16x9:
+  src: 'https://fpoimg.com/96x54?text=Thumbnail%2016:9'
+  alt: 'Thumbnail'
+  height: '54'
+  width: '96'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/192x108?text=Thumbnail%2016:9'
+      width: '192'
+    2:
+      src: 'https://fpoimg.com/288x162?text=Thumbnail%2016:9'
+      width: '288'
+img_thumbnail_4x3:
+  src: 'https://fpoimg.com/96x72?text=Thumbnail%204:3'
+  alt: 'Thumbnail'
+  height: '72'
+  width: '96'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/192x144?text=Thumbnail%204:3'
+      width: '192'
+    2:
+      src: 'https://fpoimg.com/288x216?text=Thumbnail%204:3'
+      width: '288'
+img_thumbnail_3x4:
+  src: 'https://fpoimg.com/96x128?text=Thumbnail%203:4'
+  alt: 'Thumbnail'
+  height: '128'
+  width: '96'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/192x256?text=Thumbnail%203:4'
+      width: '192'
+    2:
+      src: 'https://fpoimg.com/288x384?text=Thumbnail%203:4'
+      width: '288'
 img_hero:
   src: 'http://fpoimg.com/1600x800?text=Hero 2:1'
   alt: 'Hero 2:1'
