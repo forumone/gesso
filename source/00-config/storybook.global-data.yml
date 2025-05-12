@@ -65,6 +65,54 @@ img_thumbnail_3x4:
     2:
       src: 'https://fpoimg.com/288x384?text=Thumbnail%203:4'
       width: '288'
+img_small:
+  src: 'http://fpoimg.com/192x192?text=Small'
+  alt: 'Small'
+  height: '192'
+  width: '192'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/384x384?text=Small'
+      width: '384'
+    2:
+      src: 'https://fpoimg.com/576x576?text=Small'
+      width: '576'
+img_small_16x9:
+  src: 'https://fpoimg.com/192x108?text=Small%2016:9'
+  alt: 'Small'
+  height: '108'
+  width: '192'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/384x216?text=Small%2016:9'
+      width: '384'
+    2:
+      src: 'https://fpoimg.com/576x324?text=Small%2016:9'
+      width: '576'
+img_small_4x3:
+  src: 'https://fpoimg.com/192x144?text=Small%204:3'
+  alt: 'Small'
+  height: '72'
+  width: '192'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/384x288?text=Small%204:3'
+      width: '384'
+    2:
+      src: 'https://fpoimg.com/576x432?text=Small%204:3'
+      width: '576'
+img_small_3x4:
+  src: 'https://fpoimg.com/192x256?text=Small%203:4'
+  alt: 'Small'
+  height: '128'
+  width: '192'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/384x512?text=Small%203:4'
+      width: '384'
+    2:
+      src: 'https://fpoimg.com/576x768?text=Small%203:4'
+      width: '576'
 img_hero:
   src: 'http://fpoimg.com/1600x800?text=Hero 2:1'
   alt: 'Hero 2:1'
