@@ -185,6 +185,102 @@ img_medium_3x4:
     4:
       src: 'https://fpoimg.com/1152x1536?text=Medium%203:4'
       width: '1152'
+img_large:
+  src: 'http://fpoimg.com/768x768?text=Large'
+  alt: 'Large'
+  height: '768'
+  width: '768'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/288x288?text=Large'
+      width: '288'
+    2:
+      src: 'https://fpoimg.com/384x384?text=Large'
+      width: '384'
+    3:
+      src: 'https://fpoimg.com/576x576?text=Large'
+      width: '576'
+    4:
+      src: 'https://fpoimg.com/1152x1152?text=Large'
+      width: '1152'
+    5:
+      src: 'https://fpoimg.com/1536x1536?text=Large'
+      width: '1536'
+    6:
+      src: 'https://fpoimg.com/2304x2304?text=Large'
+      width: '2304'
+img_large_16x9:
+  src: 'https://fpoimg.com/768x432?text=Large%2016:9'
+  alt: 'Large'
+  height: '432'
+  width: '768'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/288x162?text=Large%2016:9'
+      width: '288'
+    2:
+      src: 'https://fpoimg.com/384x216?text=Large%2016:9'
+      width: '384'
+    3:
+      src: 'https://fpoimg.com/576x324?text=Large%2016:9'
+      width: '576'
+    4:
+      src: 'https://fpoimg.com/1152x648?text=Large%2016:9'
+      width: '1152'
+    5:
+      src: 'https://fpoimg.com/1536x864?text=Large%2016:9'
+      width: '1536'
+    6:
+      src: 'https://fpoimg.com/2304x1296?text=Large%2016:9'
+      width: '2304'
+img_large_4x3:
+  src: 'https://fpoimg.com/768x576?text=Large%204:3'
+  alt: 'Large'
+  height: '576'
+  width: '768'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/288x216?text=Large%204:3'
+      width: '288'
+    2:
+      src: 'https://fpoimg.com/384x288?text=Large%204:3'
+      width: '384'
+    3:
+      src: 'https://fpoimg.com/576x432?text=Large%204:3'
+      width: '576'
+    4:
+      src: 'https://fpoimg.com/1152x864?text=Large%204:3'
+      width: '1152'
+    5:
+      src: 'https://fpoimg.com/1536x1152?text=Large%204:3'
+      width: '1536'
+    6:
+      src: 'https://fpoimg.com/2304x1728?text=Large%204:3'
+      width: '2304'
+img_large_3x4:
+  src: 'https://fpoimg.com/768x1024?text=Large%203:4'
+  alt: 'Large'
+  height: '1024'
+  width: '768'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/288x384?text=Large%203:4'
+      width: '288'
+    2:
+      src: 'https://fpoimg.com/384x512?text=Large%203:4'
+      width: '384'
+    3:
+      src: 'https://fpoimg.com/576x768?text=Large%203:4'
+      width: '576'
+    4:
+      src: 'https://fpoimg.com/1152x1536?text=Large%203:4'
+      width: '1152'
+    5:
+      src: 'https://fpoimg.com/1536x2048?text=Large%203:4'
+      width: '1536'
+    6:
+      src: 'https://fpoimg.com/2304x3072?text=Large%203:4'
+      width: '2304'
 img_hero:
   src: 'http://fpoimg.com/1600x800?text=Hero 2:1'
   alt: 'Hero 2:1'
