@@ -16,7 +16,7 @@ url: '#0'
 file_name: 'File name'
 file_mime: 'application/pdf'
 file_size: '115.83 KB'
-responsive_image_gutters: '2.22222rem'
+responsive_image_gutters: '2rem'
 img_thumbnail:
   src: 'http://fpoimg.com/96x96?text=Thumbnail'
   alt: 'Thumbnail'
@@ -113,6 +113,78 @@ img_small_3x4:
     2:
       src: 'https://fpoimg.com/576x768?text=Small%203:4'
       width: '576'
+img_medium:
+  src: 'http://fpoimg.com/384x384?text=Medium'
+  alt: 'Medium'
+  height: '384'
+  width: '384'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/288x288?text=Medium'
+      width: '288'
+    2:
+      src: 'https://fpoimg.com/576x576?text=Medium'
+      width: '576'
+    3:
+      src: 'https://fpoimg.com/768x768?text=Medium'
+      width: '768'
+    4:
+      src: 'https://fpoimg.com/1152x1152?text=Medium'
+      width: '1152'
+img_medium_16x9:
+  src: 'https://fpoimg.com/384x216?text=Medium%2016:9'
+  alt: 'Medium'
+  height: '216'
+  width: '384'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/288x162?text=Medium%2016:9'
+      width: '288'
+    2:
+      src: 'https://fpoimg.com/576x324?text=Medium%2016:9'
+      width: '576'
+    3:
+      src: 'https://fpoimg.com/768x432?text=Medium%2016:9'
+      width: '768'
+    4:
+      src: 'https://fpoimg.com/1152x648?text=Medium%2016:9'
+      width: '1152'
+img_medium_4x3:
+  src: 'https://fpoimg.com/384x288?text=Medium%204:3'
+  alt: 'Medium'
+  height: '288'
+  width: '384'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/288x216?text=Medium%204:3'
+      width: '288'
+    2:
+      src: 'https://fpoimg.com/576x432?text=Medium%204:3'
+      width: '576'
+    3:
+      src: 'https://fpoimg.com/768x576?text=Medium%204:3'
+      width: '768'
+    4:
+      src: 'https://fpoimg.com/1152x864?text=Medium%204:3'
+      width: '1152'
+img_medium_3x4:
+  src: 'https://fpoimg.com/384x512?text=Medium%203:4'
+  alt: 'Medium'
+  height: '512'
+  width: '384'
+  responsive:
+    1:
+      src: 'https://fpoimg.com/288x384?text=Medium%203:4'
+      width: '288'
+    2:
+      src: 'https://fpoimg.com/576x768?text=Medium%203:4'
+      width: '576'
+    3:
+      src: 'https://fpoimg.com/768x1024?text=Medium%203:4'
+      width: '768'
+    4:
+      src: 'https://fpoimg.com/1152x1536?text=Medium%203:4'
+      width: '1152'
 img_hero:
   src: 'http://fpoimg.com/1600x800?text=Hero 2:1'
   alt: 'Hero 2:1'
