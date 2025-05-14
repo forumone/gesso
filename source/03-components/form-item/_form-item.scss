@@ -11,6 +11,7 @@ $form-border-color: var(--gesso-form-border-color) !default;
 $form-border-color-focus: var(--gesso-form-border-dark-color) !default;
 $form-box-shadow-focus: gesso-box-shadow(2) !default;
 $form-disabled-opacity: 0.35 !default;
+$form-text-color: var(--gesso-form-text-color) !default;
 $form-text-size: gesso-base-font-size() !default;
 
 .c-form-item {
@@ -98,6 +99,7 @@ $form-text-size: gesso-base-font-size() !default;
   background-color: $form-background-color;
   border: 1px solid $form-border-color;
   border-radius: 0;
+  color: $form-text-color;
   display: inline-block;
   font-size: rem($form-text-size);
   height: rem(44px);
@@ -133,6 +135,7 @@ $form-text-size: gesso-base-font-size() !default;
 
 .c-form-item__file {
   background-color: transparent;
+  color: var(--gesso-text-color);
 
   &:hover,
   &:focus {
@@ -149,4 +152,9 @@ $form-text-size: gesso-base-font-size() !default;
 
 .c-form-item__textarea {
   height: auto;
+}
+
+.c-form-item__error-message {
+  @include responsive-font-size(3);
+  color: var(--gesso-form-error-text-color);
 }

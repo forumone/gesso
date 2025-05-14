@@ -28,7 +28,7 @@
     &:checked {
       background-color: var(--gesso-form-background-checked-color);
       border: 2px solid var(--gesso-form-background-unchecked-color);
-      box-shadow: 0 0 0 2px var(--gesso-focus-color);
+      box-shadow: 0 0 0 2px var(--gesso-form-background-checked-color);
     }
 
     &:disabled {
