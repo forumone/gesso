@@ -74,7 +74,7 @@
     "stylelint-order": "^6.0.4",
     "stylelint-prettier": "^5.0.3",
     "stylelint-webpack-plugin": "^5.0.1",
-    "svgo-loader": "^4.0.0",
+    "svg-spritemap-webpack-plugin": "^4.7.0",
     "swc-loader": "^0.2.6",
     "ts-loader": "^9.5.2",
     "twig-loader": "https://github.com/fourkitchens/twig-loader/archive/6f04fedf24f13b69b62c457f971d80b06522ed34.tar.gz",
@@ -92,8 +92,6 @@
     "remove-files-webpack-plugin": "^1.5.0",
     "sass-embedded": "^1.85.1",
     "storybook": "^8.6.6",
-    "svg-sprite-loader": "^6.0.11",
-    "svg-transform-loader": "^2.0.13",
     "terser-webpack-plugin": "^5.3.14",
     "twig": "^1.17.1",
     "yaml": "^2.7.0"
