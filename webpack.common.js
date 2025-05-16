@@ -151,20 +151,6 @@ const commonConfig = {
           },
         ],
       },
-      // {
-      //   test: /images\/_sprite-source-files\/.*\.svg$/,
-      //   exclude: /node_modules/,
-      //   use: [
-      //     {
-      //       loader: SpriteLoaderPlugin.loader,
-      //       options: {
-      //         emit: true,
-      //         name: 'images/sprite.artifact.svg',
-      //         iconName: '[name]',
-      //       },
-      //     },
-      //   ],
-      // },
       {
         test: /fonts\/.*\.(woff2?|ttf|otf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
         exclude: ['/node_modules/'],
