@@ -1,0 +1,39 @@
+<div class="gesso-storybook-color-palette">
+  <h2 class="gesso-storybook-color-palette__heading">Brand</h2>
+  {% for key, list in gesso.palette.brand %}
+    <div class="gesso-storybook-color-palette__group">
+      {% for name, color in list %}
+        {% include '@global/00-colors/palette-item.twig' with  {
+          color: color,
+          name: key ~ '-' ~ name,
+        } %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+
+<div class="gesso-storybook-color-palette">
+  <h2 class="gesso-storybook-color-palette__heading">Grayscale</h2>
+  <div class="gesso-storybook-color-palette__group">
+    {% for name, color in gesso.palette.grayscale %}
+      {% include '@global/00-colors/palette-item.twig' with  {
+        'color': color,
+        'name': name,
+      } %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="gesso-storybook-color-palette">
+  <h2 class="gesso-storybook-color-palette__heading">Other</h2>
+  {% for key, list in gesso.palette.other %}
+    <div class="gesso-storybook-color-palette__group">
+      {% for name, color in list %}
+        {% include '@global/00-colors/palette-item.twig' with  {
+          'color': color,
+          'name': key ~ '-' ~ name,
+        } %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

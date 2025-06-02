@@ -74,24 +74,6 @@ gesso:
     background:
       site: grayscale.white
     button:
-      primary:
-        background: brand.blue.base
-        background-hover: brand.blue.dark
-        background-active: brand.blue.dark-1
-        border: brand.blue.base
-        border-hover: brand.blue.dark
-        text: grayscale.white
-        text-hover: grayscale.white
-        text-active: grayscale.white
-      secondary:
-        background: brand.ocean-blue.light-1
-        background-hover: brand.ocean-blue.light
-        background-active: brand.ocean-blue.base
-        border: brand.ocean-blue.light-1
-        border-hover: brand.ocean-blue.light
-        text: brand.ocean-blue.dark-1
-        text-hover: brand.ocean-blue.dark-1
-        text-active: grayscale.gray-7
       base:
         background: grayscale.gray-4
         background-hover: grayscale.gray-5
@@ -101,10 +83,6 @@ gesso:
         text: grayscale.white
         text-hover: grayscale.white
         text-active: grayscale.white
-      disabled:
-        background: grayscale.gray-1
-        border: grayscale.gray-1
-        text: grayscale.gray-3
       danger:
         background: other.red.base
         background-hover: other.red.dark
@@ -119,34 +97,13 @@ gesso:
         background-hover: grayscale.gray-5
         color: grayscale.white
         color-hover: grayscale.white
-    facet:
-      icon: grayscale.gray-3
-      icon-active: brand.blue.dark-1
-      text: brand.blue.base
-      text-hover: brand.blue.dark
-      text-active: brand.blue.dark-1
-    form:
-      background: grayscale.gray-1
-      background-active: grayscale.white
-      background-checked: brand.blue.base
-      background-unchecked: grayscale.white
-      border: grayscale.gray-2
-      border-dark: grayscale.gray-5
-      border-light: grayscale.gray-1
-      thumb: grayscale.gray-5
-      track: grayscale.gray-3
-    mark:
-      background: other.yellow-neon.base
-      text: grayscale.gray-7
-    selection:
-      background: brand.blue.base
-      text: grayscale.white
     table:
       border: grayscale.gray-5
       background: grayscale.white
       background-head: grayscale.gray-1
       background-foot: grayscale.gray-1
       background-sorted: brand.blue.light-2
+      text: grayscale.gray-7
     ui:
       generic:
         background: grayscale.gray-3
@@ -174,6 +131,133 @@ gesso:
       warning:
         background: other.yellow.light
         border: other.yellow.base
+    theme:
+      default:
+        # generic
+        background: grayscale.white
+        background-secondary: grayscale.gray-2
+        text: grayscale.gray-7
+        text-secondary: grayscale.gray-5
+        accent: brand.blue.base
+        border: grayscale.gray-3
+        focus: brand.blue.light
+        link: brand.blue.base
+        link-hover: brand.blue.dark
+        link-active: brand.blue.dark
+        link-visited: brand.blue.dark
+        link-secondary: brand.blue.dark
+        link-secondary-hover: brand.blue.base
+        link-secondary-active: brand.blue.dark-1
+        link-secondary-visited: brand.blue.dark
+        mark-background: other.yellow-neon.base
+        mark-text: grayscale.gray-7
+        selection-background: brand.blue.base
+        selection-text: grayscale.white
+        # component-specific
+        button-primary-background: brand.blue.base
+        button-primary-background-hover: brand.blue.dark
+        button-primary-background-active: brand.blue.dark-1
+        button-primary-background-disabled: grayscale.gray-1
+        button-primary-border: brand.blue.base
+        button-primary-border-hover: brand.blue.dark
+        button-primary-border-active: brand.blue.dark-1
+        button-primary-border-disabled: grayscale.gray-1
+        button-primary-text: grayscale.white
+        button-primary-text-hover: grayscale.white
+        button-primary-text-active: grayscale.white
+        button-primary-text-disabled: grayscale.gray-3
+        button-secondary-background: brand.ocean-blue.light-1
+        button-secondary-background-hover: brand.ocean-blue.light
+        button-secondary-background-active: brand.ocean-blue.base
+        button-secondary-background-disabled: grayscale.gray-1
+        button-secondary-border: brand.ocean-blue.light-1
+        button-secondary-border-hover: brand.ocean-blue.light
+        button-secondary-border-active: brand.ocean-blue.base
+        button-secondary-border-disabled: grayscale.gray-1
+        button-secondary-text: brand.ocean-blue.dark-1
+        button-secondary-text-hover: brand.ocean-blue.dark-1
+        button-secondary-text-active: grayscale.gray-7
+        button-secondary-text-disabled: grayscale.gray-3
+        facet-icon: grayscale.gray-3
+        facet-icon-active: brand.blue.dark-1
+        facet-text: brand.blue.base
+        facet-text-hover: brand.blue.dark
+        facet-text-active: brand.blue.dark-1
+        form-background: grayscale.gray-1
+        form-background-active: grayscale.white
+        form-background-checked: brand.blue.base
+        form-background-unchecked: grayscale.white
+        form-border: grayscale.gray-2
+        form-border-dark: grayscale.gray-5
+        form-border-light: grayscale.gray-1
+        form-thumb: grayscale.gray-5
+        form-track: grayscale.gray-3
+        tag-text: brand.blue.dark-1
+        tag-border: brand.blue.light
+        tag-box-shadow: brand.blue.light
+      gray-6:
+        # generic
+        background: grayscale.gray-6
+        background-secondary: grayscale.gray-4
+        text: grayscale.white
+        text-secondary: grayscale.gray-2
+        accent: brand.blue.light-1
+        border: grayscale.gray-3
+        focus: brand.ocean-blue.light-1
+        link: brand.ocean-blue.light
+        link-hover: brand.ocean-blue.base
+        link-active: brand.ocean-blue.base
+        link-visited: brand.ocean-blue.base
+        link-secondary: brand.ocean-blue.light
+        link-secondary-hover: brand.ocean-blue.base
+        link-secondary-active: brand.ocean-blue.base
+        link-secondary-visited: brand.ocean-blue.base
+        mark-background: other.yellow-neon.base
+        mark-text: grayscale.gray-7
+        selection-background: brand.blue.base
+        selection-text: grayscale.white
+        # component-specific
+        button-primary-background: brand.blue.base
+        button-primary-background-hover: brand.blue.dark
+        button-primary-background-active: brand.blue.dark-1
+        button-primary-background-disabled: grayscale.gray-5
+        button-primary-border: brand.blue.base
+        button-primary-border-hover: brand.blue.dark
+        button-primary-border-active: brand.blue.dark-1
+        button-primary-border-disabled: grayscale.gray-5
+        button-primary-text: grayscale.white
+        button-primary-text-hover: grayscale.white
+        button-primary-text-active: grayscale.white
+        button-primary-text-disabled: grayscale.gray-3
+        button-secondary-background: brand.ocean-blue.light-1
+        button-secondary-background-hover: brand.ocean-blue.light
+        button-secondary-background-active: brand.ocean-blue.base
+        button-secondary-background-disabled: grayscale.gray-5
+        button-secondary-border: brand.ocean-blue.light-1
+        button-secondary-border-hover: brand.ocean-blue.light
+        button-secondary-border-active: brand.ocean-blue.base
+        button-secondary-border-disabled: grayscale.gray-5
+        button-secondary-text: brand.ocean-blue.dark-1
+        button-secondary-text-hover: brand.ocean-blue.dark-1
+        button-secondary-text-active: grayscale.gray-7
+        button-secondary-text-disabled: grayscale.gray-3
+        facet-icon: grayscale.gray-3
+        facet-icon-active: brand.ocean-blue.base
+        facet-text: brand.ocean-blue.light
+        facet-text-hover: brand.ocean-blue.base
+        facet-text-active: brand.ocean-blue.base
+        form-background: grayscale.gray-1
+        form-background-active: grayscale.white
+        form-background-checked: brand.blue.base
+        form-background-unchecked: grayscale.gray-6
+        form-border: grayscale.gray-4
+        form-border-dark: grayscale.gray-2
+        form-border-light: grayscale.gray-5
+        form-thumb: grayscale.gray-2
+        form-track: grayscale.gray-3
+        tag-text: brand.ocean-blue.light
+        tag-border: brand.ocean-blue.light-1
+        tag-box-shadow: brand.ocean-blue.light-1
   typography:
     font-family:
       primary:
@@ -285,43 +369,43 @@ gesso:
       tallest: 2
     display:
       display:
-        color: text.primary
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 15
       h1:
-        color: text.primary
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 12
       h2:
-        color: text.primary
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 10
       h3:
-        color: text.primary
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: short
         responsive-font-size: 8
       h4:
-        color: text.primary
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: base
         responsive-font-size: 7
       h5:
-        color: text.primary
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: bold
         line-height: base
         responsive-font-size: 3
       h6:
-        color: text.primary
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-weight: semibold
         letter-spacing: tight
@@ -329,25 +413,25 @@ gesso:
         text-transform: uppercase
         responsive-font-size: 2
       blockquote:
-        color: text.link
+        color: 'var(--gesso-link-color)'
         font-family: primary.stack
         font-size: 7
         font-weight: regular
         line-height: base
       body:
-        color: text.primary
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-size: 3
         font-weight: regular
         line-height: base
       body-large:
-        color: text.primary
+        color: 'var(--gesso-text-color)'
         font-family: primary.stack
         font-size: 5
         font-weight: regular
         line-height: base
       cite:
-        color: text.secondary
+        color: 'var(--gesso-text-secondary-color)'
         font-family: primary.stack
         font-size: 2
         font-style: normal

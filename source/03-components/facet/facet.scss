@@ -2,11 +2,11 @@
 
 @use '00-config' as *;
 
-$facet-icon-color: gesso-color(facet, icon) !default;
-$facet-icon-active-color: gesso-color(facet, icon-active) !default;
-$facet-text-color: gesso-color(facet, text) !default;
-$facet-text-hover-color: gesso-color(facet, text-hover) !default;
-$facet-text-active-color: gesso-color(facet, text-active) !default;
+$facet-icon-color: var(--gesso-facet-icon-color) !default;
+$facet-icon-active-color: var(--gesso-facet-icon-active-color) !default;
+$facet-text-color: var(--gesso-facet-text-color) !default;
+$facet-text-hover-color: var(--gesso-facet-text-hover-color) !default;
+$facet-text-active-color: var(--gesso-facet-text-active-color) !default;
 
 .c-facet {
   @include responsive-font-size(3);

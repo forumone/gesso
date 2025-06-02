@@ -28,11 +28,28 @@ function setupTwig(twig) {
 
 setupTwig(Twig);
 
+const addThemeWrapper = (Story, context) => {
+  return (
+    <div
+      className={context.globals.theme}
+      style={{
+        backgroundColor: 'var(--background-color)',
+        color: 'var(--text-color)',
+        display: 'flow-root',
+        minHeight: '100vh',
+      }}
+    >
+      <Story />
+    </div>
+  );
+};
+
 export const decorators = [
   storyFn => {
     useEffect(() => Drupal.attachBehaviors(), []);
     return storyFn();
   },
+  addThemeWrapper,
 ];
 
 const preview = {
@@ -43,13 +60,28 @@ const preview = {
         method: 'alphabetical',
         order: [
           'Global',
-          ['Color Palette', '*'],
+          ['Color', 'Typography', '*'],
           'Layouts',
           'Components',
           'Templates',
           'Pages',
         ],
         includeName: true,
+      },
+    },
+  },
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'default',
+      toolbar: {
+        title: 'Theme',
+        icon: 'paintbrush',
+        items: [
+          { value: 'theme-default', title: 'Default' },
+          { value: 'theme-gray-6', title: 'Dark Gray' },
+        ],
+        dynamicTitle: true,
       },
     },
   },

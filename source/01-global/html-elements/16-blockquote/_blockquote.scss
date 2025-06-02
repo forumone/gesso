@@ -2,7 +2,7 @@
 
 @use '00-config' as *;
 
-$blockquote-cite-divider-color: gesso-color(ui, generic, border);
+$blockquote-cite-divider-color: var(--gesso-border-color);
 
 blockquote {
   @include display-text-style(blockquote);

@@ -6,9 +6,9 @@ export default function ContentPlaceholder({ children }) {
   return (
     <div
       style={{
-        background: '#333',
-        border: '1px solid #fff',
-        color: '#fff',
+        background: 'var(--gesso-text-secondary-color)',
+        border: '1px solid var(--gesso-background-color)',
+        color: 'var(--gesso-background-color)',
         padding: '1em',
       }}
     >

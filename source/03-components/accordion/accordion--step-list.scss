@@ -6,7 +6,7 @@
   counter-reset: step;
 
   .c-accordion-item__number {
-    background-color: gesso-grayscale(gray-2);
+    background-color: var(--gesso-background-secondary-color);
     border-radius: 100%;
     display: inline-block;
     font-size: rem(gesso-font-size(4));

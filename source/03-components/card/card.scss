@@ -2,10 +2,10 @@
 
 @use '00-config' as *;
 
-$card-accent-border-color: gesso-color(ui, generic, accent) !default;
-$card-link-color: gesso-color(text, on-light) !default;
-$card-link-color-hover: gesso-color(ui, generic, text-dark) !default;
-$card-meta-color: gesso-color(ui, generic, text-dark) !default;
+$card-accent-border-color: var(--gesso-accent-color) !default;
+$card-link-color: var(--gesso-text-color) !default;
+$card-link-color-hover: var(--gesso-text-secondary-color) !default;
+$card-meta-color: var(--gesso-text-secondary-color) !default;
 $card-padding: rem(gesso-spacing(3)) !default;
 
 .c-card {

@@ -1,0 +1,31 @@
+<div class="gesso-storybook-color-theme">
+  <div>
+    <h2 class="gesso-storybook-color-theme__heading">Color Themes</h2>
+    <ul>
+      {% for key, value in gesso.colors.theme %}
+        <li><a href="#theme-{{ key }}" target="_self">{{ key|capitalize }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% for key, value in gesso.colors.theme %}
+  <div class="gesso-storybook-color-theme" id="theme-{{ key }}">
+    <h2 class="gesso-storybook-color-theme__heading">Theme: {{ key|capitalize }}</h2>
+    <div class="gesso-storybook-color-theme__row">
+      <div class="gesso-storybook-color-theme__palette">
+        {% for token, color in value %}
+          {% include '@global/00-colors/palette-item.twig' with  {
+            'modifier_classes': 'gesso-storybook-color-swatch--small',
+            'color': color,
+            'name': token,
+          } %}
+        {% endfor %}
+      </div>
+      <div class="gesso-storybook-color-theme__content theme-{{ key }}">
+        <div class="l-constrain">
+          {{ demo_content }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

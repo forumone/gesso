@@ -11,16 +11,16 @@
     {# Base font value should be a pixel value or unitless value #}
     {% for name, unit in gesso.spacing|keysort %}
       {% set remValue =
-        (unit~''|replace({'px':''})) /
-        (gesso.typography['base-font-size']|replace({'px':''}))
+        (unit~''|replace({'px': ''})) /
+        (gesso.typography['base-font-size']|replace({'px': ''}))
       %}
 
       <tr>
-        <td class="gesso-storybook-spacing__cell">{{name|trim}}</td>
-        <td class="gesso-storybook-spacing__cell">{{remValue}}rem</td>
-        <td class="gesso-storybook-spacing__cell">{{unit}}</td>
+        <td class="gesso-storybook-spacing__cell">{{ name|trim }}</td>
+        <td class="gesso-storybook-spacing__cell">{{ remValue }}rem</td>
+        <td class="gesso-storybook-spacing__cell">{{ unit }}</td>
         <td class="gesso-storybook-spacing__cell">
-          <div style="height:{{unit}}; width:{{unit}}; background-color: #ccc;"></div>
+          <div style="height:{{ unit }}; width:{{ unit }}; background-color: var(--gesso-border-color);"></div>
         </td>
       </tr>
     {% endfor %}

@@ -26,6 +26,7 @@ td {
   background-clip: padding-box;
   background-color: gesso-color(table, background);
   border: 1px solid gesso-color(table, border);
+  color: gesso-color(table, text);
   padding: rem(gesso-spacing(2));
 }
 
@@ -34,6 +35,7 @@ tfoot {
   td,
   th {
     background-color: gesso-color(table, background-foot);
+    color: gesso-color(table, text);
   }
 }
 
@@ -42,6 +44,7 @@ th {
   background-clip: padding-box;
   background-color: gesso-color(table, background);
   border: 1px solid gesso-color(table, border);
+  color: gesso-color(table, text);
   padding: rem(gesso-spacing(2));
   text-align: start;
 }
@@ -51,6 +54,7 @@ thead {
   td,
   th {
     background-color: gesso-color(table, background-head);
+    color: gesso-color(table, text);
   }
 
   @media print {
@@ -59,6 +63,9 @@ thead {
 }
 
 tr {
+  background-color: gesso-color(table, background);
+  color: gesso-color(table, text);
+
   @media print {
     page-break-inside: avoid;
   }

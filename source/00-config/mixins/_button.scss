@@ -2,33 +2,31 @@
 
 @use '../functions/' as *;
 @use './focus' as *;
+@use './responsive-font-size' as *;
 
 $button-border-width: 0 !default;
 $button-border-radius: 0 !default;
-$button-background-color: gesso-color(button, primary, background) !default;
-$button-background-color-active: gesso-color(
-  button,
-  primary,
-  background-active
-) !default;
-$button-background-color-disabled: gesso-color(
-  button,
-  disabled,
-  background
-) !default;
-$button-background-color-hover: gesso-color(
-  button,
-  primary,
-  background-hover
-) !default;
-$button-border-color: gesso-color(button, primary, border) !default;
-$button-border-color-hover: gesso-color(button, primary, border-hover) !default;
-$button-border-color-disabled: gesso-color(button, disabled, border) !default;
-$button-text-color: gesso-color(button, primary, text) !default;
-$button-text-color-active: gesso-color(button, primary, text-active) !default;
-$button-text-color-disabled: gesso-color(button, disabled, text) !default;
-$button-text-color-hover: gesso-color(button, primary, text-hover) !default;
-$button-font-size: gesso-base-font-size() !default;
+$button-background-color: var(--gesso-button-primary-background-color);
+$button-background-color-hover: var(
+  --gesso-button-primary-background-hover-color
+);
+$button-background-color-active: var(
+  --gesso-button-primary-background-active-color
+);
+$button-background-color-disabled: var(
+  --button-primary-background-disabled-color
+);
+$button-border-color: var(--gesso-button-primary-border-color);
+$button-border-color-hover: var(--gesso-button-primary-border-hover-color);
+$button-border-color-active: var(--gesso-button-primary-border-active-color);
+$button-border-color-disabled: var(
+  --gesso-button-primary-border-disabled-color
+);
+$button-text-color: var(--gesso-button-primary-text-color);
+$button-text-color-hover: var(--gesso-button-primary-text-hover-color);
+$button-text-color-active: var(--gesso-button-primary-text-active-color);
+$button-text-color-disabled: var(--gesso-button-primary-text-disabled-color);
+$button-font-size-token: 3 !default;
 
 @mixin button(
   $color-background: $button-background-color,
@@ -44,8 +42,10 @@ $button-font-size: gesso-base-font-size() !default;
   $color-text-disabled: $button-text-color-disabled,
   $border-radius: $button-border-radius,
   $border-width: $button-border-width,
-  $font-size: $button-font-size
+  $font-size-token: $button-font-size-token
 ) {
+  @include focus();
+  @include responsive-font-size($font-size-token);
   background-color: $color-background;
   @if $border-width != 0 {
     border: $border-width solid $color-border;
@@ -57,7 +57,6 @@ $button-font-size: gesso-base-font-size() !default;
   cursor: pointer;
   display: inline-block;
   font-family: gesso-font-family(primary);
-  font-size: rem($font-size);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-weight: gesso-font-weight(bold);
@@ -113,7 +112,7 @@ $button-font-size: gesso-base-font-size() !default;
   -webkit-tap-highlight-color: transparent;
 
   &[disabled] {
-    color: gesso-color(button, disabled, text);
+    color: var(--gesso-text-secondary-color);
     cursor: default;
     pointer-events: none;
   }

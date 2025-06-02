@@ -591,6 +591,46 @@ set to `true` (default: `false`).
 }
 ```
 
+### Color themes
+
+Gesso supports color themes using CSS custom properties to define colors whose
+values can change depending on which color theme is being used. You can apply
+these color themes to elements, and everything within it that uses those custom
+properties wil inherit the values for that specific theme.
+
+Color themes are defined in `source/00-config/config.design-tokens.yml` under
+`gesso: colors: theme:`. By default Gesso only has two color themes (default and
+gray-6) but more can be added. When creating new ones, be sure to also add them
+to `.storybook/preview.js` in order to see them show up in the Storybook theme
+preview dropdown.
+
+A color theme can be added to an element in two ways:
+
+1. Add the corresponding `theme-X` class to that element where X is the machine
+name for that color theme.
+
+```html
+<div class="c-custom-component theme-gray-6">
+```
+
+2. Use the `@include color-theme($theme)` Sass mixin within your styles.
+
+```sass
+.c-custom-component {
+  @include color-theme(gray-6);
+}
+```
+
+In both cases you’ll likely want to add a background color and text color to
+that element or a child of that element using custom properties.
+
+```sass {
+.c-custom-component {
+  background-color: var(--gesso-background-color);
+  color: var(--gesso-text-color);
+}
+```
+
 ## Twig Filters and Functions
 Gesso includes some additional filters and functions that can be used in Twig templates.
 
