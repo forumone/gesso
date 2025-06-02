@@ -1,5 +1,8 @@
-import path, { resolve } from 'path';
+/* eslint no-console: "off" */
+
+import path, { resolve } from 'node:path';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import sass from 'sass-embedded';
 const isProdBuild = process.env.NODE_ENV === 'production';
 
 const config = {
@@ -12,22 +15,20 @@ const config = {
   },
   addons: [
     '@storybook/addon-links',
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-      },
-    },
     '@storybook/addon-a11y',
     '@storybook/addon-webpack5-compiler-swc',
+    '@storybook/addon-docs',
   ],
+  features: {
+    actions: false,
+  },
   staticDirs: ['../dist'],
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (webpackConfig, { configType }) => {
     // Storybook 8 removes fast-refresh as a framework option and instead
     // requires manual set-up.
     // Adapted from https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#frameworkoptionsfastrefresh-for-webpack5-based-projects-removed
     // and https://github.com/pmmmwh/react-refresh-webpack-plugin?tab=readme-ov-file#usage.
-    const swcLoaderRule = config.module.rules.find(
+    const swcLoaderRule = webpackConfig.module.rules.find(
       rule =>
         (rule.loader && rule.loader.toString().includes('swc-loader')) ||
         (rule.use &&
@@ -38,7 +39,7 @@ const config = {
     );
     if (swcLoaderRule) {
       swcLoaderRule.sideEffects = true;
-      let swcLoaderConfig =
+      const swcLoaderConfig =
         swcLoaderRule.loader ||
         swcLoaderRule.use.find(
           subRule =>
@@ -62,7 +63,7 @@ const config = {
         };
       }
     }
-    config.module.rules.push({
+    webpackConfig.module.rules.push({
       test: /\.twig$/,
       use: [
         {
@@ -82,7 +83,7 @@ const config = {
       ],
     });
 
-    config.module.rules.push({
+    webpackConfig.module.rules.push({
       test: /config\.design-tokens\.yml$/,
       exclude: /node_modules/,
       use: [
@@ -91,13 +92,13 @@ const config = {
       ],
     });
 
-    config.module.rules.push({
+    webpackConfig.module.rules.push({
       test: /\.ya?ml$/,
       exclude: /config\.design-tokens\.yml$/,
       loader: 'js-yaml-loader',
     });
 
-    config.module.rules.push({
+    webpackConfig.module.rules.push({
       test: /\.scss$/,
       use: [
         'style-loader',
@@ -110,7 +111,7 @@ const config = {
         {
           loader: 'sass-loader',
           options: {
-            implementation: require('sass-embedded'),
+            implementation: sass,
             webpackImporter: false,
             sassOptions: {
               loadPaths: [path.resolve(__dirname, '../source')],
@@ -123,17 +124,17 @@ const config = {
       ],
     });
 
-    config.externals = {
+    webpackConfig.externals = {
       drupal: 'Drupal',
       drupalSettings: 'drupalSettings',
       once: 'once',
     };
 
-    config.resolve.modules.push(path.resolve(__dirname, '../source'));
-    config.stats = 'errors-warnings';
+    webpackConfig.resolve.modules.push(path.resolve(__dirname, '../source'));
+    webpackConfig.stats = 'errors-warnings';
 
     if (configType === 'DEVELOPMENT') {
-      config.plugins.push(function readyToGoPlugin() {
+      webpackConfig.plugins.push(function readyToGoPlugin() {
         this.hooks.beforeCompile.tap('ReadyToGoPlugin', () => {
           console.log(
             `\n${new Date().toLocaleTimeString('en-US', {
@@ -153,17 +154,27 @@ const config = {
       });
     }
 
-    config.plugins = [
+    webpackConfig.plugins = [
       !isProdBuild &&
         new ReactRefreshWebpackPlugin({
           overlay: {
             sockIntegration: 'whm',
           },
         }),
-      ...config.plugins,
+      ...webpackConfig.plugins,
     ].filter(Boolean);
 
-    return config;
+    // Storybook 9's builder-webpack no longer provides a polyfill for path,
+    // but Twig.js still needs one.
+    webpackConfig.resolve = {
+      ...webpackConfig.resolve,
+      fallback: {
+        ...webpackConfig.resolve?.fallback,
+        path: require.resolve('path-browserify'),
+      },
+    };
+
+    return webpackConfig;
   },
 };
 export default config;
