@@ -31,9 +31,9 @@
   {% endif %}
 
   {% if sidebar_first_content %}
-    <aside {{ add_attributes({ 'class': sidebar_first_classes }, 'region_attributes.sidebar_first') }}>
+    <div {{ add_attributes({ 'class': sidebar_first_classes }, 'region_attributes.sidebar_first') }}>
       {{ sidebar_first_content }}
-    </aside>
+    </div>
   {% endif %}
 
   {% if sidebar_main_content %}
@@ -43,8 +43,8 @@
   {% endif %}
 
   {% if sidebar_second_content %}
-    <aside {{ add_attributes({ 'class': sidebar_second_classes }, 'region_attributes.sidebar_second') }}>
+    <div {{ add_attributes({ 'class': sidebar_second_classes }, 'region_attributes.sidebar_second') }}>
       {{ sidebar_second_content }}
-    </aside>
+    </div>
   {% endif %}
 </div>
