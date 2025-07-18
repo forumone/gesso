@@ -3,10 +3,10 @@ import once from 'once';
 
 Drupal.behaviors.wysiwyg = {
   attach(context) {
-    once('wysiwyg', '[data-wysiwyg]', context).forEach(wysiwyg => {
+    once('wysiwyg', '[data-wysiwyg]', context).forEach((wysiwyg, i) => {
       // Wrap all tables output via WYSIWYG with a responsive table layout.
       const tables = wysiwyg.querySelectorAll('[data-wysiwyg] table');
-      tables.forEach((table, i) => {
+      tables.forEach((table, j) => {
         const tableParent = table.parentNode;
 
         // Don’t add wrapper if it already has one.
@@ -19,7 +19,7 @@ Drupal.behaviors.wysiwyg = {
           responsiveTable.setAttribute('role', 'region');
 
           if (caption) {
-            const captionId = `table-caption-${i}`;
+            const captionId = `table-caption-${i}-${j}`;
             caption.setAttribute('id', captionId);
             responsiveTable.setAttribute('aria-labelledby', captionId);
           } else {
