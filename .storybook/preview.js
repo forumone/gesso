@@ -1,5 +1,5 @@
 import Twig from 'twig';
-import { useEffect } from '@storybook/preview-api';
+import { useEffect } from 'storybook/preview-api';
 import twigDrupal from '@forumone/twig-drupal-filters';
 import twigAttributes from '../lib/addAttributesTwigExtension';
 import keysort from '../lib/keysort';
@@ -30,7 +30,7 @@ setupTwig(Twig);
 
 export const decorators = [
   storyFn => {
-    useEffect(() => Drupal.attachBehaviors(), []);
+    useEffect(() => window.Drupal.attachBehaviors(), []);
     return storyFn();
   },
 ];
