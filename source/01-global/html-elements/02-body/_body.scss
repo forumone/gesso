@@ -2,9 +2,17 @@
 
 @use '00-config' as *;
 
+@property --gesso-scrollbar-width {
+  inherits: true;
+  // stylelint-disable-next-line length-zero-no-unit
+  initial-value: 0px;
+  syntax: '<length>';
+}
+
 // Overflow-x and width properties ensure elements using full bleed techniques
 // (e.g., the layout-full-bleed mixin) do not create horizontal scroll bars.
 body {
+  --gesso-scrollbar-width: calc(100vw - 100cqw);
   background-color: gesso-color(background, site);
   color: gesso-color(text, primary);
   margin: 0;
