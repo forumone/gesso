@@ -1,0 +1,60 @@
+{% set classes = [
+  'c-external-link',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<a href="{{ url }}" class="{{ classes }}">{{ text }}</a>
+
+{% if is_demo %}
+  {# Update to match theme settings: /admin/appearance/settings/gesso#edit-external-links #}
+  {% set allowed_domains = [
+    'example-allowed-domain.com',
+    'forumone.github.io',
+  ] %}
+
+  {% set allowed_links = [
+    'https://www.vimeo.com/example-allowed-link',
+    'https://www.youtube.com/example-allowed-link',
+  ] %}
+
+  <hr>
+  <h2>Non Links</h2>
+  <div><a>No href attribute</a></div>
+  <div><a href="javascript:">javascript: (JavaScript in href attribute)</a></div>
+  <div><a href="#anchor">#anchor</a></div>
+  <div><a href="mailto:email@example.com">mailto:email@example.com (email link)</a></div>
+  <div><a href="tel:(123) 456-7890">tel:(123) 456-7890 (telephone link)</a></div>
+
+  <h2>Relative Links</h2>
+  <div><a href="/something">/something</a></div>
+  <div><a href="./something">./something</a></div>
+  <div><a href="../something">../something</a></div>
+  <div><a href="something">something</a></div>
+
+  {% for domain in allowed_domains %}
+    <h2>{{ domain }} Links</h2>
+    <div><a href="//{{ domain }}">//{{ domain }}</a></div>
+    <div><a href="http://{{ domain }}">http://{{ domain }}</a></div>
+    <div><a href="https://{{ domain }}">https://{{ domain }}</a></div>
+    <div><a href="https://www.{{ domain }}">https://www.{{ domain }}</a></div>
+    <div><a href="http://subdomain.{{ domain }}">http://subdomain.{{ domain }}</a></div>
+    <div><a href="https://subdomain.{{ domain }}">https://subdomain.{{ domain }}</a></div>
+    <div><a href="https://www.{{ domain }}/something">https://www.{{ domain }}/something</a></div>
+  {% endfor %}
+
+  <h2>External Links</h2>
+  <div><a href="https://example.com">https://example.com</a></div>
+  <div><a href="https://example.com/{{ domain }}">https://example.com/{{ domain }}</a></div>
+  <div><a href="https://example.com/something">https://example.com/something</a></div>
+  <div><a href="https://example.com/something#anchor">https://example.com/something#anchor</a></div>
+  <div><a href="https://example.net">https://example.net</a></div>
+  <div><a href="https://example.net/something">https://example.net/something</a></div>
+  <div><a href="https://example.net/something#anchor">https://example.net/something#anchor</a></div>
+
+  {% if allowed_links %}
+    <h2>Allowed External Links</h2>
+    {% for link in allowed_links %}
+      <div><a href="{{ link }}">{{ link }}</a></div>
+    {% endfor %}
+  {% endif %}
+{% endif %}

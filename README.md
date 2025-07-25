@@ -232,10 +232,10 @@ documentation](https://eslint.org/docs/user-guide/configuring#disabling-rules-wi
 Please add a comment about the valid reason to disable the ESLint rule(s) in
 your use case.
 
-The ESLint config can be changed in the `.eslintrc.cjs` file. Gesso follows the
-[Airbnb standards](https://github.com/airbnb/javascript/), which are [followed
-by Drupal](https://www.drupal.org/docs/develop/standards/javascript/javascript-coding-standards)
-as well.
+The ESLint config can be changed in the `eslint.config.js` file. Gesso follows
+the [Forum One JavaScript standards](https://www.npmjs.com/package/@forumone/eslint-config-es5),
+which mostly follow the ESLint recommended config. For React files, there are
+[additional JSX-specific linting rules](https://www.npmjs.com/package/@forumone/eslint-config-react);
 
 The Prettier config can be changed in the `.prettierrc` file.
 
@@ -605,7 +605,7 @@ while also rendering in Storybook.
     class: 'your-class-one your-class-two',
     'data-foo': 'bar'
   }
-) }}>...</div>    
+) }}>...</div>
 ```
 
 #### keysort

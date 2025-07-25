@@ -25,7 +25,7 @@ class AddAttributesTwigExtension extends AbstractExtension {
     $functions = parent::getFunctions();
     $functions[] = new TwigFunction(
       'add_attributes',
-      [$this, 'addAttributes'],
+      $this->addAttributes(...),
       ['needs_context' => TRUE, 'is_safe' => ['html']]
     );
     return $functions;

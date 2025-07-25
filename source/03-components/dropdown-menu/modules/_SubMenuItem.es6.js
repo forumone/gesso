@@ -1,8 +1,4 @@
 import MenuItem from './_MenuItem.es6';
-// Because the menu can be multiple levels deep,
-// SubMenuItems can contain PopupMenus that in turn
-// contain SubMenuItems.
-// eslint-disable-next-line import/no-cycle
 import PopupMenu from './_PopupMenu.es6';
 
 class SubMenuItem extends MenuItem {

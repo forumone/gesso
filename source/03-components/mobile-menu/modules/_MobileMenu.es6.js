@@ -258,7 +258,7 @@ class MobileMenu extends OverlayMenu {
           `.${this.options.classPrefix}__subnav-toggle`
         );
         if (this.options.toggleSubnav) {
-          const subnav = getNextSibling(link, 'ul');
+          const subnav = getNextSibling(link);
           if (subnav) {
             this.setupSubnav(link, subnav, nextButton);
           }

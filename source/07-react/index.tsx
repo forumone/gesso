@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 // Lazy load components so we only load the JS we need.
 const Example = lazy(() => import('./Example/Example'));
@@ -30,11 +30,11 @@ function waitForBlock(selector: string): Promise<HTMLElement | void> {
 
 waitForBlock('some-id-to-hydrate').then(container => {
   if (container) {
-    ReactDOM.render(
+    const root = ReactDOM.createRoot(container);
+    root.render(
       <Suspense fallback={<div>Loading...</div>}>
         <Example />
-      </Suspense>,
-      container
+      </Suspense>
     );
   }
 });

@@ -45,9 +45,11 @@
     </footer>
   {% endif %}
 
-  {% block content %}
-    {% include '@components/wysiwyg/wysiwyg.twig' with {
-      'content': content,
-    } %}
-  {% endblock %}
+  <div class="c-article__content">
+    {% block content %}
+      {% include '@components/wysiwyg/wysiwyg.twig' with {
+        'content': content,
+      } %}
+    {% endblock %}
+  </div>
 </article>

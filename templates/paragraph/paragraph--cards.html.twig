@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Theme implementation to display a paragraph.
+ */
+#}
+
+{% set section_content %}
+  {% include '@layouts/grid/grid.twig' with {
+    'num_of_cols': 3,
+    'grid_content': content.field_cards|field_value
+    }
+  %}
+{% endset %}
+
+{% include '@layouts/section/section.twig' with {
+  'has_constrain': false,
+  'section_title': false,
+  'section_content': section_content,
+} %}
+
+{% set catch_cache = content|without('field_cards')|render %}

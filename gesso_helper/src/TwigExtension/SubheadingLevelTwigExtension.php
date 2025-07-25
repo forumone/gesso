@@ -22,7 +22,7 @@ class SubheadingLevelTwigExtension extends AbstractExtension {
    */
   public function getFilters() {
     $filters = parent::getFilters();
-    $filters[] = new TwigFilter('subheading_level', [$this, 'subheadingLevel']);
+    $filters[] = new TwigFilter('subheading_level', $this->subheadingLevel(...));
     return $filters;
   }
 

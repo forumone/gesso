@@ -74,8 +74,8 @@ Drupal.behaviors.accordion = {
           } else if (allowToggle && isExpanded) {
             closeAccordion(target);
           }
+          event.preventDefault(); // Only prevent default for accordion toggle clicks
         }
-        event.preventDefault();
       });
 
       // Bind keyboard behaviors on the main accordion container
