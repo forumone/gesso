@@ -269,9 +269,7 @@ tabs:
   js:
     dist/js/tabs.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
 
 tag:
   css:
