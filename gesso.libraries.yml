@@ -10,6 +10,7 @@ global:
     dist/js/table--sortable.es6.js: {}
   dependencies:
     - core/drupal
+    - core/once
     - gesso/common
 
 accordion:
@@ -20,7 +21,6 @@ accordion:
   js:
     dist/js/accordion.es6.js: {}
   dependencies:
-    - core/once
     - gesso/global
 
 accordion_step_list:
@@ -39,7 +39,6 @@ back_to_top:
   js:
     dist/js/back-to-top.es6.js: {}
   dependencies:
-    - core/once
     - gesso/global
 
 block:
@@ -85,7 +84,6 @@ dropbutton:
       dist/css/dropbutton.css: {}
   dependencies:
     - core/drupalSettings
-    - core/once
     - gesso/global
 
 dropdown_menu:
@@ -95,7 +93,6 @@ dropdown_menu:
   js:
     dist/js/dropdown-menu.es6.js: {}
   dependencies:
-    - core/once
     - gesso/global
     - gesso/mobile_menu
 
@@ -103,7 +100,6 @@ external-link:
   js:
     dist/js/external-link.es6.js: {}
   dependencies:
-    - core/once
     - gesso/global
 
 facets:
@@ -171,7 +167,6 @@ mega_menu:
   js:
     dist/js/mega-menu.es6.js: {}
   dependencies:
-    - core/once
     - gesso/global
     - gesso/mobile_menu
 
@@ -197,7 +192,6 @@ modal:
   js:
     dist/js/modal.es6.js: {}
   dependencies:
-    - core/once
     - gesso/global
 
 overlay_menu:
@@ -208,7 +202,6 @@ overlay_menu:
     dist/js/overlay-menu.es6.js: {}
   dependencies:
     - gesso/global
-    - core/once
     - gesso/hamburger_button
 
 pager:
@@ -267,7 +260,6 @@ side_menu:
   js:
     dist/js/side-menu.es6.js: {}
   dependencies:
-    - core/once
     - gesso/global
     - gesso/hamburger_button
 
@@ -304,5 +296,4 @@ wysiwyg:
   js:
     dist/js/wysiwyg.es6.js: {}
   dependencies:
-    - core/once
     - gesso/global
