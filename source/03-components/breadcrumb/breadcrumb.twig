@@ -5,28 +5,11 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% set title_classes = [
-  'c-breadcrumb__title',
-  title_modifier_classes ? title_modifier_classes : '',
-  hide_title ? 'u-visually-hidden' : '',
-]|join(' ')|trim %}
-
-{% set breadcrumb_id = 'breadcrumb-label'|clean_unique_id %}
-
 <nav {{ add_attributes({
-  'aria-labelledby': breadcrumb_id,
+  'aria-label': label,
   'class': classes,
-  'role': 'navigation',
 }) }}>
   <div class="l-constrain">
-    <{{ title_element ?: 'h2' }}
-      {{ add_attributes(
-        {
-          'id': breadcrumb_id,
-          'class': title_classes,
-        },
-        'title_attributes')
-      }}>{{ title|default('Breadcrumb') }}</{{ title_element ?: 'h2' }}>
     <ol class="c-breadcrumb__list">
       {% for item in breadcrumb %}
         <li class="c-breadcrumb__item">

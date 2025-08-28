@@ -9,6 +9,7 @@ global:
     dist/js/table--sortable.es6.js: {}
   dependencies:
     - core/drupal
+    - core/once
     - gesso/common
 
 accordion:
@@ -19,9 +20,7 @@ accordion:
   js:
     dist/js/accordion.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
 
 accordion_step_list:
   header: true
@@ -29,9 +28,7 @@ accordion_step_list:
     theme:
       dist/css/accordion--step-list.css: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
     - gesso/accordion
 
 back_to_top:
@@ -41,34 +38,42 @@ back_to_top:
   js:
     dist/js/back-to-top.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
 
 block:
   css:
     theme:
       dist/css/block.css: {}
+  dependencies:
+    - gesso/global
 
 breadcrumb:
   css:
     theme:
       dist/css/breadcrumb.css: {}
+  dependencies:
+    - gesso/global
 
 call_to_action:
   css:
     theme:
       dist/css/call-to-action.css: {}
+  dependencies:
+    - gesso/global
 
 card:
   css:
     theme:
       dist/css/card.css: {}
+  dependencies:
+    - gesso/global
 
 details:
   css:
     theme:
       dist/css/details.css: {}
+  dependencies:
+    - gesso/global
 
 dropbutton:
   js:
@@ -77,10 +82,8 @@ dropbutton:
     component:
       dist/css/dropbutton.css: {}
   dependencies:
-    - core/drupal
     - core/drupalSettings
-    - core/once
-    - gesso/common
+    - gesso/global
 
 dropdown_menu:
   css:
@@ -89,18 +92,14 @@ dropdown_menu:
   js:
     dist/js/dropdown-menu.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
     - gesso/mobile_menu
 
 external-link:
   js:
     dist/js/external-link.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
 
 facets:
   css:
@@ -108,13 +107,14 @@ facets:
       dist/css/facet.css: {}
       dist/css/facet-list.css: {}
   dependencies:
-    - gesso/common
+    - gesso/global
 
 file:
   css:
     theme:
       dist/css/file.css: {}
   dependencies:
+    - gesso/global
     - gesso/icon_link
 
 filters:
@@ -122,32 +122,42 @@ filters:
     theme:
       dist/css/filters.css: {}
   dependencies:
-    - gesso/common
+    - gesso/global
 
 hamburger_button:
   css:
     theme:
       dist/css/hamburger-button.css: {}
+  dependencies:
+    - gesso/global
 
 hero_bg_image:
   css:
     theme:
       dist/css/hero-bg-image.css: {}
+  dependencies:
+    - gesso/global
 
 hero_inline_image:
   css:
     theme:
       dist/css/hero-inline-image.css: {}
+  dependencies:
+    - gesso/global
 
 icon_link:
   css:
     theme:
       dist/css/icon-link.css: {}
+  dependencies:
+    - gesso/global
 
 image_teaser:
   css:
     theme:
       dist/css/image-teaser.css: {}
+  dependencies:
+    - gesso/global
 
 mega_menu:
   css:
@@ -156,21 +166,22 @@ mega_menu:
   js:
     dist/js/mega-menu.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
     - gesso/mobile_menu
 
 message:
   css:
     theme:
       dist/css/message.css: {}
+  dependencies:
+    - gesso/global
 
 mobile_menu:
   css:
     theme:
       dist/css/mobile-menu.css: {}
   dependencies:
+    - gesso/global
     - gesso/hamburger_button
 
 modal:
@@ -180,9 +191,7 @@ modal:
   js:
     dist/js/modal.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
 
 overlay_menu:
   css:
@@ -191,27 +200,30 @@ overlay_menu:
   js:
     dist/js/overlay-menu.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
     - gesso/hamburger_button
 
 pager:
   css:
     theme:
       dist/css/pager.css: {}
+  dependencies:
+    - gesso/global
 
 pager_mini:
   css:
     theme:
       dist/css/pager--mini.css: {}
   dependencies:
+    - gesso/global
     - gesso/pager
 
 progress:
   css:
     theme:
       dist/css/progress.css: {}
+  dependencies:
+    - gesso/global
 
 react:
   js:
@@ -229,6 +241,7 @@ read_more_link:
     theme:
       dist/css/rss-more-link.css: {}
   dependencies:
+    - gesso/global
     - gesso/icon_link
 
 rss_feed:
@@ -236,6 +249,7 @@ rss_feed:
     theme:
       dist/css/rss-feed.css: {}
   dependencies:
+    - gesso/global
     - gesso/icon_link
 
 side_menu:
@@ -245,9 +259,7 @@ side_menu:
   js:
     dist/js/side-menu.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
     - gesso/hamburger_button
 
 tabs:
@@ -265,28 +277,33 @@ tag:
   css:
     theme:
       dist/css/tag.css: {}
+  dependencies:
+    - gesso/global
 
 tag_list:
   css:
     theme:
       dist/css/tag-list.css: {}
   dependencies:
+    - gesso/global
     - gesso/tag
 
 teaser:
   css:
     theme:
       dist/css/teaser.css: {}
+  dependencies:
+    - gesso/global
 
 video:
   css:
     theme:
       dist/css/video.css: {}
+  dependencies:
+    - gesso/global
 
 wysiwyg:
   js:
     dist/js/wysiwyg.es6.js: {}
   dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
+    - gesso/global
