@@ -52,7 +52,7 @@
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^9.1.0",
     "glob": "^11.0.3",
-    "inquirer": "^9.3.7",
+    "inquirer": "^12.9.4",
     "js-yaml-loader": "^1.2.2",
     "mkdirp": "^3.0.1",
     "nani": "^3.2.3",
