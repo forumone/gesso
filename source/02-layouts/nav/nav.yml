@@ -1,6 +1,3 @@
 ---
-hide_title: true
-title: 'Main navigation'
-nav_id: 'nav-main'
 modifier_classes: ''
-title_modifier_classes: ''
+label: 'Main navigation'

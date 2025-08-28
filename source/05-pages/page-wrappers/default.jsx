@@ -40,9 +40,7 @@ const PageWrapper = props => {
                 {parse(
                   NavTwig({
                     modifier_classes: 'l-nav--account',
-                    title: 'User account menu',
-                    hide_title: true,
-                    nav_id: 'nav-account',
+                    label: 'User account menu',
                     nav_content: ReactDOMServer.renderToStaticMarkup(
                       <>{AccountMenu.render(AccountMenu.args)}</>
                     ),
@@ -62,9 +60,7 @@ const PageWrapper = props => {
                 {parse(
                   NavTwig({
                     modifier_classes: 'l-nav--main',
-                    title: 'Main navigation',
-                    hide_title: true,
-                    nav_id: 'nav-main',
+                    label: 'Main navigation',
                     nav_content: ReactDOMServer.renderToStaticMarkup(
                       <>{DropdownMenu.render(DropdownMenu.args)}</>
                     ),
@@ -100,9 +96,7 @@ const PageWrapper = props => {
                 {parse(
                   NavTwig({
                     modifier_classes: 'l-nav--footer',
-                    title: 'Footer menu',
-                    hide_title: true,
-                    nav_id: 'nav-footer',
+                    label: 'Footer menu',
                     nav_content: ReactDOMServer.renderToStaticMarkup(
                       <>{FooterMenu.render(FooterMenu.args)}</>
                     ),

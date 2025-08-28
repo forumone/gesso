@@ -1,9 +1,6 @@
 ---
 modifier_classes: ''
-title_modifier_classes: ''
-hide_title: true
-title_element: 'h2'
-title: 'Breadcrumb'
+label: 'Breadcrumb'
 breadcrumb:
   -
     url: '#0'
