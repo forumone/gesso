@@ -29,6 +29,7 @@ accordion_step_list:
     theme:
       dist/css/accordion--step-list.css: {}
   dependencies:
+    - gesso/global
     - gesso/accordion
 
 back_to_top:
@@ -95,6 +96,7 @@ dropdown_menu:
     dist/js/dropdown-menu.es6.js: {}
   dependencies:
     - core/once
+    - gesso/global
     - gesso/mobile_menu
 
 external-link:
@@ -117,6 +119,7 @@ file:
     theme:
       dist/css/file.css: {}
   dependencies:
+    - gesso/global
     - gesso/icon_link
 
 filters:
@@ -169,6 +172,7 @@ mega_menu:
     dist/js/mega-menu.es6.js: {}
   dependencies:
     - core/once
+    - gesso/global
     - gesso/mobile_menu
 
 message:
@@ -183,6 +187,7 @@ mobile_menu:
     theme:
       dist/css/mobile-menu.css: {}
   dependencies:
+    - gesso/global
     - gesso/hamburger_button
 
 modal:
@@ -202,6 +207,7 @@ overlay_menu:
   js:
     dist/js/overlay-menu.es6.js: {}
   dependencies:
+    - gesso/global
     - core/once
     - gesso/hamburger_button
 
@@ -217,6 +223,7 @@ pager_mini:
     theme:
       dist/css/pager--mini.css: {}
   dependencies:
+    - gesso/global
     - gesso/pager
 
 progress:
@@ -242,6 +249,7 @@ read_more_link:
     theme:
       dist/css/rss-more-link.css: {}
   dependencies:
+    - gesso/global
     - gesso/icon_link
 
 rss_feed:
@@ -249,6 +257,7 @@ rss_feed:
     theme:
       dist/css/rss-feed.css: {}
   dependencies:
+    - gesso/global
     - gesso/icon_link
 
 side_menu:
@@ -259,6 +268,7 @@ side_menu:
     dist/js/side-menu.es6.js: {}
   dependencies:
     - core/once
+    - gesso/global
     - gesso/hamburger_button
 
 tag:
@@ -273,6 +283,7 @@ tag_list:
     theme:
       dist/css/tag-list.css: {}
   dependencies:
+    - gesso/global
     - gesso/tag
 
 teaser:
