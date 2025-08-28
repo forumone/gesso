@@ -10,10 +10,7 @@
   {% embed '@layouts/nav/nav.twig' with {
     'attributes' : '',
     'modifier_classes': 'l-nav--' ~ derivative_plugin_id|clean_class,
-    'title_element': 'h2',
-    'hide_title': (configuration.label_display == '0'),
-    'title': configuration.label,
-    'nav_id': 'nav-' ~ derivative_plugin_id|clean_id|clean_unique_id,
+    'label': configuration.label,
   } %}
 
     {% block content %}
