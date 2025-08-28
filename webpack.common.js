@@ -4,9 +4,9 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import RemovePlugin from 'remove-files-webpack-plugin';
 import StylelintPlugin from 'stylelint-webpack-plugin';
-import SpriteLoaderPlugin from 'svg-sprite-loader/plugin.js';
 import * as embeddedSass from 'sass-embedded';
 import { fileURLToPath } from 'node:url';
+import SvgSpritemapPlugin from 'svg-spritemap-webpack-plugin';
 
 const __dirname =
   import.meta.dirname ?? dirname(fileURLToPath(import.meta.url));
@@ -76,8 +76,21 @@ const commonConfig = {
     new StylelintPlugin({
       exclude: ['node_modules', 'dist', 'storybook'],
     }),
-    new SpriteLoaderPlugin(),
     new ForkTsCheckerWebpackPlugin(),
+    new SvgSpritemapPlugin('source/images/_sprite-source-files/*.svg', {
+      output: {
+        filename: 'images/sprite.artifact.svg',
+        svg4everybody: false,
+        svgo: true,
+      },
+      sprite: {
+        prefix: '',
+        generate: {
+          title: false,
+          use: true,
+        },
+      },
+    }),
   ],
   context: __dirname,
   module: {
@@ -136,22 +149,6 @@ const commonConfig = {
               },
             },
           },
-        ],
-      },
-      {
-        test: /images\/_sprite-source-files\/.*\.svg$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true,
-              spriteFilename: 'sprite.artifact.svg',
-              outputPath: 'images/',
-            },
-          },
-          'svg-transform-loader',
-          'svgo-loader',
         ],
       },
       {

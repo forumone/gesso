@@ -1,10 +1,15 @@
 {{ attach_library('gesso/icon_link') }}
 
+{% set icon_classes = [
+  'c-icon-link__icon',
+  icon_modifier_classes ? icon_modifier_classes : '',
+]|join(' ')|trim %}
+
 {% if (icon_before is empty and icon_after is empty) and icon_name is not empty %}
   {% if icon_position == 'before' or icon_position == 'both' %}
     {% set icon_before %}
       {%- include '@components/icon/icon.twig' with {
-        'modifier_classes': 'c-icon-link__icon is-spaced-after',
+        'modifier_classes': icon_classes ~ ' is-spaced-after',
         'is_hidden': icon_is_hidden,
         'label': icon_label,
         'icon_name': icon_name,
@@ -17,7 +22,7 @@
   {% if icon_position == 'after' or icon_position == 'both' %}
     {% set icon_after %}
       {%- include '@components/icon/icon.twig' with {
-        'modifier_classes': 'c-icon-link__icon is-spaced-before',
+        'modifier_classes': icon_classes ~ ' is-spaced-before',
         'is_hidden': icon_is_hidden,
         'label': icon_label,
         'icon_name': icon_name,

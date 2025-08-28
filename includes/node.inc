@@ -15,14 +15,14 @@ function gesso_preprocess_node(&$variables) {
   if (in_array($variables['view_mode'], $allowed_view_modes)) {
     // Array of regions to add to node template.
     $allowed_regions = ['status'];
-    _add_regions_to_template($allowed_regions, $variables);
+    _gesso_add_regions_to_template($allowed_regions, $variables);
   }
 }
 
 /**
  * Custom function to add page regions to templates.
  */
-function _add_regions_to_template($allowed_regions, &$variables) {
+function _gesso_add_regions_to_template($allowed_regions, &$variables) {
   // Get active theme.
   $theme = \Drupal::theme()->getActiveTheme()->getName();
 
