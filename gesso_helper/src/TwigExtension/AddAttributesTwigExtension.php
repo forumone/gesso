@@ -47,9 +47,13 @@ class AddAttributesTwigExtension extends AbstractExtension {
       $context_attribute = &$context_attribute[$segment];
     }
 
-    // If attribute doesn't exist, create it.
+    // If context_attribute doesn’t exist or is an array, create new Attribute.
     if (!$context_attribute) {
       $context_attribute = new Attribute();
+    }
+
+    if (is_array($context_attribute)) {
+      $context_attribute = new Attribute($context_attribute);
     }
 
     if (!empty($additional_attributes)) {
