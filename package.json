@@ -29,7 +29,9 @@
   "devDependencies": {
     "@forumone/eslint-config-es5": "^3.0.2",
     "@forumone/eslint-config-react": "^3.0.2",
+    "@forumone/tiny-mustache": "^3.0.5",
     "@forumone/twig-drupal-filters": "^3.2.0",
+    "@inquirer/prompts": "^7.9.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.1",
     "@storybook/addon-a11y": "^9.1.1",
     "@storybook/addon-docs": "^9.1.1",
@@ -44,6 +46,7 @@
     "@typescript-eslint/parser": "^8.26.1",
     "autoprefixer": "^10.4.21",
     "chalk": "^5.5.0",
+    "change-case": "^5.4.4",
     "concurrently": "^9.2.0",
     "core-js": "^3.44.0",
     "css-loader": "^7.1.2",
