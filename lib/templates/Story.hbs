@@ -1,0 +1,19 @@
+import parse from 'html-react-parser';
+
+import twigTemplate from './{{ componentName }}.twig';
+import data from './{{ componentName }}.yml';
+{{#library}}
+import './{{ componentName }}.scss';
+{{/library}}
+
+const settings = {
+  title: '{{#titleCase}}{{#cascadeLayer}}{{componentFolder}}{{/cascadeLayer}}{{/titleCase}}/{{ componentTitle }}'
+};
+
+const {{> jsClassName }} = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
+
+export default settings;
+export { {{> jsClassName }} };
