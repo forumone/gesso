@@ -73,7 +73,7 @@ async function gatherProjectFiles() {
         .basename(currentFile)
         .replace(/\.source\.([jt]s)$/, '');
       const dirPath = path.dirname(relativePath);
-      const newFilePath = `${dirPath}/${fileName}.tmp`;
+      const newFilePath = `${dirPath}/${fileName}`;
 
       if (jsFiles[newFilePath]) {
         throw new Error(
@@ -97,7 +97,7 @@ async function gatherProjectFiles() {
         .basename(currentFile)
         .replace(/\.source\.(scss|css)$/, '');
       const dirPath = path.dirname(relativePath);
-      const newFilePath = `${dirPath}/${fileName}`;
+      const newFilePath = `${dirPath}/${fileName}.tmp`;
 
       if (scssFiles[newFilePath]) {
         throw new Error(
