@@ -10,7 +10,7 @@ const prodConfig = merge(common, {
       cacheGroups: {
         commons: {
           chunks: 'all',
-          name: 'js/common',
+          name: 'dist/js/common',
           minChunks: 2,
         },
       },
