@@ -6,9 +6,9 @@
 <article {{ add_attributes({ 'class': classes }) }}>
   {{ title_prefix }}
   {% block title %}
-    {{ include('gesso:page-title', {
+    {% include 'gesso:page-title' with {
       'page_title': title,
-    }, with_context=false) }}
+    } only %}
   {% endblock %}
   {{ title_suffix }}
 

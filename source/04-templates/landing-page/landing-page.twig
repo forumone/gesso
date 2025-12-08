@@ -5,9 +5,9 @@
 } %}
 
 {{ title_prefix }}
-{{ include('gesso:page-title', {
-  'page_title': page_title,
-}, with_context=false) }}
+{% include 'gesso:page-title' with {
+  'page_title': title,
+} only %}
 {{ title_suffix }}
 
 {% include '@layouts/section/section.twig' with {

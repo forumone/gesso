@@ -11,7 +11,11 @@ const require = createRequire(import.meta.url);
 const isProdBuild = process.env.NODE_ENV === 'production';
 
 const config = {
-  stories: ['../source/**/*.mdx', '../source/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../source/**/*.mdx',
+    '../source/**/*.stories.@(js|jsx|ts|tsx)',
+    '../components/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   framework: {
     name: '@storybook/react-webpack5',
   },
@@ -81,6 +85,11 @@ const config = {
                 components: resolve(__dirname, '../', 'source/03-components'),
                 templates: resolve(__dirname, '../', 'source/04-templates'),
                 pages: resolve(__dirname, '../', 'source/05-pages'),
+                // SDC (Single Directory Component) namespace
+                // Supports Drupal's SDC syntax: include('gesso:component-name')
+                // Components in the components/ directory follow the convention:
+                // gesso:page-title resolves to components/page-title/page-title.twig
+                gesso: resolve(__dirname, '../', 'components'),
               },
             },
           },
@@ -132,7 +141,10 @@ const config = {
       once: 'once',
     };
 
-    webpackConfig.resolve.modules.push(path.resolve(__dirname, '../source'));
+    webpackConfig.resolve.modules.push(
+      path.resolve(__dirname, '../source'),
+      path.resolve(__dirname, '../components')
+    );
     webpackConfig.stats = 'errors-warnings';
 
     if (configType === 'DEVELOPMENT') {
