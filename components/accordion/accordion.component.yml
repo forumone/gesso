@@ -6,14 +6,20 @@ props:
     - accordion_items
   properties:
     is_step_list:
+      title: 'Is step list?'
       type: boolean
       default: false
     modifier_classes:
+      title: 'CSS modifier classes'
       type: string
     allow_multiple:
+      title: 'Allow multiple?'
+      description: 'Whether to allow multiple drawers to be open simultaneously'
       type: boolean
       default: true
     allow_toggle:
+      title: 'Allow toggle?'
+      description: 'Whether clicking on an open drawer closes it'
       type: boolean
       default: true
 slots:

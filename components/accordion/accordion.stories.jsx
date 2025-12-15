@@ -8,13 +8,54 @@ import data from './accordion.yml';
 import './accordion.source.scss';
 import './accordion--step-list.source.scss';
 import './accordion.source.js';
+import componentInfo from './accordion.component.yml';
 
 const settings = {
   title: 'Components/Accordion',
   decorators: [withGlobalWrapper],
+  tags: ['autodocs'],
+  argTypes: {
+    ...Object.fromEntries(
+      Object.entries(componentInfo.props.properties).map(([key, p]) => {
+        const argTypeConfig = {};
+        if (p.title) {
+          argTypeConfig.name = p.title;
+        }
+        if (p.type) {
+          argTypeConfig.type = p.type;
+        }
+        if (p.description) {
+          argTypeConfig.description = p.description;
+        }
+        argTypeConfig.table = {};
+        argTypeConfig.table.category = 'props';
+        if (typeof p.default !== 'undefined') {
+          argTypeConfig.table.defaultValue = {
+            summary: p.default,
+          };
+        }
+        return [key, argTypeConfig];
+      })
+    ),
+    ...Object.fromEntries(
+      Object.entries(componentInfo.slots).map(([key, p]) => {
+        const argTypeConfig = {};
+        if (p.title) {
+          argTypeConfig.name = p.title;
+        }
+        if (p.description) {
+          argTypeConfig.description = p.description;
+        }
+        argTypeConfig.control = false;
+        argTypeConfig.table = {};
+        argTypeConfig.table.category = 'slots';
+        return [key, argTypeConfig];
+      })
+    ),
+  },
   parameters: {
     controls: {
-      include: ['modifier_classes', 'allow_multiple', 'allow_toggle'],
+      exclude: [...Object.keys(globalData), 'accordion_data'],
     },
   },
 };
