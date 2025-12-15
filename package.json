@@ -6,7 +6,6 @@
   "main": "js/scripts.min.js",
   "scripts": {
     "test": "npm run eslint && npm run stylelint",
-    "postinstall": "patch-package",
     "start": "webpack --config ./webpack.theme-config.js --mode=development",
     "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js && webpack --config ./webpack.react-config.js",
     "storybook": "storybook dev -p 6006",
@@ -59,7 +58,6 @@
     "glob": "^13.0.0",
     "js-yaml-loader": "^1.2.2",
     "nani": "^3.2.3",
-    "patch-package": "^8.0.1",
     "path-browserify": "^1.0.1",
     "postcss": "^8.5.6",
     "postcss-loader": "^8.2.0",
