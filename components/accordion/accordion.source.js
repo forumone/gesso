@@ -1,7 +1,7 @@
 import Drupal from 'drupal';
 import once from 'once';
-import { TRANSITIONS } from '../../00-config/_GESSO.es6';
-import { slideToggle } from '../../06-utility/_slide.es6';
+import { TRANSITIONS } from '../../source/00-config/_GESSO.es6';
+import { slideToggle } from '../../source/06-utility/_slide.es6';
 
 Drupal.behaviors.accordion = {
   attach(context) {

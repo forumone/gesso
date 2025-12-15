@@ -12,25 +12,6 @@ global:
     - core/once
     - gesso/common
 
-accordion:
-  header: true
-  css:
-    theme:
-      dist/css/accordion.css: {}
-  js:
-    dist/js/accordion.es6.js: {}
-  dependencies:
-    - gesso/global
-
-accordion_step_list:
-  header: true
-  css:
-    theme:
-      dist/css/accordion--step-list.css: {}
-  dependencies:
-    - gesso/global
-    - gesso/accordion
-
 back_to_top:
   css:
     theme:

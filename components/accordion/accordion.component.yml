@@ -1,0 +1,29 @@
+---
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+props:
+  type: object
+  required:
+    - accordion_items
+  properties:
+    is_step_list:
+      type: boolean
+      default: false
+    modifier_classes:
+      type: string
+    allow_multiple:
+      type: boolean
+      default: true
+    allow_toggle:
+      type: boolean
+      default: true
+slots:
+  accordion_items:
+    title: 'Accordion Items'
+variants:
+  "step-list":
+    title: 'Step List'
+libraryOverrides:
+  css:
+    theme:
+      accordion.css: {}
+      accordion--step-list.css: {}
