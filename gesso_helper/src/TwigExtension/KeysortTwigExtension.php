@@ -22,7 +22,7 @@ class KeysortTwigExtension extends AbstractExtension {
    */
   public function getFilters(): array {
     $filters = parent::getFilters();
-    $filters[] = new TwigFilter('keysort', [$this, 'keysort']);
+    $filters[] = new TwigFilter('keysort', $this->keysort(...));
     return $filters;
   }
 

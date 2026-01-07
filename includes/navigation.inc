@@ -41,7 +41,13 @@ function gesso_preprocess_breadcrumb(array &$variables): void {
 function gesso_preprocess_menu(array &$variables): void {
   $current_path = \Drupal::request()->getRequestUri();
   foreach ($variables['items'] as $key => $item) {
-    if ($item['url']->toString() == $current_path) {
+    if (is_string($item['url'])) {
+      $url_string = $item['url'];
+    }
+    else {
+      $url_string = $item['url']->toString();
+    }
+    if ($url_string == $current_path) {
       $variables['items'][$key]['is_active'] = TRUE;
     }
   }
