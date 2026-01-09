@@ -23,7 +23,8 @@ class GessoHelperDirFilterExclude extends \RecursiveFilterIterator {
    * Whether this directory or file should be excluded.
    */
   public function accept(): bool {
-    return !($this->isDir() && in_array($this->getFilename(), $this->exclude));
+    $inner = $this->getInnerIterator();
+    return !($inner->isDir() && in_array($inner->getFilename(), $this->exclude));
   }
 
   /**
