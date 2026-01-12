@@ -2,16 +2,17 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 props:
   type: object
-  modifier_classes:
-    type: string
-  is_open:
-    type: boolean
-  title_element:
-    type: string
-    default: 'h3'
-  is_step_list:
-    type: boolean
-    default: false
+  properties:
+    modifier_classes:
+      type: string
+    is_open:
+      type: boolean
+    title_element:
+      type: string
+      default: 'h3'
+    is_step_list:
+      type: boolean
+      default: false
 slots:
   title:
     title: 'Title'
