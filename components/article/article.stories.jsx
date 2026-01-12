@@ -1,12 +1,12 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './article.twig';
-import globalData from '../../00-config/storybook.global-data.yml';
+import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './article.yml';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
-import '../wysiwyg/wysiwyg.stories.jsx';
+import '../../source/03-components/wysiwyg/wysiwyg.stories.jsx';
 
 const settings = {
   title: 'Components/Article',

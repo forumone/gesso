@@ -4,9 +4,9 @@
   'admin_info': admin_info,
 } %}
 
-{% embed '@components/article/article.twig' with {
+{% embed 'gesso:article' with {
   'attributes': attributes,
-  'title': title,
+  'article_title': title,
   'show_footer': show_footer,
   'author_name': author_name,
 } %}

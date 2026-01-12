@@ -1,0 +1,81 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Article
+props:
+  type: object
+  properties:
+    article_title:
+      type: string
+      title: Article title
+      description: 'The article title.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to add to the article element.'
+    show_footer:
+      type: boolean
+      title: Show Footer
+      description: 'Whether to display the article footer with metadata.'
+      default: false
+    author_name:
+      type:
+        - string
+        - "null"
+      title: Author Name
+      description: 'The name of the article author.'
+    date_format:
+      type:
+        - string
+        - "null"
+      title: Date Format
+      description: 'The format to use for displaying the date.'
+    title_prefix:
+      type:
+        - array
+        - "null"
+      title: Title Prefix
+      description: 'Additional output populated by modules, intended to be displayed in front of the main title tag.'
+    title_suffix:
+      type:
+        - array
+        - "null"
+      title: Title Suffix
+      description: 'Additional output populated by modules, intended to be displayed after the main title tag.'
+    date:
+      type:
+        - string
+        - "null"
+      title: Date
+      description: 'Pre-rendered date markup. If not provided, date component will be used.'
+    author:
+      type:
+        - string
+        - "null"
+      title: Author
+      description: 'Pre-rendered author markup. If not provided, author component will be used.'
+    article_content:
+      type:
+        - string
+        - "null"
+      title: Article content
+      description: 'The main article content.'
+slots:
+  title:
+    title: Title
+    description: 'The title section of the article.'
+  footer:
+    title: Footer
+    description: 'The footer section containing article metadata.'
+  content:
+    title: Content
+    description: 'The main content section of the article.'
+  author_picture:
+    title: Author Picture
+    description: 'Render array for the author picture.'
+  rdf_metadata:
+    title: RDF Metadata
+    description: 'RDF metadata for the article.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

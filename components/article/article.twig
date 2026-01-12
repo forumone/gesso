@@ -7,7 +7,7 @@
   {{ title_prefix }}
   {% block title %}
     {% include 'gesso:page-title' with {
-      'page_title': title,
+      'page_title': article_title,
     } only %}
   {% endblock %}
   {{ title_suffix }}
@@ -48,7 +48,7 @@
   <div class="c-article__content">
     {% block content %}
       {% include '@components/wysiwyg/wysiwyg.twig' with {
-        'content': content,
+        'content': article_content,
       } %}
     {% endblock %}
   </div>
