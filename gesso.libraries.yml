@@ -12,15 +12,6 @@ global:
     - core/once
     - gesso/common
 
-back_to_top:
-  css:
-    theme:
-      dist/css/back-to-top.css: {}
-  js:
-    dist/js/back-to-top.es6.js: {}
-  dependencies:
-    - gesso/global
-
 block:
   css:
     theme:

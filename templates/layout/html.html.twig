@@ -52,7 +52,7 @@
     {{ page }}
     {{ page_bottom }}
     {% if include_back_to_top %}
-      {% include '@components/back-to-top/back-to-top.twig' with {
+      {% include 'gesso:back-to-top' with {
         text: 'Back to top'|t,
         top_element: body_id,
         image_path: image_path,

@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Back To Top
+props:
+  type: object
+  properties:
+    text:
+      type: string
+      title: Text
+      description: 'The accessible label for the back to top link.'
+    top_element:
+      type: string
+      title: Top Element
+      description: 'The ID of the element to scroll to (without the # symbol).'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/drupal
+    - core/once
