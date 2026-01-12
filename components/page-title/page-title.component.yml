@@ -7,3 +7,6 @@ props:
   properties:
     page_title:
       type: string
+libraryOverrides:
+  dependencies:
+    - gesso/global

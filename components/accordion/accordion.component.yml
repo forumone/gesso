@@ -27,6 +27,8 @@ variants:
   "step-list":
     title: 'Step List'
 libraryOverrides:
+  dependencies:
+    - gesso/global
   css:
     theme:
       accordion.css: {}
