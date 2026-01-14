@@ -10,7 +10,6 @@ use Drupal\gesso_helper\GessoHelperDirFilterInclude;
 use Drush\Commands\DrushCommands;
 use Drush\Drush;
 use Symfony\Component\Filesystem\Filesystem;
-use Webmozart\PathUtil\Path;
 
 /**
  * A Drush commandfile.
@@ -90,9 +89,6 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     array $options = ['description' => NULL, 'machine-name' => NULL],
   ): void {
     // Get new theme options.
-    if (!isset($name)) {
-      $name = $options['name'];
-    }
     $machine_name = $options['machine-name'] ?: $this->gessoMachineName($name);
     $description = $options['description'];
 
@@ -113,9 +109,9 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $this->io()->text(dt('Setting up the theme. This may take a while...'));
     // Get theme paths.
     $drupalRoot = Drush::bootstrapManager()->getRoot();
-    $gesso_path = Path::join($drupalRoot, $this->themeHandler->getPath('gesso'));
+    $gesso_path = $drupalRoot . DIRECTORY_SEPARATOR . $this->themeHandler->getPath('gesso');
     $theme_path = substr($gesso_path, 0, strrpos($gesso_path, '/'));
-    $new_path = Path::join($theme_path, $machine_name);
+    $new_path = $theme_path . DIRECTORY_SEPARATOR . $machine_name;
 
     // Copy the Gesso theme directory recursively to the new theme’s location.
     $this->fs->mirror($gesso_path, $new_path, new \RecursiveIteratorIterator(new GessoHelperDirFilterExclude(new \RecursiveDirectoryIterator($gesso_path))), \RecursiveIteratorIterator::SELF_FIRST);
@@ -157,8 +153,8 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     }
 
     // Rename the .info.yml file.
-    $gesso_info_file = Path::join($new_path, 'gesso.info.yml');
-    $new_info_file = Path::join($new_path, $machine_name . '.info.yml');
+    $gesso_info_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.info.yml';
+    $new_info_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.info.yml';
     drush_op('rename', $gesso_info_file, $new_info_file);
 
     // Update the .info.yml file based on the command options.
@@ -170,29 +166,29 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $this->gessoFileStrReplace($new_info_file, array_keys($changes), $changes);
 
     // Rename the .breakpoints.yml file.
-    $gesso_info_file = Path::join($new_path, 'gesso.breakpoints.yml');
-    $new_info_file = Path::join($new_path, $machine_name . '.breakpoints.yml');
+    $gesso_info_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.breakpoints.yml';
+    $new_info_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.breakpoints.yml';
     if ($this->fs->exists($gesso_info_file)) {
       drush_op('rename', $gesso_info_file, $new_info_file);
     }
 
     // Rename the .libraries.yml file.
-    $gesso_libraries_file = Path::join($new_path, 'gesso.libraries.yml');
-    $new_libraries_file = Path::join($new_path, $machine_name . '.libraries.yml');
+    $gesso_libraries_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.libraries.yml';
+    $new_libraries_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.libraries.yml';
     if ($this->fs->exists($gesso_libraries_file)) {
       drush_op('rename', $gesso_libraries_file, $new_libraries_file);
     }
 
     // Rename the .layouts.yml file.
-    $gesso_layouts_file = Path::join($new_path, 'gesso.layouts.yml');
-    $new_layouts_file = Path::join($new_path, $machine_name . '.layouts.yml');
+    $gesso_layouts_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.layouts.yml';
+    $new_layouts_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.layouts.yml';
     if ($this->fs->exists($gesso_layouts_file)) {
       drush_op('rename', $gesso_layouts_file, $new_layouts_file);
     }
 
     // Rename the .theme file.
-    $gesso_theme_file = Path::join($new_path, 'gesso.theme');
-    $new_theme_file = Path::join($new_path, $machine_name . '.theme');
+    $gesso_theme_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.theme';
+    $new_theme_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.theme';
     if ($this->fs->exists($gesso_theme_file)) {
       drush_op('rename', $gesso_theme_file, $new_theme_file);
     }
@@ -259,7 +255,6 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    * Replace strings in a file.
    */
   private function gessoFileStrReplace(string $file_path, string|array $find, string|array $replace): void {
-    $file_path = Path::normalize($file_path);
     $file_contents = file_get_contents($file_path);
     $file_contents = preg_replace($find, $replace, $file_contents);
     drush_op('file_put_contents', $file_path, $file_contents);
@@ -278,7 +273,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       $dir_contents = scandir($path);
       foreach ($dir_contents as $item) {
         if ($item !== '.' && $item !== '..') {
-          $subpath = Path::join($path, $item);
+          $subpath = $path . DIRECTORY_SEPARATOR . $item;
           if (is_dir($subpath)) {
             $this->gessoRecursiveRm($subpath);
           }
