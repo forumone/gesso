@@ -16,7 +16,7 @@ import { DropdownMenu } from '../../03-components/dropdown-menu/dropdown-menu.st
 import { Breadcrumb } from '../../03-components/breadcrumb/breadcrumb.stories.jsx';
 import { FooterMenu } from '../../03-components/menu/menu--footer/menu--footer.stories.jsx';
 import { Copyright } from '../../03-components/copyright/copyright.stories.jsx';
-import { BackToTop } from '../../03-components/back-to-top/back-to-top.stories.jsx';
+import { BackToTop } from '../../../components/back-to-top/back-to-top.stories.jsx';
 
 const PageWrapper = props => {
   // eslint-disable-next-line react/prop-types

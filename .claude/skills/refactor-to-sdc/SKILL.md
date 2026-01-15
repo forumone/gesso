@@ -1,6 +1,6 @@
 ---
 name: refactor-to-sdc
-description: Refactors a Gesso component from source/03-components to Single Directory Component (SDC) structure in /components. Use when user wants to convert an existing component to SDC format.
+description: Refactors a Gesso component from source/03-components to Single Directory Component (SDC) structure in /components.
 ---
 
 # Refactor to SDC
@@ -256,7 +256,6 @@ file:
 
 ## Notes
 
-- This is a complex, multi-step refactoring process
+- This is a complex, multistep refactoring process
 - Use TodoWrite to track progress through all steps
 - After completion, provide a summary of all changes made
-- Recommend testing in both Storybook and Drupal before committing
