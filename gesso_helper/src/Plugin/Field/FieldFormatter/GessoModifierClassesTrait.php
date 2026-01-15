@@ -16,7 +16,7 @@ trait GessoModifierClassesTrait {
   /**
    * {@inheritdoc}
    */
-  public static function defaultSettings() {
+  public static function defaultSettings(): array {
     return [
       'modifier_classes' => '',
     ] + parent::defaultSettings();
@@ -25,7 +25,7 @@ trait GessoModifierClassesTrait {
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, FormStateInterface $form_state) {
+  public function settingsForm(array $form, FormStateInterface $form_state): array {
     $elements = parent::settingsForm($form, $form_state);
 
     $elements['modifier_classes'] = [
@@ -40,7 +40,7 @@ trait GessoModifierClassesTrait {
   /**
    * {@inheritdoc}
    */
-  public function settingsSummary() {
+  public function settingsSummary(): array {
     $summary = parent::settingsSummary();
     $summary['modifier_classes'] = $this->t('Modifier classes: @modifier_classes', ['@modifier_classes' => $this->getSetting('modifier_classes')]);
     return $summary;

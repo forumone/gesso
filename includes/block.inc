@@ -10,7 +10,7 @@ use Drupal\block_content\BlockContentInterface;
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function gesso_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+function gesso_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   $content = $variables['elements']['content'];
   if (isset($content['#block_content']) and $content['#block_content'] instanceof BlockContentInterface) {
     $suggestions = [];
