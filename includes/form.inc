@@ -5,10 +5,12 @@
  * Form-related hook implementations.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_form_alter().
  */
-function gesso_form_alter(&$form, &$form_state, $form_id) {
+function gesso_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
   // Replace button classes with c-button.
   if (isset($form['actions']['delete']['#attributes']['class'])) {
     $form['actions']['delete']['#attributes']['class'] = preg_replace('/^button/', 'c-button', $form['actions']['delete']['#attributes']['class']);
@@ -18,7 +20,7 @@ function gesso_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_input(array &$variables) {
+function gesso_preprocess_input(array &$variables): void {
   $variables['is_required'] = $variables['element']['#required'] ?? NULL;
   $variables['type'] = $variables['element']['#attributes']['type'] ?? NULL;
   $variables['dropbutton'] = $variables['element']['#dropbutton'] ?? NULL;
@@ -37,7 +39,7 @@ function gesso_preprocess_input(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_field_multiple_value_form(&$variables) {
+function gesso_preprocess_field_multiple_value_form(array &$variables): void {
   // Make disabled variable available to the template.
   $variables['disabled'] = !empty($variables['element']['#disabled']);
 
@@ -52,7 +54,7 @@ function gesso_preprocess_field_multiple_value_form(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_fieldset(array &$variables) {
+function gesso_preprocess_fieldset(array &$variables): void {
   $variables['type'] = $variables['element']['#type'] ?? 'fieldset';
   $variables['is_disabled'] = $variables['element']['#disabled'] ?? NULL;
 }
@@ -60,7 +62,7 @@ function gesso_preprocess_fieldset(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_form_element(array &$variables) {
+function gesso_preprocess_form_element(array &$variables): void {
   $variables['is_required'] = $variables['element']['#required'] ?? NULL;
   if (!empty($variables['description']['content']) && !empty($variables['element']['#id'])) {
     $variables['description']['attributes']['id'] = $variables['element']['#id'] . '-description';
@@ -70,7 +72,7 @@ function gesso_preprocess_form_element(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_select(array &$variables) {
+function gesso_preprocess_select(array &$variables): void {
   if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
     $description_id = $variables['element']['#id'] . '-description';
     $variables['described_by'] = $description_id;
@@ -80,7 +82,7 @@ function gesso_preprocess_select(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_textarea(array &$variables) {
+function gesso_preprocess_textarea(array &$variables): void {
   if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
     $description_id = $variables['element']['#id'] . '-description';
     $variables['described_by'] = $description_id;
@@ -90,7 +92,7 @@ function gesso_preprocess_textarea(array &$variables) {
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function gesso_theme_suggestions_container_alter(array &$suggestions, array $variables) {
+function gesso_theme_suggestions_container_alter(array &$suggestions, array $variables): void {
   $array_parents = $variables['element']['#array_parents'] ?? NULL;
 
   // Add parents as template suggestions.
@@ -118,7 +120,7 @@ function gesso_theme_suggestions_container_alter(array &$suggestions, array $var
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function gesso_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+function gesso_theme_suggestions_form_alter(array &$suggestions, array $variables): void {
   if (isset($variables['element']['#form_id'])) {
     $suggestions[] = 'form__' . $variables['element']['#form_id'];
   }
@@ -127,7 +129,7 @@ function gesso_theme_suggestions_form_alter(array &$suggestions, array $variable
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $variables): void {
   $id = $variables['element']['#id'] ?? NULL;
   $type = $variables['element']['#type'] ?? NULL;
 
@@ -143,8 +145,8 @@ function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $
 /**
  * Implements hook_preprocess_links__HOOK().
  */
-function gesso_preprocess_links__dropbutton(array &$vars) {
-  foreach ($vars['links'] as $key => $link) {
+function gesso_preprocess_links__dropbutton(array &$variables): void {
+  foreach ($variables['links'] as $key => $link) {
     if (!empty($link['link'])) {
       if (empty($link['link']['#options']['attributes'])) {
         $link['link']['#options']['attributes'] = [];
@@ -154,7 +156,7 @@ function gesso_preprocess_links__dropbutton(array &$vars) {
       }
       $link['link']['#options']['attributes']['class'][] = 'c-button';
       $link['link']['#options']['attributes']['class'][] = 'c-dropbutton__button';
-      $vars['links'][$key] = $link;
+      $variables['links'][$key] = $link;
     }
   }
 }
