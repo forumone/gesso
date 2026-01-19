@@ -12,13 +12,6 @@ global:
     - core/once
     - gesso/common
 
-breadcrumb:
-  css:
-    theme:
-      dist/css/breadcrumb.css: {}
-  dependencies:
-    - gesso/global
-
 call_to_action:
   css:
     theme:

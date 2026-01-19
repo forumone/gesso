@@ -1,0 +1,30 @@
+---
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+props:
+  type: object
+  required:
+    - 'breadcrumb'
+  properties:
+    modifier_classes:
+      title: 'CSS modifier classes'
+      type: string
+    label:
+      title: 'Label'
+      description: 'Accessible label for the nav element'
+      type: string
+    breadcrumb:
+      title: 'Breadcrumb items'
+      description: 'Array of breadcrumb items with url and text properties'
+      type: array
+      items:
+        type: object
+        properties:
+          url:
+            title: 'URL'
+            type: string
+          text:
+            title: 'Link text'
+            type: string
+libraryOverrides:
+  dependencies:
+    - gesso/global

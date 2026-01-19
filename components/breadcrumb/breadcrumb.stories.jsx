@@ -2,7 +2,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './breadcrumb.twig';
 import data from './breadcrumb.yml';
-import './breadcrumb.scss';
+import './breadcrumb.source.scss';
 
 const settings = {
   title: 'Components/Breadcrumb',
