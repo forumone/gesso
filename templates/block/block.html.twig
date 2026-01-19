@@ -34,7 +34,7 @@
   'c-block--id-' ~ plugin_id|clean_class,
 ] %}
 
-{% embed '@components/block/block.twig' with {
+{% embed 'gesso:block' with {
   'attributes': attributes.addClass(classes),
   'has_constrain': false,
 } %}

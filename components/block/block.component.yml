@@ -1,0 +1,78 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Block
+props:
+  type: object
+  properties:
+    label_element:
+      type:
+        - string
+        - "null"
+      title: Label Element
+      description: 'The HTML element to use for the block label.'
+      default: 'h2'
+    label:
+      type:
+        - string
+        - "null"
+      title: Label
+      description: 'The block label/title text.'
+    block_content:
+      type:
+        - string
+        - "null"
+      title: Block Content
+      description: 'The main content of the block.'
+    hide_wrapper:
+      type: boolean
+      title: Hide Wrapper
+      description: 'Whether to hide the outer wrapper div.'
+      default: false
+    hide_content_wrapper:
+      type: boolean
+      title: Hide Content Wrapper
+      description: 'Whether to hide the content wrapper div.'
+      default: false
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to add to the block element.'
+    has_constrain:
+      type: boolean
+      title: Has Constrain
+      description: 'Whether to add a constraining wrapper for layout purposes.'
+      default: false
+    constrain_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Constrain Modifier Classes
+      description: 'Additional CSS classes to add to the constrain element.'
+    title_prefix:
+      type:
+        - array
+        - "null"
+      title: Title Prefix
+      description: 'Additional output populated by modules, intended to be displayed in front of the main title tag.'
+    title_suffix:
+      type:
+        - array
+        - "null"
+      title: Title Suffix
+      description: 'Additional output populated by modules, intended to be displayed after the main title tag.'
+    title_attributes:
+      type: Drupal\Core\Template\Attribute
+      title: Title Attributes
+      description: 'HTML attributes for the title element.'
+    content_attributes:
+      type: Drupal\Core\Template\Attribute
+      title: Content Attributes
+      description: 'HTML attributes for the content wrapper element.'
+slots:
+  content:
+    title: Content
+    description: 'The main content section of the block.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

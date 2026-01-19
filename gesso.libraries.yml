@@ -12,13 +12,6 @@ global:
     - core/once
     - gesso/common
 
-block:
-  css:
-    theme:
-      dist/css/block.css: {}
-  dependencies:
-    - gesso/global
-
 breadcrumb:
   css:
     theme:

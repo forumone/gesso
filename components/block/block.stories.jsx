@@ -1,9 +1,9 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './block.twig';
 import data from './block.yml';
-import './block.scss';
+import './block.source.scss';
 
 const settings = {
   title: 'Components/Block',
