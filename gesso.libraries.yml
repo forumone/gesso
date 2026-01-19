@@ -12,13 +12,6 @@ global:
     - core/once
     - gesso/common
 
-card:
-  css:
-    theme:
-      dist/css/card.css: {}
-  dependencies:
-    - gesso/global
-
 details:
   css:
     theme:

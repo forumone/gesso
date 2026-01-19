@@ -1,14 +1,14 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './card.twig';
 import data from './card.yml';
-import './card.scss';
+import './card.source.scss';
 // Importing Tag, TagList and ReadMoreLink to ensure their assets gets loaded
 // in Storybook when this story is referenced since Drupal loads them as a library.
-import '../tag/tag.stories.jsx';
-import '../tag-list/tag-list.stories.jsx';
-import '../read-more-link/read-more-link.stories.jsx';
+import '../../source/03-components/tag/tag.stories.jsx';
+import '../../source/03-components/tag-list/tag-list.stories.jsx';
+import '../../source/03-components/read-more-link/read-more-link.stories.jsx';
 
 const settings = {
   title: 'Components/Card',
