@@ -1,5 +1,3 @@
-{{ attach_library('gesso/call_to_action') }}
-
 {% set classes = [
   'c-call-to-action',
   modifier_classes ? modifier_classes : ''
@@ -19,9 +17,9 @@
           {{ body }}
         </div>
       {% endif %}
-      {% if url and title %}
+      {% if link_url and link_title %}
         <div class="c-call-to-action__links">
-          {% include '@components/button/button.twig' with {
+          {% include '@components/source/03-components/button/button.twig' with {
             attributes: link_attributes,
             url: link_url,
             text: link_title,

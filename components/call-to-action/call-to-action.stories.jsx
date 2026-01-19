@@ -1,9 +1,9 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './call-to-action.twig';
 import data from './call-to-action.yml';
-import './call-to-action.scss';
+import './call-to-action.source.scss';
 
 const settings = {
   title: 'Components/Call To Action',
