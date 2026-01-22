@@ -5,8 +5,8 @@
  * Media-related hook implementations.
  */
 
-use Drupal\Component\Render\Markup;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_preprocess_HOOK().
