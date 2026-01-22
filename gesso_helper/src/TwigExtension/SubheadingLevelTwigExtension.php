@@ -6,31 +6,34 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
 /**
- * Gesso theme twig extension for converting a heading level to the next
- * level down.
+ * Gesso theme twig extension for converting a heading to the next level down.
  */
 class SubheadingLevelTwigExtension extends AbstractExtension {
+
   /**
    * Provide helper name.
    */
-  public function getName() {
+  public function getName(): string {
     return 'gesso_helper_subheading_level';
   }
 
   /**
    * Add subheading_level Twig filter.
    */
-  public function getFilters() {
+  public function getFilters(): array {
     $filters = parent::getFilters();
     $filters[] = new TwigFilter('subheading_level', $this->subheadingLevel(...));
     return $filters;
   }
 
-  public function subheadingLevel($level) {
+  /**
+   * Return next subheading level.
+   */
+  public function subheadingLevel(string $level): string {
     $level = strtolower($level);
     $matches = [];
     if (preg_match('/^h(\\d)$/', $level, $matches)) {
-      // Don't go any lower than h6
+      // Don't go any lower than h6.
       $newLevel = min($matches[1] + 1, 6);
       return "h$newLevel";
     }
@@ -39,4 +42,5 @@ class SubheadingLevelTwigExtension extends AbstractExtension {
     // converted to lower-case but otherwise unchanged.
     return $level;
   }
+
 }

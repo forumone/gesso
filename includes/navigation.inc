@@ -10,7 +10,7 @@ use Drupal\Core\Render\Element;
 /**
  * Implements hook_preprocess_breadcrumb().
  */
-function gesso_preprocess_breadcrumb(array &$variables) {
+function gesso_preprocess_breadcrumb(array &$variables): void {
   if ($variables['breadcrumb']) {
     /** @var \Drupal\Core\Render\Renderer $renderer */
     $renderer = \Drupal::service('renderer');
@@ -38,7 +38,7 @@ function gesso_preprocess_breadcrumb(array &$variables) {
 /**
  * Implements hook_preprocess_menu().
  */
-function gesso_preprocess_menu(array &$variables) {
+function gesso_preprocess_menu(array &$variables): void {
   $current_path = \Drupal::request()->getRequestUri();
   foreach ($variables['items'] as $key => $item) {
     if (is_string($item['url'])) {
@@ -56,7 +56,7 @@ function gesso_preprocess_menu(array &$variables) {
 /**
  * Implements hook_preprocess_menu_local_tasks().
  */
-function gesso_preprocess_menu_local_tasks(&$variables) {
+function gesso_preprocess_menu_local_tasks(array &$variables): void {
   foreach (Element::children($variables['primary']) as $key) {
     $variables['primary'][$key]['#level'] = 'primary';
   }
@@ -69,7 +69,7 @@ function gesso_preprocess_menu_local_tasks(&$variables) {
 /**
  * Implements hook_preprocess_menu_local_task().
  */
-function gesso_preprocess_menu_local_task(array &$variables) {
+function gesso_preprocess_menu_local_task(array &$variables): void {
   $variables['link']['#options']['attributes']['class'][] = 'c-button-group__link';
   $variables['link']['#options']['attributes']['class'][] = 'c-button';
   $variables['link']['#options']['attributes']['class'][] = 'c-button--base';
