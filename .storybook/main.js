@@ -72,7 +72,7 @@ const config = {
       test: /\.twig$/,
       use: [
         {
-          loader: 'twig-loader',
+          loader: '@forumone/twig-loader',
           options: {
             twigOptions: {
               namespaces: {
