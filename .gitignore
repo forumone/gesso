@@ -15,3 +15,5 @@ dist/images/sprite.artifact.svg
 source/00-config/_design-tokens.artifact.scss
 source/00-config/_GESSO.es6.js
 storybook
+debug-storybook.log
+

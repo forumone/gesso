@@ -11,7 +11,7 @@ use Drupal\filter\Render\FilteredMarkup;
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_filter_caption(array &$variables) {
+function gesso_preprocess_filter_caption(array &$variables): void {
   $dom = Html::load($variables['node']);
   foreach ($dom->getElementsByTagName('drupal-media') as $dom_media_element) {
     /** @var \DOMElement $new_media_element */
@@ -53,7 +53,7 @@ function gesso_preprocess_filter_caption(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_image(array &$variables) {
+function gesso_preprocess_image(array &$variables): void {
   if (empty($variables['attributes']['alt'])) {
     $variables['attributes']['alt'] = '';
   }
@@ -62,7 +62,7 @@ function gesso_preprocess_image(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_media(array &$variables) {
+function gesso_preprocess_media(array &$variables): void {
   $variables['has_caption'] = isset($variables['attributes']['data-caption']);
   $variables['bundle'] = $variables['media']->bundle();
 }
