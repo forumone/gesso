@@ -33,7 +33,7 @@ use Drupal\Core\Url as CoreUrl;
  * ];
  * @endcode
  *
- * @RenderElement("gesso_button")
+ * @RenderElementBase("gesso_button")
  */
 class GessoButton extends RenderElementBase {
 
