@@ -6,7 +6,7 @@ import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from './form-item--radios.twig';
 import data from './form-item--radios.yml';
 import { Radio } from '../form-item--radio/form-item--radio.stories.jsx';
-import fieldsetTwigTemplate from '../../fieldset/fieldset.twig';
+import fieldsetTwigTemplate from '../../../components/fieldset/fieldset.twig';
 
 const settings = {
   title: 'Components/Form Item/Radios',

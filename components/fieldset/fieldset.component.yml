@@ -1,0 +1,92 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Fieldset
+props:
+  type: object
+  properties:
+    legend:
+      type: object
+      title: Legend
+      description: 'Object containing the legend title and optional attributes.'
+    required:
+      type:
+        - boolean
+        - "null"
+      title: Required
+      description: 'Indicates if the fieldset is required.'
+    is_required:
+      type:
+        - boolean
+        - "null"
+      title: Is Required
+      description: 'Indicates if the fieldset is required (alternative to required).'
+    is_disabled:
+      type:
+        - boolean
+        - "null"
+      title: Is Disabled
+      description: 'Indicates if the fieldset is disabled.'
+    disabled:
+      type:
+        - boolean
+        - "null"
+      title: Disabled
+      description: 'Indicates if the fieldset is disabled (alternative to is_disabled).'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for styling variations.'
+    description:
+      type:
+        - object
+        - "null"
+      title: Description
+      description: 'Object containing optional description content.'
+    errors:
+      type:
+        - string
+        - "null"
+      title: Errors
+      description: 'Error messages to display within the fieldset.'
+    prefix:
+      type:
+        - string
+        - "null"
+      title: Prefix
+      description: 'Content to display before the children.'
+    suffix:
+      type:
+        - string
+        - "null"
+      title: Suffix
+      description: 'Content to display after the children.'
+    id:
+      type: string
+      title: ID
+      description: 'Unique identifier for the fieldset.'
+    legend_attributes:
+      type:
+        - object
+        - "null"
+      title: Legend Attributes
+      description: 'HTML attributes for the legend element.'
+    legend_span_attributes:
+      type:
+        - object
+        - "null"
+      title: Legend Span Attributes
+      description: 'HTML attributes for the span inside the legend.'
+    description_attributes:
+      type:
+        - object
+        - "null"
+      title: Description Attributes
+      description: 'HTML attributes for the description element.'
+slots:
+  children:
+    title: Children
+    description: 'The main content of the fieldset.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
