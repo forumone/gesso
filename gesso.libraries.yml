@@ -18,14 +18,6 @@ external-link:
   dependencies:
     - gesso/global
 
-facets:
-  css:
-    theme:
-      dist/css/facet.css: {}
-      dist/css/facet-list.css: {}
-  dependencies:
-    - gesso/global
-
 file:
   css:
     theme:

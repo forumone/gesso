@@ -1,10 +1,10 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './facet.twig';
-import globalData from '../../00-config/storybook.global-data.yml';
+import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './facet.yml';
-import './facet.scss';
+import './facet.source.scss';
 
 const settings = {
   title: 'Components/Facets/Facet',
