@@ -1,0 +1,58 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Hero Inline Image
+props:
+  type: object
+  properties:
+    hero_image:
+      type: string
+      title: Hero Image
+      description: 'The main hero image or picture element.'
+    has_overlay:
+      type: boolean
+      title: Has Overlay
+      description: 'Whether to display an overlay on the image.'
+    hero_title:
+      type:
+        - string
+        - "null"
+      title: Hero Title
+      description: 'Optional title text displayed over the image.'
+    hero_summary:
+      type:
+        - string
+        - "null"
+      title: Hero Summary
+      description: 'Optional summary or descriptive text.'
+    hero_button_text:
+      type:
+        - string
+        - "null"
+      title: Hero Button Text
+      description: 'Optional button text.'
+    hero_button_url:
+      type:
+        - string
+        - "null"
+      title: Hero Button URL
+      description: 'Optional button URL.'
+    hero_button_attributes:
+      type:
+        - array
+        - "null"
+      title: Hero Button Attributes
+      description: 'Optional HTML attributes for the button.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Optional CSS classes for layout modification (e.g., has-content-left, has-content-right).'
+    attributes:
+      type:
+        - array
+        - "null"
+      title: Attributes
+      description: 'Optional HTML attributes for the wrapper element.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

@@ -1,9 +1,9 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './hero-inline-image.twig';
 import data from './hero-inline-image.yml';
-import './hero-inline-image.scss';
+import './hero-inline-image.source.scss';
 
 const settings = {
   title: 'Components/Hero/Hero with Inline Image',

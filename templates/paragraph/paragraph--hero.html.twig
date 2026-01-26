@@ -5,10 +5,10 @@
  *
  * This paragraph can use either of the following hero components:
  * - gesso:hero-bg-image
- * - @components/hero-inline-image/hero-inline-image.twig
+ * - gesso:hero-inline-image
  */
 #}
-{% include '@components/hero-inline-image/hero-inline-image.twig' with {
+{% include 'gesso:hero-inline-image' with {
   'attributes': attributes,
   'modifier_classes': paragraph.field_hero_alignment.value ? 'has-content-' ~ paragraph.field_hero_alignment.value : '',
   'hero_image': content.field_hero_image|field_value,
