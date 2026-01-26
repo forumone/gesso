@@ -3,13 +3,13 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
 import twigTemplate from './mega-menu.twig';
-import globalData from '../../00-config/storybook.global-data.yml';
+import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './mega-menu.yml';
-import { ImageTeaser } from '../../components/image-teaser/image-teaser.stories.jsx';
-import './mega-menu.scss';
-import './mega-menu.es6';
-import '../mobile-menu/mobile-menu.scss';
-import '../hamburger-button/hamburger-button.scss';
+import { ImageTeaser } from '../image-teaser/image-teaser.stories.jsx';
+import './mega-menu.source.scss';
+import './mega-menu.source.ts';
+import '../../source/03-components/mobile-menu/mobile-menu.scss';
+import '../../source/03-components/hamburger-button/hamburger-button.scss';
 
 const settings = {
   title: 'Components/Menu/Mega Menu',
