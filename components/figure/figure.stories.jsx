@@ -1,10 +1,10 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './figure.twig';
 import data from './figure.yml';
 import videoData from './figure--iframe.yml';
-import '../video/video.scss';
+import '../../source/03-components/video/video.scss';
 
 const settings = {
   title: 'Components/Figure',
