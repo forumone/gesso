@@ -12,13 +12,6 @@ global:
     - core/once
     - gesso/common
 
-details:
-  css:
-    theme:
-      dist/css/details.css: {}
-  dependencies:
-    - gesso/global
-
 dropbutton:
   js:
     dist/js/dropbutton.es6.js: {}

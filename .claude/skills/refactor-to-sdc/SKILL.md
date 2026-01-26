@@ -1,6 +1,8 @@
 ---
 name: refactor-to-sdc
 description: Refactors a Gesso component from source/03-components to Single Directory Component (SDC) structure in /components.
+context: fork
+agent: sdc-refactor
 ---
 
 # Refactor to SDC

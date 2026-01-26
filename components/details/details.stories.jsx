@@ -1,9 +1,9 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './details.twig';
 import data from './details.yml';
-import './details.scss';
+import './details.source.scss';
 
 const settings = {
   title: 'Components/Details',
