@@ -1,0 +1,39 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: File
+props:
+  type: object
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes.'
+    url:
+      type: string
+      title: URL
+      description: 'The URL of the file.'
+    file_name:
+      type: string
+      title: File Name
+      description: 'The name of the file to display as link text.'
+    icon_name:
+      type: string
+      title: Icon Name
+      description: 'The icon name to display (e.g., "file", "download").'
+    file_size:
+      type:
+        - string
+        - "null"
+      title: File Size
+      description: 'The size of the file to display.'
+    file_mime:
+      type:
+        - string
+        - "null"
+      title: File MIME Type
+      description: 'The MIME type of the file (e.g., "application/pdf").'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--icon-link

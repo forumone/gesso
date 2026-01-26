@@ -1,10 +1,10 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './file.twig';
 import data from './file.yml';
-import globalData from '../../00-config/storybook.global-data.yml';
-import './file.scss';
+import globalData from '../../source/00-config/storybook.global-data.yml';
+import './file.source.scss';
 
 const settings = {
   title: 'Components/File',

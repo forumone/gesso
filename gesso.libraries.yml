@@ -18,14 +18,6 @@ external-link:
   dependencies:
     - gesso/global
 
-file:
-  css:
-    theme:
-      dist/css/file.css: {}
-  dependencies:
-    - gesso/global
-    - gesso/icon_link
-
 hamburger_button:
   css:
     theme:
