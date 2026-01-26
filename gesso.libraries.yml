@@ -32,13 +32,6 @@ icon_link:
   dependencies:
     - gesso/global
 
-image_teaser:
-  css:
-    theme:
-      dist/css/image-teaser.css: {}
-  dependencies:
-    - gesso/global
-
 mega_menu:
   css:
     theme:

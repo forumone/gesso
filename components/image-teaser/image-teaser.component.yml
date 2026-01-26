@@ -1,0 +1,38 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Image Teaser
+props:
+  type: object
+  properties:
+    url:
+      type: string
+      title: URL
+      description: 'The URL for the teaser link.'
+    image:
+      type:
+        - string
+        - "null"
+      title: Image
+      description: 'The teaser image, typically an img tag.'
+    title:
+      type: string
+      title: Title
+      description: 'The teaser title.'
+    date:
+      type:
+        - string
+        - "null"
+      title: Date
+      description: 'The teaser date.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes.'
+slots:
+  summary:
+    title: Summary
+    description: 'The teaser summary text.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

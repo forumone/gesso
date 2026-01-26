@@ -1,9 +1,9 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './image-teaser.twig';
 import data from './image-teaser.yml';
-import './image-teaser.scss';
+import './image-teaser.source.scss';
 
 const settings = {
   title: 'Components/Image Teaser',
