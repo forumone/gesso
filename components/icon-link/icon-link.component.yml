@@ -1,0 +1,82 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Icon Link
+props:
+  type: object
+  properties:
+    icon_name:
+      type:
+        - string
+        - "null"
+      title: Icon Name
+      description: 'The name of the icon to display.'
+    icon_position:
+      type: string
+      title: Icon Position
+      description: 'Position of the icon relative to the link text: before, after, or both.'
+    icon_label:
+      type: string
+      title: Icon Label
+      description: 'Accessible label for the icon.'
+    icon_is_hidden:
+      type: boolean
+      title: Icon Is Hidden
+      description: 'Whether the icon is visually hidden.'
+    icon_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Icon Modifier Classes
+      description: 'Additional CSS classes for the icon element.'
+    icon_direction:
+      type:
+        - string
+        - "null"
+      title: Icon Direction
+      description: 'Direction of the icon: up, right, down, or left.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to an image file for the icon.'
+    icon_before:
+      type:
+        - string
+        - "null"
+      title: Icon Before
+      description: 'Pre-rendered HTML for icon displayed before the link text.'
+    icon_after:
+      type:
+        - string
+        - "null"
+      title: Icon After
+      description: 'Pre-rendered HTML for icon displayed after the link text.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the link element.'
+    url:
+      type: string
+      title: URL
+      description: 'The href attribute value for the link.'
+    link_text:
+      type: string
+      title: Link Text
+      description: 'The visible text of the link.'
+    no_follow:
+      type:
+        - boolean
+        - "null"
+      title: No Follow
+      description: 'Whether to add the rel="nofollow" attribute.'
+    storybook:
+      type:
+        - boolean
+        - "null"
+      title: Storybook
+      description: 'Whether component is being rendered in Storybook context.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
