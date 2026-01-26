@@ -1,9 +1,9 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './hero-bg-image.twig';
 import data from './hero-bg-image.yml';
-import './hero-bg-image.scss';
+import './hero-bg-image.source.scss';
 
 const settings = {
   title: 'Components/Hero/Hero with Background Image',

@@ -9,7 +9,7 @@
 
 {% if not homepage_hero %}
   {% set homepage_hero %}
-    {% include '@components/hero-bg-image/hero-bg-image.twig' with {
+    {% include 'gesso:hero-bg-image' with {
       'has_overlay': true,
       'hero_image': hero_image,
       'hero_title': hero_title,
