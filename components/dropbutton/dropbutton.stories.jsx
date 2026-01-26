@@ -1,8 +1,8 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
-import './dropbutton.es6';
-import './dropbutton.scss';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
+import './dropbutton.source.ts';
+import './dropbutton.source.scss';
 import data from './dropbutton.yml';
 import twigTemplate from './dropbutton.twig';
 

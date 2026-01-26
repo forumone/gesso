@@ -12,16 +12,6 @@ global:
     - core/once
     - gesso/common
 
-dropbutton:
-  js:
-    dist/js/dropbutton.es6.js: {}
-  css:
-    component:
-      dist/css/dropbutton.css: {}
-  dependencies:
-    - core/drupalSettings
-    - gesso/global
-
 dropdown_menu:
   css:
     theme:
