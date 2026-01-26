@@ -38,7 +38,7 @@
             {% endblock %}
           </div>
           <button aria-label="{{ 'Close menu'|t }}" class="c-mega-menu__section-close c-menu__section-close">
-            {% include '@components/icon/icon.twig' with {
+            {% include 'gesso:icon' with {
               icon_name: 'xmark',
               modifier_classes: 'c-menu__close-icon',
               is_hidden: true,

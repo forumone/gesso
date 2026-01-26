@@ -1,8 +1,8 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './icon.twig';
-import globalData from '../../00-config/storybook.global-data.yml';
+import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './icon.yml';
 
 const settings = {

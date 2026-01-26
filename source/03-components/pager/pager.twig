@@ -1,7 +1,7 @@
 {{ attach_library('gesso/pager') }}
 
 {% set pager_icon_left_angles %}
-  {% include '@components/icon/icon.twig' with {
+  {% include 'gesso:icon' with {
     'is_hidden': true,
     'modifier_classes': 'c-icon--pager is-spaced-after',
     'icon_name': 'angles',
@@ -10,7 +10,7 @@
 {% endset %}
 
 {% set pager_icon_left_angle %}
-  {% include '@components/icon/icon.twig' with {
+  {% include 'gesso:icon' with {
     'is_hidden': true,
     'modifier_classes': 'c-icon--pager is-spaced-after',
     'icon_name': 'angle',
@@ -19,7 +19,7 @@
 {% endset %}
 
 {% set pager_icon_right_angles %}
-  {% include '@components/icon/icon.twig' with {
+  {% include 'gesso:icon' with {
     'is_hidden': true,
     'modifier_classes': 'c-icon--pager is-spaced-before',
     'icon_name': 'angles',
@@ -28,7 +28,7 @@
 {% endset %}
 
 {% set pager_icon_right_angle %}
-  {% include '@components/icon/icon.twig' with {
+  {% include 'gesso:icon' with {
     'is_hidden': true,
     'modifier_classes': 'c-icon--pager is-spaced-before',
     'icon_name': 'angle',

@@ -14,7 +14,7 @@
 {% if (button_icon_before is empty and button_icon_after is empty) and icon_name is not empty %}
   {% if icon_position == 'before' or icon_position == 'both' %}
     {% set button_icon_before %}
-      {%- include '@components/icon/icon.twig' with {
+      {%- include 'gesso:icon' with {
         'modifier_classes': 'c-button__icon is-spaced-after',
         'is_hidden': icon_is_hidden,
         'label': icon_label,
@@ -27,7 +27,7 @@
 
   {% if icon_position == 'after' or icon_position == 'both' %}
     {% set button_icon_after %}
-      {%- include '@components/icon/icon.twig' with {
+      {%- include 'gesso:icon' with {
         'modifier_classes': 'c-button__icon is-spaced-before',
         'is_hidden': icon_is_hidden,
         'label': icon_label,
