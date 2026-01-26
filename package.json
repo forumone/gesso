@@ -31,6 +31,7 @@
     "@forumone/eslint-config-react": "^3.0.5",
     "@forumone/tiny-mustache": "^3.0.5",
     "@forumone/twig-drupal-filters": "^3.2.1",
+    "@inquirer/prompts": "^7.9.0",
     "@forumone/twig-loader": "^1.0.1",
     "@inquirer/prompts": "^7.9.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
