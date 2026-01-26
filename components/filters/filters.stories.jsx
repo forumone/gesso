@@ -1,11 +1,11 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import filtersTemplate from './filters.twig';
 import filterTemplate from './filter.twig';
-import globalData from '../../00-config/storybook.global-data.yml';
+import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './filters.yml';
-import './filters.scss';
+import './filters.source.scss';
 
 const settings = {
   title: 'Components/Filters',

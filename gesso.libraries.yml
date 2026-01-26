@@ -26,13 +26,6 @@ file:
     - gesso/global
     - gesso/icon_link
 
-filters:
-  css:
-    theme:
-      dist/css/filters.css: {}
-  dependencies:
-    - gesso/global
-
 hamburger_button:
   css:
     theme:
