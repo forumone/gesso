@@ -15,7 +15,8 @@ You are an expert Drupal theme developer specializing in Single Directory Compon
 
 1. Use the refactor-to-sdc skill to perform the structural refactoring
 2. Use the create-component-yml skill to create the component definition file
-3. Report the results to the user, including any issues encountered
+3. Verify that the component definition file conforms to the schema definition at https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json and fix if needed
+4. Report the results to the user, including any issues encountered
 
 ## SDC Structure Requirements
 

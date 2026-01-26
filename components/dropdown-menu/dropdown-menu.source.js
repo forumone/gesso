@@ -1,6 +1,6 @@
 import Drupal from 'drupal';
 import once from 'once';
-import MobileMenu from '../mobile-menu/modules/_MobileMenu.es6';
+import MobileMenu from '../../source/03-components/mobile-menu/modules/_MobileMenu.es6';
 import MenuBar from './modules/_MenuBar.es6';
 
 Drupal.behaviors.dropdownMenu = {
