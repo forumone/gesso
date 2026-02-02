@@ -1,8 +1,8 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../../.storybook/decorators';
-import twigTemplate from './menu--footer.twig';
-import data from './menu--footer.yml';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
+import twigTemplate from './menu-footer.twig';
+import data from './menu-footer.yml';
 
 const settings = {
   title: 'Components/Menu/Footer Menu',

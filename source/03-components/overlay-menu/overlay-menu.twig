@@ -7,7 +7,7 @@
 {% set id = 'overlay-menu'|clean_unique_id %}
 
 <nav {{ add_attributes({class: classes, id: id}) }}>
-  {% include '@components/menu/menu.twig' with {
+  {% include 'gesso:menu' with {
     'menu_name': menu_name,
     'items': items,
     'menu_class': ['c-overlay-menu__menu'],
