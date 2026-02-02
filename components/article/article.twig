@@ -31,7 +31,7 @@
           {% endset %}
         {% endif %}
 
-        {% include '@components/list/list.twig' with {
+        {% include 'gesso:list' with {
           'modifier_classes': 'c-list--pipeline',
           'list': [
             { 'content': date },
