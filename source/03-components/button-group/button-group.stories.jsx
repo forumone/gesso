@@ -1,58 +1,70 @@
 import parse from 'html-react-parser';
 
-import twigTemplate from './button-group.twig';
+import { withGlobalWrapper } from '../../../.storybook/decorators';
+import buttonGroupTemplate from './button-group.twig';
+import buttonGroupItemTemplate from './button-group-item.twig';
 import data from './button-group.yml';
 
 const settings = {
   title: 'Components/ButtonGroup',
+  decorators: [withGlobalWrapper],
 };
 
-const Primary = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
-Primary.args = { ...data };
+const Primary = {
+  render: args => {
+    const buttonGroupItems = (args.button_group_data || data.button_group_data)
+      .map(item => buttonGroupItemTemplate({ ...args, ...item }))
+      .join('');
 
-const Secondary = args => (
-  parse(twigTemplate({
-    ...args,
+    return parse(
+      buttonGroupTemplate({
+        button_group_items: buttonGroupItems,
+        ...args,
+      })
+    );
+  },
+  args: { ...data },
+};
+
+const Secondary = {
+  ...Primary,
+  args: {
+    ...Primary.args,
     button_modifier_classes: 'c-button--secondary',
-  }))
-);
-Secondary.args = { ...data };
+  },
+};
 
-const Base = args => (
-  parse(twigTemplate({
-    ...args,
+const Base = {
+  ...Primary,
+  args: {
+    ...Primary.args,
     button_modifier_classes: 'c-button--base',
-  }))
-);
-Base.args = { ...data };
+  },
+};
 
-const Danger = args => (
-  parse(twigTemplate({
-    ...args,
+const Danger = {
+  ...Primary,
+  args: {
+    ...Primary.args,
     button_modifier_classes: 'c-button--danger',
-  }))
-);
-Danger.args = { ...data };
+  },
+};
 
-const Small = args => (
-  parse(twigTemplate({
-    ...args,
+const Small = {
+  ...Primary,
+  args: {
+    ...Primary.args,
     button_modifier_classes: 'c-button--small',
-  }))
-);
-Small.args = { ...data };
+  },
+};
 
-const Large = args => (
-  parse(twigTemplate({
-    ...args,
+const Large = {
+  ...Primary,
+  args: {
+    ...Primary.args,
     button_modifier_classes: 'c-button--large',
-  }))
-);
-Large.args = { ...data };
+  },
+};
 
 export default settings;
 export { Primary, Secondary, Base, Danger, Large, Small };

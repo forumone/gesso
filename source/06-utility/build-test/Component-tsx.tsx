@@ -1,5 +1,5 @@
-import React from 'react';
-import { moduleJS } from './_module-js';
+import React, { JSX } from 'react';
+import moduleJS from './_module-js';
 
 function ComponentTsx(): JSX.Element {
   return <div>{moduleJS()}</div>;

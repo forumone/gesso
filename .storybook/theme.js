@@ -1,10 +1,11 @@
-import { create } from '@storybook/theming';
+import { create } from 'storybook/theming';
 
 const storybookTheme = create({
   appBg: '#F8F8F8',
   appContentBg: '#fff',
   barBg: '#19013A',
   barSelectedColor: '#EE2737',
+  barHoverColor: '#EE2737',
   barTextColor: '#fff',
   base: 'light',
   brandTitle: 'Forum One',

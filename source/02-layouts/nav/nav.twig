@@ -3,31 +3,10 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% set title_classes = [
-  title_modifier_classes ? title_modifier_classes : '',
-  hide_title ? 'u-visually-hidden' : '',
-]|join(' ')|trim %}
-
-{% set nav_id = nav_id|unique_id %}
-
-{% if is_demo and not nav_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set nav_content = macros.sample_content('Nav Layout Content') %}
-{% endif %}
-
 <nav {{ add_attributes({
   'class': classes,
-  'role': 'navigation',
-  'aria-labelledby': nav_id,
+  'aria-label': label,
 }) }}>
-  <{{ title_element ?: 'h2' }}
-    {{ add_attributes(
-      {
-        'id': nav_id,
-        'class': title_classes,
-      },
-      'title_attributes')
-    }}>{{ title }}</{{ title_element ?: 'h2' }}>
   {% block content %}
     {{ nav_content }}
   {% endblock %}

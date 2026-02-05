@@ -1,58 +1,58 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './list.twig';
 import data from './list.yml';
 
 const settings = {
   title: 'Components/List',
+  decorators: [withGlobalWrapper],
 };
 
-const Default = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
-Default.args = { ...data };
+const Default = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
-const Border = args => (
-  parse(twigTemplate({
-    ...args,
+const Border = {
+  ...Default,
+  args: {
+    ...data,
     modifier_classes: 'c-list--border',
-  }))
-);
-Border.args = { ...data };
+  },
+};
 
-const Clean = args => (
-  parse(twigTemplate({
-    ...args,
+const Clean = {
+  ...Default,
+  args: {
+    ...data,
     modifier_classes: 'c-list--clean',
-  }))
-);
-Clean.args = { ...data };
+  },
+};
 
-const Column = args => (
-  parse(twigTemplate({
-    ...args,
+const Column = {
+  ...Default,
+  args: {
+    ...data,
     modifier_classes: 'c-list--column',
-  }))
-);
-Column.args = { ...data };
+  },
+};
 
-const Inline = args => (
-  parse(twigTemplate({
-    ...args,
+const Inline = {
+  ...Default,
+  args: {
+    ...data,
     modifier_classes: 'c-list--inline',
-  }))
-);
-Inline.args = { ...data };
+  },
+};
 
-const Pipeline = args => (
-  parse(twigTemplate({
-    ...args,
+const Pipeline = {
+  ...Default,
+  args: {
+    ...data,
     modifier_classes: 'c-list--pipeline',
-  }))
-);
-Pipeline.args = { ...data };
+  },
+};
 
 export default settings;
 export { Default, Border, Clean, Column, Inline, Pipeline };

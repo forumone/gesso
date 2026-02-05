@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Theme implementation for a media item.
+ */
+#}
+{% if page_title is null %}
+  {% set page_title %}
+    {{- name -}}
+  {% endset %}
+{% endif %}
+
+{% set admin_info %}
+  {{ region_status }}
+{% endset %}
+
+{% set show_admin_info = false %}
+
+{% if admin_info|striptags('<drupal-render-placeholder>')|trim %}
+  {% set show_admin_info = true %}
+{% endif %}
+
+{% include '@templates/page/page.twig' with {
+  'attributes': attributes,
+  'is_published': media.status.value,
+  'title': page_title,
+  'show_admin_info': show_admin_info,
+  'admin_info': admin_info,
+  'content': content,
+} %}
+
+{# Uncomment the following if you don’t render the content variable. #}
+{# {% set catch_cache = content|render %} #}

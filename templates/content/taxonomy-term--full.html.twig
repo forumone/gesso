@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a taxonomy term.
+ * Theme implementation for a taxonomy term.
  *
  * Available variables:
  * - url: URL of the current term.
@@ -34,6 +34,8 @@
 {% endif %}
 
 {% include '@templates/page/page.twig' with {
+  'attributes': attributes,
+  'is_published': term.status.value,
   'title': term_name,
   'show_admin_info': show_admin_info,
   'admin_info': admin_info,

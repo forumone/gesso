@@ -1,0 +1,35 @@
+// CKEditor 4 styles
+
+@use '00-config' as * with($wysiwyg: true);
+@use '01-global' as *;
+@use '02-layouts' as *;
+@use '03-components' as *;
+@use '06-utility' as *;
+@use 'shame';
+
+@import url('//fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+// stylelint-disable-next-line
+body.cke_editable {
+  outline: none !important;
+}
+
+// stylelint-disable-next-line
+.cke_widget_drupalmedia {
+  display: inline;
+
+  drupal-media {
+    display: inline;
+    outline: none !important;
+  }
+
+  // stylelint-disable-next-line
+  .cke_widget_drag_handler_container {
+    display: none;
+  }
+}
+
+.media-library-item__edit {
+  @extend %c-button;
+  @extend %c-button--small;
+}

@@ -9,11 +9,12 @@ hr {
   border-width: 1px 0 0;
   box-sizing: content-box;
   height: 0;
-  margin: 0 0 rem(gesso-spacing(3));
+  margin-block: 0 rem(gesso-spacing(3));
+  margin-inline: 0;
   overflow: auto; // Fix for when next to a floated element.
 
   // Add top margin when preceded by another element.
   * + & {
-    margin-top: rem(gesso-spacing(3));
+    margin-block-start: rem(gesso-spacing(3));
   }
 }

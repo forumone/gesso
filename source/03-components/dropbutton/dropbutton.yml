@@ -1,13 +1,7 @@
 links:
   -
-    link: true
-    text: 'Primary Action'
-    href: '#0'
+    link: '<a href="#0" class="c-button c-dropbutton__button">Primary Action</a>'
   -
-    link: true
-    text: 'Secondary Action'
-    href: '#0'
+    link: '<a href="#0" class="c-button c-dropbutton__button">Secondary Action</a>'
   -
-    link: true
-    text: 'Another Secondary Action'
-    href: '#0'
+    link: '<a href="#0" class="c-button c-dropbutton__button">Another Secondary Action</a>'

@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a view of unformatted rows.
+ * Theme implementation to display a view of unformatted rows.
  *
  * Available variables:
  * - title: The title of this group of rows. May be empty.
@@ -16,6 +16,7 @@
  */
 #}
 {% include '@components/view/views-view-unformatted/views-view-unformatted.twig' with {
+  'attributes': attributes,
   'title': title,
   'title_element': 'h3',
   'element': 'div',

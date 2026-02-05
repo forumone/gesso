@@ -115,10 +115,16 @@ gesso:
         text-hover: grayscale.white
         text-active: grayscale.white
       back-to-top:
-        background: grayscale.gray-3
+        background: grayscale.gray-4
         background-hover: grayscale.gray-5
         color: grayscale.white
         color-hover: grayscale.white
+    facet:
+      icon: grayscale.gray-3
+      icon-active: brand.blue.dark-1
+      text: brand.blue.base
+      text-hover: brand.blue.dark
+      text-active: brand.blue.dark-1
     form:
       background: grayscale.gray-1
       background-active: grayscale.white
@@ -140,6 +146,7 @@ gesso:
       background: grayscale.white
       background-head: grayscale.gray-1
       background-foot: grayscale.gray-1
+      background-sorted: brand.blue.light-2
     ui:
       generic:
         background: grayscale.gray-3
@@ -183,15 +190,22 @@ gesso:
       1: 12px
       2: 14px
       3: 16px
-      4: 20px
-      5: 25px
-      6: 31.25px
-      7: 39.06625px
-      8: 48.8281px
-      9: 61.0352px
-      10: 76.2939px
+      4: 18px
+      5: 21px
+      6: 23px
+      7: 26px
+      8: 30px
+      9: 34px
+      10: 39px
+      11: 44px
+      12: 50px
+      13: 56px
+      14: 64px
+      15: 72px
     responsive-font-size-min-width: 360px
     responsive-font-size-max-width: 1600px
+    # The max value should never be more than 2.5 times the min value.
+    # https://www.smashingmagazine.com/2023/11/addressing-accessibility-concerns-fluid-type/
     responsive-font-size:
       1:
         min: 12px
@@ -206,73 +220,100 @@ gesso:
         val: auto
         max: 16px
       4:
-        min: 18px
+        min: 17px
         val: auto
-        max: 20px
+        max: 18px
       5:
-        min: 20.25px
+        min: 19px
         val: auto
-        max: 25px
+        max: 21px
       6:
-        min: 22.7813px
+        min: 21px
         val: auto
-        max: 31.25px
+        max: 23px
       7:
-        min: 25.6289px
+        min: 23px
         val: auto
-        max: 39.0625px
+        max: 26px
       8:
-        min: 28.8325px
+        min: 26px
         val: auto
-        max: 48.8281px
+        max: 30px
       9:
-        min: 32.4366px
+        min: 28px
         val: auto
-        max: 61.0352px
+        max: 34px
       10:
-        min: 36.4912px
+        min: 31px
         val: auto
-        max: 76.2939px
+        max: 39px
+      11:
+        min: 34px
+        val: auto
+        max: 44px
+      12:
+        min: 38px
+        val: auto
+        max: 50px
+      13:
+        min: 41px
+        val: auto
+        max: 56px
+      14:
+        min: 46px
+        val: auto
+        max: 64px
+      15:
+        min: 50px
+        val: auto
+        max: 72px
     font-weight:
       light: 300
       regular: 400
       semibold: 600
       bold: 700
+    letter-spacing:
+      tight: -0.04em
+      normal: 0
+      wide: 0.02em
     line-height:
-      tight: 1.1
+      shortest: 1
+      short: 1.1
       base: 1.45
-      loose: 1.7
+      tall: 1.6
+      taller: 1.7
+      tallest: 2
     display:
       display:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
-        responsive-font-size: 10
+        line-height: short
+        responsive-font-size: 15
       h1:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
-        responsive-font-size: 8
+        line-height: short
+        responsive-font-size: 12
       h2:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
-        responsive-font-size: 7
+        line-height: short
+        responsive-font-size: 10
       h3:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
-        line-height: tight
-        responsive-font-size: 6
+        line-height: short
+        responsive-font-size: 8
       h4:
         color: text.primary
         font-family: primary.stack
         font-weight: bold
         line-height: base
-        responsive-font-size: 5
+        responsive-font-size: 7
       h5:
         color: text.primary
         font-family: primary.stack
@@ -283,14 +324,14 @@ gesso:
         color: text.primary
         font-family: primary.stack
         font-weight: semibold
-        letter-spacing: -0.04em
-        line-height: loose
+        letter-spacing: tight
+        line-height: tall
         text-transform: uppercase
         responsive-font-size: 2
       blockquote:
         color: text.link
         font-family: primary.stack
-        font-size: 5
+        font-size: 7
         font-weight: regular
         line-height: base
       body:
@@ -302,7 +343,7 @@ gesso:
       body-large:
         color: text.primary
         font-family: primary.stack
-        font-size: 4
+        font-size: 5
         font-weight: regular
         line-height: base
       cite:
@@ -311,8 +352,8 @@ gesso:
         font-size: 2
         font-style: normal
         font-weight: semibold
-        letter-spacing: .02em
-        line-height: tight
+        letter-spacing: wide
+        line-height: short
   transitions:
     ease:
       ease-in-out: 'cubic-bezier(0.4, 0, 0.2, 1)'

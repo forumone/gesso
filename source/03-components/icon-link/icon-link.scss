@@ -1,0 +1,11 @@
+// Component: Icon Link
+
+@use '00-config' as *;
+
+.c-icon-link {
+  display: inline-block;
+
+  & + & {
+    margin-inline-start: rem(gesso-spacing(2));
+  }
+}

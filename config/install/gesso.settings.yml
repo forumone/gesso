@@ -11,3 +11,7 @@ include_back_to_top: 1
 threshold: '200'
 smooth_scroll: 1
 include_current_page_in_breadcrumb: 1
+add_external_link_icons: 0
+exit_disclaimer: 'Exit this website'
+allowed_domains: "example-allowed-domain.com\nforumone.github.io"
+allowed_links: "https://www.vimeo.com/example-allowed-link\nhttps://www.youtube.com/example-allowed-link"

@@ -1,0 +1,32 @@
+// Component: Read More Link
+
+@use '00-config' as *;
+@use '01-global/extendables' as *;
+
+.c-read-more-link {
+  padding-inline-end: 28px;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    path {
+      fill: gesso-color(text, link-hover);
+    }
+  }
+}
+
+.c-read-more-link__icon {
+  display: inline-block;
+  inset-block-start: 8px;
+  margin-inline-end: -28px;
+  position: relative;
+  width: 28px;
+
+  path {
+    fill: gesso-color(text, link);
+  }
+}
+
+.c-read-more-link__accessibility-description {
+  @extend %visually-hidden;
+}

@@ -14,7 +14,7 @@ items:
       options:
         attributes:
           class: ''
-    in_active_trail: false
+    in_active_trail: true
     below:
       - title: 'Submenu item one'
         url: '#0'
@@ -22,7 +22,8 @@ items:
           options:
             attributes:
               class: ''
-        in_active_trail: false
+        in_active_trail: true
+        is_active: true
         below:
           - title: 'Submenu item one'
             url: '#0'

@@ -13,12 +13,10 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
     &.has-overlay {
       &::after {
         background: rgba(0, 0, 0, 0.5);
-        bottom: 0;
         content: '';
-        left: 0;
+        inset-block: 0;
+        inset-inline: 0;
         position: absolute;
-        right: 0;
-        top: 0;
         z-index: 1;
       }
 
@@ -32,13 +30,14 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 .c-hero-inline-image__media {
   display: block;
   line-height: 0;
-  margin-bottom: rem(gesso-spacing(3));
+  margin-block-end: rem(gesso-spacing(3));
 
   @include breakpoint($hero-inline-image-bp) {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   img,
+  figure,
   picture {
     width: 100%;
   }
@@ -46,57 +45,49 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 
 .c-hero-inline-image__content {
   @include breakpoint($hero-inline-image-bp) {
-    bottom: 5%;
     display: flex;
     flex-direction: column;
+    inset-block: 5%;
+    inset-inline: 15%;
     justify-content: center;
-    left: 15%;
     position: absolute;
-    right: 15%;
-    top: 5%;
+  }
+
+  .has-content-left > & {
+    @include breakpoint($hero-inline-image-bp) {
+      align-items: flex-start;
+      inset-inline: 10% 35%;
+    }
+  }
+
+  .has-content-right > & {
+    @include breakpoint($hero-inline-image-bp) {
+      align-items: flex-start;
+      inset-inline: 35% 10%;
+    }
   }
 }
 
 .c-hero-inline-image__title {
   @include display-text-style(display);
-  margin-bottom: rem(gesso-spacing(3));
+  margin-block-end: rem(gesso-spacing(3));
 
   @include breakpoint($hero-inline-image-bp) {
     color: gesso-color(text, on-dark);
-    margin-bottom: rem(gesso-spacing(5));
+    margin-block-end: rem(gesso-spacing(5));
   }
 
   @include breakpoint-max($hero-inline-image-bp, true) {
-    font-size: rem(gesso-font-size(8));
+    font-size: rem(gesso-font-size(12));
   }
 }
 
 .c-hero-inline-image__summary {
   @include display-text-style(body-large);
-  margin-bottom: rem(gesso-spacing(3));
+  margin-block-end: rem(gesso-spacing(3));
 
   @include breakpoint($hero-inline-image-bp) {
     color: gesso-color(text, on-dark);
-    margin-bottom: rem(gesso-spacing(5));
-  }
-}
-
-.c-hero-inline-image--left {
-  .c-hero-inline-image__content {
-    @include breakpoint($hero-inline-image-bp) {
-      align-items: flex-start;
-      left: 10%;
-      right: 35%;
-    }
-  }
-}
-
-.c-hero-inline-image--right {
-  .c-hero-inline-image__content {
-    @include breakpoint($hero-inline-image-bp) {
-      align-items: flex-start;
-      left: 35%;
-      right: 10%;
-    }
+    margin-block-end: rem(gesso-spacing(5));
   }
 }

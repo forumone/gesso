@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme implementation for an SVG icon.
+ *
+ * Available variables:
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - icon:
+ *   - icon_name: name of the icon to display.
+ *   - icon_label: screen-reader-friendly title for the icon.
+ */
+#}
+{%- include '@components/icon/icon.twig' with {
+  'attributes': attributes,
+  'icon_name': icon.icon_name,
+  'label': icon.icon_label,
+} -%}

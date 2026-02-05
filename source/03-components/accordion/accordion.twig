@@ -1,0 +1,22 @@
+{{ attach_library('gesso/accordion') }}
+{% if is_step_list %}
+  {{ attach_library('gesso/accordion_step_list') }}
+{% endif %}
+
+{% set classes = [
+  'c-accordion',
+  is_step_list ? 'c-accordion--step-list' : '',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if accordion_items %}
+  <div {{ add_attributes({ class: classes }) }}>
+    <div
+      class="c-accordion__content js-accordion"
+      {{- allow_multiple ? ' data-allow-multiple' : '' -}}
+      {{- allow_toggle ? ' data-allow-toggle' : '' -}}
+    >
+      {{ accordion_items }}
+    </div>
+  </div>
+{% endif %}

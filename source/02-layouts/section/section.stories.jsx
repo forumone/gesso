@@ -5,21 +5,12 @@ import data from './section.yml';
 
 const settings = {
   title: 'Layouts/Section',
-  argTypes: {
-    is_demo: {
-      table: {
-        disable: true
-      }
-    }
-  },
 };
 
-const Section = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
-Section.args = { ...data };
+const Section = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
 export default settings;
 export { Section };

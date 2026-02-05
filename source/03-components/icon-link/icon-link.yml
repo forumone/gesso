@@ -1,0 +1,8 @@
+---
+modifier_classes: ''
+icon_name: 'calendar'
+icon_position: 'before'
+icon_label: 'Accessible label'
+icon_is_hidden: false
+link_text: 'Link text'
+url: '#0'

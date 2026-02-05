@@ -1,35 +1,38 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './field.twig';
 import data from './field.yml';
-import listTwigTemplate from './field--list/field--list.twig';
-import listData from './field--list/field--list.yml';
 
 const settings = {
   title: 'Components/Field',
+  decorators: [withGlobalWrapper],
 };
 
-const Default = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
-Default.args = { ...data };
+const Default = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
 
-const List = args => (
-  parse(listTwigTemplate({
-    ...args,
-  }))
-);
-List.args = { ...listData };
+const List = {
+  ...Default,
+  args: {
+    ...Default.args,
+    modifier_classes: 'c-field--list',
+    field_items_wrapper_tag: 'ul',
+    display_item_tag: true,
+    field_item_tag: 'li',
+    show_separator: false,
+  },
+};
 
-const Tight = args => (
-  parse(twigTemplate({
-    ...args,
+const Tight = {
+  ...Default,
+  args: {
+    ...Default.args,
     modifier_classes: 'c-field--tight',
-  }))
-);
-Tight.args = { ...data };
+  },
+};
 
 export default settings;
 export { Default, List, Tight };

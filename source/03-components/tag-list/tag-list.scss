@@ -1,0 +1,13 @@
+// Component: Tag List
+
+@use '00-config' as *;
+
+.c-tag-list {
+  @include list-clean();
+}
+
+.c-tag-list__item {
+  display: inline-block;
+  margin-block-end: rem(gesso-spacing(1));
+  margin-inline-end: rem(gesso-spacing(1));
+}

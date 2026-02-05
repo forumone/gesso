@@ -8,21 +8,21 @@
 /**
  * Implements hook_preprocess_node().
  */
-function gesso_preprocess_node(&$variables) {
+function gesso_preprocess_node(array &$variables): void {
   // Array of view modes to add regions to.
   $allowed_view_modes = ['full'];
 
   if (in_array($variables['view_mode'], $allowed_view_modes)) {
     // Array of regions to add to node template.
     $allowed_regions = ['status'];
-    _add_regions_to_template($allowed_regions, $variables);
+    _gesso_add_regions_to_template($allowed_regions, $variables);
   }
 }
 
 /**
-* Custom function to add page regions to templates.
-*/
-function _add_regions_to_template($allowed_regions, &$variables) {
+ * Custom function to add page regions to templates.
+ */
+function _gesso_add_regions_to_template(array $allowed_regions, array &$variables): void {
   // Get active theme.
   $theme = \Drupal::theme()->getActiveTheme()->getName();
 
@@ -36,11 +36,11 @@ function _add_regions_to_template($allowed_regions, &$variables) {
     // Load blocks from this region and sort them.
     $blocks = \Drupal::entityTypeManager()
       ->getStorage('block')
-      ->loadByProperties(array('theme'  => $theme, 'region' => $region));
+      ->loadByProperties(['theme' => $theme, 'region' => $region]);
     uasort($blocks, 'Drupal\block\Entity\Block::sort');
 
     // Build blocks and assign to template variable.
-    $build = array();
+    $build = [];
     $builder = \Drupal::entityTypeManager()->getViewBuilder('block');
     foreach ($blocks as $key => $block) {
       if ($block->access('view')) {

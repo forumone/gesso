@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override for a filter caption.
+ * Theme implementation for a filter caption.
  *
  * Returns HTML for a captioned image, audio, video or other tag.
  *
@@ -16,16 +16,18 @@
   {% set media_bundle = 'iframe' %}
 {% endif %}
 
-{% set classes = [
+{% set modifier_classes = [
   view_mode != '' ? ('c-figure--' ~ view_mode)|clean_class,
   media_bundle ? ('c-figure--' ~ media_bundle)|clean_class,
   align == 'center' ? 'u-align-center',
   align == 'left' ? 'u-align-left',
   align == 'right' ? 'u-align-right',
+  classes,
 ]|join(' ')|trim %}
 
 {% include '@components/figure/figure.twig' with {
-  'modifier_classes': classes,
+  'attributes': attributes,
+  'modifier_classes': modifier_classes,
   'media': node,
   'caption': caption,
 } %}

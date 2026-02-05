@@ -22,10 +22,10 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
--   [Node](https://nodejs.org/en/) version 14.x.x or greater. Long-term stable
+-   [Node](https://nodejs.org/en/) version 20. Long-term stable
     recommended.
 
--   [npm](https://www.npmjs.com/get-npm) version 7.x.x or greater.
+-   [npm](https://www.npmjs.com/get-npm) version 10.7.0 or greater.
 
 ## Installation
 
@@ -115,6 +115,34 @@ Run `npm run component` to create boilerplate files for a new component. This is
 the recommended approach as it will set up basic Twig and Storybook files that
 you can modify.
 
+### Interactive mode
+
+Running the command without arguments will prompt you for the component details:
+
+```shell
+npm run component
+```
+
+### Non-interactive mode
+
+You can also pass arguments to skip the prompts:
+
+```shell
+npm run component -- --name my-component --folder 03-components
+```
+
+#### Available options
+
+| Option              | Description                                                    |
+| ------------------- | -------------------------------------------------------------- |
+| `--name <name>`     | Component name (required)                                      |
+| `--folder <folder>` | Component location, e.g., `03-components` (required)           |
+| `--title <title>`   | Human-readable title (defaults to Capital Case of name)        |
+| `--subfolder <name>`| Optional subfolder within the component location               |
+| `--no-modular-sass` | Add styles to the global stylesheet instead of a separate file |
+| `--js`              | Include a JavaScript file                                      |
+| `--help, -h`        | Show help message                                              |
+
 ## Storybook
 
 Name your stories files `[component].stories.jsx`. See `menu.stories.jsx` for
@@ -202,6 +230,26 @@ DO NOT prefix the name of your JS file with `_`. Import your JS file at the top
 of your Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t
 forget to add it to the `gesso.libraries.yml` file as well.
 
+### common.js
+
+Any library you create in `gesso.libraries.yml` that includes an individual
+component script must include `gesso/common` as a dependency. (In most cases, you
+will also add `core/drupal` as a dependency, if you are using the `Drupal`
+object anywhere in your code.) common.js is generated on **production** builds
+(so you will not notice it missing until you deploy to a staging server) and
+contains JavaScript that is shared across two or more components, so that it is
+not bundled multiple times on the page. The recommended practice is for each
+library to declare its dependencies, even if some of them are repeated across
+multiple libraries and/or shared with global. This ensures that Drupal will
+always load the dependencies before loading any library that depends on them.
+See the `dropdown_menu` library in `gesso.libraries.yml` as an example.
+
+The common JS file is created using the [Webpack SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/).
+To change how it behaves, update `webpack.production.js`. You may also need to
+update `gesso_library_info_build` in `libraries.inc` to change what files are
+included in the `gesso/common` library. We recommend using the default setup
+unless you have a specific use case that requires advanced configuration.
+
 ### JS Linting
 
 ESLint and Prettier are used to lint JavaScript files. If you have a valid
@@ -212,12 +260,63 @@ documentation](https://eslint.org/docs/user-guide/configuring#disabling-rules-wi
 Please add a comment about the valid reason to disable the ESLint rule(s) in
 your use case.
 
-The ESLint config can be changed in the `.eslintrc.js` file. Gesso follows the
-[Airbnb standards](https://github.com/airbnb/javascript/), which are [followed
-by Drupal](https://www.drupal.org/docs/develop/standards/javascript/javascript-coding-standards)
-as well.
+The ESLint config can be changed in the `eslint.config.js` file. Gesso follows
+the [Forum One JavaScript standards](https://www.npmjs.com/package/@forumone/eslint-config-es5),
+which mostly follow the ESLint recommended config. For React files, there are
+[additional JSX-specific linting rules](https://www.npmjs.com/package/@forumone/eslint-config-react);
 
 The Prettier config can be changed in the `.prettierrc` file.
+
+### jQuery
+
+Gesso itself does not include any jQuery dependencies and does not ship with
+jQuery. However, some Drupal modules still rely on jQuery, so you may need to
+add it if, for example, you need to create and trigger a jQuery event.
+
+To add jQuery to Storybook:
+1. Install jQuery with `npm i -D jquery @types/jquery`.
+2. Add jQuery to `config.externals` in lines 78-82 of `.storybook/main.js`
+   ```js
+   config.externals = {
+      drupal: 'Drupal',
+      drupalSettings: 'drupalSettings',
+      once: 'once',
+      jquery: 'jQuery',
+   };
+   ```
+3. Add a jQuery stub similar to `stubs/once.js` and import it in `.storybook/preview.js`
+   ```js
+    import jQuery from 'jquery';
+    window.jQuery = jQuery;
+   ```
+   ```js
+    import './stubs/jquery.js'
+   ```
+
+To add jQuery to Drupal:
+1. Add jQuery to `externals` in lines 170-174 of `webpack.common.js`
+   ```js
+   externals: {
+      drupal: 'Drupal',
+      drupalSettings: 'drupalSettings',
+      once: 'once',
+      jquery: 'jQuery'
+    }
+   ```
+2. Ensure that `core/jquery` is added a dependency of the appropriate library in gesso.libraries.yml
+   ```yaml
+   library_name:
+     js:
+       dist/js/file-that-uses-jquery: {}
+     dependencies:
+       - gesso/common
+       - core/drupal
+       - core/once
+       - core/jquery
+   ```
+
+You can then import jQuery at the top of a file, the same way `Drupal` and `once`
+are typically imported, and use it as needed.
 
 ## Design tokens
 
@@ -377,12 +476,13 @@ if (window.matchMedia(`min-width: ${BREAKPOINTS.desktop}`).matches) {
 This will use the same breakpoint as `breakpoint(gesso-breakpoint(desktop))` in
 your Sass.
 
-### Width-based media queries
+### Viewport width-based media queries
 
 Gesso uses custom mixins to specify viewport width based media queries:
--   `breakpoint`: min-width queries
--   `breakpoint-max`: max-width queries
--   `breakpoint-min-max`: queries with both a min and max width
+
+- `breakpoint`: min-width queries
+- `breakpoint-max`: max-width queries
+- `breakpoint-min-max`: queries with both a min and max width
 
 Each mixin takes one or two width parameters, which can be a straight value
 (e.g., 800px, 40em) or a design token value called using the `gesso-breakpoint`
@@ -442,6 +542,120 @@ set to `true` (default: `false`).
 }
 ```
 
+### Container queries
+
+Gesso uses custom mixins to specify container queries:
+
+- `container-query`: min-width container queries
+- `container-query-max`: max-width container queries
+- `container-query-min-max`: container queries with both a min and max width
+
+Each mixin takes one or two width parameters, which can be a straight value
+(e.g., 800px, 40em) or a design token value called using the `gesso-breakpoint`
+function (e.g., `gesso-breakpoint(tablet-lg)`). The `container-max` and
+`container-min-max` mixins can also take an optional parameter to subtract one
+pixel from the max-width value, which can be useful when you want your query to
+go up to the value but not to include it, such as when using Gesso breakpoint
+token values.
+
+In order for container queries to work, you need to set a containment context
+on a parent element.
+
+```scss
+container-type: inline-size;
+```
+
+```scss
+container: container-name / inline-size;
+```
+
+#### `@include container-query($width) { // styles }`
+
+Output a min-width based media query.
+
+```scss
+@include container-query(800px) {
+  display: flex;
+}
+
+@include container-query(gesso-breakpoint(desktop)) {
+  display: none;
+}
+```
+
+#### `@include container-query-max($width, $subtract_1_from_max) { // styles }`
+
+Output a max-width based container query. The optional `$subtract_1_from_max`
+parameter will subtract 1px from the width value if set to `true` (default:
+`false`).
+
+```scss
+@include container-query-max(900px) {
+  display: block;
+}
+
+@include container-query-max(gesso-breakpoint(mobile), true) {
+  display: none;
+}
+```
+
+#### `@include container-query-min-max($min-width, $max-width, $subtract_1_from_max) { // styles }`
+
+Output a container query with both a min-width and max-width. The optional
+$subtract_1_from_max parameter will subtract 1px from the max-width value if
+set to `true` (default: `false`).
+
+```scss
+@include container-query-min-max(400px, 700px) {
+  display: flex;
+}
+
+@include container-query-min-max(
+  gesso-breakpoint(mobile),
+  gesso-breakpoint(tablet),
+  true
+) {
+  display: block;
+}
+```
+
+## Twig Filters and Functions
+Gesso includes some additional filters and functions that can be used in Twig templates.
+
+#### add_attributes
+Fork of [Drupal Pattern Lab's `add_attribute` Twig function](https://github.com/drupal-pattern-lab/add-attributes-twig-extension).
+Allows Twig templates to add attributes that, in Drupal, will be merged with the Drupal attributes object
+while also rendering in Storybook.
+
+```twig
+<div {{ add_attributes(
+  {
+    class: 'your-class-one your-class-two',
+    'data-foo': 'bar'
+  }
+) }}>...</div>
+```
+
+#### keysort
+Twig filter to sort an object by key alphabetically.
+
+```twig
+{% for key, value in your_object|keysort %}
+...
+{% endfor %}
+```
+
+### subheading_level
+Twig filter to transform a heading tag to the next level down (h2 -> h3, h3 -> h4, etc.)
+Used when the parent heading level can vary but, to maintain accessibility, the component's
+heading or subheading should change accordingly.
+
+```twig
+{% set subheading_element = title_element|subheading_level %}
+
+<{{ subheading_element|default('h3') }}>...</{{ subheading_element|default('h3') }}>
+```
+
 ## Building Storybook
 
 A static Storybook site can be built with `npm run build-storybook`. You will
@@ -477,6 +691,6 @@ such as `5.x-RC`.
 ## Maintainers
 
 The Gesso theme is maintained by
-[Corey Lafferty](https://drupal.org/u/clafferty) ([@coreylafferty](http://twitter.com/coreylafferty)),
+[Corey Lafferty](https://drupal.org/u/clafferty),
 [KJ Monahan](https://www.drupal.org/u/kmonahan), and
-[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](http://twitter.com/dcmouyard)).
+[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](https://fosstodon.org/@dcmouyard)).

@@ -1,9 +1,0 @@
----
-hero_image: '<img src="https://picsum.photos/1600/800?image=62" alt="alt text">'
-hero_title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'
-hero_summary: |-
-  <p>Optional extra supporting/explanatory text goes here.</p>
-hero_button_text: 'Sign Up'
-hero_button_url: '#0'
-homepage_grid_title: 'Grid Area Title'
-homepage_grid_content: 'Homepage Grid Content'

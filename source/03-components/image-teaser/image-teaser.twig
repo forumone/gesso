@@ -1,20 +1,25 @@
+{{ attach_library('gesso/image_teaser') }}
+
 {% set classes = [
   'c-image-teaser',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<article {{ add_attributes({ 'class': classes }) }} role="article">
-  <div class="l-media">
-    {% if image %}
-      <div class="l-media__object">
-        <a href="{{ url }}">{{ image }}</a>
-      </div>
-    {% endif %}
+{% if image %}
+  {% set teaser_image %}
+    <a href="{{ url }}">{{ image }}</a>
+  {% endset %}
+{% endif %}
 
-    <div class="l-media__content">
-      <h2><a href="{{ url }}">{{ title }}</a></h2>
-      {{ date }}
-      {{ summary }}
-    </div>
-  </div>
+{% set teaser_content %}
+  <h2><a href="{{ url }}">{{ title }}</a></h2>
+  {{ date }}
+  {{ summary }}
+{% endset %}
+
+<article {{ add_attributes({ 'class': classes }) }}>
+  {% include '@layouts/media/media.twig' with {
+    'media': teaser_image,
+    'media_content': teaser_content,
+  } %}
 </article>

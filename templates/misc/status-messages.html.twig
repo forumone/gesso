@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override for status messages.
+ * Theme implementation for status messages.
  *
  * Displays status, error, and warning messages, grouped by type.
  *
@@ -21,6 +21,7 @@
 #}
 {% for type, messages in message_list %}
   {% include '@components/message/message.twig' with {
+    'attributes': attributes,
     'type': type,
     'heading': status_headings[type],
     'messages': messages,

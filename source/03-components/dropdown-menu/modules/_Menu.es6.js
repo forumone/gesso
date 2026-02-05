@@ -61,12 +61,12 @@ class Menu {
       nodesArray.forEach(childElement => {
         const menuElement = childElement.firstElementChild;
         if (menuElement && this.isValidTag(menuElement.tagName)) {
-          const menuItem = this.createMenuItem(menuElement);
-          menuItem.init();
-          this.menuItems.push(menuItem);
           if (menuElement.tagName === 'BUTTON') {
             this.options.displayMenuOnHover = false;
           }
+          const menuItem = this.createMenuItem(menuElement);
+          menuItem.init();
+          this.menuItems.push(menuItem);
         }
       });
     }

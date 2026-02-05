@@ -11,25 +11,25 @@ use Twig\TwigFilter;
 class KeysortTwigExtension extends AbstractExtension {
 
   /**
-   * @inheritdoc
+   * Provide helper name.
    */
-  public function getName() {
+  public function getName(): string {
     return 'gesso_helper_keysort';
   }
 
   /**
    * Add keysort Twig filter.
    */
-  public function getFilters() {
+  public function getFilters(): array {
     $filters = parent::getFilters();
-    $filters[] = new TwigFilter('keysort', [$this, 'keysort']);
+    $filters[] = new TwigFilter('keysort', $this->keysort(...));
     return $filters;
   }
 
   /**
    * Sort array by keys.
    */
-  public function keysort($array) {
+  public function keysort(array $array): array {
     ksort($array);
     return $array;
   }

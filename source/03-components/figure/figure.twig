@@ -3,7 +3,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<figure {{ add_attributes({ 'class': classes }) }}{% if caption is defined %} role="group"{% endif %}>
+<figure {{ add_attributes({ 'class': classes }) }}>
   {{ title_suffix }}
   <div class="c-figure__media">{{ media }}</div>
   {% if caption %}

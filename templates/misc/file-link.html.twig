@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Theme implementation for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - file_size: The size of the file.
+ *
+ * @see template_preprocess_file_link()
+ */
+#}
+{% include '@components/file/file.twig' with {
+  'attributes': attributes,
+  'url': link['#url'],
+  'file_name': link['#title'],
+  'file_mime': file.filemime.value,
+  'icon_name': 'file',
+  'file_size': file_size,
+} %}

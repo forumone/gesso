@@ -2,44 +2,52 @@
 
 @use '00-config' as *;
 
+%caption,
 caption {
-  margin-bottom: rem(gesso-spacing(0.5));
+  margin-block-end: rem(gesso-spacing(0.5));
 }
 
 // col {}
 
 // colgroup {}
 
+%table,
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin-bottom: rem(gesso-spacing(2));
+  margin-block-end: rem(gesso-spacing(2));
   min-width: 100%;
 }
 
 // tbody {}
 
+%td,
 td {
+  background-clip: padding-box;
   background-color: gesso-color(table, background);
   border: 1px solid gesso-color(table, border);
   padding: rem(gesso-spacing(2));
 }
 
 tfoot {
+  %tfoot-td,
   td,
   th {
     background-color: gesso-color(table, background-foot);
   }
 }
 
+%th,
 th {
+  background-clip: padding-box;
   background-color: gesso-color(table, background);
   border: 1px solid gesso-color(table, border);
   padding: rem(gesso-spacing(2));
-  text-align: left;
+  text-align: start;
 }
 
 thead {
+  %thead-td,
   td,
   th {
     background-color: gesso-color(table, background-head);
@@ -53,5 +61,53 @@ thead {
 tr {
   @media print {
     page-break-inside: avoid;
+  }
+}
+
+@if ($wysiwyg) {
+  .ck-widget.table {
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+
+    table {
+      @extend %table;
+      margin-block-start: 0;
+    }
+
+    td {
+      @extend %td;
+      color: revert;
+      height: revert;
+    }
+
+    tfoot {
+      td,
+      th {
+        @extend %tfoot-td;
+      }
+    }
+
+    th {
+      @extend %th;
+      color: revert;
+      height: revert;
+      line-height: revert;
+    }
+
+    thead {
+      td,
+      th {
+        @extend %thead-td;
+      }
+    }
+
+    > caption {
+      @extend %caption;
+      background-color: revert;
+      color: revert;
+      font-size: revert;
+      padding: revert;
+    }
   }
 }

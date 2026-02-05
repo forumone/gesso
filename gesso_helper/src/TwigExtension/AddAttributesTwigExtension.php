@@ -12,20 +12,20 @@ use Twig\TwigFunction;
 class AddAttributesTwigExtension extends AbstractExtension {
 
   /**
-   * @inheritdoc
+   * Provide helper name.
    */
-  public function getName() {
+  public function getName(): string {
     return 'gesso_helper_add_attributes';
   }
 
   /**
-   * @inheritdoc
+   * Add add_attributes Twig function.
    */
   public function getFunctions(): array {
     $functions = parent::getFunctions();
     $functions[] = new TwigFunction(
       'add_attributes',
-      [$this, 'addAttributes'],
+      $this->addAttributes(...),
       ['needs_context' => TRUE, 'is_safe' => ['html']]
     );
     return $functions;
@@ -38,17 +38,22 @@ class AddAttributesTwigExtension extends AbstractExtension {
    * down through includes. Based on
    * https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
    */
-  public function addAttributes($context, $additional_attributes = [], $attribute_type = 'attributes'): Attribute {
+  public function addAttributes(array $context, array $additional_attributes = [], string $attribute_type = 'attributes'): Attribute {
     $attributes = new Attribute();
 
+    $context_attribute = [];
     $context_attribute = &$context;
     foreach (explode('.', $attribute_type) as $segment) {
       $context_attribute = &$context_attribute[$segment];
     }
 
-    // If attribute doesn't exist, create it.
+    // If context_attribute doesn’t exist or is an array, create new Attribute.
     if (!$context_attribute) {
       $context_attribute = new Attribute();
+    }
+
+    if (is_array($context_attribute)) {
+      $context_attribute = new Attribute($context_attribute);
     }
 
     if (!empty($additional_attributes)) {

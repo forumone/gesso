@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to present all user data.
+ * Theme implementation for a user.
  *
  * This template is used when viewing a registered user's page,
  * e.g., example.com/user/123. 123 being the user's ID.
@@ -12,7 +12,6 @@
  *   such as 'user_picture' are available as 'content.user_picture'.
  * - attributes: HTML attributes for the container element.
  * - user: A Drupal User entity.
- * - display_name: The user’s diplay name.
  *
  * @see template_preprocess_user()
  */
@@ -28,6 +27,8 @@
 {% endif %}
 
 {% include '@templates/page/page.twig' with {
+  'attributes': attributes,
+  'is_published': user.status.value,
   'title': display_name,
   'show_admin_info': show_admin_info,
   'admin_info': admin_info,

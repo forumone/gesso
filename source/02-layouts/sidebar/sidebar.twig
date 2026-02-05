@@ -1,6 +1,8 @@
 {% set classes = [
   'l-sidebar',
-  has_multiple_sidebar ? ' l-sidebar--multi-2' : '',
+  sidebar_first_content and not sidebar_second_content ? 'has-first-sidebar' : '',
+  sidebar_second_content and not sidebar_first_content ? 'has-second-sidebar' : '',
+  sidebar_first_content and sidebar_second_content ? 'has-both-sidebars' : '',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
@@ -20,26 +22,6 @@
   'l-sidebar__sidebar',
 ]|join(' ')|trim %}
 
-{% if is_demo and not sidebar_header_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set sidebar_header_content = macros.sample_content('Header Content') %}
-{% endif %}
-
-{% if is_demo and not sidebar_first_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set sidebar_first_content = macros.sample_content('Optional Sidebar Content') %}
-{% endif %}
-
-{% if is_demo and not sidebar_main_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set sidebar_main_content = macros.sample_content('Main Content') %}
-{% endif %}
-
-{% if is_demo and not sidebar_second_content %}
-  {% import '@global/gesso.macro.twig' as macros %}
-  {% set sidebar_second_content = macros.sample_content('Optional Sidebar Content') %}
-{% endif %}
-
 <div {{ add_attributes({ 'class': classes }) }}>
 
   {% if sidebar_header_content %}
@@ -49,9 +31,9 @@
   {% endif %}
 
   {% if sidebar_first_content %}
-    <aside {{ add_attributes({ 'class': sidebar_first_classes }, 'region_attributes.sidebar_first') }}>
+    <div {{ add_attributes({ 'class': sidebar_first_classes }, 'region_attributes.sidebar_first') }}>
       {{ sidebar_first_content }}
-    </aside>
+    </div>
   {% endif %}
 
   {% if sidebar_main_content %}
@@ -61,8 +43,8 @@
   {% endif %}
 
   {% if sidebar_second_content %}
-    <aside {{ add_attributes({ 'class': sidebar_second_classes }, 'region_attributes.sidebar_second') }}>
+    <div {{ add_attributes({ 'class': sidebar_second_classes }, 'region_attributes.sidebar_second') }}>
       {{ sidebar_second_content }}
-    </aside>
+    </div>
   {% endif %}
 </div>

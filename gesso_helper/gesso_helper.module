@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function gesso_helper_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+function gesso_helper_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, ?string $form_id = NULL): void {
   // Work-around for a core bug affecting admin themes.
   // See https://www.drupal.org/docs/8/theming-drupal-8/creating-advanced-theme-settings.
   if (isset($form_id)) {
@@ -50,13 +50,24 @@ function gesso_helper_form_system_theme_settings_alter(&$form, FormStateInterfac
 /**
  * Helper function to validate button classes and labels.
  */
-function gesso_helper_validate_buttons(array $element, FormStateInterface $formState) {
+function gesso_helper_validate_buttons(array $element, FormStateInterface $formState): void {
   $value = str_replace(["\r\n", "\r"], "\n", trim($element['#value']));
   $options = explode("\n", $value);
   foreach ($options as $option) {
     if (!preg_match('@^ *[a-zA-Z0-9_-]+ *(\\.[a-zA-Z0-9_-]+ *)*\\| *.+ *$@', $option)) {
       $formState->setError($element, t('The provided list of classes and labels is invalid.'));
-      return FALSE;
+      return;
     }
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function gesso_helper_theme(array $existing, string $type, string $theme, string $path): array {
+  return [
+    'gesso_icon' => [
+      'render element' => 'icon',
+    ],
+  ];
 }

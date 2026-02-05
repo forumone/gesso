@@ -11,10 +11,10 @@ $overlay-menu-bg-color: rgba(
 .c-overlay-menu {
   background-color: transparent;
   height: 0;
-  left: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   overflow: hidden;
   position: fixed;
-  top: 0;
   transition: all gesso-duration(long) gesso-easing(ease-in-out);
   width: 0;
   z-index: -1;
@@ -33,13 +33,13 @@ $overlay-menu-bg-color: rgba(
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
-  font-size: rem(gesso-font-size(6));
+  font-size: rem(gesso-font-size(8));
   height: calc(100% - 55px);
   justify-content: center;
   width: 100%;
 }
 
 .c-overlay-menu__link {
-  margin-right: 0;
+  margin-inline-end: 0;
   text-decoration: none;
 }

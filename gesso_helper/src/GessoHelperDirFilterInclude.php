@@ -8,8 +8,9 @@ namespace Drupal\gesso_helper;
 class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
 
   /**
+   * Directories to include.
+   *
    * @var array
-   *   Directories to include.
    */
   protected array $includeDirs = [
     'includes',
@@ -18,8 +19,9 @@ class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
   ];
 
   /**
+   * Files to include.
+   *
    * @var array
-   *   Files to include.
    */
   protected array $includeFiles = [
     'gesso.libraries.yml',
@@ -28,17 +30,18 @@ class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
   ];
 
   /**
-   *
+   * Whether this directory or file should be included.
    */
-  public function accept() {
-    return ($this->isDir() && in_array($this->getFilename(), $this->includeDirs) ||
-      !$this->isDir() && in_array($this->getFilename(), $this->includeFiles));
+  public function accept(): bool {
+    $inner = $this->getInnerIterator();
+    return ($inner->isDir() && in_array($inner->getFilename(), $this->includeDirs) ||
+      !$inner->isDir() && in_array($inner->getFilename(), $this->includeFiles));
   }
 
   /**
-   *
+   * Get children.
    */
-  public function getChildren() {
+  public function getChildren(): ?GessoHelperDirFilterExclude {
     return new GessoHelperDirFilterExclude($this->getInnerIterator()->getChildren());
   }
 

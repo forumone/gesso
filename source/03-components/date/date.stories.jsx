@@ -1,11 +1,13 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './date.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 import data from './date.yml';
 
 const settings = {
   title: 'Components/Date',
+  decorators: [withGlobalWrapper],
   parameters: {
     controls: {
       include: [
@@ -18,17 +20,15 @@ const settings = {
         'day',
         'hour',
         'minute',
-      ]
-    }
-  }
+      ],
+    },
+  },
 };
 
-const Date = args => (
-  parse(twigTemplate({
-    ...args,
-  }))
-);
-Date.args = { ...globalData, ...data };
+const Date = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...globalData, ...data },
+};
 
 export default settings;
 export { Date };

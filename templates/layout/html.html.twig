@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override for the basic structure of a single Drupal page.
+ * Theme implementation for a single Drupal page.
  *
  * Variables:
  * - logged_in: A flag indicating if user is logged in.
@@ -31,7 +31,7 @@
   db_offline ? 'db-offline',
 ] %}
 
-{% set body_id = 'top'|unique_id %}
+{% set body_id = 'top'|clean_unique_id %}
 
 <!DOCTYPE html>
 <html{{ html_attributes }} class="no-js">
@@ -55,7 +55,7 @@
       {% include '@components/back-to-top/back-to-top.twig' with {
         text: 'Back to top'|t,
         top_element: body_id,
-        gesso_image_path: gesso_image_path,
+        image_path: image_path,
       } %}
     {% endif %}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">

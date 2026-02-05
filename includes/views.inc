@@ -8,14 +8,23 @@
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_views_view(array &$variables) {
-  $variables['path'] = $variables['view']->getRequest()->getPathInfo();
+function gesso_preprocess_views_view(array &$variables): void {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+
+  $variables['path'] = $view->getRequest()->getPathInfo();
+
+  if (empty($variables['title']) && !empty($view->getTitle())) {
+    $variables['title'] = [
+      '#markup' => $view->getTitle(),
+    ];
+  }
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function gesso_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+function gesso_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
   $view = $variables['view'];
   $suggestions[] = 'views_view__' . $view->id();
   $suggestions[] = 'views_view__' . $view->current_display;
@@ -25,7 +34,7 @@ function gesso_theme_suggestions_views_view_alter(array &$suggestions, array $va
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function gesso_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
+function gesso_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables): void {
   $view = $variables['view'];
   $suggestions[] = 'views_view_unformatted__' . $view->id();
   $suggestions[] = 'views_view_unformatted__' . $view->current_display;

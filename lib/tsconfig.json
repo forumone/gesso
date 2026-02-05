@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": false,
+    "noEmit": true,
+    "types": ["node"],
+    "useUnknownInCatchVariables": false,
+  },
+  "include": [
+    "./configLoader.cjs"
+  ],
+}

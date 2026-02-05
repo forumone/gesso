@@ -5,10 +5,12 @@
  * Navigation-related hook implementations.
  */
 
+use Drupal\Core\Render\Element;
+
 /**
  * Implements hook_preprocess_breadcrumb().
  */
-function gesso_preprocess_breadcrumb(array &$variables) {
+function gesso_preprocess_breadcrumb(array &$variables): void {
   if ($variables['breadcrumb']) {
     /** @var \Drupal\Core\Render\Renderer $renderer */
     $renderer = \Drupal::service('renderer');
@@ -36,11 +38,48 @@ function gesso_preprocess_breadcrumb(array &$variables) {
 /**
  * Implements hook_preprocess_menu().
  */
-function gesso_preprocess_menu(array &$variables) {
+function gesso_preprocess_menu(array &$variables): void {
   $current_path = \Drupal::request()->getRequestUri();
   foreach ($variables['items'] as $key => $item) {
-    if ($item['url']->toString() == $current_path) {
+    if (is_string($item['url'])) {
+      $url_string = $item['url'];
+    }
+    else {
+      $url_string = $item['url']->toString();
+    }
+    if ($url_string == $current_path) {
       $variables['items'][$key]['is_active'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu_local_tasks().
+ */
+function gesso_preprocess_menu_local_tasks(array &$variables): void {
+  foreach (Element::children($variables['primary']) as $key) {
+    $variables['primary'][$key]['#level'] = 'primary';
+  }
+
+  foreach (Element::children($variables['secondary']) as $key) {
+    $variables['secondary'][$key]['#level'] = 'secondary';
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function gesso_preprocess_menu_local_task(array &$variables): void {
+  $variables['link']['#options']['attributes']['class'][] = 'c-button-group__link';
+  $variables['link']['#options']['attributes']['class'][] = 'c-button';
+  $variables['link']['#options']['attributes']['class'][] = 'c-button--base';
+
+  if (isset($variables['element']['#level'])) {
+    $variables['level'] = $variables['element']['#level'];
+
+    // Additional class for secondary items.
+    if ($variables['level'] == 'secondary') {
+      $variables['link']['#options']['attributes']['class'][] = 'c-button--small';
     }
   }
 }

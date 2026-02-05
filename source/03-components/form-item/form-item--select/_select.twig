@@ -6,32 +6,77 @@
 ]|join(' ')|trim %}
 
 {% set attributes_to_add = {
-  class: classes,
+  'class': classes,
 } %}
 
-{% if id %}
+{# ID #}
+{% if id is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    id: id,
+    'id': id ~ '',
   }) %}
 {% endif %}
 
+{# Name #}
+{% if name is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'name': name ~ '',
+  }) %}
+{% endif %}
+
+{# Autocomplete #}
+{% if autocomplete is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'autocomplete': autocomplete ~ '',
+  }) %}
+{% endif %}
+
+{# Autofocus #}
+{% if is_autofocus %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'autofocus': 'autofocus',
+  }) %}
+{% endif %}
+
+{# Disabled #}
 {% if is_disabled or disabled %}
   {% set attributes_to_add = attributes_to_add|merge({
-    disabled: 'disabled',
+    'disabled': 'disabled',
   }) %}
 {% endif %}
 
+{# Form #}
+{% if form_id is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'form': form_id ~ '',
+  }) %}
+{% endif %}
+
+{# Multiple #}
+{% if is_multiple %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'multiple': 'multiple',
+  }) %}
+{% endif %}
+
+{# Required #}
 {% if is_required or required %}
   {% set attributes_to_add = attributes_to_add|merge({
-    required: 'required',
+    'required': 'required',
     'aria-required': 'true',
   }) %}
 {% endif %}
 
-{# Described by #}
-{% if described_by %}
+{# Select Size #}
+{% if size is not empty %}
   {% set attributes_to_add = attributes_to_add|merge({
-    'aria-describedby': described_by,
+    'size': size ~ '',
+  }) %}
+{% endif %}
+
+{# Described by #}
+{% if described_by is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'aria-describedby': described_by ~ '',
   }) %}
 {% endif %}
 

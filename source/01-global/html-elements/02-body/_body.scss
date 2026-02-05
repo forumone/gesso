@@ -2,9 +2,17 @@
 
 @use '00-config' as *;
 
+@property --gesso-scrollbar-width {
+  inherits: true;
+  // stylelint-disable-next-line length-zero-no-unit
+  initial-value: 0px;
+  syntax: '<length>';
+}
+
 // Overflow-x and width properties ensure elements using full bleed techniques
 // (e.g., the layout-full-bleed mixin) do not create horizontal scroll bars.
 body {
+  --gesso-scrollbar-width: calc(100vw - 100cqw);
   background-color: gesso-color(background, site);
   color: gesso-color(text, primary);
   margin: 0;
@@ -13,13 +21,14 @@ body {
   width: 100%;
   word-wrap: break-word;
 
-  &.has-open-menu {
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-
   // Tweak styling in WYSIWYG editor.
   @if $wysiwyg {
     padding: 0 rem(gesso-site-margins(desktop));
+  }
+
+  &.has-open-menu,
+  &.has-open-modal {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 }

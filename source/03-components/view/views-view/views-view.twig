@@ -5,7 +5,9 @@
 
 <{{ element ?: 'div' }} {{ add_attributes({ 'class': classes })}}>
   {{ title_prefix }}
-  {{ title }}
+  {% if title and not hide_title %}
+    <{{ title_element ?: 'h2' }}>{{ title }}</{{ title_element ?: 'h2' }}>
+  {% endif %}
   {{ title_suffix }}
 
   {% if header %}

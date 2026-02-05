@@ -3,21 +3,22 @@
 @use '00-config' as *;
 
 .gesso-storybook-typographic-scale {
-  margin: 1rem 1rem 3rem;
+  margin-block: 0 3rem;
+  margin-inline: 0;
 }
 
 .gesso-storybook-typographic-scale__heading {
   font-family: gesso-font-family(system);
   font-size: 1.25rem;
   line-height: 1.25;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .gesso-storybook-typographic-scale__row {
   align-items: center;
   display: flex;
   gap: 1rem;
-  line-height: gesso-line-height(tight);
+  line-height: gesso-line-height(short);
   margin: 1rem 0;
 }
 

@@ -9,14 +9,14 @@
     align-items: center;
     background-color: gesso-color(button, back-to-top, background);
     border-radius: 50%;
-    bottom: rem(gesso-spacing(2.5));
     color: gesso-color(button, back-to-top, color);
     display: flex;
     font-size: rem(60px);
     height: rem(70px);
+    inset-block-end: rem(gesso-spacing(2.5));
+    inset-inline-end: rem(gesso-spacing(2.5));
     justify-content: center;
     position: fixed;
-    right: rem(gesso-spacing(2.5));
     transition-duration: gesso-duration(short);
     transition-property: background-color, color, opacity;
     transition-timing-function: gesso-easing(ease-in);
@@ -38,7 +38,7 @@
   }
 }
 
-// Ensure that the button is visible in Storybook.
-.c-back-to-top--storybook-show {
+// Ensure that the button is always visible (e.g., in Storybook).
+.c-back-to-top--always-visible {
   opacity: 1 !important;
 }

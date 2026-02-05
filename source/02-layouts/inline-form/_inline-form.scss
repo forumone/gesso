@@ -9,7 +9,8 @@
     gap: rem(gesso-spacing(2));
 
     > * {
-      margin: 0 0 rem(gesso-spacing(2)) !important;
+      margin-block: 0 rem(gesso-spacing(2)) !important;
+      margin-inline: 0;
     }
   }
 }

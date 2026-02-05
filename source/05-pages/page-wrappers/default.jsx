@@ -12,7 +12,7 @@ import FooterTwig from '../../02-layouts/footer/footer.twig';
 import { SiteName } from '../../03-components/site-name/site-name.stories.jsx';
 import NavTwig from '../../02-layouts/nav/nav.twig';
 import { AccountMenu } from '../../03-components/menu/menu--account/menu--account.stories.jsx';
-import { DropdownMenu} from "../../03-components/dropdown-menu/dropdown-menu.stories.jsx";
+import { DropdownMenu } from '../../03-components/dropdown-menu/dropdown-menu.stories.jsx';
 import { Breadcrumb } from '../../03-components/breadcrumb/breadcrumb.stories.jsx';
 import { FooterMenu } from '../../03-components/menu/menu--footer/menu--footer.stories.jsx';
 import { Copyright } from '../../03-components/copyright/copyright.stories.jsx';
@@ -40,19 +40,15 @@ const PageWrapper = props => {
                 {parse(
                   NavTwig({
                     modifier_classes: 'l-nav--account',
-                    title: 'User account menu',
-                    hide_title: true,
-                    nav_id: 'nav-account',
+                    label: 'User account menu',
                     nav_content: ReactDOMServer.renderToStaticMarkup(
-                      <>
-                        {AccountMenu(AccountMenu.args)}
-                      </>
-                    )
+                      <>{AccountMenu.render(AccountMenu.args)}</>
+                    ),
                   })
                 )}
-                {SiteName(globalData)}
+                {SiteName.render(globalData)}
               </>
-            )
+            ),
           })
         )}
         {parse(
@@ -64,14 +60,10 @@ const PageWrapper = props => {
                 {parse(
                   NavTwig({
                     modifier_classes: 'l-nav--main',
-                    title: 'Main navigation',
-                    hide_title: true,
-                    nav_id: 'nav-main',
+                    label: 'Main navigation',
                     nav_content: ReactDOMServer.renderToStaticMarkup(
-                      <>
-                        {DropdownMenu(DropdownMenu.args)}
-                      </>
-                    )
+                      <>{DropdownMenu.render(DropdownMenu.args)}</>
+                    ),
                   })
                 )}
               </>
@@ -82,9 +74,7 @@ const PageWrapper = props => {
           BreadcrumbTwig({
             has_constrain: false,
             breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
-              <>
-                {Breadcrumb(Breadcrumb.args)}
-              </>
+              <>{Breadcrumb.render(Breadcrumb.args)}</>
             ),
           })
         )}
@@ -93,9 +83,7 @@ const PageWrapper = props => {
             ContentTwig({
               has_constrain: true,
               content_content: ReactDOMServer.renderToStaticMarkup(
-                <>
-                  {children}
-                </>
+                <>{children}</>
               ),
             })
           )}
@@ -108,26 +96,21 @@ const PageWrapper = props => {
                 {parse(
                   NavTwig({
                     modifier_classes: 'l-nav--footer',
-                    title: 'Footer menu',
-                    hide_title: true,
-                    nav_id: 'nav-footer',
+                    label: 'Footer menu',
                     nav_content: ReactDOMServer.renderToStaticMarkup(
-                      <>
-                        {FooterMenu(FooterMenu.args)}
-                      </>
-                    )
+                      <>{FooterMenu.render(FooterMenu.args)}</>
+                    ),
                   })
                 )}
-                {Copyright(Copyright.args)}
+                {Copyright.render(Copyright.args)}
               </>
             ),
           })
         )}
       </div>
-      {BackToTop({
+      {BackToTop.render({
         ...BackToTop.args,
         top_element: 'top',
-        is_demo: false
       })}
     </>
   );

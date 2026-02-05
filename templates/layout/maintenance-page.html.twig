@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a single Drupal page while offline.
+ * Theme implementation for a single Drupal page while offline.
  *
  * All available variables are mirrored in page.html.twig.
  * Some may be blank but they are provided for consistency.
@@ -49,9 +49,7 @@
 
     {# page.content is missing page title. #}
     {% set content %}
-      {% include '@components/page-title/page-title.twig' with {
-        'page_title': page['#title'],
-      } %}
+      {{ page.title }}
       {{ page.status }}
       {{ page.content }}
     {% endset %}

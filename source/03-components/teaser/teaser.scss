@@ -1,0 +1,7 @@
+// Component: Teaser
+
+@use '00-config' as *;
+
+.c-teaser__date {
+  margin-block-end: rem(gesso-spacing(1));
+}

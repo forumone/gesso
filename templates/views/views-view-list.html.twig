@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override for a view template to display a list of rows.
+ * Theme implementation for a view template to display a list of rows.
  *
  * Available variables:
  * - attributes: HTML attributes for the container.
@@ -17,6 +17,7 @@
  */
 #}
 {% include '@components/view/views-view-list/views-view-list.twig' with {
+  'attributes': attributes,
   'title': title,
   'title_element': 'h3',
   'hide_wrapper': attributes is empty,

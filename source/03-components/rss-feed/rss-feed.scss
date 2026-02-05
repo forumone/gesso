@@ -1,0 +1,7 @@
+// Component: RSS Feed
+
+@use '00-config' as *;
+
+.c-rss-feed {
+  margin-block-start: rem(gesso-spacing(3));
+}

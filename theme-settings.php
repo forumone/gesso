@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_form_FORM_ID_alter() for system_theme_settings.
  */
-function gesso_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+function gesso_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, ?string $form_id = NULL): void {
   // Work-around for a core bug affecting admin themes.
   // See https://www.drupal.org/docs/8/theming-drupal-8/creating-advanced-theme-settings.
   if (isset($form_id)) {
@@ -49,5 +49,34 @@ function gesso_form_system_theme_settings_alter(&$form, FormStateInterface $form
     '#type' => 'checkbox',
     '#title' => t('Include current page in breadcrumb'),
     '#default_value' => theme_get_setting('include_current_page_in_breadcrumb') ?? TRUE,
+  ];
+
+  $form['external_links'] = [
+    '#type' => 'details',
+    '#title' => t('External Links'),
+    '#open' => TRUE,
+  ];
+  $form['external_links']['add_external_link_icons'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Add icons to external links'),
+    '#default_value' => theme_get_setting('add_external_link_icons') ?? FALSE,
+  ];
+  $form['external_links']['exit_disclaimer'] = [
+    '#type' => 'textfield',
+    '#title' => t('Exit Disclaimer'),
+    '#description' => t('Disclaimer text used for exit links.'),
+    '#default_value' => theme_get_setting('exit_disclaimer') ?? 'Exit this website',
+  ];
+  $form['external_links']['allowed_domains'] = [
+    '#type' => 'textarea',
+    '#title' => t('Allowed Domains'),
+    '#description' => t('Links with these domains won’t get external link icons. Enter multiple domains on separate lines.'),
+    '#default_value' => theme_get_setting('allowed_domains') ?? "example-allowed-domain.com\nforumone.github.io",
+  ];
+  $form['external_links']['allowed_links'] = [
+    '#type' => 'textarea',
+    '#title' => t('Allowed Links'),
+    '#description' => t('Links with these URLs (typically used for social media) won’t get external link icons. Enter multiple links on separate lines.'),
+    '#default_value' => theme_get_setting('allowed_links') ?? "https://www.vimeo.com/example-allowed-link\nhttps://www.youtube.com/example-allowed-link",
   ];
 }

@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override for a 'textarea' #type form element.
+ * Theme implementation for a textarea form element.
  *
  * Available variables
  * - wrapper_attributes: A list of HTML attributes for the wrapper element.
@@ -13,15 +13,16 @@
  * @see template_preprocess_textarea()
  */
 #}
-{% set classes = [
+{% set modifier_classes = [
   resizable ? 'is-resizable',
-] %}
+]|join(' ')|trim %}
 
 {% set remove_classes = [
   'form-textarea',
   'required',
 ] %}
 
-{% set attributes = attributes.removeClass(remove_classes).addClass(classes) %}
-
-{% include '@components/form-item/form-item--textarea/_textarea.twig' %}
+{% include '@components/form-item/form-item--textarea/_textarea.twig' with {
+  'attributes': attributes.removeClass(remove_classes),
+  'modifier_classes': modifier_classes,
+} %}

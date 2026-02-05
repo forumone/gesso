@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a region.
+ * Theme implementation for a region.
  *
  * Available variables:
  * - content: The content for this region, typically blocks.
@@ -14,6 +14,7 @@
 #}
 {% if content %}
   {% embed '@layouts/region/region.twig' with {
+    'attributes': attributes,
     'region_name': region|clean_class,
     'has_constrain': true,
   } %}
