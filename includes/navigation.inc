@@ -42,7 +42,6 @@ function gesso_preprocess_breadcrumb(array &$variables): void {
 function gesso_preprocess_menu(array &$variables): void {
   $current_path = \Drupal::request()->getRequestUri();
   foreach ($variables['items'] as $key => $item) {
-
     if (!empty($item['url'])) {
       if ($item['url'] instanceof Url) {
           $url_string = $item['url']->toString();
