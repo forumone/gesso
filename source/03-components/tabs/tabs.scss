@@ -9,7 +9,7 @@
   z-index: 0;
 }
 
-.c-tab-button {
+.c-tabs__button {
   @include responsive-font-size(4);
   background-color: transparent;
   border: 0;
@@ -37,7 +37,7 @@
   }
 }
 
-.c-tab-panel {
+.c-tabs__panel {
   display: none;
 
   &[aria-hidden='false'] {
@@ -61,7 +61,7 @@
     }
   }
 
-  .c-tab-button {
+  .c-tabs__button {
     @include breakpoint(gesso-breakpoint(tablet-lg)) {
       border-block-end: 0;
       border-inline-end: solid 3px transparent;
@@ -74,7 +74,7 @@
     }
   }
 
-  .c-tab-panel {
+  .c-tabs__panel {
     @include breakpoint(gesso-breakpoint(tablet-lg)) {
       padding-inline-start: rem(gesso-spacing(4));
     }

@@ -10,18 +10,29 @@
   <div class="c-tabs__buttons" role="tablist">
     {% block tabs_buttons %}
       {% for tab in tabs %}
-        {% include "@components/tabs/tab-button.twig" with {
-          label: tab.label
-        }%}
+        <button
+          class="c-tabs__button"
+          type="button"
+          role="tab"
+          aria-controls="{{ unique_id ~ '-panel-' ~ loop.index }}"
+        >
+          {{ tab.label }}
+        </button>
       {% endfor %}
     {% endblock %}
   </div>
   <div class="c-tabs__panels">
     {% block tabs_panels %}
       {% for tab in tabs %}
-        {% include "@components/tabs/tab-panel.twig" with {
-          content: tab.content
-        }%}
+        <div
+          class="c-tabs__panel"
+          role="tabpanel"
+          aria-hidden="true"
+          id="{{ unique_id ~ '-panel-' ~ loop.index }}"
+          tabindex="0"
+        >
+          {{ tab.content }}
+        </div>
       {% endfor %}
     {% endblock %}
   </div>
