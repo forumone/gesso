@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme implementation to display a paragraph.
+ */
+#}
+{% set tab_labels = [] %}
+{% for item in paragraph.field_paragraphs %}
+  {% set tab_labels = tab_labels|merge([item.entity.field_title.value|default('')]) %}
+{% endfor %}
+
+{% include '@components/tabs/tabs.twig' with {
+  'attributes': attributes,
+  'modifier_classes': '',
+  'tab_labels': tab_labels,
+  'tab_panels': content.field_paragraphs|field_value is not empty ? content.field_paragraphs|field_value : false,
+} %}
+
+{% set catch_cache = content|without('field_paragraphs')|render %}
