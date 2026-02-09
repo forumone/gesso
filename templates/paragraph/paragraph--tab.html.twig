@@ -1,0 +1,9 @@
+{#
+/**
+ * @file
+ * Theme implementation to display a paragraph.
+ */
+#}
+{{ content.field_wysiwyg|field_value }}
+
+{% set catch_cache = content|without('field_wysiwyg')|render %}

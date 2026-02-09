@@ -2,14 +2,14 @@
 
 namespace Drupal\gesso_helper\Element;
 
-use Drupal\Core\Render\Element\RenderElement;
+use Drupal\Core\Render\Element\RenderElementBase;
 
 /**
  * Provides an SVG icon element.
  *
- * @RenderElement("gesso_icon")
+ * @RenderElementBase("gesso_icon")
  */
-class GessoIcon extends RenderElement {
+class GessoIcon extends RenderElementBase {
 
   /**
    * Prerenders icon.

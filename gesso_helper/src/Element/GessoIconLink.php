@@ -4,7 +4,7 @@ namespace Drupal\gesso_helper\Element;
 
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Render\BubbleableMetadata;
-use Drupal\Core\Render\Element\RenderElement;
+use Drupal\Core\Render\Element\RenderElementBase;
 use Drupal\Core\Url as CoreUrl;
 
 /**
@@ -33,9 +33,9 @@ use Drupal\Core\Url as CoreUrl;
  * ];
  * @endcode
  *
- * @RenderElement("gesso_icon_link")
+ * @RenderElementBase("gesso_icon_link")
  */
-class GessoIconLink extends RenderElement {
+class GessoIconLink extends RenderElementBase {
 
   /**
    * {@inheritdoc}

@@ -1,0 +1,15 @@
+display: 'horizontal'
+tab_labels:
+  - 'It’s Only a Model'
+  - 'Let Us Ride'
+  - 'What a Strange Person'
+  - 'The Knights Who Say Ni'
+tab_panels:
+  - |
+      <p>Vestibulum ac diam sit amet quam <a href="#0">vehicula elementum</a> sed sit amet dui. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.</p><p>Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Quisque malesuada placerat nisl. Fusce fermentum odio nec arcu. Curabitur nisi.</p>
+  - |
+      <p>Gonec rutrum congue leo eget malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.</p><p>Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Phasellus blandit leo ut odio. Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vestibulum volutpat enim.</p>
+  - |
+      <p>Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sollicitudin molestie malesuada. Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum <a href="#0">primis in faucibus</a> orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p><p>Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vestibulum volutpat enim.</p>
+  - |
+      <p>Nullam quis ante. Vivamus laoreet. Etiam ut purus mattis mauris sodales aliquam. In ut quam vitae odio lacinia tincidunt. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Phasellus nec sem in justo pellentesque facilisis. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Nullam dictum felis eu pede mollis pretium. Sed hendrerit.</p><p>Phasellus blandit leo ut odio. Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vestibulum volutpat enim.</p>
