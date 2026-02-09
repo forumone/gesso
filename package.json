@@ -1,6 +1,6 @@
 {
   "name": "gesso",
-  "version": "5.4.3",
+  "version": "5.4.4",
   "description": "Drupal starter theme",
   "type": "module",
   "main": "js/scripts.min.js",
