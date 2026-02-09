@@ -20,7 +20,7 @@
   }
 }
 
-.c-button-group__item {
+.c-button-group-item {
   margin: 0;
 
   &.is-active {
@@ -32,7 +32,7 @@
     z-index: 2;
   }
 
-  .c-button-group__link {
+  .c-button-group-item__link {
     border-block-start-width: 0;
     border-radius: 0;
 
@@ -43,7 +43,7 @@
   }
 
   &:first-child {
-    .c-button-group__link {
+    .c-button-group-item__link {
       border-block-start-width: $button-border-width;
       border-start-end-radius: $button-border-radius;
       border-start-start-radius: $button-border-radius;
@@ -57,7 +57,7 @@
   }
 
   &:last-child {
-    .c-button-group__link {
+    .c-button-group-item__link {
       border-end-end-radius: $button-border-radius;
       border-end-start-radius: $button-border-radius;
 
@@ -69,7 +69,7 @@
   }
 }
 
-.c-button-group__link {
+.c-button-group-item__link {
   margin: 0 !important;
   width: 100%;
 }

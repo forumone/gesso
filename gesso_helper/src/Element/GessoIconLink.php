@@ -33,7 +33,7 @@ use Drupal\Core\Url as CoreUrl;
  * ];
  * @endcode
  *
- * @RenderElement("gesso_icon_link")
+ * @RenderElementBase("gesso_icon_link")
  */
 class GessoIconLink extends RenderElementBase {
 
