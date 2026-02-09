@@ -6,7 +6,7 @@
  */
 
 use Drupal\Component\Utility\Html;
-use Drupal\filter\Render\FilteredMarkup;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -47,7 +47,7 @@ function gesso_preprocess_filter_caption(array &$variables): void {
     $variables['classes'] = str_replace('align', 'u-align', $variables['classes']);
   }
 
-  $variables['node'] = FilteredMarkup::create(Html::serialize($dom));
+  $variables['node'] = Markup::create(Html::serialize($dom));
 }
 
 /**
