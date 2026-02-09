@@ -1,0 +1,81 @@
+@use '00-config' as *;
+
+.c-tabs__buttons {
+  border-block-end: solid 1px gesso-grayscale(gray-3);
+  display: flex;
+  margin-block-end: rem(gesso-spacing(2));
+  overflow: auto hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.c-tabs__button {
+  @include responsive-font-size(4);
+  background-color: transparent;
+  border: 0;
+  border-bottom: solid 3px transparent;
+  cursor: pointer;
+  display: block;
+  padding: rem(gesso-spacing(1.5)) rem(gesso-spacing(2));
+  text-align: left;
+  transition: all gesso-duration(short) gesso-easing(ease-in-out);
+  white-space: nowrap;
+  z-index: 1;
+
+  &:hover {
+    background-color: gesso-grayscale(gray-1);
+  }
+
+  &:active {
+    background-color: gesso-grayscale(gray-2);
+  }
+
+  &[aria-selected='true'] {
+    background-color: gesso-grayscale(gray-1);
+    border-block-end: solid 3px gesso-brand(blue, base);
+  }
+}
+
+.c-tabs__panel {
+  display: none;
+
+  &[aria-hidden='false'] {
+    display: block;
+  }
+}
+
+// Vertical Display
+.c-tabs[data-display='vertical'] {
+  @include breakpoint(gesso-breakpoint(tablet-lg)) {
+    display: grid;
+    grid-template-columns: rem(250px) 1fr;
+  }
+
+  .c-tabs__buttons {
+    @include breakpoint(gesso-breakpoint(tablet-lg)) {
+      border-block-end: 0;
+      border-inline-end: solid 1px gesso-grayscale(gray-3);
+      display: block;
+      overflow: initial;
+    }
+  }
+
+  .c-tabs__button {
+    @include breakpoint(gesso-breakpoint(tablet-lg)) {
+      border-block-end: 0;
+      border-inline-end: solid 3px transparent;
+      inline-size: 100%;
+      white-space: initial;
+
+      &[aria-selected='true'] {
+        border-inline-end: solid 3px gesso-brand(blue, base);
+      }
+    }
+  }
+
+  .c-tabs__panel {
+    @include breakpoint(gesso-breakpoint(tablet-lg)) {
+      padding-inline-start: rem(gesso-spacing(4));
+    }
+  }
+}

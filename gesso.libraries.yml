@@ -262,6 +262,15 @@ side_menu:
     - gesso/global
     - gesso/hamburger_button
 
+tabs:
+  css:
+    theme:
+      dist/css/tabs.css: {}
+  js:
+    dist/js/tabs.es6.js: {}
+  dependencies:
+    - gesso/global
+
 tag:
   css:
     theme:
