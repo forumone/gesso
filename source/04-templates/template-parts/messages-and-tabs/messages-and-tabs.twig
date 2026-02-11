@@ -1,5 +1,5 @@
 {% if not is_published %}
-  {% include '@components/message/message.twig' with {
+  {% include 'gesso:message' with {
     type: 'warning',
     messages: ['This page is unpublished.'|t],
   } %}

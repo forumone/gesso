@@ -9,49 +9,14 @@ import './accordion.source.scss';
 import './accordion--step-list.source.scss';
 import './accordion.source.js';
 import componentInfo from './accordion.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Accordion',
   decorators: [withGlobalWrapper],
   tags: ['autodocs'],
   argTypes: {
-    ...Object.fromEntries(
-      Object.entries(componentInfo.props.properties).map(([key, p]) => {
-        const argTypeConfig = {};
-        if (p.title) {
-          argTypeConfig.name = p.title;
-        }
-        if (p.type) {
-          argTypeConfig.type = p.type;
-        }
-        if (p.description) {
-          argTypeConfig.description = p.description;
-        }
-        argTypeConfig.table = {};
-        argTypeConfig.table.category = 'props';
-        if (typeof p.default !== 'undefined') {
-          argTypeConfig.table.defaultValue = {
-            summary: p.default,
-          };
-        }
-        return [key, argTypeConfig];
-      })
-    ),
-    ...Object.fromEntries(
-      Object.entries(componentInfo.slots).map(([key, p]) => {
-        const argTypeConfig = {};
-        if (p.title) {
-          argTypeConfig.name = p.title;
-        }
-        if (p.description) {
-          argTypeConfig.description = p.description;
-        }
-        argTypeConfig.control = false;
-        argTypeConfig.table = {};
-        argTypeConfig.table.category = 'slots';
-        return [key, argTypeConfig];
-      })
-    ),
+    ...getArgTypesFromComponent(componentInfo),
   },
   parameters: {
     controls: {

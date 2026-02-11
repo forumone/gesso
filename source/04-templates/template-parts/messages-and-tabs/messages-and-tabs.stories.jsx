@@ -5,7 +5,7 @@ import { withGlobalWrapper } from '../../../../.storybook/decorators';
 import twigTemplate from './messages-and-tabs.twig';
 import globalData from '../../../00-config/storybook.global-data.yml';
 import { Base as LocalTasks } from '../../../03-components/button-group/button-group.stories.jsx';
-import { Default as StatusMessage } from '../../../03-components/message/message.stories.jsx';
+import { Default as StatusMessage } from '../../../../components/message/message.stories.jsx';
 
 const settings = {
   title: 'Templates/Template Sections/Messages and Tabs',

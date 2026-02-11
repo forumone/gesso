@@ -1,0 +1,39 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Message
+status: experimental
+description: Displays status, warning, or error messages to users.
+props:
+  type: object
+  properties:
+    type:
+      type:
+        - string
+        - "null"
+      title: Message Type
+      description: Type of message to display (status, warning, or error).
+      default: 'status'
+      enum:
+        - status
+        - warning
+        - error
+    heading:
+      type:
+        - string
+        - "null"
+      title: Heading
+      description: Visually hidden heading for screen readers.
+    messages:
+      type: array
+      title: Messages
+      description: Array of message strings to display.
+      items:
+        type: string
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: Additional CSS classes to add to the message element.
+libraryOverrides:
+  dependencies:
+    - gesso/global

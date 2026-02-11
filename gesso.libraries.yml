@@ -32,13 +32,6 @@ icon_link:
   dependencies:
     - gesso/global
 
-message:
-  css:
-    theme:
-      dist/css/message.css: {}
-  dependencies:
-    - gesso/global
-
 mobile_menu:
   css:
     theme:
