@@ -40,16 +40,6 @@ mobile_menu:
     - gesso/global
     - gesso/hamburger_button
 
-overlay_menu:
-  css:
-    theme:
-      dist/css/overlay-menu.css: {}
-  js:
-    dist/js/overlay-menu.es6.js: {}
-  dependencies:
-    - gesso/global
-    - gesso/hamburger_button
-
 pager:
   css:
     theme:

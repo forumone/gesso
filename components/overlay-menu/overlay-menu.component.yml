@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Overlay Menu
+props:
+  type: object
+  properties:
+    menu_name:
+      type: string
+      title: Menu Name
+      description: 'The name of the menu to render.'
+    items:
+      type: array
+      title: Items
+      description: 'An array of menu items.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for custom styling.'
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/global
