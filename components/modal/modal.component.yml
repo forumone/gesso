@@ -1,0 +1,40 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Modal
+props:
+  type: object
+  properties:
+    id:
+      type: string
+      title: ID
+      description: 'Unique identifier for the modal element.'
+    default_open:
+      type:
+        - boolean
+        - "null"
+      title: Default Open
+      description: 'Whether the modal should open by default.'
+    title:
+      type:
+        - string
+        - "null"
+      title: Title
+      description: 'The modal title displayed in the header.'
+    content:
+      type: string
+      title: Content
+      description: 'The main content of the modal.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for styling variations.'
+    add_attributes:
+      type: object
+      title: Add Attributes
+      description: 'Additional HTML attributes to add to the modal element.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/drupal
+    - core/once

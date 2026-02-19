@@ -2,8 +2,8 @@ import parse from 'html-react-parser';
 import React from 'react';
 import twigTemplate from './modal.twig';
 import data from './modal.yml';
-import './modal.scss';
-import './modal.es6';
+import './modal.source.scss';
+import './modal.source';
 
 const settings = {
   title: 'Components/Modal',

@@ -40,15 +40,6 @@ mobile_menu:
     - gesso/global
     - gesso/hamburger_button
 
-modal:
-  css:
-    theme:
-      dist/css/modal.css: {}
-  js:
-    dist/js/modal.es6.js: {}
-  dependencies:
-    - gesso/global
-
 overlay_menu:
   css:
     theme:
