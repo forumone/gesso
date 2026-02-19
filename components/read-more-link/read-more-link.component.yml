@@ -1,0 +1,39 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Read More Link
+props:
+  type: object
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+    url:
+      type: string
+      title: URL
+      description: 'The link URL.'
+    title:
+      type: string
+      title: Title
+      description: 'The title text to include in the link description.'
+    label:
+      type:
+        - string
+        - "null"
+      title: Label
+      description: 'Custom link text. Defaults to "Read more" if not provided.'
+    description_prefix:
+      type:
+        - string
+        - "null"
+      title: Description Prefix
+      description: 'Prefix text before the title in the link description. Defaults to "about" if not provided.'
+    hide_description:
+      type: boolean
+      title: Hide Description
+      description: 'Whether to hide the description text visually (still available to screen readers).'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--icon-link
