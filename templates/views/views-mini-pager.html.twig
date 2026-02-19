@@ -11,7 +11,7 @@
  */
 #}
 {% if items %}
-  {% include '@components/pager/pager--mini/pager--mini.twig' with {
+  {% include 'gesso:pager-mini' with {
     'heading': 'Pagination'|t,
     'pager_items': items,
   } %}

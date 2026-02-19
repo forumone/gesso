@@ -40,21 +40,6 @@ mobile_menu:
     - gesso/global
     - gesso/hamburger_button
 
-pager:
-  css:
-    theme:
-      dist/css/pager.css: {}
-  dependencies:
-    - gesso/global
-
-pager_mini:
-  css:
-    theme:
-      dist/css/pager--mini.css: {}
-  dependencies:
-    - gesso/global
-    - gesso/pager
-
 progress:
   css:
     theme:

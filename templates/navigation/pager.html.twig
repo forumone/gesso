@@ -31,7 +31,7 @@
  */
 #}
 {% if items %}
-  {% include '@components/pager/pager.twig' with {
+  {% include 'gesso:pager' with {
     'attributes': attributes,
     'heading': 'Pagination'|t,
     'pager_items': items,
