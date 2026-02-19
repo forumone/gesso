@@ -40,13 +40,6 @@ mobile_menu:
     - gesso/global
     - gesso/hamburger_button
 
-progress:
-  css:
-    theme:
-      dist/css/progress.css: {}
-  dependencies:
-    - gesso/global
-
 react:
   js:
     # Setting preprocess to false is important since we're using

@@ -1,9 +1,9 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './progress.twig';
 import data from './progress.yml';
-import './progress.scss';
+import './progress.source.scss';
 
 const settings = {
   title: 'Components/Progress',

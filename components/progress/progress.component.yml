@@ -1,0 +1,29 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Progress
+props:
+  type: object
+  properties:
+    label:
+      type:
+        - string
+        - "null"
+      title: Label
+      description: 'Optional label text displayed above the progress bar.'
+    percent:
+      type: string
+      title: Percent
+      description: 'The percentage value to display (e.g., "68%").'
+    message:
+      type: string
+      title: Message
+      description: 'The description text displayed below the progress bar.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+libraryOverrides:
+  dependencies:
+    - core/components.gesso--progress
+    - gesso/global
