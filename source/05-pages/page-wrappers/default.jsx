@@ -7,7 +7,7 @@ import RegionTwig from '../../02-layouts/region/region.twig';
 import SkiplinksTwig from '../../../components/skiplinks/skiplinks.twig';
 import HeaderTwig from '../../02-layouts/header/header.twig';
 import BreadcrumbTwig from '../../02-layouts/breadcrumb/breadcrumb.twig';
-import ContentTwig from '../../02-layouts/content/content.twig';
+import ContentTwig from '../../../components/layouts/content/content.twig';
 import FooterTwig from '../../02-layouts/footer/footer.twig';
 import { SiteName } from '../../03-components/site-name/site-name.stories.jsx';
 import NavTwig from '../../02-layouts/nav/nav.twig';

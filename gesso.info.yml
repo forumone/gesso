@@ -25,7 +25,9 @@ dependencies:
 components:
   namespaces:
     global: source/01-global
-    layouts: source/02-layouts
+    layouts:
+      - components/layouts
+      - source/02-layouts
     components: source/03-components
     templates: source/04-templates
     utility: source/06-utility
