@@ -17,7 +17,7 @@
       {% block footer %}
         {% if not date %}
           {% set date %}
-            {% include '@components/date/date.twig' with {
+            {% include 'gesso:date' with {
               'date_format': date_format,
             } %}
           {% endset %}
