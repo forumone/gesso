@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './sidebar.twig';
 import data from './sidebar.yml';
-import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
+import ContentPlaceholder from '../../source/01-global/content-placeholder/content-placeholder';
 
 const settings = {
   title: 'Layouts/Sidebar',
