@@ -1,0 +1,76 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Teaser
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+      description: 'The teaser title.'
+    url:
+      type: string
+      title: URL
+      description: 'The URL for the teaser link.'
+    date:
+      type:
+        - string
+        - "null"
+      title: Date
+      description: 'The teaser date.'
+    summary:
+      type:
+        - string
+        - "null"
+      title: Summary
+      description: 'The teaser summary content.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+    title_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Title Modifier Classes
+      description: 'Additional CSS classes to apply to the title element.'
+    title_element:
+      type:
+        - string
+        - "null"
+      title: Title Element
+      description: 'HTML element for the title (defaults to h2).'
+    title_prefix:
+      type:
+        - array
+        - "null"
+      title: Title Prefix
+      description: 'Drupal render array to display before the title.'
+    title_suffix:
+      type:
+        - array
+        - "null"
+      title: Title Suffix
+      description: 'Drupal render array to display after the title.'
+    title_attributes:
+      type:
+        - array
+        - "null"
+      title: Title Attributes
+      description: 'HTML attributes to apply to the title element.'
+    rdf_metadata:
+      type:
+        - array
+        - "null"
+      title: RDF Metadata
+      description: 'RDF metadata render array.'
+    attributes:
+      type:
+        - array
+        - "null"
+      title: Attributes
+      description: 'HTML attributes to apply to the component root element.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

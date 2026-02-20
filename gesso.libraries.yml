@@ -51,13 +51,6 @@ react:
   dependencies:
     - core/drupalSettings
 
-teaser:
-  css:
-    theme:
-      dist/css/teaser.css: {}
-  dependencies:
-    - gesso/global
-
 video:
   css:
     theme:

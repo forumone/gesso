@@ -1,9 +1,9 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './teaser.twig';
 import data from './teaser.yml';
-import './teaser.scss';
+import './teaser.source.scss';
 
 const settings = {
   title: 'Components/Teaser',
