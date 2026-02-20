@@ -1,0 +1,18 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Responsive Table
+props:
+  type: object
+  properties:
+    table:
+      type: string
+      title: Table
+      description: 'The table HTML content to display in the responsive container.'
+    labeled_by:
+      type:
+        - string
+        - "null"
+      title: Labeled By
+      description: 'The ID of the element that labels this table, used for aria-labelledby attribute.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
