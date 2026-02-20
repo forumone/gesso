@@ -25,13 +25,6 @@ hamburger_button:
   dependencies:
     - gesso/global
 
-icon_link:
-  css:
-    theme:
-      dist/css/icon-link.css: {}
-  dependencies:
-    - gesso/global
-
 mobile_menu:
   css:
     theme:
