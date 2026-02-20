@@ -43,7 +43,7 @@ function gesso_page_attachments_alter(array &$attachments): void {
     }
 
     if ($add_external_link_icons) {
-      $attachments['#attached']['library'][] = 'gesso/external-link';
+      $attachments['#attached']['library'][] = 'core/components.gesso--external-link';
       $attachments['#attached']['drupalSettings']['gesso']['externalLinkExitDisclaimer']
         = theme_get_setting('exit_disclaimer');
       $attachments['#attached']['drupalSettings']['gesso']['externalLinkAllowedDomains']

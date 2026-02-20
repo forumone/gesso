@@ -12,12 +12,6 @@ global:
     - core/once
     - gesso/common
 
-external-link:
-  js:
-    dist/js/external-link.es6.js: {}
-  dependencies:
-    - gesso/global
-
 hamburger_button:
   css:
     theme:
