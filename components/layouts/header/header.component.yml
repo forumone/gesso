@@ -1,0 +1,34 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Header
+props:
+  type: object
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the header element.'
+    has_constrain:
+      type: boolean
+      title: Has Constrain
+      description: 'Whether to wrap content in a constrain container.'
+    constrain_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Constrain Modifier Classes
+      description: 'Additional CSS classes for the constrain container.'
+    header_content:
+      type:
+        - string
+        - "null"
+      title: Header Content
+      description: 'The main content of the header.'
+slots:
+  content:
+    title: Content
+    description: 'The primary content area of the header.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
