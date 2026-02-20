@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Media
+props:
+  type: object
+  properties:
+    media:
+      type:
+        - string
+        - "null"
+      title: Media
+      description: 'The media object (image, video, etc.).'
+    media_content:
+      type: string
+      title: Media Content
+      description: 'The main content beside the media object.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

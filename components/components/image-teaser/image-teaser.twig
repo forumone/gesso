@@ -16,7 +16,7 @@
 {% endset %}
 
 <article {{ add_attributes({ 'class': classes }) }}>
-  {% include '@layouts/media/media.twig' with {
+  {% include 'gesso:media' with {
     'media': teaser_image,
     'media_content': teaser_content,
   } %}
