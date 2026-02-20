@@ -7,7 +7,7 @@ import PageWrapper from './page-wrappers/default.jsx';
 import { LandingPage as Template } from '../04-templates/landing-page/landing-page.stories.jsx';
 import { Default as Card } from '../03-components/card/card.stories.jsx';
 import { View } from '../03-components/view/views-view/views-view.stories.jsx';
-import { Unformatted } from '../03-components/view/views-view-unformatted/views-view-unformatted.stories';
+import { Unformatted } from '../../components/views-view-unformatted/views-view-unformatted.stories';
 import { ThreeColumn } from '../02-layouts/grid/grid.stories';
 
 export default {

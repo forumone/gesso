@@ -1,0 +1,114 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Views View
+props:
+  type: object
+  properties:
+    element:
+      type:
+        - string
+        - "null"
+      title: Element
+      description: 'The HTML element to use for the wrapper (e.g., div, section). Defaults to div.'
+    add_attributes:
+      type: object
+      title: Add Attributes
+      description: 'Additional HTML attributes to add to the wrapper element.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for styling the view.'
+    title_prefix:
+      type:
+        - array
+        - "null"
+      title: Title Prefix
+      description: 'Prefix content to display before the title.'
+    title:
+      type:
+        - string
+        - "null"
+      title: Title
+      description: 'The title of the view.'
+    hide_title:
+      type:
+        - boolean
+        - "null"
+      title: Hide Title
+      description: 'Whether to hide the title.'
+    title_element:
+      type:
+        - string
+        - "null"
+      title: Title Element
+      description: 'The HTML element to use for the title (e.g., h1, h2, h3). Defaults to h2.'
+    title_suffix:
+      type:
+        - array
+        - "null"
+      title: Title Suffix
+      description: 'Suffix content to display after the title.'
+    header:
+      type:
+        - string
+        - "null"
+      title: Header
+      description: 'The view header content.'
+    exposed:
+      type:
+        - string
+        - "null"
+      title: Exposed
+      description: 'The exposed filters form.'
+    attachment_before:
+      type:
+        - string
+        - "null"
+      title: Attachment Before
+      description: 'Content to display before the view results.'
+    rows:
+      type:
+        - string
+        - "null"
+      title: Rows
+      description: 'The view results rows.'
+    empty:
+      type:
+        - string
+        - "null"
+      title: Empty
+      description: 'Content to display when there are no rows.'
+    pager:
+      type:
+        - string
+        - "null"
+      title: Pager
+      description: 'The pager element for paginated results.'
+    attachment_after:
+      type:
+        - string
+        - "null"
+      title: Attachment After
+      description: 'Content to display after the view results.'
+    more:
+      type:
+        - string
+        - "null"
+      title: More
+      description: 'The "more" link for the view.'
+    footer:
+      type:
+        - string
+        - "null"
+      title: Footer
+      description: 'The view footer content.'
+    feed_icons:
+      type:
+        - string
+        - "null"
+      title: Feed Icons
+      description: 'Feed icons (e.g., RSS) for the view.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

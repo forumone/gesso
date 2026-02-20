@@ -1,0 +1,88 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Views View List
+props:
+  type: object
+  properties:
+    hide_wrapper:
+      type:
+        - boolean
+        - "null"
+      title: Hide Wrapper
+      description: 'Hide the outer wrapper div.'
+    title:
+      type:
+        - string
+        - "null"
+      title: Title
+      description: 'The list title.'
+    title_element:
+      type:
+        - string
+        - "null"
+      title: Title Element
+      description: 'The HTML element for the title (e.g., h1, h2, h3).'
+    list:
+      type: object
+      title: List
+      description: 'The list configuration with type property.'
+      properties:
+        type:
+          type: string
+          title: Type
+          description: 'The list element type (ul, ol).'
+    rows:
+      type: array
+      title: Rows
+      description: 'Array of row items with content.'
+      items:
+        type: object
+        properties:
+          content:
+            type: string
+            title: Content
+            description: 'The row content.'
+    title_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Title Modifier Classes
+      description: 'Additional CSS classes for the title.'
+    list_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: List Modifier Classes
+      description: 'Additional CSS classes for the list.'
+    item_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Item Modifier Classes
+      description: 'Additional CSS classes for list items.'
+    attributes:
+      type:
+        - object
+        - "null"
+      title: Attributes
+      description: 'HTML attributes for the wrapper element.'
+    title_attributes:
+      type:
+        - object
+        - "null"
+      title: Title Attributes
+      description: 'HTML attributes for the title element.'
+    list_attributes:
+      type:
+        - object
+        - "null"
+      title: List Attributes
+      description: 'HTML attributes for the list element.'
+    row_attributes:
+      type:
+        - object
+        - "null"
+      title: Row Attributes
+      description: 'HTML attributes for row items.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
