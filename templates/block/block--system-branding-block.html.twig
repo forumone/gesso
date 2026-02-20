@@ -16,8 +16,7 @@
 
 {% block block_content %}
   {% if site_logo %}
-    {% include '@components/site-logo/site-logo.twig' with {
-      'attributes': '',
+    {% include 'gesso:site-logo' with {
       'url': path('<front>'),
       'site_logo': site_logo,
     } %}
