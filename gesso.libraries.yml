@@ -51,20 +51,13 @@ react:
   dependencies:
     - core/drupalSettings
 
-tag:
-  css:
-    theme:
-      dist/css/tag.css: {}
-  dependencies:
-    - gesso/global
-
 tag_list:
   css:
     theme:
       dist/css/tag-list.css: {}
   dependencies:
     - gesso/global
-    - gesso/tag
+    - core/components.gesso--tag
 
 teaser:
   css:

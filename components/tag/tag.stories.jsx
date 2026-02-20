@@ -1,9 +1,9 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './tag.twig';
 import data from './tag.yml';
-import './tag.scss';
+import './tag.source.scss';
 
 const settings = {
   title: 'Components/Tag',

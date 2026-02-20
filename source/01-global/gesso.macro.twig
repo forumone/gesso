@@ -9,7 +9,7 @@
 {% endmacro %}
 
 {% macro tag(url, title, type = "full", size = "normal" ) %}
-  {% include '@components/tag/tag.twig' with {
+  {% include 'gesso:tag' with {
     'url': url,
     'title': title,
     'type': type,
