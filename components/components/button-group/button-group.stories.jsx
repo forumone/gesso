@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import buttonGroupTemplate from './button-group.twig';
 import buttonGroupItemTemplate from './button-group-item.twig';
 import data from './button-group.yml';

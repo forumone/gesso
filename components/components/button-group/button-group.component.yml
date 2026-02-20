@@ -1,0 +1,28 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Button Group
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+      description: 'The heading for the button group, used as aria-label.'
+    element:
+      type:
+        - string
+        - "null"
+      title: Element
+      description: 'The HTML element to use for the wrapper (e.g., div, nav). Defaults to div.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the button group wrapper.'
+    button_group_items:
+      type: string
+      title: Button Group Items
+      description: 'The rendered list items for each button in the group.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
