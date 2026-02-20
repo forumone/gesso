@@ -21,7 +21,7 @@
 {% endif %}
 
 {% set homepage_grid %}
-  {% include '@layouts/grid/grid.twig' with {
+  {% include 'gesso:grid' with {
     'num_of_cols': '2',
     'grid_content': homepage_grid_content,
   } %}

@@ -6,7 +6,7 @@
 #}
 
 {% set section_content %}
-  {% include '@layouts/grid/grid.twig' with {
+  {% include 'gesso:grid' with {
     'num_of_cols': 3,
     'grid_content': content.field_cards|field_value
     }
