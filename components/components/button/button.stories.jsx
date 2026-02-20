@@ -1,8 +1,8 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './button.twig';
-import globalData from '../../00-config/storybook.global-data.yml';
+import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './button.yml';
 import ReactDOMServer from 'react-dom/server';
 import { Icon } from '../icon/icon.stories';

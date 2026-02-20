@@ -17,12 +17,13 @@
     {% endif %}
     {% if hero_button_text and hero_button_url %}
       <div class="c-hero-bg-image__button">
-        {% include '@components/button/button.twig' with {
-          'attributes': hero_button_attributes,
+        {% include 'gesso:button' with {
+          'extra_attributes': hero_button_attributes,
           'modifier_classes': 'c-button--large',
           'url': hero_button_url,
           'text': hero_button_text,
-        } %}
+          'is_button_tag': false,
+        } only %}
       </div>
     {% endif %}
   </div>

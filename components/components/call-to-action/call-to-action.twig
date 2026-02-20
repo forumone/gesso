@@ -19,11 +19,12 @@
       {% endif %}
       {% if link_url and link_title %}
         <div class="c-call-to-action__links">
-          {% include '@components/source/03-components/button/button.twig' with {
-            attributes: link_attributes,
+          {% include 'gesso:button' with {
+            extra_attributes: link_attributes,
             url: link_url,
             text: link_title,
-          } %}
+            is_button_tag: false,
+          } only %}
         </div>
       {% endif %}
     </div>

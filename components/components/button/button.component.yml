@@ -1,0 +1,104 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Button
+props:
+  type: object
+  properties:
+    text:
+      type: string
+      title: Text
+      description: 'The button text content.'
+    is_button_tag:
+      type: boolean
+      title: Is Button Tag
+      description: 'Whether to render as <button> (true) or <a> tag (false).'
+    button_type:
+      type: string
+      title: Button Type
+      description: 'HTML button type attribute (e.g., submit, reset, button).'
+    is_disabled:
+      type:
+        - boolean
+        - "null"
+      title: Is Disabled
+      description: 'Whether the button is disabled.'
+    url:
+      type:
+        - string
+        - "null"
+      title: URL
+      description: 'The URL for link buttons (when is_button_tag is false).'
+    no_follow:
+      type:
+        - boolean
+        - "null"
+      title: No Follow
+      description: 'Add rel="nofollow" to the link.'
+    icon_name:
+      type:
+        - string
+        - "null"
+      title: Icon Name
+      description: 'The name of the icon to display.'
+    icon_position:
+      type:
+        - string
+        - "null"
+      title: Icon Position
+      description: 'Where to place the icon: before, after, or both.'
+    icon_is_hidden:
+      type:
+        - boolean
+        - "null"
+      title: Icon Is Hidden
+      description: 'Whether the icon should be visually hidden from screen readers.'
+    icon_label:
+      type:
+        - string
+        - "null"
+      title: Icon Label
+      description: 'Accessibility label for the icon.'
+    icon_direction:
+      type:
+        - string
+        - "null"
+      title: Icon Direction
+      description: 'The direction to rotate the icon: up, right, down, or left.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to a custom image for the icon.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for styling variants.'
+    extra_attributes:
+      type:
+        - object
+        - "null"
+      title: Extra Attributes
+      description: 'Additional HTML attributes for the button element.'
+    button_icon_before:
+      type:
+        - string
+        - "null"
+      title: Button Icon Before
+      description: 'HTML for an icon rendered before the button text.'
+    button_icon_after:
+      type:
+        - string
+        - "null"
+      title: Button Icon After
+      description: 'HTML for an icon rendered after the button text.'
+    storybook:
+      type:
+        - boolean
+        - "null"
+      title: Storybook
+      description: 'Flag for Storybook story rendering.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
