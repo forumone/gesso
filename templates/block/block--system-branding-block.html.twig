@@ -31,8 +31,7 @@
   {% endif %}
 
   {% if site_slogan %}
-    {% include '@components/site-slogan/site-slogan.twig' with {
-      'attributes': '',
+    {% include 'gesso:site-slogan' with {
       'site_slogan': site_slogan,
     } %}
   {% endif %}
