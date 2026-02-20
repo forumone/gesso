@@ -1,6 +1,6 @@
 // Layout: Section
 
-@use '00-config' as *;
+@use '../../source/00-config' as *;
 
 .l-section {
   margin-block-end: rem(gesso-spacing(5));

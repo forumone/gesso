@@ -27,12 +27,12 @@
   } %}
 {% endset %}
 
-{% include '@layouts/section/section.twig' with {
+{% include 'gesso:section' with {
   'section_title': false,
   'section_content': homepage_hero,
 } %}
 
-{% include '@layouts/section/section.twig' with {
+{% include 'gesso:section' with {
   'section_title': homepage_grid_title,
   'section_content': homepage_grid,
 } %}

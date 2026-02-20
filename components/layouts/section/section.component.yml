@@ -1,0 +1,48 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Section
+props:
+  type: object
+  properties:
+    section_title:
+      type:
+        - string
+        - "null"
+      title: Section Title
+      description: 'The title displayed at the top of the section.'
+    section_title_element:
+      type:
+        - string
+        - "null"
+      title: Section Title Element
+      description: 'The HTML element used for the section title (e.g., h1, h2, h3). Defaults to h2 if not specified.'
+    section_content:
+      type:
+        - string
+        - "null"
+      title: Section Content
+      description: 'The main content of the section. Can be overridden by the content slot.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the section element.'
+    has_constrain:
+      type:
+        - boolean
+        - "null"
+      title: Has Constrain
+      description: 'Whether to add a constrain wrapper around the section content.'
+    constrain_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Constrain Modifier Classes
+      description: 'Additional CSS classes for the constrain wrapper element.'
+slots:
+  content:
+    title: Content
+    description: 'The main content of the section. Overrides section_content prop if provided.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
