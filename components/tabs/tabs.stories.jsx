@@ -2,8 +2,8 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './tabs.twig';
 import data from './tabs.yml';
-import './tabs.es6';
-import './tabs.scss';
+import './tabs.source.ts';
+import './tabs.source.scss';
 
 const settings = {
   title: 'Components/Tabs',

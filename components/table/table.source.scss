@@ -1,6 +1,6 @@
 // Component: Table
 
-@use '00-config' as *;
+@use '../../source/00-config' as *;
 
 .c-table {
   &.is-scrollable {

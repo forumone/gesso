@@ -51,15 +51,6 @@ react:
   dependencies:
     - core/drupalSettings
 
-tabs:
-  css:
-    theme:
-      dist/css/tabs.css: {}
-  js:
-    dist/js/tabs.es6.js: {}
-  dependencies:
-    - gesso/global
-
 tag:
   css:
     theme:

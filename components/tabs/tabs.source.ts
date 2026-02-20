@@ -1,6 +1,6 @@
 import Drupal from 'drupal';
 import once from 'once';
-import Tabs from './modules/_Tabs.es6';
+import Tabs from './modules/_Tabs.es6.js';
 
 Drupal.behaviors.gessoTabs = {
   attach(context) {
