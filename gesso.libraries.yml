@@ -12,20 +12,13 @@ global:
     - core/once
     - gesso/common
 
-hamburger_button:
-  css:
-    theme:
-      dist/css/hamburger-button.css: {}
-  dependencies:
-    - gesso/global
-
 mobile_menu:
   css:
     theme:
       dist/css/mobile-menu.css: {}
   dependencies:
     - gesso/global
-    - gesso/hamburger_button
+    - core/components.gesso--hamburger-button
 
 react:
   js:
