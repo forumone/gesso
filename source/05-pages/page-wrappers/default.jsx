@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import globalData from '../../00-config/storybook.global-data.yml';
 import RegionTwig from '../../02-layouts/region/region.twig';
-import SkiplinksTwig from '../../03-components/skiplinks/skiplinks.twig';
+import SkiplinksTwig from '../../../components/skiplinks/skiplinks.twig';
 import HeaderTwig from '../../02-layouts/header/header.twig';
 import BreadcrumbTwig from '../../02-layouts/breadcrumb/breadcrumb.twig';
 import ContentTwig from '../../02-layouts/content/content.twig';
