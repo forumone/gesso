@@ -1,11 +1,9 @@
-{{ attach_library('gesso/rss_feed') }}
-
 {% set classes = [
   'c-rss-feed',
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% include '@components/icon-link/icon-link.twig' with {
+{% include 'gesso:icon-link' with {
   'attributes': attributes,
   'modifier_classes': classes,
   'icon_modifier_classes': 'c-rss-feed__icon',

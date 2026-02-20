@@ -1,0 +1,27 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: RSS Feed
+props:
+  type: object
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the component.'
+    attributes:
+      type: object
+      title: Attributes
+      description: 'HTML attributes object for the component.'
+    url:
+      type: string
+      title: URL
+      description: 'The URL for the RSS feed link.'
+    link_text:
+      type: string
+      title: Link Text
+      description: 'The text displayed for the RSS feed link.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--icon-link

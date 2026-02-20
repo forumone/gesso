@@ -51,14 +51,6 @@ react:
   dependencies:
     - core/drupalSettings
 
-rss_feed:
-  css:
-    theme:
-      dist/css/rss-feed.css: {}
-  dependencies:
-    - gesso/global
-    - gesso/icon_link
-
 side_menu:
   css:
     theme:
