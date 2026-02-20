@@ -31,7 +31,7 @@
         {{ footer }}
         {% if tags %}
           <div class="c-card__tags">
-            {% include "@components/tag-list/tag-list.twig" with {
+            {% include "gesso:tag-list" with {
               items: tags
             } %}
           </div>
