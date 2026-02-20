@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Side Menu
+props:
+  type: object
+  properties:
+    menu_name:
+      type: string
+      title: Menu Name
+      description: 'The name of the menu to display.'
+    items:
+      type: array
+      title: Menu Items
+      description: 'Array of menu items with nested structure, each containing title, url, original_link, in_active_trail, and optional below items.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/drupal
+    - core/once

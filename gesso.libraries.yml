@@ -51,16 +51,6 @@ react:
   dependencies:
     - core/drupalSettings
 
-side_menu:
-  css:
-    theme:
-      dist/css/side-menu.css: {}
-  js:
-    dist/js/side-menu.es6.js: {}
-  dependencies:
-    - gesso/global
-    - gesso/hamburger_button
-
 tabs:
   css:
     theme:
