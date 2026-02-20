@@ -4,10 +4,15 @@ import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './hero-inline-image.twig';
 import data from './hero-inline-image.yml';
 import './hero-inline-image.source.scss';
+import componentInfo from './hero-inline-image.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Hero/Hero with Inline Image',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const Default = {

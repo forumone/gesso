@@ -10,6 +10,8 @@ import './mega-menu.source.scss';
 import './mega-menu.source.ts';
 import '../../source/03-components/mobile-menu/mobile-menu.scss';
 import '../../source/03-components/hamburger-button/hamburger-button.scss';
+import componentInfo from './mega-menu.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Menu/Mega Menu',
@@ -21,6 +23,14 @@ const settings = {
       </>
     ),
   ],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
+  parameters: {
+    controls: {
+      exclude: [...Object.keys(globalData)],
+    },
+  },
 };
 
 const menuItems = data.items.map(item => ({

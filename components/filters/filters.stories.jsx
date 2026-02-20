@@ -6,10 +6,15 @@ import filterTemplate from './filter.twig';
 import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './filters.yml';
 import './filters.source.scss';
+import componentInfo from './filters.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Filters',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
   parameters: {
     controls: {
       include: ['modifier_classes', 'items'],

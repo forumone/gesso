@@ -5,9 +5,14 @@ import data from './side-menu.yml';
 import './side-menu.source.scss';
 import './side-menu.source.ts';
 import '../../source/03-components/hamburger-button/hamburger-button.scss';
+import componentInfo from './side-menu.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Menu/Side Menu',
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const SideMenu = {

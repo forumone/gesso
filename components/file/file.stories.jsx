@@ -5,11 +5,14 @@ import twigTemplate from './file.twig';
 import data from './file.yml';
 import globalData from '../../source/00-config/storybook.global-data.yml';
 import './file.source.scss';
+import componentInfo from './file.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/File',
   decorators: [withGlobalWrapper],
   argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
     icon_name: {
       options: ['download', 'file'],
       control: { type: 'select' },

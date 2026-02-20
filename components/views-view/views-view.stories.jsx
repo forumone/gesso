@@ -5,10 +5,15 @@ import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './views-view.twig';
 import data from './views-view.yml';
 import { Default as Pager } from '../../components/pager/pager.stories';
+import componentInfo from './views-view.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Views/View',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
   parameters: {
     controls: {
       exclude: ['pager'],

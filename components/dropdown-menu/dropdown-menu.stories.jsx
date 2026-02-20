@@ -8,10 +8,15 @@ import './dropdown-menu.source.js';
 import './dropdown-menu.source.scss';
 import '../../source/03-components/mobile-menu/mobile-menu.scss';
 import '../../source/03-components/hamburger-button/hamburger-button.scss';
+import componentInfo from './dropdown-menu.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Menu/Dropdown Menu',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const DropdownMenu = {

@@ -4,10 +4,15 @@ import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './details.twig';
 import data from './details.yml';
 import './details.source.scss';
+import componentInfo from './details.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Details',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const Details = {

@@ -7,11 +7,14 @@ import globalData from '../../source/00-config/storybook.global-data.yml';
 import './icon-link.source.scss';
 import { Icon } from '../../source/03-components/icon/icon.stories';
 import ReactDOMServer from 'react-dom/server';
+import componentInfo from './icon-link.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Icon Link',
   decorators: [withGlobalWrapper],
   argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
     icon_name: {
       options: [false, ...globalData.icons],
       control: { type: 'select' },

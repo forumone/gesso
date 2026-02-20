@@ -5,10 +5,15 @@ import twigTemplate from './table.twig';
 import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './table.yml';
 import './table--sortable.source.ts';
+import componentInfo from './table.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Table',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
   parameters: {
     controls: {
       include: ['is_scrollable', 'modifier_classes', 'caption'],

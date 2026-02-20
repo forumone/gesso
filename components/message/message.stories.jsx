@@ -4,10 +4,15 @@ import { withGlobalWrapper } from '../../.storybook/decorators';
 import twigTemplate from './message.twig';
 import data from './message.yml';
 import './message.source.scss';
+import componentInfo from './message.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Message',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const Default = {

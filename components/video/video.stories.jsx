@@ -5,10 +5,15 @@ import twigTemplate from './video.twig';
 import data from './video.yml';
 import localData from './video--local.yml';
 import './video.source.scss';
+import componentInfo from './video.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Video',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const RemoteVideo = {

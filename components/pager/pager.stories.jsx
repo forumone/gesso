@@ -8,10 +8,15 @@ import miniData from '../pager-mini/pager-mini.yml';
 import globalData from '../../source/00-config/storybook.global-data.yml';
 import './pager.source.scss';
 import '../pager-mini/pager-mini.source.scss';
+import componentInfo from './pager.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Pager',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
   parameters: {
     controls: {
       include: [

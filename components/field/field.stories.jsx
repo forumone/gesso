@@ -3,10 +3,15 @@ import parse from 'html-react-parser';
 import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './field.twig';
 import data from './field.yml';
+import componentInfo from './field.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Field',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const Default = {

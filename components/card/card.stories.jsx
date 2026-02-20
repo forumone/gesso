@@ -9,10 +9,15 @@ import './card.source.scss';
 import '../../source/03-components/tag/tag.stories.jsx';
 import '../../components/tag-list/tag-list.stories.jsx';
 import '../../source/03-components/read-more-link/read-more-link.stories.jsx';
+import componentInfo from './card.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Card',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const Default = {

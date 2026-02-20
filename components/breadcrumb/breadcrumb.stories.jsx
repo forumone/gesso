@@ -8,7 +8,7 @@ import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.
 
 const settings = {
   title: 'Components/Breadcrumb',
-  args: {
+  argTypes: {
     ...getArgTypesFromComponent(componentInfo),
   },
 };

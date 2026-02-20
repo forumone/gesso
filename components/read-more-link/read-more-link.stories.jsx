@@ -8,10 +8,15 @@ import './read-more-link.source.scss';
 // Importing IconLink to ensure its assets gets loaded in Storybook when this
 // story is referenced since Drupal loads them as a library.
 import '../../components/icon-link/icon-link.stories.jsx';
+import componentInfo from './read-more-link.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Read More Link',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
   parameters: {
     controls: {
       include: [

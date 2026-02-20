@@ -7,10 +7,15 @@ import './tag-list.source.scss';
 // Importing Tag to ensure its assets gets loaded in Storybook when this
 // story is referenced since Drupal loads them as a library.
 import '../../source/03-components/tag/tag.stories.jsx';
+import componentInfo from './tag-list.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Tag List',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const TagList = {

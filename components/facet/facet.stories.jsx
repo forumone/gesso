@@ -5,10 +5,15 @@ import twigTemplate from './facet.twig';
 import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './facet.yml';
 import './facet.source.scss';
+import componentInfo from './facet.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Facets/Facet',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
   parameters: {
     controls: {
       include: [

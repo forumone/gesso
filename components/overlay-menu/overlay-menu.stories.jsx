@@ -5,9 +5,14 @@ import data from './overlay-menu.yml';
 import './overlay-menu.source.scss';
 import './overlay-menu.source.js';
 import '../../source/03-components/hamburger-button/hamburger-button.scss';
+import componentInfo from './overlay-menu.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Menu/Overlay Menu',
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const OverlayMenu = {

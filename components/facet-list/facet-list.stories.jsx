@@ -7,11 +7,14 @@ import globalData from '../../source/00-config/storybook.global-data.yml';
 import data from './facet-list.yml';
 import './facet-list.source.scss';
 import '../../source/03-components/facet/facet.scss';
+import componentInfo from './facet-list.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Facets/Facet List',
   decorators: [withGlobalWrapper],
   argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
     list_type: {
       options: ['ul', 'ol'],
       control: { type: 'select' },

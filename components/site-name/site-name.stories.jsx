@@ -3,29 +3,14 @@ import parse from 'html-react-parser';
 import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './site-name.twig';
 import globalData from '../../source/00-config/storybook.global-data.yml';
+import componentInfo from './site-name.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Site Name',
   decorators: [withGlobalWrapper],
   argTypes: {
-    url: {
-      type: 'string',
-      description: 'The URL of the site homepage',
-      table: {
-        defaultValue: {
-          summary: '#',
-        },
-      },
-    },
-    site_name: {
-      type: 'string',
-      description: 'The site name or title',
-      table: {
-        defaultValue: {
-          summary: 'Site Title',
-        },
-      },
-    },
+    ...getArgTypesFromComponent(componentInfo),
   },
   parameters: {
     controls: {

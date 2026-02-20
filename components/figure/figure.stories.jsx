@@ -5,10 +5,15 @@ import twigTemplate from './figure.twig';
 import data from './figure.yml';
 import videoData from './figure--iframe.yml';
 import '../../source/03-components/video/video.scss';
+import componentInfo from './figure.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Figure',
   decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const Default = {

@@ -4,9 +4,14 @@ import twigTemplate from './modal.twig';
 import data from './modal.yml';
 import './modal.source.scss';
 import './modal.source';
+import componentInfo from './modal.component.yml';
+import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Modal',
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
   decorators: Story => (
     <div className="l-constrain u-spaced-5">
       <button
