@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './region.twig';
 import data from './region.yml';
-import ContentPlaceholder from '../../01-global/content-placeholder/content-placeholder';
+import ContentPlaceholder from '../../source/01-global/content-placeholder/content-placeholder';
 
 const settings = {
   title: 'Layouts/Region',
