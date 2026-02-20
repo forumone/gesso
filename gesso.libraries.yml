@@ -50,9 +50,3 @@ react:
     dist/js/react/main.js: { preprocess: false }
   dependencies:
     - core/drupalSettings
-
-wysiwyg:
-  js:
-    dist/js/wysiwyg.es6.js: {}
-  dependencies:
-    - gesso/global

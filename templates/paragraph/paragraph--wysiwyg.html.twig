@@ -4,7 +4,7 @@
  * Theme implementation to display a paragraph.
  */
 #}
-{% include '@components/wysiwyg/wysiwyg.twig' with {
+{% include 'gesso:wysiwyg' with {
   'attributes': attributes,
   'modifier_classes': '',
   'content': content.field_wysiwyg|field_value is not empty ? content.field_wysiwyg|field_value : false,

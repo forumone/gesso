@@ -47,7 +47,7 @@
 
   <div class="c-article__content">
     {% block content %}
-      {% include '@components/wysiwyg/wysiwyg.twig' with {
+      {% include 'gesso:wysiwyg' with {
         'content': article_content,
       } %}
     {% endblock %}
