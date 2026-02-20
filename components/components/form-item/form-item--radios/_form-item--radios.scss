@@ -1,6 +1,6 @@
 // Component: Radios Form Item
 
-@use '00-config' as *;
+@use '../../../../source/00-config/index' as *;
 
 .c-form-item--radios {
   margin-block: rem(gesso-spacing(0.5)) 0;

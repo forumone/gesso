@@ -1,7 +1,7 @@
 // Component: Form Item
 
 @use 'sass:math';
-@use '00-config' as *;
+@use '../../../source/00-config/index' as *;
 
 $form-background-color: gesso-color(form, background) !default;
 $form-background-color-focus: gesso-color(form, background-active) !default;

@@ -1,0 +1,106 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Form Item
+props:
+  type: object
+  properties:
+    type:
+      type: string
+      title: Type
+      description: 'The form input type (e.g., textfield, textarea, select).'
+    label_display:
+      type:
+        - string
+        - "null"
+      title: Label Display
+      description: 'How to display the label (before, after, invisible).'
+    errors:
+      type:
+        - string
+        - "null"
+      title: Errors
+      description: 'Error messages to display.'
+    disabled:
+      type:
+        - string
+        - "null"
+      title: Disabled
+      description: 'Whether the form element is disabled (string value "disabled").'
+    is_disabled:
+      type:
+        - boolean
+        - "null"
+      title: Is Disabled
+      description: 'Whether the form element is disabled (boolean).'
+    required:
+      type:
+        - string
+        - "null"
+      title: Required
+      description: 'Whether the form element is required (string value "required").'
+    is_required:
+      type:
+        - boolean
+        - "null"
+      title: Is Required
+      description: 'Whether the form element is required (boolean).'
+    is_full_width:
+      type:
+        - boolean
+        - "null"
+      title: Is Full Width
+      description: 'Whether the form element should take full width.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes.'
+    description_display:
+      type:
+        - string
+        - "null"
+      title: Description Display
+      description: 'How to display the description (before, after, invisible).'
+    id:
+      type:
+        - string
+        - "null"
+      title: ID
+      description: 'The HTML ID attribute for the form element.'
+    prefix:
+      type:
+        - string
+        - "null"
+      title: Prefix
+      description: 'Content to display before the form element.'
+    suffix:
+      type:
+        - string
+        - "null"
+      title: Suffix
+      description: 'Content to display after the form element.'
+    description:
+      type:
+        - object
+        - "null"
+      title: Description
+      description: 'The form element description with content property.'
+    label:
+      type:
+        - string
+        - "null"
+      title: Label
+      description: 'The label markup for the form element.'
+    description_attributes:
+      type:
+        - object
+        - "null"
+      title: Description Attributes
+      description: 'Additional attributes for the description element.'
+slots:
+  children:
+    title: Children
+    description: 'The form input element content.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

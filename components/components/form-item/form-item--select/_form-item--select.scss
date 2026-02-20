@@ -1,7 +1,7 @@
 // Component: Select Form Item
 
 @use 'sass:math';
-@use '00-config' as *;
+@use '../../../../source/00-config/index' as *;
 @use '../form-item' as *;
 $form-select-arrow-size: 20px !default;
 
