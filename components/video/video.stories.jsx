@@ -1,10 +1,10 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
 import twigTemplate from './video.twig';
 import data from './video.yml';
 import localData from './video--local.yml';
-import './video.scss';
+import './video.source.scss';
 
 const settings = {
   title: 'Components/Video',

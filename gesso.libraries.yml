@@ -51,13 +51,6 @@ react:
   dependencies:
     - core/drupalSettings
 
-video:
-  css:
-    theme:
-      dist/css/video.css: {}
-  dependencies:
-    - gesso/global
-
 wysiwyg:
   js:
     dist/js/wysiwyg.es6.js: {}
