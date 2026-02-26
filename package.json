@@ -87,7 +87,7 @@
     "react-dom": "^19.2.4",
     "remove-files-webpack-plugin": "^1.5.0",
     "sass-embedded": "^1.97.3",
-    "storybook": "^10.2.3",
+    "storybook": "^10.2.13",
     "terser-webpack-plugin": "^5.3.16",
     "twig": "^1.17.1",
     "yaml": "^2.8.2"
