@@ -32,7 +32,7 @@
     "@forumone/tiny-mustache": "^3.0.5",
     "@forumone/twig-drupal-filters": "^3.2.1",
     "@forumone/twig-loader": "^1.0.2",
-    "@inquirer/prompts": "^7.10.1",
+    "@inquirer/prompts": "^8.3.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
     "@storybook/addon-a11y": "^10.2.14",
     "@storybook/addon-docs": "^10.2.14",
