@@ -73,7 +73,7 @@ function gesso_preprocess_menu_local_tasks(array &$variables): void {
  * Implements hook_preprocess_menu_local_task().
  */
 function gesso_preprocess_menu_local_task(array &$variables): void {
-  $variables['link']['#options']['attributes']['class'][] = 'c-button-group__link';
+  $variables['link']['#options']['attributes']['class'][] = 'c-button-group-item__link';
   $variables['link']['#options']['attributes']['class'][] = 'c-button';
   $variables['link']['#options']['attributes']['class'][] = 'c-button--base';
 
