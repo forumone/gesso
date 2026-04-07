@@ -68,7 +68,7 @@
     "style-loader": "^4.0.0",
     "stylelint": "^17.6.0",
     "stylelint-config-sass-guidelines": "^13.0.0",
-    "stylelint-order": "^7.0.1",
+    "stylelint-order": "^8.1.1",
     "stylelint-prettier": "^5.0.3",
     "stylelint-webpack-plugin": "^5.1.0",
     "svg-spritemap-webpack-plugin": "^5.1.0",
