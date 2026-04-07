@@ -27,6 +27,10 @@ const config = {
   features: {
     actions: false,
   },
+  core: {
+    // Replace with your DDEV URL
+    allowedHosts: ['gesso.ddev.site'],
+  },
   staticDirs: ['../dist'],
   webpackFinal: async (webpackConfig, { configType }) => {
     // Storybook 8 removes fast-refresh as a framework option and instead
