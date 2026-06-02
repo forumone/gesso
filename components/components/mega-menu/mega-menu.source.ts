@@ -1,7 +1,7 @@
 import Drupal from 'drupal';
 import once from 'once';
 import MegaMenu from './modules/MegaMenu.es6';
-import MobileMenu from '../../../source/03-components/mobile-menu/modules/_MobileMenu.es6';
+import MobileMenu from '../mobile-menu/modules/_MobileMenu.es6';
 
 Drupal.behaviors.megaMenu = {
   attach(context) {
