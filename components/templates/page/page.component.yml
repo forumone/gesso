@@ -1,0 +1,78 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Page
+props:
+  type: object
+  properties:
+    is_published:
+      type: boolean
+      title: Published Status
+      description: 'Whether the page is published.'
+    show_admin_info:
+      type: boolean
+      title: Show Admin Info
+      description: 'Whether to display admin information.'
+    admin_info:
+      type: array
+      title: Admin Info
+      description: 'Admin information content.'
+    attributes:
+      type: array
+      title: Attributes
+      description: 'HTML attributes for the page container.'
+    title:
+      type: string
+      title: Title
+      description: 'The page title.'
+    show_footer:
+      type: boolean
+      title: Show Footer
+      description: 'Whether to display the footer.'
+    author_name:
+      type:
+        - string
+        - "null"
+      title: Author Name
+      description: 'The name of the page author.'
+    date_format:
+      type:
+        - string
+        - "null"
+      title: Date Format
+      description: 'The format for displaying the date.'
+    year:
+      type:
+        - string
+        - "null"
+      title: Year
+      description: 'The year for the page.'
+    month:
+      type:
+        - string
+        - "null"
+      title: Month
+      description: 'The month for the page.'
+    day:
+      type:
+        - string
+        - "null"
+      title: Day
+      description: 'The day for the page.'
+    hour:
+      type:
+        - string
+        - "null"
+      title: Hour
+      description: 'The hour for the page.'
+    minute:
+      type:
+        - string
+        - "null"
+      title: Minute
+      description: 'The minute for the page.'
+slots:
+  content:
+    title: Content
+    description: 'The main page content.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

@@ -1,0 +1,82 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Homepage
+props:
+  type: object
+  properties:
+    is_published:
+      type: boolean
+      title: Published
+      description: 'Whether the page is published.'
+    show_admin_info:
+      type: boolean
+      title: Show Admin Info
+      description: 'Whether to show admin information.'
+    admin_info:
+      type:
+        - object
+        - "null"
+      title: Admin Info
+      description: 'Admin information render array.'
+    title_prefix:
+      type:
+        - array
+        - "null"
+      title: Title Prefix
+      description: 'Drupal title prefix array.'
+    title_suffix:
+      type:
+        - array
+        - "null"
+      title: Title Suffix
+      description: 'Drupal title suffix array.'
+    homepage_hero:
+      type:
+        - string
+        - "null"
+      title: Homepage Hero
+      description: 'The hero section content. Optional - defaults to a generated hero from other props.'
+    hero_image:
+      type:
+        - object
+        - "null"
+      title: Hero Image
+      description: 'The hero image render array.'
+    hero_title:
+      type:
+        - string
+        - "null"
+      title: Hero Title
+      description: 'The hero section title.'
+    hero_summary:
+      type:
+        - string
+        - "null"
+      title: Hero Summary
+      description: 'The hero section summary text (can contain HTML).'
+    hero_button_text:
+      type:
+        - string
+        - "null"
+      title: Hero Button Text
+      description: 'Text for the hero button.'
+    hero_button_url:
+      type:
+        - string
+        - "null"
+      title: Hero Button URL
+      description: 'URL for the hero button.'
+    homepage_grid_title:
+      type:
+        - string
+        - "null"
+      title: Homepage Grid Title
+      description: 'Title for the grid section.'
+    homepage_grid_content:
+      type:
+        - object
+        - "null"
+      title: Homepage Grid Content
+      description: 'The grid section content render array.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

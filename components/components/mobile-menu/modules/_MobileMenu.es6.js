@@ -1,6 +1,6 @@
-import cleanString from '../../../../source/06-utility/_cleanString.es6.js';
+import cleanString from '../../../../source/05-utility/_cleanString.es6.js';
 import { BREAKPOINTS } from '../../../../source/00-config/_GESSO.es6.js';
-import { getNextSibling } from '../../../../source/06-utility/_getClosestSibling.es6.js';
+import { getNextSibling } from '../../../../source/05-utility/_getClosestSibling.es6.js';
 import OverlayMenu from '../../overlay-menu/modules/_OverlayMenu.es6.js';
 
 class MobileMenu extends OverlayMenu {

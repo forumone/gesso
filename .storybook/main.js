@@ -84,7 +84,7 @@ const config = {
                 layouts: resolve(__dirname, '../', 'source/02-layouts'),
                 components: resolve(__dirname, '../', 'source/03-components'),
                 templates: resolve(__dirname, '../', 'source/04-templates'),
-                pages: resolve(__dirname, '../', 'source/05-pages'),
+                pages: resolve(__dirname, '../', 'source/04-pages'),
                 // SDC (Single Directory Component) namespace
                 // Supports Drupal's SDC syntax: include('gesso:component-name')
                 // Components in the components/ directory follow the convention:
