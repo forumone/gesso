@@ -17,7 +17,7 @@ async function gatherProjectFiles() {
 
   // Source directory globs
   const jsGlob = new Glob('source/**/!(*.stories).{cjs,js,ts}', {
-    ignore: ['**/_*', 'source/@types/**', 'source/07-react/**'],
+    ignore: ['**/_*', 'source/@types/**', 'source/03-react/**'],
   });
   const scssGlob = new Glob('source/**/*.scss', jsGlob);
 

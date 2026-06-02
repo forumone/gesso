@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
-import globalData from '../00-config/storybook.global-data.yml';
+import globalData from '../source/00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
 import { Page as Template } from '../04-templates/page/page.stories.jsx';
 import { FigureRightAligned } from '../03-components/figure/figure.stories.jsx';

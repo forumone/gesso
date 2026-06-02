@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
-import globalData from '../00-config/storybook.global-data.yml';
+import globalData from '../source/00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
 import { Homepage as Template } from '../04-templates/homepage/homepage.stories.jsx';
 import { Default as HeroBgImage } from '../03-components/hero-bg-image/hero-bg-image.stories.jsx';
@@ -61,9 +61,10 @@ const homepageContent = args =>
     })
   );
 
-
 const Homepage = {
-  render: args => <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>,
+  render: args => (
+    <PageWrapper isHomepage>{parse(homepageContent(args))}</PageWrapper>
+  ),
   args: { ...globalData },
 };
 

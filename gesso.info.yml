@@ -30,7 +30,7 @@ components:
       - source/02-layouts
     components: source/03-components
     templates: source/04-templates
-    utility: source/05-utility
+    utility: source/02-utility
 regions:
   page_top: 'Page top'
   header: Header

@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
-import globalData from '../00-config/storybook.global-data.yml';
+import globalData from '../source/00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
-import { LandingPage as Template } from '../../components/templates/landing-page/landing-page.stories.jsx';
+import { LandingPage as Template } from '../components/templates/landing-page/landing-page.stories.jsx';
 import { Default as Card } from '../03-components/card/card.stories.jsx';
 import { View } from '../03-components/view/views-view/views-view.stories.jsx';
 import { Unformatted } from '../../components/views-view-unformatted/views-view-unformatted.stories';

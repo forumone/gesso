@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
-import globalData from '../../00-config/storybook.global-data.yml';
+import globalData from '../../source/00-config/storybook.global-data.yml';
 import RegionTwig from '../../02-layouts/region/region.twig';
 import SkiplinksTwig from '../../../components/skiplinks/skiplinks.twig';
-import HeaderTwig from '../../../components/layouts/header/header.twig';
+import HeaderTwig from '../../components/layouts/header/header.twig';
 import BreadcrumbTwig from '../../02-layouts/breadcrumb/breadcrumb.twig';
-import ContentTwig from '../../../components/layouts/content/content.twig';
+import ContentTwig from '../../components/layouts/content/content.twig';
 import FooterTwig from '../../02-layouts/footer/footer.twig';
 import { SiteName } from '../../03-components/site-name/site-name.stories.jsx';
 import NavTwig from '../../02-layouts/nav/nav.twig';
