@@ -1,6 +1,6 @@
 // Component: List
 
-@use '../../source/00-config' as *;
+@use '00-config' as *;
 
 .c-list--border {
   @include list-border();

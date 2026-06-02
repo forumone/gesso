@@ -1,11 +1,11 @@
 import Drupal from 'drupal';
 import once from 'once';
-import MobileMenu from '../../source/03-components/mobile-menu/modules/_MobileMenu.es6';
 import MenuBar from './modules/_MenuBar.es6';
+import MobileMenu from '../../../source/03-components/mobile-menu/modules/_MobileMenu.es6.js';
 
 Drupal.behaviors.dropdownMenu = {
   attach(context) {
-    const menus: Element[] = once('dropdown-menu', '.c-dropdown-menu', context);
+    const menus = once('dropdown-menu', '.c-dropdown-menu', context);
 
     menus.forEach(menu => {
       const dropdownMenu = new MenuBar(menu);

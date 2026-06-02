@@ -1,7 +1,7 @@
-import OverlayMenu from '../../overlay-menu/modules/_OverlayMenu.es6';
 import cleanString from '../../../06-utility/_cleanString.es6';
 import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
 import { getNextSibling } from '../../../06-utility/_getClosestSibling.es6';
+import OverlayMenu from '../../../../components/components/overlay-menu/modules/_OverlayMenu.es6.js';
 
 class MobileMenu extends OverlayMenu {
   /**

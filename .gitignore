@@ -17,6 +17,7 @@ source/00-config/_GESSO.es6.js
 
 ## Ignore compiled files in components directory
 components/**/*.css
+components/**/*.css.map
 !components/**/*.source.css
 components/**/*.js
 components/**/*.js.map
