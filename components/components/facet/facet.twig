@@ -5,7 +5,7 @@
 ]|join(' ')|trim %}
 
 {% set icon_empty %}
-  {%- include '@components/icon/icon.twig' with {
+  {%- include 'gesso:icon' with {
     'is_demo': false,
     'modifier_classes': 'c-facet__icon c-facet__icon--empty',
     'is_hidden': true,
@@ -14,7 +14,7 @@
 {% endset %}
 
 {% set icon_selected %}
-  {%- include '@components/icon/icon.twig' with {
+  {%- include 'gesso:icon' with {
     'is_demo': false,
     'modifier_classes': 'c-facet__icon c-facet__icon--selected',
     'is_hidden': false,

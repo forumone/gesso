@@ -1,10 +1,10 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './fieldset.twig';
 import data from './fieldset.yml';
 import componentInfo from './fieldset.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Fieldset',

@@ -9,7 +9,7 @@
   <a class="{{ classes }}" href="{{ url }}">
 {% endif %}
 
-  {%- include '@components/icon/icon.twig' with {
+  {%- include 'gesso:icon' with {
     'modifier_classes': 'c-icon c-button__icon is-spaced-after',
     'label': 'Remove'|t,
     'icon_name': 'xmark',

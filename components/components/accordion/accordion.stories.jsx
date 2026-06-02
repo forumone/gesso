@@ -1,15 +1,15 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators';
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import accordionTemplate from './accordion.twig';
 import accordionItemTemplate from '../accordion-item/accordion-item.twig';
-import globalData from '../../source/00-config/storybook.global-data.yml';
+import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './accordion.yml';
 import './accordion.source.scss';
 import './accordion--step-list.source.scss';
 import './accordion.source.js';
 import componentInfo from './accordion.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Accordion',

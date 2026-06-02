@@ -1,12 +1,12 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators';
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './table.twig';
-import globalData from '../../source/00-config/storybook.global-data.yml';
+import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './table.yml';
 import './table--sortable.source.ts';
 import componentInfo from './table.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Table',

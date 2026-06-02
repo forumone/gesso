@@ -1,15 +1,15 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './dropdown-menu.twig';
 import data from './dropdown-menu.yml';
 import buttonData from './dropdown-menu-buttons.yml';
 import './dropdown-menu.source.js';
 import './dropdown-menu.source.scss';
-import '../../source/03-components/mobile-menu/mobile-menu.scss';
-import '../../source/03-components/hamburger-button/hamburger-button.scss';
+import '../mobile-menu/mobile-menu.source.scss';
+import '../hamburger-button/hamburger-button.source.scss';
 import componentInfo from './dropdown-menu.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Menu/Dropdown Menu',

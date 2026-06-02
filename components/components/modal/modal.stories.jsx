@@ -5,7 +5,7 @@ import data from './modal.yml';
 import './modal.source.scss';
 import './modal.source';
 import componentInfo from './modal.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Modal',

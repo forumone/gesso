@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators';
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './homepage.twig';
-import globalData from '../../source/00-config/storybook.global-data.yml';
-import ContentPlaceholder from '../../source/01-global/content-placeholder/content-placeholder';
-import { MessagesandTabs } from '../../source/04-templates/template-parts/messages-and-tabs/messages-and-tabs.stories.jsx';
-import { HeroImage } from '../../source/01-global/images/hero-image.stories.jsx';
+import globalData from '../../../source/00-config/storybook.global-data.yml';
+import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
+import { MessagesandTabs } from '../messages-and-tabs/messages-and-tabs.stories.jsx';
+import { HeroImage } from '../../../source/01-global/images/hero-image.stories.jsx';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
-import '../hero-bg-image/hero-bg-image.stories.jsx';
+import '../../components/hero-bg-image/hero-bg-image.stories.jsx';
 
 const settings = {
   title: 'Templates/Homepage',

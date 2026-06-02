@@ -1,14 +1,14 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './icon-link.twig';
 import data from './icon-link.yml';
-import globalData from '../../source/00-config/storybook.global-data.yml';
+import globalData from '../../../source/00-config/storybook.global-data.yml';
 import './icon-link.source.scss';
-import { Icon } from '../../source/03-components/icon/icon.stories';
+import { Icon } from '../icon/icon.stories';
 import ReactDOMServer from 'react-dom/server';
 import componentInfo from './icon-link.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Icon Link',

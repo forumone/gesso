@@ -1,8 +1,8 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './external-link.twig';
-import globalData from '../../source/00-config/storybook.global-data.yml';
+import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './external-link.yml';
 import './external-link.source';
 
@@ -11,11 +11,7 @@ const settings = {
   decorators: [withGlobalWrapper],
   parameters: {
     controls: {
-      include: [
-        'url',
-        'text',
-        'modifier_classes',
-      ],
+      include: ['url', 'text', 'modifier_classes'],
     },
   },
 };

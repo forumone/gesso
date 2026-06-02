@@ -5,7 +5,7 @@ import data from './tabs.yml';
 import './tabs.source.ts';
 import './tabs.source.scss';
 import componentInfo from './tabs.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Tabs',

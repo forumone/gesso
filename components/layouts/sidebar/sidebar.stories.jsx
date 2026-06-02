@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './sidebar.twig';
 import data from './sidebar.yml';
-import ContentPlaceholder from '../../source/01-global/content-placeholder/content-placeholder';
+import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
 
 const settings = {
   title: 'Layouts/Sidebar',
@@ -12,7 +12,9 @@ const settings = {
     sidebar_header_content: {
       options: ['Show', 'Hide'],
       mapping: {
-        Show: ReactDOMServer.renderToStaticMarkup(<ContentPlaceholder>Header Content</ContentPlaceholder>),
+        Show: ReactDOMServer.renderToStaticMarkup(
+          <ContentPlaceholder>Header Content</ContentPlaceholder>
+        ),
         Hide: false,
       },
       control: {
@@ -22,7 +24,9 @@ const settings = {
     sidebar_first_content: {
       options: ['Show', 'Hide'],
       mapping: {
-        Show: ReactDOMServer.renderToStaticMarkup(<ContentPlaceholder>Optional Sidebar Content</ContentPlaceholder>),
+        Show: ReactDOMServer.renderToStaticMarkup(
+          <ContentPlaceholder>Optional Sidebar Content</ContentPlaceholder>
+        ),
         Hide: false,
       },
       control: {
@@ -32,7 +36,9 @@ const settings = {
     sidebar_main_content: {
       options: ['Show', 'Hide'],
       mapping: {
-        Show: ReactDOMServer.renderToStaticMarkup(<ContentPlaceholder>Main Content</ContentPlaceholder>),
+        Show: ReactDOMServer.renderToStaticMarkup(
+          <ContentPlaceholder>Main Content</ContentPlaceholder>
+        ),
         Hide: false,
       },
       control: {
@@ -42,7 +48,9 @@ const settings = {
     sidebar_second_content: {
       options: ['Show', 'Hide'],
       mapping: {
-        Show: ReactDOMServer.renderToStaticMarkup(<ContentPlaceholder>Optional Sidebar Content</ContentPlaceholder>),
+        Show: ReactDOMServer.renderToStaticMarkup(
+          <ContentPlaceholder>Optional Sidebar Content</ContentPlaceholder>
+        ),
         Hide: false,
       },
       control: {

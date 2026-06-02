@@ -1,11 +1,11 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './wysiwyg.twig';
-import globalData from '../../source/00-config/storybook.global-data.yml';
+import globalData from '../../../source/00-config/storybook.global-data.yml';
 import './wysiwyg.source';
 import componentInfo from './wysiwyg.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/WYSIWYG',

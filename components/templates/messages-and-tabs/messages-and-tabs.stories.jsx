@@ -1,21 +1,18 @@
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators';
 import twigTemplate from './messages-and-tabs.twig';
-import globalData from '../../source/00-config/storybook.global-data.yml';
-import { Base as LocalTasks } from '../../source/03-components/button-group/button-group.stories.jsx';
-import { Default as StatusMessage } from '../components/message/message.stories.jsx';
+import globalData from '../../../source/00-config/storybook.global-data.yml';
+import { Base as LocalTasks } from '../../components/button-group/button-group.stories.jsx';
+import { Default as StatusMessage } from '../../components/message/message.stories.jsx';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 
 const settings = {
   title: 'Templates/Template Sections/Messages and Tabs',
   decorators: [withGlobalWrapper],
   parameters: {
     controls: {
-      include: [
-        'is_published',
-        'show_admin_info',
-      ],
+      include: ['is_published', 'show_admin_info'],
     },
   },
 };

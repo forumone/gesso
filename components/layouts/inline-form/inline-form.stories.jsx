@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './inline-form.twig';
 import data from './inline-form.yml';
-import ContentPlaceholder from '../../source/01-global/content-placeholder/content-placeholder';
+import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
 
 const settings = {
   title: 'Layouts/Inline Form',

@@ -1,11 +1,11 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators';
+import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './message.twig';
 import data from './message.yml';
 import './message.source.scss';
 import componentInfo from './message.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Message',

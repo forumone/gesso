@@ -1,12 +1,12 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../.storybook/decorators.jsx';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './figure.twig';
 import data from './figure.yml';
 import videoData from './figure--iframe.yml';
-import '../../source/03-components/video/video.scss';
+import '../video/video.source.scss';
 import componentInfo from './figure.component.yml';
-import getArgTypesFromComponent from '../../.storybook/getArgTypesFromComponent.js';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Figure',
