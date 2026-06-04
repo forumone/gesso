@@ -5,8 +5,7 @@ accessible HTML5 markup. It uses a mobile-first responsive approach and
 leverages [SMACSS](https://smacss.com/) to organize styles. This encourages a
 component-based approach to theming through the creation of discrete, reusable
 UI elements. Gesso is heavily integrated with
-[Storybook](https://storybook.js.org/) and the [Component
-Libraries](https://www.drupal.org/project/components) module, allowing Drupal
+[Storybook](https://storybook.js.org/) and [Single Directory Components](https://www.drupal.org/docs/develop/theming-drupal/using-single-directory-components), allowing Drupal
 and Storybook to share the same markup.
 
 Visit the [Gesso Storybook demo site](https://forumone.github.io/gesso/).
@@ -22,7 +21,7 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
--   [Node](https://nodejs.org/en/) version 20. Long-term stable
+-   [Node](https://nodejs.org/en/) version 22. Long-term stable
     recommended.
 
 -   [npm](https://www.npmjs.com/get-npm) version 10.7.0 or greater.
@@ -143,6 +142,29 @@ npm run component -- --name my-component --folder 03-components
 | `--js`              | Include a JavaScript file                                      |
 | `--help, -h`        | Show help message                                              |
 
+## Directory structure
+
+Gesso organizes its source files across three top-level directories:
+
+-   `components/`: Single Directory Components (SDCs), subdivided by category:
+    `components/components/`, `components/layouts/`, and `components/templates/`.
+    Each component lives in its own subdirectory and contains all of its files
+    (Twig template, SCSS, JS, Storybook story, and the required
+    `[component-name].component.yml` metadata file).
+
+-   `source/`: Design tokens and global styles, subdivided by ordered category:
+    `source/00-config/` (design tokens, functions, mixins), `source/01-global/`
+    (base HTML element styles, fonts, normalize, etc.), and `source/02-utility/`
+    (utility classes and JS helpers).
+
+-   `templates/`: Drupal `.html.twig` templates, organized by template type
+    (block, content, field, form, etc.). These are standard Drupal theme
+    templates and are separate from the Twig files inside `components/`.
+
+Note that the `components/templates/` subdirectory contains SDC Storybook
+templates for full-page layouts (page, homepage, landing page, etc.). These are
+_not_ Drupal templates — they are SDC components used for node detail pages.
+
 ## Storybook
 
 Name your stories files `[component].stories.jsx`. See `menu.stories.jsx` for
@@ -156,13 +178,13 @@ information about and examples of theming.
 
 ## Sass
 
-Sass can be compiled as part of the global styles.css file or to individual CSS
-files for use in a Drupal library.
+Sass can be compiled as part of the global `styles.css` file or to individual
+CSS files scoped to a component.
 
 `@use` is used to import Sass variables, mixins, and/or functions into
 individual SCSS files. [`@import` is discouraged by the Sass team and will
 eventually be phased out.](https://sass-lang.com/documentation/at-rules/import).
-This means that most files will start with `@use '00-config' as *;`. This allows
+This means that most files will start with `@use ‘00-config’ as *;`. This allows
 you to use the design token accessor functions without an additional namespace.
 Other functions and mixins can be used similarly. Note that to avoid namespace
 collisions, only Gesso-related variables, mixins, and functions should be used
@@ -173,15 +195,31 @@ filename, even if they are in different directories.
 
 ### Global styles
 
-Prefix the name of your Sass file with `_`, e.g. `_card.scss`. Add it to the
-appropriate aggregate file (i.e. `_components.scss`).
+Prefix the name of your Sass file with `_`, e.g. `_my-styles.scss`. Place it in
+the appropriate subdirectory under `source/01-global/`, then add a `@use` entry
+for it in the nearest `_index.scss` file.
 
-### Individual component/library styles
+### Component styles
 
-DO NOT prefix the name of your Sass file with `_`, e.g. `menu.scss`. Import the
-config and global aggregate files. Import your SCSS file at the top of your
-Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t forget to
-add it to the `gesso.libraries.yml` file as well.
+Name your component SCSS file `[component-name].source.scss`, e.g.
+`button.source.scss`. The `.source.scss` suffix tells the build system to
+compile this file to its own CSS file (`button.css`) rather than including it
+in the global stylesheet. Import it at the top of your Storybook file. See
+`dropdown-menu.stories.jsx` for an example.
+
+Component CSS and JS assets are declared in the component’s
+`[component-name].component.yml` file via the `libraryOverrides` key rather
+than in `gesso.libraries.yml`. Drupal’s SDC system auto-discovers the
+`[component-name].source.scss` and `[component-name].source.js` files. You only
+need to declare dependencies, but you must include `gesso/global` as a dependency.
+
+```yaml
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/drupal
+    - core/once
+```
 
 ### Sass Linting
 
@@ -209,46 +247,40 @@ The Prettier config can be changed in the `.prettierrc` file.
 
 ## JavaScript
 
-JavaScript can be compiled to individual JS files for use in a JavaScript
-library or included within a different JS file. JS files that use modern
-(ES2015+) syntax must be named `[name].es6.js`, but this is not required by the
-compiler. JavaScript files should go in the appropriate folder under source
-(e.g., `source/03-components/menu` for menu-related JavaScript). There is not a
-separate folder for JS files as there was in previous versions of Gesso.
+JavaScript can be compiled to individual JS files scoped to a component or
+included as a shared utility. JavaScript files should go in the component’s directory under `components/` (e.g.,
+`components/components/dropdown-menu/` for dropdown-menu JavaScript).
 
 All JavaScript files must have a unique filename, even if they are in different
 directories.
 
 ### Modules
 
-Prefix the name of your JavaScript file with `_`, e.g. `_Menu.es6.js`. Import it
-to the appropriate JavaScript file(s), (i.e. `primary-menu.es6.js`).
+Prefix the name of your JavaScript file with `_`, e.g. `_Menu.es6.js`. Place
+helper modules in a `modules/` subdirectory inside the component directory.
+Import them into the component’s entry point script.
 
 ### Individual component/library scripts
 
-DO NOT prefix the name of your JS file with `_`. Import your JS file at the top
-of your Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t
-forget to add it to the `gesso.libraries.yml` file as well.
+Name your component JS entry point `[component-name].source.js`, e.g.
+`dropdown-menu.source.js`. DO NOT prefix it with `_`. Import your JS file at the
+top of your Storybook file. See `dropdown-menu.stories.jsx` for an example.
+
+As with CSS, component JS assets are auto-discovered by Drupal’s SDC system via
+the `[component-name].source.js` filename. Declare dependencies in
+`[component-name].component.yml` under `libraryOverrides` rather than adding an
+entry to `gesso.libraries.yml`.
 
 ### common.js
-
-Any library you create in `gesso.libraries.yml` that includes an individual
-component script must include `gesso/common` as a dependency. (In most cases, you
-will also add `core/drupal` as a dependency, if you are using the `Drupal`
-object anywhere in your code.) common.js is generated on **production** builds
-(so you will not notice it missing until you deploy to a staging server) and
-contains JavaScript that is shared across two or more components, so that it is
-not bundled multiple times on the page. The recommended practice is for each
-library to declare its dependencies, even if some of them are repeated across
-multiple libraries and/or shared with global. This ensures that Drupal will
-always load the dependencies before loading any library that depends on them.
-See the `dropdown_menu` library in `gesso.libraries.yml` as an example.
-
 The common JS file is created using the [Webpack SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/).
 To change how it behaves, update `webpack.production.js`. You may also need to
 update `gesso_library_info_build` in `libraries.inc` to change what files are
 included in the `gesso/common` library. We recommend using the default setup
 unless you have a specific use case that requires advanced configuration.
+
+`gesso/common` is already a dependency of `gesso/global`, so if you include
+`gesso/global` as a dependency of your component (and you should), then it will
+be included.
 
 ### JS Linting
 
@@ -303,15 +335,12 @@ To add jQuery to Drupal:
       jquery: 'jQuery'
     }
    ```
-2. Ensure that `core/jquery` is added a dependency of the appropriate library in gesso.libraries.yml
+2. Ensure that `core/jquery` is added as a dependency in the component's
+   `[component-name].component.yml`:
    ```yaml
-   library_name:
-     js:
-       dist/js/file-that-uses-jquery: {}
+   libraryOverrides:
      dependencies:
-       - gesso/common
-       - core/drupal
-       - core/once
+       - gesso/global
        - core/jquery
    ```
 
