@@ -17,3 +17,9 @@ source/00-config/_GESSO.es6.js
 storybook
 debug-storybook.log
 
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

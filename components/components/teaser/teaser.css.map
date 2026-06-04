@@ -1,0 +1,1 @@
+{"version":3,"file":"components/components/teaser/teaser.css","mappings":";;;AAIA;EACE;AAHF,C","sources":["webpack://gesso/./components/components/teaser/teaser.source.scss"],"sourcesContent":["// Component: Teaser\n\n@use '00-config' as *;\n\n.c-teaser__date {\n  margin-block-end: rem(gesso-spacing(1));\n}\n"],"names":[],"ignoreList":[],"sourceRoot":""}
