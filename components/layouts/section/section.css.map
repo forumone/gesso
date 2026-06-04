@@ -1,1 +1,0 @@
-{"version":3,"file":"components/layouts/section/section.css","mappings":";;;AAIA;EACE;AAHF,C","sources":["webpack://gesso/./components/layouts/section/section.source.scss"],"sourcesContent":["// Layout: Section\n\n@use '00-config' as *;\n\n.l-section {\n  margin-block-end: rem(gesso-spacing(5));\n}\n"],"names":[],"ignoreList":[],"sourceRoot":""}

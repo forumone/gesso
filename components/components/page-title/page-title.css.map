@@ -1,1 +1,0 @@
-{"version":3,"file":"components/components/page-title/page-title.css","mappings":";;;AAIA;EACE;AAHF,C","sources":["webpack://gesso/./components/components/page-title/page-title.source.scss"],"sourcesContent":["// Component: Page Title\n\n@use '00-config' as *;\n\n.c-page-title {\n  margin-block-end: rem(gesso-spacing(5));\n}\n"],"names":[],"ignoreList":[],"sourceRoot":""}

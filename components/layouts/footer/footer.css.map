@@ -1,1 +1,0 @@
-{"version":3,"file":"components/layouts/footer/footer.css","mappings":";;;AAIA;EACE;AAHF,C","sources":["webpack://gesso/./components/layouts/footer/footer.source.scss"],"sourcesContent":["// Layout: Footer\n\n@use '00-config' as *;\n\n.l-footer {\n  padding: rem(gesso-spacing(3)) 0;\n}\n"],"names":[],"ignoreList":[],"sourceRoot":""}

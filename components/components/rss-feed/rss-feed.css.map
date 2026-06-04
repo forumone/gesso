@@ -1,1 +1,0 @@
-{"version":3,"file":"components/components/rss-feed/rss-feed.css","mappings":";;;AAIA;EACE;AAHF,C","sources":["webpack://gesso/./components/components/rss-feed/rss-feed.source.scss"],"sourcesContent":["// Component: RSS Feed\n\n@use '00-config' as *;\n\n.c-rss-feed {\n  margin-block-start: rem(gesso-spacing(3));\n}\n"],"names":[],"ignoreList":[],"sourceRoot":""}

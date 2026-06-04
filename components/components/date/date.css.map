@@ -1,1 +1,0 @@
-{"version":3,"file":"components/components/date/date.css","mappings":";;;AAIA;EACE;EACA;AAHF,C","sources":["webpack://gesso/./components/components/date/date.source.scss"],"sourcesContent":["// Component: Date\n\n@use '00-config' as *;\n\n.c-date {\n  color: gesso-color(text, secondary);\n  font-size: rem(gesso-font-size(3));\n}\n"],"names":[],"ignoreList":[],"sourceRoot":""}
