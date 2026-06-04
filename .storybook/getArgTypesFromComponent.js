@@ -1,8 +1,7 @@
 function getArgTypesFromComponent(componentInfo) {
-  console.log(componentInfo);
   return {
     ...Object.fromEntries(
-      Object.entries(componentInfo.props.properties).map(([key, p]) => {
+      Object.entries(componentInfo.props.properties || {}).map(([key, p]) => {
         const argTypeConfig = {};
         if (p.title) {
           argTypeConfig.name = p.title;
