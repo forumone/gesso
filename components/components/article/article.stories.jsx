@@ -39,6 +39,7 @@ const Article = {
   args: {
     ...globalData,
     ...data,
+    article_content: globalData.content,
   },
 };
 

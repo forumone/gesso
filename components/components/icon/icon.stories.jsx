@@ -6,6 +6,7 @@ import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './icon.yml';
 import componentInfo from './icon.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './icon.source.scss';
 
 const settings = {
   title: 'Components/Icon',
