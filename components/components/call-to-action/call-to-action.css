@@ -1,0 +1,1 @@
+.c-call-to-action__layout{align-items:center;display:grid;gap:2.5rem}@media(min-width: 40em){.c-call-to-action__layout{grid-template-columns:repeat(2, 1fr)}}@media(min-width: 40em){.c-call-to-action__media{grid-column-start:2;order:2}}@media(min-width: 40em){.c-call-to-action__content{grid-row-start:1;order:1}}
