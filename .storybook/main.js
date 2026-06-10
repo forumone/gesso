@@ -9,6 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const require = createRequire(import.meta.url);
 const isProdBuild = process.env.NODE_ENV === 'production';
+const ddevHostname = process.env.DDEV_HOSTNAME || process.env.VIRTUAL_HOST;
 
 const config = {
   stories: ['../source/**/*.mdx', '../source/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -28,8 +29,8 @@ const config = {
     actions: false,
   },
   core: {
-    // Replace with your DDEV URL
-    allowedHosts: ['gesso.ddev.site'],
+    // Replace allowedHosts value with your DDEV URL if neither ddevHostname nor the .ddev.site pattern apply.
+    allowedHosts: ddevHostname ? [ddevHostname] : ['.ddev.site'],
   },
   staticDirs: ['../dist'],
   webpackFinal: async (webpackConfig, { configType }) => {
