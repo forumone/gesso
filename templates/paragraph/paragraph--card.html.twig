@@ -12,4 +12,4 @@
   'card_content': content.field_card_subtitle|field_value is not empty ? content.field_card_subtitle|field_value : false,
 } %}
 
-{% set catch_cache = content|without('field_card_media', 'field_card_title', 'field_card_link', 'field_card_subtitle')|render %}
+{{ content|cache_metadata }}

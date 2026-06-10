@@ -19,4 +19,4 @@
   'section_content': section_content,
 } %}
 
-{% set catch_cache = content|without('field_cards')|render %}
+{{ content|cache_metadata }}

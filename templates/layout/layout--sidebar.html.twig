@@ -14,4 +14,4 @@
   } %}
 {% endif %}
 
-{% set catch_cache = content|render %}
+{{ content|cache_metadata }}
