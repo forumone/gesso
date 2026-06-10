@@ -6,20 +6,20 @@
   &.is-scrollable {
     thead {
       display: table;
+      inline-size: calc(100% - var(--gesso-scrollbar-width));
       table-layout: fixed;
-      width: calc(100% - var(--gesso-scrollbar-width));
     }
 
     tbody {
       display: block;
-      max-height: rem(365px);
+      max-block-size: rem(365px);
       overflow-x: hidden;
       overflow-y: auto;
 
       tr {
         display: table;
+        inline-size: 100%;
         table-layout: fixed;
-        width: 100%;
       }
     }
   }
@@ -60,11 +60,11 @@
   @include text-button();
   color: inherit;
   display: block;
+  inline-size: rem(gesso-spacing(4));
   inset-block: rem(gesso-spacing(0.5));
   inset-inline-end: rem(gesso-spacing(0.5));
   outline-offset: 0;
   position: absolute;
-  width: rem(gesso-spacing(4));
 
   &:focus {
     outline-color: gesso-grayscale(white);

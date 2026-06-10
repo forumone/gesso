@@ -2,7 +2,7 @@
 
 audio {
   &:not([controls]) {
+    block-size: 0;
     display: none;
-    height: 0;
   }
 }

@@ -15,10 +15,10 @@ body {
   --gesso-scrollbar-width: calc(100vw - 100cqw);
   background-color: gesso-color(background, site);
   color: gesso-color(text, primary);
+  inline-size: 100%;
   margin: 0;
   overflow-x: hidden;
   padding: 0;
-  width: 100%;
   word-wrap: break-word;
 
   // Tweak styling in WYSIWYG editor.

@@ -28,15 +28,15 @@
       &.has-subnav::after {
         @include svg-background(menu-arrow-down);
         background-size: 16px 16px;
+        block-size: 16px;
         content: '';
         display: block;
-        height: 16px;
+        inline-size: 16px;
         inset-block-start: 50%;
         inset-inline-end: 5px;
         overflow: hidden;
         position: absolute;
         transform: translateY(-40%);
-        width: 16px;
       }
     }
 

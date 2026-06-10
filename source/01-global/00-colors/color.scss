@@ -22,9 +22,9 @@ $swatch-padding: 1rem;
 }
 
 .gesso-storybook-color-swatch__indicator {
-  height: $swatch-size;
+  block-size: $swatch-size;
+  inline-size: $swatch-size;
   margin-block-end: $swatch-padding;
-  width: $swatch-size;
 }
 
 .gesso-storybook-color-swatch__meta {

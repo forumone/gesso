@@ -3,14 +3,14 @@
 @use '00-config' as *;
 
 .c-icon {
+  block-size: 1em;
   display: inline-block;
   fill: currentColor;
-  height: 1em;
+  inline-size: 1em;
   inset-block-start: -2px;
   position: relative;
   transition: none;
   vertical-align: middle;
-  width: 1em;
 
   // Fixes delayed transitions in Chrome.
   * {

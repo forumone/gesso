@@ -29,14 +29,14 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
   &::before {
     background-repeat: no-repeat;
     background-size: em(52px);
+    block-size: em(52px);
     content: '';
     display: block;
-    height: em(52px);
+    inline-size: em(52px);
     inset-block-end: -0.5em;
     inset-inline-end: -0.5em;
     position: absolute;
     transform: rotate(-20deg);
-    width: em(52px);
 
     @media print {
       display: none !important;

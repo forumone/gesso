@@ -77,8 +77,8 @@ tr {
 
     td {
       @extend %td;
+      block-size: revert;
       color: revert;
-      height: revert;
     }
 
     tfoot {
@@ -90,8 +90,8 @@ tr {
 
     th {
       @extend %th;
+      block-size: revert;
       color: revert;
-      height: revert;
       line-height: revert;
     }
 

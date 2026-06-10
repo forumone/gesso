@@ -10,8 +10,8 @@ $dropbutton-toggle-width: 2em !default;
 $dropbutton-toggle-icon-size: rem(12px) !default;
 
 .c-dropbutton {
+  block-size: $dropbutton-toggle-height;
   display: inline-block;
-  height: $dropbutton-toggle-height;
   margin-block-end: rem(gesso-spacing(1));
   position: relative;
   vertical-align: top;
@@ -72,12 +72,12 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
     );
   background-repeat: no-repeat;
   background-size: $dropbutton-toggle-icon-size;
+  block-size: 100%;
   border-end-start-radius: 0;
   border-start-start-radius: 0;
-  height: 100%;
+  inline-size: 100%;
   padding: 0;
   white-space: nowrap;
-  width: 100%;
 }
 
 .c-dropbutton__item {
@@ -102,7 +102,7 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
   border-end-end-radius: 0;
   border-start-end-radius: 0;
   display: block;
+  inline-size: 100%;
   margin: 0;
   text-align: start;
-  width: 100%;
 }
