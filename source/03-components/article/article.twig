@@ -23,7 +23,7 @@
           {% endset %}
         {% endif %}
 
-        {% if not author %}
+        {% if not author and author_name and author_url %}
           {% set author %}
             {% include '@components/author/author.twig' with {
                 'author': author_name,
