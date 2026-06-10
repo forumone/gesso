@@ -13,7 +13,7 @@
   'attributes': attributes,
   'modifier_classes': '',
   'tab_labels': tab_labels,
-  'tab_panels': content.field_paragraphs|field_value is not empty ? content.field_paragraphs|field_value : false,
+  'tab_panels': content.field_paragraphs|field_value is not empty ? content.field_paragraphs|field_value : null,
 } %}
 
 {% set catch_cache = content|without('field_paragraphs')|render %}

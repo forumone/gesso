@@ -13,11 +13,11 @@
   'modifier_classes': paragraph.field_hero_alignment.value ? 'has-content-' ~ paragraph.field_hero_alignment.value : '',
   'hero_image': content.field_hero_image|field_value,
   'has_overlay': paragraph.field_hero_has_overlay is not empty ? paragraph.field_hero_has_overlay.value : false,
-  'hero_title': content.field_hero_heading|field_value is not empty ? content.field_hero_heading|field_value : false,
-  'hero_summary': content.field_hero_body|field_value is not empty ? content.field_hero_body|field_value : false,
-  'hero_button_attributes': content.field_hero_link|field_value is not empty ? create_attribute(content.field_hero_link.0['#url'].getOption('attributes')|default([])) : false,
-  'hero_button_text': content.field_hero_link|field_value is not empty ? content.field_hero_link.0['#title'] : false,
-  'hero_button_url': content.field_hero_link|field_value is not empty ? content.field_hero_link.0['#url'] : false,
+  'hero_title': content.field_hero_heading|field_value is not empty ? content.field_hero_heading|field_value : null,
+  'hero_summary': content.field_hero_body|field_value is not empty ? content.field_hero_body|field_value : null,
+  'hero_button_attributes': content.field_hero_link|field_value is not empty ? create_attribute(content.field_hero_link.0['#url'].getOption('attributes')|default([])) : null,
+  'hero_button_text': content.field_hero_link|field_value is not empty ? content.field_hero_link.0['#title'] : null,
+  'hero_button_url': content.field_hero_link|field_value is not empty ? content.field_hero_link.0['#url'] : null,
 } %}
 
 {#

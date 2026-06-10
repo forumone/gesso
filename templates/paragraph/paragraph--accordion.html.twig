@@ -10,7 +10,7 @@
   'has_constrain': true,
   'allow_multiple': true,
   'is_step_list': false,
-  'accordion_items': content.field_paragraphs|field_value is not empty ? content.field_paragraphs|field_value : false,
+  'accordion_items': content.field_paragraphs|field_value is not empty ? content.field_paragraphs|field_value : null,
 } %}
 
 {% set catch_cache = content|without('field_paragraphs')|render %}
