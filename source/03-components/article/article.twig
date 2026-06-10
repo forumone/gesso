@@ -27,6 +27,7 @@
           {% set author %}
             {% include '@components/author/author.twig' with {
                 'author': author_name,
+                'url': author_url,
               } %}
           {% endset %}
         {% endif %}
