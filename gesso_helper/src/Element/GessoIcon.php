@@ -3,7 +3,6 @@
 namespace Drupal\gesso_helper\Element;
 
 use Drupal\Core\Render\Element\RenderElementBase;
-use Drupal\Core\Render\Element\RenderElement;
 
 /**
  * Provides an SVG icon element.
