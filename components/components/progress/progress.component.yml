@@ -25,5 +25,4 @@ props:
       description: 'Additional CSS classes to apply to the component.'
 libraryOverrides:
   dependencies:
-    - core/components.gesso--progress
     - gesso/global

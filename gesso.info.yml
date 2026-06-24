@@ -7,7 +7,6 @@ core_version_requirement: '^10.1 || ^11.0'
 libraries:
   - gesso/global
 libraries-override:
-  core/drupal.dropbutton: core/components.gesso--dropbutton
   system/base:
     css:
       component:
@@ -25,11 +24,7 @@ dependencies:
 components:
   namespaces:
     global: source/01-global
-    layouts:
-      - components/layouts
-      - source/02-layouts
-    components: source/03-components
-    templates: source/04-templates
+    layouts: components/layouts
     utility: source/02-utility
 regions:
   page_top: 'Page top'

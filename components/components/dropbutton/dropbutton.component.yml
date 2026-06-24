@@ -49,6 +49,5 @@ props:
       description: Additional CSS classes to add to the dropbutton container.
 libraryOverrides:
   dependencies:
-    - core/drupal.dropbutton
     - core/drupal
     - core/once
