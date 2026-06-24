@@ -29,10 +29,6 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes for styling variations.'
-    add_attributes:
-      type: object
-      title: Add Attributes
-      description: 'Additional HTML attributes to add to the modal element.'
 libraryOverrides:
   dependencies:
     - gesso/global

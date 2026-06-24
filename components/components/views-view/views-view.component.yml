@@ -9,10 +9,6 @@ props:
         - "null"
       title: Element
       description: 'The HTML element to use for the wrapper (e.g., div, section). Defaults to div.'
-    add_attributes:
-      type: object
-      title: Add Attributes
-      description: 'Additional HTML attributes to add to the wrapper element.'
     modifier_classes:
       type:
         - string
