@@ -7,7 +7,7 @@ core_version_requirement: '^10.1 || ^11.0'
 libraries:
   - gesso/global
 libraries-override:
-  core/drupal.dropbutton: gesso/dropbutton
+  core/drupal.dropbutton: core/components.gesso--dropbutton
   system/base:
     css:
       component:

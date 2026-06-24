@@ -7,12 +7,6 @@ props:
       type: array
       title: Menu Items
       description: 'Array of menu item objects containing title, url, and optional properties like below, in_active_trail, is_active, is_collapsed, is_expanded, and original_link.'
-    attributes:
-      type:
-        - object
-        - "null"
-      title: Attributes
-      description: 'Additional HTML attributes to apply to the menu list element.'
     menu_name:
       type:
         - string
