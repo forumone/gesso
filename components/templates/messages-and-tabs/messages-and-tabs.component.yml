@@ -11,10 +11,6 @@ props:
       type: boolean
       title: Show Admin Info
       description: 'Whether to display administrative information.'
-    admin_info:
-      type: string
-      title: Admin Info
-      description: 'The administrative information to display.'
 slots:
   admin_info:
     title: Admin Info
