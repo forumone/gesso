@@ -11,7 +11,7 @@
  * @see template_preprocess_file_link()
  */
 #}
-{% include '@components/file/file.twig' with {
+{% include 'gesso:file' with {
   'attributes': attributes,
   'url': link['#url'],
   'file_name': link['#title'],
