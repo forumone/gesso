@@ -10,7 +10,10 @@ props:
       title: Modifier Classes
       description: 'Additional CSS classes for the component.'
     attributes:
-      type: object
+      type:
+        - object
+        - string
+        - "null"
       title: Attributes
       description: 'HTML attributes object for the component.'
     url:

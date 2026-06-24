@@ -18,4 +18,8 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-{% include 'gesso:menu' %}
+{% include 'gesso:menu' with {
+  'menu_name': menu_name,
+  'items': items,
+  'image_path': image_path
+} only %}
