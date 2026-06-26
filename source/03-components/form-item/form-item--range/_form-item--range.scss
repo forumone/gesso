@@ -118,6 +118,6 @@ $form-range-track-height: 10px !default;
   }
 
   &.is-full-width > .c-form-item__range {
-    width: 100%;
+    inline-size: 100%;
   }
 }

@@ -25,6 +25,7 @@ $accordion-item-icon-weight: 2px !default;
   cursor: pointer;
   display: flex;
   font-weight: inherit;
+  inline-size: 100%;
   justify-content: space-between;
   line-height: inherit;
   padding-block: rem(gesso-spacing(2));
@@ -34,7 +35,6 @@ $accordion-item-icon-weight: 2px !default;
   text-align: start;
   text-decoration: none;
   transition: all gesso-duration(short) gesso-easing(ease-out);
-  width: 100%;
 
   &:hover,
   &:focus,

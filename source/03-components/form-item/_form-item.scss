@@ -35,7 +35,7 @@ $form-text-size: gesso-base-font-size() !default;
 
   > input {
     flex-shrink: 1;
-    min-width: 0;
+    min-inline-size: 0;
   }
 
   .is-full-width > & {
@@ -125,7 +125,7 @@ $form-text-size: gesso-base-font-size() !default;
   }
 
   .is-full-width > & {
-    width: 100%;
+    inline-size: 100%;
   }
 }
 

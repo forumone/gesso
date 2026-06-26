@@ -17,7 +17,7 @@ $swatch-padding: 1rem;
   border: 1px solid #c1c1c1;
   flex: 0 0 ($swatch-size + 2 * $swatch-padding);
   margin: 0 math.div($swatch-padding, 2) $swatch-padding;
-  max-width: ($swatch-size + 2 * $swatch-padding);
+  max-inline-size: ($swatch-size + 2 * $swatch-padding);
   padding: $swatch-padding;
 }
 

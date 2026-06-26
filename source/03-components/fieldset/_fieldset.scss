@@ -18,11 +18,11 @@ $fieldset-legend-offset: rem(
   box-sizing: content-box;
   display: block;
   font-weight: gesso-font-weight(semibold);
+  inline-size: 100%;
   inset-block-start: -$fieldset-legend-offset;
   inset-inline-start: -1px;
   position: absolute;
   text-indent: 0;
-  width: 100%;
 }
 
 .c-fieldset__legend-text {
