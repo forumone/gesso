@@ -9,7 +9,7 @@
   syntax: '<length>';
 }
 
-// Overflow-inline and inline-size ensure elements using full bleed techniques
+// Overflow-inline ensures elements using full bleed techniques
 // (e.g., the layout-full-bleed mixin) do not create horizontal scroll bars.
 body {
   --gesso-scrollbar-width: calc(100vw - 100cqw);
