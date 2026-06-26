@@ -13,4 +13,4 @@
   'accordion_items': content.field_paragraphs|field_value is not empty ? content.field_paragraphs|field_value : false,
 } %}
 
-{% set catch_cache = content|without('field_paragraphs')|render %}
+{{ content|cache_metadata }}

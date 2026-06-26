@@ -17,7 +17,7 @@ body {
   color: gesso-color(text, primary);
   inline-size: 100%;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   padding: 0;
   word-wrap: break-word;
 

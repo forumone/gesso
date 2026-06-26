@@ -20,9 +20,4 @@
   'hero_button_url': content.field_hero_link|field_value is not empty ? content.field_hero_link.0['#url'] : false,
 } %}
 
-{#
-  field_hero_link and field_hero_aligment are intentionally omitted from the
-  |without list because specific values are extracted from them, bypassing the
-  normal render process.
-#}
-{% set catch_cache = content|without('field_hero_image', 'field_hero_heading', 'field_hero_body') %}
+{{ content|cache_metadata }}
