@@ -25,6 +25,7 @@ $accordion-item-icon-weight: 2px !default;
   cursor: pointer;
   display: flex;
   font-weight: inherit;
+  inline-size: 100%;
   justify-content: space-between;
   line-height: inherit;
   padding-block: rem(gesso-spacing(2));
@@ -34,7 +35,6 @@ $accordion-item-icon-weight: 2px !default;
   text-align: start;
   text-decoration: none;
   transition: all gesso-duration(short) gesso-easing(ease-out);
-  width: 100%;
 
   &:hover,
   &:focus,
@@ -53,13 +53,13 @@ $accordion-item-icon-weight: 2px !default;
 }
 
 .c-accordion-item__icon {
+  block-size: $accordion-item-icon-size;
   display: none;
-  height: $accordion-item-icon-size;
+  inline-size: $accordion-item-icon-size;
   inset-block-start: 50%;
   inset-inline-end: rem(gesso-spacing(3));
   position: absolute;
   transform: translateY(-50%);
-  width: $accordion-item-icon-size;
 
   // Only show icon if accordion js is processed.
   [accordion-processed] & {
@@ -69,9 +69,10 @@ $accordion-item-icon-weight: 2px !default;
   &::before,
   &::after {
     background-color: $accordion-item-icon-color;
+    block-size: $accordion-item-icon-weight;
     content: '';
     display: block;
-    height: $accordion-item-icon-weight;
+    inline-size: 100%;
     inset-block-start: 50%;
     inset-inline-start: 50%;
     position: absolute;
@@ -80,7 +81,6 @@ $accordion-item-icon-weight: 2px !default;
     transition-duration: gesso-duration(short);
     transition-property: transform;
     transition-timing-function: gesso-easing(ease-out);
-    width: 100%;
   }
 
   &::after {

@@ -16,7 +16,7 @@ $details-text-color: gesso-color(text, on-light) !default;
 .c-details__summary {
   @include svg-background(plus);
   background-color: $details-background-color;
-  background-position: right $details-padding center; // LTR
+  background-position: inline-end $details-padding center;
   background-repeat: no-repeat;
   background-size: rem(13px);
   cursor: pointer;
@@ -27,12 +27,6 @@ $details-text-color: gesso-color(text, on-light) !default;
   padding-block: rem(15px);
   padding-inline: $details-padding rem(55px);
   transition: background gesso-duration(short) gesso-easing(ease-in-out);
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      background-position: left $details-padding center;
-    }
-  }
 
   [open] > & {
     @include svg-background(minus);

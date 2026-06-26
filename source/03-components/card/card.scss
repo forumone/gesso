@@ -55,13 +55,13 @@ $card-padding: rem(gesso-spacing(3)) !default;
   order: -1;
 
   a {
+    block-size: 100%;
     display: block;
-    height: 100%;
-    width: 100%;
+    inline-size: 100%;
   }
 
   img {
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
@@ -90,7 +90,7 @@ $card-padding: rem(gesso-spacing(3)) !default;
     }
 
     .c-card__body {
-      max-width: 600px;
+      max-inline-size: 600px;
       padding: $card-padding 2vw;
     }
 

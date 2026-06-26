@@ -19,14 +19,14 @@ $align-max-width: calc(50% - #{rem(gesso-spacing(2))});
   &.u-align-inline-end {
     @include breakpoint(gesso-breakpoint(tablet)) {
       margin-inline-start: $align-margin;
-      max-width: $align-max-width;
+      max-inline-size: $align-max-width;
     }
   }
 
   &.u-align-inline-start {
     @include breakpoint(gesso-breakpoint(tablet)) {
       margin-inline-end: $align-margin;
-      max-width: $align-max-width;
+      max-inline-size: $align-max-width;
     }
   }
 
@@ -34,7 +34,7 @@ $align-max-width: calc(50% - #{rem(gesso-spacing(2))});
   &.u-align-left {
     @include breakpoint(gesso-breakpoint(tablet)) {
       margin-right: $align-margin;
-      max-width: $align-max-width;
+      max-inline-size: $align-max-width;
     }
   }
 
@@ -42,7 +42,7 @@ $align-max-width: calc(50% - #{rem(gesso-spacing(2))});
   &.u-align-right {
     @include breakpoint(gesso-breakpoint(tablet)) {
       margin-left: $align-margin;
-      max-width: $align-max-width;
+      max-inline-size: $align-max-width;
     }
   }
 
@@ -76,7 +76,7 @@ $align-max-width: calc(50% - #{rem(gesso-spacing(2))});
 
 .c-figure--iframe {
   display: block;
-  width: 100%;
+  inline-size: 100%;
 
   &.align-center,
   &.u-align-center {

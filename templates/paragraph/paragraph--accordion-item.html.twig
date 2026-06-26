@@ -12,4 +12,4 @@
   'content': content.field_wysiwyg|field_value is not empty ? content.field_wysiwyg|field_value : false,
 } %}
 
-{% set catch_cache = content|without('field_title', 'field_wysiwyg')|render %}
+{{ content|cache_metadata }}

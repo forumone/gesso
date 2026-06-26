@@ -6,7 +6,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% set pagination_id = 'pagination-heading'|clean_unique_id %}
+{% set pagination_id = 'pagination-heading'|unique_id %}
 
 {% set pager_icon_left %}
   {% include '@components/icon/icon.twig' with {
