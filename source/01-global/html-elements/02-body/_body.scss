@@ -9,16 +9,16 @@
   syntax: '<length>';
 }
 
-// Overflow-x and width properties ensure elements using full bleed techniques
+// Overflow-inline ensures elements using full bleed techniques
 // (e.g., the layout-full-bleed mixin) do not create horizontal scroll bars.
 body {
   --gesso-scrollbar-width: calc(100vw - 100cqw);
   background-color: gesso-color(background, site);
   color: gesso-color(text, primary);
+  inline-size: 100%;
   margin: 0;
-  overflow-x: clip;
+  overflow-inline: clip;
   padding: 0;
-  width: 100%;
   word-wrap: break-word;
 
   // Tweak styling in WYSIWYG editor.

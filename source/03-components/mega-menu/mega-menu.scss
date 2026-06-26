@@ -16,21 +16,21 @@
   align-items: center;
   background: gesso-color('background', 'site');
   display: flex;
+  inline-size: 100%;
   margin-block: 0 rem(gesso-spacing(2.5));
   margin-inline: 0;
   position: relative;
-  width: 100%;
   z-index: 1;
 
   &::after {
     background-color: gesso-color(background, site);
+    block-size: 100%;
     content: '';
     display: block;
-    height: 100%;
+    inline-size: 100%;
     inset-block-start: 0;
     inset-inline-start: 0;
     position: absolute;
-    width: 100%;
     z-index: gesso-z-index(drawer);
   }
 
@@ -47,12 +47,12 @@
       display: block;
       font-size: rem(gesso-font-size(5));
       font-weight: gesso-font-weight(regular);
+      inline-size: auto;
       padding-block: rem(4.8px);
       padding-inline: 0;
       position: relative;
       text-align: start;
       transition: all 0.4s ease;
-      width: auto;
       z-index: gesso-z-index(drawer) + 1;
     }
 
@@ -74,6 +74,7 @@
 .c-mega-menu__section {
   background-color: gesso-color(ui, generic, background-dark);
   color: gesso-color(text, on-dark);
+  inline-size: 100%;
   inset-block-start: 100%;
   inset-inline-start: 0;
   margin-block: 0;
@@ -82,7 +83,6 @@
   position: absolute;
   transform: translate3d(0, 0, 0);
   transition: transform gesso-duration(long) gesso-easing(ease-in-out);
-  width: 100%;
   z-index: 0;
 
   a,
@@ -115,18 +115,18 @@
 
 .c-mega-menu__section-close {
   @include text-button;
+  block-size: rem(50px);
   color: gesso-color(text, on-dark);
-  height: rem(50px);
+  inline-size: rem(50px);
   inset-block-start: rem(10px);
   inset-inline-end: rem(10px);
   position: absolute;
   text-align: center;
   transition: opacity gesso-duration(short) gesso-easing(ease-in);
-  width: rem(50px);
 
   .c-mega-menu__close-icon {
-    height: rem(22px);
-    width: rem(32px);
+    block-size: rem(22px);
+    inline-size: rem(32px);
   }
 
   &:hover {

@@ -17,10 +17,10 @@
 
 .c-read-more-link__icon {
   display: inline-block;
+  inline-size: 28px;
   inset-block-start: 8px;
   margin-inline-end: -28px;
   position: relative;
-  width: 28px;
 
   path {
     fill: gesso-color(text, link);

@@ -6,9 +6,9 @@
 .c-skiplinks {
   display: flex;
   font-family: gesso-font-family(system);
+  inline-size: 100%;
   justify-content: center;
   position: absolute;
-  width: 100%;
   z-index: 9999;
 }
 

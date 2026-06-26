@@ -12,11 +12,11 @@ $shadow-gutter: rem(50px);
 }
 
 .gesso-storybook-box-shadow__item {
+  block-size: $shadow-swatch;
   display: flex;
   flex: 0 0 $shadow-swatch;
-  height: $shadow-swatch;
+  inline-size: $shadow-swatch;
   margin: 0 math.div($shadow-gutter, 2) $shadow-gutter;
-  width: $shadow-swatch;
 }
 
 .gesso-storybook-box-shadow__label {
