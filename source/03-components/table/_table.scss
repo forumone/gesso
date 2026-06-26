@@ -13,8 +13,8 @@
     tbody {
       display: block;
       max-block-size: rem(365px);
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow-block: auto;
+      overflow-inline: hidden;
 
       tr {
         display: table;

@@ -52,12 +52,12 @@ $dropbutton-toggle-icon-size: rem(12px) !default;
 }
 
 .c-dropbutton__toggle {
+  inline-size: $dropbutton-toggle-width;
   inset-block: 0;
   inset-inline-end: 0;
   margin: 0;
   padding: 0;
   position: absolute;
-  width: $dropbutton-toggle-width;
 }
 
 .c-dropbutton__toggle-button {

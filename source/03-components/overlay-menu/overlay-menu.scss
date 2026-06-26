@@ -23,7 +23,7 @@ $overlay-menu-bg-color: rgba(
     background-color: $overlay-menu-bg-color;
     block-size: 100vh;
     inline-size: 100%;
-    overflow-y: auto;
+    overflow-block: auto;
     z-index: gesso-z-index(modal);
   }
 }
