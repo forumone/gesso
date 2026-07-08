@@ -5,7 +5,6 @@ namespace Drupal\gesso_helper\Element;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\Render\Element\RenderElementBase;
-use Drupal\Core\Render\Element\RenderElement;
 use Drupal\Core\Url as CoreUrl;
 
 /**
