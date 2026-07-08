@@ -3,12 +3,13 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import path, { resolve, dirname } from 'node:path';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import sass from 'sass-embedded';
+import * as sass from 'sass-embedded';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const require = createRequire(import.meta.url);
 const isProdBuild = process.env.NODE_ENV === 'production';
+const ddevHostname = process.env.DDEV_HOSTNAME || process.env.VIRTUAL_HOST;
 
 const config = {
   stories: ['../source/**/*.mdx', '../source/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -26,6 +27,10 @@ const config = {
   ],
   features: {
     actions: false,
+  },
+  core: {
+    // Replace allowedHosts value with your DDEV URL if neither ddevHostname nor the .ddev.site pattern apply.
+    allowedHosts: ddevHostname ? [ddevHostname] : ['.ddev.site'],
   },
   staticDirs: ['../dist'],
   webpackFinal: async (webpackConfig, { configType }) => {

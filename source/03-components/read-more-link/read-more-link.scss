@@ -16,11 +16,8 @@
 }
 
 .c-read-more-link__icon {
-  display: inline-block;
-  inset-block-start: 8px;
+  inline-size: 28px;
   margin-inline-end: -28px;
-  position: relative;
-  width: 28px;
 
   path {
     fill: gesso-color(text, link);

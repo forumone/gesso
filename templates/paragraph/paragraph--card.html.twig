@@ -6,10 +6,10 @@
 #}
 
 {% include '@components/card/card.twig' with {
-  'media': content.field_card_media|field_value is not empty ? content.field_card_media|field_value : false,
-  'title': content.field_card_title|field_value is not empty ? content.field_card_title|field_value : false,
-  'url': content.field_card_link.0['#url'] is not empty ? content.field_card_link.0['#url'] : false,
-  'card_content': content.field_card_subtitle|field_value is not empty ? content.field_card_subtitle|field_value : false,
+  'media': content.field_card_media|field_value is not empty ? content.field_card_media|field_value : null,
+  'title': content.field_card_title|field_value is not empty ? content.field_card_title|field_value : null,
+  'url': content.field_card_link.0['#url'] is not empty ? content.field_card_link.0['#url'] : null,
+  'card_content': content.field_card_subtitle|field_value is not empty ? content.field_card_subtitle|field_value : null,
 } %}
 
-{% set catch_cache = content|without('field_card_media', 'field_card_title', 'field_card_link', 'field_card_subtitle')|render %}
+{{ content|cache_metadata }}

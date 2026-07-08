@@ -7,7 +7,7 @@ use Drupal\Core\Render\Element\RenderElementBase;
 /**
  * Provides an SVG icon element.
  *
- * @RenderElementBase("gesso_icon")
+ * @RenderElement("gesso_icon")
  */
 class GessoIcon extends RenderElementBase {
 

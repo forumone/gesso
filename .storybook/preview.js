@@ -3,7 +3,7 @@ import { useEffect } from 'storybook/preview-api';
 import twigDrupal from '@forumone/twig-drupal-filters';
 import twigAttributes from '../lib/addAttributesTwigExtension';
 import keysort from '../lib/keysort';
-import cleanUniqueId from '../lib/cleanUniqueId';
+import uniqueId from '../lib/uniqueId';
 import fieldValue from '../lib/fieldValue';
 import subheadingLevel from '../lib/subheadingLevelTwigExtension.js';
 import twigCreateAttributes from '../lib/createAttributeTwigExtension';
@@ -18,7 +18,7 @@ function setupTwig(twig) {
   twigDrupal(twig);
   twigAttributes(twig);
   keysort(twig);
-  cleanUniqueId(twig);
+  uniqueId(twig);
   twigCreateAttributes(twig);
   fieldValue(twig);
   subheadingLevel(twig);

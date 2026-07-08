@@ -8,11 +8,11 @@
 }
 
 .l-constrain--small {
-  max-width: rem(gesso-constrain(sm));
+  max-inline-size: rem(gesso-constrain(sm));
 }
 
 .l-constrain--large {
-  max-width: rem(gesso-constrain(lg));
+  max-inline-size: rem(gesso-constrain(lg));
 }
 
 .l-constrain--no-padding {

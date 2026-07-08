@@ -21,10 +21,11 @@
       &::before {
         @include focus();
         background: gesso-color(form, background-unchecked);
+        block-size: rem(20px);
         border: 1px solid gesso-color(form, border-dark);
         content: '\a0';
         display: inline-block;
-        height: rem(20px);
+        inline-size: rem(20px);
         line-height: rem(20px);
         margin-inline-end: 0.6em;
         text-indent: 0.15em;
@@ -34,7 +35,6 @@
           text-shadow, transform;
         transition-timing-function: gesso-easing(ease-in-out);
         vertical-align: middle;
-        width: rem(20px);
       }
     }
 
