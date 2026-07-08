@@ -8,11 +8,12 @@
   @include breakpoint(gesso-breakpoint(mobile-lg)) {
     align-items: center;
     background-color: gesso-color(button, back-to-top, background);
+    block-size: rem(70px);
     border-radius: 50%;
     color: gesso-color(button, back-to-top, color);
     display: flex;
     font-size: rem(60px);
-    height: rem(70px);
+    inline-size: rem(70px);
     inset-block-end: rem(gesso-spacing(2.5));
     inset-inline-end: rem(gesso-spacing(2.5));
     justify-content: center;
@@ -20,7 +21,6 @@
     transition-duration: gesso-duration(short);
     transition-property: background-color, color, opacity;
     transition-timing-function: gesso-easing(ease-in);
-    width: rem(70px);
 
     &:visited {
       color: gesso-color(button, back-to-top, color);

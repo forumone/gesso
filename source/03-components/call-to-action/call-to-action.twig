@@ -19,12 +19,12 @@
           {{ body }}
         </div>
       {% endif %}
-      {% if url and title %}
+      {% if link_url and link_title %}
         <div class="c-call-to-action__links">
           {% include '@components/button/button.twig' with {
-            attributes: link_attributes,
-            url: link_url,
-            text: link_title,
+            'attributes': link_attributes,
+            'url': link_url,
+            'text': link_title,
           } %}
         </div>
       {% endif %}

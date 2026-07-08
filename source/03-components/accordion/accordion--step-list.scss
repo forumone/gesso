@@ -7,13 +7,13 @@
 
   .c-accordion-item__number {
     background-color: gesso-grayscale(gray-2);
+    block-size: rem(gesso-spacing(4));
     border-radius: 100%;
     display: inline-block;
     font-size: rem(gesso-font-size(4));
-    height: rem(gesso-spacing(4));
+    inline-size: rem(gesso-spacing(4));
     margin-inline-end: rem(gesso-spacing(2));
     position: relative;
-    width: rem(gesso-spacing(4));
 
     &::before {
       content: counter(step);

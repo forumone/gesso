@@ -8,7 +8,7 @@
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gesso_preprocess_field(array &$variables) {
+function gesso_preprocess_field(array &$variables): void {
   // Add index to individual paragraphs.
   if (
     $variables['field_type'] == 'entity_reference_revisions' &&

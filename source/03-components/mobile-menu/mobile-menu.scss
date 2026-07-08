@@ -33,13 +33,13 @@ $mobile-menu-line-height: gesso-line-height(base);
 .c-mobile-menu {
   background-color: $mobile-menu-bg-color;
   display: none;
+  inline-size: 100%;
   inset-block-start: 0;
   inset-inline-start: 0;
-  max-height: 100vh;
-  overflow-y: auto;
+  max-block-size: 100vh;
+  overflow-block: auto;
   padding-block: 0 4px;
   position: fixed;
-  width: 100%;
   z-index: gesso-z-index(modal);
 
   &.is-open {
@@ -66,6 +66,7 @@ $mobile-menu-line-height: gesso-line-height(base);
   font-family: gesso-font-family(system);
   font-size: rem($mobile-menu-font-size);
   font-weight: gesso-font-weight(bold);
+  inline-size: auto;
   line-height: $mobile-menu-line-height;
   margin: 0;
   padding: rem(
@@ -79,7 +80,6 @@ $mobile-menu-line-height: gesso-line-height(base);
   text-align: start;
   text-decoration: none;
   white-space: normal;
-  width: auto;
   z-index: 3;
 
   &:hover,

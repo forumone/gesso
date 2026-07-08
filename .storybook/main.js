@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import path, { resolve, dirname } from 'node:path';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import sass from 'sass-embedded';
+import * as sass from 'sass-embedded';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

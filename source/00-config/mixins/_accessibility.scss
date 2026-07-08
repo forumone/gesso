@@ -6,11 +6,11 @@
 // @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 // @param {Boolean} $important
 @mixin visually-hidden($important: false) {
+  block-size: 1px iff($important, !important);
   clip: rect(1px, 1px, 1px, 1px) iff($important, !important);
-  height: 1px iff($important, !important);
+  inline-size: 1px iff($important, !important);
   overflow: hidden iff($important, !important);
   position: absolute iff($important, !important);
-  width: 1px iff($important, !important);
   word-wrap: normal iff($important, !important);
 }
 
@@ -22,11 +22,11 @@
 // Turns off the visually-hidden effect.
 // @param {boolean} $important
 @mixin visually-hidden-off($important: false) {
+  block-size: auto iff($important, !important);
   clip: auto iff($important, !important);
-  height: auto iff($important, !important);
+  inline-size: auto iff($important, !important);
   overflow: visible iff($important, !important);
   position: static iff($important, !important);
-  width: auto iff($important, !important);
 }
 
 // Turns off the visually-hidden effect with important

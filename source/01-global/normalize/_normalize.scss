@@ -62,7 +62,7 @@ button,
   font-weight: gesso-font-weight(regular);
   margin: 0;
   overflow: visible;
-  text-align: left;
+  text-align: start;
   text-decoration: underline;
 }
 
@@ -85,7 +85,7 @@ legend {
   box-sizing: border-box;
   color: inherit;
   display: table;
-  max-width: 100%;
+  max-inline-size: 100%;
   padding: 0;
   white-space: normal;
 }
@@ -106,7 +106,7 @@ textarea {
 
 [type='number']::-webkit-inner-spin-button,
 [type='number']::-webkit-outer-spin-button {
-  height: auto;
+  block-size: auto;
 }
 
 [type='search'] {

@@ -4,5 +4,5 @@
 
 .l-responsive-table {
   @include focus();
-  overflow-x: auto;
+  overflow-inline: auto;
 }

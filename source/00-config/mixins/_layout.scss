@@ -45,9 +45,9 @@
   $margins-mobile: gesso-site-margins(mobile),
   $margins: gesso-site-margins(desktop)
 ) {
+  inline-size: 100%;
   margin-inline: auto;
-  max-width: rem($max-width);
-  width: 100%;
+  max-inline-size: rem($max-width);
 
   @if $margins-mobile {
     padding-inline: rem($margins-mobile);
@@ -68,16 +68,16 @@
 // Breaks something outside its parent l-constrain or other centered container
 // and makes it flush with the edge of the viewport.
 @mixin layout-full-bleed() {
+  inline-size: calc(100vw - var(--gesso-scrollbar-width));
   inset-inline: 50%;
   margin-inline: calc(-50vw + var(--gesso-scrollbar-width) / 2);
   position: relative;
-  width: calc(100vw - var(--gesso-scrollbar-width));
 }
 
 // Reverses the above.
 @mixin layout-undo-full-bleed() {
+  inline-size: auto;
   inset-inline: auto;
   margin-inline: 0;
   position: static;
-  width: auto;
 }

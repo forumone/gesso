@@ -8,8 +8,8 @@
   'attributes': attributes,
   'modifier_classes': '',
   'title_element': 'h3',
-  'title': content.field_title|field_value is not empty ? content.field_title|field_value : false,
-  'content': content.field_wysiwyg|field_value is not empty ? content.field_wysiwyg|field_value : false,
+  'title': content.field_title|field_value is not empty ? content.field_title|field_value : null,
+  'content': content.field_wysiwyg|field_value is not empty ? content.field_wysiwyg|field_value : null,
 } %}
 
 {{ content|cache_metadata }}
