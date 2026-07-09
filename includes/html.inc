@@ -19,8 +19,10 @@ function gesso_preprocess(array &$variables): void {
  * Implements hook_preprocess_HOOK().
  */
 function gesso_preprocess_html(array &$variables): void {
+  /** @var \Drupal\Core\Extension\ThemeSettingsProvider $themeSettings */
+  $themeSettings = \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider');
   $variables['include_back_to_top']
-    = theme_get_setting('include_back_to_top') ?? TRUE;
+    = $themeSettings->getSetting('include_back_to_top') ?? TRUE;
   /** @var \Drupal\Core\Render\Renderer $renderer */
   $renderer = \Drupal::service('renderer');
   $themeConfig = \Drupal::config('gesso.settings');
@@ -31,28 +33,30 @@ function gesso_preprocess_html(array &$variables): void {
  * Implements hook_page_attachments_alter().
  */
 function gesso_page_attachments_alter(array &$attachments): void {
-  $include_back_to_top = theme_get_setting('include_back_to_top') ?? TRUE;
-  $add_external_link_icons = theme_get_setting('add_external_link_icons') ?? FALSE;
+  /** @var \Drupal\Core\Extension\ThemeSettingsProvider $themeSettings */
+  $themeSettings = \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider');
+  $include_back_to_top = $themeSettings->getSetting('include_back_to_top') ?? TRUE;
+  $add_external_link_icons = $themeSettings->getSetting('add_external_link_icons') ?? FALSE;
 
   if ($include_back_to_top || $add_external_link_icons) {
     if ($include_back_to_top) {
       $attachments['#attached']['drupalSettings']['gesso']['backToTopThreshold']
-        = theme_get_setting('threshold');
+        = $themeSettings->getSetting('threshold');
       $attachments['#attached']['drupalSettings']['gesso']['backToTopSmoothScroll']
-        = theme_get_setting('smooth_scroll');
+        = $themeSettings->getSetting('smooth_scroll');
     }
 
     if ($add_external_link_icons) {
       $attachments['#attached']['library'][] = 'gesso/external-link';
       $attachments['#attached']['drupalSettings']['gesso']['externalLinkExitDisclaimer']
-        = theme_get_setting('exit_disclaimer');
+        = $themeSettings->getSetting('exit_disclaimer');
       $attachments['#attached']['drupalSettings']['gesso']['externalLinkAllowedDomains']
         = explode(
           "\n",
           str_replace(
             ["\r\n", "\r"],
             "\n",
-            trim(theme_get_setting('allowed_domains'))
+            trim($themeSettings->getSetting('allowed_domains'))
           )
         );
       $attachments['#attached']['drupalSettings']['gesso']['externalLinkAllowedLinks']
@@ -61,7 +65,7 @@ function gesso_page_attachments_alter(array &$attachments): void {
           str_replace(
             ["\r\n", "\r"],
             "\n",
-            trim(theme_get_setting('allowed_links'))
+            trim($themeSettings->getSetting('allowed_links'))
           )
         );
     }

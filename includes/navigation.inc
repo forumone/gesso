@@ -16,7 +16,7 @@ function gesso_preprocess_breadcrumb(array &$variables): void {
     /** @var \Drupal\Core\Render\Renderer $renderer */
     $renderer = \Drupal::service('renderer');
     $variables['include_current_page']
-      = theme_get_setting('include_current_page_in_breadcrumb', 'gesso') ?? TRUE;
+      = \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider')->getSetting('include_current_page_in_breadcrumb', 'gesso') ?? TRUE;
     $themeConfig = \Drupal::config('gesso.settings');
     $renderer->addCacheableDependency($variables, $themeConfig);
 
