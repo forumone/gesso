@@ -19,13 +19,12 @@ function gesso_preprocess(array &$variables): void {
  * Implements hook_preprocess_HOOK().
  */
 function gesso_preprocess_html(array &$variables): void {
-  /** @var \Drupal\Core\Extension\ThemeSettingsProvider $themeSettings */
-  $themeSettings = \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider');
   $variables['include_back_to_top']
-    = $themeSettings->getSetting('include_back_to_top') ?? TRUE;
+    = gesso_helper_get_theme_setting('include_back_to_top') ?? TRUE;
   /** @var \Drupal\Core\Render\Renderer $renderer */
   $renderer = \Drupal::service('renderer');
-  $themeConfig = \Drupal::config('gesso.settings');
+  $themeName = \Drupal::theme()->getActiveTheme()->getName();
+  $themeConfig = \Drupal::config($themeName . '.settings');
   $renderer->addCacheableDependency($variables, $themeConfig);
 }
 
@@ -33,30 +32,28 @@ function gesso_preprocess_html(array &$variables): void {
  * Implements hook_page_attachments_alter().
  */
 function gesso_page_attachments_alter(array &$attachments): void {
-  /** @var \Drupal\Core\Extension\ThemeSettingsProvider $themeSettings */
-  $themeSettings = \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider');
-  $include_back_to_top = $themeSettings->getSetting('include_back_to_top') ?? TRUE;
-  $add_external_link_icons = $themeSettings->getSetting('add_external_link_icons') ?? FALSE;
+  $include_back_to_top = gesso_helper_get_theme_setting('include_back_to_top') ?? TRUE;
+  $add_external_link_icons = gesso_helper_get_theme_setting('add_external_link_icons') ?? FALSE;
 
   if ($include_back_to_top || $add_external_link_icons) {
     if ($include_back_to_top) {
       $attachments['#attached']['drupalSettings']['gesso']['backToTopThreshold']
-        = $themeSettings->getSetting('threshold');
+        = gesso_helper_get_theme_setting('threshold') ?? 200;
       $attachments['#attached']['drupalSettings']['gesso']['backToTopSmoothScroll']
-        = $themeSettings->getSetting('smooth_scroll');
+        = gesso_helper_get_theme_setting('smooth_scroll') ?? TRUE;
     }
 
     if ($add_external_link_icons) {
       $attachments['#attached']['library'][] = 'gesso/external-link';
       $attachments['#attached']['drupalSettings']['gesso']['externalLinkExitDisclaimer']
-        = $themeSettings->getSetting('exit_disclaimer');
+        = gesso_helper_get_theme_setting('exit_disclaimer') ?? 'Exit this website';
       $attachments['#attached']['drupalSettings']['gesso']['externalLinkAllowedDomains']
         = explode(
           "\n",
           str_replace(
             ["\r\n", "\r"],
             "\n",
-            trim($themeSettings->getSetting('allowed_domains'))
+            trim(gesso_helper_get_theme_setting('allowed_domains') ?? '')
           )
         );
       $attachments['#attached']['drupalSettings']['gesso']['externalLinkAllowedLinks']
@@ -65,14 +62,15 @@ function gesso_page_attachments_alter(array &$attachments): void {
           str_replace(
             ["\r\n", "\r"],
             "\n",
-            trim($themeSettings->getSetting('allowed_links'))
+            trim(gesso_helper_get_theme_setting('allowed_links') ?? '')
           )
         );
     }
 
     /** @var \Drupal\Core\Render\Renderer $renderer */
     $renderer = \Drupal::service('renderer');
-    $themeConfig = \Drupal::config('gesso.settings');
+    $themeName = \Drupal::theme()->getActiveTheme()->getName();
+    $themeConfig = \Drupal::config($themeName . '.settings');
     $renderer->addCacheableDependency($attachments, $themeConfig);
   }
 }

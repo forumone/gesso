@@ -8,6 +8,21 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
+ * Retrieves a theme setting across supported Drupal core versions.
+ *
+ * @param string $setting_name
+ *   The setting name.
+ * @param string|null $theme
+ *   The theme machine name, or NULL for the active theme.
+ *
+ * @return mixed
+ *   The setting value, or NULL if not set.
+ */
+function gesso_helper_get_theme_setting(string $setting_name, ?string $theme = NULL) {
+  return \Drupal::service('gesso_helper.theme_settings')->getSetting($setting_name, $theme);
+}
+
+/**
  * Implements hook_form_system_theme_settings_alter().
  */
 function gesso_helper_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, ?string $form_id = NULL): void {
@@ -24,9 +39,6 @@ function gesso_helper_form_system_theme_settings_alter(array &$form, FormStateIn
     $theme = \Drupal::theme()->getActiveTheme()->getName();
   }
 
-  /** @var \Drupal\Core\Extension\ThemeSettingsProvider $themeSettings */
-  $themeSettings = \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider');
-
   $form['buttons'] = [
     '#type' => 'details',
     '#title' => t('Buttons'),
@@ -35,7 +47,7 @@ function gesso_helper_form_system_theme_settings_alter(array &$form, FormStateIn
   $form['buttons']['button_sizes'] = [
     '#type' => 'textarea',
     '#title' => t('Button Sizes'),
-    '#default_value' => $themeSettings->getSetting('button_sizes', $theme) ?? "c-button|Standard\nc-button.c-button--small|Small\nc-button.c-button--large|Large",
+    '#default_value' => gesso_helper_get_theme_setting('button_sizes', $theme) ?? "c-button|Standard\nc-button.c-button--small|Small\nc-button.c-button--large|Large",
     '#description' => t('Enter one or more classes on each line in the format: classA.classB|Label. Example: c-button.c-button--small|Small'),
     '#required' => TRUE,
     '#element_validate' => ['gesso_helper_validate_buttons'],
@@ -43,7 +55,7 @@ function gesso_helper_form_system_theme_settings_alter(array &$form, FormStateIn
   $form['buttons']['button_styles'] = [
     '#type' => 'textarea',
     '#title' => t('Button Styles'),
-    '#default_value' => $themeSettings->getSetting('button_styles', $theme) ?? "c-button|Primary\nc-button.c-button--secondary|Secondary\nc-button.c-button--danger|Danger",
+    '#default_value' => gesso_helper_get_theme_setting('button_styles', $theme) ?? "c-button|Primary\nc-button.c-button--secondary|Secondary\nc-button.c-button--danger|Danger",
     '#description' => t('Enter one or more classes on each line in the format: classA.classB|Label. Example: c-button.c-button--danger|Danger'),
     '#required' => TRUE,
     '#element_validate' => ['gesso_helper_validate_buttons'],
