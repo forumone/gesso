@@ -1,6 +1,8 @@
 services:
   gesso_helper.theme_settings:
     class: Drupal\gesso_helper\ThemeSettings
+    # Optional: ThemeSettingsProvider exists only on Drupal 11.3+.
+    arguments: ['@?Drupal\Core\Extension\ThemeSettingsProvider']
   add_attributes.twig_extension:
     class: Drupal\gesso_helper\TwigExtension\AddAttributesTwigExtension
     tags:

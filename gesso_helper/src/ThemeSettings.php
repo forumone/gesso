@@ -4,8 +4,31 @@ namespace Drupal\gesso_helper;
 
 /**
  * Provides cross-version theme settings access.
+ *
+ * Uses ThemeSettingsProvider on Drupal 11.3+, with a theme_get_setting()
+ * fallback for Drupal 10.3 through 11.2.
+ *
+ * The constructor argument is intentionally untyped: ThemeSettingsProvider
+ * does not exist before Drupal 11.3, so a class typehint would fatal on load.
  */
 class ThemeSettings {
+
+  /**
+     * The theme settings provider, when available.
+     *
+     * @var object|null
+     */
+  protected $themeSettingsProvider;
+
+  /**
+   * Constructs a ThemeSettings helper.
+   *
+   * @param object|null $theme_settings_provider
+   *   ThemeSettingsProvider on Drupal 11.3+, otherwise NULL.
+   */
+  public function __construct($theme_settings_provider = NULL) {
+    $this->themeSettingsProvider = $theme_settings_provider;
+  }
 
   /**
    * Retrieves a theme setting.
@@ -18,11 +41,13 @@ class ThemeSettings {
    * @return mixed
    *   The setting value, or NULL if not set.
    */
-  public function getSetting(string $setting_name, ?string $theme = NULL) {
-    if (version_compare(\Drupal::VERSION, '11.3', '>=') && \Drupal::hasService('Drupal\Core\Extension\ThemeSettingsProvider')) {
-      return \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider')->getSetting($setting_name, $theme);
+  public function getSetting(string $setting_name, ?string $theme = NULL): mixed {
+    if ($this->themeSettingsProvider !== NULL) {
+      return $this->themeSettingsProvider->getSetting($setting_name, $theme);
     }
 
+    // Drupal 10.3–11.2 fallback. Removed in Drupal 13; provider path is preferred.
+    // @phpstan-ignore function.deprecated
     return theme_get_setting($setting_name, $theme);
   }
 
