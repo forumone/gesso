@@ -14,10 +14,10 @@ namespace Drupal\gesso_helper;
 class ThemeSettings {
 
   /**
-     * The theme settings provider, when available.
-     *
-     * @var object|null
-     */
+   * The theme settings provider, when available.
+   *
+   * @var object|null
+   */
   protected $themeSettingsProvider;
 
   /**
