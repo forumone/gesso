@@ -46,7 +46,8 @@ class ThemeSettings {
       return $this->themeSettingsProvider->getSetting($setting_name, $theme);
     }
 
-    // Drupal 10.3–11.2 fallback. Removed in Drupal 13; provider path is preferred.
+    // Drupal 10.3–11.2 fallback. Removed in Drupal 13;
+    // provider path is preferred.
     // @phpstan-ignore function.deprecated
     return theme_get_setting($setting_name, $theme);
   }
