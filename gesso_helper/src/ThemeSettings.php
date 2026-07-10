@@ -9,7 +9,8 @@ namespace Drupal\gesso_helper;
  * fallback for Drupal 10.3 through 11.2.
  *
  * The constructor argument is intentionally untyped: ThemeSettingsProvider
- * does not exist before Drupal 11.3, so a class typehint would fatal on load.
+ * does not exist before Drupal 11.3, so a class typehint would be fatal
+ * on load.
  */
 class ThemeSettings {
 
