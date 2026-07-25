@@ -60,7 +60,7 @@
     "js-yaml-loader": "^1.2.2",
     "nani": "^3.2.3",
     "path-browserify": "^1.0.1",
-    "postcss": "^8.5.15",
+    "postcss": "^8.5.23",
     "postcss-loader": "^8.2.1",
     "postcss-selector-parser": "^7.1.1",
     "prettier": "^3.8.3",
