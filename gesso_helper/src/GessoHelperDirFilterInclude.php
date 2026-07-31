@@ -10,7 +10,7 @@ class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
   /**
    * Directories to include.
    *
-   * @var array
+   * @var array<int, string>
    */
   protected array $includeDirs = [
     'includes',
@@ -21,7 +21,7 @@ class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
   /**
    * Files to include.
    *
-   * @var array
+   * @var array<int, string>
    */
   protected array $includeFiles = [
     'gesso.libraries.yml',
@@ -33,16 +33,22 @@ class GessoHelperDirFilterInclude extends \RecursiveFilterIterator {
    * Whether this directory or file should be included.
    */
   public function accept(): bool {
+    /** @var \RecursiveDirectoryIterator $inner */
     $inner = $this->getInnerIterator();
-    return ($inner->isDir() && in_array($inner->getFilename(), $this->includeDirs) ||
-      !$inner->isDir() && in_array($inner->getFilename(), $this->includeFiles));
+    return ($inner->isDir() && in_array($inner->getFilename(), $this->includeDirs, TRUE) ||
+      !$inner->isDir() && in_array($inner->getFilename(), $this->includeFiles, TRUE));
   }
 
   /**
    * Get children.
+   *
+   * Once inside an included directory, switch to the exclude filter so nested
+   * contents are copied except for known junk directories.
    */
   public function getChildren(): ?GessoHelperDirFilterExclude {
-    return new GessoHelperDirFilterExclude($this->getInnerIterator()->getChildren());
+    /** @var \RecursiveDirectoryIterator $inner */
+    $inner = $this->getInnerIterator();
+    return new GessoHelperDirFilterExclude($inner->getChildren());
   }
 
 }
