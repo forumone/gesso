@@ -38,3 +38,4 @@ libraryOverrides:
     - gesso/global
     - core/drupal
     - core/once
+    - gesso/mobile_menu

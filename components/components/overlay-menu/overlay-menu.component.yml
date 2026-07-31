@@ -22,3 +22,4 @@ libraryOverrides:
     - core/drupal
     - core/once
     - gesso/global
+    - core/components.gesso--hamburger-button
