@@ -2,8 +2,10 @@ import parse from 'html-react-parser';
 
 import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import buttonGroupTemplate from './button-group.twig';
-import buttonGroupItemTemplate from './button-group-item.twig';
+import buttonGroupItemTemplate from '../button-group-item/button-group-item.twig';
 import data from './button-group.yml';
+import './button-group.source.scss';
+import '../button/button.source.scss';
 
 const settings = {
   title: 'Components/ButtonGroup',

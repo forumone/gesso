@@ -26,3 +26,4 @@ props:
 libraryOverrides:
   dependencies:
     - gesso/global
+    - core/components.gesso--button
