@@ -12,6 +12,7 @@ is_published: true
 show_admin_info: false
 summary: '<p>This is the summary, which can contain <abbr title="Hyper Text Markup Language">HTML</abbr> markup. It should be 600 characters or less.</p>'
 author_name: 'Author Name'
+author_url: '#0'
 url: '#0'
 file_name: 'File name'
 file_mime: 'application/pdf'

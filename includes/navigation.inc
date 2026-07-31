@@ -16,8 +16,9 @@ function gesso_preprocess_breadcrumb(array &$variables): void {
     /** @var \Drupal\Core\Render\Renderer $renderer */
     $renderer = \Drupal::service('renderer');
     $variables['include_current_page']
-      = theme_get_setting('include_current_page_in_breadcrumb', 'gesso') ?? TRUE;
-    $themeConfig = \Drupal::config('gesso.settings');
+      = gesso_helper_get_theme_setting('include_current_page_in_breadcrumb') ?? TRUE;
+    $themeName = \Drupal::theme()->getActiveTheme()->getName();
+    $themeConfig = \Drupal::config($themeName . '.settings');
     $renderer->addCacheableDependency($variables, $themeConfig);
 
     if ($variables['include_current_page']) {
@@ -42,14 +43,10 @@ function gesso_preprocess_breadcrumb(array &$variables): void {
 function gesso_preprocess_menu(array &$variables): void {
   $current_path = \Drupal::request()->getRequestUri();
   foreach ($variables['items'] as $key => $item) {
-    if (!empty($item['url'])) {
-      if ($item['url'] instanceof Url) {
-          $url_string = $item['url']->toString();
-       }
-      else {
-         $url_string = $item['url'];
-      }
+    if (empty($item['url'])) {
+      continue;
     }
+    $url_string = $item['url'] instanceof Url ? $item['url']->toString() : $item['url'];
     if ($url_string == $current_path) {
       $variables['items'][$key]['is_active'] = TRUE;
     }
@@ -73,7 +70,7 @@ function gesso_preprocess_menu_local_tasks(array &$variables): void {
  * Implements hook_preprocess_menu_local_task().
  */
 function gesso_preprocess_menu_local_task(array &$variables): void {
-  $variables['link']['#options']['attributes']['class'][] = 'c-button-group__link';
+  $variables['link']['#options']['attributes']['class'][] = 'c-button-group-item__link';
   $variables['link']['#options']['attributes']['class'][] = 'c-button';
   $variables['link']['#options']['attributes']['class'][] = 'c-button--base';
 

@@ -27,12 +27,12 @@ props:
       type: boolean
       title: Show Footer
       description: 'Whether to display the footer.'
-    author_name:
+    author:
       type:
         - string
         - "null"
-      title: Author Name
-      description: 'The name of the page author.'
+      title: Author
+      description: 'Pre-rendered author markup for the page footer.'
     date_format:
       type:
         - string

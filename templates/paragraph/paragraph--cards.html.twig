@@ -15,8 +15,8 @@
 
 {% include 'gesso:section' with {
   'has_constrain': false,
-  'section_title': false,
+  'section_title': null,
   'section_content': section_content,
 } %}
 
-{% set catch_cache = content|without('field_cards')|render %}
+{{ content|cache_metadata }}

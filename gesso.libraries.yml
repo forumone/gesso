@@ -1,3 +1,7 @@
+common:
+  js:
+    dist/js/common.js: {}
+
 global:
   css:
     theme:

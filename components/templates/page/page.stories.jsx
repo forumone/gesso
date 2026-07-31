@@ -18,7 +18,7 @@ const settings = {
         'show_admin_info',
         'title',
         'show_footer',
-        'author_name',
+        'author',
         'date_format',
         'year',
         'month',

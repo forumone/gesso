@@ -69,6 +69,7 @@ const articleContent = args =>
         short: '9',
       },
       author_name: 'William Goldman',
+      author_url: '#0',
       content: articleDemoContent,
     })
   );

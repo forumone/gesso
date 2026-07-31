@@ -176,6 +176,22 @@ To match Storybook to your site’s branding, change the colors in
 docs](https://storybook.js.org/docs/react/configure/theming) for more
 information about and examples of theming.
 
+### DDEV and allowed hosts
+
+Storybook 10 validates the `Host` header on dev-server requests. When you access
+Storybook through the DDEV router (`https://<project-name>.ddev.site:6006`), the
+hostname must be allowlisted in `.storybook/main.js`.
+
+By default, Gesso reads `DDEV_HOSTNAME` or `VIRTUAL_HOST` from the environment
+(DDEV sets `VIRTUAL_HOST` in the Storybook container) and uses that hostname. If
+neither variable is set, any `*.ddev.site` hostname is allowed instead. Access
+via `localhost:6006` does not require additional configuration.
+
+If you use a different reverse proxy or custom local domain, add its hostname to
+`core.allowedHosts` in `.storybook/main.js`. See the [Storybook `core`
+docs](https://storybook.js.org/docs/api/main-config/main-config-core) for
+details.
+
 ## Sass
 
 Sass can be compiled as part of the global `styles.css` file or to individual
@@ -721,5 +737,6 @@ such as `5.x-RC`.
 
 The Gesso theme is maintained by
 [Corey Lafferty](https://drupal.org/u/clafferty),
-[KJ Monahan](https://www.drupal.org/u/kmonahan), and
-[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](https://fosstodon.org/@dcmouyard)).
+[KJ Monahan](https://www.drupal.org/u/kmonahan),
+[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](https://fosstodon.org/@dcmouyard)), and
+[Tommy Alter](https://www.drupal.org/u/tomealter).

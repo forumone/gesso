@@ -12,18 +12,18 @@
     @include focus();
     appearance: none;
     background-color: gesso-color(form, background-unchecked);
+    block-size: 18px;
     border: 1px solid gesso-color(form, border-dark);
     border-radius: 50%;
     box-shadow: 0 0 0 2px transparent;
     cursor: pointer;
-    height: 18px;
+    inline-size: 18px;
     inset-block-start: 2px;
     margin-inline-end: 3px;
     position: relative;
     transition-duration: gesso-duration(short);
     transition-property: background-color, border-color, border-radius;
     transition-timing-function: gesso-easing(ease-in-out);
-    width: 18px;
 
     &:checked {
       background-color: gesso-color(form, background-checked);

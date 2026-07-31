@@ -10,7 +10,7 @@ html {
   font-family: gesso-font-family(primary);
   font-size: 100% * (math.div(gesso-base-font-size(), 16px));
   line-height: gesso-line-height(base);
-  min-height: 100%;
+  min-block-size: 100%;
   text-size-adjust: 100%;
 
   @media screen and (prefers-reduced-motion: no-preference) {

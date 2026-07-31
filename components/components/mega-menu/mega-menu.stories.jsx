@@ -19,7 +19,7 @@ const settings = {
     Story => (
       <>
         <Story />
-        <div style={{ height: '100vh' }} />
+        <div style={{ blockSize: '100vh' }} />
       </>
     ),
   ],

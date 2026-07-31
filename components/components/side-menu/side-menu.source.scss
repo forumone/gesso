@@ -7,15 +7,15 @@ $side-menu-bg-color: gesso-color(ui, generic, background-light);
 
 .c-side-menu {
   background: $side-menu-bg-color;
+  block-size: 100vh;
   font-size: rem(gesso-font-size(5));
-  height: 100vh;
+  inline-size: rem(300px);
   inset-block-start: 0;
   inset-inline-start: 0;
   overflow: hidden;
   position: fixed;
   transform: translate3d(-100%, 0, 0);
   transition: transform gesso-duration(short) gesso-easing(ease-in);
-  width: rem(300px);
   z-index: -1;
 
   &.is-open {
@@ -31,18 +31,18 @@ $side-menu-bg-color: gesso-color(ui, generic, background-light);
 .c-side-menu__menu,
 .c-side-menu .c-menu__subnav {
   background: $side-menu-bg-color;
+  inline-size: 100%;
   inset-inline-start: 0;
   position: absolute;
-  width: 100%;
 }
 
 .c-side-menu__menu {
-  height: calc(100% - 55px);
+  block-size: calc(100% - 55px);
   inset-block-start: 55px;
 }
 
 .c-side-menu .c-menu__subnav {
-  height: 100%;
+  block-size: 100%;
   inset-block-start: 0;
   transform: translate3d(-100%, 0, 0);
   transition: transform gesso-duration(short) gesso-easing(ease-in);
@@ -55,9 +55,9 @@ $side-menu-bg-color: gesso-color(ui, generic, background-light);
 .c-side-menu .c-menu__item {
   align-items: center;
   display: flex;
+  inline-size: 100%;
   justify-content: space-between;
   padding: gesso-spacing(1) gesso-spacing(2);
-  width: 100%;
 }
 
 .c-side-menu__toggle {

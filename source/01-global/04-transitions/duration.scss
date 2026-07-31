@@ -15,13 +15,13 @@ $duration-swatch: rem(40px);
 
 .gesso-storybook-duration__indicator {
   background-color: #666;
+  block-size: $duration-swatch;
   border-radius: 50%;
   display: inline-block;
-  height: $duration-swatch;
+  inline-size: $duration-swatch;
   margin-block-end: 2rem;
   position: relative;
   transition: all 2s ease-out;
-  width: $duration-swatch;
 }
 
 .gesso-storybook-duration__item {

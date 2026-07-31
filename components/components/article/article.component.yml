@@ -24,6 +24,12 @@ props:
         - "null"
       title: Author Name
       description: 'The name of the article author.'
+    author_url:
+      type:
+        - string
+        - "null"
+      title: Author URL
+      description: 'The author link URL. Used with author_name when author markup is not provided.'
     date_format:
       type:
         - string

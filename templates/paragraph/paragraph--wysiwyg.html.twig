@@ -7,7 +7,7 @@
 {% include 'gesso:wysiwyg' with {
   'attributes': attributes,
   'modifier_classes': '',
-  'content': content.field_wysiwyg|field_value is not empty ? content.field_wysiwyg|field_value : false,
+  'content': content.field_wysiwyg|field_value is not empty ? content.field_wysiwyg|field_value : null,
 }%}
 
-{% set cache_catch = content|without('field_wysiwyg')|render %}
+{{ content|cache_metadata }}

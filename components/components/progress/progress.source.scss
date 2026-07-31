@@ -15,24 +15,24 @@ $progress-text-color: gesso-color(text, on-light) !default;
 
 .c-progress__track {
   background-color: $progress-background-color;
+  block-size: 1rem;
   border: 1px solid $progress-border-color;
   border-radius: $progress-border-radius;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
-  height: 1rem;
   margin: rem(gesso-spacing(0.5)) 0;
-  max-width: 100%;
-  min-width: 6em;
+  max-inline-size: 100%;
+  min-inline-size: 6em;
   overflow: hidden;
 }
 
 .c-progress__bar {
   background-color: $progress-bar-color;
+  block-size: 1rem;
   border-radius: $progress-border-radius;
-  height: 1rem;
+  inline-size: 3%;
   transition-duration: 0.5s;
-  transition-property: width;
+  transition-property: inline-size;
   transition-timing-function: ease-out;
-  width: 3%;
 }
 
 .c-progress__description,
@@ -43,21 +43,9 @@ $progress-text-color: gesso-color(text, on-light) !default;
 }
 
 .c-progress__description {
-  float: left; // LTR
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      float: right;
-    }
-  }
+  float: inline-start;
 }
 
 .c-progress__percentage {
-  float: right; // LTR
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      float: left;
-    }
-  }
+  float: inline-end;
 }

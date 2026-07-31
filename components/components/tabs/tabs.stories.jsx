@@ -22,9 +22,6 @@ const Tabs = args =>
   parse(
     twigTemplate({
       ...args,
-    }),
-    twigTemplate({
-      ...args,
     })
   );
 Tabs.args = { ...data };

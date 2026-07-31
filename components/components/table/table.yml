@@ -12,7 +12,7 @@ header:
   -
     attributes: ' scope="col" data-sortable'
     content: 'Population'
-footer: false
+footer: null
 rows:
   -
     attributes: ''

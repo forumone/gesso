@@ -15,14 +15,14 @@ $easing-swatch: rem(75px);
 
 .gesso-storybook-easing__indicator {
   background-color: #666;
+  block-size: $easing-swatch;
   border-radius: 10%;
-  height: $easing-swatch;
+  inline-size: $easing-swatch;
   inset-inline-start: 0;
   margin-block-end: 0.5rem;
   position: relative;
   transition-duration: 1s;
   transition-property: inset-inline-start;
-  width: $easing-swatch;
 }
 
 .gesso-storybook-easing__item {

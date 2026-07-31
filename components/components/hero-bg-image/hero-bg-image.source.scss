@@ -14,12 +14,12 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
   > figure,
   > figure img,
   > img {
-    height: 100%;
+    block-size: 100%;
+    inline-size: 100%;
     inset-block-start: 0;
     inset-inline-start: 0;
     object-fit: cover;
     position: absolute;
-    width: 100%;
   }
 
   &.has-content-left {
