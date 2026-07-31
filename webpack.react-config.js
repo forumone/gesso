@@ -1,6 +1,7 @@
 import path, { dirname } from 'node:path';
 import * as embeddedSass from 'sass-embedded';
 import { fileURLToPath } from 'node:url';
+import WrapChunkOutputPlugin from './lib/wrapChunkOutput.js';
 
 const __dirname =
   import.meta.dirname ?? dirname(fileURLToPath(import.meta.url));
@@ -15,6 +16,9 @@ const reactConfig = {
     clean: true,
   },
   context: __dirname,
+  // Async chunks here are emitted in the same bare array-push format as the
+  // js/common split chunk, so they need the same treatment.
+  plugins: [new WrapChunkOutputPlugin()],
   module: {
     rules: [
       {

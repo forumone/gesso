@@ -7,6 +7,7 @@ import StylelintPlugin from 'stylelint-webpack-plugin';
 import * as embeddedSass from 'sass-embedded';
 import { fileURLToPath } from 'node:url';
 import SvgSpritemapPlugin from 'svg-spritemap-webpack-plugin';
+import WrapChunkOutputPlugin from './lib/wrapChunkOutput.js';
 
 const __dirname =
   import.meta.dirname ?? dirname(fileURLToPath(import.meta.url));
@@ -58,6 +59,10 @@ async function gatherProjectFiles() {
 const commonConfig = {
   entry: () => gatherProjectFiles(),
   plugins: [
+    // Keeps the "use strict" directive of split chunks (js/common) from leaking
+    // into files that a consumer concatenates after them, e.g. Drupal's JS
+    // aggregation.
+    new WrapChunkOutputPlugin(),
     new MiniCssExtractPlugin(),
     new RemovePlugin({
       after: {
