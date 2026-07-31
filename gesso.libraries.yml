@@ -99,7 +99,7 @@ dropdown_menu:
     - gesso/global
     - gesso/mobile_menu
 
-external-link:
+external_link:
   js:
     dist/js/external-link.es6.js: {}
   dependencies:
