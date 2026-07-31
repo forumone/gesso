@@ -20,9 +20,9 @@
   {% set show_admin_info = true %}
 {% endif %}
 
-{% include '@templates/page/page.twig' with {
+{% include 'gesso:page' with {
   'attributes': attributes,
-  'is_published': media.status.value,
+  'is_published': media.isPublished(),
   'title': page_title,
   'show_admin_info': show_admin_info,
   'admin_info': admin_info,
