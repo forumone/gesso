@@ -20,16 +20,17 @@ const settings = {
   parameters: {
     controls: {
       include: [
-        'title',
+        'article_title',
         'show_footer',
         'author_name',
+        'author_url',
         'date_format',
         'year',
         'month',
         'day',
         'hour',
         'minute',
-        'content',
+        'article_content',
       ],
     },
   },
