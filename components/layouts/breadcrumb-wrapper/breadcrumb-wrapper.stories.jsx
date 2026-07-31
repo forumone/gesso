@@ -2,24 +2,24 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
-import twigTemplate from './breadcrumb.twig';
-import data from './breadcrumb.yml';
+import twigTemplate from './breadcrumb-wrapper.twig';
+import data from './breadcrumb-wrapper.yml';
 import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
-import './breadcrumb.source.scss';
+import './breadcrumb-wrapper.source.scss';
 
 const settings = {
   title: 'Layouts/Breadcrumb',
 };
 
-const Breadcrumb = {
+const BreadcrumbWrapper = {
   render: args => parse(twigTemplate(args)),
   args: {
     breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
-      <ContentPlaceholder>Breadcrumb Layout Content</ContentPlaceholder>
+      <ContentPlaceholder>Breadcrumb Wrapper Content</ContentPlaceholder>
     ),
     ...data,
   },
 };
 
 export default settings;
-export { Breadcrumb };
+export { BreadcrumbWrapper };

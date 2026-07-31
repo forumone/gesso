@@ -1,0 +1,63 @@
+// Component: Breadcrumb
+
+@use '00-config' as *;
+
+$breadcrumb-background-color: gesso-color(ui, generic, accent-dark) !default;
+$breadcrumb-divider-color: gesso-color(ui, generic, border-light) !default;
+$breadcrumb-link-color: gesso-color(ui, generic, text-light) !default;
+$breadcrumb-text-color: gesso-color(text, on-dark) !default;
+
+.c-breadcrumb {
+  @include clearfix();
+  background-color: $breadcrumb-background-color;
+  color: $breadcrumb-text-color;
+  font-size: rem(gesso-font-size(2));
+  margin: gesso-spacing(4) 0;
+  min-block-size: rem(40px);
+  padding-block: gesso-spacing(2);
+}
+
+.c-breadcrumb__list {
+  @include list-inline();
+  margin-block-end: 0;
+}
+
+.c-breadcrumb__item {
+  margin-inline-end: 0.75em;
+
+  &::after {
+    color: $breadcrumb-divider-color;
+    content: '/';
+    margin-inline-start: 0.75em;
+  }
+
+  &:last-child::after {
+    content: '';
+    margin-inline-start: 0;
+  }
+}
+
+.c-breadcrumb__list .c-breadcrumb__item {
+  @include breakpoint-max(600px) {
+    display: none;
+
+    &:nth-last-child(2) {
+      display: block;
+
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        color: $breadcrumb-divider-color;
+        content: '<';
+        margin-inline-end: 0.75em;
+      }
+    }
+  }
+}
+
+.c-breadcrumb__link {
+  @include link($breadcrumb-link-color, $breadcrumb-text-color);
+  text-decoration: none;
+}

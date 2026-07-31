@@ -3,17 +3,17 @@ import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
 import globalData from '../../source/00-config/storybook.global-data.yml';
-import ContentPlaceholder from '../../source/01-global/content-placeholder/content-placeholder';
 import RegionTwig from '../../components/layouts/region/region.twig';
 import SkiplinksTwig from '../../components/components/skiplinks/skiplinks.twig';
 import HeaderTwig from '../../components/layouts/header/header.twig';
-import BreadcrumbTwig from '../../components/layouts/breadcrumb/breadcrumb.twig';
+import BreadcrumbTwig from '../../components/layouts/breadcrumb-wrapper/breadcrumb-wrapper.twig';
 import ContentTwig from '../../components/layouts/content/content.twig';
 import FooterTwig from '../../components/layouts/footer/footer.twig';
 import { SiteName } from '../../components/components/site-name/site-name.stories.jsx';
 import NavTwig from '../../components/layouts/nav/nav.twig';
 import { AccountMenu } from '../../components/components/menu-account/menu-account.stories.jsx';
 import { DropdownMenu } from '../../components/components/dropdown-menu/dropdown-menu.stories.jsx';
+import { Breadcrumb } from '../../components/components/breadcrumb/breadcrumb.stories.jsx';
 import { FooterMenu } from '../../components/components/menu-footer/menu-footer.stories.jsx';
 import { Copyright } from '../../components/components/copyright/copyright.stories.jsx';
 import { BackToTop } from '../../components/components/back-to-top/back-to-top.stories.jsx';
@@ -73,9 +73,8 @@ const PageWrapper = props => {
         {parse(
           BreadcrumbTwig({
             has_constrain: false,
-            // Trail SDC not restored yet; placeholder until c-breadcrumb returns.
             breadcrumb_content: ReactDOMServer.renderToStaticMarkup(
-              <ContentPlaceholder>Breadcrumb</ContentPlaceholder>
+              <>{Breadcrumb.render(Breadcrumb.args)}</>
             ),
           })
         )}
