@@ -167,7 +167,7 @@ const commonConfig = {
       cacheGroups: {
         commons: {
           chunks: 'all',
-          name: 'js/common',
+          name: 'dist/js/common',
           minChunks: 2,
         },
       },
