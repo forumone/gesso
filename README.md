@@ -708,5 +708,6 @@ such as `5.x-RC`.
 
 The Gesso theme is maintained by
 [Corey Lafferty](https://drupal.org/u/clafferty),
-[KJ Monahan](https://www.drupal.org/u/kmonahan), and
-[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](https://fosstodon.org/@dcmouyard)).
+[KJ Monahan](https://www.drupal.org/u/kmonahan),
+[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](https://fosstodon.org/@dcmouyard)), and
+[Tommy Alter](https://www.drupal.org/u/tomealter).
