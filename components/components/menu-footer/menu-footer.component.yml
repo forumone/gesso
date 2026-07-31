@@ -19,4 +19,4 @@ props:
 libraryOverrides:
   dependencies:
     - gesso/global
-    - gesso/menu
+    - core/components.gesso--menu

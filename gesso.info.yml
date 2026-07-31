@@ -23,6 +23,7 @@ components:
   namespaces:
     global: source/01-global
     layouts: components/layouts
+    components: components/components
     utility: source/02-utility
 regions:
   page_top: 'Page top'
