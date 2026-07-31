@@ -1,16 +1,19 @@
 import parse from 'html-react-parser';
 
+import { withGlobalWrapper } from '{{ storybookImportPath }}/decorators.jsx';
 import twigTemplate from './{{ componentName }}.twig';
 import data from './{{ componentName }}.yml';
-{{#modularSass}}
-import './{{ componentName }}.scss';
-{{/modularSass}}
-{{#componentJs}}
-import './{{ componentName }}';
-{{/componentJs}}
+import componentInfo from './{{ componentName }}.component.yml';
+import getArgTypesFromComponent from '{{ storybookImportPath }}/getArgTypesFromComponent.js';
+import './{{ componentName }}.source.scss';{{#componentJs}}
+import './{{ componentName }}.source.js';{{/componentJs}}
 
 const settings = {
-  title: '{{#titleCase}}{{#cascadeLayer}}{{componentFolder}}{{/cascadeLayer}}{{/titleCase}}/{{ componentTitle }}'
+  title: '{{ storySection }}/{{ componentTitle }}',
+  decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
 };
 
 const {{> jsClassName }} = {
