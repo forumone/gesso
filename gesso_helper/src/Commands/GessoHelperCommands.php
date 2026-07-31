@@ -4,7 +4,7 @@ namespace Drupal\gesso_helper\Commands;
 
 use Consolidation\SiteAlias\SiteAliasManagerAwareInterface;
 use Consolidation\SiteAlias\SiteAliasManagerAwareTrait;
-use Drupal\Core\Extension\ThemeHandlerInterface;
+use Drupal\Core\Extension\ThemeExtensionList;
 use Drupal\gesso_helper\GessoHelperDirFilterExclude;
 use Drupal\gesso_helper\GessoHelperDirFilterInclude;
 use Drush\Commands\DrushCommands;
@@ -27,35 +27,35 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   use SiteAliasManagerAwareTrait;
 
   /**
-   * The theme handler service.
+   * The theme extension list service.
    *
-   * @var Drupal\Core\Extension\ThemeHandlerInterface
+   * @var \Drupal\Core\Extension\ThemeExtensionList
    */
-  protected $themeHandler;
+  protected ThemeExtensionList $themeList;
 
   /**
-   * Theme list variable.
+   * Cached theme extension data.
    *
-   * @var array
+   * @var array<string, \Drupal\Core\Extension\Extension>|null
    */
-  protected $themeList;
+  protected ?array $themes = NULL;
 
   /**
    * Filesystem variable.
    *
    * @var \Symfony\Component\Filesystem\Filesystem
    */
-  protected $fs;
+  protected Filesystem $fs;
 
   /**
    * GessoHelperCommands constructor.
    *
-   * @param Drupal\Core\Extension\ThemeHandlerInterface $themeHandler
-   *   The theme handler.
+   * @param \Drupal\Core\Extension\ThemeExtensionList $theme_list
+   *   The theme extension list.
    */
-  public function __construct(ThemeHandlerInterface $themeHandler) {
+  public function __construct(ThemeExtensionList $theme_list) {
     parent::__construct();
-    $this->themeHandler = $themeHandler;
+    $this->themeList = $theme_list;
     $this->fs = new Filesystem();
   }
 
@@ -109,12 +109,19 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $this->io()->text(dt('Setting up the theme. This may take a while...'));
     // Get theme paths.
     $drupalRoot = Drush::bootstrapManager()->getRoot();
-    $gesso_path = $drupalRoot . DIRECTORY_SEPARATOR . $this->themeHandler->getPath('gesso');
+    $gesso_path = $drupalRoot . DIRECTORY_SEPARATOR . $this->themeList->getPath('gesso');
     $theme_path = substr($gesso_path, 0, strrpos($gesso_path, '/'));
     $new_path = $theme_path . DIRECTORY_SEPARATOR . $machine_name;
 
     // Copy the Gesso theme directory recursively to the new theme’s location.
-    $this->fs->mirror($gesso_path, $new_path, new \RecursiveIteratorIterator(new GessoHelperDirFilterExclude(new \RecursiveDirectoryIterator($gesso_path))), \RecursiveIteratorIterator::SELF_FIRST);
+    $this->fs->mirror(
+      $gesso_path,
+      $new_path,
+      new \RecursiveIteratorIterator(
+        new GessoHelperDirFilterExclude(new \RecursiveDirectoryIterator($gesso_path)),
+        \RecursiveIteratorIterator::SELF_FIRST
+      )
+    );
 
     // Replace specific occurrences of 'gesso'
     // with the machine name of the new theme.
@@ -244,11 +251,11 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    * Checks if $theme_name already exists in Drupal.
    */
   private function gessoThemeExists(string $theme_name): bool {
-    if (empty($this->themeList)) {
-      $this->themeList = $this->themeHandler->rebuildThemeData();
+    if ($this->themes === NULL) {
+      $this->themes = $this->themeList->reset()->getList();
     }
 
-    return isset($this->themeList[$theme_name]);
+    return isset($this->themes[$theme_name]);
   }
 
   /**
@@ -258,32 +265,6 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $file_contents = file_get_contents($file_path);
     $file_contents = preg_replace($find, $replace, $file_contents);
     drush_op('file_put_contents', $file_path, $file_contents);
-  }
-
-  /**
-   * Recursively removes all files and subfolders in a directory.
-   *
-   * It later also removes the directory itself.
-   *
-   * @param string $path
-   *   Path to the top-level directory.
-   */
-  private function gessoRecursiveRm(string $path): void {
-    if (is_dir($path)) {
-      $dir_contents = scandir($path);
-      foreach ($dir_contents as $item) {
-        if ($item !== '.' && $item !== '..') {
-          $subpath = $path . DIRECTORY_SEPARATOR . $item;
-          if (is_dir($subpath)) {
-            $this->gessoRecursiveRm($subpath);
-          }
-          else {
-            drush_op('unlink', $subpath);
-          }
-        }
-      }
-      drush_op('rmdir', $path);
-    }
   }
 
 }
