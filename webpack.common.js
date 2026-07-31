@@ -93,6 +93,17 @@ const commonConfig = {
     }),
   ],
   context: __dirname,
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          chunks: 'all',
+          name: 'js/common',
+          minChunks: 2,
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {
