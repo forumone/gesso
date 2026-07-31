@@ -118,7 +118,9 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
       $gesso_path,
       $new_path,
       new \RecursiveIteratorIterator(
-        new GessoHelperDirFilterExclude(new \RecursiveDirectoryIterator($gesso_path)),
+        new GessoHelperDirFilterExclude(
+          new \RecursiveDirectoryIterator($gesso_path, \FilesystemIterator::SKIP_DOTS)
+        ),
         \RecursiveIteratorIterator::SELF_FIRST
       )
     );
