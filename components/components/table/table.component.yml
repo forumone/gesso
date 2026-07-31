@@ -46,7 +46,10 @@ props:
       title: Rows
       description: 'Array of table row objects. Each row should have attributes and cells array properties.'
 libraryOverrides:
+  js:
+    table--sortable.js: { preprocess: false }
   dependencies:
     - gesso/global
     - core/drupal
     - core/once
+    - gesso/common

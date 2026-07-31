@@ -19,10 +19,16 @@ function gesso_library_info_alter(array &$libraries, string $extension): void {
       continue;
     }
     foreach ($library['js'] as $path => &$options) {
-      if (!is_string($path) || !str_starts_with($path, 'dist/js/')) {
+      if (!is_string($path)) {
         continue;
       }
-      $options['preprocess'] = FALSE;
+      // Theme-built JS lives under dist/js/ or colocated with SDCs.
+      if (
+        str_starts_with($path, 'dist/js/')
+        || str_starts_with($path, 'components/')
+      ) {
+        $options['preprocess'] = FALSE;
+      }
     }
   }
 }
@@ -32,6 +38,6 @@ function gesso_library_info_alter(array &$libraries, string $extension): void {
  */
 function gesso_element_info_alter(array &$types): void {
   if (isset($types['gesso_icon_link'])) {
-    $types['gesso_icon_link']['#attached']['library'][] = 'gesso/icon_link';
+    $types['gesso_icon_link']['#attached']['library'][] = 'core/components.gesso--icon-link';
   }
 }

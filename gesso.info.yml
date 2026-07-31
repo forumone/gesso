@@ -13,8 +13,6 @@ libraries-override:
         css/components/align.module.css: false
         css/components/clearfix.module.css: false
         css/components/hidden.module.css: false
-ckeditor_stylesheets:
-  - dist/css/ckeditor4-styles.css
 ckeditor5-stylesheets:
   - dist/css/editor-styles.css
 dependencies:
