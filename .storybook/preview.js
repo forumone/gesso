@@ -36,6 +36,9 @@ export const decorators = [
 
 const preview = {
   parameters: {
+    controls: {
+      disableSaveFromUI: true,
+    },
     layout: 'fullscreen',
     options: {
       storySort: {

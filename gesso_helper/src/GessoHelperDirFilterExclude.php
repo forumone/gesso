@@ -8,9 +8,9 @@ namespace Drupal\gesso_helper;
 class GessoHelperDirFilterExclude extends \RecursiveFilterIterator {
 
   /**
-   * Directories to include.
+   * Directories to exclude.
    *
-   * @var array
+   * @var array<int, string>
    */
   protected array $exclude = [
     'node_modules',
@@ -23,15 +23,18 @@ class GessoHelperDirFilterExclude extends \RecursiveFilterIterator {
    * Whether this directory or file should be excluded.
    */
   public function accept(): bool {
+    /** @var \RecursiveDirectoryIterator $inner */
     $inner = $this->getInnerIterator();
-    return !($inner->isDir() && in_array($inner->getFilename(), $this->exclude));
+    return !($inner->isDir() && in_array($inner->getFilename(), $this->exclude, TRUE));
   }
 
   /**
    * Get children.
    */
   public function getChildren(): ?GessoHelperDirFilterExclude {
-    return new GessoHelperDirFilterExclude($this->getInnerIterator()->getChildren());
+    /** @var \RecursiveDirectoryIterator $inner */
+    $inner = $this->getInnerIterator();
+    return new GessoHelperDirFilterExclude($inner->getChildren());
   }
 
 }
