@@ -19,10 +19,10 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes for the button group wrapper.'
-    button_group_items:
-      type: string
-      title: Button Group Items
-      description: 'The rendered list items for each button in the group.'
+slots:
+  button_group_items:
+    title: Button Group Items
+    description: 'The rendered list items for each button in the group.'
 libraryOverrides:
   dependencies:
     - gesso/global

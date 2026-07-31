@@ -11,12 +11,6 @@ props:
       type: boolean
       title: Show Admin Info
       description: 'Whether to show admin information.'
-    admin_info:
-      type:
-        - object
-        - "null"
-      title: Admin Info
-      description: 'Admin information render array.'
     title_prefix:
       type:
         - array
@@ -77,6 +71,10 @@ props:
         - "null"
       title: Homepage Grid Content
       description: 'The grid section content render array.'
+slots:
+  admin_info:
+    title: Admin Info
+    description: 'Administrative information and status messages.'
 libraryOverrides:
   dependencies:
     - gesso/global
