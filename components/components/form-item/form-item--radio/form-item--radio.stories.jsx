@@ -5,6 +5,7 @@ import twigTemplate from '../form-item.twig';
 import inputTemplate from '../_input.twig';
 import labelTemplate from '../_form-item-label.twig';
 import data from './form-item--radio.yml';
+import '../form-item.source.scss';
 
 const settings = {
   title: 'Components/Form Item/Radio',

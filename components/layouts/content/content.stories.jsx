@@ -5,6 +5,7 @@ import parse from 'html-react-parser';
 import twigTemplate from './content.twig';
 import data from './content.yml';
 import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
+import './content.source.scss';
 
 const settings = {
   title: 'Layouts/Content',

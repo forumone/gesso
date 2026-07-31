@@ -4,6 +4,7 @@ import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './figure.twig';
 import data from './figure.yml';
 import videoData from './figure--iframe.yml';
+import './figure.source.scss';
 import '../video/video.source.scss';
 import componentInfo from './figure.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';

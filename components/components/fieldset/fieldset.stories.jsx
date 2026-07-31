@@ -5,6 +5,7 @@ import twigTemplate from './fieldset.twig';
 import data from './fieldset.yml';
 import componentInfo from './fieldset.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './fieldset.source.scss';
 
 const settings = {
   title: 'Components/Fieldset',

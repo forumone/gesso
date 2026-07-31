@@ -7,6 +7,7 @@ import data from './table.yml';
 import './table--sortable.source.ts';
 import componentInfo from './table.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './table.source.scss';
 
 const settings = {
   title: 'Components/Table',

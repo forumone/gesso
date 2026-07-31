@@ -5,6 +5,7 @@ import twigTemplate from './copyright.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import componentInfo from './copyright.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './copyright.source.scss';
 
 const settings = {
   title: 'Components/Copyright',

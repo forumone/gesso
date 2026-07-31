@@ -5,6 +5,7 @@ import twigTemplate from './field.twig';
 import data from './field.yml';
 import componentInfo from './field.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './field.source.scss';
 
 const settings = {
   title: 'Components/Field',

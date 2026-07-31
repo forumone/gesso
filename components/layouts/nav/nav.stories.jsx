@@ -5,6 +5,7 @@ import parse from 'html-react-parser';
 import twigTemplate from './nav.twig';
 import data from './nav.yml';
 import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
+import './nav.source.scss';
 
 const settings = {
   title: 'Layouts/Nav',

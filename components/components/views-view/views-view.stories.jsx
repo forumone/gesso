@@ -7,6 +7,7 @@ import data from './views-view.yml';
 import { Default as Pager } from '../../components/pager/pager.stories';
 import componentInfo from './views-view.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './views-view.source.scss';
 
 const settings = {
   title: 'Components/Views/View',

@@ -5,6 +5,7 @@ import twigTemplate from '../form-item.twig';
 import textareaTemplate from './_textarea.twig';
 import labelTemplate from '../_form-item-label.twig';
 import data from './form-item--textarea.yml';
+import '../form-item.source.scss';
 
 const settings = {
   title: 'Components/Form Item/Textarea',

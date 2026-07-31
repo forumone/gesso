@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './responsive-table.twig';
 import data from './responsive-table.yml';
+import './responsive-table.source.scss';
 
 const settings = {
   title: 'Layouts/Responsive Table',

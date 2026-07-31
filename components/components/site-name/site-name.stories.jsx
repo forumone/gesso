@@ -5,6 +5,7 @@ import twigTemplate from './site-name.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import componentInfo from './site-name.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './site-name.source.scss';
 
 const settings = {
   title: 'Components/Site Name',

@@ -5,6 +5,7 @@ import twigTemplate from './page-title.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import componentInfo from './page-title.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './page-title.source.scss';
 
 const settings = {
   title: 'Components/Page Title',

@@ -4,6 +4,7 @@ import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './article.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './article.yml';
+import './article.source.scss';
 import componentInfo from './article.component.yml';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.

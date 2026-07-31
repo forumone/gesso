@@ -5,6 +5,7 @@ import twigTemplate from './list.twig';
 import data from './list.yml';
 import componentInfo from './list.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './list.source.scss';
 
 const settings = {
   title: 'Components/List',

@@ -7,6 +7,8 @@ import fieldsetTwigTemplate from '../../../components/fieldset/fieldset.twig';
 import twigTemplate from './form-item--checkboxes.twig';
 import { Checkbox } from '../form-item--checkbox/form-item--checkbox.stories.jsx';
 import data from './form-item--checkboxes.yml';
+import '../form-item.source.scss';
+import '../../fieldset/fieldset.source.scss';
 
 const settings = {
   title: 'Components/Form Item/Checkboxes',

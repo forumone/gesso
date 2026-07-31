@@ -1,7 +1,7 @@
 // Component: Checkbox Form Item
 
 @use '00-config' as *;
-@use '../form-item' as *;
+@use '../form-item-vars' as *;
 
 .c-form-item--checkbox {
   & + & {

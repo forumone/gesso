@@ -5,6 +5,7 @@ import twigTemplate from './menu-account.twig';
 import data from './menu-account.yml';
 import componentInfo from './menu-account.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './menu-account.source.scss';
 
 const settings = {
   title: 'Components/Menu/Account Menu',

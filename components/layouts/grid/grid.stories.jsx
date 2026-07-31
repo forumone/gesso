@@ -5,6 +5,7 @@ import parse from 'html-react-parser';
 import twigTemplate from './grid.twig';
 import data from './grid.yml';
 import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
+import './grid.source.scss';
 
 const settings = {
   title: 'Layouts/Grid',

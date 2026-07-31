@@ -1,7 +1,7 @@
 // Component: Radio Form Item
 
 @use '../../../../source/00-config/index' as *;
-@use '../form-item' as *;
+@use '../form-item-vars' as *;
 
 .c-form-item--radio {
   & + & {

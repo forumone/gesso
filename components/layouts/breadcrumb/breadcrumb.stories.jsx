@@ -5,6 +5,7 @@ import parse from 'html-react-parser';
 import twigTemplate from './breadcrumb.twig';
 import data from './breadcrumb.yml';
 import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
+import './breadcrumb.source.scss';
 
 const settings = {
   title: 'Layouts/Breadcrumb',

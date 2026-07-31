@@ -2,7 +2,7 @@
 
 @use 'sass:math';
 @use '../../../../source/00-config/index' as *;
-@use '../form-item' as *;
+@use '../form-item-vars' as *;
 
 $form-range-thumb-border-radius: 0 !default;
 $form-range-thumb-border-width: 1px !default;

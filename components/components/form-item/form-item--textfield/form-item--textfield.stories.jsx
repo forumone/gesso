@@ -20,6 +20,7 @@ import textData from './form-item--text.yml';
 import timeData from './form-item--time.yml';
 import urlData from './form-item--url.yml';
 import weekData from './form-item--week.yml';
+import '../form-item.source.scss';
 
 const settings = {
   title: 'Components/Form Item/Input',

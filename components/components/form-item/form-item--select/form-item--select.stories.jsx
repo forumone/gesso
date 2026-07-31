@@ -6,6 +6,7 @@ import selectTemplate from './_select.twig';
 import labelTemplate from '../_form-item-label.twig';
 import data from './form-item--select.yml';
 import withGroupsData from './form-item--select-with-groups.yml';
+import '../form-item.source.scss';
 
 const settings = {
   title: 'Components/Form Item/Select',

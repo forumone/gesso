@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './media.twig';
 import data from './media.yml';
+import './media.source.scss';
 
 const settings = {
   title: 'Layouts/Media',

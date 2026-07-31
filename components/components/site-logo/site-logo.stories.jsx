@@ -5,6 +5,7 @@ import twigTemplate from './site-logo.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import componentInfo from './site-logo.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './site-logo.source.scss';
 
 const settings = {
   title: 'Components/Site Logo',

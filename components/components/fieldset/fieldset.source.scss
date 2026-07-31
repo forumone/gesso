@@ -1,7 +1,7 @@
 // Component: Fieldset
 
 @use '00-config' as *;
-@use '../form-item/form-item.source' as *;
+@use '../form-item/form-item-vars' as *;
 
 $fieldset-legend-offset: rem(
   gesso-line-height(base) * gesso-base-font-size()

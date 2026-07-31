@@ -5,6 +5,7 @@ import twigTemplate from './views-view-list.twig';
 import data from './views-view-list.yml';
 import componentInfo from './views-view-list.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './views-view-list.source.scss';
 
 const settings = {
   title: 'Components/Views/List',

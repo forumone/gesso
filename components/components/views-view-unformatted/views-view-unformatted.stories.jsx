@@ -5,6 +5,7 @@ import twigTemplate from './views-view-unformatted.twig';
 import data from './views-view-unformatted.yml';
 import componentInfo from './views-view-unformatted.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+import './views-view-unformatted.source.scss';
 
 const settings = {
   title: 'Components/Views/Unformatted',
