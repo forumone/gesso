@@ -3,6 +3,13 @@ name: Article
 props:
   type: object
   properties:
+    attributes:
+      type:
+        - object
+        - string
+        - "null"
+      title: Attributes
+      description: 'HTML attributes for the article element.'
     article_title:
       type: string
       title: Article title
