@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import globalData from '../source/00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
-import { Page as Template } from '../04-templates/page/page.stories.jsx';
+import { Page as Template } from '../components/templates/page/page.stories.jsx';
 
 export default {
   title: 'Pages/Page',

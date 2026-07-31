@@ -16,6 +16,7 @@ const config = {
     '../source/**/*.mdx',
     '../source/**/*.stories.@(js|jsx|ts|tsx)',
     '../components/**/*.stories.@(js|jsx|ts|tsx)',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   framework: {
     name: '@storybook/react-webpack5',
@@ -85,15 +86,13 @@ const config = {
           options: {
             twigOptions: {
               namespaces: {
+                // Match gesso.info.yml components.namespaces where applicable.
                 global: resolve(__dirname, '../', 'source/01-global'),
-                layouts: resolve(__dirname, '../', 'source/02-layouts'),
-                components: resolve(__dirname, '../', 'source/03-components'),
-                templates: resolve(__dirname, '../', 'source/04-templates'),
-                pages: resolve(__dirname, '../', 'source/04-pages'),
-                // SDC (Single Directory Component) namespace
-                // Supports Drupal's SDC syntax: include('gesso:component-name')
-                // Components in the components/ directory follow the convention:
-                // gesso:page-title resolves to components/page-title/page-title.twig
+                utility: resolve(__dirname, '../', 'source/02-utility'),
+                layouts: resolve(__dirname, '../', 'components/layouts'),
+                components: resolve(__dirname, '../', 'components/components'),
+                templates: resolve(__dirname, '../', 'components/templates'),
+                // SDC provider:name — loader resolves under components/{components,layouts,templates}/
                 gesso: resolve(__dirname, '../', 'components'),
               },
             },

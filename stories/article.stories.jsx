@@ -4,8 +4,10 @@ import parse from 'html-react-parser';
 
 import globalData from '../source/00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
-import { Page as Template } from '../04-templates/page/page.stories.jsx';
-import { FigureRightAligned } from '../03-components/figure/figure.stories.jsx';
+import { Page as Template } from '../components/templates/page/page.stories.jsx';
+import { FigureRightAligned } from '../components/components/figure/figure.stories.jsx';
+import { Author } from '../components/components/author/author.stories.jsx';
+import { Date } from '../components/components/date/date.stories.jsx';
 
 export default {
   title: 'Pages/Article',
@@ -49,6 +51,24 @@ const articleDemoContent = `
   </p>
 `;
 
+const articleDate = ReactDOMServer.renderToStaticMarkup(
+  Date.render({
+    ...Date.args,
+    date_format: 'medium-date',
+    year: { long: '1987' },
+    month: { long: 'October' },
+    day: { short: '9' },
+  })
+);
+
+const articleAuthor = ReactDOMServer.renderToStaticMarkup(
+  Author.render({
+    ...Author.args,
+    author: 'William Goldman',
+    url: '#0',
+  })
+);
+
 // For an example of customizing the content block on a demo page,
 // see Page.
 const articleContent = args =>
@@ -58,18 +78,8 @@ const articleContent = args =>
       admin_info: Template.args.admin_info,
       title: 'As You Wish',
       show_footer: true,
-      date_format: 'medium-date',
-      year: {
-        long: '1987',
-      },
-      month: {
-        long: 'October',
-      },
-      day: {
-        short: '9',
-      },
-      author_name: 'William Goldman',
-      author_url: '#0',
+      date: articleDate,
+      author: articleAuthor,
       content: articleDemoContent,
     })
   );

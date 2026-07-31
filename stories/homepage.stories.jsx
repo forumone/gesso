@@ -4,9 +4,9 @@ import parse from 'html-react-parser';
 
 import globalData from '../source/00-config/storybook.global-data.yml';
 import PageWrapper from './page-wrappers/default.jsx';
-import { Homepage as Template } from '../04-templates/homepage/homepage.stories.jsx';
-import { Default as HeroBgImage } from '../03-components/hero-bg-image/hero-bg-image.stories.jsx';
-import { Default as Card } from '../03-components/card/card.stories.jsx';
+import { Homepage as Template } from '../components/templates/homepage/homepage.stories.jsx';
+import { Default as HeroBgImage } from '../components/components/hero-bg-image/hero-bg-image.stories.jsx';
+import { Default as Card } from '../components/components/card/card.stories.jsx';
 
 export default {
   title: 'Pages/Homepage',
