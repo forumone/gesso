@@ -127,20 +127,19 @@ npm run component
 You can also pass arguments to skip the prompts:
 
 ```shell
-npm run component -- --name my-component --folder 03-components
+npm run component -- --name my-component --folder components
 ```
 
 #### Available options
 
-| Option              | Description                                                    |
-| ------------------- | -------------------------------------------------------------- |
-| `--name <name>`     | Component name (required)                                      |
-| `--folder <folder>` | Component location, e.g., `03-components` (required)           |
-| `--title <title>`   | Human-readable title (defaults to Capital Case of name)        |
-| `--subfolder <name>`| Optional subfolder within the component location               |
-| `--no-modular-sass` | Add styles to the global stylesheet instead of a separate file |
-| `--js`              | Include a JavaScript file                                      |
-| `--help, -h`        | Show help message                                              |
+| Option              | Description                                                              |
+| ------------------- | ------------------------------------------------------------------------ |
+| `--name <name>`     | Component name (required)                                                |
+| `--folder <folder>` | SDC location: `components`, `layouts`, or `templates` (required)         |
+| `--title <title>`   | Human-readable title (defaults to Capital Case of name)                  |
+| `--subfolder <name>`| Optional subfolder within the component location                         |
+| `--js`              | Include a JavaScript file                                                |
+| `--help, -h`        | Show help message                                                        |
 
 ## Directory structure
 
