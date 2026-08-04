@@ -4,6 +4,9 @@ import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './hero-bg-image.twig';
 import data from './hero-bg-image.yml';
 import './hero-bg-image.source.scss';
+// Importing components to ensure their assets get loaded in Storybook when they
+// get referenced since Drupal loads them as a library.
+import '../button/button.stories.jsx';
 import componentInfo from './hero-bg-image.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 

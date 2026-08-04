@@ -7,6 +7,9 @@ import twigTemplate from './page.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
 import { MessagesandTabs } from '../messages-and-tabs/messages-and-tabs.stories.jsx';
+// Importing components to ensure their assets get loaded in Storybook when they
+// get referenced since Drupal loads them as a library.
+import '../../components/article/article.stories.jsx';
 
 const settings = {
   title: 'Templates/Page',

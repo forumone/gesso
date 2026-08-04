@@ -5,6 +5,9 @@ import twigTemplate from './facet.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './facet.yml';
 import './facet.source.scss';
+// Importing components to ensure their assets get loaded in Storybook when they
+// get referenced since Drupal loads them as a library.
+import '../icon/icon.stories.jsx';
 import componentInfo from './facet.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 

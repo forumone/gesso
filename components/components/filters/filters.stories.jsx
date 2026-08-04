@@ -6,6 +6,9 @@ import filterTemplate from './filter.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './filters.yml';
 import './filters.source.scss';
+// filter.twig includes gesso:icon and uses c-button classes.
+import '../icon/icon.stories.jsx';
+import '../button/button.stories.jsx';
 import componentInfo from './filters.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 

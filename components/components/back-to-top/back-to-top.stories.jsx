@@ -4,6 +4,9 @@ import twigTemplate from './back-to-top.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './back-to-top.yml';
 import './back-to-top.source.scss';
+// Importing components to ensure their assets get loaded in Storybook when they
+// get referenced since Drupal loads them as a library.
+import '../icon/icon.stories.jsx';
 import './back-to-top.source';
 import componentInfo from './back-to-top.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';

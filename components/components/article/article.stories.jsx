@@ -9,6 +9,10 @@ import componentInfo from './article.component.yml';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
 import '../wysiwyg/wysiwyg.stories.jsx';
+import '../page-title/page-title.stories.jsx';
+import '../author/author.stories.jsx';
+import '../date/date.stories.jsx';
+import '../list/list.stories.jsx';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {

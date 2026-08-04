@@ -3,6 +3,8 @@ import parse from 'html-react-parser';
 import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import './dropbutton.source.ts';
 import './dropbutton.source.scss';
+// Dropbutton markup reuses c-button classes without including gesso:button.
+import '../button/button.source.scss';
 import data from './dropbutton.yml';
 import twigTemplate from './dropbutton.twig';
 import componentInfo from './dropbutton.component.yml';

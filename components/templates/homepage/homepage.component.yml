@@ -23,18 +23,12 @@ props:
         - "null"
       title: Title Suffix
       description: 'Drupal title suffix array.'
-    homepage_hero:
+    hero_image:
       type:
         - string
         - "null"
-      title: Homepage Hero
-      description: 'The hero section content. Optional - defaults to a generated hero from other props.'
-    hero_image:
-      type:
-        - object
-        - "null"
       title: Hero Image
-      description: 'The hero image render array.'
+      description: 'Hero background image markup. Used when homepage_hero slot is empty.'
     hero_title:
       type:
         - string
@@ -65,16 +59,16 @@ props:
         - "null"
       title: Homepage Grid Title
       description: 'Title for the grid section.'
-    homepage_grid_content:
-      type:
-        - object
-        - "null"
-      title: Homepage Grid Content
-      description: 'The grid section content render array.'
 slots:
   admin_info:
     title: Admin Info
     description: 'Administrative information and status messages.'
+  homepage_hero:
+    title: Homepage Hero
+    description: 'Optional prebuilt hero markup. When empty, hero is built from hero_* props.'
+  homepage_grid_content:
+    title: Homepage Grid Content
+    description: 'Markup for the homepage grid section.'
 libraryOverrides:
   dependencies:
     - gesso/global

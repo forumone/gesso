@@ -6,6 +6,9 @@ import data from './menu-footer.yml';
 import componentInfo from './menu-footer.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 import './menu-footer.source.scss';
+// Importing components to ensure their assets get loaded in Storybook when they
+// get referenced since Drupal loads them as a library.
+import '../menu/menu.stories.jsx';
 
 const settings = {
   title: 'Components/Menu/Footer Menu',
