@@ -7,7 +7,6 @@
 {% include 'gesso:accordion' with {
   'attributes': attributes,
   'modifier_classes': '',
-  'has_constrain': true,
   'allow_multiple': true,
   'is_step_list': false,
   'accordion_items': content.field_paragraphs|field_value is not empty ? content.field_paragraphs|field_value : null,
