@@ -17,6 +17,12 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes to apply to the component.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to the sprite artifact SVG directory.'
 libraryOverrides:
   dependencies:
     - gesso/global

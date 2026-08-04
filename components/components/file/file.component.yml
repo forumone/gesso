@@ -33,6 +33,12 @@ props:
         - "null"
       title: File MIME Type
       description: 'The MIME type of the file (e.g., "application/pdf").'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to the sprite artifact SVG directory.'
 libraryOverrides:
   dependencies:
     - gesso/global

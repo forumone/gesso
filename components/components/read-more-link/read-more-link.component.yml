@@ -33,6 +33,12 @@ props:
       type: boolean
       title: Hide Description
       description: 'Whether to hide the description text visually (still available to screen readers).'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to the sprite artifact SVG directory.'
 libraryOverrides:
   dependencies:
     - gesso/global

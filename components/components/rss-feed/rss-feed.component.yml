@@ -24,6 +24,12 @@ props:
       type: string
       title: Link Text
       description: 'The text displayed for the RSS feed link.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to the sprite artifact SVG directory.'
 libraryOverrides:
   dependencies:
     - gesso/global

@@ -33,6 +33,12 @@ props:
         - "null"
       title: Attributes
       description: 'Additional HTML attributes for the navigation element.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to the sprite artifact SVG directory.'
 libraryOverrides:
   dependencies:
     - gesso/global

@@ -39,6 +39,12 @@ props:
         - "null"
       title: Hide Link
       description: 'Whether to render the facet without a link wrapper.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to the sprite artifact SVG directory.'
 libraryOverrides:
   dependencies:
     - gesso/global
