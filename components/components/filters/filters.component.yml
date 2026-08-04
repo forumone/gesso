@@ -32,3 +32,5 @@ props:
 libraryOverrides:
   dependencies:
     - gesso/global
+    # filter.twig (and facets summary preprocess) use c-button classes.
+    - core/components.gesso--button

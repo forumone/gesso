@@ -51,3 +51,6 @@ libraryOverrides:
   dependencies:
     - core/drupal
     - core/once
+    - gesso/global
+    # Dropbutton links reuse c-button classes.
+    - core/components.gesso--button
