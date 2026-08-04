@@ -1,0 +1,33 @@
+{% extends "@global/images/_responsive-image.twig" %}
+
+{% if image_src is empty %}
+  {% set image_src = img_medium.src %}
+{% endif %}
+
+{% if image_alt is empty %}
+  {% set image_alt = img_medium.alt %}
+{% endif %}
+
+{% if image_height is empty %}
+  {% set image_height = img_medium.height %}
+{% endif %}
+
+{% if image_width is empty %}
+  {% set image_width = img_medium.width %}
+{% endif %}
+
+{% if image_sizes is empty %}
+  {% set image_sizes -%}
+    min(calc(100vw - {{ responsive_image_gutters }}), {{ img_medium.width }}px)
+  {%- endset %}
+{% endif %}
+
+{% if image_srcset is empty %}
+  {% set image_srcset -%}
+    {{ img_medium.responsive.1.src }} {{ img_medium.responsive.1.width }}w,
+    {{ img_medium.src }} {{ img_medium.width }}w,
+    {{ img_medium.responsive.2.src }} {{ img_medium.responsive.2.width }}w,
+    {{ img_medium.responsive.3.src }} {{ img_medium.responsive.3.width }}w,
+    {{ img_medium.responsive.4.src }} {{ img_medium.responsive.4.width }}w
+  {%- endset %}
+{% endif %}
