@@ -4,6 +4,9 @@ import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './wysiwyg.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import './wysiwyg.source';
+// WYSIWYG may contain .c-table and wraps tables in l-responsive-table.
+import '../table/table.source.scss';
+import '../../layouts/responsive-table/responsive-table.source.scss';
 import componentInfo from './wysiwyg.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 

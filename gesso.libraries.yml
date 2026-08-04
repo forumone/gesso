@@ -8,8 +8,13 @@ global:
       # If you alter the fonts here, be sure to also update: source/editor-styles.scss and .storybook/preview-head.html.
       //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
       dist/css/styles.css: {}
+      # Table CSS/JS also live on gesso:table. Kept on global too so WYSIWYG
+      # (and any other .c-table markup that never renders through the SDC)
+      # still gets styles + sortable behavior.
+      components/components/table/table.css: {}
   js:
     dist/js/html.es6.js: {}
+    components/components/table/table--sortable.js: { preprocess: false }
   dependencies:
     - core/drupal
     - core/once

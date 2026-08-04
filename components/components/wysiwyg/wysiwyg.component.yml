@@ -20,3 +20,7 @@ libraryOverrides:
     - core/drupal
     - core/once
     - gesso/global
+    # WYSIWYG JS wraps tables in l-responsive-table; table CSS covers
+    # .c-table / .is-sortable inside rich text (also on gesso/global).
+    - core/components.gesso--table
+    - core/components.gesso--responsive-table
