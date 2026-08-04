@@ -3,6 +3,13 @@ name: Site Logo
 props:
   type: object
   properties:
+    attributes:
+      type:
+        - object
+        - string
+        - "null"
+      title: Attributes
+      description: 'HTML attributes for the root element.'
     url:
       type: string
       title: URL

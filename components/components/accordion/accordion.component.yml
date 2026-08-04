@@ -4,6 +4,13 @@ name: Accordion
 props:
   type: object
   properties:
+    attributes:
+      type:
+        - object
+        - string
+        - "null"
+      title: Attributes
+      description: 'HTML attributes for the root element.'
     is_step_list:
       title: 'Is step list?'
       type: boolean

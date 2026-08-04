@@ -5,6 +5,13 @@ props:
   required:
     - icon_name
   properties:
+    attributes:
+      type:
+        - object
+        - string
+        - "null"
+      title: Attributes
+      description: 'HTML attributes for the root element.'
     icon_name:
       type: string
       title: Icon Name

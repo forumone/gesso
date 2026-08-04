@@ -6,6 +6,13 @@ props:
   required:
     - page_title
   properties:
+    attributes:
+      type:
+        - object
+        - string
+        - "null"
+      title: Attributes
+      description: 'HTML attributes for the root element.'
     page_title:
       type: string
 libraryOverrides:

@@ -3,6 +3,13 @@ name: Breadcrumb Wrapper
 props:
   type: object
   properties:
+    attributes:
+      type:
+        - object
+        - string
+        - "null"
+      title: Attributes
+      description: 'HTML attributes for the root element.'
     breadcrumb_content:
       type: string
       title: Breadcrumb Content

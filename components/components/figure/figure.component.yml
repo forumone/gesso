@@ -3,6 +3,13 @@ name: Figure
 props:
   type: object
   properties:
+    attributes:
+      type:
+        - object
+        - string
+        - "null"
+      title: Attributes
+      description: 'HTML attributes for the root element.'
     caption:
       type:
         - string
