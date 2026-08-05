@@ -69,11 +69,17 @@ props:
       title: Title Suffix
       description: 'Additional output populated by modules, intended to be displayed after the main title tag.'
     title_attributes:
-      type: Drupal\Core\Template\Attribute
+      type:
+        - object
+        - string
+        - "null"
       title: Title Attributes
       description: 'HTML attributes for the title element.'
     content_attributes:
-      type: Drupal\Core\Template\Attribute
+      type:
+        - object
+        - string
+        - "null"
       title: Content Attributes
       description: 'HTML attributes for the content wrapper element.'
 slots:

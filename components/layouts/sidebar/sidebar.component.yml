@@ -43,6 +43,7 @@ props:
     region_attributes:
       type:
         - object
+        - string
         - "null"
       title: Region Attributes
       description: 'HTML attributes to apply to sidebar regions.'

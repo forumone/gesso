@@ -37,7 +37,8 @@ props:
       description: 'Optional button URL.'
     hero_button_attributes:
       type:
-        - array
+        - object
+        - string
         - "null"
       title: Hero Button Attributes
       description: 'Optional HTML attributes for the button.'
@@ -49,7 +50,8 @@ props:
       description: 'Optional CSS classes for layout modification (e.g., has-content-left, has-content-right).'
     attributes:
       type:
-        - array
+        - object
+        - string
         - "null"
       title: Attributes
       description: 'Optional HTML attributes for the wrapper element.'

@@ -22,6 +22,7 @@ props:
     attributes:
       type:
         - object
+        - string
         - "null"
       title: Attributes
       description: 'Additional HTML attributes for the navigation element.'

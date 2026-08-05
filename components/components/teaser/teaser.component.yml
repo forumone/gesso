@@ -55,7 +55,8 @@ props:
       description: 'Drupal render array to display after the title.'
     title_attributes:
       type:
-        - array
+        - object
+        - string
         - "null"
       title: Title Attributes
       description: 'HTML attributes to apply to the title element.'
@@ -67,7 +68,8 @@ props:
       description: 'RDF metadata render array.'
     attributes:
       type:
-        - array
+        - object
+        - string
         - "null"
       title: Attributes
       description: 'HTML attributes to apply to the component root element.'

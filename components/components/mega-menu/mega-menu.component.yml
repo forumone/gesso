@@ -26,6 +26,7 @@ props:
     attributes:
       type:
         - object
+        - string
         - "null"
       title: Attributes
       description: 'Additional attributes to apply to the menu container.'

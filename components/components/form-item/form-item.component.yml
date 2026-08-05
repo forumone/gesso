@@ -101,6 +101,7 @@ props:
     description_attributes:
       type:
         - object
+        - string
         - "null"
       title: Description Attributes
       description: 'Additional attributes for the description element.'

@@ -30,6 +30,7 @@ props:
     attributes:
       type:
         - object
+        - string
         - "null"
       title: HTML Attributes
       description: 'Additional HTML attributes for the wrapper element.'

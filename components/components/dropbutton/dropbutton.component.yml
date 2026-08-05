@@ -28,16 +28,19 @@ props:
             description: Text content of the link.
           text_attributes:
             type:
+              - object
               - string
               - "null"
             description: HTML attributes for the text element.
           item_attributes:
             type:
+              - object
               - string
               - "null"
             description: HTML attributes for the list item.
           item_link_attributes:
             type:
+              - object
               - string
               - "null"
             description: HTML attributes for the link element.

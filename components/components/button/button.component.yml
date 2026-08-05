@@ -78,6 +78,7 @@ props:
     extra_attributes:
       type:
         - object
+        - string
         - "null"
       title: Extra Attributes
       description: 'Additional HTML attributes for the button element.'

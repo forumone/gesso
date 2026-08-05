@@ -48,6 +48,7 @@ props:
     hero_button_attributes:
       type:
         - object
+        - string
         - "null"
       title: Hero Button Attributes
       description: 'Additional HTML attributes for the button element.'

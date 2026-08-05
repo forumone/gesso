@@ -104,13 +104,15 @@ props:
       description: 'The separator to display between field items.'
     title_attributes:
       type:
-        - array
+        - object
+        - string
         - "null"
       title: Title Attributes
       description: 'Additional HTML attributes to apply to the label tag.'
     field_items_wrapper_attributes:
       type:
-        - array
+        - object
+        - string
         - "null"
       title: Field Items Wrapper Attributes
       description: 'Additional HTML attributes to apply to the items wrapper tag.'
