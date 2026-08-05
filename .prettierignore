@@ -1,2 +1,8 @@
 _GESSO.es6.js
 components/**/*.css
+components/**/*.css.map
+components/**/*.js
+components/**/*.js.map
+!components/**/*.source.js
+!components/**/modules/**/*.js
+dist/**

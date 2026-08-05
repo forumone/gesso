@@ -143,7 +143,7 @@ const commonConfig = {
       },
     }),
     new StylelintPlugin({
-      files: ['source/**/*.scss', 'components/**/*.source.{scss,css}'],
+      files: ['source/**/*.scss', 'components/**/*.scss'],
     }),
     new ForkTsCheckerWebpackPlugin(),
     new SvgSpritemapPlugin('source/images/_sprite-source-files/*.svg', {

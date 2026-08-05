@@ -86,13 +86,10 @@ const config = {
           options: {
             twigOptions: {
               namespaces: {
-                // Match gesso.info.yml components.namespaces where applicable.
                 global: resolve(__dirname, '../', 'source/01-global'),
                 utility: resolve(__dirname, '../', 'source/02-utility'),
                 layouts: resolve(__dirname, '../', 'components/layouts'),
                 components: resolve(__dirname, '../', 'components/components'),
-                templates: resolve(__dirname, '../', 'components/templates'),
-                // SDC provider:name — loader resolves under components/{components,layouts,templates}/
                 gesso: resolve(__dirname, '../', 'components'),
               },
             },
