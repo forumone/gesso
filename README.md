@@ -199,7 +199,7 @@ CSS files scoped to a component.
 `@use` is used to import Sass variables, mixins, and/or functions into
 individual SCSS files. [`@import` is discouraged by the Sass team and will
 eventually be phased out.](https://sass-lang.com/documentation/at-rules/import).
-This means that most files will start with `@use ‘00-config’ as *;`. This allows
+This means that most files will start with `@use '00-config' as *;`. This allows
 you to use the design token accessor functions without an additional namespace.
 Other functions and mixins can be used similarly. Note that to avoid namespace
 collisions, only Gesso-related variables, mixins, and functions should be used
