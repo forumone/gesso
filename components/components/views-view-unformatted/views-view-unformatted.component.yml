@@ -48,19 +48,27 @@ props:
     rows:
       type: array
       title: Rows
-      description: 'Array of row objects containing content.'
+      description: 'Array of row objects with content and optional attributes.'
+      items:
+        type: object
+        properties:
+          content:
+            type: string
+            title: Content
+          attributes:
+            type:
+              - object
+              - string
+              - "null"
+            title: Attributes
+            description: 'HTML attributes for this row wrapper.'
     title_attributes:
       type:
-        - array
+        - object
+        - string
         - "null"
       title: Title Attributes
       description: 'HTML attributes for the title element.'
-    row_attributes:
-      type:
-        - array
-        - "null"
-      title: Row Attributes
-      description: 'HTML attributes for row elements.'
 libraryOverrides:
   dependencies:
     - gesso/global

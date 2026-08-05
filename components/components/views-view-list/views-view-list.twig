@@ -18,15 +18,12 @@
   <{{ title_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>{{ title }}</{{ title_element ?: 'h3' }}>
 {% endif %}
 
-  <{{ list.type }} {{ add_attributes({ 'class': list_classes }, 'list_attributes') }}>
-
-
+  <{{ list.type }} {{ add_attributes({ 'class': list_classes }, 'list.attributes') }}>
     {% for row in rows %}
-      <li {{ add_attributes({ 'class': item_classes }, 'row_attributes') }}>
+      <li {{ add_attributes({ 'class': item_classes }, 'row.attributes') }}>
         {{- row.content -}}
       </li>
     {% endfor %}
-
   </{{ list.type }}>
 
 {% if not hide_wrapper %}

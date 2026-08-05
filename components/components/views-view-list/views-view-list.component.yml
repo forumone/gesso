@@ -24,16 +24,23 @@ props:
     list:
       type: object
       title: List
-      description: 'The list configuration with type property.'
+      description: 'List config from Views (type + attributes).'
       properties:
         type:
           type: string
           title: Type
           description: 'The list element type (ul, ol).'
+        attributes:
+          type:
+            - object
+            - string
+            - "null"
+          title: Attributes
+          description: 'HTML attributes for the list element (List class, start offset, etc.).'
     rows:
       type: array
       title: Rows
-      description: 'Array of row items with content.'
+      description: 'Array of row items with content and optional attributes.'
       items:
         type: object
         properties:
@@ -41,6 +48,13 @@ props:
             type: string
             title: Content
             description: 'The row content.'
+          attributes:
+            type:
+              - object
+              - string
+              - "null"
+            title: Attributes
+            description: 'HTML attributes for this row item (Row class, etc.).'
     title_modifier_classes:
       type:
         - string
@@ -62,27 +76,17 @@ props:
     attributes:
       type:
         - object
+        - string
         - "null"
       title: Attributes
       description: 'HTML attributes for the wrapper element.'
     title_attributes:
       type:
         - object
+        - string
         - "null"
       title: Title Attributes
       description: 'HTML attributes for the title element.'
-    list_attributes:
-      type:
-        - object
-        - "null"
-      title: List Attributes
-      description: 'HTML attributes for the list element.'
-    row_attributes:
-      type:
-        - object
-        - "null"
-      title: Row Attributes
-      description: 'HTML attributes for row items.'
 libraryOverrides:
   dependencies:
     - gesso/global
