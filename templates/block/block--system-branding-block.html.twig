@@ -17,6 +17,7 @@
 {% block block_content %}
   {% if site_logo %}
     {% include 'gesso:site-logo' with {
+      'attributes': null,
       'url': path('<front>'),
       'site_logo': site_logo,
     } %}
@@ -32,6 +33,7 @@
 
   {% if site_slogan %}
     {% include 'gesso:site-slogan' with {
+      'attributes': null,
       'site_slogan': site_slogan,
     } %}
   {% endif %}

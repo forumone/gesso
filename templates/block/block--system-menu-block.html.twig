@@ -8,9 +8,9 @@
 
 {% block block_content %}
   {% embed 'gesso:nav' with {
+    'attributes': null,
     'modifier_classes': 'l-nav--' ~ derivative_plugin_id|clean_class,
     'label': configuration.label,
-    'nav_content': '',
   } %}
 
     {% block content %}
