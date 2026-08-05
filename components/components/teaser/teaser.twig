@@ -5,7 +5,7 @@
 
 {% set title_classes = [
   'c-teaser__title',
-  title_modifier_classes ? modifier_classes : '',
+  title_modifier_classes ? title_modifier_classes : '',
 ]|join(' ')|trim %}
 
 <article {{ add_attributes({ 'class': classes }) }}>
