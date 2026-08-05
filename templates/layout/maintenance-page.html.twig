@@ -18,7 +18,7 @@
     {{ page.header }}
   {% endset %}
 
-  {% if header_content %}
+  {% if header_content|trim is not empty %}
     {% include 'gesso:header' with {
       'has_constrain': true,
       'header_content': header_content,
@@ -64,7 +64,7 @@
       {{ page.content }}
     {% endset %}
 
-    {% if content %}
+    {% if content|trim is not empty %}
       {% include 'gesso:content' with {
         'has_constrain': true,
         'content_content': content,
