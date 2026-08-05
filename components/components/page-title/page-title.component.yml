@@ -1,4 +1,3 @@
----
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Page Title
 props:
@@ -15,6 +14,14 @@ props:
       description: 'HTML attributes for the root element.'
     page_title:
       type: string
+      title: Page Title
+      description: 'The page title text.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the title element.'
 libraryOverrides:
   dependencies:
     - gesso/global
