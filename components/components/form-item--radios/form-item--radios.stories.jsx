@@ -5,7 +5,7 @@ import React from 'react';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
 import twigTemplate from './form-item--radios.twig';
 import data from './form-item--radios.yml';
-import { Radio } from '../form-item--radio/form-item--radio.stories.jsx';
+import { Radio } from '../form-item--input/form-item--radio.stories.jsx';
 import fieldsetTwigTemplate from '../fieldset/fieldset.twig';
 import '../form-item/form-item.source.scss';
 import './form-item--radios.source.scss';

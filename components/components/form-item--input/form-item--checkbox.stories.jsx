@@ -1,8 +1,8 @@
 import parse from 'html-react-parser';
 
-import { withGlobalWrapper } from '../../../.storybook/decorators';
+import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from '../form-item/form-item.twig';
-import inputTemplate from '../form-item--input/form-item--input.twig';
+import inputTemplate from './form-item--input.twig';
 import labelTemplate from '../form-item--label/form-item--label.twig';
 import data from './form-item--checkbox.yml';
 import '../form-item/form-item.source.scss';

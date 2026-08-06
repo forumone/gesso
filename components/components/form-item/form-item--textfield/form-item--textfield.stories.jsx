@@ -13,7 +13,7 @@ import numberDecimalData from './form-item--number-decimal.yml';
 import numberFloatData from './form-item--number-float.yml';
 import numberIntegerData from './form-item--number-integer.yml';
 import passwordData from './form-item--password.yml';
-import rangeData from '../../form-item--range/form-item--range.yml';
+import rangeData from './form-item--range.yml';
 import searchData from './form-item--search.yml';
 import telData from './form-item--tel.yml';
 import textData from './form-item--text.yml';
@@ -21,6 +21,9 @@ import timeData from './form-item--time.yml';
 import urlData from './form-item--url.yml';
 import weekData from './form-item--week.yml';
 import '../form-item.source.scss';
+import '../../form-item--input/form-item--checkbox.source.scss';
+import '../../form-item--input/form-item--radio.source.scss';
+import '../../form-item--input/form-item--range.source.scss';
 
 const settings = {
   title: 'Components/Form Item/Input',

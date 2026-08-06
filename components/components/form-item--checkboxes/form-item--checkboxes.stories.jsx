@@ -5,7 +5,7 @@ import ReactDOMServer from 'react-dom/server';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
 import fieldsetTwigTemplate from '../fieldset/fieldset.twig';
 import twigTemplate from './form-item--checkboxes.twig';
-import { Checkbox } from '../form-item--checkbox/form-item--checkbox.stories.jsx';
+import { Checkbox } from '../form-item--input/form-item--checkbox.stories.jsx';
 import data from './form-item--checkboxes.yml';
 import '../form-item/form-item.source.scss';
 import './form-item--checkboxes.source.scss';

@@ -142,6 +142,11 @@ props:
       title: Modifier Classes
       description: 'Additional CSS classes.'
 libraryOverrides:
+  css:
+    theme:
+      form-item--checkbox.css: {}
+      form-item--radio.css: {}
+      form-item--range.css: {}
   dependencies:
     - gesso/global
     - core/components.gesso--form-item

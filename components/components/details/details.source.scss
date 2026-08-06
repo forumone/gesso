@@ -16,7 +16,7 @@ $details-text-color: gesso-color(text, on-light) !default;
 .c-details__summary {
   @include svg-background(plus);
   background-color: $details-background-color;
-  background-position: inline-end $details-padding center;
+  background-position: right $details-padding center;
   background-repeat: no-repeat;
   background-size: rem(13px);
   cursor: pointer;
@@ -60,6 +60,9 @@ $details-text-color: gesso-color(text, on-light) !default;
   background: $details-content-background-color;
   border: 3px solid $details-background-color;
   border-block-start: 0;
+  // Box-sizing gets reset to the content-box default because the details content
+  // is technically within the shadow DOM and so doesn't inherit it.
+  box-sizing: border-box;
   padding: $details-padding;
 
   > :last-child {
