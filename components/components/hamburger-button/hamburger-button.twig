@@ -3,6 +3,6 @@
   modifier_classes ? modifier_classes : ''
 ]|join(' ')|trim %}
 
-<button type="button" {{ add_attributes({class: classes}) }}>
+<button {{ add_attributes({class: classes, type: 'button'}) }}>
   <span class="c-hamburger-button__icon">{{ 'Menu'|t }}</span>
 </button>
