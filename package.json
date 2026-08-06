@@ -15,6 +15,7 @@
     "watch": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\"",
     "eslint": "eslint source/**/!\\(*.stories\\).js",
     "stylelint": "stylelint \"source/**/*.scss\"",
+    "stylelint-fix": "stylelint -f verbose --fix \"source/**/*.scss\" --ip \"source/**/*.artifact.scss\"",
     "build-storybook": "npm run build && storybook build -o storybook",
     "dev": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\" \"npm:storybook\"",
     "component": "node lib/component.js"
