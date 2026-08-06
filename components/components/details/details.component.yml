@@ -17,7 +17,9 @@ props:
       title: Modifier Classes
       description: Additional CSS classes to apply to the component.
     required:
-      type: boolean
+      type:
+        - boolean
+        - "null"
       title: Required
       description: Whether to mark the details as required.
 slots:
