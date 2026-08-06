@@ -4,14 +4,6 @@
 @use '00-config' as *;
 @use 'form-item-vars' as *;
 
-// Variant styles (underscore partials are ignored by webpack entry globs).
-@use 'form-item--checkbox/form-item--checkbox';
-@use 'form-item--checkboxes/form-item--checkboxes';
-@use 'form-item--radio/form-item--radio';
-@use 'form-item--radios/form-item--radios';
-@use 'form-item--range/form-item--range';
-@use 'form-item--select/form-item--select';
-
 .c-form-item {
   margin-block: 0 rem(gesso-spacing(3));
   margin-inline: 0;

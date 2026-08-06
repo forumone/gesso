@@ -1,0 +1,69 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Form Item Radio
+props:
+  type: object
+  properties:
+    id:
+      type:
+        - string
+        - "null"
+      title: ID
+      description: 'The HTML ID attribute for the radio input.'
+    name:
+      type:
+        - string
+        - "null"
+      title: Name
+      description: 'The HTML name attribute for the radio input.'
+    value:
+      type:
+        - string
+        - "null"
+      title: Value
+      description: 'The value attribute for the radio input.'
+    is_checked:
+      type:
+        - boolean
+        - "null"
+      title: Is Checked
+      description: 'Whether the radio input is checked.'
+    disabled:
+      type:
+        - string
+        - "null"
+      title: Disabled
+      description: 'Whether the radio input is disabled (string value "disabled").'
+    is_disabled:
+      type:
+        - boolean
+        - "null"
+      title: Is Disabled
+      description: 'Whether the radio input is disabled (boolean).'
+    required:
+      type:
+        - string
+        - "null"
+      title: Required
+      description: 'Whether the radio input is required (string value "required").'
+    is_required:
+      type:
+        - boolean
+        - "null"
+      title: Is Required
+      description: 'Whether the radio input is required (boolean).'
+    described_by:
+      type:
+        - string
+        - "null"
+      title: Described By
+      description: 'The aria-describedby attribute value.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--form-item

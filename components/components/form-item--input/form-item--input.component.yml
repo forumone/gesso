@@ -1,0 +1,147 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Form Item Input
+props:
+  type: object
+  properties:
+    type:
+      type:
+        - string
+        - "null"
+      title: Type
+      description: 'The input type attribute (e.g., text, checkbox, radio, range).'
+    id:
+      type:
+        - string
+        - "null"
+      title: ID
+      description: 'The HTML ID attribute for the input element.'
+    name:
+      type:
+        - string
+        - "null"
+      title: Name
+      description: 'The HTML name attribute for the input element.'
+    accept:
+      type:
+        - string
+        - "null"
+      title: Accept
+      description: 'The accept attribute value, for file inputs.'
+    autocomplete:
+      type:
+        - string
+        - "null"
+      title: Autocomplete
+      description: 'The autocomplete attribute value.'
+    is_autofocus:
+      type:
+        - boolean
+        - "null"
+      title: Is Autofocus
+      description: 'Whether the input should autofocus.'
+    is_checked:
+      type:
+        - boolean
+        - "null"
+      title: Is Checked
+      description: 'Whether a checkbox or radio input is checked.'
+    disabled:
+      type:
+        - string
+        - "null"
+      title: Disabled
+      description: 'Whether the input is disabled (string value "disabled").'
+    is_disabled:
+      type:
+        - boolean
+        - "null"
+      title: Is Disabled
+      description: 'Whether the input is disabled (boolean).'
+    form_id:
+      type:
+        - string
+        - "null"
+      title: Form ID
+      description: 'The form attribute value.'
+    max:
+      type:
+        - string
+        - "null"
+      title: Max
+      description: 'The max attribute value.'
+    max_length:
+      type:
+        - string
+        - "null"
+      title: Max Length
+      description: 'The maxlength attribute value.'
+    min:
+      type:
+        - string
+        - "null"
+      title: Min
+      description: 'The min attribute value.'
+    is_multiple:
+      type:
+        - boolean
+        - "null"
+      title: Is Multiple
+      description: 'Whether the input allows multiple values (e.g., file inputs).'
+    pattern:
+      type:
+        - string
+        - "null"
+      title: Pattern
+      description: 'The pattern attribute value.'
+    placeholder:
+      type:
+        - string
+        - "null"
+      title: Placeholder
+      description: 'The placeholder attribute value.'
+    required:
+      type:
+        - string
+        - "null"
+      title: Required
+      description: 'Whether the input is required (string value "required").'
+    is_required:
+      type:
+        - boolean
+        - "null"
+      title: Is Required
+      description: 'Whether the input is required (boolean).'
+    size:
+      type:
+        - string
+        - "null"
+      title: Size
+      description: 'The size attribute value.'
+    step:
+      type:
+        - string
+        - "null"
+      title: Step
+      description: 'The step attribute value.'
+    value:
+      type:
+        - string
+        - "null"
+      title: Value
+      description: 'The value attribute for the input element.'
+    described_by:
+      type:
+        - string
+        - "null"
+      title: Described By
+      description: 'The aria-describedby attribute value.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--form-item

@@ -1,0 +1,6 @@
+{% set classes = [
+  'c-form-item',
+  'c-form-item--checkboxes',
+]|join(' ')|trim %}
+
+<div {{ add_attributes({ 'class': classes }) }}>{{ children }}</div>

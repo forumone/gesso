@@ -2,7 +2,7 @@ import parse from 'html-react-parser';
 
 import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import filtersTemplate from './filters.twig';
-import filterTemplate from './filter.twig';
+import filterTemplate from '../filter/filter.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './filters.yml';
 import './filters.source.scss';

@@ -1,0 +1,97 @@
+{% set classes = [
+  'c-form-item__select',
+  'c-form-item--select',
+  modifier_classes ? modifier_classes : '',
+  is_required or required ? 'is-required' : '',
+]|join(' ')|trim %}
+
+{% set attributes_to_add = {
+  'class': classes,
+} %}
+
+{# ID #}
+{% if id is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'id': id ~ '',
+  }) %}
+{% endif %}
+
+{# Name #}
+{% if name is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'name': name ~ '',
+  }) %}
+{% endif %}
+
+{# Autocomplete #}
+{% if autocomplete is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'autocomplete': autocomplete ~ '',
+  }) %}
+{% endif %}
+
+{# Autofocus #}
+{% if is_autofocus %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'autofocus': 'autofocus',
+  }) %}
+{% endif %}
+
+{# Disabled #}
+{% if is_disabled or disabled %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'disabled': 'disabled',
+  }) %}
+{% endif %}
+
+{# Form #}
+{% if form_id is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'form': form_id ~ '',
+  }) %}
+{% endif %}
+
+{# Multiple #}
+{% if is_multiple %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'multiple': 'multiple',
+  }) %}
+{% endif %}
+
+{# Required #}
+{% if is_required or required %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'required': 'required',
+    'aria-required': 'true',
+  }) %}
+{% endif %}
+
+{# Select Size #}
+{% if size is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'size': size ~ '',
+  }) %}
+{% endif %}
+
+{# Described by #}
+{% if described_by is not empty %}
+  {% set attributes_to_add = attributes_to_add|merge({
+    'aria-describedby': described_by ~ '',
+  }) %}
+{% endif %}
+
+{% apply spaceless %}
+  <select {{ add_attributes(attributes_to_add) }}>
+    {% for option in options %}
+      {% if option.type == 'optgroup' %}
+        <optgroup label="{{ option.label }}">
+          {% for sub_option in option.options %}
+            <option value="{{ sub_option.value }}"{{ sub_option.selected ? ' selected="selected"' }}{{ sub_option.disabled ? ' disabled="disabled"' }}>{{ sub_option.label }}</option>
+          {% endfor %}
+        </optgroup>
+      {% elseif option.type == 'option' %}
+        <option value="{{ option.value }}"{{ option.selected ? ' selected="selected"' }}{{ option.disabled ? ' disabled="disabled"' }}>{{ option.label }}</option>
+      {% endif %}
+    {% endfor %}
+  </select>
+{% endapply %}
