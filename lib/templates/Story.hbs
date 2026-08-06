@@ -9,7 +9,7 @@ import './{{ componentName }}.source.scss';{{#componentJs}}
 import './{{ componentName }}.source.js';{{/componentJs}}
 
 const settings = {
-  title: '{{ storySection }}/{{ componentTitle }}',
+  title: '{{#titleCase}}{{componentLocation}}{{/titleCase}}/{{ componentTitle }}',
   decorators: [withGlobalWrapper],
   argTypes: {
     ...getArgTypesFromComponent(componentInfo),
