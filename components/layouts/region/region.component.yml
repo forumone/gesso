@@ -3,13 +3,6 @@ name: Region
 props:
   type: object
   properties:
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the region element.'
     region_name:
       type:
         - string

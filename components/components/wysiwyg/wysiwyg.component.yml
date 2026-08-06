@@ -3,13 +3,6 @@ name: WYSIWYG
 props:
   type: object
   properties:
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the root element.'
     content:
       type:
         - string

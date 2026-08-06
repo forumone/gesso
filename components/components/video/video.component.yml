@@ -27,13 +27,6 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes for custom styling.'
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: HTML Attributes
-      description: 'Additional HTML attributes for the wrapper element.'
 libraryOverrides:
   dependencies:
     - gesso/global

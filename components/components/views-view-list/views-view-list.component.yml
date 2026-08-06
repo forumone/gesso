@@ -30,13 +30,6 @@ props:
           type: string
           title: Type
           description: 'The list element type (ul, ol).'
-        attributes:
-          type:
-            - object
-            - string
-            - "null"
-          title: Attributes
-          description: 'HTML attributes for the list element (List class, start offset, etc.).'
     title_modifier_classes:
       type:
         - string
@@ -55,20 +48,6 @@ props:
         - "null"
       title: Item Modifier Classes
       description: 'Additional CSS classes for list items.'
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the wrapper element.'
-    title_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Title Attributes
-      description: 'HTML attributes for the title element.'
     # `rows` is intentionally not declared as a prop. Each row's `content` is a
     # Drupal render array that often contains circular references; declaring it
     # causes ComponentValidator json_encode recursion fatals. Still passed from

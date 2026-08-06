@@ -9,13 +9,6 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes for the component.'
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes object for the component.'
     url:
       type: string
       title: URL

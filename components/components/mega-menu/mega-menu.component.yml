@@ -23,13 +23,6 @@ props:
         - "null"
       title: Image Path
       description: 'The path to the images directory for SVG icons.'
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'Additional attributes to apply to the menu container.'
 slots:
   featured:
     title: Featured Content

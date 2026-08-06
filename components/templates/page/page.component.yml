@@ -11,13 +11,6 @@ props:
       type: boolean
       title: Show Admin Info
       description: 'Whether to display admin information.'
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the page container.'
     title:
       type:
         - string

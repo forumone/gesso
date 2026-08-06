@@ -14,13 +14,6 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes for the breadcrumb nav.'
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the breadcrumb nav element.'
     breadcrumb:
       type: array
       title: Breadcrumb

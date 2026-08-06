@@ -53,26 +53,12 @@ props:
         - "null"
       title: Title Suffix
       description: 'Drupal render array to display after the title.'
-    title_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Title Attributes
-      description: 'HTML attributes to apply to the title element.'
     rdf_metadata:
       type:
         - array
         - "null"
       title: RDF Metadata
       description: 'RDF metadata render array.'
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes to apply to the component root element.'
 libraryOverrides:
   dependencies:
     - gesso/global

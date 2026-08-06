@@ -3,13 +3,6 @@ name: Views View
 props:
   type: object
   properties:
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the view wrapper (includes view / js-view-dom-id-* for AJAX).'
     element:
       type:
         - string

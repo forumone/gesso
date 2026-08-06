@@ -75,13 +75,6 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes for styling variants.'
-    extra_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Extra Attributes
-      description: 'Additional HTML attributes for the button element.'
     button_icon_before:
       type:
         - string

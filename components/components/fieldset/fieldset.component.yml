@@ -3,13 +3,6 @@ name: Fieldset
 props:
   type: object
   properties:
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the root element.'
     legend:
       type: object
       title: Legend
@@ -72,27 +65,6 @@ props:
       type: string
       title: ID
       description: 'Unique identifier for the fieldset.'
-    legend_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Legend Attributes
-      description: 'HTML attributes for the legend element.'
-    legend_span_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Legend Span Attributes
-      description: 'HTML attributes for the span inside the legend.'
-    description_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Description Attributes
-      description: 'HTML attributes for the description element.'
 slots:
   children:
     title: Children

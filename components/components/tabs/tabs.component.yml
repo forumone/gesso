@@ -23,13 +23,6 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes to apply to the component.'
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'Additional HTML attributes for the component.'
 libraryOverrides:
   dependencies:
     - gesso/global

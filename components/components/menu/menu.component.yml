@@ -3,13 +3,6 @@ name: Menu
 props:
   type: object
   properties:
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the root menu element.'
     items:
       type: array
       title: Menu Items

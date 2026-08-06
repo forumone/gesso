@@ -3,13 +3,6 @@ name: Sidebar
 props:
   type: object
   properties:
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the root element.'
     sidebar_header_content:
       type:
         - string
@@ -40,13 +33,6 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes for custom styling.'
-    region_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Region Attributes
-      description: 'HTML attributes to apply to sidebar regions.'
 libraryOverrides:
   dependencies:
     - gesso/global

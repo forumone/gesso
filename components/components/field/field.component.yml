@@ -3,13 +3,6 @@ name: Field
 props:
   type: object
   properties:
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the root element.'
     label:
       type: string
       title: Label
@@ -102,20 +95,6 @@ props:
         - "null"
       title: Separator
       description: 'The separator to display between field items.'
-    title_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Title Attributes
-      description: 'Additional HTML attributes to apply to the label tag.'
-    field_items_wrapper_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Field Items Wrapper Attributes
-      description: 'Additional HTML attributes to apply to the items wrapper tag.'
 libraryOverrides:
   dependencies:
     - gesso/global

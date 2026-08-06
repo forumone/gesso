@@ -3,13 +3,6 @@ name: Form Item
 props:
   type: object
   properties:
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the root element.'
     type:
       type: string
       title: Type
@@ -98,13 +91,6 @@ props:
         - "null"
       title: Label
       description: 'The label markup for the form element.'
-    description_attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Description Attributes
-      description: 'Additional attributes for the description element.'
 slots:
   children:
     title: Children

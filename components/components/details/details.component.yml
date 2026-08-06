@@ -4,13 +4,6 @@ description: A details/summary disclosure widget for collapsible content.
 props:
   type: object
   properties:
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'HTML attributes for the root element.'
     details_summary:
       type: string
       title: Summary

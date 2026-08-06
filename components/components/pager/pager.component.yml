@@ -27,13 +27,6 @@ props:
         - "null"
       title: Modifier Classes
       description: 'Additional CSS classes for styling variations.'
-    attributes:
-      type:
-        - object
-        - string
-        - "null"
-      title: Attributes
-      description: 'Additional HTML attributes for the navigation element.'
     image_path:
       type:
         - string
