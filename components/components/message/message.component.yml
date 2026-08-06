@@ -10,9 +10,10 @@ props:
         - string
         - "null"
       title: Message Type
-      description: Type of message to display (status, warning, or error).
+      description: Type of message to display (info, status, warning, or error).
       default: 'status'
       enum:
+        - info
         - status
         - warning
         - error
@@ -27,7 +28,9 @@ props:
       title: Messages
       description: Array of message strings to display.
       items:
-        type: string
+        type:
+          - string
+          - array
     modifier_classes:
       type:
         - string

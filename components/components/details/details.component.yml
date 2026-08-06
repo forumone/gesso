@@ -9,11 +9,15 @@ props:
       title: Summary
       description: The summary text that is always visible.
     details_description:
-      type: string
+      type:
+        - string
+        - "null"
       title: Description
       description: Optional description text displayed above the content.
     modifier_classes:
-      type: string
+      type:
+        - string
+        - "null"
       title: Modifier Classes
       description: Additional CSS classes to apply to the component.
     required:
