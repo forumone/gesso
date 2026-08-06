@@ -3,7 +3,6 @@ import parse from 'html-react-parser';
 import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './image-teaser.twig';
 import data from './image-teaser.yml';
-import './image-teaser.source.scss';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
 import '../../layouts/media/media.stories.jsx';

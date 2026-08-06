@@ -5,7 +5,6 @@ import parse from 'html-react-parser';
 import twigTemplate from './header.twig';
 import data from './header.yml';
 import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
-import './header.source.scss';
 
 const settings = {
   title: 'Layouts/Header',

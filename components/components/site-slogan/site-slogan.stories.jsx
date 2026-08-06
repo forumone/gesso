@@ -5,7 +5,6 @@ import twigTemplate from './site-slogan.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import componentInfo from './site-slogan.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
-import './site-slogan.source.scss';
 
 const settings = {
   title: 'Components/Site Slogan',

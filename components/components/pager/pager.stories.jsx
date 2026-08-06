@@ -7,7 +7,6 @@ import data from './pager.yml';
 import miniData from '../pager-mini/pager-mini.yml';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import './pager.source.scss';
-import '../pager-mini/pager-mini.source.scss';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
 import '../icon/icon.stories.jsx';

@@ -19,13 +19,7 @@ import { Copyright } from '../../components/components/copyright/copyright.stori
 import { BackToTop } from '../../components/components/back-to-top/back-to-top.stories.jsx';
 // Twig includes above don't attach SDC libraries — pull CSS directly.
 import '../../components/components/skiplinks/skiplinks.source.scss';
-import '../../components/layouts/header/header.source.scss';
-import '../../components/layouts/nav/nav.source.scss';
-import '../../components/layouts/region/region.source.scss';
-import '../../components/layouts/breadcrumb-wrapper/breadcrumb-wrapper.source.scss';
-import '../../components/layouts/content/content.source.scss';
 import '../../components/layouts/footer/footer.source.scss';
-import '../../components/layouts/site-container/site-container.source.scss';
 
 const PageWrapper = props => {
   // eslint-disable-next-line react/prop-types

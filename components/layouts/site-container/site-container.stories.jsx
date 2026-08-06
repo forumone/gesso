@@ -5,7 +5,6 @@ import parse from 'html-react-parser';
 import twigTemplate from './site-container.twig';
 import data from './site-container.yml';
 import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
-import './site-container.source.scss';
 
 const settings = {
   title: 'Layouts/Site Container',

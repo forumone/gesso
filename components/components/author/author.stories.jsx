@@ -5,7 +5,6 @@ import twigTemplate from './author.twig';
 import data from './author.yml';
 import componentInfo from './author.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
-import './author.source.scss';
 
 const settings = {
   title: 'Components/Author',
