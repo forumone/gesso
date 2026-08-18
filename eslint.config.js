@@ -8,7 +8,7 @@ const config = defineConfig([
   f1BaseConfig,
   f1StorybookConfig,
   {
-    files: ['*.tsx', '*.jsx'],
+    files: ['**/*.tsx', '**/*.jsx'],
     extends: [f1ReactConfig],
   },
   {
