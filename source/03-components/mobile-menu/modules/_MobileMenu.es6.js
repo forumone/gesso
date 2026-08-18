@@ -178,7 +178,7 @@ class MobileMenu extends OverlayMenu {
       menuClone.classList.remove(`${this.options.classPrefix}`);
       menuClone.classList.add(menuClass);
     }
-    const subNavTypeClass = this.options.toggleSubNav
+    const subNavTypeClass = this.options.toggleSubnav
       ? 'c-mobile-menu__menu--toggle-subnav'
       : 'c-mobile-menu__menu--show-subnav';
     menuClone.classList.add(subNavTypeClass);
