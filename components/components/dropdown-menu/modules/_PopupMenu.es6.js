@@ -47,7 +47,7 @@ class PopupMenu extends Menu {
   destroy() {
     super.destroy();
     this.domNode.removeEventListener('mouseover', this.handleMouseover);
-    this.domNode.removeEventListener('mouseout', this.handleMouseover);
+    this.domNode.removeEventListener('mouseout', this.handleMouseout);
   }
 
   /**
