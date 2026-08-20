@@ -5,6 +5,13 @@ import f1ReactConfig from '@forumone/eslint-config-react';
 
 const config = defineConfig([
   globalIgnores(['**/_GESSO.es6.js']),
+  {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
   f1BaseConfig,
   f1StorybookConfig,
   {
