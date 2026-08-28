@@ -8,11 +8,16 @@ props:
       title: Pager Items
       description: 'Object containing pager navigation items including pages, first, previous, next, and last links.'
     current:
-      type: string
+      type:
+        - string
+        - integer
+        - "null"
       title: Current Page
       description: 'The current page number.'
     ellipses:
-      type: object
+      type:
+        - object
+        - "null"
       title: Ellipses
       description: 'Object indicating where ellipsis should appear (previous and next properties).'
     heading:

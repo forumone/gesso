@@ -1,5 +1,3 @@
-{% import '@global/gesso.macro.twig' as macros %}
-
 {% set classes = [
   'c-card',
   modifier_classes ? modifier_classes : '',
@@ -32,13 +30,16 @@
         {% if tags %}
           <div class="c-card__tags">
             {% include "gesso:tag-list" with {
-              items: tags
+              'items': tags
             } %}
           </div>
         {% endif %}
         {% if read_more and url %}
           <div class="c-card__readmore">
-            {{ macros.read_more(url, title) }}
+            {% include 'gesso:read-more-link' with {
+              'url': url,
+              'title': title,
+            } %}
           </div>
         {% endif %}
       </div>
