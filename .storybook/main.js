@@ -87,9 +87,7 @@ const config = {
             twigOptions: {
               namespaces: {
                 global: resolve(__dirname, '../', 'source/01-global'),
-                utility: resolve(__dirname, '../', 'source/02-utility'),
-                layouts: resolve(__dirname, '../', 'components/layouts'),
-                components: resolve(__dirname, '../', 'components/components'),
+                // SDC provider:name — resolves under components/{components,layouts,templates}/
                 gesso: resolve(__dirname, '../', 'components'),
               },
             },
