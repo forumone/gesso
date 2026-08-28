@@ -98,6 +98,7 @@
   block-size: rem(44px);
   border: 1px solid $form-border-color;
   border-radius: 0;
+  color: $form-text-color;
   display: inline-block;
   font-size: rem($form-text-size);
   line-height: math.div(22px, $form-text-size);

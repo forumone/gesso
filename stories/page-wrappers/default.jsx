@@ -28,7 +28,6 @@ import '../../components/layouts/footer/footer.source.scss';
 import '../../components/layouts/site-container/site-container.source.scss';
 
 const PageWrapper = props => {
-  // eslint-disable-next-line react/prop-types
   const { children, isHomepage } = props;
   if (isHomepage) {
     document.body.classList.add('front');
