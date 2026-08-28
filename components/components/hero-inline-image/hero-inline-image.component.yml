@@ -4,11 +4,15 @@ props:
   type: object
   properties:
     hero_image:
-      type: string
+      type:
+        - string
+        - "null"
       title: Hero Image
       description: 'The main hero image or picture element.'
     has_overlay:
-      type: boolean
+      type:
+        - boolean
+        - "null"
       title: Has Overlay
       description: 'Whether to display an overlay on the image.'
     hero_title:
