@@ -19,7 +19,6 @@ import { Copyright } from '../../03-components/copyright/copyright.stories.jsx';
 import { BackToTop } from '../../03-components/back-to-top/back-to-top.stories.jsx';
 
 const PageWrapper = props => {
-  // eslint-disable-next-line react/prop-types
   const { children, isHomepage } = props;
   if (isHomepage) {
     document.body.classList.add('front');

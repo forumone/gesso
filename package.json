@@ -13,7 +13,7 @@
     "watch-design-tokens": "webpack watch --config ./webpack.theme-config.js --mode=development",
     "watch-react": "webpack watch --config ./webpack.react-config.js",
     "watch": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\"",
-    "eslint": "eslint source/**/!\\(*.stories\\).js",
+    "eslint": "eslint \"source/**/!(*.stories).{js,jsx,ts,tsx}\"",
     "stylelint": "stylelint \"source/**/*.scss\"",
     "build-storybook": "npm run build && storybook build -o storybook",
     "dev": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\" \"npm:storybook\"",
@@ -28,7 +28,7 @@
   ],
   "devDependencies": {
     "@forumone/eslint-config-es5": "^4.0.0",
-    "@forumone/eslint-config-react": "^3.0.8",
+    "@forumone/eslint-config-react": "^3.0.9",
     "@forumone/tiny-mustache": "^3.0.5",
     "@forumone/twig-drupal-filters": "^4.0.0",
     "@forumone/twig-loader": "^2.0.0",
