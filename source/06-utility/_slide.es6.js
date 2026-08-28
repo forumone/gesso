@@ -36,11 +36,10 @@ export const slideCollapse = (
     target.style.transitionTimingFunction = easing;
     target.style.boxSizing = 'border-box';
     target.style.overflow = 'hidden';
-    target.style.paddingTop = '0';
-    target.style.paddingBottom = '0';
-    target.style.marginTop = '0';
-    target.style.marginBottom = '0';
-    target.style.marginHeight = 'auto';
+    target.style.paddingBlockStart = '0';
+    target.style.paddingBlockEnd = '0';
+    target.style.marginBlockStart = '0';
+    target.style.marginBlockEnd = '0';
 
     window.requestAnimationFrame(() => {
       function hideTarget() {
@@ -53,10 +52,10 @@ export const slideCollapse = (
 
         target.style.removeProperty('box-sizing');
         target.style.removeProperty('height');
-        target.style.removeProperty('margin-block-end');
         target.style.removeProperty('margin-block-start');
-        target.style.removeProperty('padding-block-end');
+        target.style.removeProperty('margin-block-end');
         target.style.removeProperty('padding-block-start');
+        target.style.removeProperty('padding-block-end');
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
         target.style.removeProperty('transition-timing-function');
@@ -115,10 +114,10 @@ export const slideExpand = (
     height = target.offsetHeight;
     target.style.overflow = 'hidden';
     target.style.height = '0';
-    target.style.paddingTop = '0';
-    target.style.paddingBottom = '0';
-    target.style.marginTop = '0';
-    target.style.marginBottom = '0';
+    target.style.paddingBlockStart = '0';
+    target.style.paddingBlockEnd = '0';
+    target.style.marginBlockStart = '0';
+    target.style.marginBlockEnd = '0';
     target.style.boxSizing = 'border-box';
     target.style.transitionProperty = 'height, margin, padding';
     target.style.transitionDuration = slideDuration;
@@ -128,11 +127,11 @@ export const slideExpand = (
       function showTarget() {
         target.style.removeProperty('box-sizing');
         target.style.removeProperty('height');
-        target.style.removeProperty('margin-block-end');
         target.style.removeProperty('margin-block-start');
+        target.style.removeProperty('margin-block-end');
         target.style.removeProperty('overflow');
-        target.style.removeProperty('padding-block-end');
         target.style.removeProperty('padding-block-start');
+        target.style.removeProperty('padding-block-end');
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
         target.style.removeProperty('transition-timing-function');

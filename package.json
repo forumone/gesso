@@ -17,7 +17,10 @@
     "stylelint": "stylelint \"source/**/*.scss\"",
     "build-storybook": "npm run build && storybook build -o storybook",
     "dev": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\" \"npm:storybook\"",
-    "component": "node lib/component.js"
+    "component": "node lib/component.js",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "pretest:e2e": "playwright install --with-deps chromium"
   },
   "author": "Forum One",
   "license": "GPL-2.0+",
@@ -33,6 +36,7 @@
     "@forumone/twig-drupal-filters": "^4.0.0",
     "@forumone/twig-loader": "^2.0.0",
     "@inquirer/prompts": "^8.5.2",
+    "@playwright/test": "^1.62.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
     "@storybook/addon-a11y": "^10.5.7",
     "@storybook/addon-docs": "^10.5.7",
@@ -41,6 +45,7 @@
     "@storybook/react-webpack5": "^10.5.7",
     "@swc/cli": "^0.8.1",
     "@swc/core": "^1.15.47",
+    "@testing-library/jest-dom": "^7.0.1",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
@@ -59,6 +64,7 @@
     "glob": "^13.0.6",
     "globals": "^16.5.0",
     "js-yaml-loader": "^1.2.2",
+    "jsdom": "^30.0.1",
     "nani": "^3.2.3",
     "path-browserify": "^1.0.1",
     "postcss": "^8.5.26",
@@ -79,6 +85,7 @@
     "ts-loader": "^9.6.2",
     "twig": "^3.0.0",
     "typescript": "^6.0.3",
+    "vitest": "^4.1.10",
     "webpack": "^5.109.2",
     "webpack-cli": "^7.2.2",
     "webpack-merge": "^6.0.1"

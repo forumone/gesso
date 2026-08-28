@@ -334,6 +334,47 @@ To add jQuery to Drupal:
 You can then import jQuery at the top of a file, the same way `Drupal` and `once`
 are typically imported, and use it as needed.
 
+## Testing
+
+### Unit tests
+
+Unit tests use [Vitest](https://vitest.dev/) and live alongside the code they
+test as `*.test.js`/`*.test.ts` files. Run them with:
+
+```bash
+ddev gesso npm run test:unit
+```
+
+#### Change test environment
+The global environment for Vitest is `node`, which is faster for tests that do
+not require a browser. To use the `jsdom` environment for a test instead,
+add a comment at the top of the file: `// @vitest-environment jsdom`
+
+### End-to-end tests
+
+[Playwright](https://playwright.dev/) is installed for end-to-end tests. You will need to have your
+local site up and running before you can run Playwright tests. Name your test `[name].spec.ts`
+and place it in the `e2e` directory. You can remove the existing e2e test once
+you've written some of your own-- it is are provided primarily as an example of
+a test spec.
+
+By default, tests run against `https://YOUR-PROJECT.ddev.site` if you run
+`ddev frontend test:e2e` If you want to run against a different URL, set the
+`PLAYWRIGHT_BASE_URL` environment variable.
+
+When you run the `test:e2e` script, it will first run `playwright install` to
+install all needed dependencies on your environment. By default, this is only
+the `chromium` browser. If you change your Playwright config to run tests in
+additional browsers, you will need to change
+`playwright install --with-deps chromium`. The simplest, if you are using
+multiple browsers, is likely to change it to `playwright install --with-deps`,
+which installs all dependencies.
+
+#### Run all tests
+```bash
+ddev frontend npm run test:e2e
+```
+
 ## Design tokens
 
 Gesso uses the configuration file `source/00-config/config.design-tokens.yml` to
