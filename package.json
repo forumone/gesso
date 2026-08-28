@@ -20,7 +20,7 @@
     "component": "node lib/component.js",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
-    "pretest:e2e": "playwright install --with-deps"
+    "pretest:e2e": "playwright install --with-deps chromium"
   },
   "author": "Forum One",
   "license": "GPL-2.0+",
@@ -36,6 +36,7 @@
     "@forumone/twig-drupal-filters": "^4.0.0",
     "@forumone/twig-loader": "^2.0.0",
     "@inquirer/prompts": "^8.5.2",
+    "@playwright/test": "^1.62.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
     "@storybook/addon-a11y": "^10.5.0",
     "@storybook/addon-docs": "^10.5.0",
