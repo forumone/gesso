@@ -22,7 +22,6 @@ import '../../components/components/skiplinks/skiplinks.source.scss';
 import '../../components/layouts/footer/footer.source.scss';
 
 const PageWrapper = props => {
-  // eslint-disable-next-line react/prop-types
   const { children, isHomepage } = props;
   if (isHomepage) {
     document.body.classList.add('front');
