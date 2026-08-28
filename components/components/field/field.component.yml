@@ -7,10 +7,6 @@ props:
       type: string
       title: Label
       description: 'The field label text.'
-    field_items:
-      type: array
-      title: Field Items
-      description: 'An array of field items, each with a content property.'
     modifier_classes:
       type:
         - string
@@ -95,6 +91,11 @@ props:
         - "null"
       title: Separator
       description: 'The separator to display between field items.'
+    # `field_items` is intentionally not declared as a prop. Each item's
+    # `content` is a Drupal render array that often contains circular
+    # references; declaring it causes ComponentValidator json_encode
+    # recursion fatals. Still passed from Twig / Storybook as a free variable:
+    # [{ content, attributes? }, ...].
 libraryOverrides:
   dependencies:
     - gesso/global
