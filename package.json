@@ -13,7 +13,7 @@
     "watch-design-tokens": "webpack watch --config ./webpack.theme-config.js --mode=development",
     "watch-react": "webpack watch --config ./webpack.react-config.js",
     "watch": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\"",
-    "eslint": "eslint \"source/**/!(*.stories).{js,jsx,ts,tsx}\" \"components/**/!(*.stories).{js,jsx,ts,tsx}\" \"lib/**/*.{js,cjs}\" \".storybook/**/*.{js,jsx}\" \"stories/**/*.{js,jsx}\"",
+    "eslint": "eslint \"source/**/!(*.stories).{js,jsx,ts,tsx}\" \"components/**/!(*.stories).{js,jsx,ts,tsx}\"",
     "stylelint": "stylelint \"source/**/*.scss\" \"components/**/*.scss\"",
     "build-storybook": "npm run build && storybook build -o storybook",
     "dev": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\" \"npm:storybook\"",
