@@ -1,0 +1,19 @@
+{% set classes = [
+  'c-file',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<span {{ add_attributes({ 'class': classes }) }}>
+  {%- include 'gesso:icon-link' with {
+    'modifier_classes': 'c-file__link',
+    'icon_modifier_classes': 'c-file__icon',
+    'url': url,
+    'link_text': file_name,
+    'icon_name': icon_name,
+    'icon_direction': '',
+    'icon_position': 'before',
+  } %}
+  {% if file_size %}
+    <span class="c-file__size">({{ file_size }})</span>
+  {% endif -%}
+</span>

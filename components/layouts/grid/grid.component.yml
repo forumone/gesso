@@ -1,0 +1,30 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Grid
+props:
+  type: object
+  properties:
+    num_of_cols:
+      type:
+        - number
+        - "null"
+      title: Number of Columns
+      description: 'The number of columns for the grid layout.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the grid.'
+    grid_content:
+      type:
+        - string
+        - "null"
+      title: Grid Content
+      description: 'The content to render inside the grid.'
+slots:
+  content:
+    title: Content
+    description: 'The main content slot for the grid.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

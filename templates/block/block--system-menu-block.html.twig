@@ -7,8 +7,8 @@
 {% extends "block--admin.html.twig" %}
 
 {% block block_content %}
-  {% embed '@layouts/nav/nav.twig' with {
-    'attributes' : '',
+  {% embed 'gesso:nav' with {
+    'attributes': null,
     'modifier_classes': 'l-nav--' ~ derivative_plugin_id|clean_class,
     'label': configuration.label,
   } %}

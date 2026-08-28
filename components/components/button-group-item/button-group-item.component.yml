@@ -1,0 +1,43 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Button Group Item
+props:
+  type: object
+  properties:
+    is_active:
+      type:
+        - boolean
+        - "null"
+      title: Is Active
+      description: 'Whether this item is the active button/tab.'
+    button_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Button Modifier Classes
+      description: 'Additional CSS classes for the button link.'
+    url:
+      type:
+        - string
+        - "null"
+      title: URL
+      description: 'Link URL when not passing a pre-rendered link.'
+    text:
+      type:
+        - string
+        - "null"
+      title: Text
+      description: 'Link text when not passing a pre-rendered link.'
+    active_label:
+      type:
+        - string
+        - "null"
+      title: Active Label
+      description: 'Visually hidden label appended when the item is active.'
+slots:
+  link:
+    title: Link
+    description: 'Pre-rendered link element (e.g. from menu local tasks).'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--button

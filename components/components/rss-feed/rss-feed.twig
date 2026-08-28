@@ -1,0 +1,15 @@
+{% set classes = [
+  'c-rss-feed',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% include 'gesso:icon-link' with {
+  'attributes': attributes,
+  'modifier_classes': classes,
+  'icon_modifier_classes': 'c-rss-feed__icon',
+  'url': url,
+  'link_text': link_text,
+  'icon_name': 'rss',
+  'icon_direction': '',
+  'icon_position': 'before',
+} %}

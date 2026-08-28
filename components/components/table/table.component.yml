@@ -1,0 +1,55 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Table
+props:
+  type: object
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the table element.'
+    caption:
+      type:
+        - string
+        - "null"
+      title: Caption
+      description: 'Optional caption text for the table.'
+    is_scrollable:
+      type:
+        - boolean
+        - "null"
+      title: Is Scrollable
+      description: 'If true, the table body will be scrollable with a fixed header.'
+    is_sortable:
+      type:
+        - boolean
+        - "null"
+      title: Is Sortable
+      description: 'If true, the table headers marked with data-sortable will be sortable by clicking.'
+    header:
+      type:
+        - array
+        - "null"
+      title: Header
+      description: 'Array of header cell objects. Each cell should have attributes and content properties.'
+    footer:
+      type:
+        - array
+        - "null"
+      title: Footer
+      description: 'Array of footer cell objects. Each cell should have attributes and content properties.'
+    rows:
+      type:
+        - array
+        - "null"
+      title: Rows
+      description: 'Array of table row objects. Each row should have attributes and cells array properties.'
+libraryOverrides:
+  js:
+    table--sortable.js: { preprocess: false }
+  dependencies:
+    - gesso/global
+    - core/drupal
+    - core/once
+    - gesso/common

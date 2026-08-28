@@ -1,0 +1,60 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: Card
+status: experimental
+props:
+  type: object
+  required:
+    - 'title'
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: Additional CSS classes to add to the card.
+    date:
+      type:
+        - string
+        - "null"
+      title: Date
+      description: Date to display on the card.
+    title:
+      type: string
+      title: Title
+      description: Title of the card.
+    url:
+      type:
+        - string
+        - "null"
+      title: URL
+      description: URL to link the card to.
+    tags:
+      type:
+        - array
+        - "null"
+      title: Tags
+      description: Array of tags to display on the card.
+      items:
+        type: object
+        properties:
+          url:
+            type: string
+          title:
+            type: string
+    read_more:
+      type: boolean
+      title: Read More
+      description: Whether to show a read more link.
+slots:
+  card_content:
+    title: Card Content
+    description: Main content of the card body.
+  footer:
+    title: Footer
+    description: Footer content of the card.
+  media:
+    title: Media
+    description: Media content to display on the card.
+libraryOverrides:
+  dependencies:
+    - gesso/global

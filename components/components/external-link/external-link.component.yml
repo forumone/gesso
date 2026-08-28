@@ -1,0 +1,30 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: External Link
+props:
+  type: object
+  properties:
+    url:
+      type: string
+      title: URL
+      description: 'The href attribute value for the link.'
+    text:
+      type: string
+      title: Text
+      description: 'The link text content.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the link element.'
+    is_demo:
+      type:
+        - boolean
+        - "null"
+      title: Demo Mode
+      description: 'Enable demo mode to display example links.'
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/global

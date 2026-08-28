@@ -9,7 +9,7 @@
  * @see template_preprocess_maintenance_page()
  */
 #}
-{% extends '@layouts/site-container/site-container.twig' %}
+{% extends 'gesso:site-container' %}
 
 {% block site_content %}
   {# page.header is missing system-branding-block. #}
@@ -18,34 +18,44 @@
     {{ page.header }}
   {% endset %}
 
-  {# We have to manually wrap region content. #}
-  {% include '@gesso/layout/region--header.html.twig' with {
-    'content': header_content,
-  } %}
+  {% if header_content|trim is not empty %}
+    {% include 'gesso:header' with {
+      'has_constrain': true,
+      'header_content': header_content,
+    } %}
+  {% endif %}
 
-  {# We have to manually wrap region content. #}
-  {% include '@gesso/layout/region.html.twig' with {
-    'region': 'navigation',
-    'content': page.navigation,
-  } %}
+  {% if page.navigation %}
+    {% include 'gesso:region' with {
+      'region_name': 'navigation',
+      'has_constrain': true,
+      'region_content': page.navigation,
+    } %}
+  {% endif %}
 
-  {# We have to manually wrap region content. #}
-  {% include '@gesso/layout/region--breadcrumb.html.twig' with {
-    'content': page.breadcrumb,
-  } %}
+  {% if page.breadcrumb %}
+    {% include 'gesso:breadcrumb-wrapper' with {
+      'has_constrain': false,
+      'breadcrumb_content': page.breadcrumb,
+    } %}
+  {% endif %}
 
-  {# We have to manually wrap region content. #}
-  {% include '@gesso/layout/region.html.twig' with {
-    'region': 'help',
-    'content': page.help,
-  } %}
+  {% if page.help %}
+    {% include 'gesso:region' with {
+      'region_name': 'help',
+      'has_constrain': true,
+      'region_content': page.help,
+    } %}
+  {% endif %}
 
   <main id="main" class="main" role="main" tabindex="-1">
-    {# We have to manually wrap region content. #}
-    {% include '@gesso/layout/region.html.twig' with {
-      'region': 'preface',
-      'content': page.preface,
-    } %}
+    {% if page.preface %}
+      {% include 'gesso:region' with {
+        'region_name': 'preface',
+        'has_constrain': true,
+        'region_content': page.preface,
+      } %}
+    {% endif %}
 
     {# page.content is missing page title. #}
     {% set content %}
@@ -54,20 +64,26 @@
       {{ page.content }}
     {% endset %}
 
-    {# We have to manually wrap region content. #}
-    {% include '@gesso/layout/region--content.html.twig' with {
-      'content': content,
-    } %}
+    {% if content|trim is not empty %}
+      {% include 'gesso:content' with {
+        'has_constrain': true,
+        'content_content': content,
+      } %}
+    {% endif %}
 
-    {# We have to manually wrap region content. #}
-    {% include '@gesso/layout/region.html.twig' with {
-      'region': 'postscript',
-      'content': page.postscript,
-    } %}
+    {% if page.postscript %}
+      {% include 'gesso:region' with {
+        'region_name': 'postscript',
+        'has_constrain': true,
+        'region_content': page.postscript,
+      } %}
+    {% endif %}
   </main>
 
-  {# We have to manually wrap region content. #}
-  {% include '@gesso/layout/region--footer.html.twig' with {
-    'content': page.footer,
-  } %}
+  {% if page.footer %}
+    {% include 'gesso:footer' with {
+      'has_constrain': true,
+      'footer_content': page.footer,
+    } %}
+  {% endif %}
 {% endblock %}

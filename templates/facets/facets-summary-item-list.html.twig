@@ -22,11 +22,10 @@
 {% set reset_url = url('<current>') %}
 
 {% if items %}
-  {% include '@components/filters/filters.twig' with {
+  {% include 'gesso:filters' with {
     'attributes': attributes,
     'items': items,
     'list_type': list_type,
-    'empty': empty,
     'reset_url': reset_url,
     'show_filters': true,
   } %}

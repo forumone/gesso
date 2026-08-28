@@ -1,0 +1,123 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Form Item Textarea
+props:
+  type: object
+  properties:
+    id:
+      type:
+        - string
+        - "null"
+      title: ID
+      description: 'The HTML ID attribute for the textarea element.'
+    name:
+      type:
+        - string
+        - "null"
+      title: Name
+      description: 'The HTML name attribute for the textarea element.'
+    autocomplete:
+      type:
+        - string
+        - "null"
+      title: Autocomplete
+      description: 'The autocomplete attribute value.'
+    is_autofocus:
+      type:
+        - boolean
+        - "null"
+      title: Is Autofocus
+      description: 'Whether the textarea should autofocus.'
+    cols:
+      type:
+        - string
+        - "null"
+      title: Cols
+      description: 'The cols attribute value.'
+    disabled:
+      type:
+        - string
+        - "null"
+      title: Disabled
+      description: 'Whether the textarea is disabled (string value "disabled").'
+    is_disabled:
+      type:
+        - boolean
+        - "null"
+      title: Is Disabled
+      description: 'Whether the textarea is disabled (boolean).'
+    form_id:
+      type:
+        - string
+        - "null"
+      title: Form ID
+      description: 'The form attribute value.'
+    max_length:
+      type:
+        - string
+        - "null"
+      title: Max Length
+      description: 'The maxlength attribute value.'
+    min_length:
+      type:
+        - string
+        - "null"
+      title: Min Length
+      description: 'The minlength attribute value.'
+    placeholder:
+      type:
+        - string
+        - "null"
+      title: Placeholder
+      description: 'The placeholder attribute value.'
+    required:
+      type:
+        - string
+        - "null"
+      title: Required
+      description: 'Whether the textarea is required (string value "required").'
+    is_required:
+      type:
+        - boolean
+        - "null"
+      title: Is Required
+      description: 'Whether the textarea is required (boolean).'
+    rows:
+      type:
+        - string
+        - "null"
+      title: Rows
+      description: 'The rows attribute value.'
+    spellcheck:
+      type:
+        - string
+        - "null"
+      title: Spellcheck
+      description: 'The spellcheck attribute value.'
+    wrap:
+      type:
+        - string
+        - "null"
+      title: Wrap
+      description: 'The wrap attribute value.'
+    value:
+      type:
+        - string
+        - "null"
+      title: Value
+      description: 'The textarea content.'
+    described_by:
+      type:
+        - string
+        - "null"
+      title: Described By
+      description: 'The aria-describedby attribute value.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--form-item

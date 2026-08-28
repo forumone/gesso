@@ -18,4 +18,8 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-{% include '@components/menu/menu.twig' %}
+{% include 'gesso:menu' with {
+  'attributes': attributes,
+  'menu_name': menu_name,
+  'items': items,
+} only %}

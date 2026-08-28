@@ -1,0 +1,13 @@
+// Shared Form Item variables
+// Partials @use '../form-item-vars' to access these.
+
+@use '00-config' as *;
+
+$form-background-color: gesso-color(form, background) !default;
+$form-background-color-focus: gesso-color(form, background-active) !default;
+$form-border-color: gesso-color(form, border) !default;
+$form-border-color-focus: gesso-color(form, border-dark) !default;
+$form-box-shadow-focus: gesso-box-shadow(2) !default;
+$form-disabled-opacity: 0.35 !default;
+$form-text-size: gesso-base-font-size() !default;
+$form-text-color: inherit !default;

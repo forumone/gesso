@@ -1,0 +1,32 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Video
+props:
+  type: object
+  properties:
+    iframe_src:
+      type:
+        - string
+        - "null"
+      title: Iframe Source
+      description: 'The source URL for the iframe (e.g., Vimeo player URL).'
+    iframe_title:
+      type:
+        - string
+        - "null"
+      title: Iframe Title
+      description: 'The title attribute for the iframe.'
+    files:
+      type:
+        - array
+        - "null"
+      title: Video Files
+      description: 'Array of video file objects with source_attributes.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for custom styling.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

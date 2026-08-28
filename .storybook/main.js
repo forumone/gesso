@@ -12,7 +12,12 @@ const isProdBuild = process.env.NODE_ENV === 'production';
 const ddevHostname = process.env.DDEV_HOSTNAME || process.env.VIRTUAL_HOST;
 
 const config = {
-  stories: ['../source/**/*.mdx', '../source/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../source/**/*.mdx',
+    '../source/**/*.stories.@(js|jsx|ts|tsx)',
+    '../components/**/*.stories.@(js|jsx|ts|tsx)',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   framework: {
     name: '@storybook/react-webpack5',
   },
@@ -82,10 +87,8 @@ const config = {
             twigOptions: {
               namespaces: {
                 global: resolve(__dirname, '../', 'source/01-global'),
-                layouts: resolve(__dirname, '../', 'source/02-layouts'),
-                components: resolve(__dirname, '../', 'source/03-components'),
-                templates: resolve(__dirname, '../', 'source/04-templates'),
-                pages: resolve(__dirname, '../', 'source/05-pages'),
+                // SDC provider:name — resolves under components/{components,layouts,templates}/
+                gesso: resolve(__dirname, '../', 'components'),
               },
             },
           },
@@ -137,7 +140,10 @@ const config = {
       once: 'once',
     };
 
-    webpackConfig.resolve.modules.push(path.resolve(__dirname, '../source'));
+    webpackConfig.resolve.modules.push(
+      path.resolve(__dirname, '../source'),
+      path.resolve(__dirname, '../components')
+    );
     webpackConfig.stats = 'errors-warnings';
 
     if (configType === 'DEVELOPMENT') {

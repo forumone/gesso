@@ -1,0 +1,20 @@
+{% include 'gesso:messages-and-tabs' with {
+  'is_published': is_published,
+  'show_admin_info': show_admin_info,
+  'admin_info': admin_info,
+} %}
+
+{% embed 'gesso:article' with {
+  'attributes': attributes,
+  'article_title': title,
+  'show_footer': show_footer,
+  'author': author,
+  'date': date,
+  'date_format': date_format,
+  'author_picture': author_picture,
+  'rdf_metadata': rdf_metadata,
+} %}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+{% endembed %}

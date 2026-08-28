@@ -1,0 +1,15 @@
+{% set classes = [
+  'c-progress',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<div {{ add_attributes({ 'class': classes })}} data-drupal-progress>
+  {% if label %}
+    <div class="c-progress__label">{{ label }}</div>
+  {% endif %}
+  <div class="c-progress__track">
+    <div class="c-progress__bar" style="inline-size: {{ percent }}"></div>
+  </div>
+  <div class="c-progress__percentage">{{ percent }}</div>
+  <div class="c-progress__description">{{ message }}</div>
+</div>

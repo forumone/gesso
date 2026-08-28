@@ -1,0 +1,58 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Page
+props:
+  type: object
+  properties:
+    is_published:
+      type: boolean
+      title: Published Status
+      description: 'Whether the page is published.'
+    show_admin_info:
+      type: boolean
+      title: Show Admin Info
+      description: 'Whether to display admin information.'
+    title:
+      type:
+        - string
+        - "null"
+      title: Title
+      description: 'The page title.'
+    show_footer:
+      type: boolean
+      title: Show Footer
+      description: 'Whether to display the footer.'
+      default: false
+    author:
+      type:
+        - string
+        - "null"
+      title: Author
+      description: 'Pre-rendered author markup for the page footer.'
+    date:
+      type:
+        - string
+        - "null"
+      title: Date
+      description: 'Pre-rendered date markup for the page footer.'
+    date_format:
+      type:
+        - string
+        - "null"
+      title: Date Format
+      description: 'The format for displaying the date.'
+slots:
+  content:
+    title: Content
+    description: 'The main page content.'
+  admin_info:
+    title: Admin Info
+    description: 'Administrative information and status messages.'
+  author_picture:
+    title: Author Picture
+    description: 'Render array for the author picture.'
+  rdf_metadata:
+    title: RDF Metadata
+    description: 'RDF metadata for the article.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

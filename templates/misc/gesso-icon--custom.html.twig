@@ -12,8 +12,9 @@
  *   - icon_label: screen-reader-friendly title for the icon.
  */
 #}
-{%- include '@components/icon/icon.twig' with {
+{%- include 'gesso:icon' with {
   'attributes': attributes,
   'icon_name': icon.icon_name,
   'label': icon.icon_label,
+  'image_path': image_path,
 } -%}

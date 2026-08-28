@@ -1,0 +1,14 @@
+{% import '@global/gesso.macro.twig' as macros %}
+
+{% set classes = [
+  'c-tag-list',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<ul {{ add_attributes({ 'class': classes }) }}>
+  {% for item in items %}
+    <li class="c-tag-list__item">
+      {{ macros.tag(item.url, item.title) }}
+    </li>
+  {% endfor %}
+</ul>

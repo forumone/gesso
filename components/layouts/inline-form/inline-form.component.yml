@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Inline Form
+props:
+  type: object
+  properties:
+    form_content:
+      type: string
+      title: Form Content
+      description: 'The form content to be displayed inside the inline form wrapper.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS modifier classes for custom styling.'
+slots:
+  content:
+    title: Content
+    description: 'The main content slot for overriding the form content output.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

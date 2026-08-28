@@ -1,0 +1,30 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Tabs
+props:
+  type: object
+  properties:
+    display:
+      type:
+        - string
+        - "null"
+      title: Display Mode
+      description: 'The display mode for the tabs component. Can be "horizontal" or "vertical".'
+    tab_labels:
+      type: array
+      title: Tab Labels
+      description: 'An array of labels for each tab button.'
+    tab_panels:
+      type: array
+      title: Tab Panels
+      description: 'An array of content for each tab panel.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/drupal
+    - core/once

@@ -1,16 +1,5 @@
-{% macro read_more(url, title, label = 'Read more', hide_description = true, description_prefix = 'about', image_path = 'images') %}
-  {% include '@components/read-more-link/read-more-link.twig' with {
-    'url': url,
-    'label': label,
-    'hide_description': hide_description,
-    'description_prefix': description_prefix,
-    'title': title,
-    'image_path': image_path,
-  } %}
-{% endmacro %}
-
 {% macro tag(url, title, type = "full", size = "normal" ) %}
-  {% include '@components/tag/tag.twig' with {
+  {% include 'gesso:tag' with {
     'url': url,
     'title': title,
     'type': type,

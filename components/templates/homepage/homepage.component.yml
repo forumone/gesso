@@ -1,0 +1,74 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Homepage
+props:
+  type: object
+  properties:
+    is_published:
+      type: boolean
+      title: Published
+      description: 'Whether the page is published.'
+    show_admin_info:
+      type: boolean
+      title: Show Admin Info
+      description: 'Whether to show admin information.'
+    title_prefix:
+      type:
+        - array
+        - "null"
+      title: Title Prefix
+      description: 'Drupal title prefix array.'
+    title_suffix:
+      type:
+        - array
+        - "null"
+      title: Title Suffix
+      description: 'Drupal title suffix array.'
+    hero_image:
+      type:
+        - string
+        - "null"
+      title: Hero Image
+      description: 'Hero background image markup. Used when homepage_hero slot is empty.'
+    hero_title:
+      type:
+        - string
+        - "null"
+      title: Hero Title
+      description: 'The hero section title.'
+    hero_summary:
+      type:
+        - string
+        - "null"
+      title: Hero Summary
+      description: 'The hero section summary text (can contain HTML).'
+    hero_button_text:
+      type:
+        - string
+        - "null"
+      title: Hero Button Text
+      description: 'Text for the hero button.'
+    hero_button_url:
+      type:
+        - string
+        - "null"
+      title: Hero Button URL
+      description: 'URL for the hero button.'
+    homepage_grid_title:
+      type:
+        - string
+        - "null"
+      title: Homepage Grid Title
+      description: 'Title for the grid section.'
+slots:
+  admin_info:
+    title: Admin Info
+    description: 'Administrative information and status messages.'
+  homepage_hero:
+    title: Homepage Hero
+    description: 'Optional prebuilt hero markup. When empty, hero is built from hero_* props.'
+  homepage_grid_content:
+    title: Homepage Grid Content
+    description: 'Markup for the homepage grid section.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

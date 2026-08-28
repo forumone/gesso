@@ -1,0 +1,59 @@
+{% set classes = [
+  'c-card',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<div {{ add_attributes({ 'class': classes }) }}>
+  <div class="c-card__body">
+    <div class="c-card__header">
+      {% if date %}
+        <div class="c-card__date">
+          {{ date }}
+        </div>
+      {% endif %}
+      <h3 class="c-card__title">
+        {% if url %}
+          <a href="{{ url }}">
+        {% endif %}
+        {{ title }}
+        {% if url %}
+          </a>
+        {% endif %}
+      </h3>
+    </div>
+    <div class="c-card__content">
+      {{ card_content }}
+    </div>
+    {% if footer or read_more or tags %}
+      <div class="c-card__footer">
+        {{ footer }}
+        {% if tags %}
+          <div class="c-card__tags">
+            {% include "gesso:tag-list" with {
+              'items': tags
+            } %}
+          </div>
+        {% endif %}
+        {% if read_more and url %}
+          <div class="c-card__readmore">
+            {% include 'gesso:read-more-link' with {
+              'url': url,
+              'title': title,
+            } %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+  {% if media %}
+    <div class="c-card__media">
+      {% if url %}
+        <a href="{{ url }}">
+      {% endif %}
+      {{ media }}
+      {% if url %}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

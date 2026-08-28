@@ -14,6 +14,16 @@ dist/images/backgrounds
 dist/images/sprite.artifact.svg
 source/00-config/_design-tokens.artifact.scss
 source/00-config/_GESSO.es6.js
+
+## Ignore compiled files in components directory
+components/**/*.css
+components/**/*.css.map
+!components/**/*.source.css
+components/**/*.js
+components/**/*.js.map
+!components/**/*.source.js
+!components/**/modules/*.js
+
 storybook
 debug-storybook.log
 

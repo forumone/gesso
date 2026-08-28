@@ -15,8 +15,7 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-{% include '@components/view/views-view-unformatted/views-view-unformatted.twig' with {
-  'attributes': attributes,
+{% include 'gesso:views-view-unformatted' with {
   'title': title,
   'title_element': 'h3',
   'element': 'div',

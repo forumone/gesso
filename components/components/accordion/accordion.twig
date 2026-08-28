@@ -1,0 +1,19 @@
+{% set is_step_list = is_step_list or variant == 'step-list' %}
+
+{% set classes = [
+  'c-accordion',
+  is_step_list ? 'c-accordion--step-list' : '',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if accordion_items %}
+  <div {{ add_attributes({ class: classes }) }}>
+    <div
+      class="c-accordion__content js-accordion"
+      {{- allow_multiple ? ' data-allow-multiple' : '' -}}
+      {{- allow_toggle ? ' data-allow-toggle' : '' -}}
+    >
+      {{ accordion_items }}
+    </div>
+  </div>
+{% endif %}
