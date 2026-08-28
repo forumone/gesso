@@ -10,6 +10,7 @@ $form-border-color-focus: gesso-color(form, border-dark) !default;
 $form-box-shadow-focus: gesso-box-shadow(2) !default;
 $form-disabled-opacity: 0.35 !default;
 $form-text-size: gesso-base-font-size() !default;
+$form-text-color: inherit !default;
 
 .c-form-item {
   margin-block: 0 rem(gesso-spacing(3));
@@ -97,6 +98,7 @@ $form-text-size: gesso-base-font-size() !default;
   block-size: rem(44px);
   border: 1px solid $form-border-color;
   border-radius: 0;
+  color: $form-text-color;
   display: inline-block;
   font-size: rem($form-text-size);
   line-height: math.div(22px, $form-text-size);
