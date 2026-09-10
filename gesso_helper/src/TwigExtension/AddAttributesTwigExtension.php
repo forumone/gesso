@@ -74,6 +74,12 @@ class AddAttributesTwigExtension extends AbstractExtension {
           elseif (is_string($value)) {
             $value = [$value];
           }
+          elseif (is_bool($value)) {
+            // Boolean attributes (e.g. inert, disabled) can't be merged as
+            // arrays; set them directly and move on to the next attribute.
+            $context_attribute->setAttribute($key, $value);
+            continue;
+          }
           else {
             continue;
           }
