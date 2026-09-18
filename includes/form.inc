@@ -9,6 +9,9 @@ use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_alter().
+ *
+ * @phpstan-param array<string, mixed> $form
+ *   The form array.
  */
 function gesso_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
   // Replace button classes with c-button.
@@ -19,15 +22,21 @@ function gesso_form_alter(array &$form, FormStateInterface $form_state, string $
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_input(array &$variables): void {
   $variables['is_required'] = $variables['element']['#required'] ?? NULL;
   $variables['type'] = $variables['element']['#attributes']['type'] ?? NULL;
   $variables['dropbutton'] = $variables['element']['#dropbutton'] ?? NULL;
 
-  // Replace button classes with c-button.
+  // Replace button classes with c-button and attach button CSS when needed.
   if (isset($variables['attributes']['class'])) {
     $variables['attributes']['class'] = preg_replace('/^button/', 'c-button', $variables['attributes']['class']);
+    if (preg_grep('/^c-button/', (array) $variables['attributes']['class'])) {
+      $variables['#attached']['library'][] = 'core/components.gesso--button';
+    }
   }
 
   if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
@@ -38,6 +47,9 @@ function gesso_preprocess_input(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_field_multiple_value_form(array &$variables): void {
   // Make disabled variable available to the template.
@@ -53,6 +65,9 @@ function gesso_preprocess_field_multiple_value_form(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_fieldset(array &$variables): void {
   $variables['type'] = $variables['element']['#type'] ?? 'fieldset';
@@ -61,6 +76,9 @@ function gesso_preprocess_fieldset(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_form_element(array &$variables): void {
   $variables['is_required'] = $variables['element']['#required'] ?? NULL;
@@ -71,6 +89,9 @@ function gesso_preprocess_form_element(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_select(array &$variables): void {
   if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
@@ -81,6 +102,9 @@ function gesso_preprocess_select(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_textarea(array &$variables): void {
   if (!empty($variables['element']['#description']) && !empty($variables['element']['#id'])) {
@@ -91,6 +115,11 @@ function gesso_preprocess_textarea(array &$variables): void {
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * @phpstan-param array<int, string> $suggestions
+ *   The theme suggestions.
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_theme_suggestions_container_alter(array &$suggestions, array $variables): void {
   $array_parents = $variables['element']['#array_parents'] ?? NULL;
@@ -119,6 +148,11 @@ function gesso_theme_suggestions_container_alter(array &$suggestions, array $var
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * @phpstan-param array<int, string> $suggestions
+ *   The theme suggestions.
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_theme_suggestions_form_alter(array &$suggestions, array $variables): void {
   if (isset($variables['element']['#form_id'])) {
@@ -128,6 +162,11 @@ function gesso_theme_suggestions_form_alter(array &$suggestions, array $variable
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * @phpstan-param array<int, string> $suggestions
+ *   The theme suggestions.
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $variables): void {
   $id = $variables['element']['#id'] ?? NULL;
@@ -144,6 +183,9 @@ function gesso_theme_suggestions_form_element_alter(array &$suggestions, array $
 
 /**
  * Implements hook_preprocess_links__HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_links__dropbutton(array &$variables): void {
   foreach ($variables['links'] as $key => $link) {

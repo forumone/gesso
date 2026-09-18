@@ -37,6 +37,13 @@ class AddAttributesTwigExtension extends AbstractExtension {
    * There are optional additions while preventing attributes from trickling
    * down through includes. Based on
    * https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
+   *
+   * @param array<string, mixed> $context
+   *   The Twig template context.
+   * @param array<string, mixed> $additional_attributes
+   *   Additional attributes to merge in.
+   * @param string $attribute_type
+   *   The context key holding the attributes to extend.
    */
   public function addAttributes(array $context, array $additional_attributes = [], string $attribute_type = 'attributes'): Attribute {
     $attributes = new Attribute();

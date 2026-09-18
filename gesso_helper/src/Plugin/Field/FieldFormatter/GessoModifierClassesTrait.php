@@ -15,6 +15,8 @@ trait GessoModifierClassesTrait {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, mixed>
    */
   public static function defaultSettings(): array {
     return [
@@ -24,6 +26,10 @@ trait GessoModifierClassesTrait {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-param array<string, mixed> $form
+   *
+   * @phpstan-return array<string, mixed>
    */
   public function settingsForm(array $form, FormStateInterface $form_state): array {
     $elements = parent::settingsForm($form, $form_state);
@@ -52,7 +58,7 @@ trait GessoModifierClassesTrait {
    * @param string $modifier_classes
    *   The modifier classes to be cleaned and sanitized.
    *
-   * @return array
+   * @return array<int, string>
    *   An array of cleaned and sanitized modifier classes.
    */
   public function cleanModifierClasses(string $modifier_classes): array {

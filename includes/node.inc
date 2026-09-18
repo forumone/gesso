@@ -7,6 +7,9 @@
 
 /**
  * Implements hook_preprocess_node().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_node(array &$variables): void {
   // Array of view modes to add regions to.
@@ -21,13 +24,18 @@ function gesso_preprocess_node(array &$variables): void {
 
 /**
  * Custom function to add page regions to templates.
+ *
+ * @param array<int, string> $allowed_regions
+ *   The regions allowed to be added to the template.
+ * @param array<string, mixed> $variables
+ *   The template variables.
  */
 function _gesso_add_regions_to_template(array $allowed_regions, array &$variables): void {
   // Get active theme.
   $theme = \Drupal::theme()->getActiveTheme()->getName();
 
   // Get current theme regions.
-  $available_regions = system_region_list($theme, 'REGIONS_ALL');
+  $available_regions = \Drupal::service('theme_handler')->getTheme($theme)->listAllRegions();
 
   // Validate allowed regions with available regions.
   $regions = array_intersect(array_keys($available_regions), $allowed_regions);
