@@ -34,8 +34,19 @@ function _gesso_add_regions_to_template(array $allowed_regions, array &$variable
   // Get active theme.
   $theme = \Drupal::theme()->getActiveTheme()->getName();
 
-  // Get current theme regions.
-  $available_regions = \Drupal::service('theme_handler')->getTheme($theme)->listAllRegions();
+  // Get current theme regions. Theme::listAllRegions() was only added in
+  // Drupal 11.4; gesso.info.yml still supports Drupal ^10.3 || ^11, so fall
+  // back to the deprecated system_region_list() on cores where the
+  // replacement doesn't exist yet.
+  $theme_extension = \Drupal::service('theme_handler')->getTheme($theme);
+  // @phpstan-ignore function.alreadyNarrowedType (PHPStan only sees the core version installed here, where listAllRegions() always exists; the guard is for sites on older, still-supported cores.)
+  if (method_exists($theme_extension, 'listAllRegions')) {
+    $available_regions = $theme_extension->listAllRegions();
+  }
+  else {
+    // @phpstan-ignore function.deprecated (Required for Drupal < 11.4 compatibility, where Theme::listAllRegions() does not exist yet.)
+    $available_regions = system_region_list($theme, 'REGIONS_ALL');
+  }
 
   // Validate allowed regions with available regions.
   $regions = array_intersect(array_keys($available_regions), $allowed_regions);
