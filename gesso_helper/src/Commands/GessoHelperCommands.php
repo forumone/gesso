@@ -64,7 +64,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    *
    * @param string $name
    *   The name of your theme.
-   * @param array<string, mixed> $options
+   * @param array<string> $options
    *   An associative array of options whose values come from cli,
    *   aliases, config, etc.
    *
