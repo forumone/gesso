@@ -3,7 +3,8 @@ import once from 'once';
 
 Drupal.behaviors.externalLink = {
   attach(context, settings) {
-    const { imagePath } = settings.gesso;
+    const { imagePath, assetVersion } = settings.gesso;
+    const spriteQuery = assetVersion ? `?v=${assetVersion}` : '';
     const exitDisclaimer =
       settings?.gesso?.externalLinkExitDisclaimer ??
       Drupal.t('Exit this website');
@@ -41,7 +42,7 @@ Drupal.behaviors.externalLink = {
 
         link.insertAdjacentHTML(
           'beforeend',
-          `<svg class="c-icon c-icon--exit is-spaced-before" role="img"><title>${accessibleLabel}</title><use xlink:href="${imagePath}/sprite.artifact.svg#arrow-up-right-from-square"></use></svg>`
+          `<svg class="c-icon c-icon--exit is-spaced-before" role="img"><title>${accessibleLabel}</title><use xlink:href="${imagePath}/sprite.artifact.svg${spriteQuery}#arrow-up-right-from-square"></use></svg>`
         );
       }
     });
