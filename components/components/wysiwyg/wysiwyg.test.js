@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it } from 'vitest';
 import Drupal from 'drupal';
-import './wysiwyg.es6';
+import './wysiwyg.source';
 
 function createWysiwygMarkup(tableHtml) {
   const wysiwyg = document.createElement('div');

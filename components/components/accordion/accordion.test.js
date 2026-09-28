@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it } from 'vitest';
 import Drupal from 'drupal';
-import './accordion.es6';
+import './accordion.source';
 
 function nextFrame() {
   return new Promise(resolve => {

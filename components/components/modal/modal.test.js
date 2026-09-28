@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import Drupal from 'drupal';
-import './modal.es6';
+import './modal.source';
 
 function createModal({ defaultOpen = false } = {}) {
   const modal = document.createElement('dialog');

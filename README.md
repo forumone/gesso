@@ -400,7 +400,7 @@ which installs all dependencies.
 
 #### Run all tests
 ```bash
-ddev frontend npm run test:e2e
+ddev gesso npm run test:e2e
 ```
 
 ## Design tokens
