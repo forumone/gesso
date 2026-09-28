@@ -8,11 +8,18 @@ $form-select-arrow-size: 20px !default;
 .c-form-item--select {
   .c-form-item__select {
     @include svg-background(select-arrows);
-    background-position: inline-end rem(math.div($form-select-arrow-size, 2))
-      center;
+    background-position: right rem(math.div($form-select-arrow-size, 2)) center; // LTR
     background-repeat: no-repeat;
     background-size: rem($form-select-arrow-size);
     padding-inline-end: rem($form-select-arrow-size * 2);
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        background-position: left
+          rem(math.div($form-select-arrow-size, 2))
+          center;
+      }
+    }
 
     // Remove inner focus styling on Firefox.
     &:-moz-focusring {

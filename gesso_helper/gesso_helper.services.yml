@@ -15,3 +15,8 @@ services:
     class: Drupal\gesso_helper\TwigExtension\UniqueIdTwigExtension
     tags:
       - { name: twig.extension }
+  asset_version.twig_extension:
+    class: Drupal\gesso_helper\TwigExtension\AssetVersionTwigExtension
+    arguments: ['@asset.query_string']
+    tags:
+      - { name: twig.extension }

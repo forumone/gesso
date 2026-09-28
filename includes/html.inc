@@ -15,6 +15,8 @@ function gesso_preprocess(array &$variables): void {
   if (!empty($variables['directory'])) {
     $variables['image_path'] = '/' . $variables['directory'] . '/dist/images';
     $variables['#attached']['drupalSettings']['gesso']['imagePath'] = '/' . $variables['directory'] . '/dist/images';
+    // Used to cache-bust the SVG sprite when it is referenced from JS.
+    $variables['#attached']['drupalSettings']['gesso']['assetVersion'] = \Drupal::service('asset.query_string')->get();
   }
 }
 

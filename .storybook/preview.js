@@ -7,6 +7,7 @@ import uniqueId from '../lib/uniqueId';
 import fieldValue from '../lib/fieldValue';
 import subheadingLevel from '../lib/subheadingLevelTwigExtension.js';
 import twigCreateAttributes from '../lib/createAttributeTwigExtension';
+import assetVersion from '../lib/assetVersion';
 import './stubs/drupal';
 import './stubs/once';
 
@@ -22,6 +23,7 @@ function setupTwig(twig) {
   twigCreateAttributes(twig);
   fieldValue(twig);
   subheadingLevel(twig);
+  assetVersion(twig);
   return twig;
 }
 
