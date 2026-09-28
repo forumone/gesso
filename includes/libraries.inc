@@ -41,7 +41,7 @@ function gesso_library_info_alter(array &$libraries, string $extension): void {
 /**
  * Sets preprocess FALSE on matching JS assets in a single library definition.
  *
- * @param array $library
+ * @param array<string, mixed> $library
  *   A library definition (modified by reference).
  * @param callable(string): bool $path_matcher
  *   Return TRUE when the asset path should skip aggregation.
