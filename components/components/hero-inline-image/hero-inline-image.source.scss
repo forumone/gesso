@@ -30,7 +30,7 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 .c-hero-inline-image__media {
   display: block;
   line-height: 0;
-  margin-block-end: rem(gesso-spacing(3));
+  margin-block-end: gesso-spacing(3);
 
   @include breakpoint($hero-inline-image-bp) {
     margin-block-end: 0;
@@ -70,24 +70,24 @@ $hero-inline-image-bp: gesso-breakpoint(desktop) !default;
 
 .c-hero-inline-image__title {
   @include display-text-style(display);
-  margin-block-end: rem(gesso-spacing(3));
+  margin-block-end: gesso-spacing(3);
 
   @include breakpoint($hero-inline-image-bp) {
     color: gesso-color(text, on-dark);
-    margin-block-end: rem(gesso-spacing(5));
+    margin-block-end: gesso-spacing(5);
   }
 
   @include breakpoint-max($hero-inline-image-bp, true) {
-    font-size: rem(gesso-font-size(12));
+    font-size: gesso-font-size(12);
   }
 }
 
 .c-hero-inline-image__summary {
   @include display-text-style(body-large);
-  margin-block-end: rem(gesso-spacing(3));
+  margin-block-end: gesso-spacing(3);
 
   @include breakpoint($hero-inline-image-bp) {
     color: gesso-color(text, on-dark);
-    margin-block-end: rem(gesso-spacing(5));
+    margin-block-end: gesso-spacing(5);
   }
 }

@@ -6,7 +6,7 @@ $card-accent-border-color: gesso-color(ui, generic, accent) !default;
 $card-link-color: gesso-color(text, on-light) !default;
 $card-link-color-hover: gesso-color(ui, generic, text-dark) !default;
 $card-meta-color: gesso-color(ui, generic, text-dark) !default;
-$card-padding: rem(gesso-spacing(3)) !default;
+$card-padding: gesso-spacing(3) !default;
 
 .c-card {
   border-block-end: 4px solid $card-accent-border-color;
@@ -22,7 +22,7 @@ $card-padding: rem(gesso-spacing(3)) !default;
 }
 
 .c-card__title {
-  font-size: rem(gesso-font-size(7));
+  font-size: gesso-font-size(7);
   margin: 0;
 
   a {
@@ -38,17 +38,17 @@ $card-padding: rem(gesso-spacing(3)) !default;
 }
 
 .c-card__header {
-  margin-block-end: rem(gesso-spacing(3));
+  margin-block-end: gesso-spacing(3);
 }
 
 .c-card__date {
   color: $card-meta-color;
-  font-size: rem(gesso-font-size(2));
-  margin-block-end: rem(gesso-spacing(2));
+  font-size: gesso-font-size(2);
+  margin-block-end: gesso-spacing(2);
 }
 
 .c-card__content {
-  margin-block-end: rem(gesso-spacing(3));
+  margin-block-end: gesso-spacing(3);
 }
 
 .c-card__media {
@@ -70,7 +70,7 @@ $card-padding: rem(gesso-spacing(3)) !default;
 }
 
 .c-card__tags {
-  margin-block-end: rem(gesso-spacing(2));
+  margin-block-end: gesso-spacing(2);
 }
 
 .c-card__readmore {
@@ -86,7 +86,7 @@ $card-padding: rem(gesso-spacing(3)) !default;
     flex-direction: row;
 
     .c-card__title {
-      font-size: rem(gesso-font-size(8));
+      font-size: gesso-font-size(8);
     }
 
     .c-card__body {

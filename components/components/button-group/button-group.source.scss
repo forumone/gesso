@@ -5,7 +5,7 @@
 .c-button-group {
   display: flex;
   isolation: isolate;
-  margin: rem(gesso-spacing(2)) 0;
+  margin: gesso-spacing(2) 0;
 }
 
 .c-button-group__list {

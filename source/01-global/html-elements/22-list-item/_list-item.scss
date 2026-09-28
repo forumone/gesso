@@ -3,7 +3,7 @@
 @use '00-config' as *;
 
 li {
-  margin-block-end: rem(gesso-spacing(1));
+  margin-block-end: gesso-spacing(1);
 
   &:last-child {
     margin-block-end: 0;

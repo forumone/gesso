@@ -6,10 +6,10 @@
   @include breakpoint(gesso-breakpoint(tablet)) {
     display: flex;
     flex-wrap: wrap;
-    gap: rem(gesso-spacing(2));
+    gap: gesso-spacing(2);
 
     > * {
-      margin-block: 0 rem(gesso-spacing(2)) !important;
+      margin-block: 0 gesso-spacing(2) !important;
       margin-inline: 0;
     }
   }

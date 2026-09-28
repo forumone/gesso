@@ -32,7 +32,7 @@ $facet-text-active-color: gesso-color(facet, text-active) !default;
   color: $facet-icon-active-color;
   flex-shrink: 0;
   inset-block-start: 3px !important;
-  margin-inline-end: rem(gesso-spacing(0.5));
+  margin-inline-end: gesso-spacing(0.5);
 }
 
 .c-facet__icon--empty {
@@ -60,7 +60,7 @@ $facet-text-active-color: gesso-color(facet, text-active) !default;
 }
 
 .c-facet__count {
-  margin-inline-start: rem(gesso-spacing(2));
+  margin-inline-start: gesso-spacing(2);
 }
 
 .c-facet--secondary {

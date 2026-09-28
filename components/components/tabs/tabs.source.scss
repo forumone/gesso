@@ -3,7 +3,7 @@
 .c-tabs__buttons {
   border-block-end: solid 1px gesso-grayscale(gray-3);
   display: flex;
-  margin-block-end: rem(gesso-spacing(2));
+  margin-block-end: gesso-spacing(2);
   overflow: auto hidden;
   position: relative;
   z-index: 0;
@@ -16,7 +16,7 @@
   border-block-end: solid 3px transparent;
   cursor: pointer;
   display: block;
-  padding: rem(gesso-spacing(1.5)) rem(gesso-spacing(2));
+  padding: gesso-spacing(1.5) gesso-spacing(2);
   text-align: start;
   transition: all gesso-duration(short) gesso-easing(ease-in-out);
   white-space: nowrap;
@@ -75,7 +75,7 @@
 
   .c-tabs__panel {
     @include breakpoint(gesso-breakpoint(tablet-lg)) {
-      padding-inline-start: rem(gesso-spacing(4));
+      padding-inline-start: gesso-spacing(4);
     }
   }
 }

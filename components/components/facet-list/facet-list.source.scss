@@ -7,7 +7,7 @@
 
   & & {
     padding: 0;
-    padding-block-start: rem(gesso-spacing(1));
-    padding-inline-start: rem(gesso-spacing(3));
+    padding-block-start: gesso-spacing(1);
+    padding-inline-start: gesso-spacing(3);
   }
 }

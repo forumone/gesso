@@ -20,9 +20,9 @@ $message-warning-border-color: gesso-color(ui, warning, border) !default;
   background-color: $message-background-color;
   border: 1px solid $message-border-color;
   color: gesso-color(text, primary);
-  margin-block-end: rem(gesso-spacing(2));
+  margin-block-end: gesso-spacing(2);
   overflow: hidden;
-  padding: rem(gesso-spacing(2));
+  padding: gesso-spacing(2);
   position: relative;
   word-wrap: break-word;
 
