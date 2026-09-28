@@ -672,6 +672,18 @@ heading or subheading should change accordingly.
 <{{ subheading_element|default('h3') }}>...</{{ subheading_element|default('h3') }}>
 ```
 
+### asset_version
+Twig function that returns Drupal's current asset query string (the same value
+appended to CSS and JS URLs), which changes whenever caches are flushed. Use it
+to cache-bust static theme assets, like the SVG sprite, after a deployment. It
+returns an empty string in Storybook. In JS, the same value is available as
+`drupalSettings.gesso.assetVersion`.
+
+```twig
+{% set version = asset_version() %}
+<use href="{{ image_path }}/sprite.artifact.svg{{ version ? '?v=' ~ version : '' }}#{{ icon_name }}"></use>
+```
+
 ## Building Storybook
 
 A static Storybook site can be built with `npm run build-storybook`. You will

@@ -64,7 +64,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    *
    * @param string $name
    *   The name of your theme.
-   * @param array $options
+   * @param array<string, string|null> $options
    *   An associative array of options whose values come from cli,
    *   aliases, config, etc.
    *
@@ -262,6 +262,13 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
 
   /**
    * Replace strings in a file.
+   *
+   * @param string $file_path
+   *   The path of the file to update.
+   * @param string|array<array-key, string> $find
+   *   The pattern (or patterns) to search for.
+   * @param string|array<array-key, mixed> $replace
+   *   The string (or strings) to replace them with.
    */
   private function gessoFileStrReplace(string $file_path, string|array $find, string|array $replace): void {
     $file_contents = file_get_contents($file_path);

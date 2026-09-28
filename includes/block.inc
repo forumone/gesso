@@ -9,6 +9,11 @@ use Drupal\block_content\BlockContentInterface;
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * @phpstan-param array<int, string> $suggestions
+ *   The theme suggestions.
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   $content = $variables['elements']['content'];

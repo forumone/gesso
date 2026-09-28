@@ -10,6 +10,9 @@ use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_filter_caption(array &$variables): void {
   $dom = Html::load($variables['node']);
@@ -57,6 +60,9 @@ function gesso_preprocess_filter_caption(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_image(array &$variables): void {
   if (empty($variables['attributes']['alt'])) {
@@ -66,6 +72,9 @@ function gesso_preprocess_image(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_media(array &$variables): void {
   $variables['has_caption'] = isset($variables['attributes']['data-caption']);

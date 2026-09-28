@@ -99,13 +99,14 @@ $button-font-size: gesso-base-font-size() !default;
   }
 }
 
-@mixin text-button() {
+@mixin text-button($color: inherit) {
   @include focus();
   appearance: none;
   background: transparent;
   border: 0;
   border-radius: 0;
   box-shadow: none;
+  color: $color;
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
