@@ -390,6 +390,16 @@ By default, tests run against `https://YOUR-PROJECT.ddev.site` if you run
 `ddev frontend test:e2e` If you want to run against a different URL, set the
 `PLAYWRIGHT_BASE_URL` environment variable.
 
+**Note**: If you are running Gesso as a separate service (you probably are),
+check that your `.ddev/docker-compose.gesso.yml` includes:
+```yaml
+    environment:
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+```
+
+If it doesn't, add it and run `ddev restart`. This will allow Playwright to
+find your ddev URL for testing.
+
 When you run the `test:e2e` script, it will first run `playwright install` to
 install all needed dependencies on your environment. By default, this is only
 the `chromium` browser. If you change your Playwright config to run tests in
