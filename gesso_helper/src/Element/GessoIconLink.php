@@ -39,6 +39,8 @@ class GessoIconLink extends RenderElementBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, mixed>
    */
   public function getInfo() {
     $class = static::class;
@@ -55,10 +57,10 @@ class GessoIconLink extends RenderElementBase {
    * This method is used to pre-render a link element by generating the markup
    * for the link.
    *
-   * @param array $element
+   * @param array<string, mixed> $element
    *   The link element.
    *
-   * @return array
+   * @return array<string, mixed>
    *   The pre-rendered link element.
    */
   public static function preRenderLink($element) {

@@ -9,6 +9,9 @@ use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_FORM_ID_alter() for system_theme_settings.
+ *
+ * @phpstan-param array<string, mixed> $form
+ *   The form array.
  */
 function gesso_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, ?string $form_id = NULL): void {
   // Work-around for a core bug affecting admin themes.

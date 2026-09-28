@@ -7,6 +7,9 @@
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_facets_item_list(array &$variables): void {
   foreach ($variables['items'] as &$item) {
@@ -28,6 +31,9 @@ function gesso_preprocess_facets_item_list(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_facets_summary_item_list(array &$variables): void {
   // Add class to item links.

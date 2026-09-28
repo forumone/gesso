@@ -7,6 +7,9 @@
 
 /**
  * Implements hook_preprocess().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess(array &$variables): void {
   if (!empty($variables['directory'])) {
@@ -19,6 +22,9 @@ function gesso_preprocess(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_html(array &$variables): void {
   $variables['include_back_to_top']
@@ -27,11 +33,19 @@ function gesso_preprocess_html(array &$variables): void {
   $renderer = \Drupal::service('renderer');
   $themeName = \Drupal::theme()->getActiveTheme()->getName();
   $themeConfig = \Drupal::config($themeName . '.settings');
-  $renderer->addCacheableDependency($variables, $themeConfig);
+  // Renderer::addCacheableDependency() takes an untyped array by reference,
+  // so cacheability metadata is exchanged through an isolated local array
+  // rather than passing $variables directly through that looser boundary.
+  $cacheable = ['#cache' => $variables['#cache'] ?? []];
+  $renderer->addCacheableDependency($cacheable, $themeConfig);
+  $variables['#cache'] = $cacheable['#cache'];
 }
 
 /**
  * Implements hook_page_attachments_alter().
+ *
+ * @phpstan-param array<string, mixed> $attachments
+ *   The attachments array.
  */
 function gesso_page_attachments_alter(array &$attachments): void {
   $include_back_to_top = gesso_helper_get_theme_setting('include_back_to_top') ?? TRUE;
@@ -73,6 +87,11 @@ function gesso_page_attachments_alter(array &$attachments): void {
     $renderer = \Drupal::service('renderer');
     $themeName = \Drupal::theme()->getActiveTheme()->getName();
     $themeConfig = \Drupal::config($themeName . '.settings');
-    $renderer->addCacheableDependency($attachments, $themeConfig);
+    // Renderer::addCacheableDependency() takes an untyped array by reference,
+    // so cacheability metadata is exchanged through an isolated local array
+    // rather than passing $attachments directly through that looser boundary.
+    $cacheable = ['#cache' => $attachments['#cache'] ?? []];
+    $renderer->addCacheableDependency($cacheable, $themeConfig);
+    $attachments['#cache'] = $cacheable['#cache'];
   }
 }
