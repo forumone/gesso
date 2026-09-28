@@ -208,16 +208,18 @@ const toggleSort = (
 
 const createHeaderButton = (
   header: HTMLTableCellElement,
-  imagePath: string
+  imagePath: string,
+  assetVersion: string
 ): void => {
+  const spriteQuery = assetVersion ? `?v=${assetVersion}` : '';
   const buttonEl = document.createElement('button');
   buttonEl.setAttribute('tabindex', '0');
   buttonEl.classList.add(SORT_BUTTON_CLASS);
 
   // Add button icons.
   buttonEl.innerHTML = `
-        <svg class="c-icon c-table__sort-icon"><use xlink:href="${imagePath}/sprite.artifact.svg#sort"></use></svg>
-        <svg class="c-icon c-table__sorted-icon"><use xlink:href="${imagePath}/sprite.artifact.svg#sorted"></use></svg>
+        <svg class="c-icon c-table__sort-icon"><use xlink:href="${imagePath}/sprite.artifact.svg${spriteQuery}#sort"></use></svg>
+        <svg class="c-icon c-table__sorted-icon"><use xlink:href="${imagePath}/sprite.artifact.svg${spriteQuery}#sorted"></use></svg>
       `;
   const headerInnerElem = document.createElement('div');
   headerInnerElem.innerHTML = header.innerHTML;
@@ -230,7 +232,7 @@ const createHeaderButton = (
 
 Drupal.behaviors.sortableTable = {
   attach(context, settings) {
-    const { imagePath } = settings.gesso;
+    const { imagePath, assetVersion } = settings.gesso;
 
     const tables: Element[] = once(
       'sort-buttons',
@@ -259,7 +261,7 @@ Drupal.behaviors.sortableTable = {
       const sortableHeaders =
         table.querySelectorAll<HTMLTableCellElement>(SORTABLE_HEADER);
       sortableHeaders.forEach(header => {
-        createHeaderButton(header, imagePath || '');
+        createHeaderButton(header, imagePath || '', assetVersion || '');
       });
 
       const sortButtons: NodeListOf<HTMLButtonElement> =

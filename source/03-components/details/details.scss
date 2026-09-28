@@ -16,9 +16,16 @@ $details-text-color: gesso-color(text, on-light) !default;
 .c-details__summary {
   @include svg-background(plus);
   background-color: $details-background-color;
-  background-position: inline-end $details-padding center;
+  background-position: right $details-padding center; // LTR
   background-repeat: no-repeat;
   background-size: rem(13px);
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      background-position: left $details-padding center;
+    }
+  }
+
   cursor: pointer;
   display: block;
   font-weight: gesso-font-weight(bold);

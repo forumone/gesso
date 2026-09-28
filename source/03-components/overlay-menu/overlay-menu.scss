@@ -3,6 +3,8 @@
 
 @use '00-config' as *;
 
+// Uses sass rgba() function, which does not support the slash syntax
+// @see https://sass-lang.com/documentation/modules/#rgb
 $overlay-menu-bg-color: rgba(
   gesso-color(ui, generic, background-light),
   0.98
