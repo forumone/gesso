@@ -82,7 +82,7 @@
   {% set show_admin_info = true %}
 {% endif %}
 
-{% include '@templates/page/page.twig' with {
+{% include 'gesso:page' with {
   'attributes': attributes.addClass(classes),
   'is_published': node.isPublished(),
   'title': label,

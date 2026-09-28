@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: WYSIWYG
+props:
+  type: object
+  properties:
+    content:
+      type:
+        - string
+        - "null"
+      title: Content
+      description: 'The rendered WYSIWYG content.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/global
+    # WYSIWYG JS wraps bare <table> elements in l-responsive-table.
+    - core/components.gesso--responsive-table

@@ -1,0 +1,32 @@
+{% set classes = [
+  'c-call-to-action',
+  modifier_classes ? modifier_classes : ''
+] %}
+
+<div {{ add_attributes({ class: classes }) }}>
+  <div class="c-call-to-action__layout">
+    <div class="c-call-to-action__media">
+      {{ media }}
+    </div>
+    <div class="c-call-to-action__content">
+      {% if heading %}
+        <h2 class="c-call-to-action__title">{{ heading }}</h2>
+      {% endif %}
+      {% if body %}
+        <div class="c-call-to-action__text">
+          {{ body }}
+        </div>
+      {% endif %}
+      {% if link_url and link_title %}
+        <div class="c-call-to-action__links">
+          {% include 'gesso:button' with {
+            extra_attributes: link_attributes,
+            url: link_url,
+            text: link_title,
+            is_button_tag: false,
+          } only %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

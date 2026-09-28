@@ -1,0 +1,16 @@
+{% set classes = [
+  'c-side-menu',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set id = 'side-menu'|unique_id %}
+
+<nav {{ add_attributes({class: classes, id: id}) }}>
+  {% include 'gesso:menu' with {
+    'menu_name': menu_name,
+    'items': items,
+    'menu_class': ['c-side-menu__menu'],
+    'item_class': ['c-side-menu__item'],
+    'link_class': ['c-side-menu__link'],
+  } %}
+</nav>

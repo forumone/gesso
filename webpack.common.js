@@ -14,16 +14,28 @@ const __dirname =
 async function gatherProjectFiles() {
   const jsFiles = {};
   const scssFiles = {};
+
+  // Source directory globs
   const jsGlob = new Glob('source/**/!(*.stories).{cjs,js,ts}', {
-    ignore: ['**/_*', 'source/@types/**', 'source/07-react/**'],
+    ignore: ['**/_*', 'source/@types/**', 'source/03-react/**'],
   });
   const scssGlob = new Glob('source/**/*.scss', jsGlob);
+
+  // Component directory globs
+  const componentJsGlob = new Glob('components/**/*.source.{js,ts}', {
+    ignore: ['**/_*'],
+  });
+  const componentScssGlob = new Glob('components/**/*.source.{scss,css}', {
+    ignore: ['**/_*'],
+  });
+
+  // Process source JS files
   for await (const currentFile of jsGlob.iterate()) {
     const filePaths = currentFile.split(path.sep);
     const sourceDirIndex = filePaths.indexOf('source');
     if (sourceDirIndex >= 0) {
       const fileName = path.basename(currentFile).replace(/\.c?[jt]s$/, '');
-      const newFilePath = `js/${fileName}`;
+      const newFilePath = `dist/js/${fileName}`;
       // Throw an error if duplicate files detected.
       if (jsFiles[newFilePath]) {
         throw new Error(`More than one file named ${fileName}.[jt]s found.`);
@@ -34,21 +46,71 @@ async function gatherProjectFiles() {
     }
   }
 
+  // Process source SCSS files
   for await (const currentFile of scssGlob.iterate()) {
     const filePaths = currentFile.split(path.sep);
     const sourceDirIndex = filePaths.indexOf('source');
     if (sourceDirIndex >= 0) {
       const fileName = path.basename(currentFile, '.scss');
-      const newFilePath = `css/${fileName}`;
+      const newFilePath = `dist/css/${fileName}`;
       // Throw an error if duplicate files detected.
       if (scssFiles[newFilePath]) {
         throw new Error(`More that one file named ${fileName}.scss found.`);
       }
       scssFiles[newFilePath] = {
-        import: `./${currentFile}`,
+        import: path.resolve(__dirname, currentFile),
       };
     }
   }
+
+  // Process component JS files
+  for await (const currentFile of componentJsGlob.iterate()) {
+    const filePaths = currentFile.split(path.sep);
+    const componentsIndex = filePaths.indexOf('components');
+    if (componentsIndex >= 0) {
+      const relativePath = filePaths.slice(componentsIndex).join(path.sep);
+      const fileName = path
+        .basename(currentFile)
+        .replace(/\.source\.([jt]s)$/, '');
+      const dirPath = path.dirname(relativePath);
+      const newFilePath = `${dirPath}/${fileName}`;
+
+      if (jsFiles[newFilePath]) {
+        throw new Error(
+          `More than one component file named ${currentFile} found.`
+        );
+      }
+
+      jsFiles[newFilePath] = {
+        import: path.resolve(__dirname, currentFile),
+      };
+    }
+  }
+
+  // Process component SCSS/CSS files
+  for await (const currentFile of componentScssGlob.iterate()) {
+    const filePaths = currentFile.split(path.sep);
+    const componentsIndex = filePaths.indexOf('components');
+    if (componentsIndex >= 0) {
+      const relativePath = filePaths.slice(componentsIndex).join(path.sep);
+      const fileName = path
+        .basename(currentFile)
+        .replace(/\.source\.(scss|css)$/, '');
+      const dirPath = path.dirname(relativePath);
+      const newFilePath = `${dirPath}/${fileName}.tmp`;
+
+      if (scssFiles[newFilePath]) {
+        throw new Error(
+          `More than one component file named ${currentFile} found.`
+        );
+      }
+
+      scssFiles[newFilePath] = {
+        import: path.resolve(__dirname, currentFile),
+      };
+    }
+  }
+
   return {
     ...jsFiles,
     ...scssFiles,
@@ -58,13 +120,20 @@ async function gatherProjectFiles() {
 const commonConfig = {
   entry: () => gatherProjectFiles(),
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: pathData => `${pathData.chunk.name.replace('.tmp', '')}.css`,
+    }),
     new RemovePlugin({
       after: {
         test: [
           {
             folder: './dist/css',
             method: absolutePath => /\.js(\.map)?$/m.test(absolutePath),
+            recursive: true,
+          },
+          {
+            folder: './components',
+            method: absolutePath => /\.tmp.js(\.map)?$/m.test(absolutePath),
             recursive: true,
           },
         ],
@@ -74,12 +143,12 @@ const commonConfig = {
       },
     }),
     new StylelintPlugin({
-      exclude: ['node_modules', 'dist', 'storybook'],
+      files: ['source/**/*.scss', 'components/**/*.scss'],
     }),
     new ForkTsCheckerWebpackPlugin(),
     new SvgSpritemapPlugin('source/images/_sprite-source-files/*.svg', {
       output: {
-        filename: 'images/sprite.artifact.svg',
+        filename: 'dist/images/sprite.artifact.svg',
         svg4everybody: false,
         svgo: true,
       },
@@ -98,7 +167,7 @@ const commonConfig = {
       cacheGroups: {
         commons: {
           chunks: 'all',
-          name: 'js/common',
+          name: 'dist/js/common',
           minChunks: 2,
         },
       },
@@ -164,7 +233,7 @@ const commonConfig = {
         exclude: ['/node_modules/'],
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[name][ext][query]',
+          filename: 'dist/fonts/[name][ext][query]',
         },
       },
       {
@@ -172,7 +241,7 @@ const commonConfig = {
         exclude: [/images\/_sprite-source-files\/.*\.svg$/, '/node_modules/'],
         type: 'asset',
         generator: {
-          filename: 'images/backgrounds/[hash][ext][query]',
+          filename: 'dist/images/backgrounds/[hash][ext][query]',
         },
       },
     ],
@@ -191,7 +260,7 @@ const commonConfig = {
     enforceExtension: false,
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname),
     clean: false,
   },
   stats: 'minimal',

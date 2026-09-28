@@ -1,0 +1,50 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Facet
+props:
+  type: object
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to modify the component appearance.'
+    is_active:
+      type: boolean
+      title: Is Active
+      description: 'Whether the facet is currently active or selected.'
+    title:
+      type: string
+      title: Title
+      description: 'The facet label text.'
+    show_count:
+      type: boolean
+      title: Show Count
+      description: 'Whether to display the count of items for this facet.'
+    count:
+      type:
+        - string
+        - "null"
+      title: Count
+      description: 'The number of items associated with this facet.'
+    url:
+      type:
+        - string
+        - "null"
+      title: URL
+      description: 'The link URL for the facet.'
+    hide_link:
+      type:
+        - boolean
+        - "null"
+      title: Hide Link
+      description: 'Whether to render the facet without a link wrapper.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to the sprite artifact SVG directory.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

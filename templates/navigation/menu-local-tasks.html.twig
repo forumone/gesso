@@ -12,7 +12,7 @@
  */
 #}
 {% if primary %}
-  {% include '@components/button-group/button-group.twig' with {
+  {% include 'gesso:button-group' with {
     'heading': 'Primary tabs'|t,
     'element': 'nav',
     'button_group_items': primary,
@@ -20,7 +20,7 @@
 {% endif %}
 
 {% if secondary %}
-  {% include '@components/button-group/button-group.twig' with {
+  {% include 'gesso:button-group' with {
     'heading': 'Secondary tabs'|t,
     'element': 'nav',
     'button_group_items': secondary,

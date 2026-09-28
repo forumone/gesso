@@ -9,7 +9,7 @@
   {% set tab_labels = tab_labels|merge([item.entity.field_title.value|default('')]) %}
 {% endfor %}
 
-{% include '@components/tabs/tabs.twig' with {
+{% include 'gesso:tabs' with {
   'attributes': attributes,
   'modifier_classes': '',
   'tab_labels': tab_labels,

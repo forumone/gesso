@@ -14,7 +14,7 @@
  * @see template_preprocess_menu_local_task()
  */
 #}
-{% include '@components/button-group/button-group-item.twig' with {
+{% include 'gesso:button-group-item' with {
   'is_active': is_active,
   'link': link,
 } only %}

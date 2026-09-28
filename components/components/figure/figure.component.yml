@@ -1,0 +1,30 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Figure
+props:
+  type: object
+  properties:
+    caption:
+      type:
+        - string
+        - "null"
+      title: Caption
+      description: 'Optional caption text for the figure.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for styling variants.'
+    title_suffix:
+      type:
+        - array
+        - "null"
+      title: Title Suffix
+      description: 'Drupal render array for additional markup.'
+slots:
+  media:
+    title: Media
+    description: 'The media content (image, or video).'
+libraryOverrides:
+  dependencies:
+    - gesso/global

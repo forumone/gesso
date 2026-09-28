@@ -13,8 +13,8 @@
  */
 #}
 {{ title_prefix }}
-{% include '@components/page-title/page-title.twig' with {
+{{ include('gesso:page-title', {
   'attributes': title_attributes,
   'page_title': title,
-} %}
+}, with_context=false) }}
 {{ title_suffix }}

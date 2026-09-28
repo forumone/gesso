@@ -5,7 +5,7 @@
  */
 #}
 {% if content %}
-  {% embed '@layouts/content/content.twig' with {
+  {% embed 'gesso:content' with {
     'attributes': attributes,
     'has_constrain': true,
   } %}

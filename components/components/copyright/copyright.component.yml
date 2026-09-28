@@ -1,0 +1,27 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Copyright
+props:
+  type: object
+  required:
+    - 'year'
+    - 'site_name'
+  properties:
+    year:
+      type: object
+      title: Year
+      properties:
+        long:
+          type: string
+    site_name:
+      type: string
+      title: Site Name
+      description: 'The name of the site.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the copyright component.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

@@ -11,11 +11,12 @@
  * @see template_preprocess_file_link()
  */
 #}
-{% include '@components/file/file.twig' with {
+{% include 'gesso:file' with {
   'attributes': attributes,
   'url': link['#url'],
   'file_name': link['#title'],
   'file_mime': file.filemime.value,
   'icon_name': 'file',
   'file_size': file_size,
+  'image_path': image_path,
 } %}

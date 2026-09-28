@@ -22,7 +22,7 @@
  * @see facets_preprocess_facets_item_list()
  */
 #}
-{% include '@components/facet-list/facet-list.twig' with {
+{% include 'gesso:facet-list' with {
   'attributes': attributes.removeClass('facet-active', 'facet-inactive'),
   'facets': items,
   'list_type': list_type,

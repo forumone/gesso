@@ -1,0 +1,34 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Footer
+props:
+  type: object
+  properties:
+    footer_content:
+      type: string
+      title: Footer Content
+      description: 'The main footer content.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the footer element.'
+    has_constrain:
+      type:
+        - boolean
+        - "null"
+      title: Has Constrain
+      description: 'Whether to constrain the footer content width.'
+    constrain_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Constrain Modifier Classes
+      description: 'Additional CSS classes for the constrain wrapper.'
+slots:
+  content:
+    title: Content
+    description: 'The footer content slot.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

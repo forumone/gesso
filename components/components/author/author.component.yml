@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Author
+props:
+  type: object
+  properties:
+    author:
+      type: string
+      title: Author
+      description: 'The author name.'
+    url:
+      type: string
+      title: URL
+      description: 'The author link URL.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the author component.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

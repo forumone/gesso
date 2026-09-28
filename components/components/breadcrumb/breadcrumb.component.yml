@@ -1,0 +1,23 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Breadcrumb
+props:
+  type: object
+  properties:
+    label:
+      type: string
+      title: Label
+      description: 'Accessible name for the breadcrumb navigation (aria-label).'
+      default: 'Breadcrumb'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the breadcrumb nav.'
+    breadcrumb:
+      type: array
+      title: Breadcrumb
+      description: 'Trail items. Each item has text and an optional url.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

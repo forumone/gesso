@@ -1,0 +1,26 @@
+{% set title_classes = [
+  title_modifier_classes ? title_modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set row_classes = [
+  has_default_class ? 'c-view__row' : '',
+  row_modifier_classes ? row_modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if has_default_class %}
+  {% set hide_row_wrapper = false %}
+{% endif %}
+
+{% if title %}
+  <{{ title_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>{{ title }}</{{ title_element ?: 'h3' }}>
+{% endif %}
+
+{% for row in rows %}
+  {% if hide_row_wrapper %}
+    {{ row.content }}
+  {% else %}
+    <{{ element ?: 'div' }} {{ add_attributes({ 'class': row_classes }, 'row.attributes') }}>
+      {{- row.content -}}
+    </{{ element ?: 'div' }}>
+  {% endif %}
+{% endfor %}

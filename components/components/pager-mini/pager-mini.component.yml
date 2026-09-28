@@ -1,0 +1,31 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Pager Mini
+props:
+  type: object
+  properties:
+    pager_items:
+      type: object
+      title: Pager Items
+      description: 'Object containing pager navigation items (previous, next, and current).'
+    heading:
+      type:
+        - string
+        - "null"
+      title: Heading
+      description: 'The aria-label text for the pagination navigation. Defaults to "Pagination".'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for styling variations.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'Path to the sprite artifact SVG directory.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--pager

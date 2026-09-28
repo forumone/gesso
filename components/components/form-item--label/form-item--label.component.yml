@@ -1,0 +1,58 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Form Item Label
+props:
+  type: object
+  properties:
+    title:
+      type:
+        - string
+        - "null"
+      title: Title
+      description: 'The label text.'
+    id:
+      type:
+        - string
+        - "null"
+      title: ID
+      description: 'The ID of the form element this label is for.'
+    required:
+      type:
+        - string
+        - boolean
+        - "null"
+      title: Required
+      description: 'Whether the associated form element is required (string or boolean).'
+    is_required:
+      type:
+        - boolean
+        - "null"
+      title: Is Required
+      description: 'Whether the associated form element is required (boolean).'
+    is_disabled:
+      type:
+        - boolean
+        - "null"
+      title: Is Disabled
+      description: 'Whether the associated form element is disabled.'
+    label_display:
+      type:
+        - string
+        - "null"
+      title: Label Display
+      description: 'How to display the label (before, after, invisible).'
+    title_display:
+      type:
+        - string
+        - "null"
+      title: Title Display
+      description: 'The title_display setting (e.g., invisible).'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--form-item

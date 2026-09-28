@@ -1,0 +1,18 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: List
+props:
+  type: object
+  properties:
+    list:
+      type: array
+      title: List
+      description: 'An array of list items. Each item should have a content property.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for styling variations (e.g., c-list--border, c-list--clean, c-list--column, c-list--inline, c-list--pipeline).'
+libraryOverrides:
+  dependencies:
+    - gesso/global

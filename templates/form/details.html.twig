@@ -24,7 +24,7 @@
   {{ value }}
 {% endset %}
 
-{% include '@components/details/details.twig' with {
+{% include 'gesso:details' with {
   'attributes': attributes,
   'required': required,
   'details_summary': title ? title : 'Details'|t,

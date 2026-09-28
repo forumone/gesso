@@ -1,0 +1,38 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Call To Action
+props:
+  type: object
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to add to the component.'
+    heading:
+      type:
+        - string
+        - "null"
+      title: Heading
+      description: 'The heading text for the call to action.'
+    link_url:
+      type:
+        - string
+        - "null"
+      title: Link URL
+      description: 'The URL for the call to action link.'
+    link_title:
+      type:
+        - string
+        - "null"
+      title: Link Title
+      description: 'The text for the call to action link.'
+slots:
+  media:
+    title: 'Media'
+  body:
+    title: Body
+    description: 'The body content for the call to action.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

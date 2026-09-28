@@ -1,0 +1,42 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Icon
+props:
+  type: object
+  required:
+    - icon_name
+  properties:
+    icon_name:
+      type: string
+      title: Icon Name
+      description: 'The identifier of the icon in the sprite sheet.'
+    image_path:
+      type: string
+      title: Image Path
+      description: 'The path to the sprite artifact SVG file.'
+    label:
+      type:
+        - string
+        - "null"
+      title: Label
+      description: 'The accessible label or title for the icon.'
+    is_hidden:
+      type:
+        - boolean
+        - "null"
+      title: Is Hidden
+      description: 'Whether the icon should be hidden from screen readers.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the icon.'
+    direction:
+      type:
+        - string
+        - "null"
+      title: Direction
+      description: 'The direction to rotate the icon (up, down, left, right).'
+libraryOverrides:
+  dependencies:
+    - gesso/global

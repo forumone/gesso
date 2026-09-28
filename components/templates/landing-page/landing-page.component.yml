@@ -1,0 +1,41 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Landing Page
+props:
+  type: object
+  properties:
+    is_published:
+      type: boolean
+      title: Is Published
+      description: 'Whether the page is published.'
+    show_admin_info:
+      type: boolean
+      title: Show Admin Info
+      description: 'Whether to display admin information.'
+    title_prefix:
+      type:
+        - array
+        - "null"
+      title: Title Prefix
+      description: 'Prefix content to display before the title.'
+    page_title:
+      type:
+        - string
+        - "null"
+      title: Page Title
+      description: 'The page title.'
+    title_suffix:
+      type:
+        - array
+        - "null"
+      title: Title Suffix
+      description: 'Suffix content to display after the title.'
+slots:
+  admin_info:
+    title: Admin Info
+    description: 'Administrative information and status messages.'
+  content:
+    title: Content
+    description: 'The main page content.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

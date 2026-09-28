@@ -1,0 +1,43 @@
+{% set icon_classes = [
+  'c-icon-link__icon',
+  icon_modifier_classes ? icon_modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if (icon_before is empty and icon_after is empty) and icon_name is not empty %}
+  {% if icon_position == 'before' or icon_position == 'both' %}
+    {% set icon_before %}
+      {%- include 'gesso:icon' with {
+        'modifier_classes': icon_classes ~ ' is-spaced-after',
+        'is_hidden': icon_is_hidden,
+        'label': icon_label,
+        'icon_name': icon_name,
+        'direction': icon_direction,
+      } -%}
+    {% endset %}
+  {% endif %}
+
+  {% if icon_position == 'after' or icon_position == 'both' %}
+    {% set icon_after %}
+      {%- include 'gesso:icon' with {
+        'modifier_classes': icon_classes ~ ' is-spaced-before',
+        'is_hidden': icon_is_hidden,
+        'label': icon_label,
+        'icon_name': icon_name,
+        'direction': icon_direction,
+      } -%}
+    {% endset %}
+  {% endif %}
+{% endif %}
+
+{%- apply spaceless %}
+  {% set classes = [
+    'c-icon-link',
+    modifier_classes ? modifier_classes : '',
+  ]|join(' ')|trim %}
+
+  <a {{ add_attributes({ 'class': classes }) }} href="{{ url }}"{% if no_follow %} rel="nofollow"{% endif %}{% if storybook %} target="_self"{% endif %}>
+    {{- icon_before -}}
+    {{- link_text -}}
+    {{- icon_after -}}
+  </a>
+{% endapply %}

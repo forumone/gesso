@@ -14,7 +14,8 @@
  *   - label: The facet label.
  */
 #}
-{% include '@components/filters/filter.twig' with {
+{% include 'gesso:filter' with {
   'value': value,
   'hide_link': true,
+  'image_path': image_path,
 } %}

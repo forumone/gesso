@@ -20,7 +20,7 @@
  */
 #}
 {% for type, messages in message_list %}
-  {% include '@components/message/message.twig' with {
+  {% include 'gesso:message' with {
     'attributes': attributes,
     'type': type,
     'heading': status_headings[type],

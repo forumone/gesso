@@ -1,0 +1,93 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Form Item Select
+props:
+  type: object
+  properties:
+    id:
+      type:
+        - string
+        - "null"
+      title: ID
+      description: 'The HTML ID attribute for the select element.'
+    name:
+      type:
+        - string
+        - "null"
+      title: Name
+      description: 'The HTML name attribute for the select element.'
+    autocomplete:
+      type:
+        - string
+        - "null"
+      title: Autocomplete
+      description: 'The autocomplete attribute value.'
+    is_autofocus:
+      type:
+        - boolean
+        - "null"
+      title: Is Autofocus
+      description: 'Whether the select element should autofocus.'
+    disabled:
+      type:
+        - string
+        - "null"
+      title: Disabled
+      description: 'Whether the select element is disabled (string value "disabled").'
+    is_disabled:
+      type:
+        - boolean
+        - "null"
+      title: Is Disabled
+      description: 'Whether the select element is disabled (boolean).'
+    form_id:
+      type:
+        - string
+        - "null"
+      title: Form ID
+      description: 'The form attribute value.'
+    is_multiple:
+      type:
+        - boolean
+        - "null"
+      title: Is Multiple
+      description: 'Whether multiple options can be selected.'
+    required:
+      type:
+        - string
+        - "null"
+      title: Required
+      description: 'Whether the select element is required (string value "required").'
+    is_required:
+      type:
+        - boolean
+        - "null"
+      title: Is Required
+      description: 'Whether the select element is required (boolean).'
+    size:
+      type:
+        - string
+        - "null"
+      title: Size
+      description: 'The size attribute value.'
+    described_by:
+      type:
+        - string
+        - "null"
+      title: Described By
+      description: 'The aria-describedby attribute value.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes.'
+    options:
+      type:
+        - array
+        - "null"
+      title: Options
+      description: 'The option and optgroup elements to render.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--form-item

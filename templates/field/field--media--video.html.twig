@@ -5,7 +5,7 @@
  */
 #}
 {% for item in items %}
-  {% include '@components/video/video.twig' with {
+  {% include 'gesso:video' with {
     'attributes': item.attributes,
     'files': item.content['#files'],
   } %}

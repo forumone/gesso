@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Site Container
+props:
+  type: object
+  properties:
+    site_container_content:
+      type: string
+      title: Site Container Content
+      description: 'The main content for the site container layout.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the container.'
+slots:
+  site_content:
+    title: Site Content
+    description: 'The main content slot for the site container.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

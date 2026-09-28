@@ -1,0 +1,35 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Details
+description: A details/summary disclosure widget for collapsible content.
+props:
+  type: object
+  properties:
+    details_summary:
+      type: string
+      title: Summary
+      description: The summary text that is always visible.
+    details_description:
+      type:
+        - string
+        - "null"
+      title: Description
+      description: Optional description text displayed above the content.
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: Additional CSS classes to apply to the component.
+    required:
+      type:
+        - boolean
+        - "null"
+      title: Required
+      description: Whether to mark the details as required.
+slots:
+  details_content:
+    title: Content
+    description: The main content hidden inside the details element.
+libraryOverrides:
+  dependencies:
+    - core/drupal

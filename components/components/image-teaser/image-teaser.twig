@@ -1,0 +1,23 @@
+{% set classes = [
+  'c-image-teaser',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if image %}
+  {% set teaser_image %}
+    <a href="{{ url }}">{{ image }}</a>
+  {% endset %}
+{% endif %}
+
+{% set teaser_content %}
+  <h2><a href="{{ url }}">{{ title }}</a></h2>
+  {{ date }}
+  {{ summary }}
+{% endset %}
+
+<article {{ add_attributes({ 'class': classes }) }}>
+  {% include 'gesso:media' with {
+    'media': teaser_image,
+    'media_content': teaser_content,
+  } %}
+</article>

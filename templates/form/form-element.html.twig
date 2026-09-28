@@ -52,7 +52,7 @@
   'js-form-item-' ~ name|clean_class,
 ]|join(' ')|trim %}
 
-{% include '@components/form-item/form-item.twig' with {
+{% include 'gesso:form-item' with {
   'attributes': attributes,
   'modifier_classes': modifier_classes,
 } %}

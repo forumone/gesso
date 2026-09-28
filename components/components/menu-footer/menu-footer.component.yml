@@ -1,0 +1,22 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+name: 'Footer Menu'
+description: 'A specialized menu component for footer navigation with inline layout'
+status: stable
+props:
+  type: object
+  required:
+    - items
+  properties:
+    menu_name:
+      type: string
+      title: Menu Name
+      description: The machine name of the menu
+      default: 'footer'
+    items:
+      type: array
+      title: Menu Items
+      description: Array of menu item objects
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--menu

@@ -16,12 +16,11 @@
  * @see template_preprocess_views_view_list()
  */
 #}
-{% include '@components/view/views-view-list/views-view-list.twig' with {
+{% include 'gesso:views-view-list' with {
   'attributes': attributes,
   'title': title,
   'title_element': 'h3',
   'hide_wrapper': attributes is empty,
-  'element': 'div',
-  'has_default_class': default_row_class,
+  'list': list,
   'rows': rows,
 } %}

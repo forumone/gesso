@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Site Name
+props:
+  type: object
+  properties:
+    site_name:
+      type: string
+      title: Site Name
+      description: 'The site name or title.'
+    url:
+      type: string
+      title: URL
+      description: 'The URL of the site homepage.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the component.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

@@ -1,0 +1,9 @@
+{% set classes = [
+  'c-tag',
+  type ? 'c-tag--' ~ type : '',
+  size ? 'c-tag--' ~ size : '',
+]|join(' ')|trim %}
+
+<a href="{{ url }}" {{ add_attributes({ 'class': classes }) }} rel="tag">
+  {{ title }}
+</a>

@@ -1,0 +1,38 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Sidebar
+props:
+  type: object
+  properties:
+    sidebar_header_content:
+      type:
+        - string
+        - "null"
+      title: Header Content
+      description: 'Content to display in the header region.'
+    sidebar_first_content:
+      type:
+        - string
+        - "null"
+      title: First Sidebar Content
+      description: 'Content to display in the first sidebar region.'
+    sidebar_main_content:
+      type:
+        - string
+        - "null"
+      title: Main Content
+      description: 'Content to display in the main content region.'
+    sidebar_second_content:
+      type:
+        - string
+        - "null"
+      title: Second Sidebar Content
+      description: 'Content to display in the second sidebar region.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for custom styling.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

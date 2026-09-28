@@ -1,0 +1,16 @@
+{% include 'gesso:messages-and-tabs' with {
+  'is_published': is_published,
+  'show_admin_info': show_admin_info,
+  'admin_info': admin_info,
+} %}
+
+{{ title_prefix }}
+{% include 'gesso:page-title' with {
+  'page_title': page_title,
+} only %}
+{{ title_suffix }}
+
+{% include 'gesso:section' with {
+  'section_title': null,
+  'section_content': content,
+} %}
