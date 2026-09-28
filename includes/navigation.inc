@@ -10,6 +10,9 @@ use Drupal\Core\Url;
 
 /**
  * Implements hook_preprocess_breadcrumb().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_breadcrumb(array &$variables): void {
   if ($variables['breadcrumb']) {
@@ -19,7 +22,12 @@ function gesso_preprocess_breadcrumb(array &$variables): void {
       = gesso_helper_get_theme_setting('include_current_page_in_breadcrumb') ?? TRUE;
     $themeName = \Drupal::theme()->getActiveTheme()->getName();
     $themeConfig = \Drupal::config($themeName . '.settings');
-    $renderer->addCacheableDependency($variables, $themeConfig);
+    // Renderer::addCacheableDependency() takes an untyped array by reference,
+    // so cacheability metadata is exchanged through an isolated local array
+    // rather than passing $variables directly through that looser boundary.
+    $cacheable = ['#cache' => $variables['#cache'] ?? []];
+    $renderer->addCacheableDependency($cacheable, $themeConfig);
+    $variables['#cache'] = $cacheable['#cache'];
 
     if ($variables['include_current_page']) {
       $request = \Drupal::request();
@@ -39,6 +47,9 @@ function gesso_preprocess_breadcrumb(array &$variables): void {
 
 /**
  * Implements hook_preprocess_menu().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_menu(array &$variables): void {
   $current_path = \Drupal::request()->getRequestUri();
@@ -55,6 +66,9 @@ function gesso_preprocess_menu(array &$variables): void {
 
 /**
  * Implements hook_preprocess_menu_local_tasks().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_menu_local_tasks(array &$variables): void {
   foreach (Element::children($variables['primary']) as $key) {
@@ -68,6 +82,9 @@ function gesso_preprocess_menu_local_tasks(array &$variables): void {
 
 /**
  * Implements hook_preprocess_menu_local_task().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_menu_local_task(array &$variables): void {
   $variables['link']['#options']['attributes']['class'][] = 'c-button-group-item__link';

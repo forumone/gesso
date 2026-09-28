@@ -4,6 +4,8 @@
 @use 'sass:math';
 @use '00-config' as *;
 
+// Uses sass rgba() function, which does not support the slash syntax
+// @see https://sass-lang.com/documentation/modules/#rgb
 $mobile-menu-bg-color: rgba(
   gesso-color(ui, generic, background-light),
   0.98
@@ -15,6 +17,9 @@ $mobile-menu-submenu-fallback-bg-color: gesso-color(
   generic,
   background-lighter
 ) !default;
+
+// Uses sass rgba() function, which does not support the slash syntax
+// @see https://sass-lang.com/documentation/modules/#rgb
 $mobile-menu-submenu-bg-color: rgba(
   gesso-color(ui, generic, background-lighter),
   0.98

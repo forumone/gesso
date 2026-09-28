@@ -4,9 +4,12 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
+{% set version = asset_version() %}
+{% set sprite_query = version ? '?v=' ~ version : '' %}
+
 {% apply spaceless %}
   <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if label is empty or is_hidden %} aria-hidden="true"{% endif %}>
     {% if label %}<title>{{ label }}</title>{% endif %}
-    <use href="{{ image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
+    <use href="{{ image_path }}/sprite.artifact.svg{{ sprite_query }}#{{ icon_name }}"></use>
   </svg>
 {% endapply %}

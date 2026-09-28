@@ -15,7 +15,7 @@ class UniqueIdTwigExtension extends AbstractExtension {
   /**
    * Provide helper name.
    */
-  public function getName() {
+  public function getName(): string {
     return 'gesso_helper_unique_id';
   }
 
@@ -31,7 +31,7 @@ class UniqueIdTwigExtension extends AbstractExtension {
   /**
    * Add random string to an ID.
    */
-  public function uniqueId($id) {
+  public function uniqueId(string $id): string {
     return Html::getId($id) . '--' . Crypt::randomBytesBase64(8);
   }
 

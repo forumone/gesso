@@ -9,6 +9,8 @@
 
   // Modal overlay styling
   &::backdrop {
+    // Uses sass rgba() function, which does not support the slash syntax
+    // @see https://sass-lang.com/documentation/modules/#rgb
     background-color: rgba(gesso-grayscale(black), 0.75);
   }
 
