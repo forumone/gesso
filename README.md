@@ -387,7 +387,7 @@ you've written some of your own-- it is are provided primarily as an example of
 a test spec.
 
 By default, tests run against `https://YOUR-PROJECT.ddev.site` if you run
-`ddev frontend test:e2e` If you want to run against a different URL, set the
+`ddev gesso test:e2e` If you want to run against a different URL, set the
 `PLAYWRIGHT_BASE_URL` environment variable.
 
 **Note**: If you are running Gesso as a separate service (you probably are),
