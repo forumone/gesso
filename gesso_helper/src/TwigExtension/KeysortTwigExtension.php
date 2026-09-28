@@ -28,6 +28,12 @@ class KeysortTwigExtension extends AbstractExtension {
 
   /**
    * Sort array by keys.
+   *
+   * @param array<int|string, mixed> $array
+   *   The array to sort.
+   *
+   * @return array<int|string, mixed>
+   *   The sorted array.
    */
   public function keysort(array $array): array {
     ksort($array);

@@ -49,13 +49,13 @@ class IconLinkFormatter extends LinkFormatter {
    *   The plugin definition.
    * @param \Drupal\Core\Field\FieldDefinitionInterface $field_definition
    *   The field definition.
-   * @param array $settings
+   * @param array<string, mixed> $settings
    *   An array of settings.
    * @param mixed $label
    *   The label.
    * @param mixed $view_mode
    *   The view mode.
-   * @param array $third_party_settings
+   * @param array<string, mixed> $third_party_settings
    *   An array of third party settings.
    * @param \Drupal\Core\Path\PathValidatorInterface $path_validator
    *   The path validator.
@@ -69,6 +69,8 @@ class IconLinkFormatter extends LinkFormatter {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-param array<string, mixed> $configuration
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
@@ -86,6 +88,8 @@ class IconLinkFormatter extends LinkFormatter {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, mixed>
    */
   public static function defaultSettings() {
     return [
@@ -99,6 +103,10 @@ class IconLinkFormatter extends LinkFormatter {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-param array<string, mixed> $form
+   *
+   * @phpstan-return array<string, mixed>
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     return $this->modifierSettingsForm($form, $form_state) +

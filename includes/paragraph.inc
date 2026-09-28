@@ -7,6 +7,9 @@
 
 /**
  * Implements theme_preprocess_paragraph().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_paragraph(array &$variables): void {
   $paragraph = $variables['paragraph'];
