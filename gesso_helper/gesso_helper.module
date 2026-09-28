@@ -24,6 +24,9 @@ function gesso_helper_get_theme_setting(string $setting_name, ?string $theme = N
 
 /**
  * Implements hook_form_system_theme_settings_alter().
+ *
+ * @phpstan-param array<string, mixed> $form
+ *   The form array.
  */
 function gesso_helper_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, ?string $form_id = NULL): void {
   // Work-around for a core bug affecting admin themes.
@@ -64,6 +67,9 @@ function gesso_helper_form_system_theme_settings_alter(array &$form, FormStateIn
 
 /**
  * Helper function to validate button classes and labels.
+ *
+ * @param array<string, mixed> $element
+ *   The form element being validated.
  */
 function gesso_helper_validate_buttons(array $element, FormStateInterface $formState): void {
   $value = str_replace(["\r\n", "\r"], "\n", trim($element['#value']));
@@ -78,6 +84,12 @@ function gesso_helper_validate_buttons(array $element, FormStateInterface $formS
 
 /**
  * Implements hook_theme().
+ *
+ * @phpstan-param array<string, mixed> $existing
+ *   The existing theme registry.
+ *
+ * @phpstan-return array<string, mixed>
+ *   The theme registry additions.
  */
 function gesso_helper_theme(array $existing, string $type, string $theme, string $path): array {
   return [

@@ -169,6 +169,7 @@ const commonConfig = {
           chunks: 'all',
           name: 'dist/js/common',
           minChunks: 2,
+          test: /\.(js|jsx|ts|tsx)$/,
         },
       },
     },

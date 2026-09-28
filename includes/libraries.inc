@@ -7,6 +7,9 @@
 
 /**
  * Implements hook_library_info_alter().
+ *
+ * @phpstan-param array<string, mixed> $libraries
+ *   The libraries array.
  */
 function gesso_library_info_alter(array &$libraries, string $extension): void {
   // Theme libs (gesso/*) and SDC libs (core/components.gesso--*) both ship
@@ -38,7 +41,7 @@ function gesso_library_info_alter(array &$libraries, string $extension): void {
 /**
  * Sets preprocess FALSE on matching JS assets in a single library definition.
  *
- * @param array $library
+ * @param array<string, mixed> $library
  *   A library definition (modified by reference).
  * @param callable(string): bool $path_matcher
  *   Return TRUE when the asset path should skip aggregation.
@@ -58,6 +61,9 @@ function gesso_disable_library_js_preprocess(array &$library, callable $path_mat
 
 /**
  * Implements hook_element_info_alter().
+ *
+ * @phpstan-param array<string, mixed> $types
+ *   The element types array.
  */
 function gesso_element_info_alter(array &$types): void {
   if (isset($types['gesso_icon_link'])) {

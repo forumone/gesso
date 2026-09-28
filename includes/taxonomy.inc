@@ -7,6 +7,9 @@
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_taxonomy_term(array &$variables): void {
   $variables['term_name'] = $variables['term']->getName();
@@ -23,6 +26,11 @@ function gesso_preprocess_taxonomy_term(array &$variables): void {
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * @phpstan-param array<int, string> $suggestions
+ *   The theme suggestions.
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables): void {
   $bundle = $variables['elements']['name']['#bundle'];

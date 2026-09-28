@@ -7,6 +7,9 @@
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_user(array &$variables): void {
   $variables['display_name'] = $variables['user']->getDisplayName();
@@ -24,6 +27,11 @@ function gesso_preprocess_user(array &$variables): void {
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * @phpstan-param array<int, string> $suggestions
+ *   The theme suggestions.
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_theme_suggestions_user_alter(array &$suggestions, array $variables): void {
   if (isset($variables['elements']['#view_mode'])) {

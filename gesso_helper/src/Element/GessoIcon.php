@@ -14,10 +14,10 @@ class GessoIcon extends RenderElementBase {
   /**
    * Prerenders icon.
    *
-   * @param array $element
+   * @param array<string, mixed> $element
    *   Associative array containing properties and children of the element.
    *
-   * @return array
+   * @return array<string, mixed>
    *   The element.
    */
   public function preRenderIcon(array $element) {
@@ -44,6 +44,8 @@ class GessoIcon extends RenderElementBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, mixed>
    */
   public function getInfo() {
     return [

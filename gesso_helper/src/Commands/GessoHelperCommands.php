@@ -64,7 +64,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    *
    * @param string $name
    *   The name of your theme.
-   * @param array $options
+   * @param array<string, string|null> $options
    *   An associative array of options whose values come from cli,
    *   aliases, config, etc.
    *
@@ -146,19 +146,40 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
         );
       }
     }
-    $templateFiles = new \RecursiveIteratorIterator(
+    // Update SDC references in component templates and definitions. Component
+    // SCSS and JS are skipped, and only targeted patterns are replaced, since
+    // "gesso" also appears in Sass function names, drupalSettings keys and
+    // file names (e.g., gesso.macro.twig) that must not change.
+    $componentFiles = new \RecursiveIteratorIterator(
         new \RecursiveDirectoryIterator(
-          $new_path . '/source', \FilesystemIterator::SKIP_DOTS
+          $new_path . '/components', \FilesystemIterator::SKIP_DOTS
         ),
       \RecursiveIteratorIterator::SELF_FIRST);
-    foreach ($templateFiles as $templateFile) {
-      if (!$templateFile->isDir()) {
-        $this->gessoFileStrReplace(
-          $templateFile->getPathname(),
-          ["/attach_library\((')?gesso/"],
-          ['attach_library($1' . $machine_name]
-        );
+    foreach ($componentFiles as $componentFile) {
+      $filename = $componentFile->getFilename();
+      if ($componentFile->isDir()
+        || !(str_ends_with($filename, '.twig') || str_ends_with($filename, '.component.yml'))) {
+        continue;
       }
+      $this->gessoFileStrReplace(
+        $componentFile->getPathname(),
+        [
+          // Component IDs, e.g., {% include 'gesso:icon' %}.
+          "/(?<=['\"])gesso:/",
+          // Library names, e.g., gesso/global or attach_library('gesso/...').
+          '/\bgesso\//',
+          // SDC library names, e.g., core/components.gesso--button.
+          '/\bcomponents\.gesso--/',
+          // Theme settings path, e.g., /admin/appearance/settings/gesso.
+          '/(?<=\/appearance\/settings\/)gesso\b/',
+        ],
+        [
+          $machine_name . ':',
+          $machine_name . '/',
+          'components.' . $machine_name . '--',
+          $machine_name,
+        ]
+      );
     }
 
     // Rename the .info.yml file.
@@ -262,6 +283,13 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
 
   /**
    * Replace strings in a file.
+   *
+   * @param string $file_path
+   *   The path of the file to update.
+   * @param string|array<array-key, string> $find
+   *   The pattern (or patterns) to search for.
+   * @param string|array<array-key, mixed> $replace
+   *   The string (or strings) to replace them with.
    */
   private function gessoFileStrReplace(string $file_path, string|array $find, string|array $replace): void {
     $file_contents = file_get_contents($file_path);

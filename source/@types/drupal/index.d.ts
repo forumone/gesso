@@ -7,6 +7,7 @@ declare module 'drupal' {
       externalLinkAllowedDomains?: string[];
       externalLinkAllowedLinks?: string[];
       imagePath?: string;
+      assetVersion?: string;
     };
   }
 

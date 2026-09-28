@@ -7,6 +7,9 @@
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
 function gesso_preprocess_file_link(array &$variables): void {
   // Replace file classes with c-file.

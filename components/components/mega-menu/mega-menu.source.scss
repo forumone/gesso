@@ -236,6 +236,8 @@
 
 @include breakpoint-max(gesso-breakpoint(mobile-menu)) {
   .c-mega-menu__section {
+    // Uses sass rgba() function, which does not support the slash syntax
+    // @see https://sass-lang.com/documentation/modules/#rgb
     background-color: rgba(gesso-color(ui, generic, background-lighter), 0.98);
   }
 
