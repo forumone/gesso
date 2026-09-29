@@ -1,3 +1,4 @@
+import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
 import { withGlobalWrapper } from '../../../.storybook/decorators';
@@ -5,6 +6,7 @@ import twigTemplate from './figure.twig';
 import data from './figure.yml';
 import videoData from './figure--iframe.yml';
 import '../video/video.scss';
+import { Ratio4x3 as MediumImage } from '../../01-global/images/medium-image.stories.jsx';
 
 const settings = {
   title: 'Components/Figure',
@@ -12,7 +14,15 @@ const settings = {
 };
 
 const Default = {
-  render: args => parse(twigTemplate(args)),
+  render: args => parse(twigTemplate({
+    media: ReactDOMServer.renderToStaticMarkup(
+      MediumImage.render({
+        ...MediumImage.args,
+        ...args,
+      }),
+    ),
+    ...args,
+  })),
   args: { ...data },
 };
 

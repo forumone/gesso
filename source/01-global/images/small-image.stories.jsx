@@ -1,14 +1,14 @@
 import parse from 'html-react-parser';
 
 import { withGlobalWrapper } from '../../../.storybook/decorators';
-import defaultTemplate from './thumbnail-image.twig';
-import ratio16x9Template from './thumbnail-image-16x9.twig';
-import ratio4x3Template from './thumbnail-image-4x3.twig';
-import ratio3x4Template from './thumbnail-image-3x4.twig';
+import defaultTemplate from './small-image.twig';
+import ratio16x9Template from './small-image-16x9.twig';
+import ratio4x3Template from './small-image-4x3.twig';
+import ratio3x4Template from './small-image-3x4.twig';
 import globalData from '../../00-config/storybook.global-data.yml';
 
 const settings = {
-  title: 'Global/Responsive Images/Thumbnail Image',
+  title: 'Global/Responsive Images/Small Image',
   decorators: [withGlobalWrapper],
   parameters: {
     controls: {

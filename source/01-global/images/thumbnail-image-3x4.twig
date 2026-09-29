@@ -1,0 +1,11 @@
+{% extends "@global/images/thumbnail-image.twig" %}
+
+{% set image_src = img_thumbnail_3x4.src %}
+{% set image_alt = img_thumbnail_3x4.alt %}
+{% set image_height = img_thumbnail_3x4.height %}
+{% set image_width = img_thumbnail_3x4.width %}
+{% set image_srcset -%}
+  {{ img_thumbnail_3x4.src }} {{ img_thumbnail_3x4.width }}w,
+  {{ img_thumbnail_3x4.responsive.1.src }} {{ img_thumbnail_3x4.responsive.1.width }}w,
+  {{ img_thumbnail_3x4.responsive.2.src }} {{ img_thumbnail_3x4.responsive.2.width }}w
+{%- endset %}

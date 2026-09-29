@@ -1,0 +1,31 @@
+{% extends "@global/images/_responsive-image.twig" %}
+
+{% if image_src is empty %}
+  {% set image_src = img_small.src %}
+{% endif %}
+
+{% if image_alt is empty %}
+  {% set image_alt = img_small.alt %}
+{% endif %}
+
+{% if image_height is empty %}
+  {% set image_height = img_small.height %}
+{% endif %}
+
+{% if image_width is empty %}
+  {% set image_width = img_small.width %}
+{% endif %}
+
+{% if image_sizes is empty %}
+  {% set image_sizes -%}
+    min(calc(100vw - {{ responsive_image_gutters }}), {{ img_small.width }}px)
+  {%- endset %}
+{% endif %}
+
+{% if image_srcset is empty %}
+  {% set image_srcset -%}
+    {{ img_small.src }} {{ img_small.width }}w,
+    {{ img_small.responsive.1.src }} {{ img_small.responsive.1.width }}w,
+    {{ img_small.responsive.2.src }} {{ img_small.responsive.2.width }}w
+  {%- endset %}
+{% endif %}

@@ -1,0 +1,7 @@
+<img {% if modifier_classes %}class="{{ modifier_classes }}" {% endif %}
+  src="{{ image_src }}"
+  alt="{{ image_alt }}"
+  {%- if image_height %} height="{{ image_height }}"{% endif -%}
+  {%- if image_width %} width="{{ image_width }}"{% endif -%}
+  sizes="{{ image_sizes }}"
+  srcset="{{ image_srcset }}">
