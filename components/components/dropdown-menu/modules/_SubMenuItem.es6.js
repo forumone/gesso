@@ -74,9 +74,9 @@ class SubMenuItem extends MenuItem {
     let clickEvent;
     if (
       !this.menu.options.useArrowKeys &&
-      this.key !== ' ' &&
-      this.key !== 'Spacebar' &&
-      this.key !== 'Escape'
+      key !== ' ' &&
+      key !== 'Spacebar' &&
+      key !== 'Escape'
     )
       return;
     switch (key) {

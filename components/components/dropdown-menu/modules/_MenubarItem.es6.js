@@ -48,9 +48,9 @@ class MenubarItem extends MenuItem {
     let flag = false;
     if (
       !this.menu.options.useArrowKeys &&
-      this.key !== ' ' &&
-      this.key !== 'Spacebar' &&
-      this.key !== 'Escape'
+      key !== ' ' &&
+      key !== 'Spacebar' &&
+      key !== 'Escape'
     )
       return;
     switch (key) {
