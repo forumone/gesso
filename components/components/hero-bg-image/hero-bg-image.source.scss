@@ -7,7 +7,7 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 .c-hero-bg-image {
   color: gesso-color(text, on-dark);
   overflow: hidden;
-  padding: rem(gesso-spacing(12)) 15%;
+  padding: gesso-spacing(12) 15%;
   position: relative;
   text-align: center;
 
@@ -58,21 +58,21 @@ $hero-bg-image-bp: gesso-breakpoint(desktop) !default;
 .c-hero-bg-image__title {
   @include display-text-style(display);
   color: gesso-color(text, on-dark);
-  margin-block-end: rem(gesso-spacing(5));
+  margin-block-end: gesso-spacing(5);
 
   @include breakpoint-max($hero-bg-image-bp, true) {
-    font-size: rem(gesso-font-size(12));
-    margin-block-end: rem(gesso-spacing(3));
+    font-size: gesso-font-size(12);
+    margin-block-end: gesso-spacing(3);
   }
 }
 
 .c-hero-bg-image__summary {
   @include display-text-style(body-large);
   color: gesso-color(text, on-dark);
-  margin-block-end: rem(gesso-spacing(5));
+  margin-block-end: gesso-spacing(5);
 
   @include breakpoint-max($hero-bg-image-bp, true) {
-    font-size: rem(gesso-font-size(3));
-    margin-block-end: rem(gesso-spacing(3));
+    font-size: gesso-font-size(3);
+    margin-block-end: gesso-spacing(3);
   }
 }

@@ -4,7 +4,7 @@
 @use '01-global/html-elements/13-headings/headings' as *;
 
 .c-field {
-  margin-block-end: rem(gesso-spacing(2));
+  margin-block-end: gesso-spacing(2);
 }
 
 .c-field__label {

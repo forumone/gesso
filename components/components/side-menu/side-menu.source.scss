@@ -8,7 +8,7 @@ $side-menu-bg-color: gesso-color(ui, generic, background-light);
 .c-side-menu {
   background: $side-menu-bg-color;
   block-size: 100vh;
-  font-size: rem(gesso-font-size(5));
+  font-size: gesso-font-size(5);
   inline-size: rem(300px);
   inset-block-start: 0;
   inset-inline-start: 0;
@@ -105,7 +105,7 @@ $side-menu-bg-color: gesso-color(ui, generic, background-light);
 }
 
 .c-side-menu__section-title {
-  font-size: rem(gesso-font-size(7));
+  font-size: gesso-font-size(7);
   font-weight: gesso-font-weight(semibold);
   padding: gesso-spacing(1) gesso-spacing(2);
 }

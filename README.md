@@ -508,7 +508,7 @@ font-family: gesso-font-family(primary);
 Output a size value from the font-size token list.
 
 ```scss
-font-size: rem(gesso-font-size(2));
+font-size: gesso-font-size(2);
 ```
 
 #### `gesso-font-weight($weight)`
@@ -540,7 +540,7 @@ line-height: gesso-line-height(tight);
 Output a size value from the spacing token list.
 
 ```scss
-margin-bottom: rem(gesso-spacing(md));
+margin-bottom: gesso-spacing(8);
 ```
 
 #### `gesso-z-index($index)`

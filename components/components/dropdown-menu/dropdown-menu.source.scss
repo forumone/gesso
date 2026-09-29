@@ -77,7 +77,7 @@
   display: none;
   inset-block-start: 0;
   inset-inline-start: 0;
-  margin: rem(gesso-spacing(1)) 0 0;
+  margin: gesso-spacing(1) 0 0;
   padding: 0;
   position: absolute;
 
@@ -90,8 +90,8 @@
     display: block;
     inline-size: rem(200px);
     line-height: gesso-line-height(short);
-    padding: rem(gesso-spacing(2)) calc(#{rem(gesso-spacing(3))} + 7px)
-      rem(gesso-spacing(2)) rem(gesso-spacing(3));
+    padding: gesso-spacing(2) calc(#{gesso-spacing(3)} + 7px) gesso-spacing(2)
+      gesso-spacing(3);
     position: relative;
     text-decoration: none;
 
@@ -116,11 +116,11 @@
   .c-dropdown-menu__subnav-toggle {
     @include text-button;
     @include image-replace(
-      rem(gesso-spacing(3) + 2px),
-      rem(gesso-spacing(3) + 2px)
+      gesso-spacing(3) + rem(2px),
+      gesso-spacing(3) + rem(2px)
     );
     @include svg-background(menu-arrow-right);
-    background-size: rem(gesso-spacing(3)) rem(gesso-spacing(3));
+    background-size: gesso-spacing(3) gesso-spacing(3);
     border: 1px solid currentColor;
     color: inherit;
     display: block;

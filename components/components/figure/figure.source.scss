@@ -2,18 +2,18 @@
 
 @use '00-config' as *;
 
-$align-margin: rem(gesso-spacing(4));
-$align-max-width: calc(50% - #{rem(gesso-spacing(2))});
+$align-margin: gesso-spacing(4);
+$align-max-width: calc(50% - #{gesso-spacing(2)});
 
 .c-figure {
   display: table;
-  margin-block: 0 rem(gesso-spacing(2));
+  margin-block: 0 gesso-spacing(2);
 
   &.align-center,
   &.u-align-center {
     clear: both;
     display: table;
-    margin-block-start: rem(gesso-spacing(2));
+    margin-block-start: gesso-spacing(2);
   }
 
   &.u-align-inline-end {
@@ -60,8 +60,8 @@ $align-max-width: calc(50% - #{rem(gesso-spacing(2))});
     // stylelint-enable
 
     .media-library-item__edit {
-      inset-block-start: rem(gesso-spacing(1));
-      inset-inline: rem(gesso-spacing(1)) initial;
+      inset-block-start: gesso-spacing(1);
+      inset-inline: gesso-spacing(1) initial;
       position: absolute;
     }
   }
@@ -71,7 +71,7 @@ $align-max-width: calc(50% - #{rem(gesso-spacing(2))});
   caption-side: bottom;
   display: table-caption;
   font-weight: gesso-font-weight(semibold);
-  margin-block-start: rem(gesso-spacing(1));
+  margin-block-start: gesso-spacing(1);
 }
 
 .c-figure--iframe {

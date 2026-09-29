@@ -38,7 +38,7 @@
 
   &.is-sortable {
     th[data-sortable] {
-      padding-inline-end: rem(gesso-spacing(5));
+      padding-inline-end: gesso-spacing(5);
       position: relative;
 
       &[aria-sort='ascending'] {
@@ -60,9 +60,9 @@
   @include text-button();
   color: inherit;
   display: block;
-  inline-size: rem(gesso-spacing(4));
-  inset-block: rem(gesso-spacing(0.5));
-  inset-inline-end: rem(gesso-spacing(0.5));
+  inline-size: gesso-spacing(4);
+  inset-block: gesso-spacing(0.5);
+  inset-inline-end: gesso-spacing(0.5);
   outline-offset: 0;
   position: absolute;
 

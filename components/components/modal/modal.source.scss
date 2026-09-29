@@ -42,8 +42,8 @@
   border: 0;
   cursor: pointer;
   display: inline-block;
-  inset-block-start: rem(gesso-spacing(3));
-  inset-inline-end: rem(gesso-spacing(3));
+  inset-block-start: gesso-spacing(3);
+  inset-inline-end: gesso-spacing(3);
   position: absolute;
   transition: opacity gesso-duration(standard) gesso-easing(ease-in-out);
 
@@ -54,8 +54,8 @@
 }
 
 .c-modal__inner {
-  padding-block: rem(gesso-spacing(5));
-  padding-inline: rem(gesso-spacing(5));
+  padding-block: gesso-spacing(5);
+  padding-inline: gesso-spacing(5);
 }
 
 .c-modal__content {

@@ -28,8 +28,8 @@ $accordion-item-icon-weight: 2px !default;
   inline-size: 100%;
   justify-content: space-between;
   line-height: inherit;
-  padding-block: rem(gesso-spacing(2));
-  padding-inline: rem(gesso-spacing(2)) rem(gesso-spacing(8));
+  padding-block: gesso-spacing(2);
+  padding-inline: gesso-spacing(2) gesso-spacing(8);
   pointer-events: none;
   position: relative;
   text-align: start;
@@ -57,7 +57,7 @@ $accordion-item-icon-weight: 2px !default;
   display: none;
   inline-size: $accordion-item-icon-size;
   inset-block-start: 50%;
-  inset-inline-end: rem(gesso-spacing(3));
+  inset-inline-end: gesso-spacing(3);
   position: absolute;
   transform: translateY(-50%);
 
@@ -99,9 +99,9 @@ $accordion-item-icon-weight: 2px !default;
 }
 
 .c-accordion-item__drawer-inner {
-  padding: rem(gesso-spacing(2));
+  padding: gesso-spacing(2);
   padding-block-start: 0;
-  padding-inline-end: rem(gesso-spacing(8));
+  padding-inline-end: gesso-spacing(8);
 
   > :last-child {
     margin-block-end: 0;

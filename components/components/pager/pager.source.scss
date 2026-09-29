@@ -13,7 +13,7 @@ $pager-bp: 600px !default;
 .c-pager__items {
   @include list-clean();
   clear: both;
-  margin: rem(gesso-spacing(3)) 0;
+  margin: gesso-spacing(3) 0;
   padding: 0;
   text-align: center;
 }
@@ -38,7 +38,7 @@ $pager-bp: 600px !default;
 %c-pager__link {
   background-color: transparent;
   color: $pager-link-color;
-  min-inline-size: rem(gesso-spacing(5));
+  min-inline-size: gesso-spacing(5);
   padding: em(gesso-spacing(1));
   transition:
     color gesso-duration(short) gesso-easing(ease-out),

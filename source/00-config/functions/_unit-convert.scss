@@ -1,8 +1,9 @@
 // Functions: Unit Convert
 
+@use 'sass:map';
 @use 'sass:math';
 @use 'sass:meta';
-@use 'gesso' as *;
+@use '../design-tokens.artifact' as *;
 @use 'numbers' as *;
 
 /// Convert unitless number to unit value
@@ -26,7 +27,7 @@
 //   If unitless, pixels are assumed.
 // @param {Number} $base - Base font size in pixels.
 // @return {Number} - Value in pixels.
-@function px($value, $base: gesso-get-map(typography, base-font-size)) {
+@function px($value, $base: map.get($gesso, typography, base-font-size)) {
   @if math.is-unitless($value) {
     @return convert($value, px);
   }
@@ -45,7 +46,7 @@
 //   If unitless, pixels are assumed.
 // @param {Number} $base - Base font size in pixels.
 // @return {Number} - Value in ems.
-@function em($value, $base: gesso-get-map(typography, base-font-size)) {
+@function em($value, $base: map.get($gesso, typography, base-font-size)) {
   @if (meta.type-of($base) != 'number' or math.unit($base) != 'px') {
     @error 'Base font size must be in pixels.';
   }
@@ -65,7 +66,7 @@
 //   a different font size, do rem(px($emValue, $emBase), $remBase).
 // @param {Number} $base - Base font size in pixels.
 // @return {Number} - Value in rems.
-@function rem($value, $base: gesso-get-map(typography, base-font-size)) {
+@function rem($value, $base: map.get($gesso, typography, base-font-size)) {
   @if (meta.type-of($base) != 'number' or math.unit($base) != 'px') {
     @error 'Base font size must be in pixels.';
   }

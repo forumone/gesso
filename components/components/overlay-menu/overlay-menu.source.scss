@@ -36,7 +36,7 @@ $overlay-menu-bg-color: rgba(
   block-size: calc(100% - 55px);
   display: flex;
   flex-flow: column nowrap;
-  font-size: rem(gesso-font-size(8));
+  font-size: gesso-font-size(8);
   inline-size: 100%;
   justify-content: center;
 }

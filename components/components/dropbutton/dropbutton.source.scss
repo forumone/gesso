@@ -5,14 +5,14 @@
 @use '00-config' as *;
 
 $dropbutton-toggle-height: gesso-line-height(base) *
-  rem(gesso-base-font-size()) + 2 * rem(gesso-spacing(1)) !default;
+  rem(gesso-base-font-size()) + 2 * gesso-spacing(1) !default;
 $dropbutton-toggle-width: 2em !default;
 $dropbutton-toggle-icon-size: rem(12px) !default;
 
 .c-dropbutton {
   block-size: $dropbutton-toggle-height;
   display: inline-block;
-  margin-block-end: rem(gesso-spacing(1));
+  margin-block-end: gesso-spacing(1);
   position: relative;
   vertical-align: top;
 

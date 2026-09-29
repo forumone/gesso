@@ -4,7 +4,7 @@
 
 %caption,
 caption {
-  margin-block-end: rem(gesso-spacing(0.5));
+  margin-block-end: gesso-spacing(0.5);
 }
 
 // col {}
@@ -15,7 +15,7 @@ caption {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin-block-end: rem(gesso-spacing(2));
+  margin-block-end: gesso-spacing(2);
   min-inline-size: 100%;
 }
 
@@ -26,7 +26,7 @@ td {
   background-clip: padding-box;
   background-color: gesso-color(table, background);
   border: 1px solid gesso-color(table, border);
-  padding: rem(gesso-spacing(2));
+  padding: gesso-spacing(2);
 }
 
 tfoot {
@@ -42,7 +42,7 @@ th {
   background-clip: padding-box;
   background-color: gesso-color(table, background);
   border: 1px solid gesso-color(table, border);
-  padding: rem(gesso-spacing(2));
+  padding: gesso-spacing(2);
   text-align: start;
 }
 
