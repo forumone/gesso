@@ -27,3 +27,8 @@ components/**/*.js.map
 storybook
 debug-storybook.log
 
+## Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+

@@ -151,7 +151,7 @@ class SideMenu extends OverlayMenu {
    */
   init() {
     super.init();
-    const menuItems = document.querySelectorAll('.c-menu__link');
+    const menuItems = this.overlay.querySelectorAll('.c-menu__link');
     menuItems.forEach(item => {
       if (item.tagName === 'BUTTON') {
         this.prepButton(item);

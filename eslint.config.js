@@ -9,6 +9,7 @@ const config = defineConfig([
     '**/_GESSO.es6.js',
     'components/**/*.js',
     '!components/**/*.source.js',
+    '!components/**/*.test.js',
     '!components/**/modules/**/*.js',
     'dist/**',
     'storybook/**',
