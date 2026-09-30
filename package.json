@@ -85,7 +85,7 @@
     "ts-loader": "^9.6.2",
     "twig": "^3.0.0",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.11",
+    "vitest": "^5.0.3",
     "webpack": "^5.111.1",
     "webpack-cli": "^7.2.3",
     "webpack-merge": "^6.0.1"
