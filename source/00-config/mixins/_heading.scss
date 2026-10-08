@@ -1,0 +1,41 @@
+// Mixins: Heading
+
+@use '../functions' as *;
+@use './display-text-style' as *;
+
+// Base styles shared by every heading level. This is the single source for
+// both the global %hN placeholder (01-global/html-elements/13-headings) and
+// heading() below.
+@mixin heading-base {
+  color: inherit;
+  font-weight: gesso-font-weight(bold);
+  hyphens: none;
+  line-height: gesso-line-height(base);
+  margin-block: 0 gesso-spacing(2);
+  margin-inline: 0;
+  text-rendering: optimizelegibility;
+
+  @media print {
+    orphans: 3;
+    page-break-after: avoid;
+    widows: 3;
+
+    &::after {
+      display: inline-block;
+    }
+  }
+
+  // Add top margin when headers are preceded by other elements (p, ul, etc.)
+  * + & {
+    margin-block-start: 1em;
+  }
+}
+
+// Full heading styles for one level, for components compiled outside
+// styles.css (SDCs). @extend-ing the global %h* placeholders would require
+// @use-ing the headings partial, which copies every h1–h6 rule into the
+// component's CSS and re-applies them after styles.css.
+@mixin heading($level) {
+  @include heading-base;
+  @include display-text-style($level);
+}
