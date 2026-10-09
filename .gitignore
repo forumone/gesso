@@ -23,6 +23,7 @@ components/**/*.js
 components/**/*.js.map
 !components/**/*.source.js
 !components/**/modules/*.js
+!components/**/*.test.js
 
 storybook
 debug-storybook.log
