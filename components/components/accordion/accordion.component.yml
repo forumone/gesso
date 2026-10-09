@@ -30,6 +30,6 @@ libraryOverrides:
   dependencies:
     - gesso/global
   css:
-    theme:
+    component:
       accordion.css: {}
       accordion--step-list.css: {}

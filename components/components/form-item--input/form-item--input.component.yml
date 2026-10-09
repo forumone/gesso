@@ -143,7 +143,7 @@ props:
       description: 'Additional CSS classes.'
 libraryOverrides:
   css:
-    theme:
+    component:
       form-item--checkbox.css: {}
       form-item--radio.css: {}
       form-item--range.css: {}
