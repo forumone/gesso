@@ -9,7 +9,6 @@ global:
     # enough — see https://www.drupal.org/project/drupal/issues/3560103
     base:
       dist/css/styles.css: {}
-    # Utilities must keep overriding component CSS; see source/utilities.scss.
     state:
       dist/css/utilities.css: {}
     theme:

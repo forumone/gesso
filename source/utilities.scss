@@ -1,8 +1,4 @@
 // Utilities and quick fixes.
-//
-// Loaded in the `state` CSS category (weight 100) so they come after SDC
-// component CSS (component category, weight 0) and keep overriding it, as
-// they did when they were the last part of styles.css.
 
 @use '02-utility' as *;
 @use 'shame';
