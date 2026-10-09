@@ -9,6 +9,9 @@ global:
     # enough — see https://www.drupal.org/project/drupal/issues/3560103
     base:
       dist/css/styles.css: {}
+    # Utilities must keep overriding component CSS; see source/utilities.scss.
+    state:
+      dist/css/utilities.css: {}
     theme:
       # If you alter the fonts here, be sure to also update: source/editor-styles.scss and .storybook/preview-head.html.
       //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
