@@ -102,7 +102,7 @@ reviews:
     # Source: Organization UI (base)
     drafts: false
     # Source: defaults
-    base_branches: ['5.x-RC', '6.x-RC', '5.x', '6.x']
+    base_branches: ['^5\.x-RC$', '^6\.x-RC$', '^5\.x$', '^6\.x$']
     # Source: defaults
     ignore_usernames: []
   finishing_touches:
