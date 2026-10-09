@@ -209,7 +209,9 @@ const commonConfig = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../',
+              // CSS is emitted at varying depths (dist/css/*, components/**/),
+              // so asset URLs must be relative to each CSS file's location.
+              publicPath: 'auto',
             },
           },
           {
