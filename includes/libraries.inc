@@ -69,4 +69,9 @@ function gesso_element_info_alter(array &$types): void {
   if (isset($types['gesso_icon_link'])) {
     $types['gesso_icon_link']['#attached']['library'][] = 'core/components.gesso--icon-link';
   }
+  // gesso_button (used by the Gesso Button link formatter) renders c-button
+  // markup directly, so it doesn't get the button SDC's library on its own.
+  if (isset($types['gesso_button'])) {
+    $types['gesso_button']['#attached']['library'][] = 'core/components.gesso--button';
+  }
 }
