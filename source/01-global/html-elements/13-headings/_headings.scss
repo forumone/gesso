@@ -2,65 +2,28 @@
 
 @use '00-config' as *;
 
-%hN {
-  color: inherit;
-  font-weight: gesso-font-weight(bold);
-  hyphens: none;
-  line-height: gesso-line-height(base);
-  margin-block: 0 gesso-spacing(2);
-  margin-inline: 0;
-  text-rendering: optimizelegibility;
-
-  @media print {
-    orphans: 3;
-    page-break-after: avoid;
-    widows: 3;
-
-    &::after {
-      display: inline-block;
-    }
-  }
-
-  // Add top margin when headers are preceded by other elements (p, ul, etc.)
-  * + & {
-    margin-block-start: 1em;
-  }
+h1 {
+  @include heading(h1);
 }
 
-h1,
-%h1 {
-  @extend %hN;
-  @include display-text-style(h1);
+h2 {
+  @include heading(h2);
 }
 
-h2,
-%h2 {
-  @extend %hN;
-  @include display-text-style(h2);
+h3 {
+  @include heading(h3);
 }
 
-h3,
-%h3 {
-  @extend %hN;
-  @include display-text-style(h3);
+h4 {
+  @include heading(h4);
 }
 
-h4,
-%h4 {
-  @extend %hN;
-  @include display-text-style(h4);
+h5 {
+  @include heading(h5);
 }
 
-h5,
-%h5 {
-  @extend %hN;
-  @include display-text-style(h5);
-}
-
-h6,
-%h6 {
-  @extend %hN;
-  @include display-text-style(h6);
+h6 {
+  @include heading(h6);
 }
 
 h1,
