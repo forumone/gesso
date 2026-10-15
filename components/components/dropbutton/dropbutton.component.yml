@@ -1,0 +1,59 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: Dropbutton
+status: experimental
+props:
+  type: object
+  properties:
+    links:
+      type: array
+      title: Links
+      description: Array of link objects to display in the dropbutton.
+      items:
+        type: object
+        properties:
+          link:
+            type:
+              - string
+              - "null"
+            description: Rendered HTML link.
+          href:
+            type:
+              - string
+              - "null"
+            description: URL for the link.
+          text:
+            type:
+              - string
+              - "null"
+            description: Text content of the link.
+          text_attributes:
+            type:
+              - object
+              - string
+              - "null"
+            description: HTML attributes for the text element.
+          item_attributes:
+            type:
+              - object
+              - string
+              - "null"
+            description: HTML attributes for the list item.
+          item_link_attributes:
+            type:
+              - object
+              - string
+              - "null"
+            description: HTML attributes for the link element.
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: Additional CSS classes to add to the dropbutton container.
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
+    - gesso/global
+    # Dropbutton links reuse c-button classes.
+    - core/components.gesso--button

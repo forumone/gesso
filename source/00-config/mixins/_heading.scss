@@ -1,0 +1,34 @@
+// Mixins: Heading
+
+@use '../functions' as *;
+@use './display-text-style' as *;
+
+@mixin heading-base {
+  color: inherit;
+  font-weight: gesso-font-weight(bold);
+  hyphens: none;
+  line-height: gesso-line-height(base);
+  margin-block: 0 gesso-spacing(2);
+  margin-inline: 0;
+  text-rendering: optimizelegibility;
+
+  @media print {
+    orphans: 3;
+    page-break-after: avoid;
+    widows: 3;
+
+    &::after {
+      display: inline-block;
+    }
+  }
+
+  // Add top margin when headers are preceded by other elements (p, ul, etc.)
+  * + & {
+    margin-block-start: 1em;
+  }
+}
+
+@mixin heading($level) {
+  @include heading-base;
+  @include display-text-style($level);
+}

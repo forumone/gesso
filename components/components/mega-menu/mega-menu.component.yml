@@ -1,0 +1,35 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Mega Menu
+props:
+  type: object
+  properties:
+    items:
+      type: array
+      title: Menu Items
+      description: 'An array of menu item objects containing title, url, below, and other properties.'
+    menu_name:
+      type: string
+      title: Menu Name
+      description: 'The name of the menu, used for generating unique IDs.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the menu.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'The path to the images directory for SVG icons.'
+slots:
+  featured:
+    title: Featured Content
+    description: 'Optional featured content that displays in the mega menu section.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/drupal
+    - core/once
+    - gesso/mobile_menu

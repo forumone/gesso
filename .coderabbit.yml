@@ -1,0 +1,4 @@
+inheritance: true
+reviews:
+  auto_review:
+    base_branches: ['^5\.x-RC$', '^6\.x-RC$', '^5\.x$', '^6\.x$']

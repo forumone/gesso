@@ -1,0 +1,45 @@
+// Layout: Media Object
+
+@use '00-config' as *;
+$media-gutter: gesso-spacing(2);
+
+.l-media {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(gesso-breakpoint(tablet)) {
+    flex-direction: row;
+  }
+}
+
+.l-media__object {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-block: 0 $media-gutter;
+  margin-inline: 0;
+
+  @include breakpoint(gesso-breakpoint(tablet)) {
+    margin-block: 0;
+    margin-inline: 0 $media-gutter;
+  }
+}
+
+.l-media__content {
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.l-media--column {
+  flex-direction: column;
+}
+
+.l-media--reversed {
+  > .l-media__object {
+    @include breakpoint(gesso-breakpoint(tablet)) {
+      margin-inline: $media-gutter 0;
+      order: 1;
+    }
+  }
+}

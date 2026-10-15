@@ -5,7 +5,15 @@ import f1StorybookConfig from '@forumone/eslint-config-es5/storybook';
 import f1ReactConfig from '@forumone/eslint-config-react';
 
 const config = defineConfig([
-  globalIgnores(['**/_GESSO.es6.js']),
+  globalIgnores([
+    '**/_GESSO.es6.js',
+    'components/**/*.js',
+    '!components/**/*.source.js',
+    '!components/**/*.test.js',
+    '!components/**/modules/**/*.js',
+    'dist/**',
+    'storybook/**',
+  ]),
   {
     settings: {
       react: {

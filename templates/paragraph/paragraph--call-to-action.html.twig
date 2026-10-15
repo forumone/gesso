@@ -5,7 +5,7 @@
  */
 #}
 
-{% include '@components/call-to-action/call-to-action.twig' with {
+{% include 'gesso:call-to-action' with {
   'media': content.field_cta_media|field_value is not empty ? content.field_cta_media|field_value : null,
   'heading': content.field_cta_heading|field_value is not empty ? content.field_cta_heading|field_value : null,
   'body': content.field_cta_body|field_value is not empty ? content.field_cta_body|field_value : null,

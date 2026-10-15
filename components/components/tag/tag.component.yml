@@ -1,0 +1,28 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Tag
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+      description: 'The text content of the tag.'
+    url:
+      type: string
+      title: URL
+      description: 'The link URL for the tag.'
+    type:
+      type:
+        - string
+        - "null"
+      title: Type
+      description: 'The tag type modifier (e.g., full).'
+    size:
+      type:
+        - string
+        - "null"
+      title: Size
+      description: 'The tag size modifier (e.g., normal).'
+libraryOverrides:
+  dependencies:
+    - gesso/global

@@ -26,9 +26,9 @@
   {% set show_admin_info = true %}
 {% endif %}
 
-{% include '@templates/page/page.twig' with {
+{% include 'gesso:page' with {
   'attributes': attributes,
-  'is_published': user.status.value,
+  'is_published': user.isActive(),
   'title': display_name,
   'show_admin_info': show_admin_info,
   'admin_info': admin_info,

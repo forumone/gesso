@@ -1,0 +1,13 @@
+// Component: Facet List
+
+@use '00-config' as *;
+
+.c-facet-list {
+  @include list-clean();
+
+  & & {
+    padding: 0;
+    padding-block-start: gesso-spacing(1);
+    padding-inline-start: gesso-spacing(3);
+  }
+}

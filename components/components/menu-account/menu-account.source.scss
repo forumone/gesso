@@ -1,0 +1,11 @@
+// Component: Account Menu
+
+@use '00-config' as *;
+
+.c-menu--account {
+  @include list-pipeline();
+
+  .c-menu__link {
+    font-size: gesso-font-size(2);
+  }
+}

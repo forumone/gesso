@@ -1,0 +1,26 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Nav
+props:
+  type: object
+  properties:
+    nav_content:
+      type: string
+      title: Nav Content
+      description: 'The content of the navigation.'
+    label:
+      type: string
+      title: Label
+      description: 'The aria-label for the navigation element.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for styling.'
+slots:
+  content:
+    title: Content
+    description: 'Main navigation content block.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

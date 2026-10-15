@@ -7,7 +7,7 @@ const __dirname =
 
 const reactConfig = {
   mode: 'production',
-  entry: path.join(__dirname, 'source/07-react', 'index.tsx'),
+  entry: path.join(__dirname, 'source/03-react', 'index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist/js/react'),
     chunkFilename: '[name]-[fullhash].js',

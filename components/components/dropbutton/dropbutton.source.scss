@@ -1,0 +1,108 @@
+// Component: Dropbutton
+// Dropbutton is used in the Drupal admin UI.
+
+@use 'sass:math';
+@use '00-config' as *;
+
+$dropbutton-toggle-height: gesso-line-height(base) *
+  rem(gesso-base-font-size()) + 2 * gesso-spacing(1) !default;
+$dropbutton-toggle-width: 2em !default;
+$dropbutton-toggle-icon-size: rem(12px) !default;
+
+.c-dropbutton {
+  block-size: $dropbutton-toggle-height;
+  display: inline-block;
+  margin-block-end: gesso-spacing(1);
+  position: relative;
+  vertical-align: top;
+
+  &.has-multiple {
+    padding-inline-end: $dropbutton-toggle-width;
+  }
+
+  &.is-open {
+    .c-dropbutton__item {
+      visibility: visible;
+
+      &:first-child .c-dropbutton__button {
+        border-end-start-radius: 0;
+      }
+    }
+
+    .c-dropbutton__toggle-button {
+      @include svg-background(dropbutton-arrow-up);
+    }
+  }
+
+  & + &,
+  + .c-button,
+  .c-button + & {
+    margin-inline-start: 0.5em;
+  }
+}
+
+.c-dropbutton__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+  }
+}
+
+.c-dropbutton__toggle {
+  inline-size: $dropbutton-toggle-width;
+  inset-block: 0;
+  inset-inline-end: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+.c-dropbutton__toggle-button {
+  @include button();
+  @include svg-background(dropbutton-arrow-down);
+  background-position: 50%
+    (
+      math.div($dropbutton-toggle-height, 2) - math.div(
+          $dropbutton-toggle-icon-size,
+          2
+        )
+    );
+  background-repeat: no-repeat;
+  background-size: $dropbutton-toggle-icon-size;
+  block-size: 100%;
+  border-end-start-radius: 0;
+  border-start-start-radius: 0;
+  inline-size: 100%;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.c-dropbutton__item {
+  margin: 0;
+  padding: 0;
+
+  &.is-secondary-action {
+    visibility: hidden;
+
+    &:not(:last-child) .c-dropbutton__button {
+      border-end-start-radius: 0;
+    }
+  }
+
+  &:not(:first-child) .c-dropbutton__button {
+    border-start-start-radius: 0;
+  }
+}
+
+// Nested to override default button styles.
+.c-dropbutton .c-dropbutton__button {
+  border-end-end-radius: 0;
+  border-start-end-radius: 0;
+  display: block;
+  inline-size: 100%;
+  margin: 0;
+  text-align: start;
+}

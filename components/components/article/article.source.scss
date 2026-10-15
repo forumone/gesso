@@ -1,0 +1,9 @@
+// Component: Article
+
+@use '00-config' as *;
+
+// .c-article {}
+
+.c-article__footer {
+  margin-block-end: gesso-spacing(2);
+}

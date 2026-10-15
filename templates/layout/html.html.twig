@@ -47,12 +47,12 @@
     class: body_classes,
     id: body_id,
   }) }}>
-    {% include '@components/skiplinks/skiplinks.twig' %}
+    {% include 'gesso:skiplinks' %}
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
     {% if include_back_to_top %}
-      {% include '@components/back-to-top/back-to-top.twig' with {
+      {% include 'gesso:back-to-top' with {
         text: 'Back to top'|t,
         top_element: body_id,
         image_path: image_path,

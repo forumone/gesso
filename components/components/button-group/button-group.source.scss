@@ -1,0 +1,75 @@
+// Component: Button Group
+
+@use '00-config' as *;
+
+.c-button-group {
+  display: flex;
+  isolation: isolate;
+  margin: gesso-spacing(2) 0;
+}
+
+.c-button-group__list {
+  @include list-clean();
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+
+  @include breakpoint(gesso-breakpoint(tablet)) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.c-button-group-item {
+  margin: 0;
+
+  &.is-active {
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus-within {
+    z-index: 2;
+  }
+
+  .c-button-group-item__link {
+    border-block-start-width: 0;
+    border-radius: 0;
+
+    @include breakpoint(gesso-breakpoint(tablet)) {
+      border-block-start-width: $button-border-width;
+      border-inline-start-width: 0;
+    }
+  }
+
+  &:first-child {
+    .c-button-group-item__link {
+      border-block-start-width: $button-border-width;
+      border-start-end-radius: $button-border-radius;
+      border-start-start-radius: $button-border-radius;
+
+      @include breakpoint(gesso-breakpoint(tablet)) {
+        border-end-start-radius: $button-border-radius;
+        border-inline-start-width: $button-border-width;
+        border-start-end-radius: 0;
+      }
+    }
+  }
+
+  &:last-child {
+    .c-button-group-item__link {
+      border-end-end-radius: $button-border-radius;
+      border-end-start-radius: $button-border-radius;
+
+      @include breakpoint(gesso-breakpoint(tablet)) {
+        border-end-start-radius: 0;
+        border-start-end-radius: $button-border-radius;
+      }
+    }
+  }
+}
+
+.c-button-group-item__link {
+  inline-size: 100%;
+  margin: 0 !important;
+}

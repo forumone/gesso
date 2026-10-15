@@ -1,0 +1,48 @@
+// Layout: Sidebar
+
+@use '00-config' as *;
+$l-sidebar-bp: 900px;
+$l-sidebar-width: 300px;
+$l-sidebar-gutter: gesso-spacing(2);
+
+.l-sidebar {
+  @include breakpoint($l-sidebar-bp) {
+    display: grid;
+    grid-gap: $l-sidebar-gutter;
+    grid-template-columns: minmax(0, 1fr);
+
+    .l-sidebar__full {
+      grid-column: span 1;
+    }
+  }
+}
+
+.l-sidebar.has-first-sidebar {
+  @include breakpoint($l-sidebar-bp) {
+    grid-template-columns: $l-sidebar-width minmax(0, 1fr);
+
+    .l-sidebar__full {
+      grid-column: span 2;
+    }
+  }
+}
+
+.l-sidebar.has-second-sidebar {
+  @include breakpoint($l-sidebar-bp) {
+    grid-template-columns: minmax(0, 1fr) $l-sidebar-width;
+
+    .l-sidebar__full {
+      grid-column: span 2;
+    }
+  }
+}
+
+.l-sidebar.has-both-sidebars {
+  @include breakpoint($l-sidebar-bp) {
+    grid-template-columns: $l-sidebar-width minmax(0, 1fr) $l-sidebar-width;
+
+    .l-sidebar__full {
+      grid-column: span 3;
+    }
+  }
+}

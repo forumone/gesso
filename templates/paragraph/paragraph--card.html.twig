@@ -5,7 +5,7 @@
  */
 #}
 
-{% include '@components/card/card.twig' with {
+{% include 'gesso:card' with {
   'media': content.field_card_media|field_value is not empty ? content.field_card_media|field_value : null,
   'title': content.field_card_title|field_value is not empty ? content.field_card_title|field_value : null,
   'url': content.field_card_link.0['#url'] is not empty ? content.field_card_link.0['#url'] : null,

@@ -1,0 +1,50 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Hero with Background Image
+props:
+  type: object
+  properties:
+    has_overlay:
+      type:
+        - boolean
+        - "null"
+      title: Has Overlay
+      description: 'Applies a semi-transparent dark overlay on top of the background image.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for layout modifiers (e.g., has-content-left, has-content-right).'
+    hero_image:
+      type:
+        - string
+        - "null"
+      title: Hero Image
+      description: 'The background image element (img or figure tag with image).'
+    hero_title:
+      type:
+        - string
+        - "null"
+      title: Hero Title
+      description: 'The main title text for the hero section.'
+    hero_summary:
+      type:
+        - string
+        - "null"
+      title: Hero Summary
+      description: 'Summary or subtitle text for the hero section.'
+    hero_button_text:
+      type:
+        - string
+        - "null"
+      title: Hero Button Text
+      description: 'Text for the call-to-action button.'
+    hero_button_url:
+      type:
+        - string
+        - "null"
+      title: Hero Button URL
+      description: 'URL that the call-to-action button links to.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

@@ -7,15 +7,12 @@ core_version_requirement: '^10.3 || ^11'
 libraries:
   - gesso/global
 libraries-override:
-  core/drupal.dropbutton: gesso/dropbutton
   system/base:
     css:
       component:
         css/components/align.module.css: false
         css/components/clearfix.module.css: false
         css/components/hidden.module.css: false
-ckeditor_stylesheets:
-  - dist/css/ckeditor4-styles.css
 ckeditor5-stylesheets:
   - dist/css/editor-styles.css
 dependencies:
@@ -25,10 +22,9 @@ dependencies:
 components:
   namespaces:
     global: source/01-global
-    layouts: source/02-layouts
-    components: source/03-components
-    templates: source/04-templates
-    utility: source/06-utility
+    layouts: components/layouts
+    components: components/components
+    utility: source/02-utility
 regions:
   page_top: 'Page top'
   header: Header

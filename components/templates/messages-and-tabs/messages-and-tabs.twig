@@ -1,0 +1,12 @@
+{% if not is_published %}
+  {% include 'gesso:message' with {
+    type: 'warning',
+    messages: ['This page is unpublished.'|t],
+  } %}
+{% endif %}
+
+{% if show_admin_info %}
+  {% block admin_info %}
+    {{ admin_info }}
+  {% endblock %}
+{% endif %}

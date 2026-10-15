@@ -5,13 +5,13 @@
 
 ul {
   list-style-type: disc;
-  margin-block: 0 rem(gesso-spacing(2));
+  margin-block: 0 gesso-spacing(2);
   margin-inline: 0;
   padding: 0;
-  padding-inline-start: rem(gesso-spacing(3));
+  padding-inline-start: gesso-spacing(3);
 
   ol,
   ul {
-    margin-block-start: rem(math.div(gesso-spacing(2), 2));
+    margin-block-start: math.div(gesso-spacing(2), 2);
   }
 }

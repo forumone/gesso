@@ -28,7 +28,7 @@
     'align-right',
   ] %}
 
-  {% include '@components/figure/figure.twig' with {
+  {% include 'gesso:figure' with {
     'attributes': attributes.removeClass(remove_classes),
     'modifier_classes': modifier_classes,
     'media': content,

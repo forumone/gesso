@@ -13,7 +13,7 @@
  */
 #}
 {% if content %}
-  {% embed '@layouts/region/region.twig' with {
+  {% embed 'gesso:region' with {
     'attributes': attributes,
     'region_name': region|clean_class,
     'has_constrain': true,

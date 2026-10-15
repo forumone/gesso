@@ -1,0 +1,57 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Views View List
+props:
+  type: object
+  properties:
+    hide_wrapper:
+      type:
+        - boolean
+        - "null"
+      title: Hide Wrapper
+      description: 'Hide the outer wrapper div.'
+    title:
+      type:
+        - string
+        - "null"
+      title: Title
+      description: 'The list title.'
+    title_element:
+      type:
+        - string
+        - "null"
+      title: Title Element
+      description: 'The HTML element for the title (e.g., h1, h2, h3).'
+    list:
+      type: object
+      title: List
+      description: 'List config from Views (type + attributes).'
+      properties:
+        type:
+          type: string
+          title: Type
+          description: 'The list element type (ul, ol).'
+    title_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Title Modifier Classes
+      description: 'Additional CSS classes for the title.'
+    list_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: List Modifier Classes
+      description: 'Additional CSS classes for the list.'
+    item_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Item Modifier Classes
+      description: 'Additional CSS classes for list items.'
+    # `rows` is intentionally not declared as a prop. Each row's `content` is a
+    # Drupal render array that often contains circular references; declaring it
+    # causes ComponentValidator json_encode recursion fatals. Still passed from
+    # Twig / Storybook as a free variable: [{ content, attributes? }, ...].
+libraryOverrides:
+  dependencies:
+    - gesso/global

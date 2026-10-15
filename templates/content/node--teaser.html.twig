@@ -10,7 +10,7 @@
   not node.isPublished() ? 'is-unpublished',
 ] %}
 
-{% include '@components/teaser/teaser.twig' with {
+{% include 'gesso:teaser' with {
   'attributes': attributes.addClass(classes),
   'modifier_classes': '',
   'title_modifier_classes': '',

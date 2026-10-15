@@ -1,0 +1,34 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Breadcrumb Wrapper
+props:
+  type: object
+  properties:
+    breadcrumb_content:
+      type: string
+      title: Breadcrumb Content
+      description: 'The breadcrumb content to display.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the breadcrumb wrapper.'
+    constrain_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Constrain Modifier Classes
+      description: 'Additional CSS classes for the constrain wrapper.'
+    has_constrain:
+      type:
+        - boolean
+        - "null"
+      title: Has Constrain
+      description: 'Whether to wrap the breadcrumb content with a constrain div.'
+slots:
+  content:
+    title: Content
+    description: 'The breadcrumb content slot.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

@@ -17,7 +17,7 @@
 ]|join(' ')|trim %}
 
 {% if title is not empty or required -%}
-  {% include '@components/form-item/_form-item-label.twig' with {
+  {% include 'gesso:form-item--label' with {
     'attributes': attributes,
     'modifier_classes': modifier_classes,
   } %}
