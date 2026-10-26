@@ -6,18 +6,28 @@
  */
 
 use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_preprocess_breadcrumb().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
-function gesso_preprocess_breadcrumb(array &$variables) {
+function gesso_preprocess_breadcrumb(array &$variables): void {
   if ($variables['breadcrumb']) {
     /** @var \Drupal\Core\Render\Renderer $renderer */
     $renderer = \Drupal::service('renderer');
     $variables['include_current_page']
-      = theme_get_setting('include_current_page_in_breadcrumb', 'gesso') ?? TRUE;
-    $themeConfig = \Drupal::config('gesso.settings');
-    $renderer->addCacheableDependency($variables, $themeConfig);
+      = gesso_helper_get_theme_setting('include_current_page_in_breadcrumb') ?? TRUE;
+    $themeName = \Drupal::theme()->getActiveTheme()->getName();
+    $themeConfig = \Drupal::config($themeName . '.settings');
+    // Renderer::addCacheableDependency() takes an untyped array by reference,
+    // so cacheability metadata is exchanged through an isolated local array
+    // rather than passing $variables directly through that looser boundary.
+    $cacheable = ['#cache' => $variables['#cache'] ?? []];
+    $renderer->addCacheableDependency($cacheable, $themeConfig);
+    $variables['#cache'] = $cacheable['#cache'];
 
     if ($variables['include_current_page']) {
       $request = \Drupal::request();
@@ -37,11 +47,18 @@ function gesso_preprocess_breadcrumb(array &$variables) {
 
 /**
  * Implements hook_preprocess_menu().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
-function gesso_preprocess_menu(array &$variables) {
+function gesso_preprocess_menu(array &$variables): void {
   $current_path = \Drupal::request()->getRequestUri();
   foreach ($variables['items'] as $key => $item) {
-    if ($item['url']->toString() == $current_path) {
+    if (empty($item['url'])) {
+      continue;
+    }
+    $url_string = $item['url'] instanceof Url ? $item['url']->toString() : $item['url'];
+    if ($url_string == $current_path) {
       $variables['items'][$key]['is_active'] = TRUE;
     }
   }
@@ -49,8 +66,11 @@ function gesso_preprocess_menu(array &$variables) {
 
 /**
  * Implements hook_preprocess_menu_local_tasks().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
-function gesso_preprocess_menu_local_tasks(&$variables) {
+function gesso_preprocess_menu_local_tasks(array &$variables): void {
   foreach (Element::children($variables['primary']) as $key) {
     $variables['primary'][$key]['#level'] = 'primary';
   }
@@ -62,9 +82,12 @@ function gesso_preprocess_menu_local_tasks(&$variables) {
 
 /**
  * Implements hook_preprocess_menu_local_task().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
-function gesso_preprocess_menu_local_task(array &$variables) {
-  $variables['link']['#options']['attributes']['class'][] = 'c-button-group__link';
+function gesso_preprocess_menu_local_task(array &$variables): void {
+  $variables['link']['#options']['attributes']['class'][] = 'c-button-group-item__link';
   $variables['link']['#options']['attributes']['class'][] = 'c-button';
   $variables['link']['#options']['attributes']['class'][] = 'c-button--base';
 

@@ -1,0 +1,36 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Menu
+props:
+  type: object
+  properties:
+    items:
+      type: array
+      title: Menu Items
+      description: 'An array of menu item objects containing title, url, and other properties.'
+    menu_name:
+      type:
+        - string
+        - "null"
+      title: Menu Name
+      description: 'The machine name or identifier of the menu.'
+    menu_class:
+      type:
+        - array
+        - "null"
+      title: Menu Classes
+      description: 'Additional CSS classes to apply to the menu element.'
+    item_class:
+      type:
+        - array
+        - "null"
+      title: Item Classes
+      description: 'Additional CSS classes to apply to menu item elements.'
+    link_class:
+      type:
+        - array
+        - "null"
+      title: Link Classes
+      description: 'Additional CSS classes to apply to menu link elements.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

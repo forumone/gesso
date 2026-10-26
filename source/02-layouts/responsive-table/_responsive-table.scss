@@ -1,8 +1,0 @@
-// Layout: Responsive Table
-
-@use '00-config' as *;
-
-.l-responsive-table {
-  @include focus();
-  overflow-x: auto;
-}

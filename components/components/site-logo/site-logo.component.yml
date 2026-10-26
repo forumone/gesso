@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Site Logo
+props:
+  type: object
+  properties:
+    url:
+      type: string
+      title: URL
+      description: 'The URL for the site logo link.'
+    site_logo:
+      type: string
+      title: Site Logo
+      description: 'The path to the site logo image.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for styling customization.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

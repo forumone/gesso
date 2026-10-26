@@ -1,0 +1,36 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Filters
+props:
+  type: object
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+    show_filters:
+      type: boolean
+      title: Show Filters
+      description: 'Whether to display the filters component.'
+    reset_url:
+      type:
+        - string
+        - "null"
+      title: Reset URL
+      description: 'URL for the remove all filters link.'
+    items:
+      type: array
+      title: Items
+      description: 'Array of filter items with rendered values.'
+    list_type:
+      type:
+        - string
+        - "null"
+      title: List Type
+      description: 'HTML element type for the list (ul or ol). Defaults to ul.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    # filter.twig (and facets summary preprocess) use c-button classes.
+    - core/components.gesso--button

@@ -1,0 +1,37 @@
+{% if type == 'error' %}
+  {% set classes = [
+    'c-message',
+    'c-message--error',
+    modifier_classes ? modifier_classes : '',
+  ]|join(' ')|trim %}
+{% elseif type == 'warning' %}
+  {% set classes = [
+    'c-message',
+    'c-message--warning',
+    modifier_classes ? modifier_classes : '',
+  ]|join(' ')|trim %}
+{% else %}
+  {% set classes = [
+    'c-message',
+    'c-message--status',
+    modifier_classes ? modifier_classes : '',
+  ]|join(' ')|trim %}
+{% endif %}
+
+<div {{ add_attributes({ 'class': classes }) }}{% if type == 'error' %} role="alert"{% endif %}>
+  <div class="c-message__content">
+    {% if heading %}
+      <h2 class="u-visually-hidden">{{ heading }}</h2>
+    {% endif %}
+
+    {% if messages|length > 1 %}
+      <ul class="c-message__list">
+        {% for message in messages %}
+          <li class="c-message__item">{{- message -}}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {{- messages|first -}}
+    {% endif %}
+  </div>
+</div>

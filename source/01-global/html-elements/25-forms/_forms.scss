@@ -3,10 +3,9 @@
 @use '00-config' as *;
 
 // Don’t style button elements, since they’re often styled as links for
-// accessible widgets. Use the .button class in components/button.
-button {
-  overflow: visible;
-}
+// accessible widgets. Use the .c-button class in components/button.
+
+// button {}
 
 // datalist {}
 
@@ -18,12 +17,13 @@ fieldset {
 
 // form {}
 
-// Don't style button, submit, or reset elements, since they're often styled as
-// links for accessible widgets. Use the .button class in
-// partials/components/button.
 input {
   line-height: normal;
 }
+
+// Don’t style inputs of type button, submit, or reset since they're often
+// styled as links for accessible widgets. Use the .button class in
+// partials/components/button.
 
 // input[type='button'] {}
 // input[type='checkbox'] {}
@@ -56,7 +56,7 @@ legend {
   color: inherit;
   display: table;
   margin: 0;
-  max-width: 100%;
+  max-inline-size: 100%;
   padding: 0;
   white-space: normal;
 }

@@ -1,0 +1,40 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Region
+props:
+  type: object
+  properties:
+    region_name:
+      type:
+        - string
+        - "null"
+      title: Region Name
+      description: 'The name of the region. Defaults to "region" if not provided.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes for the region element.'
+    has_constrain:
+      type:
+        - boolean
+        - "null"
+      title: Has Constrain
+      description: 'Whether to wrap the region content in a constrain div.'
+    constrain_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Constrain Modifier Classes
+      description: 'Additional CSS classes for the constrain wrapper element.'
+    region_content:
+      type: string
+      title: Region Content
+      description: 'The main content of the region.'
+slots:
+  content:
+    title: Content
+    description: 'The region content area. Overrides region_content if provided.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

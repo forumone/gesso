@@ -24,12 +24,12 @@
   {% set hide_wrapper = true %}
 {% endif %}
 
-{% embed '@components/block/block.twig' with {
+{% embed 'gesso:block' with {
   'attributes': attributes.addClass(classes),
   'hide_wrapper': hide_wrapper,
   'has_constrain': false,
   'hide_content_wrapper': true,
-  'label': false,
+  'label': null,
 } %}
 
   {% block content %}

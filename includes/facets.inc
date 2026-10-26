@@ -7,8 +7,11 @@
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
-function gesso_preprocess_facets_item_list(array &$variables) {
+function gesso_preprocess_facets_item_list(array &$variables): void {
   foreach ($variables['items'] as &$item) {
     // Add class to facet links.
     $item['value']['#url']->setOption('attributes', [
@@ -28,10 +31,13 @@ function gesso_preprocess_facets_item_list(array &$variables) {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
-function gesso_preprocess_facets_summary_item_list(array &$variables) {
+function gesso_preprocess_facets_summary_item_list(array &$variables): void {
   // Add class to item links.
-  foreach ($variables['items'] as $key => &$item) {
+  foreach ($variables['items'] as &$item) {
     $item['value']['#url']->setOption('attributes', [
       'class' => ['c-button', 'c-button--small'],
       'rel' => 'no-follow',

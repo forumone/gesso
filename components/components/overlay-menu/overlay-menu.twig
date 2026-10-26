@@ -1,0 +1,17 @@
+{# Library is automatically attached via SDC's libraryOverrides #}
+{% set classes = [
+  'c-overlay-menu',
+  modifier_classes ? modifier_classes : ''
+]|join(' ')|trim %}
+
+{% set id = 'overlay-menu'|unique_id %}
+
+<nav {{ add_attributes({class: classes, id: id}) }}>
+  {% include 'gesso:menu' with {
+    'menu_name': menu_name,
+    'items': items,
+    'menu_class': ['c-overlay-menu__menu'],
+    'item_class': ['c-overlay-menu__item'],
+    'link_class': ['c-overlay-menu__link'],
+  } %}
+</nav>

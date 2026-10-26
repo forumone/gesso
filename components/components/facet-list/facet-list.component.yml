@@ -1,0 +1,34 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Facet List
+props:
+  type: object
+  properties:
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the list.'
+    list_type:
+      type: string
+      title: List Type
+      description: 'The HTML list element type (ul or ol).'
+    empty:
+      type:
+        - string
+        - "null"
+      title: Empty Message
+      description: 'Message to display when the facet list is empty.'
+    facets:
+      type: array
+      title: Facets
+      description: 'Array of facet items to display in the list.'
+    item_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Item Modifier Classes
+      description: 'Additional CSS classes to apply to each list item.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

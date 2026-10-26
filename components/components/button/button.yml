@@ -1,0 +1,10 @@
+---
+text: 'Button'
+is_button_tag: true
+is_disabled: false
+url: '#0'
+button_type: 'submit'
+icon_name: null
+icon_position: 'before'
+icon_is_hidden: true
+icon_label: ''

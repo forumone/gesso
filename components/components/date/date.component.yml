@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Date
+props:
+  type: object
+  properties:
+    date_format:
+      type: string
+      title: Date Format
+      description: 'The date format to use (long-date, long-datetime, medium-date, medium-datetime, short-date, short-datetime).'
+    date_content:
+      type: string
+      title: Date Content
+      description: 'The date content to display when no format is specified.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes to apply to the component.'
+libraryOverrides:
+  dependencies:
+    - gesso/global

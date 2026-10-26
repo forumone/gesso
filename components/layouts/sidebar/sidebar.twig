@@ -1,0 +1,50 @@
+{% set classes = [
+  'l-sidebar',
+  sidebar_first_content and not sidebar_second_content ? 'has-first-sidebar' : '',
+  sidebar_second_content and not sidebar_first_content ? 'has-second-sidebar' : '',
+  sidebar_first_content and sidebar_second_content ? 'has-both-sidebars' : '',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set sidebar_header_classes = [
+  'l-sidebar__full',
+]|join(' ')|trim %}
+
+{% set sidebar_first_classes = [
+  'l-sidebar__sidebar',
+]|join(' ')|trim %}
+
+{% set sidebar_main_classes = [
+  'l-sidebar__main',
+]|join(' ')|trim %}
+
+{% set sidebar_second_classes = [
+  'l-sidebar__sidebar',
+]|join(' ')|trim %}
+
+<div {{ add_attributes({ 'class': classes }) }}>
+
+  {% if sidebar_header_content %}
+    <div {{ add_attributes({ 'class': sidebar_header_classes }, 'region_attributes.header') }}>
+      {{ sidebar_header_content }}
+    </div>
+  {% endif %}
+
+  {% if sidebar_first_content %}
+    <div {{ add_attributes({ 'class': sidebar_first_classes }, 'region_attributes.sidebar_first') }}>
+      {{ sidebar_first_content }}
+    </div>
+  {% endif %}
+
+  {% if sidebar_main_content %}
+    <div {{ add_attributes({ 'class': sidebar_main_classes }, 'region_attributes.main') }}>
+      {{ sidebar_main_content }}
+    </div>
+  {% endif %}
+
+  {% if sidebar_second_content %}
+    <div {{ add_attributes({ 'class': sidebar_second_classes }, 'region_attributes.sidebar_second') }}>
+      {{ sidebar_second_content }}
+    </div>
+  {% endif %}
+</div>

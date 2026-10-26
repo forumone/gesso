@@ -1,0 +1,11 @@
+{% set classes = [
+  'c-wysiwyg',
+  'u-clearfix',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if content %}
+  <div {{ add_attributes({ 'class': classes }) }} data-wysiwyg>
+    {{ content }}
+  </div>
+{% endif %}

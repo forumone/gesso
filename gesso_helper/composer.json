@@ -9,13 +9,13 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.1",
         "drupal/components": "^2.1"
     },
     "extra": {
         "drush": {
             "services": {
-                "drush.services.yml": "^9.4.0 | ^10.0.0"
+                "drush.services.yml": "^9.4.0 | ^10.0.0 | ^11.0 | ^12.0"
             }
         }
     }

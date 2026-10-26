@@ -7,7 +7,7 @@ const __dirname =
 
 const reactConfig = {
   mode: 'production',
-  entry: path.join(__dirname, 'source/07-react', 'index.tsx'),
+  entry: path.join(__dirname, 'source/03-react', 'index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist/js/react'),
     chunkFilename: '[name]-[fullhash].js',
@@ -40,13 +40,36 @@ const reactConfig = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.module\.s[ac]ss$/i,
         use: [
-          // Creates `style` nodes from JS strings
           'style-loader',
-          // Translates CSS into CommonJS
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                namedExport: false,
+                exportLocalsConvention: 'as-is',
+              },
+              esModule: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: embeddedSass,
+              webpackImporter: false,
+              sassOptions: {
+                loadPaths: [path.resolve(__dirname, 'source')],
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /(?<!\.module)\.s[ac]ss$/i,
+        use: [
+          'style-loader',
           'css-loader',
-          // Compiles Sass to CSS
           {
             loader: 'sass-loader',
             options: {
@@ -73,6 +96,9 @@ const reactConfig = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     modules: [path.resolve(__dirname, 'source'), 'node_modules'],
+    fallback: {
+      path: 'path-browserify',
+    },
   },
 
   stats: 'minimal',

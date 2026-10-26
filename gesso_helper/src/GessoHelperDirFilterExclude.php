@@ -5,12 +5,12 @@ namespace Drupal\gesso_helper;
 /**
  * Iterator to exclude directories.
  */
-class GessoHelperDirFilterExclude extends \RecursiveFilterIterator {
+final class GessoHelperDirFilterExclude extends \RecursiveFilterIterator {
 
   /**
-   * Directories to include.
+   * Directories to exclude.
    *
-   * @var array
+   * @var array<int, string>
    */
   protected array $exclude = [
     'node_modules',
@@ -22,15 +22,19 @@ class GessoHelperDirFilterExclude extends \RecursiveFilterIterator {
   /**
    * Whether this directory or file should be excluded.
    */
-  public function accept() {
-    return !($this->isDir() && in_array($this->getFilename(), $this->exclude));
+  public function accept(): bool {
+    /** @var \RecursiveDirectoryIterator $inner */
+    $inner = $this->getInnerIterator();
+    return !($inner->isDir() && in_array($inner->getFilename(), $this->exclude, TRUE));
   }
 
   /**
    * Get children.
    */
-  public function getChildren() {
-    return new GessoHelperDirFilterExclude($this->getInnerIterator()->getChildren());
+  public function getChildren(): static {
+    /** @var \RecursiveDirectoryIterator $inner */
+    $inner = $this->getInnerIterator();
+    return new static($inner->getChildren());
   }
 
 }

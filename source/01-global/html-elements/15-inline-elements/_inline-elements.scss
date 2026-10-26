@@ -2,10 +2,16 @@
 
 @use '00-config' as *;
 
-a {
+// Default buttons without classes are styled as links.
+a,
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
   @include focus();
   background-color: transparent;
   color: gesso-color(text, link);
+  text-decoration: underline;
   -webkit-text-decoration-skip: objects;
   transition-duration: gesso-duration(short);
   transition-property: background-color, border-color, color, outline-color;

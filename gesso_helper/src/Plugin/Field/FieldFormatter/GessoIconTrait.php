@@ -11,8 +11,10 @@ trait GessoIconTrait {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, mixed>
    */
-  public static function defaultSettings() {
+  public static function defaultSettings(): array {
     return [
       'icon_name' => '',
       'icon_is_hidden' => TRUE,
@@ -24,8 +26,12 @@ trait GessoIconTrait {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-param array<string, mixed> $form
+   *
+   * @phpstan-return array<string, mixed>
    */
-  public function settingsForm($form, FormStateInterface $form_state) {
+  public function settingsForm(array $form, FormStateInterface $form_state): array {
     $elements = parent::settingsForm($form, $form_state);
     $elements['icon_name'] = [
       '#type' => 'textfield',
@@ -85,7 +91,7 @@ trait GessoIconTrait {
   /**
    * {@inheritdoc}
    */
-  public function settingsSummary() {
+  public function settingsSummary(): array {
     $summary = parent::settingsSummary();
     $summary['icon_name'] = $this->t('Icon: @icon', ['@icon' => $this->getSetting('icon_name')]);
     return $summary;

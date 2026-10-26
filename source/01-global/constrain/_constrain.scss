@@ -1,0 +1,20 @@
+// Layout: Constrain
+// Used for constraining the page width.
+
+@use '00-config' as *;
+
+.l-constrain {
+  @include layout-constrain();
+}
+
+.l-constrain--small {
+  max-inline-size: rem(gesso-constrain(sm));
+}
+
+.l-constrain--large {
+  max-inline-size: rem(gesso-constrain(lg));
+}
+
+.l-constrain--no-padding {
+  padding-inline: 0;
+}

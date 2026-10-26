@@ -25,7 +25,7 @@
   classes,
 ]|join(' ')|trim %}
 
-{% include '@components/figure/figure.twig' with {
+{% include 'gesso:figure' with {
   'attributes': attributes,
   'modifier_classes': modifier_classes,
   'media': node,

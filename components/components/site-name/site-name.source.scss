@@ -1,0 +1,12 @@
+// Component: Site Name
+
+@use '00-config' as *;
+
+.c-site-name {
+  display: inline-block;
+}
+
+.c-site-name__text {
+  @include display-text-style(h1);
+  margin-block-end: gesso-spacing(2);
+}

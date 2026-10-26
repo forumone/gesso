@@ -4,7 +4,7 @@ namespace Drupal\gesso_helper\Element;
 
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Render\BubbleableMetadata;
-use Drupal\Core\Render\Element\RenderElement;
+use Drupal\Core\Render\Element\RenderElementBase;
 use Drupal\Core\Url as CoreUrl;
 
 /**
@@ -35,10 +35,12 @@ use Drupal\Core\Url as CoreUrl;
  *
  * @RenderElement("gesso_icon_link")
  */
-class GessoIconLink extends RenderElement {
+class GessoIconLink extends RenderElementBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, mixed>
    */
   public function getInfo() {
     $class = static::class;
@@ -55,10 +57,10 @@ class GessoIconLink extends RenderElement {
    * This method is used to pre-render a link element by generating the markup
    * for the link.
    *
-   * @param array $element
+   * @param array<string, mixed> $element
    *   The link element.
    *
-   * @return array
+   * @return array<string, mixed>
    *   The pre-rendered link element.
    */
   public static function preRenderLink($element) {

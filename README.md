@@ -5,8 +5,7 @@ accessible HTML5 markup. It uses a mobile-first responsive approach and
 leverages [SMACSS](https://smacss.com/) to organize styles. This encourages a
 component-based approach to theming through the creation of discrete, reusable
 UI elements. Gesso is heavily integrated with
-[Storybook](https://storybook.js.org/) and the [Component
-Libraries](https://www.drupal.org/project/components) module, allowing Drupal
+[Storybook](https://storybook.js.org/) and [Single Directory Components](https://www.drupal.org/docs/develop/theming-drupal/using-single-directory-components), allowing Drupal
 and Storybook to share the same markup.
 
 Visit the [Gesso Storybook demo site](https://forumone.github.io/gesso/).
@@ -22,7 +21,7 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
--   [Node](https://nodejs.org/en/) version 20. Long-term stable
+-   [Node](https://nodejs.org/en/) version 22. Long-term stable
     recommended.
 
 -   [npm](https://www.npmjs.com/get-npm) version 10.7.0 or greater.
@@ -115,6 +114,56 @@ Run `npm run component` to create boilerplate files for a new component. This is
 the recommended approach as it will set up basic Twig and Storybook files that
 you can modify.
 
+### Interactive mode
+
+Running the command without arguments will prompt you for the component details:
+
+```shell
+npm run component
+```
+
+### Non-interactive mode
+
+You can also pass arguments to skip the prompts:
+
+```shell
+npm run component -- --name my-component --folder components
+```
+
+#### Available options
+
+| Option              | Description                                                              |
+| ------------------- | ------------------------------------------------------------------------ |
+| `--name <name>`     | Component name (required)                                                |
+| `--folder <folder>` | SDC location: `components`, `layouts`, or `templates` (required)         |
+| `--title <title>`   | Human-readable title (defaults to Capital Case of name)                  |
+| `--subfolder <name>`| Optional subfolder within the component location                         |
+| `--js`              | Include a JavaScript file                                                |
+| `--help, -h`        | Show help message                                                        |
+
+## Directory structure
+
+Gesso organizes its source files across three top-level directories:
+
+-   `components/`: Single Directory Components (SDCs), subdivided by category:
+    `components/components/`, `components/layouts/`, and `components/templates/`.
+    Each component lives in its own subdirectory and contains all of its files
+    (Twig template, SCSS, JS, Storybook story, and the required
+    `[component-name].component.yml` metadata file).
+
+-   `source/`: Design tokens and global styles, subdivided by ordered category:
+    `source/00-config/` (design tokens, functions, mixins), `source/01-global/`
+    (base HTML element styles, fonts, normalize, etc.), and `source/02-utility/`
+    (utility classes and JS helpers).
+
+-   `templates/`: Drupal `.html.twig` templates, organized by template type
+    (block, content, field, form, etc.). These are standard Drupal theme
+    templates and are separate from the Twig files inside `components/`.
+
+Note that the `components/templates/` subdirectory contains SDC Storybook
+templates for full-page layouts (page, homepage, landing page, etc.). These are
+_not_ Drupal templates — they are SDC components used for node detail pages.
+
 ## Storybook
 
 Name your stories files `[component].stories.jsx`. See `menu.stories.jsx` for
@@ -126,10 +175,26 @@ To match Storybook to your site’s branding, change the colors in
 docs](https://storybook.js.org/docs/react/configure/theming) for more
 information about and examples of theming.
 
+### DDEV and allowed hosts
+
+Storybook 10 validates the `Host` header on dev-server requests. When you access
+Storybook through the DDEV router (`https://<project-name>.ddev.site:6006`), the
+hostname must be allowlisted in `.storybook/main.js`.
+
+By default, Gesso reads `DDEV_HOSTNAME` or `VIRTUAL_HOST` from the environment
+(DDEV sets `VIRTUAL_HOST` in the Storybook container) and uses that hostname. If
+neither variable is set, any `*.ddev.site` hostname is allowed instead. Access
+via `localhost:6006` does not require additional configuration.
+
+If you use a different reverse proxy or custom local domain, add its hostname to
+`core.allowedHosts` in `.storybook/main.js`. See the [Storybook `core`
+docs](https://storybook.js.org/docs/api/main-config/main-config-core) for
+details.
+
 ## Sass
 
-Sass can be compiled as part of the global styles.css file or to individual CSS
-files for use in a Drupal library.
+Sass can be compiled as part of the global `styles.css` file or to individual
+CSS files scoped to a component.
 
 `@use` is used to import Sass variables, mixins, and/or functions into
 individual SCSS files. [`@import` is discouraged by the Sass team and will
@@ -145,15 +210,31 @@ filename, even if they are in different directories.
 
 ### Global styles
 
-Prefix the name of your Sass file with `_`, e.g. `_card.scss`. Add it to the
-appropriate aggregate file (i.e. `_components.scss`).
+Prefix the name of your Sass file with `_`, e.g. `_my-styles.scss`. Place it in
+the appropriate subdirectory under `source/01-global/`, then add a `@use` entry
+for it in the nearest `_index.scss` file.
 
-### Individual component/library styles
+### Component styles
 
-DO NOT prefix the name of your Sass file with `_`, e.g. `menu.scss`. Import the
-config and global aggregate files. Import your SCSS file at the top of your
-Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t forget to
-add it to the `gesso.libraries.yml` file as well.
+Name your component SCSS file `[component-name].source.scss`, e.g.
+`button.source.scss`. The `.source.scss` suffix tells the build system to
+compile this file to its own CSS file (`button.css`) rather than including it
+in the global stylesheet. Import it at the top of your Storybook file. See
+`dropdown-menu.stories.jsx` for an example.
+
+Component CSS and JS assets are declared in the component’s
+`[component-name].component.yml` file via the `libraryOverrides` key rather
+than in `gesso.libraries.yml`. Drupal’s SDC system auto-discovers the
+`[component-name].source.scss` and `[component-name].source.js` files. You only
+need to declare dependencies, but you must include `gesso/global` as a dependency.
+
+```yaml
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/drupal
+    - core/once
+```
 
 ### Sass Linting
 
@@ -181,46 +262,40 @@ The Prettier config can be changed in the `.prettierrc` file.
 
 ## JavaScript
 
-JavaScript can be compiled to individual JS files for use in a JavaScript
-library or included within a different JS file. JS files that use modern
-(ES2015+) syntax must be named `[name].es6.js`, but this is not required by the
-compiler. JavaScript files should go in the appropriate folder under source
-(e.g., `source/03-components/menu` for menu-related JavaScript). There is not a
-separate folder for JS files as there was in previous versions of Gesso.
+JavaScript can be compiled to individual JS files scoped to a component or
+included as a shared utility. JavaScript files should go in the component’s directory under `components/` (e.g.,
+`components/components/dropdown-menu/` for dropdown-menu JavaScript).
 
 All JavaScript files must have a unique filename, even if they are in different
 directories.
 
 ### Modules
 
-Prefix the name of your JavaScript file with `_`, e.g. `_Menu.es6.js`. Import it
-to the appropriate JavaScript file(s), (i.e. `primary-menu.es6.js`).
+Prefix the name of your JavaScript file with `_`, e.g. `_Menu.es6.js`. Place
+helper modules in a `modules/` subdirectory inside the component directory.
+Import them into the component’s entry point script.
 
 ### Individual component/library scripts
 
-DO NOT prefix the name of your JS file with `_`. Import your JS file at the top
-of your Storybook file. See `dropdown-menu.stories.jsx` for an example. Don’t
-forget to add it to the `gesso.libraries.yml` file as well.
+Name your component JS entry point `[component-name].source.js`, e.g.
+`dropdown-menu.source.js`. DO NOT prefix it with `_`. Import your JS file at the
+top of your Storybook file. See `dropdown-menu.stories.jsx` for an example.
+
+As with CSS, component JS assets are auto-discovered by Drupal’s SDC system via
+the `[component-name].source.js` filename. Declare dependencies in
+`[component-name].component.yml` under `libraryOverrides` rather than adding an
+entry to `gesso.libraries.yml`.
 
 ### common.js
-
-Any library you create in `gesso.libraries.yml` that includes an individual
-component script must include `gesso/common` as a dependency. (In most cases, you
-will also add `core/drupal` as a dependency, if you are using the `Drupal`
-object anywhere in your code.) common.js is generated on **production** builds
-(so you will not notice it missing until you deploy to a staging server) and
-contains JavaScript that is shared across two or more components, so that it is
-not bundled multiple times on the page. The recommended practice is for each
-library to declare its dependencies, even if some of them are repeated across
-multiple libraries and/or shared with global. This ensures that Drupal will
-always load the dependencies before loading any library that depends on them.
-See the `dropdown_menu` library in `gesso.libraries.yml` as an example.
-
 The common JS file is created using the [Webpack SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/).
 To change how it behaves, update `webpack.production.js`. You may also need to
 update `gesso_library_info_build` in `libraries.inc` to change what files are
 included in the `gesso/common` library. We recommend using the default setup
 unless you have a specific use case that requires advanced configuration.
+
+`gesso/common` is already a dependency of `gesso/global`, so if you include
+`gesso/global` as a dependency of your component (and you should), then it will
+be included.
 
 ### JS Linting
 
@@ -275,20 +350,68 @@ To add jQuery to Drupal:
       jquery: 'jQuery'
     }
    ```
-2. Ensure that `core/jquery` is added a dependency of the appropriate library in gesso.libraries.yml
+2. Ensure that `core/jquery` is added as a dependency in the component's
+   `[component-name].component.yml`:
    ```yaml
-   library_name:
-     js:
-       dist/js/file-that-uses-jquery: {}
+   libraryOverrides:
      dependencies:
-       - gesso/common
-       - core/drupal
-       - core/once
+       - gesso/global
        - core/jquery
    ```
 
 You can then import jQuery at the top of a file, the same way `Drupal` and `once`
 are typically imported, and use it as needed.
+
+## Testing
+
+### Unit tests
+
+Unit tests use [Vitest](https://vitest.dev/) and live alongside the code they
+test as `*.test.js`/`*.test.ts` files. Run them with:
+
+```bash
+ddev gesso npm run test:unit
+```
+
+#### Change test environment
+The global environment for Vitest is `node`, which is faster for tests that do
+not require a browser. To use the `jsdom` environment for a test instead,
+add a comment at the top of the file: `// @vitest-environment jsdom`
+
+### End-to-end tests
+
+[Playwright](https://playwright.dev/) is installed for end-to-end tests. You will need to have your
+local site up and running before you can run Playwright tests. Name your test `[name].spec.ts`
+and place it in the `e2e` directory. You can remove the existing e2e test once
+you've written some of your own-- it is are provided primarily as an example of
+a test spec.
+
+By default, tests run against `https://YOUR-PROJECT.ddev.site` if you run
+`ddev gesso test:e2e` If you want to run against a different URL, set the
+`PLAYWRIGHT_BASE_URL` environment variable.
+
+**Note**: If you are running Gesso as a separate service (you probably are),
+check that your `.ddev/docker-compose.gesso.yml` includes:
+```yaml
+    environment:
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+```
+
+If it doesn't, add it and run `ddev restart`. This will allow Playwright to
+find your ddev URL for testing.
+
+When you run the `test:e2e` script, it will first run `playwright install` to
+install all needed dependencies on your environment. By default, this is only
+the `chromium` browser. If you change your Playwright config to run tests in
+additional browsers, you will need to change
+`playwright install --with-deps chromium`. The simplest, if you are using
+multiple browsers, is likely to change it to `playwright install --with-deps`,
+which installs all dependencies.
+
+#### Run all tests
+```bash
+ddev gesso npm run test:e2e
+```
 
 ## Design tokens
 
@@ -385,7 +508,7 @@ font-family: gesso-font-family(primary);
 Output a size value from the font-size token list.
 
 ```scss
-font-size: rem(gesso-font-size(2));
+font-size: gesso-font-size(2);
 ```
 
 #### `gesso-font-weight($weight)`
@@ -417,7 +540,7 @@ line-height: gesso-line-height(tight);
 Output a size value from the spacing token list.
 
 ```scss
-margin-bottom: rem(gesso-spacing(md));
+margin-bottom: gesso-spacing(8);
 ```
 
 #### `gesso-z-index($index)`
@@ -628,6 +751,18 @@ heading or subheading should change accordingly.
 <{{ subheading_element|default('h3') }}>...</{{ subheading_element|default('h3') }}>
 ```
 
+### asset_version
+Twig function that returns Drupal's current asset query string (the same value
+appended to CSS and JS URLs), which changes whenever caches are flushed. Use it
+to cache-bust static theme assets, like the SVG sprite, after a deployment. It
+returns an empty string in Storybook. In JS, the same value is available as
+`drupalSettings.gesso.assetVersion`.
+
+```twig
+{% set version = asset_version() %}
+<use href="{{ image_path }}/sprite.artifact.svg{{ version ? '?v=' ~ version : '' }}#{{ icon_name }}"></use>
+```
+
 ## Building Storybook
 
 A static Storybook site can be built with `npm run build-storybook`. You will
@@ -664,5 +799,6 @@ such as `5.x-RC`.
 
 The Gesso theme is maintained by
 [Corey Lafferty](https://drupal.org/u/clafferty),
-[KJ Monahan](https://www.drupal.org/u/kmonahan), and
-[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](https://fosstodon.org/@dcmouyard)).
+[KJ Monahan](https://www.drupal.org/u/kmonahan),
+[Dan Mouyard](https://drupal.org/u/dcmouyard) ([@dcmouyard](https://fosstodon.org/@dcmouyard)), and
+[Tommy Alter](https://www.drupal.org/u/tomealter).

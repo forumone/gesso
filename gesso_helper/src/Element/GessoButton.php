@@ -39,6 +39,8 @@ class GessoButton extends RenderElementBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, mixed>
    */
   public function getInfo() {
     $class = static::class;
@@ -52,10 +54,10 @@ class GessoButton extends RenderElementBase {
   /**
    * Pre-renders a link element.
    *
-   * @param array $element
+   * @param array<string, mixed> $element
    *   The link element array.
    *
-   * @return array
+   * @return array<string, mixed>
    *   The pre-rendered link element array.
    */
   public static function preRenderLink($element) {

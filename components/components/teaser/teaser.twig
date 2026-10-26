@@ -1,0 +1,24 @@
+{% set classes = [
+  'c-teaser',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% set title_classes = [
+  'c-teaser__title',
+  title_modifier_classes ? title_modifier_classes : '',
+]|join(' ')|trim %}
+
+<article {{ add_attributes({ 'class': classes }) }}>
+  {{ title_prefix }}
+  <{{ title_element ?: 'h2' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>  <a href="{{ url }}">{{ title }}</a></{{ title_element ?: 'h2' }}>
+  {{ title_suffix }}
+
+  {% if date %}
+    <div class="c-teaser__date">{{ date }}</div>
+    {{ rdf_metadata }}
+  {% endif %}
+
+  {% if summary %}
+    <div class="c-teaser__summary">{{ summary }}</div>
+  {% endif %}
+</article>

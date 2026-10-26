@@ -1,0 +1,39 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Filter
+props:
+  type: object
+  properties:
+    value:
+      type:
+        - string
+        - "null"
+      title: Value
+      description: 'The filter label text.'
+    url:
+      type:
+        - string
+        - "null"
+      title: URL
+      description: 'The URL to remove this filter.'
+    hide_link:
+      type:
+        - boolean
+        - "null"
+      title: Hide Link
+      description: 'Whether to render the filter as plain text instead of a link.'
+    image_path:
+      type:
+        - string
+        - "null"
+      title: Image Path
+      description: 'The path to the sprite artifact SVG file, passed to the icon component.'
+    modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Modifier Classes
+      description: 'Additional CSS classes.'
+libraryOverrides:
+  dependencies:
+    - gesso/global
+    - core/components.gesso--button

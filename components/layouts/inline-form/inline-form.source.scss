@@ -1,0 +1,26 @@
+// Layout: Inline Form
+
+@use '00-config' as *;
+
+.l-inline-form {
+  @include breakpoint(gesso-breakpoint(tablet)) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: gesso-spacing(2);
+
+    > * {
+      margin-block: 0 gesso-spacing(2) !important;
+      margin-inline: 0;
+    }
+  }
+}
+
+.l-inline-form--no-wrap {
+  @include breakpoint(gesso-breakpoint(tablet)) {
+    flex-wrap: nowrap;
+
+    > * {
+      margin: 0 !important;
+    }
+  }
+}

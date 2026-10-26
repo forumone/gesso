@@ -14,11 +14,12 @@
  *   - label: The facet label.
  */
 #}
-{% include '@components/facet/facet.twig' with {
+{% include 'gesso:facet' with {
   'attributes': attributes,
   'is_active': is_active,
   'title': value,
   'show_count': show_count,
   'count': count,
   'hide_link': true,
+  'image_path': image_path,
 } %}

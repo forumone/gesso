@@ -12,6 +12,7 @@ use Drupal\Core\Path\PathValidatorInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Theme\ThemeManagerInterface;
 use Drupal\Core\Utility\Token;
+use Drupal\gesso_helper\ThemeSettings;
 use Drupal\link\Plugin\Field\FieldFormatter\LinkFormatter;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -67,6 +68,13 @@ class GessoButtonFormatter extends LinkFormatter {
   protected Token $token;
 
   /**
+   * The theme settings helper.
+   *
+   * @var \Drupal\gesso_helper\ThemeSettings
+   */
+  protected ThemeSettings $themeSettings;
+
+  /**
    * Constructs a new LinkFormatter.
    *
    * @param string $plugin_id
@@ -75,13 +83,13 @@ class GessoButtonFormatter extends LinkFormatter {
    *   The plugin implementation definition.
    * @param \Drupal\Core\Field\FieldDefinitionInterface $field_definition
    *   The definition of the field to which the formatter is associated.
-   * @param array $settings
+   * @param array<string, mixed> $settings
    *   The formatter settings.
    * @param string $label
    *   The formatter label display setting.
    * @param string $view_mode
    *   The view mode.
-   * @param array $third_party_settings
+   * @param array<string, mixed> $third_party_settings
    *   Third party settings.
    * @param \Drupal\Core\Path\PathValidatorInterface $path_validator
    *   The path validator service.
@@ -93,17 +101,22 @@ class GessoButtonFormatter extends LinkFormatter {
    *   The theme manager service.
    * @param \Drupal\Core\Utility\Token $token
    *   The token service.
+   * @param \Drupal\gesso_helper\ThemeSettings $theme_settings
+   *   The theme settings helper.
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, PathValidatorInterface $path_validator, RendererInterface $renderer, ConfigFactoryInterface $configFactory, ThemeManagerInterface $themeManager, Token $token) {
+  final public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, PathValidatorInterface $path_validator, RendererInterface $renderer, ConfigFactoryInterface $configFactory, ThemeManagerInterface $themeManager, Token $token, ThemeSettings $theme_settings) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings, $path_validator);
     $this->renderer = $renderer;
     $this->configFactory = $configFactory;
     $this->themeManager = $themeManager;
     $this->token = $token;
+    $this->themeSettings = $theme_settings;
   }
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-param array<string, mixed> $configuration
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
@@ -118,12 +131,15 @@ class GessoButtonFormatter extends LinkFormatter {
       $container->get('renderer'),
       $container->get('config.factory'),
       $container->get('theme.manager'),
-      $container->get('token')
+      $container->get('token'),
+      $container->get('gesso_helper.theme_settings')
     );
   }
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, mixed>
    */
   public static function defaultSettings() {
     return [
@@ -136,6 +152,10 @@ class GessoButtonFormatter extends LinkFormatter {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-param array<string, mixed> $form
+   *
+   * @phpstan-return array<string, mixed>
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = $this->modifierSettingsForm($form, $form_state) + $this->iconSettingsForm($form, $form_state);
@@ -261,12 +281,12 @@ class GessoButtonFormatter extends LinkFormatter {
    * @param string $theme
    *   The machine name of the theme.
    *
-   * @return array
+   * @return array<string, string>
    *   The set of sizes, keyed by CSS classes.
    */
   private function getSizes($theme) {
     $sizes = [];
-    $theme_sizes = theme_get_setting('button_sizes', $theme) ?? "c-button|Standard\nc-button.c-button--small|Small\nc-button.c-button--large|Large";
+    $theme_sizes = $this->themeSettings->getSetting('button_sizes', $theme) ?? "c-button|Standard\nc-button.c-button--small|Small\nc-button.c-button--large|Large";
     $theme_sizes = str_replace(["\r\n", "\r"], "\n", trim($theme_sizes));
     $theme_sizes = explode("\n", $theme_sizes);
     foreach ($theme_sizes as $theme_size) {
@@ -284,12 +304,12 @@ class GessoButtonFormatter extends LinkFormatter {
    * @param string $theme
    *   The machine name of the theme.
    *
-   * @return array
+   * @return array<string, string>
    *   The set of styles, keyed by CSS classes.
    */
   private function getStyles($theme) {
     $styles = [];
-    $theme_styles = theme_get_setting('button_styles', $theme) ?? "c-button|Primary\nc-button.c-button--secondary|Secondary\nc-button.c-button--danger|Danger";
+    $theme_styles = $this->themeSettings->getSetting('button_styles', $theme) ?? "c-button|Primary\nc-button.c-button--secondary|Secondary\nc-button.c-button--danger|Danger";
     $theme_styles = str_replace(["\r\n", "\r"], "\n", trim($theme_styles));
     $theme_styles = explode("\n", $theme_styles);
     foreach ($theme_styles as $theme_style) {

@@ -1,0 +1,8 @@
+import Drupal from 'drupal';
+import once from 'once';
+
+Drupal.behaviors.{{#camelCase}}{{ componentName }}{{/camelCase}} = {
+  attach(context) {
+    // once('{{ componentName }}', '.{{ componentCssClass }}', context);
+  },
+};

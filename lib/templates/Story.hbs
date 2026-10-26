@@ -1,0 +1,25 @@
+import parse from 'html-react-parser';
+
+import { withGlobalWrapper } from '{{ storybookImportPath }}/decorators.jsx';
+import twigTemplate from './{{ componentName }}.twig';
+import data from './{{ componentName }}.yml';
+import componentInfo from './{{ componentName }}.component.yml';
+import getArgTypesFromComponent from '{{ storybookImportPath }}/getArgTypesFromComponent.js';
+import './{{ componentName }}.source.scss';{{#componentJs}}
+import './{{ componentName }}.source.js';{{/componentJs}}
+
+const settings = {
+  title: '{{#titleCase}}{{componentLocation}}{{/titleCase}}/{{ componentTitle }}',
+  decorators: [withGlobalWrapper],
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo),
+  },
+};
+
+const {{> jsClassName }} = {
+  render: args => parse(twigTemplate(args)),
+  args: { ...data },
+};
+
+export default settings;
+export { {{> jsClassName }} };

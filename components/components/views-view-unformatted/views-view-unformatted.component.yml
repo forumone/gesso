@@ -1,0 +1,54 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Views View Unformatted
+props:
+  type: object
+  properties:
+    title:
+      type:
+        - string
+        - "null"
+      title: Title
+      description: 'The optional title for the view.'
+    title_element:
+      type:
+        - string
+        - "null"
+      title: Title Element
+      description: 'The HTML element to use for the title (default: h3).'
+    title_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Title Modifier Classes
+      description: 'Additional CSS classes for the title element.'
+    has_default_class:
+      type:
+        - boolean
+        - "null"
+      title: Has Default Class
+      description: 'Whether to apply default row wrapper class.'
+    hide_row_wrapper:
+      type:
+        - boolean
+        - "null"
+      title: Hide Row Wrapper
+      description: 'Whether to hide the row wrapper element.'
+    element:
+      type:
+        - string
+        - "null"
+      title: Element
+      description: 'The HTML element to use for row wrappers (default: div).'
+    row_modifier_classes:
+      type:
+        - string
+        - "null"
+      title: Row Modifier Classes
+      description: 'Additional CSS classes for row elements.'
+    # `rows` is intentionally not declared as a prop. Each row's `content` is a
+    # Drupal render array that often contains circular references; declaring it
+    # causes ComponentValidator json_encode recursion fatals. Still passed from
+    # Twig / Storybook as a free variable: [{ content, attributes? }, ...].
+libraryOverrides:
+  dependencies:
+    - gesso/global

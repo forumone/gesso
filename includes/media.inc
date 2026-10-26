@@ -6,12 +6,15 @@
  */
 
 use Drupal\Component\Utility\Html;
-use Drupal\filter\Render\FilteredMarkup;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
-function gesso_preprocess_filter_caption(array &$variables) {
+function gesso_preprocess_filter_caption(array &$variables): void {
   $dom = Html::load($variables['node']);
   foreach ($dom->getElementsByTagName('drupal-media') as $dom_media_element) {
     /** @var \DOMElement $new_media_element */
@@ -33,8 +36,13 @@ function gesso_preprocess_filter_caption(array &$variables) {
     // Add media bundle to variables to handle custom theming by bundle.
     $uuid = $dom_media_element->getAttribute('data-entity-uuid');
     $entity_type = $dom_media_element->getAttribute('data-entity-type');
-    $media = \Drupal::service('entity.repository')->loadEntityByUuid($entity_type, $uuid);
-    $variables['media_bundle'] = $media->bundle();
+
+    if ($uuid && $entity_type && \Drupal::entityTypeManager()->hasDefinition($entity_type)) {
+      $media = \Drupal::service('entity.repository')->loadEntityByUuid($entity_type, $uuid);
+      if ($media) {
+        $variables['media_bundle'] = $media->bundle();
+      }
+    }
   }
 
   // If caption is empty, add blank space to allow CKEditor to add captions.
@@ -47,13 +55,16 @@ function gesso_preprocess_filter_caption(array &$variables) {
     $variables['classes'] = str_replace('align', 'u-align', $variables['classes']);
   }
 
-  $variables['node'] = FilteredMarkup::create(Html::serialize($dom));
+  $variables['node'] = Markup::create(Html::serialize($dom));
 }
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
-function gesso_preprocess_image(array &$variables) {
+function gesso_preprocess_image(array &$variables): void {
   if (empty($variables['attributes']['alt'])) {
     $variables['attributes']['alt'] = '';
   }
@@ -61,8 +72,11 @@ function gesso_preprocess_image(array &$variables) {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * @phpstan-param array<string, mixed> $variables
+ *   The template variables.
  */
-function gesso_preprocess_media(array &$variables) {
+function gesso_preprocess_media(array &$variables): void {
   $variables['has_caption'] = isset($variables['attributes']['data-caption']);
   $variables['bundle'] = $variables['media']->bundle();
 }

@@ -14,7 +14,7 @@ class AddAttributesTwigExtension extends AbstractExtension {
   /**
    * Provide helper name.
    */
-  public function getName() {
+  public function getName(): string {
     return 'gesso_helper_add_attributes';
   }
 
@@ -25,7 +25,7 @@ class AddAttributesTwigExtension extends AbstractExtension {
     $functions = parent::getFunctions();
     $functions[] = new TwigFunction(
       'add_attributes',
-      [$this, 'addAttributes'],
+      $this->addAttributes(...),
       ['needs_context' => TRUE, 'is_safe' => ['html']]
     );
     return $functions;
@@ -37,8 +37,15 @@ class AddAttributesTwigExtension extends AbstractExtension {
    * There are optional additions while preventing attributes from trickling
    * down through includes. Based on
    * https://github.com/drupal-pattern-lab/add-attributes-twig-extension.
+   *
+   * @param array<string, mixed> $context
+   *   The Twig template context.
+   * @param array<string, mixed> $additional_attributes
+   *   Additional attributes to merge in.
+   * @param string $attribute_type
+   *   The context key holding the attributes to extend.
    */
-  public function addAttributes($context, $additional_attributes = [], $attribute_type = 'attributes'): Attribute {
+  public function addAttributes(array $context, array $additional_attributes = [], string $attribute_type = 'attributes'): Attribute {
     $attributes = new Attribute();
 
     $context_attribute = [];
@@ -47,9 +54,13 @@ class AddAttributesTwigExtension extends AbstractExtension {
       $context_attribute = &$context_attribute[$segment];
     }
 
-    // If attribute doesn't exist, create it.
+    // If context_attribute doesn’t exist or is an array, create new Attribute.
     if (!$context_attribute) {
       $context_attribute = new Attribute();
+    }
+
+    if (is_array($context_attribute)) {
+      $context_attribute = new Attribute($context_attribute);
     }
 
     if (!empty($additional_attributes)) {
@@ -69,6 +80,12 @@ class AddAttributesTwigExtension extends AbstractExtension {
           }
           elseif (is_string($value)) {
             $value = [$value];
+          }
+          elseif (is_bool($value)) {
+            // Boolean attributes (e.g. inert, disabled) can't be merged as
+            // arrays; set them directly and move on to the next attribute.
+            $context_attribute->setAttribute($key, $value);
+            continue;
           }
           else {
             continue;

@@ -59,7 +59,7 @@
   {% set separator = ', ' %}
 {% endif %}
 
-{% include '@components/field/field.twig' with {
+{% include 'gesso:field' with {
   'attributes': attributes.addClass(classes),
   'modifier_classes': modifier_classes,
   'display_field_tag': display_field_tag,

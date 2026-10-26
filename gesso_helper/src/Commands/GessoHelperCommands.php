@@ -4,13 +4,12 @@ namespace Drupal\gesso_helper\Commands;
 
 use Consolidation\SiteAlias\SiteAliasManagerAwareInterface;
 use Consolidation\SiteAlias\SiteAliasManagerAwareTrait;
-use Drupal\Core\Extension\ThemeHandlerInterface;
+use Drupal\Core\Extension\ThemeExtensionList;
 use Drupal\gesso_helper\GessoHelperDirFilterExclude;
 use Drupal\gesso_helper\GessoHelperDirFilterInclude;
 use Drush\Commands\DrushCommands;
 use Drush\Drush;
 use Symfony\Component\Filesystem\Filesystem;
-use Webmozart\PathUtil\Path;
 
 /**
  * A Drush commandfile.
@@ -28,35 +27,35 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   use SiteAliasManagerAwareTrait;
 
   /**
-   * The theme handler service.
+   * The theme extension list service.
    *
-   * @var Drupal\Core\Extension\ThemeHandlerInterface
+   * @var \Drupal\Core\Extension\ThemeExtensionList
    */
-  protected $themeHandler;
+  protected ThemeExtensionList $themeList;
 
   /**
-   * Theme list variable.
+   * Cached theme extension data.
    *
-   * @var array
+   * @var array<string, \Drupal\Core\Extension\Extension>|null
    */
-  protected $themeList;
+  protected ?array $themes = NULL;
 
   /**
    * Filesystem variable.
    *
    * @var \Symfony\Component\Filesystem\Filesystem
    */
-  protected $fs;
+  protected Filesystem $fs;
 
   /**
    * GessoHelperCommands constructor.
    *
-   * @param Drupal\Core\Extension\ThemeHandlerInterface $themeHandler
-   *   The theme handler.
+   * @param \Drupal\Core\Extension\ThemeExtensionList $theme_list
+   *   The theme extension list.
    */
-  public function __construct(ThemeHandlerInterface $themeHandler) {
+  public function __construct(ThemeExtensionList $theme_list) {
     parent::__construct();
-    $this->themeHandler = $themeHandler;
+    $this->themeList = $theme_list;
     $this->fs = new Filesystem();
   }
 
@@ -65,7 +64,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    *
    * @param string $name
    *   The name of your theme.
-   * @param array $options
+   * @param array<string, string|null> $options
    *   An associative array of options whose values come from cli,
    *   aliases, config, etc.
    *
@@ -87,12 +86,9 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
    */
   public function gesso(
     $name,
-    array $options = ['description' => NULL, 'machine-name' => NULL]
-  ) {
+    array $options = ['description' => NULL, 'machine-name' => NULL],
+  ): void {
     // Get new theme options.
-    if (!isset($name)) {
-      $name = $options['name'];
-    }
     $machine_name = $options['machine-name'] ?: $this->gessoMachineName($name);
     $description = $options['description'];
 
@@ -113,12 +109,21 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $this->io()->text(dt('Setting up the theme. This may take a while...'));
     // Get theme paths.
     $drupalRoot = Drush::bootstrapManager()->getRoot();
-    $gesso_path = Path::join($drupalRoot, $this->themeHandler->getPath('gesso'));
+    $gesso_path = $drupalRoot . DIRECTORY_SEPARATOR . $this->themeList->getPath('gesso');
     $theme_path = substr($gesso_path, 0, strrpos($gesso_path, '/'));
-    $new_path = Path::join($theme_path, $machine_name);
+    $new_path = $theme_path . DIRECTORY_SEPARATOR . $machine_name;
 
     // Copy the Gesso theme directory recursively to the new theme’s location.
-    $this->fs->mirror($gesso_path, $new_path, new \RecursiveIteratorIterator(new GessoHelperDirFilterExclude(new \RecursiveDirectoryIterator($gesso_path))), \RecursiveIteratorIterator::SELF_FIRST);
+    $this->fs->mirror(
+      $gesso_path,
+      $new_path,
+      new \RecursiveIteratorIterator(
+        new GessoHelperDirFilterExclude(
+          new \RecursiveDirectoryIterator($gesso_path, \FilesystemIterator::SKIP_DOTS)
+        ),
+        \RecursiveIteratorIterator::SELF_FIRST
+      )
+    );
 
     // Replace specific occurrences of 'gesso'
     // with the machine name of the new theme.
@@ -141,24 +146,45 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
         );
       }
     }
-    $templateFiles = new \RecursiveIteratorIterator(
+    // Update SDC references in component templates and definitions. Component
+    // SCSS and JS are skipped, and only targeted patterns are replaced, since
+    // "gesso" also appears in Sass function names, drupalSettings keys and
+    // file names (e.g., gesso.macro.twig) that must not change.
+    $componentFiles = new \RecursiveIteratorIterator(
         new \RecursiveDirectoryIterator(
-          $new_path . '/source', \FilesystemIterator::SKIP_DOTS
+          $new_path . '/components', \FilesystemIterator::SKIP_DOTS
         ),
       \RecursiveIteratorIterator::SELF_FIRST);
-    foreach ($templateFiles as $templateFile) {
-      if (!$templateFile->isDir()) {
-        $this->gessoFileStrReplace(
-          $templateFile->getPathname(),
-          ["/attach_library\((')?gesso/"],
-          ['attach_library($1' . $machine_name]
-        );
+    foreach ($componentFiles as $componentFile) {
+      $filename = $componentFile->getFilename();
+      if ($componentFile->isDir()
+        || !(str_ends_with($filename, '.twig') || str_ends_with($filename, '.component.yml'))) {
+        continue;
       }
+      $this->gessoFileStrReplace(
+        $componentFile->getPathname(),
+        [
+          // Component IDs, e.g., {% include 'gesso:icon' %}.
+          "/(?<=['\"])gesso:/",
+          // Library names, e.g., gesso/global or attach_library('gesso/...').
+          '/\bgesso\//',
+          // SDC library names, e.g., core/components.gesso--button.
+          '/\bcomponents\.gesso--/',
+          // Theme settings path, e.g., /admin/appearance/settings/gesso.
+          '/(?<=\/appearance\/settings\/)gesso\b/',
+        ],
+        [
+          $machine_name . ':',
+          $machine_name . '/',
+          'components.' . $machine_name . '--',
+          $machine_name,
+        ]
+      );
     }
 
     // Rename the .info.yml file.
-    $gesso_info_file = Path::join($new_path, 'gesso.info.yml');
-    $new_info_file = Path::join($new_path, $machine_name . '.info.yml');
+    $gesso_info_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.info.yml';
+    $new_info_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.info.yml';
     drush_op('rename', $gesso_info_file, $new_info_file);
 
     // Update the .info.yml file based on the command options.
@@ -170,29 +196,29 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     $this->gessoFileStrReplace($new_info_file, array_keys($changes), $changes);
 
     // Rename the .breakpoints.yml file.
-    $gesso_info_file = Path::join($new_path, 'gesso.breakpoints.yml');
-    $new_info_file = Path::join($new_path, $machine_name . '.breakpoints.yml');
+    $gesso_info_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.breakpoints.yml';
+    $new_info_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.breakpoints.yml';
     if ($this->fs->exists($gesso_info_file)) {
       drush_op('rename', $gesso_info_file, $new_info_file);
     }
 
     // Rename the .libraries.yml file.
-    $gesso_libraries_file = Path::join($new_path, 'gesso.libraries.yml');
-    $new_libraries_file = Path::join($new_path, $machine_name . '.libraries.yml');
+    $gesso_libraries_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.libraries.yml';
+    $new_libraries_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.libraries.yml';
     if ($this->fs->exists($gesso_libraries_file)) {
       drush_op('rename', $gesso_libraries_file, $new_libraries_file);
     }
 
     // Rename the .layouts.yml file.
-    $gesso_layouts_file = Path::join($new_path, 'gesso.layouts.yml');
-    $new_layouts_file = Path::join($new_path, $machine_name . '.layouts.yml');
+    $gesso_layouts_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.layouts.yml';
+    $new_layouts_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.layouts.yml';
     if ($this->fs->exists($gesso_layouts_file)) {
       drush_op('rename', $gesso_layouts_file, $new_layouts_file);
     }
 
     // Rename the .theme file.
-    $gesso_theme_file = Path::join($new_path, 'gesso.theme');
-    $new_theme_file = Path::join($new_path, $machine_name . '.theme');
+    $gesso_theme_file = $new_path . DIRECTORY_SEPARATOR . 'gesso.theme';
+    $new_theme_file = $new_path . DIRECTORY_SEPARATOR . $machine_name . '.theme';
     if ($this->fs->exists($gesso_theme_file)) {
       drush_op('rename', $gesso_theme_file, $new_theme_file);
     }
@@ -229,7 +255,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   /**
    * Converts $name to a machine-readable format.
    */
-  private function gessoMachineName($name) {
+  private function gessoMachineName(string $name): string {
     $name = str_replace(' ', '_', strtolower($name));
     $search = [
       // Remove characters not valid in function names.
@@ -247,48 +273,28 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
   /**
    * Checks if $theme_name already exists in Drupal.
    */
-  private function gessoThemeExists($theme_name) {
-    if (empty($this->themeList)) {
-      $this->themeList = $this->themeHandler->rebuildThemeData();
+  private function gessoThemeExists(string $theme_name): bool {
+    if ($this->themes === NULL) {
+      $this->themes = $this->themeList->reset()->getList();
     }
 
-    return isset($this->themeList[$theme_name]);
+    return isset($this->themes[$theme_name]);
   }
 
   /**
    * Replace strings in a file.
+   *
+   * @param string $file_path
+   *   The path of the file to update.
+   * @param string|array<array-key, string> $find
+   *   The pattern (or patterns) to search for.
+   * @param string|array<array-key, mixed> $replace
+   *   The string (or strings) to replace them with.
    */
-  private function gessoFileStrReplace($file_path, $find, $replace) {
-    $file_path = Path::normalize($file_path);
+  private function gessoFileStrReplace(string $file_path, string|array $find, string|array $replace): void {
     $file_contents = file_get_contents($file_path);
     $file_contents = preg_replace($find, $replace, $file_contents);
     drush_op('file_put_contents', $file_path, $file_contents);
-  }
-
-  /**
-   * Recursively removes all files and subfolders in a directory.
-   *
-   * It later also removes the directory itself.
-   *
-   * @param string $path
-   *   Path to the top-level directory.
-   */
-  private function gessoRecursiveRm($path) {
-    if (is_dir($path)) {
-      $dir_contents = scandir($path);
-      foreach ($dir_contents as $item) {
-        if ($item !== '.' && $item !== '..') {
-          $subpath = Path::join($path, $item);
-          if (is_dir($subpath)) {
-            $this->gessoRecursiveRm($subpath);
-          }
-          else {
-            drush_op('unlink', $subpath);
-          }
-        }
-      }
-      drush_op('rmdir', $path);
-    }
   }
 
 }

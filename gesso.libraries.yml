@@ -1,218 +1,33 @@
+common:
+  js:
+    dist/js/common.js: {}
+
 global:
   css:
-    theme:
-      # If you alter the fonts here, be sure to also update: source/ckeditor4-styles.scss, source/editor-styles.scss and .storybook/preview-head.html.
-      //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
+    # Base so SDC component CSS (weight 0) loads after global resets/element
+    # styles (weight -200). Declaring gesso/global as an SDC dependency is not
+    # enough — see https://www.drupal.org/project/drupal/issues/3560103
+    base:
       dist/css/styles.css: {}
+    state:
+      dist/css/utilities.css: {}
+    theme:
+      # If you alter the fonts here, be sure to also update: source/editor-styles.scss and .storybook/preview-head.html.
+      //fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap: { type: external }
   js:
-    dist/js/universal.es6.js: {}
     dist/js/html.es6.js: {}
-    dist/js/table--sortable.es6.js: {}
-  dependencies:
-    - core/drupal
-    - gesso/common
-
-accordion:
-  header: true
-  css:
-    theme:
-      dist/css/accordion.css: {}
-  js:
-    dist/js/accordion.es6.js: {}
   dependencies:
     - core/drupal
     - core/once
     - gesso/common
-
-accordion_step_list:
-  header: true
-  css:
-    theme:
-      dist/css/accordion--step-list.css: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
-    - gesso/accordion
-
-back_to_top:
-  css:
-    theme:
-      dist/css/back-to-top.css: {}
-  js:
-    dist/js/back-to-top.es6.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
-
-block:
-  css:
-    theme:
-      dist/css/block.css: {}
-
-breadcrumb:
-  css:
-    theme:
-      dist/css/breadcrumb.css: {}
-
-call_to_action:
-  css:
-    theme:
-      dist/css/call-to-action.css: {}
-
-card:
-  css:
-    theme:
-      dist/css/card.css: {}
-
-details:
-  css:
-    theme:
-      dist/css/details.css: {}
-
-dropbutton:
-  js:
-    dist/js/dropbutton.es6.js: {}
-  css:
-    component:
-      dist/css/dropbutton.css: {}
-  dependencies:
-    - core/drupal
-    - core/drupalSettings
-    - core/once
-    - gesso/common
-
-dropdown_menu:
-  css:
-    theme:
-      dist/css/dropdown-menu.css: {}
-  js:
-    dist/js/dropdown-menu.es6.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
-    - gesso/mobile_menu
-
-external-link:
-  js:
-    dist/js/external-link.es6.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
-
-facets:
-  css:
-    theme:
-      dist/css/facet.css: {}
-      dist/css/facet-list.css: {}
-  dependencies:
-    - gesso/common
-
-file:
-  css:
-    theme:
-      dist/css/file.css: {}
-  dependencies:
-    - gesso/icon_link
-
-filters:
-  css:
-    theme:
-      dist/css/filters.css: {}
-  dependencies:
-    - gesso/common
-
-hamburger_button:
-  css:
-    theme:
-      dist/css/hamburger-button.css: {}
-
-hero_bg_image:
-  css:
-    theme:
-      dist/css/hero-bg-image.css: {}
-
-hero_inline_image:
-  css:
-    theme:
-      dist/css/hero-inline-image.css: {}
-
-icon_link:
-  css:
-    theme:
-      dist/css/icon-link.css: {}
-
-image_teaser:
-  css:
-    theme:
-      dist/css/image-teaser.css: {}
-
-mega_menu:
-  css:
-    theme:
-      dist/css/mega-menu.css: {}
-  js:
-    dist/js/mega-menu.es6.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
-    - gesso/mobile_menu
-
-message:
-  css:
-    theme:
-      dist/css/message.css: {}
 
 mobile_menu:
   css:
     theme:
-      dist/css/mobile-menu.css: {}
+      components/components/mobile-menu/mobile-menu.css: {}
   dependencies:
-    - gesso/hamburger_button
-
-modal:
-  css:
-    theme:
-      dist/css/modal.css: {}
-  js:
-    dist/js/modal.es6.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
-
-overlay_menu:
-  css:
-    theme:
-      dist/css/overlay-menu.css: {}
-  js:
-    dist/js/overlay-menu.es6.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
-    - gesso/hamburger_button
-
-pager:
-  css:
-    theme:
-      dist/css/pager.css: {}
-
-pager_mini:
-  css:
-    theme:
-      dist/css/pager--mini.css: {}
-  dependencies:
-    - gesso/pager
-
-progress:
-  css:
-    theme:
-      dist/css/progress.css: {}
+    - gesso/global
+    - core/components.gesso--hamburger-button
 
 react:
   js:
@@ -224,59 +39,3 @@ react:
     dist/js/react/main.js: { preprocess: false }
   dependencies:
     - core/drupalSettings
-
-read_more_link:
-  css:
-    theme:
-      dist/css/rss-more-link.css: {}
-  dependencies:
-    - gesso/icon_link
-
-rss_feed:
-  css:
-    theme:
-      dist/css/rss-feed.css: {}
-  dependencies:
-    - gesso/icon_link
-
-side_menu:
-  css:
-    theme:
-      dist/css/side-menu.css: {}
-  js:
-    dist/js/side-menu.es6.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common
-    - gesso/hamburger_button
-
-tag:
-  css:
-    theme:
-      dist/css/tag.css: {}
-
-tag_list:
-  css:
-    theme:
-      dist/css/tag-list.css: {}
-  dependencies:
-    - gesso/tag
-
-teaser:
-  css:
-    theme:
-      dist/css/teaser.css: {}
-
-video:
-  css:
-    theme:
-      dist/css/video.css: {}
-
-wysiwyg:
-  js:
-    dist/js/wysiwyg.es6.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - gesso/common

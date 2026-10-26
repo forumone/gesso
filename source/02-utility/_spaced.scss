@@ -1,0 +1,27 @@
+// Utility: Spaced
+// Used for vertical spacing.
+
+@use '00-config' as *;
+$sizes: 0.5, 1, 1.5, 2, 2.5, 3, 4, 5;
+
+@each $size in $sizes {
+  .u-spaced-#{escape-number($size)},
+  .u-spaced-#{escape-number($size)}-above {
+    margin-block-start: #{gesso-spacing($size)} !important;
+  }
+
+  .u-spaced-#{escape-number($size)},
+  .u-spaced-#{escape-number($size)}-below {
+    margin-block-end: #{gesso-spacing($size)} !important;
+  }
+}
+
+.u-spaced-none,
+.u-spaced-none-above {
+  margin-block-start: 0 !important;
+}
+
+.u-spaced-none,
+.u-spaced-none-below {
+  margin-block-end: 0 !important;
+}

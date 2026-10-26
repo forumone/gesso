@@ -1,9 +1,23 @@
-import path, { resolve } from 'path';
+/* eslint no-console: "off" */
+import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
+import path, { resolve, dirname } from 'node:path';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import * as sass from 'sass-embedded';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const require = createRequire(import.meta.url);
 const isProdBuild = process.env.NODE_ENV === 'production';
+const ddevHostname = process.env.DDEV_HOSTNAME || process.env.VIRTUAL_HOST;
 
 const config = {
-  stories: ['../source/**/*.mdx', '../source/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../source/**/*.mdx',
+    '../source/**/*.stories.@(js|jsx|ts|tsx)',
+    '../components/**/*.stories.@(js|jsx|ts|tsx)',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   framework: {
     name: '@storybook/react-webpack5',
   },
@@ -12,22 +26,24 @@ const config = {
   },
   addons: [
     '@storybook/addon-links',
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-      },
-    },
     '@storybook/addon-a11y',
     '@storybook/addon-webpack5-compiler-swc',
+    '@storybook/addon-docs',
   ],
+  features: {
+    actions: false,
+  },
+  core: {
+    // Replace allowedHosts value with your DDEV URL if neither ddevHostname nor the .ddev.site pattern apply.
+    allowedHosts: ddevHostname ? [ddevHostname] : ['.ddev.site'],
+  },
   staticDirs: ['../dist'],
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (webpackConfig, { configType }) => {
     // Storybook 8 removes fast-refresh as a framework option and instead
     // requires manual set-up.
     // Adapted from https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#frameworkoptionsfastrefresh-for-webpack5-based-projects-removed
     // and https://github.com/pmmmwh/react-refresh-webpack-plugin?tab=readme-ov-file#usage.
-    const swcLoaderRule = config.module.rules.find(
+    const swcLoaderRule = webpackConfig.module.rules.find(
       rule =>
         (rule.loader && rule.loader.toString().includes('swc-loader')) ||
         (rule.use &&
@@ -38,7 +54,7 @@ const config = {
     );
     if (swcLoaderRule) {
       swcLoaderRule.sideEffects = true;
-      let swcLoaderConfig =
+      const swcLoaderConfig =
         swcLoaderRule.loader ||
         swcLoaderRule.use.find(
           subRule =>
@@ -62,19 +78,17 @@ const config = {
         };
       }
     }
-    config.module.rules.push({
+    webpackConfig.module.rules.push({
       test: /\.twig$/,
       use: [
         {
-          loader: 'twig-loader',
+          loader: '@forumone/twig-loader',
           options: {
             twigOptions: {
               namespaces: {
                 global: resolve(__dirname, '../', 'source/01-global'),
-                layouts: resolve(__dirname, '../', 'source/02-layouts'),
-                components: resolve(__dirname, '../', 'source/03-components'),
-                templates: resolve(__dirname, '../', 'source/04-templates'),
-                pages: resolve(__dirname, '../', 'source/05-pages'),
+                // SDC provider:name — resolves under components/{components,layouts,templates}/
+                gesso: resolve(__dirname, '../', 'components'),
               },
             },
           },
@@ -82,7 +96,7 @@ const config = {
       ],
     });
 
-    config.module.rules.push({
+    webpackConfig.module.rules.push({
       test: /config\.design-tokens\.yml$/,
       exclude: /node_modules/,
       use: [
@@ -91,13 +105,13 @@ const config = {
       ],
     });
 
-    config.module.rules.push({
+    webpackConfig.module.rules.push({
       test: /\.ya?ml$/,
       exclude: /config\.design-tokens\.yml$/,
       loader: 'js-yaml-loader',
     });
 
-    config.module.rules.push({
+    webpackConfig.module.rules.push({
       test: /\.scss$/,
       use: [
         'style-loader',
@@ -110,30 +124,30 @@ const config = {
         {
           loader: 'sass-loader',
           options: {
-            implementation: require('sass-embedded'),
+            implementation: sass,
             webpackImporter: false,
             sassOptions: {
               loadPaths: [path.resolve(__dirname, '../source')],
-              // Hiding mixed declaration warnings for now.
-              // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
-              silenceDeprecations: ['mixed-decls'],
             },
           },
         },
       ],
     });
 
-    config.externals = {
+    webpackConfig.externals = {
       drupal: 'Drupal',
       drupalSettings: 'drupalSettings',
       once: 'once',
     };
 
-    config.resolve.modules.push(path.resolve(__dirname, '../source'));
-    config.stats = 'errors-warnings';
+    webpackConfig.resolve.modules.push(
+      path.resolve(__dirname, '../source'),
+      path.resolve(__dirname, '../components')
+    );
+    webpackConfig.stats = 'errors-warnings';
 
     if (configType === 'DEVELOPMENT') {
-      config.plugins.push(function readyToGoPlugin() {
+      webpackConfig.plugins.push(function readyToGoPlugin() {
         this.hooks.beforeCompile.tap('ReadyToGoPlugin', () => {
           console.log(
             `\n${new Date().toLocaleTimeString('en-US', {
@@ -153,17 +167,27 @@ const config = {
       });
     }
 
-    config.plugins = [
+    webpackConfig.plugins = [
       !isProdBuild &&
         new ReactRefreshWebpackPlugin({
           overlay: {
             sockIntegration: 'whm',
           },
         }),
-      ...config.plugins,
+      ...webpackConfig.plugins,
     ].filter(Boolean);
 
-    return config;
+    // Storybook 9's builder-webpack no longer provides a polyfill for path,
+    // but Twig.js still needs one.
+    webpackConfig.resolve = {
+      ...webpackConfig.resolve,
+      fallback: {
+        ...webpackConfig.resolve?.fallback,
+        path: require.resolve('path-browserify'),
+      },
+    };
+
+    return webpackConfig;
   },
 };
 export default config;
