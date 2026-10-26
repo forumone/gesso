@@ -18,6 +18,7 @@
     "stylelint:fix": "stylelint -f verbose --fix \"source/**/*.scss\" \"components/**/*.scss\"",
     "test": "npm run eslint && npm run stylelint",
     "test:e2e": "playwright test",
+    "test:fix": "npm run eslint:fix && npm run stylelint:fix",
     "test:unit": "vitest run",
     "watch": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\"",
     "watch-design-tokens": "webpack watch --config ./webpack.theme-config.js --mode=development",
