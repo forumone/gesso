@@ -64,7 +64,7 @@
   {% endapply %}
 
   {% if label_display == 'after' %}
-    {{ label }}{% if suffix and affix_around_label %}<span class="c-form-item__suffix">{{ suffix }}</span>{% endif %}{# Twig drops one newline after a tag; this comment keeps the newline, so output without a suffix is unchanged. #}
+    {{ label }}{% if suffix and affix_around_label %}<span class="c-form-item__suffix">{{ suffix }}</span>{% endif %}{# Keeps Storybook (twig.js) output unchanged; PHP Twig also drops this newline (whitespace only). #}
   {% endif %}
 
   {% if errors %}
