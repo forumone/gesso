@@ -12,6 +12,11 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
+{# With the label after the input (checkbox, radio), the prefix and suffix
+   surround the label and the input stays adjacent to it, which the custom
+   checkbox styles rely on. #}
+{% set affix_around_label = label_display == 'after' %}
+
 {% set description_classes = [
   'c-form-item__description',
   description_display == 'invisible' ? 'u-visually-hidden' : '',
@@ -33,7 +38,7 @@
   {% endif %}
 
   {% apply spaceless %}
-    {% if prefix or suffix %}
+    {% if (prefix or suffix) and not affix_around_label %}
       <div class="c-form-item__element">
     {% endif %}
 
@@ -49,17 +54,18 @@
 
       {{ children }}
 
-      {% if suffix %}
+      {% if suffix and not affix_around_label %}
         <span class="c-form-item__suffix">{{ suffix }}</span>
       {% endif %}
 
-    {% if prefix or suffix %}
+    {% if (prefix or suffix) and not affix_around_label %}
       </div>
     {% endif %}
   {% endapply %}
 
   {% if label_display == 'after' %}
-    {{ label }}
+    {{ label }}{% if suffix %}<span class="c-form-item__suffix">{{ suffix }}</span>{% endif %}
+
   {% endif %}
 
   {% if errors %}
