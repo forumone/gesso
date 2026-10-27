@@ -12,10 +12,10 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{# With the label after the input (checkbox, radio), the prefix and suffix
-   surround the label and the input stays adjacent to it, which the custom
-   checkbox styles rely on. #}
-{% set affix_around_label = label_display == 'after' %}
+{# For a checkbox or radio with the label after the input, the prefix and
+   suffix surround the label and the input stays adjacent to it, which the
+   custom checkbox styles rely on. #}
+{% set affix_around_label = label_display == 'after' and type in ['checkbox', 'radio'] %}
 
 {% set description_classes = [
   'c-form-item__description',
@@ -64,7 +64,7 @@
   {% endapply %}
 
   {% if label_display == 'after' %}
-    {{ label }}{% if suffix %}<span class="c-form-item__suffix">{{ suffix }}</span>{% endif %}
+    {{ label }}{% if suffix and affix_around_label %}<span class="c-form-item__suffix">{{ suffix }}</span>{% endif %}{# Twig drops one newline after a tag; the blank line below keeps the output without a suffix unchanged. #}
 
   {% endif %}
 
