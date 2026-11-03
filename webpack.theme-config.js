@@ -42,7 +42,7 @@ const themeConfig = (_env, argv) => ({
       {
         test: /config\.design-tokens\.yml$/,
         exclude: /node_modules/,
-        use: [path.resolve(__dirname, './lib/configLoader.cjs')],
+        use: [path.resolve(__dirname, './lib/design-tokens/configLoader.ts')],
         type: 'asset/source',
       },
     ],

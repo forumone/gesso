@@ -5,7 +5,7 @@
   "type": "module",
   "main": "js/scripts.min.js",
   "scripts": {
-    "test": "npm run eslint && npm run stylelint",
+    "test": "npm run eslint && npm run eslint:lib && npm run typecheck:lib && npm run stylelint",
     "start": "webpack --config ./webpack.theme-config.js --mode=development",
     "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js && webpack --config ./webpack.react-config.js",
     "storybook": "storybook dev -p 6006",
@@ -14,16 +14,21 @@
     "watch-react": "webpack watch --config ./webpack.react-config.js",
     "watch": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\"",
     "eslint": "eslint \"source/**/!(*.stories).{js,jsx,ts,tsx}\" \"components/**/!(*.stories).{js,jsx,ts,tsx}\"",
+    "eslint:lib": "eslint \"lib/**/*.{js,ts}\"",
+    "typecheck:lib": "tsc -p lib/tsconfig.json",
     "stylelint": "stylelint \"source/**/*.scss\" \"components/**/*.scss\"",
     "build-storybook": "npm run build && storybook build -o storybook",
     "dev": "npm run start && concurrently --raw \"npm:watch-theme\" \"npm:watch-design-tokens\" \"npm:watch-react\" \"npm:storybook\"",
-    "component": "node lib/component.js",
+    "component": "node lib/component-generator/component.ts",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
-    "pretest:e2e": "node lib/ensurePlaywrightBrowsers.js"
+    "pretest:e2e": "node lib/scripts/ensurePlaywrightBrowsers.js"
   },
   "author": "Forum One",
   "license": "GPL-2.0+",
+  "engines": {
+    "node": "^22.18.0 || >=23.6.0"
+  },
   "browserslist": [
     "last 2 versions and not dead",
     ">= 1%",
@@ -46,8 +51,10 @@
     "@swc/cli": "^0.8.1",
     "@swc/core": "^1.16.13",
     "@testing-library/jest-dom": "^7.0.1",
+    "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@types/twig": "^1.12.17",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "autoprefixer": "^10.6.1",
