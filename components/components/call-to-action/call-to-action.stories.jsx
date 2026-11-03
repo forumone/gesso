@@ -3,10 +3,10 @@ import parse from 'html-react-parser';
 import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './call-to-action.twig';
 import data from './call-to-action.yml';
-import './call-to-action.source.scss';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
 import '../button/button.stories.jsx';
+import './call-to-action.source.scss';
 import componentInfo from './call-to-action.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
