@@ -194,9 +194,15 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     // Update the .info.yml file based on the command options.
     $changes = [
       '/Gesso/' => $name,
-      '/Sass-based starter theme\./' => $description,
       '/gesso(?!_helper)/' => $machine_name,
     ];
+    // Replace the description last so a user-supplied "gesso" isn't
+    // rewritten. Escape quotes for the single-quoted YAML value, and
+    // backslashes and "$" so preg_replace() doesn't treat them as
+    // backreferences.
+    if ($description) {
+      $changes['/Storybook-based starter theme/'] = addcslashes(str_replace("'", "''", $description), '\\$');
+    }
     $this->gessoFileStrReplace($new_info_file, array_keys($changes), $changes);
 
     // Rename the .breakpoints.yml file.
