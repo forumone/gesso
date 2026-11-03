@@ -3,6 +3,8 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
+{% set hide_description = hide_description ?? true %}
+
 {% set link_text -%}
   {{ label|default('Read more') }}
 
