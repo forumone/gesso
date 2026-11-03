@@ -126,7 +126,11 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
     );
 
     // Replace specific occurrences of 'gesso'
-    // with the machine name of the new theme.
+    // with the machine name of the new theme. Identifiers owned by the
+    // gesso_helper module must survive: its functions (gesso_helper_*), the
+    // gesso_icon theme hook (and its suggestions, e.g., gesso_icon__custom),
+    // and the gesso_icon_link / gesso_button element types. The
+    // drupalSettings.gesso key is also kept, since theme JS isn't renamed.
     $files = new \RecursiveIteratorIterator(
       new GessoHelperDirFilterInclude(
         new \RecursiveDirectoryIterator(
@@ -139,7 +143,7 @@ class GessoHelperCommands extends DrushCommands implements SiteAliasManagerAware
         $this->gessoFileStrReplace(
           $file->getPathname(),
           [
-            "/(?<!\[('|\")drupalSettings('|\")\]\[('|\"))gesso/",
+            "/(?<!\[('|\")drupalSettings('|\")\]\[('|\"))gesso(?!_helper|_icon(?:_|\b)|_button\b)/",
             '/Gesso/',
           ],
           [$machine_name, $name]
