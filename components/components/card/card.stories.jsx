@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './card.twig';
 import data from './card.yml';
+import globalData from '../../../source/00-config/storybook.global-data.yml';
 import './card.source.scss';
 // Importing Tag, TagList and ReadMoreLink to ensure their assets gets loaded
 // in Storybook when this story is referenced since Drupal loads them as a library.
@@ -18,11 +19,26 @@ const settings = {
   argTypes: {
     ...getArgTypesFromComponent(componentInfo),
   },
+  parameters: {
+    controls: {
+      include: [
+        'modifier_classes',
+        'date',
+        'url',
+        'title',
+        'card_content',
+        'footer',
+        'read_more',
+        'tags',
+        'media',
+      ],
+    },
+  },
 };
 
 const Default = {
   render: args => parse(twigTemplate(args)),
-  args: { ...data },
+  args: { ...globalData, ...data },
 };
 
 const FeatureCard = {
