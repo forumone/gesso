@@ -20,9 +20,6 @@ function getArgTypesFromComponent(componentInfo) {
     ...Object.fromEntries(
       Object.entries(componentInfo.props?.properties || {}).map(([key, p]) => {
         const argTypeConfig = {};
-        if (p.title) {
-          argTypeConfig.name = p.title;
-        }
         const storybookType = normalizeStorybookType(p.type);
         if (storybookType) {
           argTypeConfig.type = storybookType;
@@ -51,9 +48,6 @@ function getArgTypesFromComponent(componentInfo) {
           control: false,
           table: { category: 'slots' },
         };
-        if (p.title) {
-          argTypeConfig.name = p.title;
-        }
         if (p.description) {
           argTypeConfig.description = p.description;
         }
