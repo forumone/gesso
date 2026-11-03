@@ -5,10 +5,10 @@ import filtersTemplate from './filters.twig';
 import filterTemplate from '../filter/filter.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './filters.yml';
-import './filters.source.scss';
 // filter.twig includes gesso:icon and uses c-button classes.
 import '../icon/icon.stories.jsx';
 import '../button/button.stories.jsx';
+import './filters.source.scss';
 import componentInfo from './filters.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 

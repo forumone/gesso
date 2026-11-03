@@ -5,10 +5,10 @@ import twigTemplate from './menu-account.twig';
 import data from './menu-account.yml';
 import componentInfo from './menu-account.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
-import './menu-account.source.scss';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
 import '../menu/menu.stories.jsx';
+import './menu-account.source.scss';
 
 const settings = {
   title: 'Components/Menu/Account Menu',

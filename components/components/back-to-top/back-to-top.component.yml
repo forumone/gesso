@@ -26,5 +26,6 @@ props:
 libraryOverrides:
   dependencies:
     - gesso/global
+    - core/components.gesso--icon
     - core/drupal
     - core/once

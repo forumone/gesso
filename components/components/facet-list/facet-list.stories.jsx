@@ -5,10 +5,10 @@ import listTemplate from './facet-list.twig';
 import facetTemplate from '../facet/facet.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './facet-list.yml';
-import './facet-list.source.scss';
 import '../facet/facet.source.scss';
 // Facet markup (via facet.twig) includes gesso:icon.
 import '../icon/icon.stories.jsx';
+import './facet-list.source.scss';
 import componentInfo from './facet-list.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
