@@ -24,6 +24,23 @@ vi.mock('@inquirer/prompts', () => ({
   select: vi.fn(),
 }));
 
+// Lets a test make the Nth write fail after the file is partially created.
+const failure = vi.hoisted(() => ({ onWrite: 0, count: 0 }));
+vi.mock('node:fs/promises', async importOriginal => {
+  const actual = await importOriginal<typeof import('node:fs/promises')>();
+  return {
+    ...actual,
+    writeFile: async (...args: Parameters<typeof actual.writeFile>) => {
+      failure.count += 1;
+      if (failure.count === failure.onWrite) {
+        await actual.writeFile(args[0], 'partial', args[2]);
+        throw Object.assign(new Error('disk full'), { code: 'ENOSPC' });
+      }
+      return actual.writeFile(...args);
+    },
+  };
+});
+
 const argv = (...args: string[]) => ['node', 'component.ts', ...args];
 
 let cwd: string;
@@ -43,6 +60,8 @@ beforeEach(async () => {
   await writeFile(path.join(cwd, 'components', 'README.md'), 'not a folder');
   logs = [];
   errors = [];
+  failure.onWrite = 0;
+  failure.count = 0;
   vi.resetAllMocks();
 });
 
@@ -118,6 +137,24 @@ describe('writeComponent', () => {
     expect(story).toContain("import './x-widget.source.js';");
     expect(story).toContain('const XWidget = {');
     expect(story).not.toMatch(/\n{3,}/);
+  });
+
+  it('removes the files it created, including a partial one, on failure', async () => {
+    const options = {
+      name: 'x-widget',
+      title: 'X Widget',
+      folder: 'components',
+      subfolder: '',
+      js: false,
+    };
+    const dir = path.join(cwd, 'components/components/x-widget');
+    failure.onWrite = 3;
+    await expect(writeComponent(options, cwd)).rejects.toThrow('disk full');
+    expect(await readdir(dir)).toEqual([]);
+
+    // A retry is no longer blocked by leftovers.
+    await writeComponent(options, cwd);
+    expect(await readdir(dir)).not.toEqual([]);
   });
 });
 

@@ -51,6 +51,18 @@ describe('add_attributes', () => {
     );
   });
 
+  it('escapes entity-like and special characters in array values', () => {
+    expect(r(`<div {{ add_attributes({ title: "a&amp;b <c> 'd'" }) }}>`)).toBe(
+      '<div title="a&amp;amp;b &lt;c&gt; &#39;d&#39;" >'
+    );
+  });
+
+  it('escapes entity-like and special characters in scalar values', () => {
+    expect(r(`<div {{ add_attributes({ title: "a&amp;b <c>" }, '') }}>`)).toBe(
+      '<div title="a&amp;amp;b &lt;c&gt;" >'
+    );
+  });
+
   it('skips merging when the original attributes name is empty', () => {
     expect(
       r(`<div {{ add_attributes({ class: 'c' }, '') }}>`, {

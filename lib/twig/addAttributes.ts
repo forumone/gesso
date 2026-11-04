@@ -3,6 +3,22 @@ import type { TwigExtension, TwigTemplateScope } from './types.ts';
 
 type Attributes = Record<string, unknown>;
 
+const ATTRIBUTE_ENTITIES: Record<string, string> = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',
+};
+
+/**
+ * Encodes a value for use inside a double-quoted HTML attribute, matching
+ * Drupal's Html::escape().
+ */
+function escapeAttributeValue(value: string): string {
+  return value.replace(/[&<>"']/g, character => ATTRIBUTE_ENTITIES[character]);
+}
+
 /**
  * Follows the same general process as the PHP Twig Extension:
  * attributes are merged if arrays, overwritten otherwise.
@@ -89,13 +105,12 @@ function handleAddAttributes(
     }
     // If multiples items in value as array (e.g., class: ['one', 'two']).
     if (Array.isArray(value)) {
-      const escaped = value.join(' ').replace(/"/g, '&quot;');
-      return `${key}="${escaped}"`;
+      return `${key}="${escapeAttributeValue(value.join(' '))}"`;
     }
     if (typeof value === 'string' && value.includes('=')) {
       return value;
     }
-    return `${key}="${String(value)}"`;
+    return `${key}="${escapeAttributeValue(String(value))}"`;
   });
 
   return attributes.join(' ');

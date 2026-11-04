@@ -8,6 +8,7 @@ import {
   mkdir,
   readdir,
   readFile,
+  rm,
   writeFile,
 } from 'node:fs/promises';
 import path from 'node:path';
@@ -146,10 +147,23 @@ export async function writeComponent(
     );
   }
 
-  for (const { filePath, contents } of files) {
-    await mkdir(path.dirname(filePath), { recursive: true });
-    // 'wx' fails rather than truncating a file that appeared since the check.
-    await writeFile(filePath, contents, { encoding: 'utf-8', flag: 'wx' });
+  const created: string[] = [];
+  try {
+    for (const { filePath, contents } of files) {
+      await mkdir(path.dirname(filePath), { recursive: true });
+      // 'wx' fails rather than truncating a file that appeared since the
+      // check. Track the path first: a failed write can leave a partial file.
+      created.push(filePath);
+      await writeFile(filePath, contents, { encoding: 'utf-8', flag: 'wx' });
+    }
+  } catch (error) {
+    // Roll back only what this run created, so a retry isn't blocked by the
+    // existence check. An EEXIST failure means the file isn't ours to remove.
+    if ((error as NodeJS.ErrnoException).code === 'EEXIST') {
+      created.pop();
+    }
+    await Promise.all(created.map(filePath => rm(filePath, { force: true })));
+    throw error;
   }
 }
 
