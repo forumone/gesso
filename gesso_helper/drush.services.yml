@@ -1,6 +1,0 @@
-services:
-  gesso_helper.commands:
-    class: \Drupal\gesso_helper\Commands\GessoHelperCommands
-    arguments: ['@extension.list.theme']
-    tags:
-      - { name: drush.command }
