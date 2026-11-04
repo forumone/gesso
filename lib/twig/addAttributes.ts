@@ -89,7 +89,8 @@ function handleAddAttributes(
     }
     // If multiples items in value as array (e.g., class: ['one', 'two']).
     if (Array.isArray(value)) {
-      return `${key}="${value.join(' ')}"`;
+      const escaped = value.join(' ').replace(/"/g, '&quot;');
+      return `${key}="${escaped}"`;
     }
     if (typeof value === 'string' && value.includes('=')) {
       return value;

@@ -2,7 +2,14 @@
 
 import { confirm, input, select } from '@inquirer/prompts';
 import { capitalCase, kebabCase } from 'change-case';
-import { lstat, mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import {
+  access,
+  lstat,
+  mkdir,
+  readdir,
+  readFile,
+  writeFile,
+} from 'node:fs/promises';
 import path from 'node:path';
 import {
   type ComponentOptions,
@@ -59,6 +66,8 @@ export async function promptForOptions(cwd: string): Promise<ComponentOptions> {
     message: 'What is the name of your component?',
     transformer: kebabCase,
     required: true,
+    validate: value =>
+      kebabCase(value) !== '' || 'Use at least one letter or number.',
   });
   const name = kebabCase(nameInput).trim();
 
@@ -88,6 +97,19 @@ export async function promptForOptions(cwd: string): Promise<ComponentOptions> {
 }
 
 /**
+ * Checks whether a path exists.
+ * @param filePath - Path to check
+ */
+async function pathExists(filePath: string): Promise<boolean> {
+  try {
+    await access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Renders the planned files and writes them under the theme root.
  * @param options - Component options
  * @param cwd - Theme root
@@ -97,15 +119,37 @@ export async function writeComponent(
   cwd: string
 ): Promise<void> {
   const data = buildTemplateData(options);
+  const files: { filePath: string; contents: string }[] = [];
   for (const entry of buildFilePlan(options)) {
     const template = await readFile(
       path.join(templatesDir, entry.template),
       'utf-8'
     );
     const file = renderFile(entry, template, data);
-    const filePath = path.resolve(cwd, file.path);
+    files.push({
+      filePath: path.resolve(cwd, file.path),
+      contents: file.contents,
+    });
+  }
+
+  // Check every path before writing so a conflict can't leave a partial
+  // component behind.
+  const existing: string[] = [];
+  for (const { filePath } of files) {
+    if (await pathExists(filePath)) {
+      existing.push(filePath);
+    }
+  }
+  if (existing.length > 0) {
+    throw new Error(
+      `Component files already exist:\n  ${existing.join('\n  ')}`
+    );
+  }
+
+  for (const { filePath, contents } of files) {
     await mkdir(path.dirname(filePath), { recursive: true });
-    await writeFile(filePath, file.contents, { encoding: 'utf-8', flag: 'w+' });
+    // 'wx' fails rather than truncating a file that appeared since the check.
+    await writeFile(filePath, contents, { encoding: 'utf-8', flag: 'wx' });
   }
 }
 
@@ -165,7 +209,14 @@ export async function main(
     return 0;
   }
 
-  await writeComponent(options, cwd);
+  try {
+    await writeComponent(options, cwd);
+  } catch (error) {
+    logError(
+      `Error: ${error instanceof Error ? error.message : String(error)}`
+    );
+    return 1;
+  }
   log(`Component created at ${getComponentDir(options)}/`);
   return 0;
 }

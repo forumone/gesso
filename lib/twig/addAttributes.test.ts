@@ -45,9 +45,9 @@ describe('add_attributes', () => {
     ).toBe('<div title="t"  class="z c">');
   });
 
-  it('passes through strings containing "=" as-is', () => {
+  it('escapes double quotes in values containing "="', () => {
     expect(r(`<div {{ add_attributes({ x: 'a="b"' }) }}>`)).toBe(
-      '<div x="a="b"" >'
+      '<div x="a=&quot;b&quot;" >'
     );
   });
 

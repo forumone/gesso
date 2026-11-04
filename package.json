@@ -27,7 +27,7 @@
   "author": "Forum One",
   "license": "GPL-2.0+",
   "engines": {
-    "node": "^22.18.0 || >=23.6.0"
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
   },
   "browserslist": [
     "last 2 versions and not dead",
