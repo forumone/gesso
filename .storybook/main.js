@@ -101,7 +101,7 @@ const config = {
       exclude: /node_modules/,
       use: [
         'js-yaml-loader',
-        path.resolve(__dirname, '../lib/configLoader.cjs'),
+        path.resolve(__dirname, '../lib/design-tokens/configLoader.ts'),
       ],
     });
 
