@@ -55,19 +55,26 @@ and use Gesso.
     it will allow you to use images uploaded to Drupal as background images,
     with different image sizes at different breakpoints.
 
-Because Gesso is a starter theme, you may want to rename the Gesso directory or
-copy its contents to a new custom theme directory based on the name of your
-project.
+Because Gesso is a starter theme, you may want to generate a new custom theme
+from it using Drupal’s
+[starterkit](https://www.drupal.org/docs/core-modules-and-themes/core-themes/starterkit-theme)
+support. From your Drupal root, run:
 
-The easiest way to accomplish this is to use
-[Drush](https://github.com/drush-ops/drush). Type `drush help gesso` for more
-information. If you get an error that the `gesso` command is not defined, make
-sure you have enabled the Gesso Helper module.
+```shell
+php web/core/scripts/drupal generate-theme my_theme --starterkit gesso \
+  --name "My Theme" --description "My custom theme" --path themes
+```
 
-If you can’t use Drush, then manually replace all instances of `gesso` within
-this directory with a machine-readable name of your choice, including folder
-names, filenames, and all occurrences within files. This custom name must start
-with a letter and may only contain lowercase letters, numbers, and underscores.
+The machine name must start with a letter and may only contain lowercase
+letters, numbers, and underscores. It should not contain the word `gesso` or
+weird things will happen.
+
+The new theme is created in the directory  given by `--path` (relative to the
+Drupal root). Compiled assets (`dist`) and `node_modules` are not copied. The
+Gesso Helper module is copied into the new theme unchanged and keeps the
+name `gesso_helper`. **Make sure only one copy of`gesso_helper` exists in your
+codebase.** (You can delete the original `gesso` theme after creating your new
+copy.)
 
 Edit the `.info.yml` file and update the theme name and description. You can
 also change the screenshot image (`images/screenshot.png`) shown on the
