@@ -21,11 +21,8 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
--   [Node](https://nodejs.org/en/) version 22.18 or greater (or 23.6+). The
-    `.nvmrc` file specifies Node 24, which is recommended. The build scripts in
-    `lib/` are TypeScript files that Node runs directly using its built-in type
-    stripping, so there is no compile step, but it requires this minimum
-    version. The requirement is declared in `engines.node` in `package.json`.
+-   [Node](https://nodejs.org/en/) version 24. Long-term stable
+    recommended.
 
 -   [npm](https://www.npmjs.com/get-npm) version 10.7.0 or greater.
 
@@ -115,8 +112,7 @@ npm run build
 
 Run `npm run component` to create boilerplate files for a new component. This is
 the recommended approach as it will set up basic Twig and Storybook files that
-you can modify. The generator lives in `lib/component-generator/`, and its
-templates are in `lib/component-generator/templates/`.
+you can modify.
 
 ### Interactive mode
 
@@ -147,7 +143,7 @@ npm run component -- --name my-component --folder components
 
 ## Directory structure
 
-Gesso organizes its source files across three top-level directories:
+Gesso organizes its source files across four top-level directories:
 
 -   `components/`: Single Directory Components (SDCs), subdivided by category:
     `components/components/`, `components/layouts/`, and `components/templates/`.
@@ -164,27 +160,7 @@ Gesso organizes its source files across three top-level directories:
     (block, content, field, form, etc.). These are standard Drupal theme
     templates and are separate from the Twig files inside `components/`.
 
-Build tooling lives in `lib/`, which is written in TypeScript (run directly by
-Node, with no compile step) and has unit tests next to the code
-(`*.test.ts`):
-
--   `lib/design-tokens/`: Webpack loader that turns
-    `source/00-config/config.design-tokens.yml` into
-    `_design-tokens.artifact.scss` and `_GESSO.es6.js`.
--   `lib/twig/`: Twig.js mocks of `gesso_helper` and Drupal Twig functions and
-    filters (`add_attributes`, `create_attribute`, `keysort`, etc.) used by
-    Storybook.
--   `lib/component-generator/`: The `npm run component` generator and its
-    templates.
--   `lib/stylelint/`: Custom Stylelint plugin
-    (`plugin/selector-pseudo-class-lvhfa`).
--   `lib/scripts/`: Helper scripts, such as the one that installs Playwright
-    Chromium before end-to-end tests. These two files are plain JavaScript
-    checked with `// @ts-check` and JSDoc.
-
-`lib/tsconfig.json` configures type checking for this directory. Only
-erasable TypeScript syntax (no `enum` or `namespace`) is allowed, and relative
-imports must include the `.ts` extension.
+-   `lib/`: Build tools, mostly written in TypeScript.
 
 Note that the `components/templates/` subdirectory contains SDC Storybook
 templates for full-page layouts (page, homepage, landing page, etc.). These are

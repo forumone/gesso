@@ -13,8 +13,6 @@ describe('keysort', () => {
     );
   });
 
-  // Regression: Number.isNaN() was called on string keys, so it never
-  // detected non-numeric keys and the comparator returned 0 for them.
   it('sorts string keys alphabetically', () => {
     expect(r(loop, { o: { zeta: 1, alpha: 2, mid: 3 } })).toBe(
       '[alpha|2][mid|3][zeta|1]'
@@ -33,7 +31,6 @@ describe('keysort', () => {
     );
   });
 
-  // Regression: every key used to get a trailing space ("2 ").
   it('does not add whitespace to key names', () => {
     const out = r(
       `{% for k, v in o|keysort %}[{{ k }}]{% endfor %}{{ o|keysort|json_encode }}`,
