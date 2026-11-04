@@ -58,12 +58,17 @@ and use Gesso.
 Because Gesso is a starter theme, you may want to generate a new custom theme
 from it using Drupal’s
 [starterkit](https://www.drupal.org/docs/core-modules-and-themes/core-themes/starterkit-theme)
-support. From your Drupal root, run:
+support. Run:
 
 ```shell
-php web/core/scripts/drupal generate-theme my_theme --starterkit gesso \
+ddev php web/core/scripts/drupal generate-theme my_theme --starterkit gesso \
   --name "My Theme" --description "My custom theme" --path themes
 ```
+
+If you are using a copy of Gesso cloned from GitHub, you will need to add
+the current version number into your `gesso.info.yml` file before generating.
+If you are using a version installed as a contrib theme, it may already have
+the version number in there.
 
 The machine name must start with a letter and may only contain lowercase
 letters, numbers, and underscores. It should not contain the word `gesso` or

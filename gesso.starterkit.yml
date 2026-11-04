@@ -16,6 +16,8 @@ ignore:
   - 'playwright-report/**'
   - 'test-results/**'
   - 'debug-storybook.log'
+  - '.buildkite/**'
+  - '.github/**'
 
 # Files whose contents are not edited. "gesso" in these files is a Sass
 # function prefix, a build/tooling name, or a drupalSettings key shared with
