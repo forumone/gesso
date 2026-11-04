@@ -5,6 +5,11 @@
 # with "gesso" in its name unless it is listed here. Targeted fixes that cannot
 # be expressed as whole-file exclusions live in src/StarterKit.php.
 
+# Core defaults generated themes to the running major version (e.g. '^10'),
+# which would drop Drupal 11 support. Keep Gesso's declared compatibility.
+info:
+  core_version_requirement: '^10.3 || ^11'
+
 # Files that are not copied to the new theme.
 ignore:
   - '/gesso.starterkit.yml'

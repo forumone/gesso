@@ -60,7 +60,6 @@ from it using Drupal’s
 [starterkit](https://www.drupal.org/docs/core-modules-and-themes/core-themes/starterkit-theme)
 support.
 
-
 If you are using a copy of Gesso cloned from GitHub, you will need to add
 the current version number into your `gesso.info.yml` file before generating.
 If you are using a version installed as a contrib theme, it may already have
@@ -71,20 +70,26 @@ process much faster!)
 Run:
 
 ```shell
-ddev php web/core/scripts/drupal generate-theme my_theme --starterkit gesso \
+ddev exec vendor/bin/dr generate-theme my_theme --starterkit gesso \
   --name "My Theme" --description "My custom theme" --path themes
 ```
+
+On Drupal 11.3 and earlier, which do not have `vendor/bin/dr`, use
+`ddev php web/core/scripts/drupal generate-theme` with the same arguments.
 
 The machine name must start with a letter and may only contain lowercase
 letters, numbers, and underscores. It should not contain the word `gesso` or
 weird things will happen.
 
-The new theme is created in the directory  given by `--path` (relative to the
+The new theme is created in the directory given by `--path` (relative to the
 Drupal root). Compiled assets (`dist`) and `node_modules` are not copied. The
 Gesso Helper module is copied into the new theme unchanged and keeps the
-name `gesso_helper`. **Make sure only one copy of`gesso_helper` exists in your
+name `gesso_helper`. **Make sure only one copy of `gesso_helper` exists in your
 codebase.** (You can delete the original `gesso` theme after creating your new
 copy.)
+
+Because compiled assets are not copied, install dependencies and build them in
+the new theme before enabling it.
 
 Edit the `.info.yml` file and update the theme name and description. You can
 also change the screenshot image (`images/screenshot.png`) shown on the
