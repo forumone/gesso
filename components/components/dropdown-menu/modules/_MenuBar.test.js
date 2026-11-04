@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from 'vitest';
-import MenuBar from './_MenuBar.es6';
-import MenubarItem from './_MenubarItem.es6';
+import MenuBar from './_MenuBar.source';
+import MenubarItem from './_MenubarItem.source';
 
 function createMenuBarMarkup() {
   const domNode = document.createElement('ul');

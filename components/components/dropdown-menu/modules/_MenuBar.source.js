@@ -1,5 +1,5 @@
-import Menu from './_Menu.es6';
-import MenubarItem from './_MenubarItem.es6';
+import Menu from './_Menu.source';
+import MenubarItem from './_MenubarItem.source';
 
 class MenuBar extends Menu {
   /**

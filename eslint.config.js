@@ -6,7 +6,7 @@ import f1ReactConfig from '@forumone/eslint-config-react';
 
 const config = defineConfig([
   globalIgnores([
-    '**/_GESSO.es6.js',
+    '**/_GESSO.source.js',
     'components/**/*.js',
     '!components/**/*.source.js',
     '!components/**/*.test.js',

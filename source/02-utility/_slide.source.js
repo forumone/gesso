@@ -5,7 +5,7 @@
  * elements.
  */
 
-import { TRANSITIONS } from '../00-config/_GESSO.es6';
+import { TRANSITIONS } from '../00-config/_GESSO.source';
 
 /**
  * Collapses target element by sliding out of view.
