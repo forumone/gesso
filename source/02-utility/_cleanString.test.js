@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import cleanString from './_cleanString.es6';
+import cleanString from './_cleanString.source';
 
 describe('cleanString', () => {
   it('lowercases the input', () => {

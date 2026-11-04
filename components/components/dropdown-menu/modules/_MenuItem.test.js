@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, expect, it, vi } from 'vitest';
-import MenuItem from './_MenuItem.es6';
+import MenuItem from './_MenuItem.source';
 
 function createLink() {
   const link = document.createElement('a');

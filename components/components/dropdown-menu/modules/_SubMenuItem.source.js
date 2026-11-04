@@ -1,5 +1,5 @@
-import MenuItem from './_MenuItem.es6';
-import PopupMenu from './_PopupMenu.es6';
+import MenuItem from './_MenuItem.source';
+import PopupMenu from './_PopupMenu.source';
 
 class SubMenuItem extends MenuItem {
   /**

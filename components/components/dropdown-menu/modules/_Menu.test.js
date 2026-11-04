@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, expect, it, vi } from 'vitest';
-import Menu from './_Menu.es6';
+import Menu from './_Menu.source';
 
 function createMenuMarkup() {
   const menu = document.createElement('ul');
