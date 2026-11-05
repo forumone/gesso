@@ -4,7 +4,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "checkJs": false,
     "strict": true,
