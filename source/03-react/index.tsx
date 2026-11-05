@@ -28,7 +28,7 @@ function waitForBlock(selector: string): Promise<HTMLElement | void> {
   });
 }
 
-waitForBlock('some-id-to-hydrate').then(container => {
+void waitForBlock('some-id-to-hydrate').then(container => {
   if (container) {
     const root = ReactDOM.createRoot(container);
     root.render(

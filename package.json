@@ -30,7 +30,7 @@
     ">= 1% in US"
   ],
   "devDependencies": {
-    "@forumone/eslint-config-es5": "^4.0.1",
+    "@forumone/eslint-config-es5": "^5.0.1",
     "@forumone/eslint-config-react": "^3.1.1",
     "@forumone/tiny-mustache": "^3.0.5",
     "@forumone/twig-drupal-filters": "^4.0.1",
