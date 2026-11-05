@@ -104,8 +104,6 @@
   },
   "overrides": {
     "storybook": "$storybook",
-    "minimatch": "^11.0.4",
-    "uuid": "^14.0.3",
     "glob": "$glob"
   }
 }
