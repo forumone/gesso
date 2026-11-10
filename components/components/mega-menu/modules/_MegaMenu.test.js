@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it } from 'vitest';
-import MegaMenu from './MegaMenu.es6';
+import MegaMenu from './_MegaMenu.source';
 
 function createMenuMarkup() {
   const menu = document.createElement('nav');

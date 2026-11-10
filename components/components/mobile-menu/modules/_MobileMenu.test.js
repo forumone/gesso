@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import MobileMenu from './_MobileMenu.es6';
+import MobileMenu from './_MobileMenu.source';
 
 function createMenuMarkup() {
   const menu = document.createElement('nav');

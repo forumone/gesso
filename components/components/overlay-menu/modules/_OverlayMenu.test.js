@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import OverlayMenu from './_OverlayMenu.es6';
+import OverlayMenu from './_OverlayMenu.source';
 
 function createOverlay() {
   const overlay = document.createElement('nav');
