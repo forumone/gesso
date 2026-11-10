@@ -9,6 +9,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const require = createRequire(import.meta.url);
 const isProdBuild = process.env.NODE_ENV === 'production';
+// @storybook/addon-webpack5-compiler-swc v4+ parses the root .swcrc with
+// JSON.parse and expects a single config object. Our .swcrc is a test-scoped
+// array (used by webpack's swc-loader) and isn't strict JSON, so point the
+// addon at a Storybook-specific config instead.
+process.env.SWC_CONFIG_PATH = resolve(__dirname, 'swc.config.json');
 const ddevHostname = process.env.DDEV_HOSTNAME || process.env.VIRTUAL_HOST;
 
 const config = {
