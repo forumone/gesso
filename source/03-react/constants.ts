@@ -1,4 +1,4 @@
-const { exampleProperty } = window.drupalSettings as DrupalSettings;
+const { exampleProperty } = window.drupalSettings;
 
 // Modify as needed, or just remove if not needed.
 export const EXAMPLE_PROPERTY = exampleProperty || 'Some default value';
