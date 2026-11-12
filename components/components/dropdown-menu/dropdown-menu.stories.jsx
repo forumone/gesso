@@ -5,9 +5,9 @@ import twigTemplate from './dropdown-menu.twig';
 import data from './dropdown-menu.yml';
 import buttonData from './dropdown-menu-buttons.yml';
 import './dropdown-menu.source.js';
-import './dropdown-menu.source.scss';
 import '../mobile-menu/mobile-menu.source.scss';
 import '../hamburger-button/hamburger-button.source.scss';
+import './dropdown-menu.source.scss';
 import componentInfo from './dropdown-menu.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
