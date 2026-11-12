@@ -28,3 +28,5 @@ libraryOverrides:
     - core/drupal
     - core/once
     - gesso/global
+    # The JS injects c-icon markup without an SDC include, so load icon CSS.
+    - core/components.gesso--icon

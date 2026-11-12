@@ -37,3 +37,14 @@
     transform: rotate(90deg);
   }
 }
+
+// Variants. Must come after .c-icon to override its inset-block-start at
+// equal specificity.
+.c-icon--exit {
+  font-size: 0.75em;
+  inset-block-start: 0;
+}
+
+.c-icon--pager {
+  inset-block-start: -1px;
+}
