@@ -1,6 +1,6 @@
-import SubMenuItem from './_SubMenuItem.es6';
-import Menu from './_Menu.es6';
-import { Z_INDEX } from '../../../../source/00-config/_GESSO.es6.js';
+import SubMenuItem from './_SubMenuItem.source';
+import Menu from './_Menu.source';
+import { Z_INDEX } from '../../../../source/00-config/_GESSO.source.js';
 
 class PopupMenu extends Menu {
   /**

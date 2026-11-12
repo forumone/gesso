@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it } from 'vitest';
-import SideMenu from './_SideMenu.es6';
+import SideMenu from './_SideMenu.source';
 
 function createSideMenuMarkup(id = 'side-menu') {
   const overlay = document.createElement('nav');

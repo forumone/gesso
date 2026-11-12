@@ -74,7 +74,7 @@ describe('asSassValue', () => {
 
   it('converts a !sass tagged scalar', () => {
     const doc = parseDocument('a: !sass foo($b, c)\n');
-    const result = asSassValue(doc.get('a', true) as never);
+    const result = asSassValue(doc.get('a', true));
 
     expect(result).toBeInstanceOf(SassValue);
     expect(result?.sass).toBe('foo($b, c)');

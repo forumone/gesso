@@ -23,7 +23,7 @@ declare module '@forumone/tiny-mustache' {
    */
   export default function mustache(
     template: string,
-    self?: MustacheContext | MustacheContext[] | unknown,
+    self?: unknown,
     parent?: MustacheContext,
     invert?: boolean
   ): string;

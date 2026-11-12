@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { describe, expect, it, vi } from 'vitest';
-import MenubarItem from './_MenubarItem.es6';
-import PopupMenu from './_PopupMenu.es6';
+import MenubarItem from './_MenubarItem.source';
+import PopupMenu from './_PopupMenu.source';
 
 function createMenuItemMarkup(withSubnav = true) {
   const li = document.createElement('li');

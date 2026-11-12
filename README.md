@@ -21,10 +21,12 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
--   [Node](https://nodejs.org/en/) version 24. Long-term stable
-    recommended.
+-   [Node](https://nodejs.org/en/) version 24.15.0 or greater. Long-term stable
+    recommended. The `lib/` build tools are TypeScript that Node runs directly,
+    so older versions are not supported.
 
--   [npm](https://www.npmjs.com/get-npm) version 10.7.0 or greater.
+-   [npm](https://www.npmjs.com/get-npm) version 11 or greater (bundled with
+    Node 24).
 
 ## Installation
 
@@ -281,14 +283,17 @@ directories.
 
 ### Modules
 
-Prefix the name of your JavaScript file with `_`, e.g. `_Menu.es6.js`. Place
-helper modules in a `modules/` subdirectory inside the component directory.
-Import them into the component’s entry point script.
+Name helper modules `_[name].source.js`, e.g. `_Menu.source.js`. The `_` prefix
+tells the build not to compile them to their own file. Place helper modules in
+a `modules/` subdirectory inside the component directory. Import them into the
+component’s entry point script. Unit tests are named `[name].test.js` (or
+`_[name].test.js` for a helper module) and live next to the file they test.
 
 ### Individual component/library scripts
 
 Name your component JS entry point `[component-name].source.js`, e.g.
-`dropdown-menu.source.js`. DO NOT prefix it with `_`. Import your JS file at the
+`dropdown-menu.source.js`. It is compiled to `dropdown-menu.js`. DO NOT prefix it with `_`.
+The compiled `.js` file is gitignored; `*.source.js` and `*.test.js` are tracked. Import your JS file at the
 top of your Storybook file. See `dropdown-menu.stories.jsx` for an example.
 
 As with CSS, component JS assets are auto-discovered by Drupal’s SDC system via
@@ -565,13 +570,13 @@ z-index: gesso-z-index(modal);
 
 The values in Gesso’s configuration file are also exported to JavaScript objects
 so that the same values can be used in CSS and JS. The JS objects can be found
-in `source/00-config/_GESSO.es6.js`. This file is also rebuilt whenever
+in `source/00-config/_GESSO.source.js`. This file is also rebuilt whenever
 `npm run dev` or `npm run build` are run.
 
 For example, to use a breakpoint in a script:
 
 ```js
-import { BREAKPOINTS } from '../../../00-config/_GESSO.es6';
+import { BREAKPOINTS } from '../../../00-config/_GESSO.source';
 
 if (window.matchMedia(`min-width: ${BREAKPOINTS.desktop}`).matches) {
   // Some script that should only run on larger screens.

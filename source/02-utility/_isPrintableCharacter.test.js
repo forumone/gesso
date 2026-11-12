@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import isPrintableCharacter from './_isPrintableCharacter.es6';
+import isPrintableCharacter from './_isPrintableCharacter.source';
 
 describe('isPrintableCharacter', () => {
   it('returns a truthy value for a single letter', () => {

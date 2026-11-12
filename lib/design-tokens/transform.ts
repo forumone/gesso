@@ -1,4 +1,4 @@
-import { NaniError, fromArray, iterate, type MultiError } from 'nani';
+import { NaniError, fromArray, iterate } from 'nani';
 import {
   isMap,
   isSeq,
@@ -280,7 +280,7 @@ export function createDataObject(
         );
         return;
       }
-      const keyNode = item.key as ParsedNode;
+      const keyNode = item.key;
       if (!isScalar(keyNode)) {
         errors.push(
           map.errorForRange(
@@ -293,7 +293,7 @@ export function createDataObject(
       const key = String(keyNode.value);
       if (item.value) {
         data[key] = createDataObject(
-          item.value as ParsedNode,
+          item.value,
           [...path, key],
           map,
           parsed,
@@ -309,15 +309,7 @@ export function createDataObject(
     const data: GessoArray = [];
 
     node.items.forEach((item, index) => {
-      data.push(
-        createDataObject(
-          item as ParsedNode,
-          [...path, index],
-          map,
-          parsed,
-          errors
-        )
-      );
+      data.push(createDataObject(item, [...path, index], map, parsed, errors));
     });
 
     return data;
@@ -355,7 +347,7 @@ export function transform(
     const multiError = fromArray(errors);
     if (multiError !== null) {
       // @see https://sripberger.github.io/nani/#iterate
-      for (const err of iterate(multiError as MultiError)) {
+      for (const err of iterate(multiError)) {
         console.error(err.message);
       }
     }

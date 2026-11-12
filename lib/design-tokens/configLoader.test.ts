@@ -83,7 +83,7 @@ describe('processConfig', () => {
 
   it('uses the injected dependencies', async () => {
     const deps: ConfigLoaderDependencies = {
-      readSource: vi.fn(async () => ({}) as never),
+      readSource: vi.fn(() => Promise.resolve({} as never)),
       transform: vi.fn(() => ({ data: { gesso: { a: 1 } } }) as never),
       renderSass: vi.fn(() => 'SASS'),
       renderJs: vi.fn(() => 'JS'),
@@ -182,7 +182,9 @@ describe('createConfigLoader', () => {
     const { context, done } = createContext();
     const loader = createConfigLoader({
       ...defaultDependencies,
-      readSource: () => Promise.reject('plain string' as unknown as Error),
+      // Deliberately not an Error, to exercise the wrapping.
+      // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
+      readSource: () => Promise.reject('plain string'),
     });
 
     loader.call(context, fixture);
@@ -218,7 +220,7 @@ describe('end to end with the fixture YAML', () => {
       './__snapshots__/fixture.artifact.scss.snap'
     );
     await expect(normalize(emitted[JS_OUTPUT_PATH])).toMatchFileSnapshot(
-      './__snapshots__/fixture.es6.js.snap'
+      './__snapshots__/fixture.source.js.snap'
     );
     await expect(normalize(content)).toMatchFileSnapshot(
       './__snapshots__/fixture.transformed.yml.snap'

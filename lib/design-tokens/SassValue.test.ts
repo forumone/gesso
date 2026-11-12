@@ -33,7 +33,7 @@ describe('tag', () => {
     const doc = parse(
       "foo: !sass\n  sass: some-function(foo,bar)\n  fallback: '#f00'\n"
     );
-    const value = doc.get('foo') as unknown;
+    const value = doc.get('foo');
 
     expect(doc.errors).toEqual([]);
     expect(value).toBeInstanceOf(SassValue);

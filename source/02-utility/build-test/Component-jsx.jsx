@@ -1,4 +1,3 @@
-import React from 'react';
 import moduleTS from './_module-ts';
 
 const ComponentJsx = () => {

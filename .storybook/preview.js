@@ -13,7 +13,7 @@ import './stubs/once';
 
 import '../dist/css/styles.css';
 import '../dist/css/utilities.css';
-import '../source/01-global/html-elements/01-html/html.es6';
+import '../source/01-global/html-elements/01-html/html.source';
 
 function setupTwig(twig) {
   twig.cache();

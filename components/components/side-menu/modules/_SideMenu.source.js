@@ -1,4 +1,4 @@
-import OverlayMenu from '../../overlay-menu/modules/_OverlayMenu.es6';
+import OverlayMenu from '../../overlay-menu/modules/_OverlayMenu.source';
 
 class SideMenu extends OverlayMenu {
   /**

@@ -9,6 +9,9 @@ import type { ParsedSource } from './types.ts';
  * Parses the design tokens YAML, reporting up to ten syntax errors (with line
  * numbers) as a single thrown error.
  */
+// Declared async so that errors are reported as rejections rather than
+// synchronous throws, matching what callers (and the loader) expect.
+// eslint-disable-next-line @typescript-eslint/require-await
 export async function readSource(
   source: string
 ): Promise<ParsedSource<ParsedNode, true>> {
@@ -21,7 +24,11 @@ export async function readSource(
       return map.errorForRange('YAML error', [start, end, end], yamlError);
     });
 
-    throw fromArray(errors);
+    const error = fromArray(errors);
+    // `errors` is never empty here, so `error` is never null.
+    if (error) {
+      throw error;
+    }
   }
 
   return {

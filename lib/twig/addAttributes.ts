@@ -110,6 +110,8 @@ function handleAddAttributes(
     if (typeof value === 'string' && value.includes('=')) {
       return value;
     }
+    // Remaining values are expected to be strings or numbers.
+    // eslint-disable-next-line @typescript-eslint/no-base-to-string
     return `${key}="${escapeAttributeValue(String(value))}"`;
   });
 

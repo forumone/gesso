@@ -11,6 +11,11 @@
     "parser": {
       "syntax": "ecmascript",
       "jsx": true
+    },
+    "transform": {
+      "react": {
+        "runtime": "automatic"
+      }
     }
   },
 },
@@ -26,6 +31,11 @@
     "parser": {
       "syntax": "typescript",
       "tsx": true
+    },
+    "transform": {
+      "react": {
+        "runtime": "automatic"
+      }
     }
   },
 }
