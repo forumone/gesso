@@ -21,10 +21,12 @@ queue](https://github.com/forumone/gesso/issues).
 The following packages need to be installed on your system in order to compile
 and use Gesso.
 
--   [Node](https://nodejs.org/en/) version 22. Long-term stable
-    recommended.
+-   [Node](https://nodejs.org/en/) version 24.15.0 or greater. Long-term stable
+    recommended. The `lib/` build tools are TypeScript that Node runs directly,
+    so older versions are not supported.
 
--   [npm](https://www.npmjs.com/get-npm) version 10.7.0 or greater.
+-   [npm](https://www.npmjs.com/get-npm) version 11 or greater (bundled with
+    Node 24).
 
 ## Installation
 
@@ -143,7 +145,7 @@ npm run component -- --name my-component --folder components
 
 ## Directory structure
 
-Gesso organizes its source files across three top-level directories:
+Gesso organizes its source files across four top-level directories:
 
 -   `components/`: Single Directory Components (SDCs), subdivided by category:
     `components/components/`, `components/layouts/`, and `components/templates/`.
@@ -159,6 +161,8 @@ Gesso organizes its source files across three top-level directories:
 -   `templates/`: Drupal `.html.twig` templates, organized by template type
     (block, content, field, form, etc.). These are standard Drupal theme
     templates and are separate from the Twig files inside `components/`.
+
+-   `lib/`: Build tools, mostly written in TypeScript.
 
 Note that the `components/templates/` subdirectory contains SDC Storybook
 templates for full-page layouts (page, homepage, landing page, etc.). These are
@@ -259,6 +263,14 @@ guidelines](https://github.com/prettier/stylelint-config-prettier), with some
 additional customizations.
 
 The Prettier config can be changed in the `.prettierrc` file.
+
+### Running all checks
+
+`npm test` runs, in order, ESLint on `source/` and `components/`
+(`npm run eslint`), ESLint on `lib/` (`npm run eslint:lib`), the TypeScript type
+check for `lib/` (`npm run typecheck:lib`), and Stylelint (`npm run stylelint`).
+Each can also be run on its own. Unit tests are run separately with
+`npm run test:unit`.
 
 ## JavaScript
 

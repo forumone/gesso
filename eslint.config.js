@@ -30,7 +30,7 @@ const config = defineConfig([
   {
     // allow require() in webpack config files, which use CommonJS,
     // and in lib files, which are used by Node.js
-    files: ['webpack.*.js', 'lib/**/*.[j|t]s'],
+    files: ['webpack.*.js', 'lib/**/*.{js,ts}'],
     languageOptions: {
       globals: globals.node,
     },

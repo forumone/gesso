@@ -1,0 +1,74 @@
+# Fixture for the design tokens end-to-end tests. This is intentionally NOT the
+# live source/00-config/config.design-tokens.yml, which downstream projects edit.
+gesso:
+  palette:
+    brand:
+      blue:
+        base: '#0071BC'
+        dark: '#205493'
+    grayscale:
+      white: '#ffffff'
+      black: '#000000'
+  colors:
+    text:
+      primary: grayscale.black
+      link: brand.blue.base
+      on-dark: grayscale.white
+      literal: 'quoted value'
+      raw: !sass color.get($foo, bar)
+      mixed: !sass
+        sass: map.get($palette, mixed)
+        fallback: '#ff0000'
+  typography:
+    font-family:
+      primary:
+        name: Primary
+        stack: '"Source Sans Pro", Arial, sans-serif'
+      system:
+        name: System
+        stack: !sass
+          sass: $system-stack
+          fallback: sans-serif
+    base-font-size: 16px
+    font-size:
+      1: 12px
+      2: 14px
+    font-weight:
+      regular: 400
+      bold: 700
+    line-height:
+      base: 1.45
+    display:
+      h1:
+        color: text.primary
+        font-family: primary.stack
+        font-size: 2
+        font-weight: bold
+        line-height: base
+        responsive-font-size: 2
+        text-transform: uppercase
+      body:
+        color: text.link
+        font-family: system.stack
+        font-weight: regular
+      cite:
+        color: text.raw
+        font-family: primary.stack
+        font-weight: regular
+  spacing:
+    0: 0
+    1: 8px
+    .5: 4px
+  z-index:
+    nav: 1000
+  breakpoints:
+    tablet: 640px
+    wide: calc(100vw - 2rem)
+  flags:
+    enabled: true
+    disabled: false
+    nothing: null
+  transitions:
+    ease: cubic-bezier(0.4, 0, 0.2, 1)
+    shadow: 0 1px 3px rgb(0 0 0 / 12%)
+    var: var(--foo, 1px solid red)
