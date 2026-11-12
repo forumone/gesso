@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { describe, expect, it, vi } from 'vitest';
-import SubMenuItem from './_SubMenuItem.es6';
-import PopupMenu from './_PopupMenu.es6';
+import SubMenuItem from './_SubMenuItem.source';
+import PopupMenu from './_PopupMenu.source';
 
 function createItemMarkup({ withSubnav = false, tag = 'a' } = {}) {
   const li = document.createElement('li');

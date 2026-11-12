@@ -1,7 +1,7 @@
 import Drupal from 'drupal';
 import once from 'once';
-import MenuBar from './modules/_MenuBar.es6';
-import MobileMenu from '../mobile-menu/modules/_MobileMenu.es6.js';
+import MenuBar from './modules/_MenuBar.source';
+import MobileMenu from '../mobile-menu/modules/_MobileMenu.source.js';
 
 Drupal.behaviors.dropdownMenu = {
   attach(context) {

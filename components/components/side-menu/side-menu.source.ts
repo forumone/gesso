@@ -1,6 +1,6 @@
 import Drupal from 'drupal';
 import once from 'once';
-import SideMenu from './modules/_SideMenu.es6';
+import SideMenu from './modules/_SideMenu.source';
 
 Drupal.behaviors.sideMenu = {
   attach(context) {

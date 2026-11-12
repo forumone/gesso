@@ -13,7 +13,7 @@ dist/design-tokens.js
 dist/images/backgrounds
 dist/images/sprite.artifact.svg
 source/00-config/_design-tokens.artifact.scss
-source/00-config/_GESSO.es6.js
+source/00-config/_GESSO.source.js
 
 ## Ignore compiled files in components directory
 components/**/*.css
@@ -22,7 +22,6 @@ components/**/*.css.map
 components/**/*.js
 components/**/*.js.map
 !components/**/*.source.js
-!components/**/modules/*.js
 !components/**/*.test.js
 
 storybook

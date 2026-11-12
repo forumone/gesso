@@ -1,6 +1,9 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from 'vitest';
-import { getNextSibling, getPreviousSibling } from './_getClosestSibling.es6';
+import {
+  getNextSibling,
+  getPreviousSibling,
+} from './_getClosestSibling.source';
 
 describe('getNextSibling', () => {
   it('returns the immediate next sibling when no selector is given', () => {

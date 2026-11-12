@@ -40,7 +40,10 @@ async function gatherProjectFiles() {
     const filePaths = currentFile.split(path.sep);
     const sourceDirIndex = filePaths.indexOf('source');
     if (sourceDirIndex >= 0) {
-      const fileName = path.basename(currentFile).replace(/\.c?[jt]s$/, '');
+      const fileName = path
+        .basename(currentFile)
+        .replace(/\.c?[jt]s$/, '')
+        .replace(/\.source$/, '');
       const newFilePath = `dist/js/${fileName}`;
       // Throw an error if duplicate files detected.
       if (jsFiles[newFilePath]) {
@@ -263,7 +266,7 @@ const commonConfig = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     extensionAlias: {
-      '.es6': ['.es6.ts', '.es6.js'],
+      '.source': ['.source.ts', '.source.js'],
     },
     modules: [path.resolve(__dirname, 'source'), 'node_modules'],
     enforceExtension: false,

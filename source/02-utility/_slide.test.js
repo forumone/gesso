@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from 'vitest';
-import { slideCollapse, slideExpand, slideToggle } from './_slide.es6';
+import { slideCollapse, slideExpand, slideToggle } from './_slide.source';
 
 function nextFrame() {
   return new Promise(resolve => {

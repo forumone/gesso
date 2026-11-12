@@ -1,21 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2022",
+    "lib": ["es2023", "dom"],
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "esModuleInterop": true,
-    "jsx": "react",
+    "noEmit": true,
+    "strict": true,
+    "erasableSyntaxOnly": true,
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
     "allowJs": true,
     "checkJs": true,
-    "strict": true,
-    "strictNullChecks": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "sourceMap": false,
-    "noEmit": true,
-    "types": ["node"],
-    "useUnknownInCatchVariables": false,
+    "skipLibCheck": true,
+    "types": ["node"]
   },
-  "include": [
-    "./configLoader.cjs"
-  ],
+  "include": ["./**/*.ts", "./**/*.js"]
 }

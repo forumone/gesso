@@ -29,6 +29,7 @@ props:
       description: 'Whether the textarea should autofocus.'
     cols:
       type:
+        - integer
         - string
         - "null"
       title: Cols
@@ -83,6 +84,7 @@ props:
       description: 'Whether the textarea is required (boolean).'
     rows:
       type:
+        - integer
         - string
         - "null"
       title: Rows
