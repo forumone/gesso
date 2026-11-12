@@ -76,15 +76,20 @@ ddev exec vendor/bin/dr generate-theme my_theme --starterkit gesso \
   --name "My Theme" --description "My custom theme" --path themes
 ```
 
+If you are not using DDEV, run the same command without the `ddev exec` prefix.
+
 On Drupal 11.3 and earlier, which do not have `vendor/bin/dr`, use
-`ddev php web/core/scripts/drupal generate-theme` with the same arguments.
+`ddev php web/core/scripts/drupal generate-theme` (or
+`php web/core/scripts/drupal generate-theme` without DDEV) with the same
+arguments.
 
 The machine name must start with a letter and may only contain lowercase
 letters, numbers, and underscores. It should not contain the word `gesso` or
 weird things will happen.
 
 The new theme is created in the directory given by `--path` (relative to the
-Drupal root). Compiled assets (`dist`) and `node_modules` are not copied. The
+Drupal root). Compiled assets (`dist/css`, `dist/js`, etc.) and `node_modules`
+are not copied. The
 Gesso Helper module is copied into the new theme unchanged and keeps the
 name `gesso_helper`. **Make sure only one copy of `gesso_helper` exists in your
 codebase.** (You can delete the original `gesso` theme after creating your new
