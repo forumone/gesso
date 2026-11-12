@@ -2,12 +2,12 @@ import parse from 'html-react-parser';
 
 import twigTemplate from './side-menu.twig';
 import data from './side-menu.yml';
-import './side-menu.source.scss';
 import './side-menu.source.ts';
 import '../hamburger-button/hamburger-button.source.scss';
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
 import '../menu/menu.stories.jsx';
+import './side-menu.source.scss';
 import componentInfo from './side-menu.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 

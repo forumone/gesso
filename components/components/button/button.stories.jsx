@@ -4,9 +4,9 @@ import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 import twigTemplate from './button.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './button.yml';
-import './button.source.scss';
 import ReactDOMServer from 'react-dom/server';
 import { Icon } from '../icon/icon.stories';
+import './button.source.scss';
 
 const settings = {
   title: 'Components/Button',

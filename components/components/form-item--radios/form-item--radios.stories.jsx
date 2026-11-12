@@ -8,8 +8,8 @@ import data from './form-item--radios.yml';
 import { Radio } from '../form-item--input/form-item--radio.stories.jsx';
 import fieldsetTwigTemplate from '../fieldset/fieldset.twig';
 import '../form-item/form-item.source.scss';
-import './form-item--radios.source.scss';
 import '../fieldset/fieldset.source.scss';
+import './form-item--radios.source.scss';
 
 const settings = {
   title: 'Components/Form Item/Radios',

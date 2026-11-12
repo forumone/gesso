@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from 'vitest';
-import Tabs from './_Tabs.es6';
+import Tabs from './_Tabs.source';
 
 function createTabsMarkup(count = 3) {
   const container = document.createElement('div');

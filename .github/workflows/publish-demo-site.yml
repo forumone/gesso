@@ -23,6 +23,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      # Uses the Node version from .nvmrc (lib/ runs TypeScript natively)
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
       # Installs npm dependencies
       - name: Install npm packages
         run: npm ci
