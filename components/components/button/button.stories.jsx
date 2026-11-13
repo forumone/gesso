@@ -7,6 +7,19 @@ import data from './button.yml';
 import ReactDOMServer from 'react-dom/server';
 import { Icon } from '../icon/icon.stories';
 import './button.source.scss';
+import componentInfo from './button.component.yml';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+
+const baseArgTypes = getArgTypesFromComponent(componentInfo, {
+  hideArgs: globalData,
+  hide: [
+    'no_follow',
+    'image_path',
+    'button_icon_before',
+    'button_icon_after',
+    'storybook',
+  ],
+});
 
 const settings = {
   title: 'Components/Button',
@@ -21,36 +34,25 @@ const settings = {
     withGlobalWrapper,
   ],
   argTypes: {
+    ...baseArgTypes,
     icon_name: {
+      ...baseArgTypes.icon_name,
       options: [false, ...globalData.icons],
       control: { type: 'select' },
     },
     icon_direction: {
+      ...baseArgTypes.icon_direction,
       options: ['up', 'right', 'down', 'left'],
       control: { type: 'select' },
     },
     icon_position: {
+      ...baseArgTypes.icon_position,
       options: ['before', 'after', 'both'],
       control: { type: 'select' },
     },
     icon_is_hidden: {
+      ...baseArgTypes.icon_is_hidden,
       control: { type: 'boolean' },
-    },
-  },
-  parameters: {
-    controls: {
-      include: [
-        'text',
-        'is_disabled',
-        'button_type',
-        'modifier_classes',
-        'extra_attributes',
-        'icon_name',
-        'icon_direction',
-        'icon_position',
-        'icon_label',
-        'icon_is_hidden',
-      ],
     },
   },
 };

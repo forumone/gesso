@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -10,22 +9,17 @@ import { MessagesandTabs } from '../messages-and-tabs/messages-and-tabs.stories.
 // Importing components to ensure their assets get loaded in Storybook when they
 // get referenced since Drupal loads them as a library.
 import '../../components/article/article.stories.jsx';
+import componentInfo from './page.component.yml';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Templates/Page',
   decorators: [withGlobalWrapper],
-  parameters: {
-    controls: {
-      include: [
-        'is_published',
-        'show_admin_info',
-        'title',
-        'show_footer',
-        'author',
-        'date_format',
-        'content',
-      ],
-    },
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['admin_info', 'rdf_metadata'],
+    }),
   },
 };
 

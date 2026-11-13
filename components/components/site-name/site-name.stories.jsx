@@ -11,12 +11,9 @@ const settings = {
   title: 'Components/Site Name',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
+    ...getArgTypesFromComponent(componentInfo, { hideArgs: globalData }),
   },
   parameters: {
-    controls: {
-      include: ['site_name', 'url', 'modifier_classes'],
-    },
     docs: {
       description: {
         component: 'The site title, displayed prominently in the header.',

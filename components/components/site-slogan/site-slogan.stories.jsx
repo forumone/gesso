@@ -10,12 +10,9 @@ const settings = {
   title: 'Components/Site Slogan',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: ['url', 'site_slogan', 'modifier_classes'],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+    }),
   },
 };
 

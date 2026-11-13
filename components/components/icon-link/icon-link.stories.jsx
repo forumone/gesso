@@ -10,34 +10,37 @@ import ReactDOMServer from 'react-dom/server';
 import componentInfo from './icon-link.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
+const baseArgTypes = getArgTypesFromComponent(componentInfo, {
+  hideArgs: globalData,
+  hide: [
+    'icon_modifier_classes',
+    'image_path',
+    'icon_before',
+    'icon_after',
+    'no_follow',
+    'storybook',
+  ],
+});
+
 const settings = {
   title: 'Components/Icon Link',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
+    ...baseArgTypes,
     icon_name: {
+      ...baseArgTypes.icon_name,
       options: [false, ...globalData.icons],
       control: { type: 'select' },
     },
     icon_direction: {
+      ...baseArgTypes.icon_direction,
       options: ['up', 'right', 'down', 'left'],
       control: { type: 'select' },
     },
     icon_position: {
+      ...baseArgTypes.icon_position,
       options: ['before', 'after', 'both'],
       control: { type: 'select' },
-    },
-  },
-  parameters: {
-    controls: {
-      include: [
-        'icon_name',
-        'icon_direction',
-        'icon_position',
-        'icon_label',
-        'icon_is_hidden',
-        'link_text',
-      ],
     },
   },
 };

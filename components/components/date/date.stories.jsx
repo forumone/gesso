@@ -5,24 +5,17 @@ import twigTemplate from './date.twig';
 import globalData from '../../../source/00-config/storybook.global-data.yml';
 import data from './date.yml';
 import './date.source.scss';
+import componentInfo from './date.component.yml';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/Date',
   decorators: [withGlobalWrapper],
-  parameters: {
-    controls: {
-      include: [
-        'date_format',
-        'date_content',
-        'modifier_classes',
-        'year',
-        'month',
-        'weekday',
-        'day',
-        'hour',
-        'minute',
-      ],
-    },
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      show: ['year', 'month', 'weekday', 'day'],
+    }),
   },
 };
 

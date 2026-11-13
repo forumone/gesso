@@ -6,7 +6,7 @@ props:
     modifier_classes:
       type:
         - string
-        - "null"
+        - 'null'
       title: Modifier Classes
       description: 'Additional CSS classes to apply to the component.'
     url:
@@ -20,23 +20,24 @@ props:
     label:
       type:
         - string
-        - "null"
+        - 'null'
       title: Label
       description: 'Custom link text. Defaults to "Read more" if not provided.'
     description_prefix:
       type:
         - string
-        - "null"
+        - 'null'
       title: Description Prefix
       description: 'Prefix text before the title in the link description. Defaults to "about" if not provided.'
     hide_description:
       type: boolean
       title: Hide Description
       description: 'Whether to hide the description text visually (still available to screen readers).'
+      default: true
     image_path:
       type:
         - string
-        - "null"
+        - 'null'
       title: Image Path
       description: 'Path to the sprite artifact SVG directory.'
 libraryOverrides:

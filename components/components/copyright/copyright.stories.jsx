@@ -10,12 +10,7 @@ const settings = {
   title: 'Components/Copyright',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: ['year', 'site_name', 'modifier_classes'],
-    },
+    ...getArgTypesFromComponent(componentInfo, { hideArgs: globalData }),
   },
 };
 

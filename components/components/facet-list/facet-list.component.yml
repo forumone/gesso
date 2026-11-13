@@ -6,7 +6,7 @@ props:
     modifier_classes:
       type:
         - string
-        - "null"
+        - 'null'
       title: Modifier Classes
       description: 'Additional CSS classes to apply to the list.'
     list_type:
@@ -16,9 +16,13 @@ props:
     empty:
       type:
         - string
-        - "null"
+        - 'null'
       title: Empty Message
       description: 'Message to display when the facet list is empty.'
+    show_count:
+      type: boolean
+      title: Show Count
+      description: 'Whether to display the count of items for each facet in the list.'
     facets:
       type: array
       title: Facets
@@ -26,7 +30,7 @@ props:
     item_modifier_classes:
       type:
         - string
-        - "null"
+        - 'null'
       title: Item Modifier Classes
       description: 'Additional CSS classes to apply to each list item.'
 libraryOverrides:

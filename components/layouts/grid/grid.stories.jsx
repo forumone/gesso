@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -6,14 +5,18 @@ import twigTemplate from './grid.twig';
 import data from './grid.yml';
 import ContentPlaceholder from '../../../source/01-global/content-placeholder/content-placeholder';
 import './grid.source.scss';
+import componentInfo from './grid.component.yml';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
+
+const baseArgTypes = getArgTypesFromComponent(componentInfo);
 
 const settings = {
   title: 'Layouts/Grid',
   argTypes: {
+    ...baseArgTypes,
     num_of_cols: {
-      control: 'number',
-      min: 1,
-      max: 6,
+      ...baseArgTypes.num_of_cols,
+      control: { type: 'number', min: 1, max: 6 },
     },
   },
 };

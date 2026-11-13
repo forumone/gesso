@@ -11,12 +11,7 @@ const settings = {
   title: 'Components/Page Title',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: ['page_title', 'modifier_classes'],
-    },
+    ...getArgTypesFromComponent(componentInfo, { hideArgs: globalData }),
   },
 };
 

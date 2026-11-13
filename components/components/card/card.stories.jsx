@@ -17,22 +17,7 @@ const settings = {
   title: 'Components/Card',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: [
-        'modifier_classes',
-        'date',
-        'url',
-        'title',
-        'card_content',
-        'footer',
-        'read_more',
-        'tags',
-        'media',
-      ],
-    },
+    ...getArgTypesFromComponent(componentInfo, { hideArgs: globalData }),
   },
 };
 
