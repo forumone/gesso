@@ -7,11 +7,14 @@ import './tabs.source.scss';
 import componentInfo from './tabs.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
+const baseArgTypes = getArgTypesFromComponent(componentInfo);
+
 const settings = {
   title: 'Components/Tabs',
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
+    ...baseArgTypes,
     display: {
+      ...baseArgTypes.display,
       control: 'select',
       options: ['horizontal', 'vertical'],
     },

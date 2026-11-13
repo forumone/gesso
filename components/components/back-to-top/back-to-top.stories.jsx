@@ -21,12 +21,10 @@ const settings = {
     ),
   ],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: ['text', 'top_element'],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['image_path'],
+    }),
   },
 };
 

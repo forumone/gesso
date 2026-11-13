@@ -13,12 +13,9 @@ const settings = {
   title: 'Components/Table',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: ['is_scrollable', 'modifier_classes', 'caption'],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+    }),
   },
 };
 

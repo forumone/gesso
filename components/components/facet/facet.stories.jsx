@@ -15,18 +15,10 @@ const settings = {
   title: 'Components/Facets/Facet',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: [
-        'modifier_classes',
-        'is_active',
-        'title',
-        'show_count',
-        'count',
-      ],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['image_path'],
+    }),
   },
 };
 

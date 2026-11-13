@@ -13,12 +13,9 @@ const settings = {
   title: 'Components/WYSIWYG',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: ['content'],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+    }),
   },
 };
 

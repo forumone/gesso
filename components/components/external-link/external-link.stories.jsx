@@ -8,14 +8,17 @@ import './external-link.source';
 // The JS injects c-icon markup, so load the icon's assets, matching the
 // core/components.gesso--icon dependency in external-link.component.yml.
 import '../icon/icon.stories.jsx';
+import componentInfo from './external-link.component.yml';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Components/External Link',
   decorators: [withGlobalWrapper],
-  parameters: {
-    controls: {
-      include: ['url', 'text', 'modifier_classes'],
-    },
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['is_demo'],
+    }),
   },
 };
 

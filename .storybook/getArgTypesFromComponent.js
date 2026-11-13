@@ -15,8 +15,31 @@ function normalizeStorybookType(type) {
   return primary;
 }
 
-function getArgTypesFromComponent(componentInfo) {
-  return {
+/**
+ * Builds argTypes from a component's YAML definition.
+ *
+ * Storybook shows a control for every arg, so args that are only passed to
+ * the template (e.g. global data) can be hidden with the options below. These
+ * use machine names (arg keys), not prop titles.
+ *
+ * @param {object} componentInfo - Parsed *.component.yml.
+ * @param {object} [options]
+ * @param {object} [options.hideArgs] - Extra args (e.g. global data) to pass
+ *   to the template without showing controls. Keys that are props or slots in
+ *   the component YAML stay visible unless listed in `hide`.
+ * @param {string[]} [options.hide] - Keys to hide, including props/slots
+ *   defined in the component YAML (e.g. image_path).
+ * @param {string[]} [options.show] - Keys in `hideArgs` to keep visible.
+ */
+function getArgTypesFromComponent(
+  componentInfo,
+  { hideArgs = {}, hide = [], show = [] } = {}
+) {
+  const componentKeys = new Set([
+    ...Object.keys(componentInfo.props?.properties || {}),
+    ...Object.keys(componentInfo.slots || {}),
+  ]);
+  const argTypes = {
     ...Object.fromEntries(
       Object.entries(componentInfo.props?.properties || {}).map(([key, p]) => {
         const argTypeConfig = {};
@@ -61,6 +84,21 @@ function getArgTypesFromComponent(componentInfo) {
       })
     ),
   };
+
+  const hiddenKeys = new Set([
+    ...Object.keys(hideArgs).filter(
+      key => !componentKeys.has(key) && !show.includes(key)
+    ),
+    ...hide,
+  ]);
+  hiddenKeys.forEach(key => {
+    argTypes[key] = {
+      ...argTypes[key],
+      table: { ...argTypes[key]?.table, disable: true },
+    };
+  });
+
+  return argTypes;
 }
 
 export default getArgTypesFromComponent;

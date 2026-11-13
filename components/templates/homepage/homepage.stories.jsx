@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -13,23 +12,17 @@ import { HeroImage } from '../../../source/01-global/images/hero-image.stories.j
 import '../../components/hero-bg-image/hero-bg-image.stories.jsx';
 import '../../layouts/section/section.stories.jsx';
 import '../../layouts/grid/grid.stories.jsx';
+import componentInfo from './homepage.component.yml';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Templates/Homepage',
   decorators: [withGlobalWrapper],
-  parameters: {
-    controls: {
-      include: [
-        'is_published',
-        'show_admin_info',
-        'hero_image',
-        'hero_title',
-        'hero_summary',
-        'hero_button_text',
-        'homepage_grid_title',
-        'homepage_grid_content',
-      ],
-    },
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['title_prefix', 'title_suffix', 'admin_info'],
+    }),
   },
 };
 

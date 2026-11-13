@@ -19,24 +19,11 @@ const settings = {
   title: 'Components/Article',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: [
-        'article_title',
-        'show_footer',
-        'author_name',
-        'author_url',
-        'date_format',
-        'year',
-        'month',
-        'day',
-        'hour',
-        'minute',
-        'article_content',
-      ],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['title_prefix', 'title_suffix', 'rdf_metadata'],
+      show: ['year', 'month', 'day'],
+    }),
   },
 };
 

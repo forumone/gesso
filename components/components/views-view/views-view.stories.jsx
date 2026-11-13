@@ -15,11 +15,6 @@ const settings = {
   argTypes: {
     ...getArgTypesFromComponent(componentInfo),
   },
-  parameters: {
-    controls: {
-      exclude: ['pager'],
-    },
-  },
 };
 
 const View = args => parse(twigTemplate(args));

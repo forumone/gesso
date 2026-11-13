@@ -15,19 +15,10 @@ const settings = {
   title: 'Components/Read More Link',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: [
-        'modifier_classes',
-        'url',
-        'title',
-        'label',
-        'description_prefix',
-        'hide_description',
-      ],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['image_path'],
+    }),
   },
 };
 

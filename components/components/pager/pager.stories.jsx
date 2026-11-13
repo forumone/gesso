@@ -17,18 +17,10 @@ const settings = {
   title: 'Components/Pager',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: [
-        'modifier_classes',
-        'heading',
-        'current',
-        'ellipses',
-        'pager_items',
-      ],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['image_path'],
+    }),
   },
 };
 

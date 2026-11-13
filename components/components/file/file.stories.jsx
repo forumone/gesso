@@ -11,29 +11,25 @@ import './file.source.scss';
 import componentInfo from './file.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
+const baseArgTypes = getArgTypesFromComponent(componentInfo, {
+  hideArgs: globalData,
+  hide: ['url', 'image_path'],
+});
+
 const settings = {
   title: 'Components/File',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
+    ...baseArgTypes,
     icon_name: {
+      ...baseArgTypes.icon_name,
       options: ['download', 'file'],
       control: { type: 'select' },
     },
     file_mime: {
+      ...baseArgTypes.file_mime,
       options: ['application/pdf', 'application/xml', 'text/csv', 'text/plain'],
       control: { type: 'select' },
-    },
-  },
-  parameters: {
-    controls: {
-      include: [
-        'modifier_classes',
-        'icon_name',
-        'file_name',
-        'file_mime',
-        'file_size',
-      ],
     },
   },
 };

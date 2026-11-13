@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import parse from 'html-react-parser';
 
@@ -11,14 +10,17 @@ import { withGlobalWrapper } from '../../../.storybook/decorators.jsx';
 // get referenced since Drupal loads them as a library.
 import '../../components/page-title/page-title.stories.jsx';
 import '../../layouts/section/section.stories.jsx';
+import componentInfo from './landing-page.component.yml';
+import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
 const settings = {
   title: 'Templates/Landing Page',
   decorators: [withGlobalWrapper],
-  parameters: {
-    controls: {
-      include: ['is_published', 'show_admin_info', 'page_title', 'content'],
-    },
+  argTypes: {
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['title_prefix', 'title_suffix', 'admin_info'],
+    }),
   },
 };
 

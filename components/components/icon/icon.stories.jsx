@@ -8,6 +8,11 @@ import componentInfo from './icon.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 import './icon.source.scss';
 
+const baseArgTypes = getArgTypesFromComponent(componentInfo, {
+  hideArgs: globalData,
+  hide: ['icon_name', 'image_path', 'is_hidden', 'label'],
+});
+
 const settings = {
   title: 'Components/Icon',
   decorators: [
@@ -21,15 +26,11 @@ const settings = {
     withGlobalWrapper,
   ],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
+    ...baseArgTypes,
     direction: {
+      ...baseArgTypes.direction,
       options: ['up', 'down', 'left', 'right'],
       control: { type: 'select' },
-    },
-  },
-  parameters: {
-    controls: {
-      include: ['modifier_classes', 'direction', 'label'],
     },
   },
 };

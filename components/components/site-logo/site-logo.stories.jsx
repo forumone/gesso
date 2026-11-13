@@ -10,12 +10,7 @@ const settings = {
   title: 'Components/Site Logo',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: ['url', 'site_logo', 'modifier_classes'],
-    },
+    ...getArgTypesFromComponent(componentInfo, { hideArgs: globalData }),
   },
 };
 

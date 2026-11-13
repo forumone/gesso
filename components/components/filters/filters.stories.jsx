@@ -16,12 +16,10 @@ const settings = {
   title: 'Components/Filters',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      include: ['modifier_classes', 'items'],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+      hide: ['items', 'reset_url', 'list_type'],
+    }),
   },
 };
 

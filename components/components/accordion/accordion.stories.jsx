@@ -16,12 +16,9 @@ const settings = {
   decorators: [withGlobalWrapper],
   tags: ['autodocs'],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
-  },
-  parameters: {
-    controls: {
-      exclude: [...Object.keys(globalData), 'accordion_data'],
-    },
+    ...getArgTypesFromComponent(componentInfo, {
+      hideArgs: globalData,
+    }),
   },
 };
 

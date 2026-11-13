@@ -12,19 +12,20 @@ import './facet-list.source.scss';
 import componentInfo from './facet-list.component.yml';
 import getArgTypesFromComponent from '../../../.storybook/getArgTypesFromComponent.js';
 
+const baseArgTypes = getArgTypesFromComponent(componentInfo, {
+  hideArgs: globalData,
+  hide: ['facets', 'item_modifier_classes'],
+});
+
 const settings = {
   title: 'Components/Facets/Facet List',
   decorators: [withGlobalWrapper],
   argTypes: {
-    ...getArgTypesFromComponent(componentInfo),
+    ...baseArgTypes,
     list_type: {
+      ...baseArgTypes.list_type,
       options: ['ul', 'ol'],
       control: { type: 'select' },
-    },
-  },
-  parameters: {
-    controls: {
-      include: ['modifier_classes', 'show_count', 'list_type', 'empty'],
     },
   },
 };
