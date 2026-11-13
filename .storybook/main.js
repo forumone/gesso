@@ -139,10 +139,11 @@ const config = {
       ],
     });
 
-    webpackConfig.externals = {
-      drupal: 'Drupal',
-      drupalSettings: 'drupalSettings',
-      once: 'once',
+    webpackConfig.resolve.alias = {
+      ...webpackConfig.resolve.alias,
+      drupal: resolve(__dirname, 'stubs/drupal.js'),
+      drupalSettings: resolve(__dirname, 'stubs/drupalSettings.js'),
+      once: resolve(__dirname, 'stubs/once.js'),
     };
 
     webpackConfig.resolve.modules.push(
