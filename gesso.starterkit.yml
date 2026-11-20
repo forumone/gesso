@@ -29,6 +29,8 @@ ignore:
   - 'playwright-report/**'
   - 'test-results/**'
   - 'debug-storybook.log'
+  # Only for Gesso development.
+  - '.coderabbit.yml'
   - '.buildkite/**'
   - '.github/**'
 
